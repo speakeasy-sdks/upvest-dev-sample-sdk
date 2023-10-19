@@ -7,7 +7,7 @@
 </div>
 
 <!-- Start SDK Installation -->
-# SDK Installation
+## SDK Installation
 
 ```bash
 go get github.com/speakeasy-sdks/upvest-dev-sample-sdk
@@ -16,8 +16,6 @@ go get github.com/speakeasy-sdks/upvest-dev-sample-sdk
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```go
 package main
 
@@ -31,14 +29,14 @@ import (
 
 func main() {
 	s := upvestdevsamplesdk.New(
-		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
 	)
 
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
-		RequestBody: &operations.CreateAccountAccountCreateRequest{
+		RequestBody: &operations.CreateAccountRequestBody{
 			AccountGroupID: "e9562292-f304-4c6a-8db0-ea541f32fba9",
-			Type:           operations.CreateAccountAccountCreateRequestTypeTrading,
+			Type:           operations.CreateAccountRequestBodyTypeTrading,
 			UserID:         "d04cd2d5-ae02-4bb1-9118-75a95a0f2373",
 		},
 		IdempotencyKey:   "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -60,14 +58,14 @@ func main() {
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-# Available Resources and Operations
+## Available Resources and Operations
 
 
-## [AccessTokens](docs/sdks/accesstokens/README.md)
+### [AccessTokens](docs/sdks/accesstokens/README.md)
 
 * [IssueToken](docs/sdks/accesstokens/README.md#issuetoken) - Get an access token for requested scopes
 
-## [Accounts](docs/sdks/accounts/README.md)
+### [Accounts](docs/sdks/accounts/README.md)
 
 * [AccountClosure](docs/sdks/accounts/README.md#accountclosure) - Close a user account by ID
 * [AccountGroupClosure](docs/sdks/accounts/README.md#accountgroupclosure) - Close an account group by ID
@@ -79,36 +77,36 @@ func main() {
 * [RetrieveAccountGroup](docs/sdks/accounts/README.md#retrieveaccountgroup) - Get an account group by ID
 * [UpdateAccount](docs/sdks/accounts/README.md#updateaccount) - Update user account
 
-## [CashBalances](docs/sdks/cashbalances/README.md)
+### [CashBalances](docs/sdks/cashbalances/README.md)
 
 * [RetrieveCashBalance](docs/sdks/cashbalances/README.md#retrievecashbalance) - Retrieve an account group's cash balance
 
-## [Fees](docs/sdks/fees/README.md)
+### [Fees](docs/sdks/fees/README.md)
 
 * [CreateFeeCollection](docs/sdks/fees/README.md#createfeecollection) - Create a fee collection
 * [ListFeeCollections](docs/sdks/fees/README.md#listfeecollections) - Get fee collections
 * [RetrieveFeeCollection](docs/sdks/fees/README.md#retrievefeecollection) - Get a fee collection by ID
 
-## [Instruments](docs/sdks/instruments/README.md)
+### [Instruments](docs/sdks/instruments/README.md)
 
 * [ListInstruments](docs/sdks/instruments/README.md#listinstruments) - List instruments
 * [RetrieveInstrument](docs/sdks/instruments/README.md#retrieveinstrument) - Retrieve instrument
 
-## [Liquidations](docs/sdks/liquidations/README.md)
+### [Liquidations](docs/sdks/liquidations/README.md)
 
 * [CancelAccountLiquidation](docs/sdks/liquidations/README.md#cancelaccountliquidation) - Cancel account liquidation
 * [CreateAccountLiquidation](docs/sdks/liquidations/README.md#createaccountliquidation) - Create account liquidation request
 * [ListAccountsLiquidations](docs/sdks/liquidations/README.md#listaccountsliquidations) - List accounts liquidations
 * [RetrieveAccountLiquidation](docs/sdks/liquidations/README.md#retrieveaccountliquidation) - Retrieve account liquidation
 
-## [Mandates](docs/sdks/mandates/README.md)
+### [Mandates](docs/sdks/mandates/README.md)
 
 * [CreateMandate](docs/sdks/mandates/README.md#createmandate) - Create a mandate
 * [DeleteMandate](docs/sdks/mandates/README.md#deletemandate) - Delete mandate
 * [ListMandates](docs/sdks/mandates/README.md#listmandates) - List mandates
 * [RetrieveMandate](docs/sdks/mandates/README.md#retrievemandate) - Retrieve a direct debit mandate
 
-## [Orders](docs/sdks/orders/README.md)
+### [Orders](docs/sdks/orders/README.md)
 
 * [CancelOrder](docs/sdks/orders/README.md#cancelorder) - Cancel an order by ID
 * [ListAccountOrders](docs/sdks/orders/README.md#listaccountorders) - Get orders for an account by ID
@@ -116,7 +114,7 @@ func main() {
 * [RetrieveOrder](docs/sdks/orders/README.md#retrieveorder) - Get an order by ID
 * [RetrieveOrderExecution](docs/sdks/orders/README.md#retrieveorderexecution) - Get an order execution by ID
 
-## [Payments](docs/sdks/payments/README.md)
+### [Payments](docs/sdks/payments/README.md)
 
 * [CancelCashWithdrawal](docs/sdks/payments/README.md#cancelcashwithdrawal) - Cancel withdrawal by ID
 * [CreateCashWithdrawal](docs/sdks/payments/README.md#createcashwithdrawal) - Trigger a withdrawal
@@ -126,7 +124,7 @@ func main() {
 * [RetrieveCashWithdrawal](docs/sdks/payments/README.md#retrievecashwithdrawal) - Retrieve withdrawal
 * [RetrieveDirectDebit](docs/sdks/payments/README.md#retrievedirectdebit) - Retrieve a direct debit
 
-## [Portfolios](docs/sdks/portfolios/README.md)
+### [Portfolios](docs/sdks/portfolios/README.md)
 
 * [CancelPortfoliosOrder](docs/sdks/portfolios/README.md#cancelportfoliosorder) - Cancel portfolios order
 * [CreatePortfoliosAllocation](docs/sdks/portfolios/README.md#createportfoliosallocation) - Create portfolios allocation
@@ -148,38 +146,38 @@ func main() {
 * [UpdatePortfoliosAllocation](docs/sdks/portfolios/README.md#updateportfoliosallocation) - Update portfolios allocation
 * [UpdatePortfoliosConfiguration](docs/sdks/portfolios/README.md#updateportfoliosconfiguration) - Update portfolios configuration
 
-## [Positions](docs/sdks/positions/README.md)
+### [Positions](docs/sdks/positions/README.md)
 
 * [ListPositions](docs/sdks/positions/README.md#listpositions) - List positions
 * [RetrievePosition](docs/sdks/positions/README.md#retrieveposition) - Retrieve position
 
-## [ReferenceAccounts](docs/sdks/referenceaccounts/README.md)
+### [ReferenceAccounts](docs/sdks/referenceaccounts/README.md)
 
 * [CreateReferenceAccount](docs/sdks/referenceaccounts/README.md#createreferenceaccount) - Create a reference account
 * [DeleteReferenceAccount](docs/sdks/referenceaccounts/README.md#deletereferenceaccount) - Delete a reference account by ID
 * [ListReferenceAccounts](docs/sdks/referenceaccounts/README.md#listreferenceaccounts) - Get reference accounts of a user
 * [RetrieveReferenceAccount](docs/sdks/referenceaccounts/README.md#retrievereferenceaccount) - Get a reference account by ID
 
-## [Reports](docs/sdks/reports/README.md)
+### [Reports](docs/sdks/reports/README.md)
 
 * [ListReports](docs/sdks/reports/README.md#listreports) - List user reports
 * [RetrieveReport](docs/sdks/reports/README.md#retrievereport) - Retrieve a user report
 
-## [Returns](docs/sdks/returns/README.md)
+### [Returns](docs/sdks/returns/README.md)
 
 * [ListAccountReturns](docs/sdks/returns/README.md#listaccountreturns) - List account returns
 
-## [Taxes](docs/sdks/taxes/README.md)
+### [Taxes](docs/sdks/taxes/README.md)
 
 * [RetrieveTaxResidencies](docs/sdks/taxes/README.md#retrievetaxresidencies) - Retrieve tax residencies
 * [SetTaxResidencies](docs/sdks/taxes/README.md#settaxresidencies) - Update tax residencies
 
-## [Transactions](docs/sdks/transactions/README.md)
+### [Transactions](docs/sdks/transactions/README.md)
 
 * [ListCashTransactions](docs/sdks/transactions/README.md#listcashtransactions) - List cash transactions
 * [ListSecuritiesTransactions](docs/sdks/transactions/README.md#listsecuritiestransactions) - List securities transactions
 
-## [Users](docs/sdks/users/README.md)
+### [Users](docs/sdks/users/README.md)
 
 * [CreateIdentifier](docs/sdks/users/README.md#createidentifier) - Create a user identifier
 * [CreateUser](docs/sdks/users/README.md#createuser) - Create a user
@@ -196,18 +194,18 @@ func main() {
 * [UpdateIdentifier](docs/sdks/users/README.md#updateidentifier) - Update a user identifier by ID
 * [UserDataChange](docs/sdks/users/README.md#userdatachange) - Change user data
 
-## [Valuations](docs/sdks/valuations/README.md)
+### [Valuations](docs/sdks/valuations/README.md)
 
 * [GetAccountValuation](docs/sdks/valuations/README.md#getaccountvaluation) - Get current valuation for an account
 * [ListAccountValuationHistory](docs/sdks/valuations/README.md#listaccountvaluationhistory) - List valuation history for an account
 
-## [VirtualCashBalances](docs/sdks/virtualcashbalances/README.md)
+### [VirtualCashBalances](docs/sdks/virtualcashbalances/README.md)
 
 * [CancelVirtualCashDecrease](docs/sdks/virtualcashbalances/README.md#cancelvirtualcashdecrease) - Cancel virtual cash decrease by ID
 * [CreateVirtualCashDecrease](docs/sdks/virtualcashbalances/README.md#createvirtualcashdecrease) - Trigger a virtual cash decrease
 * [CreateVirtualCashIncrease](docs/sdks/virtualcashbalances/README.md#createvirtualcashincrease) - Trigger a virtual cash increase
 
-## [Webhooks](docs/sdks/webhooks/README.md)
+### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [CreateWebhook](docs/sdks/webhooks/README.md#createwebhook) - Create a webhook subscription
 * [DeleteWebhook](docs/sdks/webhooks/README.md#deletewebhook) - Delete a webhook subscription
@@ -219,8 +217,6 @@ func main() {
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

@@ -11,21 +11,21 @@ import (
 	"time"
 )
 
-// CreateAccountAccountCreateRequestType - Account type.
+// CreateAccountRequestBodyType - Account type.
 // * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 // * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-type CreateAccountAccountCreateRequestType string
+type CreateAccountRequestBodyType string
 
 const (
-	CreateAccountAccountCreateRequestTypeTrading   CreateAccountAccountCreateRequestType = "TRADING"
-	CreateAccountAccountCreateRequestTypePortfolio CreateAccountAccountCreateRequestType = "PORTFOLIO"
+	CreateAccountRequestBodyTypeTrading   CreateAccountRequestBodyType = "TRADING"
+	CreateAccountRequestBodyTypePortfolio CreateAccountRequestBodyType = "PORTFOLIO"
 )
 
-func (e CreateAccountAccountCreateRequestType) ToPointer() *CreateAccountAccountCreateRequestType {
+func (e CreateAccountRequestBodyType) ToPointer() *CreateAccountRequestBodyType {
 	return &e
 }
 
-func (e *CreateAccountAccountCreateRequestType) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountRequestBodyType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,14 +34,14 @@ func (e *CreateAccountAccountCreateRequestType) UnmarshalJSON(data []byte) error
 	case "TRADING":
 		fallthrough
 	case "PORTFOLIO":
-		*e = CreateAccountAccountCreateRequestType(v)
+		*e = CreateAccountRequestBodyType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountAccountCreateRequestType: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountRequestBodyType: %v", v)
 	}
 }
 
-type CreateAccountAccountCreateRequest struct {
+type CreateAccountRequestBody struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
 	// The name of the account.
@@ -49,33 +49,33 @@ type CreateAccountAccountCreateRequest struct {
 	// Account type.
 	// * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 	// * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-	Type CreateAccountAccountCreateRequestType `json:"type"`
+	Type CreateAccountRequestBodyType `json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (o *CreateAccountAccountCreateRequest) GetAccountGroupID() string {
+func (o *CreateAccountRequestBody) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *CreateAccountAccountCreateRequest) GetName() *string {
+func (o *CreateAccountRequestBody) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *CreateAccountAccountCreateRequest) GetType() CreateAccountAccountCreateRequestType {
+func (o *CreateAccountRequestBody) GetType() CreateAccountRequestBodyType {
 	if o == nil {
-		return CreateAccountAccountCreateRequestType("")
+		return CreateAccountRequestBodyType("")
 	}
 	return o.Type
 }
 
-func (o *CreateAccountAccountCreateRequest) GetUserID() string {
+func (o *CreateAccountRequestBody) GetUserID() string {
 	if o == nil {
 		return ""
 	}
@@ -83,7 +83,7 @@ func (o *CreateAccountAccountCreateRequest) GetUserID() string {
 }
 
 type CreateAccountRequest struct {
-	RequestBody *CreateAccountAccountCreateRequest `request:"mediaType=application/json"`
+	RequestBody *CreateAccountRequestBody `request:"mediaType=application/json"`
 	// A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed.
 	// https://docs.upvest.co/concepts/api_concepts/idempotency
 	//
@@ -109,7 +109,7 @@ func (c *CreateAccountRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *CreateAccountRequest) GetRequestBody() *CreateAccountAccountCreateRequest {
+func (o *CreateAccountRequest) GetRequestBody() *CreateAccountRequestBody {
 	if o == nil {
 		return nil
 	}

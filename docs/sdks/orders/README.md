@@ -32,7 +32,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -85,14 +85,14 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
     res, err := s.Orders.ListAccountOrders(ctx, operations.ListAccountOrdersRequest{
-        AccountID: "61b88f9a-18c9-4e8d-bd19-b09a97c1a90a",
-        Signature: "Hop",
-        SignatureInput: "Dinar",
+        AccountID: "ad45b27f-c0e7-4cfb-b48c-a83670dbdfbd",
+        Signature: "array",
+        SignatureInput: "male",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -138,7 +138,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -197,7 +197,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -250,7 +250,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()

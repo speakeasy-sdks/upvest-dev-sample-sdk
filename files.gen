@@ -238,8 +238,8 @@ docs/models/operations/accountclosurerequest.md
 docs/models/operations/accountclosureresponse.md
 docs/models/operations/accountgroupclosurerequest.md
 docs/models/operations/accountgroupclosureresponse.md
-docs/models/operations/createaccountaccountcreaterequesttype.md
-docs/models/operations/createaccountaccountcreaterequest.md
+docs/models/operations/createaccountrequestbodytype.md
+docs/models/operations/createaccountrequestbody.md
 docs/models/operations/createaccountrequest.md
 docs/models/operations/createaccountaccountstatus.md
 docs/models/operations/createaccountaccounttype.md

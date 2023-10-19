@@ -36,7 +36,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -89,7 +89,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -142,14 +142,14 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
     res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
-        RequestBody: &operations.CreateAccountAccountCreateRequest{
+        RequestBody: &operations.CreateAccountRequestBody{
             AccountGroupID: "e9562292-f304-4c6a-8db0-ea541f32fba9",
-            Type: operations.CreateAccountAccountCreateRequestTypeTrading,
+            Type: operations.CreateAccountRequestBodyTypeTrading,
             UserID: "d04cd2d5-ae02-4bb1-9118-75a95a0f2373",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -200,7 +200,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -257,7 +257,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -309,7 +309,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -361,7 +361,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -414,7 +414,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -467,7 +467,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()

@@ -32,7 +32,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -91,7 +91,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -144,7 +144,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
@@ -197,7 +197,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
     )
 
     ctx := context.Background()
