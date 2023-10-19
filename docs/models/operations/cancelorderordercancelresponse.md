@@ -1,0 +1,10 @@
+# CancelOrderOrderCancelResponse
+
+The order cancelling request is accepted.
+
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `ID`               | *string*           | :heavy_check_mark: | N/A                |

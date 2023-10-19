@@ -1,0 +1,17 @@
+# RetrieveTaxResidenciesTaxResidencyRecordTaxResidency
+
+
+## Supported Types
+
+### RetrieveTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber
+
+```go
+retrieveTaxResidenciesTaxResidencyRecordTaxResidency := operations.CreateRetrieveTaxResidenciesTaxResidencyRecordTaxResidencyRetrieveTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber(operations.RetrieveTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber{/* values here */})
+```
+
+### RetrieveTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber
+
+```go
+retrieveTaxResidenciesTaxResidencyRecordTaxResidency := operations.CreateRetrieveTaxResidenciesTaxResidencyRecordTaxResidencyRetrieveTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber(operations.RetrieveTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber{/* values here */})
+```
+

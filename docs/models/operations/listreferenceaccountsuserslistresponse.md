@@ -1,0 +1,11 @@
+# ListReferenceAccountsUsersListResponse
+
+OK
+
+
+## Fields
+
+| Field                                                                                                                                         | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                                        | [][ListReferenceAccountsUsersListResponseReferenceAccount](../../models/operations/listreferenceaccountsuserslistresponsereferenceaccount.md) | :heavy_check_mark:                                                                                                                            | N/A                                                                                                                                           |
+| `Meta`                                                                                                                                        | [ListReferenceAccountsUsersListResponseMeta](../../models/operations/listreferenceaccountsuserslistresponsemeta.md)                           | :heavy_check_mark:                                                                                                                            | N/A                                                                                                                                           |

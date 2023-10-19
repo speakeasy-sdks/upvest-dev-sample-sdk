@@ -1,0 +1,11 @@
+# ListUserAccountsAccountsListResponse
+
+OK
+
+
+## Fields
+
+| Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                  | [][ListUserAccountsAccountsListResponseAccount](../../models/operations/listuseraccountsaccountslistresponseaccount.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `Meta`                                                                                                                  | [ListUserAccountsAccountsListResponseMeta](../../models/operations/listuseraccountsaccountslistresponsemeta.md)         | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |

@@ -1,0 +1,10 @@
+# CreateIdentifierIdentifierCreateRequest
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `Identifier`                                                                              | *string*                                                                                  | :heavy_check_mark:                                                                        | Identifier value. See [guide here](/guides/users_and_accounts/identifiers.md)             |
+| `IssuingCountry`                                                                          | *string*                                                                                  | :heavy_check_mark:                                                                        | Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
+| `Type`                                                                                    | **string*                                                                                 | :heavy_minus_sign:                                                                        | Identifier type.<br/>* NATIONAL_ID -                                                      |

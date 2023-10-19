@@ -1,0 +1,29 @@
+# UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest
+
+
+## Supported Types
+
+### UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange
+
+```go
+userDataChangeUserDataChangeRequestUserTOLDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange(operations.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange{/* values here */})
+```
+
+### UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther
+
+```go
+userDataChangeUserDataChangeRequestUserTOLDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther(operations.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther{/* values here */})
+```
+
+### UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality
+
+```go
+userDataChangeUserDataChangeRequestUserTOLDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality(operations.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality{/* values here */})
+```
+
+### UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress
+
+```go
+userDataChangeUserDataChangeRequestUserTOLDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress(operations.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress{/* values here */})
+```
+

@@ -1,0 +1,11 @@
+# ListDirectDebitsPaymentsDirectDebitsListResponse
+
+Direct debits list
+
+
+## Fields
+
+| Field                                                                                                                                     | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                                    | [][ListDirectDebitsPaymentsDirectDebitsListResponseData](../../models/operations/listdirectdebitspaymentsdirectdebitslistresponsedata.md) | :heavy_check_mark:                                                                                                                        | N/A                                                                                                                                       |
+| `Meta`                                                                                                                                    | [ListDirectDebitsPaymentsDirectDebitsListResponseMeta](../../models/operations/listdirectdebitspaymentsdirectdebitslistresponsemeta.md)   | :heavy_check_mark:                                                                                                                        | N/A                                                                                                                                       |

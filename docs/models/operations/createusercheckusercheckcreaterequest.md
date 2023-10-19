@@ -1,0 +1,23 @@
+# CreateUserCheckUserCheckCreateRequest
+
+
+## Supported Types
+
+### CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
+
+```go
+createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest(operations.CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest{/* values here */})
+```
+
+### CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
+
+```go
+createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(operations.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest{/* values here */})
+```
+
+### CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest
+
+```go
+createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest(operations.CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest{/* values here */})
+```
+

@@ -1,0 +1,11 @@
+# ListMandatesMandatesListResponse
+
+Mandates list
+
+
+## Fields
+
+| Field                                                                                                                                 | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                                | [][ListMandatesMandatesListResponseDirectDebitMandate](../../models/operations/listmandatesmandateslistresponsedirectdebitmandate.md) | :heavy_check_mark:                                                                                                                    | N/A                                                                                                                                   |
+| `Meta`                                                                                                                                | [ListMandatesMandatesListResponseMeta](../../models/operations/listmandatesmandateslistresponsemeta.md)                               | :heavy_check_mark:                                                                                                                    | N/A                                                                                                                                   |

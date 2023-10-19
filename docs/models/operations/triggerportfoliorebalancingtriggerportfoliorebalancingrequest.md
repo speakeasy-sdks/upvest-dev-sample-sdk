@@ -1,0 +1,17 @@
+# TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest
+
+
+## Supported Types
+
+### TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts
+
+```go
+triggerPortfolioRebalancingTriggerPortfolioRebalancingRequest := operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(operations.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts{/* values here */})
+```
+
+### TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations
+
+```go
+triggerPortfolioRebalancingTriggerPortfolioRebalancingRequest := operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations(operations.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations{/* values here */})
+```
+
