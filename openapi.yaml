@@ -10069,7 +10069,6 @@ paths:
         content:
           application/json:
             schema:
-              title: Account - Create - Request
               type: object
               properties:
                 user_id:
@@ -10248,6 +10247,7 @@ paths:
           type: string
           description: Account unique identifier.
           format: uuid
+          example: ad45b27f-c0e7-4cfb-b48c-a83670dbdfbd
       - $ref: "#/components/parameters/clientID"
       - name: authorization
         in: header
@@ -25000,6 +25000,7 @@ components:
       schema:
         type: string
       description: https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
+      example: "sig1=:K2qGT5srn2OGbOIDzQ6kYT+ruaycnDAAUpKv+ePFfD0RAxn/1BUeZx/Kdrq32DrfakQ6bPsvB9aqZqognNT6be4olHROIkeV879RrsrObury8L9SCEibeoHyqU/yCjphSmEdd7WD+zrchK57quskKwRefy2iEC5S2uAH0EPyOZKWlvbKmKu5q4CaB8X/I5/+HLZLGvDiezqi6/7p2Gngf5hwZ0lSdy39vyNMaaAT0tKo6nuVw0S1MVg1Q7MpWYZs0soHjttq0uLIA3DIbQfLiIvK6/l0BdWTU7+2uQj7lBkQAsFZHoA96ZZgFquQrXRlmYOh+Hx5D9fJkXcXe5tmAg==:"
     signatureInput:
       name: signature-input
       in: header
@@ -25007,6 +25008,7 @@ components:
       schema:
         type: string
       description: https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
+      example: 'sig1=(*request-target, *created, host, date, cache-control, x-empty-header, x-example); keyId="test-key-a"; alg=hs2019; created=1402170695; expires=1402170995'
     idempotencyKey:
       name: idempotency-key
       in: header
