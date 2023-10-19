@@ -24916,6 +24916,7 @@ components:
   securitySchemes:
     oauth-client-credentials:
       type: oauth2
+      x-speakeasy-example: "YOUR_TOKEN"
       flows:
         clientCredentials:
           tokenUrl: https://sandbox.upvest.co/auth/token
