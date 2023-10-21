@@ -40,8 +40,8 @@ func main() {
 			UserID:         "d04cd2d5-ae02-4bb1-9118-75a95a0f2373",
 		},
 		IdempotencyKey:   "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-		Signature:        "Quality",
-		SignatureInput:   "Pacocha",
+		Signature:        "string",
+		SignatureInput:   "string",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
 	})

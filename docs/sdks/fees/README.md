@@ -38,14 +38,14 @@ func main() {
     res, err := s.Fees.CreateFeeCollection(ctx, operations.CreateFeeCollectionRequest{
         RequestBody: &operations.CreateFeeCollectionFeeCollectionCreateRequest{
             AccountID: "f7894af9-5b70-47e1-ab25-69b76e33b134",
-            CollectionAmount: "National",
-            PeriodEnd: types.MustDateFromString("2022-02-19"),
-            PeriodStart: types.MustDateFromString("2023-07-28"),
+            CollectionAmount: "string",
+            PeriodEnd: types.MustDateFromString("2022-12-20"),
+            PeriodStart: types.MustDateFromString("2022-02-15"),
             Type: operations.CreateFeeCollectionFeeCollectionCreateRequestTypeServiceFee,
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Alaska",
-        SignatureInput: "USB",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -98,8 +98,8 @@ func main() {
     res, err := s.Fees.ListFeeCollections(ctx, operations.ListFeeCollectionsRequest{
         AccountGroupID: "288586aa-6cdf-41bc-86dc-1989f6f91027",
         AccountID: "67a4f793-f2bf-4b5f-a5f7-059dafaa6425",
-        Signature: "Pants",
-        SignatureInput: "blockchains",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -151,8 +151,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Fees.RetrieveFeeCollection(ctx, operations.RetrieveFeeCollectionRequest{
         FeeCollectionID: "abd1b9d9-1afb-4f4c-91e2-b1b47a2dde72",
-        Signature: "toward",
-        SignatureInput: "Branding",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

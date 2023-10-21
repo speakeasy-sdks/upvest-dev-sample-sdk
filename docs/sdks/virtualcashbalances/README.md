@@ -35,11 +35,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.VirtualCashBalances.CancelVirtualCashDecrease(ctx, operations.CancelVirtualCashDecreaseRequest{
-        Signature: "New",
-        SignatureInput: "Dollar",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        VirtualCashDecreaseID: "4c40f4e9-d0aa-41a6-bd51-b4005ab8948f",
+        VirtualCashDecreaseID: "29770b4c-40f4-4e9d-8aa1-a63d51b4005a",
     })
     if err != nil {
         log.Fatal(err)
@@ -93,8 +93,8 @@ func main() {
             Amount: "436.77",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Gail",
-        SignatureInput: "female",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -150,8 +150,8 @@ func main() {
             Amount: "856.18",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Granite",
-        SignatureInput: "Steel",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

@@ -34,8 +34,8 @@ func main() {
     ctx := context.Background()
     res, err := s.CashBalances.RetrieveCashBalance(ctx, operations.RetrieveCashBalanceRequest{
         AccountGroupID: "17c70942-e241-4210-962c-ee16861111ec",
-        Signature: "Carolina",
-        SignatureInput: "synergistic",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

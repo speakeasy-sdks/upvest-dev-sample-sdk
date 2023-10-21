@@ -162,8 +162,7 @@ func (e *ListAccountOrdersOrdersListResponseOrderCancellationReason) UnmarshalJS
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
-// * EUR - Euro
+// ListAccountOrdersOrdersListResponseOrderCurrency - The currency for the order.
 type ListAccountOrdersOrdersListResponseOrderCurrency string
 
 const (

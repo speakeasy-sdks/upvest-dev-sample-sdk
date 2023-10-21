@@ -39,11 +39,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.CancelCashWithdrawal(ctx, operations.CancelCashWithdrawalRequest{
-        Signature: "Berkshire",
-        SignatureInput: "Louisiana",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        WithdrawalID: "65faef4e-74a7-4700-b0c8-4773396ae72f",
+        WithdrawalID: "171565fa-ef4e-474a-b700-f0c84773396a",
     })
     if err != nil {
         log.Fatal(err)
@@ -99,8 +99,8 @@ func main() {
             UserID: "c470db78-0f32-4502-9944-477d265e5fa2",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "copying",
-        SignatureInput: "toward",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -153,13 +153,13 @@ func main() {
     res, err := s.Payments.CreateDirectDebit(ctx, operations.CreateDirectDebitRequest{
         RequestBody: &operations.CreateDirectDebitPaymentsDirectDebitCreateRequest{
             AccountGroupID: "2c3ba409-0daa-4766-9bd5-09bb9ce0d60c",
-            CashAmount: "East",
-            MandateID: "d0c6e1a2-0984-4b8d-9b8b-e22446448d8d",
-            UserID: "796d7f3a-6651-47f9-b7f7-2202891b8f25",
+            CashAmount: "string",
+            MandateID: "07d0c6e1-a209-484b-8ddb-8be22446448d",
+            UserID: "8d796d7f-3a66-4517-b9b7-f72202891b8f",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Soap",
-        SignatureInput: "Southwest",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -211,8 +211,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.ListCashWithdrawals(ctx, operations.ListCashWithdrawalsRequest{
         AccountGroupID: "d8643156-ad77-42f3-879e-e10e652fca89",
-        Signature: "Avon",
-        SignatureInput: "Bulgaria",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -264,8 +264,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.ListDirectDebits(ctx, operations.ListDirectDebitsRequest{
         AccountGroupID: "88b424a5-5c79-48a0-940c-d0211ad65dce",
-        Signature: "payment",
-        SignatureInput: "compressing",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -316,11 +316,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.RetrieveCashWithdrawal(ctx, operations.RetrieveCashWithdrawalRequest{
-        Signature: "weber",
-        SignatureInput: "Koch",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        WithdrawalID: "f83b155d-8f56-499b-8599-f90ce0450334",
+        WithdrawalID: "cd2b7c3f-83b1-455d-8f56-99b4599f90ce",
     })
     if err != nil {
         log.Fatal(err)
@@ -370,8 +370,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.RetrieveDirectDebit(ctx, operations.RetrieveDirectDebitRequest{
         DirectDebitID: "b0b3f52f-e687-4685-bdab-d93ae664b9eb",
-        Signature: "withdrawal",
-        SignatureInput: "Blues",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

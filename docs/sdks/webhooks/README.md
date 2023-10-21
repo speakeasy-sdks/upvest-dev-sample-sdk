@@ -41,14 +41,14 @@ func main() {
     res, err := s.Webhooks.CreateWebhook(ctx, operations.CreateWebhookRequest{
         RequestBody: &operations.CreateWebhookWebhookCreateRequest{
             Config: &operations.CreateWebhookWebhookCreateRequestConfig{},
-            Title: "Omaha",
+            Title: "string",
             Type: []operations.CreateWebhookWebhookCreateRequestType{
-                operations.CreateWebhookWebhookCreateRequestTypeCorporateAction,
+                operations.CreateWebhookWebhookCreateRequestTypeUser,
             },
-            URL: "http://utter-boat.biz",
+            URL: "https://pointless-banner.org",
         },
-        Signature: "Ocala",
-        SignatureInput: "Factors",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -99,11 +99,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.DeleteWebhook(ctx, operations.DeleteWebhookRequest{
-        Signature: "modular",
-        SignatureInput: "Regional",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        WebhookID: "526dd3c7-e4d9-4800-9968-1eebf39e93c1",
+        WebhookID: "5aa6d655-26dd-43c7-a4d9-800d9681eebf",
     })
     if err != nil {
         log.Fatal(err)
@@ -152,8 +152,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.GetJwks(ctx, operations.GetJwksRequest{
-        Signature: "Springs",
-        SignatureInput: "Assistant",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -204,8 +204,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.ListWebhooks(ctx, operations.ListWebhooksRequest{
-        Signature: "mid",
-        SignatureInput: "notable",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -256,11 +256,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.RetrieveWebhook(ctx, operations.RetrieveWebhookRequest{
-        Signature: "Oklahoma",
-        SignatureInput: "suscipit",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        WebhookID: "f803b0a9-1780-4c24-b8b8-6638f043b699",
+        WebhookID: "1b96f803-b0a9-4178-8c24-38b86638f043",
     })
     if err != nil {
         log.Fatal(err)
@@ -309,11 +309,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.TestWebhook(ctx, operations.TestWebhookRequest{
-        Signature: "Solomon",
-        SignatureInput: "input",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        WebhookID: "0797b314-2596-48de-b994-a64058e008cb",
+        WebhookID: "6b48b079-7b31-4425-968d-e3994a64058e",
     })
     if err != nil {
         log.Fatal(err)
@@ -368,11 +368,11 @@ func main() {
                 operations.UpdateWebhookWebhookUpdateRequestTypeIntradayAccountValuation,
             },
         },
-        Signature: "breakfast",
-        SignatureInput: "clerk",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        WebhookID: "b8738bbd-2465-45a9-9c14-7ec420b7e045",
+        WebhookID: "f1f2b873-8bbd-4246-95a9-1c147ec420b7",
     })
     if err != nil {
         log.Fatal(err)

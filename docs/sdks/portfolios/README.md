@@ -52,8 +52,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CancelPortfoliosOrder(ctx, operations.CancelPortfoliosOrderRequest{
         PortfolioOrderID: "42863460-c076-471d-9b66-566e4a20d8de",
-        Signature: "auxiliary",
-        SignatureInput: "Namibia",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -107,14 +107,14 @@ func main() {
         RequestBody: &operations.CreatePortfoliosAllocationPortfoliosAllocationCreateRequest{
             Allocation: []operations.CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation{
                 operations.CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation{
-                    InstrumentID: "Northwest",
-                    Weight: "Bicycle",
+                    InstrumentID: "string",
+                    Weight: "string",
                 },
             },
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "ivory",
-        SignatureInput: "Account",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -173,8 +173,8 @@ func main() {
             },
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "calculating",
-        SignatureInput: "edge",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -227,13 +227,13 @@ func main() {
     res, err := s.Portfolios.CreatePortfoliosOrder(ctx, operations.CreatePortfoliosOrderRequest{
         RequestBody: &operations.CreatePortfoliosOrderPortfoliosOrderPlaceRequest{
             AccountID: "09386917-edc7-47c9-8e4c-97774c688b9c",
-            CashAmount: "tan",
+            CashAmount: "string",
             Side: operations.CreatePortfoliosOrderPortfoliosOrderPlaceRequestSideBuy,
-            UserID: "dd21241a-6c0c-4dcd-b5ad-07e0d9c0bc79",
+            UserID: "72dd2124-1a6c-40cd-8d75-ad07e0d9c0bc",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "daintily",
-        SignatureInput: "West",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -288,17 +288,17 @@ func main() {
             Conditions: []operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions{
                 operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions{
                     AdditionalProperties: map[string]interface{}{
-                        "Minivan": "Hungary",
+                        "key": "string",
                     },
-                    Name: "man",
+                    Name: "string",
                     Type: operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsTypeScheduled,
                 },
             },
-            Name: "bandwidth",
+            Name: "string",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Health",
-        SignatureInput: "along",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -350,8 +350,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfolioRebalancingExecutionOrders(ctx, operations.ListPortfolioRebalancingExecutionOrdersRequest{
         ExecutionID: "faccb01b-05e2-49df-ba2f-94e57ee7faa0",
-        Signature: "Lebanese",
-        SignatureInput: "male",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -403,8 +403,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosAllocationAccounts(ctx, operations.ListPortfoliosAllocationAccountsRequest{
         AllocationID: "9260907b-4e94-45c8-a31a-10d01d471a66",
-        Signature: "white",
-        SignatureInput: "synthesize",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -455,8 +455,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosAllocations(ctx, operations.ListPortfoliosAllocationsRequest{
-        Signature: "invoice",
-        SignatureInput: "Compatible",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -507,8 +507,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosConfigurations(ctx, operations.ListPortfoliosConfigurationsRequest{
-        Signature: "New",
-        SignatureInput: "Implemented",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -559,8 +559,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosOrders(ctx, operations.ListPortfoliosOrdersRequest{
-        Signature: "Brand",
-        SignatureInput: "collaboration",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -611,8 +611,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosRebalancingStrategies(ctx, operations.ListPortfoliosRebalancingStrategiesRequest{
-        Signature: "24/7",
-        SignatureInput: "index",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -664,8 +664,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosAllocation(ctx, operations.RetrievePortfoliosAllocationRequest{
         AllocationID: "8902e6a1-152d-44ee-8ba2-1f95e37ca0c1",
-        Signature: "natus",
-        SignatureInput: "how",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -717,8 +717,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosConfiguration(ctx, operations.RetrievePortfoliosConfigurationRequest{
         AccountID: "823e6a8e-d630-4a74-9292-5b3ae05f7ca5",
-        Signature: "homogeneous",
-        SignatureInput: "katal",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -770,8 +770,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosOrder(ctx, operations.RetrievePortfoliosOrderRequest{
         PortfolioOrderID: "e8307df3-b75a-46de-a05a-9fe332308857",
-        Signature: "Recycled",
-        SignatureInput: "Buckinghamshire",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -823,8 +823,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosRebalancingExecution(ctx, operations.RetrievePortfoliosRebalancingExecutionRequest{
         ExecutionID: "99606d30-438e-43e3-948b-6cd364997761",
-        Signature: "Washington",
-        SignatureInput: "global",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -875,9 +875,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosRebalancingStrategy(ctx, operations.RetrievePortfoliosRebalancingStrategyRequest{
-        Signature: "Santa",
-        SignatureInput: "Granite",
-        StrategyID: "c3140337-a974-4a21-834d-1d07f90b9f12",
+        Signature: "string",
+        SignatureInput: "string",
+        StrategyID: "0c1478b8-c314-4033-ba97-4a21434d1d07",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -936,8 +936,8 @@ func main() {
                 },
         ),
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Sodium",
-        SignatureInput: "Audi",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -991,14 +991,14 @@ func main() {
         RequestBody: &operations.UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequest{
             Allocation: []operations.UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation{
                 operations.UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation{
-                    InstrumentID: "Bicycle",
-                    Weight: "SUV",
+                    InstrumentID: "string",
+                    Weight: "string",
                 },
             },
         },
-        AllocationID: "c6d56bb1-c223-444b-97fb-400062715366",
-        Signature: "orange",
-        SignatureInput: "synthesize",
+        AllocationID: "c7ddcc6d-56bb-41c2-a344-b57fb4000627",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -1056,8 +1056,8 @@ func main() {
         },
         AccountID: "4243e3c9-f31f-4939-b731-77f5e67f038c",
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Computer",
-        SignatureInput: "ab",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

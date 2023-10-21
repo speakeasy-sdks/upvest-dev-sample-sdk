@@ -38,13 +38,13 @@ func main() {
     ctx := context.Background()
     res, err := s.Mandates.CreateMandate(ctx, operations.CreateMandateRequest{
         RequestBody: &operations.CreateMandateMandateCreateRequest{
-            Bic: "instead",
-            ConfirmedAt: types.MustTimeFromString("2021-06-03T23:13:21.087Z"),
-            Iban: "GL7533112009623524",
+            Bic: "string",
+            ConfirmedAt: types.MustTimeFromString("2023-09-15T12:57:03.635Z"),
+            Iban: "GT09333126I454209K17J3608U37",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Brookline",
-        SignatureInput: "while",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -96,8 +96,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Mandates.DeleteMandate(ctx, operations.DeleteMandateRequest{
         MandateID: "6c46d0ca-673a-42ce-b95f-6db83c7daae3",
-        Signature: "Tasty",
-        SignatureInput: "hybrid",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -148,11 +148,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Mandates.ListMandates(ctx, operations.ListMandatesRequest{
-        Signature: "Functionality",
-        SignatureInput: "Sausages",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "f5eb5b51-2a61-48cd-b3b2-e39eb375a342",
+        UserID: "af42547b-fef5-4eb5-b512-a618cd73b2e3",
     })
     if err != nil {
         log.Fatal(err)
@@ -202,8 +202,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Mandates.RetrieveMandate(ctx, operations.RetrieveMandateRequest{
         MandateID: "7fb0ccc3-5941-4c86-893a-aea9214922ce",
-        Signature: "North",
-        SignatureInput: "Loan",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

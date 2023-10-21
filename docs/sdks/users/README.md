@@ -47,14 +47,14 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.CreateIdentifier(ctx, operations.CreateIdentifierRequest{
         RequestBody: &operations.CreateIdentifierIdentifierCreateRequest{
-            Identifier: "improvement",
-            IssuingCountry: "Director",
+            Identifier: "string",
+            IssuingCountry: "string",
         },
-        Signature: "Intranet",
-        SignatureInput: "Liaison",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "06eb515e-27f0-43f3-a460-35141216a7dd",
+        UserID: "6cdaa45b-a19b-46b2-86eb-515e27f03f3a",
     })
     if err != nil {
         log.Fatal(err)
@@ -107,28 +107,28 @@ func main() {
         RequestBody: operations.CreateCreateUserUserCreateRequestCreateUserUserCreateRequestUserBYOLCreateRequest(
                 operations.CreateUserUserCreateRequestUserBYOLCreateRequest{
                     Address: operations.CreateUserUserCreateRequestUserBYOLCreateRequestAddress{
-                        AddressLine1: "dicta",
-                        City: "Russelcester",
-                        Country: "Democratic People's Republic of Korea",
-                        Postcode: "09377-5091",
+                        AddressLine1: "string",
+                        City: "Bettiechester",
+                        Country: "Saint Vincent and the Grenadines",
+                        Postcode: "45093-7750",
                     },
-                    BirthDate: types.MustDateFromString("2023-12-11"),
-                    FirstName: "Kaylah",
-                    LastName: "Zemlak",
+                    BirthDate: types.MustDateFromString("2023-11-27"),
+                    FirstName: "Betty",
+                    LastName: "Wuckert",
                     Nationalities: []string{
-                        "Communications",
+                        "string",
                     },
                     PostalAddress: &operations.CreateUserUserCreateRequestUserBYOLCreateRequestAddress{
-                        AddressLine1: "Accounts",
-                        City: "West Taylorchester",
-                        Country: "Peru",
-                        Postcode: "80229-1482",
+                        AddressLine1: "string",
+                        City: "Zackeryfurt",
+                        Country: "Mozambique",
+                        Postcode: "71396-6780",
                     },
                 },
         ),
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "collaboration",
-        SignatureInput: "neural",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -184,8 +184,8 @@ func main() {
                 operations.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest{
                     CheckConfirmedAt: types.MustTimeFromString("2023-02-24T14:05:33.909Z"),
                     ConfirmedAddress: operations.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress{
-                        AddressLine1: "Newark",
-                        City: "Spokane",
+                        AddressLine1: "string",
+                        City: "New Sheahaven",
                         Country: "Virgin Islands, British",
                         Postcode: "78236-1673",
                     },
@@ -194,11 +194,11 @@ func main() {
                     IssuanceDate: types.MustDateFromString("2023-01-16"),
                 },
         ),
-        Signature: "trans",
-        SignatureInput: "Algerian",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "18bd2e5d-fae3-4c05-876d-362f7741e6fa",
+        UserID: "98c63118-bd2e-45df-ae3c-05476d362f77",
     })
     if err != nil {
         log.Fatal(err)
@@ -247,11 +247,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserAccountGroups(ctx, operations.ListUserAccountGroupsRequest{
-        Signature: "capability",
-        SignatureInput: "scale",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "566f6bdc-0397-4183-845d-956c1118fc37",
+        UserID: "624b566f-6bdc-4039-b183-845d956c1118",
     })
     if err != nil {
         log.Fatal(err)
@@ -300,11 +300,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserAccounts(ctx, operations.ListUserAccountsRequest{
-        Signature: "Ways",
-        SignatureInput: "tempora",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "282c4190-a6e0-4d67-96f2-13432d40a499",
+        UserID: "2f4fc942-82c4-4190-a6e0-d67d6f213432",
     })
     if err != nil {
         log.Fatal(err)
@@ -353,11 +353,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserChecks(ctx, operations.ListUserChecksRequest{
-        Signature: "Legacy",
-        SignatureInput: "pascal",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "5d140a30-46db-4475-bdbf-fd92ae246c7b",
+        UserID: "ab810b55-d140-4a30-86db-4757dbffd92a",
     })
     if err != nil {
         log.Fatal(err)
@@ -406,11 +406,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserIdentifiers(ctx, operations.ListUserIdentifiersRequest{
-        Signature: "Latin",
-        SignatureInput: "annual",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "a72af34b-c90b-498c-86cb-d026f279cc7c",
+        UserID: "9ad0a72a-f34b-4c90-b98c-c6cbd026f279",
     })
     if err != nil {
         log.Fatal(err)
@@ -459,8 +459,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUsers(ctx, operations.ListUsersRequest{
-        Signature: "Representative",
-        SignatureInput: "Blues",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -511,11 +511,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.OffboardUser(ctx, operations.OffboardUserRequest{
-        Signature: "Lakes",
-        SignatureInput: "African",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "b1d20892-65ed-4ad1-9450-d2749d0e752f",
+        UserID: "2ec7a027-b1d2-4089-a65e-dad15450d274",
     })
     if err != nil {
         log.Fatal(err)
@@ -565,11 +565,11 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.RetrieveIdentifier(ctx, operations.RetrieveIdentifierRequest{
         IdentifierID: "7599778d-08e5-4301-b229-50983005b604",
-        Signature: "withdrawal",
-        SignatureInput: "Guaynabo",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "d1553807-bfe8-4fea-99b8-f7cdd39f42ac",
+        UserID: "7505d155-3807-4bfe-8fea-19b8f7cdd39f",
     })
     if err != nil {
         log.Fatal(err)
@@ -618,11 +618,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.RetrieveUser(ctx, operations.RetrieveUserRequest{
-        Signature: "male",
-        SignatureInput: "Bronze",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "80860346-9e3d-422a-9d72-cd6eb21664af",
+        UserID: "bc418086-0346-49e3-922a-9d72cd6eb216",
     })
     if err != nil {
         log.Fatal(err)
@@ -672,11 +672,11 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.RetrieveUserCheck(ctx, operations.RetrieveUserCheckRequest{
         CheckID: "7c557256-cf5c-4ad1-a9aa-07e6ee46d87a",
-        Signature: "Sleek",
-        SignatureInput: "overriding",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "8df6df78-5464-4a07-9b80-ad51fe682a3f",
+        UserID: "38838df6-df78-4546-8a07-db80ad51fe68",
     })
     if err != nil {
         log.Fatal(err)
@@ -726,14 +726,14 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.UpdateIdentifier(ctx, operations.UpdateIdentifierRequest{
         RequestBody: &operations.UpdateIdentifierIdentifierUpdateRequest{
-            Identifier: "notwithstanding",
+            Identifier: "string",
         },
-        IdentifierID: "ef9c4d67-8e0e-489c-abf3-12e052d47df1",
-        Signature: "regarding",
-        SignatureInput: "Garden",
+        IdentifierID: "f9ef9c4d-678e-40e8-9c2b-f312e052d47d",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "7ee7b82e-a337-48cf-b11b-13e2bc3a0263",
+        UserID: "f1fb357e-e7b8-42ea-b378-cff11b13e2bc",
     })
     if err != nil {
         log.Fatal(err)
@@ -786,27 +786,27 @@ func main() {
         RequestBody: operations.CreateUserDataChangeUserDataChangeRequestUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(
                 operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest{
                     Address: &operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress{
-                        AddressLine1: "Data",
-                        City: "Streichcester",
-                        Country: "Kenya",
-                        Postcode: "59227-5128",
+                        AddressLine1: "string",
+                        City: "Schinnerfurt",
+                        Country: "Syrian Arab Republic",
+                        Postcode: "46592-2751",
                     },
                     Nationalities: []string{
-                        "parsing",
+                        "string",
                     },
                     PostalAddress: &operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress{
-                        AddressLine1: "approach",
-                        City: "Adriannaside",
-                        Country: "Belgium",
-                        Postcode: "85261",
+                        AddressLine1: "string",
+                        City: "Fort Johathan",
+                        Country: "Wallis and Futuna",
+                        Postcode: "04090",
                     },
                 },
         ),
-        Signature: "Soft",
-        SignatureInput: "Texas",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "1cb756c2-de28-4b7e-8f8d-39737e16e9c4",
+        UserID: "6d84a24c-2d1c-4b75-ac2d-e28b7e8f8d39",
     })
     if err != nil {
         log.Fatal(err)

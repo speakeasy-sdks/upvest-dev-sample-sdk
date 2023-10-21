@@ -107,8 +107,7 @@ func (e *RetrieveOrderOrderCancellationReason) UnmarshalJSON(data []byte) error 
 	}
 }
 
-// RetrieveOrderOrderCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
-// * EUR - Euro
+// RetrieveOrderOrderCurrency - The currency for the order.
 type RetrieveOrderOrderCurrency string
 
 const (

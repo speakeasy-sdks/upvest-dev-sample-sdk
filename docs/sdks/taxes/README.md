@@ -34,11 +34,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Taxes.RetrieveTaxResidencies(ctx, operations.RetrieveTaxResidenciesRequest{
-        Signature: "HDD",
-        SignatureInput: "orchid",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "448ab642-df1c-485c-88ac-b31d183e94aa",
+        UserID: "75c9448a-b642-4df1-885c-88acb31d183e",
     })
     if err != nil {
         log.Fatal(err)
@@ -92,17 +92,17 @@ func main() {
                 operations.CreateSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber(
                     operations.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber{
                         Country: "Portugal",
-                        TaxIdentifierNumber: "katal",
+                        TaxIdentifierNumber: "string",
                     },
                 ),
             },
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "National",
-        SignatureInput: "jibe",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "3a67795a-a9cc-438a-93af-8e1995010f78",
+        UserID: "bfa5f73a-6779-45aa-9cc3-8a53af8e1995",
     })
     if err != nil {
         log.Fatal(err)

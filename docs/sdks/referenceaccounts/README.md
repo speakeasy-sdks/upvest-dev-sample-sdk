@@ -38,14 +38,14 @@ func main() {
     ctx := context.Background()
     res, err := s.ReferenceAccounts.CreateReferenceAccount(ctx, operations.CreateReferenceAccountRequest{
         RequestBody: &operations.CreateReferenceAccountReferenceAccountCreateRequest{
-            AccountOwner: "Chair",
-            Bic: "fuchsia",
-            ConfirmedAt: types.MustTimeFromString("2023-03-17T20:12:03.227Z"),
-            Iban: "GT4709ML0M2814J822N661S1053Q",
+            AccountOwner: "string",
+            Bic: "string",
+            ConfirmedAt: types.MustTimeFromString("2021-10-21T09:53:29.074Z"),
+            Iban: "CH82077325Y83934M284R",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "judgementally",
-        SignatureInput: "Checking",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -97,8 +97,8 @@ func main() {
     ctx := context.Background()
     res, err := s.ReferenceAccounts.DeleteReferenceAccount(ctx, operations.DeleteReferenceAccountRequest{
         ReferenceAccountID: "b658e83d-389d-47da-aa73-769e9336c8e7",
-        Signature: "viral",
-        SignatureInput: "port",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -149,11 +149,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.ListReferenceAccounts(ctx, operations.ListReferenceAccountsRequest{
-        Signature: "incidentally",
-        SignatureInput: "Pharr",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "1010768d-d7a5-4f1c-8bb8-6369603d6f49",
+        UserID: "e50a1010-768d-4d7a-9f1c-4bb86369603d",
     })
     if err != nil {
         log.Fatal(err)
@@ -203,8 +203,8 @@ func main() {
     ctx := context.Background()
     res, err := s.ReferenceAccounts.RetrieveReferenceAccount(ctx, operations.RetrieveReferenceAccountRequest{
         ReferenceAccountID: "7e2cbf41-0b63-42ab-90dc-add7f6c2774a",
-        Signature: "holistic",
-        SignatureInput: "Chilean",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

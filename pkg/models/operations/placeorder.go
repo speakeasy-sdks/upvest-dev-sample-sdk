@@ -11,8 +11,7 @@ import (
 	"time"
 )
 
-// PlaceOrderOrderPlaceRequestCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
-// * EUR - Euro
+// PlaceOrderOrderPlaceRequestCurrency - The currency for the order.
 type PlaceOrderOrderPlaceRequestCurrency string
 
 const (
@@ -415,8 +414,7 @@ func (e *PlaceOrderOrderCancellationReason) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// PlaceOrderOrderCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
-// * EUR - Euro
+// PlaceOrderOrderCurrency - The currency for the order.
 type PlaceOrderOrderCurrency string
 
 const (

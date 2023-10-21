@@ -36,8 +36,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Transactions.ListCashTransactions(ctx, operations.ListCashTransactionsRequest{
         EndDate: types.MustDateFromString("2023-01-11"),
-        Signature: "Northeast",
-        SignatureInput: "but",
+        Signature: "string",
+        SignatureInput: "string",
         StartDate: types.MustDateFromString("2023-01-03"),
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
@@ -91,8 +91,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Transactions.ListSecuritiesTransactions(ctx, operations.ListSecuritiesTransactionsRequest{
         EndDate: types.MustDateFromString("2023-01-11"),
-        Signature: "decode",
-        SignatureInput: "Officer",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

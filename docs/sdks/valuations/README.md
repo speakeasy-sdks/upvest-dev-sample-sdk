@@ -36,8 +36,8 @@ func main() {
     res, err := s.Valuations.GetAccountValuation(ctx, operations.GetAccountValuationRequest{
         AccountID: "4767938f-4376-4441-a2b6-0a26456b8e4f",
         PriceQuality: operations.GetAccountValuationPriceQualityEod,
-        Signature: "Tools",
-        SignatureInput: "Investor",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -89,8 +89,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Valuations.ListAccountValuationHistory(ctx, operations.ListAccountValuationHistoryRequest{
         AccountID: "cbc89a08-4aea-491e-b3e5-762fdd9e8431",
-        Signature: "whether",
-        SignatureInput: "magenta",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

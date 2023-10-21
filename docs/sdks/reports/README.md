@@ -34,11 +34,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Reports.ListReports(ctx, operations.ListReportsRequest{
-        Signature: "invoice",
-        SignatureInput: "system",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "6e4d4e33-1a78-489e-8c03-d98591db03bd",
+        UserID: "7c866e4d-4e33-41a7-889e-0c03d98591db",
     })
     if err != nil {
         log.Fatal(err)
@@ -88,8 +88,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Reports.RetrieveReport(ctx, operations.RetrieveReportRequest{
         ReportID: "008164dd-ebf0-4325-9e09-780b39dc8ee3",
-        Signature: "North",
-        SignatureInput: "Bedfordshire",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

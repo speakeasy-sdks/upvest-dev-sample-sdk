@@ -42,8 +42,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
         AccountID: "87f46f4c-298e-4960-b531-5043c3be9e8d",
-        Signature: "apud",
-        SignatureInput: "quaff",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -95,8 +95,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.AccountGroupClosure(ctx, operations.AccountGroupClosureRequest{
         AccountGroupID: "b19f4004-9a18-414a-bb76-73957c03485e",
-        Signature: "SUV",
-        SignatureInput: "deposit",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -153,8 +153,8 @@ func main() {
             UserID: "d04cd2d5-ae02-4bb1-9118-75a95a0f2373",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "Quality",
-        SignatureInput: "Pacocha",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -210,8 +210,8 @@ func main() {
             UserID: "9172e12f-f215-477c-9ccc-f257f38b8e8a",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "female",
-        SignatureInput: "Senior",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -262,8 +262,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Accounts.ListAccountGroups(ctx, operations.ListAccountGroupsRequest{
-        Signature: "Borders",
-        SignatureInput: "Taunton",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -314,8 +314,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Accounts.ListAccounts(ctx, operations.ListAccountsRequest{
-        Signature: "Iron",
-        SignatureInput: "Research",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -367,8 +367,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.RetrieveAccount(ctx, operations.RetrieveAccountRequest{
         AccountID: "4e13c906-e457-4f4f-a3a8-bf3db1cfc77e",
-        Signature: "matrix",
-        SignatureInput: "spruce",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -420,8 +420,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.RetrieveAccountGroup(ctx, operations.RetrieveAccountGroupRequest{
         AccountGroupID: "e5a4d5a1-aa6d-4a78-8b31-db3645b07f04",
-        Signature: "candela",
-        SignatureInput: "rem",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -474,8 +474,8 @@ func main() {
     res, err := s.Accounts.UpdateAccount(ctx, operations.UpdateAccountRequest{
         RequestBody: &operations.UpdateAccountAccountUpdateRequest{},
         AccountID: "9adf3964-ab4d-47a0-bf84-a54e6f410e38",
-        Signature: "Accountability",
-        SignatureInput: "streamline",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

@@ -34,8 +34,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Instruments.ListInstruments(ctx, operations.ListInstrumentsRequest{
-        Signature: "bypassing",
-        SignatureInput: "Representative",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -86,9 +86,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Instruments.RetrieveInstrument(ctx, operations.RetrieveInstrumentRequest{
-        InstrumentID: "Kids",
-        Signature: "woman",
-        SignatureInput: "core",
+        InstrumentID: "string",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

@@ -34,8 +34,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Returns.ListAccountReturns(ctx, operations.ListAccountReturnsRequest{
         AccountID: "5b95c1fa-d06f-4a63-8a4b-4d67218cd5f1",
-        Signature: "parsing",
-        SignatureInput: "black",
+        Signature: "string",
+        SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
