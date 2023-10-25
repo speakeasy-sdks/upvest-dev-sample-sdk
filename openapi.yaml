@@ -1419,7 +1419,7 @@ paths:
                                         - postcode
                                         - country
                                         - city
-                                    - type: "null"
+                                      nullable: true
                                 status:
                                   type: string
                                   description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -1589,7 +1589,7 @@ paths:
                                         - postcode
                                         - country
                                         - city
-                                    - type: "null"
+                                      nullable: true
                                 status:
                                   type: string
                                   description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -2007,7 +2007,7 @@ paths:
                             - postcode
                             - country
                             - city
-                        - type: "null"
+                          nullable: true
                   required:
                     - first_name
                     - last_name
@@ -2157,7 +2157,7 @@ paths:
                             - postcode
                             - country
                             - city
-                        - type: "null"
+                          nullable: true
                     fatca:
                       type: object
                       properties:
@@ -2443,7 +2443,7 @@ paths:
                               - postcode
                               - country
                               - city
-                          - type: "null"
+                            nullable: true
                       status:
                         type: string
                         description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -2609,7 +2609,7 @@ paths:
                               - postcode
                               - country
                               - city
-                          - type: "null"
+                            nullable: true
                       status:
                         type: string
                         description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -2961,7 +2961,7 @@ paths:
                               - postcode
                               - country
                               - city
-                          - type: "null"
+                            nullable: true
                       status:
                         type: string
                         description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -3127,7 +3127,7 @@ paths:
                               - postcode
                               - country
                               - city
-                          - type: "null"
+                            nullable: true
                       status:
                         type: string
                         description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -3491,7 +3491,7 @@ paths:
                             - postcode
                             - country
                             - city
-                        - type: "null"
+                          nullable: true
                   minProperties: 1
                   additionalProperties: false
                 - title: User (TOL) - Data Change Request
@@ -3609,7 +3609,7 @@ paths:
                                 - postcode
                                 - country
                                 - city
-                            - type: "null"
+                              nullable: true
                       minProperties: 1
                       additionalProperties: false
                     - type: object
@@ -13008,11 +13008,11 @@ paths:
                                 - EX_POST_COST
                             substituted_report_id:
                               oneOf:
-                                - type: "null"
                                 - title: Substituted Report unique identifier.
                                   type: string
                                   description: References report that has been replaced by this one.
                                   format: uuid
+                                  nullable: true
                             data:
                               title: Report Data
                               type: object
@@ -13219,11 +13219,11 @@ paths:
                           - EX_POST_COST
                       substituted_report_id:
                         oneOf:
-                          - type: "null"
                           - title: Substituted Report unique identifier.
                             type: string
                             description: References report that has been replaced by this one.
                             format: uuid
+                            nullable: true
                       data:
                         title: Report Data
                         type: object
@@ -20254,7 +20254,7 @@ x-webhooks:
                                     - postcode
                                     - country
                                     - city
-                                - type: "null"
+                                  nullable: true
                             status:
                               type: string
                               description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -20420,7 +20420,7 @@ x-webhooks:
                                     - postcode
                                     - country
                                     - city
-                                - type: "null"
+                                  nullable: true
                             status:
                               type: string
                               description: "Status of the user.\n* ACTIVE - \n* INACTIVE - \n* OFFBOARDING - \n* OFFBOARDED - "
@@ -22948,11 +22948,11 @@ x-webhooks:
                             - EX_POST_COST
                         substituted_report_id:
                           oneOf:
-                            - type: "null"
                             - title: Substituted Report unique identifier.
                               type: string
                               description: References report that has been replaced by this one.
                               format: uuid
+                              nullable: true
                         data:
                           title: Report Data
                           type: object
@@ -24916,7 +24916,6 @@ components:
   securitySchemes:
     oauth-client-credentials:
       type: oauth2
-      x-speakeasy-example: "YOUR_TOKEN"
       flows:
         clientCredentials:
           tokenUrl: https://sandbox.upvest.co/auth/token
