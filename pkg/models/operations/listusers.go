@@ -185,6 +185,104 @@ func (o *ListUsersUsersListResponseDataUserBYOLAddress) GetState() *string {
 	return o.State
 }
 
+// ListUsersUsersListResponseDataUserBYOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type ListUsersUsersListResponseDataUserBYOLPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type ListUsersUsersListResponseDataUserBYOLPostalAddressType string
+
+const (
+	ListUsersUsersListResponseDataUserBYOLPostalAddressTypeListUsersUsersListResponseDataUserBYOLPostalAddressAddress ListUsersUsersListResponseDataUserBYOLPostalAddressType = "list_users_Users - List - Response_data_User (BYOL)_postal_address_Address"
+)
+
+type ListUsersUsersListResponseDataUserBYOLPostalAddress struct {
+	ListUsersUsersListResponseDataUserBYOLPostalAddressAddress *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress
+
+	Type ListUsersUsersListResponseDataUserBYOLPostalAddressType
+}
+
+func CreateListUsersUsersListResponseDataUserBYOLPostalAddressListUsersUsersListResponseDataUserBYOLPostalAddressAddress(listUsersUsersListResponseDataUserBYOLPostalAddressAddress ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) ListUsersUsersListResponseDataUserBYOLPostalAddress {
+	typ := ListUsersUsersListResponseDataUserBYOLPostalAddressTypeListUsersUsersListResponseDataUserBYOLPostalAddressAddress
+
+	return ListUsersUsersListResponseDataUserBYOLPostalAddress{
+		ListUsersUsersListResponseDataUserBYOLPostalAddressAddress: &listUsersUsersListResponseDataUserBYOLPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *ListUsersUsersListResponseDataUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
+
+	listUsersUsersListResponseDataUserBYOLPostalAddressAddress := new(ListUsersUsersListResponseDataUserBYOLPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &listUsersUsersListResponseDataUserBYOLPostalAddressAddress, "", true, true); err == nil {
+		u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress = listUsersUsersListResponseDataUserBYOLPostalAddressAddress
+		u.Type = ListUsersUsersListResponseDataUserBYOLPostalAddressTypeListUsersUsersListResponseDataUserBYOLPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u ListUsersUsersListResponseDataUserBYOLPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
 // ListUsersUsersListResponseDataUserBYOLSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
@@ -332,7 +430,7 @@ type ListUsersUsersListResponseDataUserBYOL struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *ListUsersUsersListResponseDataUserBYOLAddress `json:"postal_address,omitempty"`
+	PostalAddress *ListUsersUsersListResponseDataUserBYOLPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -439,7 +537,7 @@ func (o *ListUsersUsersListResponseDataUserBYOL) GetNationalities() []string {
 	return o.Nationalities
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetPostalAddress() *ListUsersUsersListResponseDataUserBYOLAddress {
+func (o *ListUsersUsersListResponseDataUserBYOL) GetPostalAddress() *ListUsersUsersListResponseDataUserBYOLPostalAddress {
 	if o == nil {
 		return nil
 	}

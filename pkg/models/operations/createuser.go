@@ -134,6 +134,104 @@ func (o *CreateUserUserCreateRequestUserTOLCreateRequestFatca) GetStatus() bool 
 	return o.Status
 }
 
+// CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressType string
+
+const (
+	CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressType = "create_user_User - Create - Request_User (TOL) - Create - Request_postal_address_Address"
+)
+
+type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress struct {
+	CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+
+	Type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressType
+}
+
+func CreateCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress(createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress {
+	typ := CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+
+	return CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress{
+		CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress: &createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress) UnmarshalJSON(data []byte) error {
+
+	createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress := new(CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress, "", true, true); err == nil {
+		u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress = createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+		u.Type = CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
 // CreateUserUserCreateRequestUserTOLCreateRequestSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
@@ -277,7 +375,7 @@ type CreateUserUserCreateRequestUserTOLCreateRequest struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserTOLCreateRequestAddress `json:"postal_address,omitempty"`
+	PostalAddress *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -391,7 +489,7 @@ func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetPhoneNumber() *stri
 	return o.PhoneNumber
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetPostalAddress() *CreateUserUserCreateRequestUserTOLCreateRequestAddress {
+func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetPostalAddress() *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress {
 	if o == nil {
 		return nil
 	}
@@ -474,6 +572,104 @@ func (o *CreateUserUserCreateRequestUserBYOLCreateRequestAddress) GetState() *st
 		return nil
 	}
 	return o.State
+}
+
+// CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressType string
+
+const (
+	CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressType = "create_user_User - Create - Request_User (BYOL) - Create - Request_postal_address_Address"
+)
+
+type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress struct {
+	CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+
+	Type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressType
+}
+
+func CreateCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress(createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress {
+	typ := CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+
+	return CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress{
+		CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress: &createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress) UnmarshalJSON(data []byte) error {
+
+	createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress := new(CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress, "", true, true); err == nil {
+		u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress = createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+		u.Type = CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 // CreateUserUserCreateRequestUserBYOLCreateRequestSalutation - Salutation of the user used in reports and statements.
@@ -581,7 +777,7 @@ type CreateUserUserCreateRequestUserBYOLCreateRequest struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserBYOLCreateRequestAddress `json:"postal_address,omitempty"`
+	PostalAddress *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -666,7 +862,7 @@ func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetNationalities() []
 	return o.Nationalities
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetPostalAddress() *CreateUserUserCreateRequestUserBYOLCreateRequestAddress {
+func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetPostalAddress() *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress {
 	if o == nil {
 		return nil
 	}
@@ -940,6 +1136,104 @@ func (o *CreateUserUserCreateRequestUserTOLFatca) GetStatus() bool {
 	return o.Status
 }
 
+// CreateUserUserCreateRequestUserTOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUserCreateRequestUserTOLPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type CreateUserUserCreateRequestUserTOLPostalAddressType string
+
+const (
+	CreateUserUserCreateRequestUserTOLPostalAddressTypeCreateUserUserCreateRequestUserTOLPostalAddressAddress CreateUserUserCreateRequestUserTOLPostalAddressType = "create_user_User - Create - Request_User (TOL)_postal_address_Address"
+)
+
+type CreateUserUserCreateRequestUserTOLPostalAddress struct {
+	CreateUserUserCreateRequestUserTOLPostalAddressAddress *CreateUserUserCreateRequestUserTOLPostalAddressAddress
+
+	Type CreateUserUserCreateRequestUserTOLPostalAddressType
+}
+
+func CreateCreateUserUserCreateRequestUserTOLPostalAddressCreateUserUserCreateRequestUserTOLPostalAddressAddress(createUserUserCreateRequestUserTOLPostalAddressAddress CreateUserUserCreateRequestUserTOLPostalAddressAddress) CreateUserUserCreateRequestUserTOLPostalAddress {
+	typ := CreateUserUserCreateRequestUserTOLPostalAddressTypeCreateUserUserCreateRequestUserTOLPostalAddressAddress
+
+	return CreateUserUserCreateRequestUserTOLPostalAddress{
+		CreateUserUserCreateRequestUserTOLPostalAddressAddress: &createUserUserCreateRequestUserTOLPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *CreateUserUserCreateRequestUserTOLPostalAddress) UnmarshalJSON(data []byte) error {
+
+	createUserUserCreateRequestUserTOLPostalAddressAddress := new(CreateUserUserCreateRequestUserTOLPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLPostalAddressAddress, "", true, true); err == nil {
+		u.CreateUserUserCreateRequestUserTOLPostalAddressAddress = createUserUserCreateRequestUserTOLPostalAddressAddress
+		u.Type = CreateUserUserCreateRequestUserTOLPostalAddressTypeCreateUserUserCreateRequestUserTOLPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u CreateUserUserCreateRequestUserTOLPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.CreateUserUserCreateRequestUserTOLPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserTOLPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
 // CreateUserUserCreateRequestUserTOLSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
@@ -1125,7 +1419,7 @@ type CreateUserUserCreateRequestUserTOL struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserTOLAddress `json:"postal_address,omitempty"`
+	PostalAddress *CreateUserUserCreateRequestUserTOLPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -1261,7 +1555,7 @@ func (o *CreateUserUserCreateRequestUserTOL) GetPhoneNumber() *string {
 	return o.PhoneNumber
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetPostalAddress() *CreateUserUserCreateRequestUserTOLAddress {
+func (o *CreateUserUserCreateRequestUserTOL) GetPostalAddress() *CreateUserUserCreateRequestUserTOLPostalAddress {
 	if o == nil {
 		return nil
 	}
@@ -1358,6 +1652,104 @@ func (o *CreateUserUserCreateRequestUserBYOLAddress) GetState() *string {
 		return nil
 	}
 	return o.State
+}
+
+// CreateUserUserCreateRequestUserBYOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUserCreateRequestUserBYOLPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type CreateUserUserCreateRequestUserBYOLPostalAddressType string
+
+const (
+	CreateUserUserCreateRequestUserBYOLPostalAddressTypeCreateUserUserCreateRequestUserBYOLPostalAddressAddress CreateUserUserCreateRequestUserBYOLPostalAddressType = "create_user_User - Create - Request_User (BYOL)_postal_address_Address"
+)
+
+type CreateUserUserCreateRequestUserBYOLPostalAddress struct {
+	CreateUserUserCreateRequestUserBYOLPostalAddressAddress *CreateUserUserCreateRequestUserBYOLPostalAddressAddress
+
+	Type CreateUserUserCreateRequestUserBYOLPostalAddressType
+}
+
+func CreateCreateUserUserCreateRequestUserBYOLPostalAddressCreateUserUserCreateRequestUserBYOLPostalAddressAddress(createUserUserCreateRequestUserBYOLPostalAddressAddress CreateUserUserCreateRequestUserBYOLPostalAddressAddress) CreateUserUserCreateRequestUserBYOLPostalAddress {
+	typ := CreateUserUserCreateRequestUserBYOLPostalAddressTypeCreateUserUserCreateRequestUserBYOLPostalAddressAddress
+
+	return CreateUserUserCreateRequestUserBYOLPostalAddress{
+		CreateUserUserCreateRequestUserBYOLPostalAddressAddress: &createUserUserCreateRequestUserBYOLPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *CreateUserUserCreateRequestUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
+
+	createUserUserCreateRequestUserBYOLPostalAddressAddress := new(CreateUserUserCreateRequestUserBYOLPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLPostalAddressAddress, "", true, true); err == nil {
+		u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress = createUserUserCreateRequestUserBYOLPostalAddressAddress
+		u.Type = CreateUserUserCreateRequestUserBYOLPostalAddressTypeCreateUserUserCreateRequestUserBYOLPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u CreateUserUserCreateRequestUserBYOLPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 // CreateUserUserCreateRequestUserBYOLSalutation - Salutation of the user used in reports and statements.
@@ -1507,7 +1899,7 @@ type CreateUserUserCreateRequestUserBYOL struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserBYOLAddress `json:"postal_address,omitempty"`
+	PostalAddress *CreateUserUserCreateRequestUserBYOLPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -1614,7 +2006,7 @@ func (o *CreateUserUserCreateRequestUserBYOL) GetNationalities() []string {
 	return o.Nationalities
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetPostalAddress() *CreateUserUserCreateRequestUserBYOLAddress {
+func (o *CreateUserUserCreateRequestUserBYOL) GetPostalAddress() *CreateUserUserCreateRequestUserBYOLPostalAddress {
 	if o == nil {
 		return nil
 	}

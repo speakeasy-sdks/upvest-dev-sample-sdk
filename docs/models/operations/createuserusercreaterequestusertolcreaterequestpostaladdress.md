@@ -1,0 +1,11 @@
+# CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress
+
+
+## Supported Types
+
+### CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+
+```go
+createUserUserCreateRequestUserTOLCreateRequestPostalAddress := operations.CreateCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress(operations.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress{/* values here */})
+```
+

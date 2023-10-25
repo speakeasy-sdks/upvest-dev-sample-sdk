@@ -192,6 +192,104 @@ func (o *RetrieveUserUserGetResponseUserTOLFatca) GetStatus() bool {
 	return o.Status
 }
 
+// RetrieveUserUserGetResponseUserTOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserUserGetResponseUserTOLPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type RetrieveUserUserGetResponseUserTOLPostalAddressType string
+
+const (
+	RetrieveUserUserGetResponseUserTOLPostalAddressTypeRetrieveUserUserGetResponseUserTOLPostalAddressAddress RetrieveUserUserGetResponseUserTOLPostalAddressType = "retrieve_user_User - Get - Response_User (TOL)_postal_address_Address"
+)
+
+type RetrieveUserUserGetResponseUserTOLPostalAddress struct {
+	RetrieveUserUserGetResponseUserTOLPostalAddressAddress *RetrieveUserUserGetResponseUserTOLPostalAddressAddress
+
+	Type RetrieveUserUserGetResponseUserTOLPostalAddressType
+}
+
+func CreateRetrieveUserUserGetResponseUserTOLPostalAddressRetrieveUserUserGetResponseUserTOLPostalAddressAddress(retrieveUserUserGetResponseUserTOLPostalAddressAddress RetrieveUserUserGetResponseUserTOLPostalAddressAddress) RetrieveUserUserGetResponseUserTOLPostalAddress {
+	typ := RetrieveUserUserGetResponseUserTOLPostalAddressTypeRetrieveUserUserGetResponseUserTOLPostalAddressAddress
+
+	return RetrieveUserUserGetResponseUserTOLPostalAddress{
+		RetrieveUserUserGetResponseUserTOLPostalAddressAddress: &retrieveUserUserGetResponseUserTOLPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *RetrieveUserUserGetResponseUserTOLPostalAddress) UnmarshalJSON(data []byte) error {
+
+	retrieveUserUserGetResponseUserTOLPostalAddressAddress := new(RetrieveUserUserGetResponseUserTOLPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserTOLPostalAddressAddress, "", true, true); err == nil {
+		u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress = retrieveUserUserGetResponseUserTOLPostalAddressAddress
+		u.Type = RetrieveUserUserGetResponseUserTOLPostalAddressTypeRetrieveUserUserGetResponseUserTOLPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u RetrieveUserUserGetResponseUserTOLPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
 // RetrieveUserUserGetResponseUserTOLSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
@@ -377,7 +475,7 @@ type RetrieveUserUserGetResponseUserTOL struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *RetrieveUserUserGetResponseUserTOLAddress `json:"postal_address,omitempty"`
+	PostalAddress *RetrieveUserUserGetResponseUserTOLPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -513,7 +611,7 @@ func (o *RetrieveUserUserGetResponseUserTOL) GetPhoneNumber() *string {
 	return o.PhoneNumber
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetPostalAddress() *RetrieveUserUserGetResponseUserTOLAddress {
+func (o *RetrieveUserUserGetResponseUserTOL) GetPostalAddress() *RetrieveUserUserGetResponseUserTOLPostalAddress {
 	if o == nil {
 		return nil
 	}
@@ -610,6 +708,104 @@ func (o *RetrieveUserUserGetResponseUserBYOLAddress) GetState() *string {
 		return nil
 	}
 	return o.State
+}
+
+// RetrieveUserUserGetResponseUserBYOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserUserGetResponseUserBYOLPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type RetrieveUserUserGetResponseUserBYOLPostalAddressType string
+
+const (
+	RetrieveUserUserGetResponseUserBYOLPostalAddressTypeRetrieveUserUserGetResponseUserBYOLPostalAddressAddress RetrieveUserUserGetResponseUserBYOLPostalAddressType = "retrieve_user_User - Get - Response_User (BYOL)_postal_address_Address"
+)
+
+type RetrieveUserUserGetResponseUserBYOLPostalAddress struct {
+	RetrieveUserUserGetResponseUserBYOLPostalAddressAddress *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress
+
+	Type RetrieveUserUserGetResponseUserBYOLPostalAddressType
+}
+
+func CreateRetrieveUserUserGetResponseUserBYOLPostalAddressRetrieveUserUserGetResponseUserBYOLPostalAddressAddress(retrieveUserUserGetResponseUserBYOLPostalAddressAddress RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) RetrieveUserUserGetResponseUserBYOLPostalAddress {
+	typ := RetrieveUserUserGetResponseUserBYOLPostalAddressTypeRetrieveUserUserGetResponseUserBYOLPostalAddressAddress
+
+	return RetrieveUserUserGetResponseUserBYOLPostalAddress{
+		RetrieveUserUserGetResponseUserBYOLPostalAddressAddress: &retrieveUserUserGetResponseUserBYOLPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *RetrieveUserUserGetResponseUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
+
+	retrieveUserUserGetResponseUserBYOLPostalAddressAddress := new(RetrieveUserUserGetResponseUserBYOLPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserBYOLPostalAddressAddress, "", true, true); err == nil {
+		u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress = retrieveUserUserGetResponseUserBYOLPostalAddressAddress
+		u.Type = RetrieveUserUserGetResponseUserBYOLPostalAddressTypeRetrieveUserUserGetResponseUserBYOLPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u RetrieveUserUserGetResponseUserBYOLPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 // RetrieveUserUserGetResponseUserBYOLSalutation - Salutation of the user used in reports and statements.
@@ -759,7 +955,7 @@ type RetrieveUserUserGetResponseUserBYOL struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *RetrieveUserUserGetResponseUserBYOLAddress `json:"postal_address,omitempty"`
+	PostalAddress *RetrieveUserUserGetResponseUserBYOLPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -866,7 +1062,7 @@ func (o *RetrieveUserUserGetResponseUserBYOL) GetNationalities() []string {
 	return o.Nationalities
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetPostalAddress() *RetrieveUserUserGetResponseUserBYOLAddress {
+func (o *RetrieveUserUserGetResponseUserBYOL) GetPostalAddress() *RetrieveUserUserGetResponseUserBYOLPostalAddress {
 	if o == nil {
 		return nil
 	}

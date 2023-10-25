@@ -1,0 +1,11 @@
+# UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress
+
+
+## Supported Types
+
+### UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+
+```go
+userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress := operations.CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress(operations.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress{/* values here */})
+```
+

@@ -258,8 +258,8 @@ func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality)
 	return o.Nationalities
 }
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress - Address. Must not be a P.O. box or c/o address.
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress struct {
+// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -273,46 +273,87 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress str
 	State *string `json:"state,omitempty"`
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress) GetAddressLine1() string {
+func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress) GetAddressLine2() *string {
+func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress) GetCity() string {
+func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress) GetCountry() string {
+func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress) GetPostcode() string {
+func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress) GetState() *string {
+func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
+}
+
+type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressType string
+
+const (
+	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressType = "user_data_change_User - Data Change - Request_User (TOL) - Data Change Request_Other_postal_address_Address"
+)
+
+type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress struct {
+	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+
+	Type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressType
+}
+
+func CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress(userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress {
+	typ := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+
+	return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress{
+		UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress: &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress) UnmarshalJSON(data []byte) error {
+
+	userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress := new(UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress, "", true, true); err == nil {
+		u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress = userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+		u.Type = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 // UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation - Salutation of the user used in reports and statements.
@@ -411,7 +452,7 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress `json:"postal_address,omitempty"`
+	PostalAddress *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -461,7 +502,7 @@ func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetPh
 	return o.PhoneNumber
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetPostalAddress() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherAddress {
+func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetPostalAddress() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress {
 	if o == nil {
 		return nil
 	}
@@ -737,6 +778,104 @@ func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress) Ge
 	return o.State
 }
 
+// UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
+type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress struct {
+	// First address line of the address.
+	AddressLine1 string `json:"address_line1"`
+	// Second address line of the address.
+	AddressLine2 *string `json:"address_line2,omitempty"`
+	City         string  `json:"city"`
+	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	Country string `json:"country"`
+	// Postal code (postcode, PIN or ZIP code)
+	Postcode string `json:"postcode"`
+	// State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	State *string `json:"state,omitempty"`
+}
+
+func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetAddressLine1() string {
+	if o == nil {
+		return ""
+	}
+	return o.AddressLine1
+}
+
+func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetAddressLine2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AddressLine2
+}
+
+func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetCity() string {
+	if o == nil {
+		return ""
+	}
+	return o.City
+}
+
+func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetCountry() string {
+	if o == nil {
+		return ""
+	}
+	return o.Country
+}
+
+func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetPostcode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Postcode
+}
+
+func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressType string
+
+const (
+	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressType = "user_data_change_User - Data Change - Request_User (BYOL) - Data Change Request_postal_address_Address"
+)
+
+type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress struct {
+	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
+
+	Type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressType
+}
+
+func CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress(userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress {
+	typ := UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
+
+	return UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress{
+		UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress: &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress,
+		Type: typ,
+	}
+}
+
+func (u *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress) UnmarshalJSON(data []byte) error {
+
+	userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress := new(UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress)
+	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress, "", true, true); err == nil {
+		u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress = userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
+		u.Type = UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress != nil {
+		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
 // UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
@@ -842,7 +981,7 @@ type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress `json:"postal_address,omitempty"`
+	PostalAddress *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
@@ -927,7 +1066,7 @@ func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetNation
 	return o.Nationalities
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetPostalAddress() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress {
+func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetPostalAddress() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress {
 	if o == nil {
 		return nil
 	}

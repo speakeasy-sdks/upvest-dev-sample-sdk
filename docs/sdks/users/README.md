@@ -41,7 +41,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -99,7 +99,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -118,12 +118,14 @@ func main() {
                     Nationalities: []string{
                         "string",
                     },
-                    PostalAddress: &operations.CreateUserUserCreateRequestUserBYOLCreateRequestAddress{
-                        AddressLine1: "string",
-                        City: "Zackeryfurt",
-                        Country: "Mozambique",
-                        Postcode: "71396-6780",
-                    },
+                    PostalAddress: operations.CreateCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress(
+                            operations.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress{
+                                AddressLine1: "string",
+                                City: "Zackeryfurt",
+                                Country: "Mozambique",
+                                Postcode: "71396-6780",
+                            },
+                    ),
                 },
         ),
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -175,7 +177,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -242,7 +244,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -295,7 +297,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -348,7 +350,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -401,7 +403,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -454,7 +456,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -506,7 +508,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -559,7 +561,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -613,7 +615,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -666,7 +668,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -720,7 +722,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -778,7 +780,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("YOUR_TOKEN"),
+        upvestdevsamplesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -794,12 +796,14 @@ func main() {
                     Nationalities: []string{
                         "string",
                     },
-                    PostalAddress: &operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress{
-                        AddressLine1: "string",
-                        City: "Fort Johathan",
-                        Country: "Wallis and Futuna",
-                        Postcode: "04090",
-                    },
+                    PostalAddress: operations.CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress(
+                            operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress{
+                                AddressLine1: "string",
+                                City: "Fort Johathan",
+                                Country: "Wallis and Futuna",
+                                Postcode: "04090",
+                            },
+                    ),
                 },
         ),
         Signature: "string",

@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: ac5aa7b21b6696423c537aa88016d49b
+  docChecksum: 3c1ab37994ed312df79267b2de2c9a65
   docVersion: 1.9.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.107.0
+  generationVersion: 2.171.0
 generation:
   comments:
     disableComments: false
@@ -23,7 +23,7 @@ features:
     globalServerURLs: 2.82.0
     unions: 2.84.0
 go:
-  version: 0.3.0
+  version: 0.4.0
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   installationURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk
