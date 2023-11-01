@@ -888,30 +888,30 @@ func CreateListUserChecksUserCheckListResponseUserCheckListUserChecksUserCheckLi
 
 func (u *ListUserChecksUserCheckListResponseUserCheck) UnmarshalJSON(data []byte) error {
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckCompliance := new(ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance)
+	listUserChecksUserCheckListResponseUserCheckUserCheckCompliance := ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance{}
 	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckCompliance, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance = listUserChecksUserCheckListResponseUserCheckUserCheckCompliance
+		u.ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance = &listUserChecksUserCheckListResponseUserCheckUserCheckCompliance
 		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckCompliance
 		return nil
 	}
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit := new(ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit)
+	listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit := ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit{}
 	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit = listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit
+		u.ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit = &listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit
 		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit
 		return nil
 	}
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency := new(ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency)
+	listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency := ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency{}
 	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency = listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency
+		u.ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency = &listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency
 		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency
 		return nil
 	}
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer := new(ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer)
+	listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer := ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer{}
 	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer = listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer
+		u.ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer = &listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer
 		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer
 		return nil
 	}

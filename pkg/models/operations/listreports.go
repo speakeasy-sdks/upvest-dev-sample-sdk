@@ -540,9 +540,9 @@ func CreateListReportsReportsListResponseReportListReportsReportsListResponseRep
 
 func (u *ListReportsReportsListResponseReport) UnmarshalJSON(data []byte) error {
 
-	listReportsReportsListResponseReportReport := new(ListReportsReportsListResponseReportReport)
+	listReportsReportsListResponseReportReport := ListReportsReportsListResponseReportReport{}
 	if err := utils.UnmarshalJSON(data, &listReportsReportsListResponseReportReport, "", true, true); err == nil {
-		u.ListReportsReportsListResponseReportReport = listReportsReportsListResponseReportReport
+		u.ListReportsReportsListResponseReportReport = &listReportsReportsListResponseReportReport
 		u.Type = ListReportsReportsListResponseReportTypeListReportsReportsListResponseReportReport
 		return nil
 	}

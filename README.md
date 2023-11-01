@@ -246,6 +246,193 @@ d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on
 ```
 <!-- End Go Types -->
 
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+
+
+## Example
+
+```go
+package main
+
+import (
+	"context"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	"log"
+)
+
+func main() {
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity(""),
+	)
+
+	ctx := context.Background()
+	res, err := s.AccessTokens.IssueToken(ctx, operations.IssueTokenRequest{
+		RequestBody: &operations.IssueTokenRequestAuthRequestAccessToken{
+			ClientID:     "66f33cc6-ccf4-4562-8f8d-7c9213d11eda",
+			ClientSecret: "string",
+			Scope:        "string",
+		},
+		Signature:        "string",
+		SignatureInput:   "string",
+		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
+		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
+	})
+	if err != nil {
+
+		var e *Error
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+	}
+}
+
+```
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://sandbox.upvest.co` | None |
+| 1 | `https://api.upvest.co` | None |
+
+For example:
+
+
+```go
+package main
+
+import (
+	"context"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	"log"
+)
+
+func main() {
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithServerIndex(1),
+	)
+
+	ctx := context.Background()
+	res, err := s.AccessTokens.IssueToken(ctx, operations.IssueTokenRequest{
+		RequestBody: &operations.IssueTokenRequestAuthRequestAccessToken{
+			ClientID:     "66f33cc6-ccf4-4562-8f8d-7c9213d11eda",
+			ClientSecret: "string",
+			Scope:        "string",
+		},
+		Signature:        "string",
+		SignatureInput:   "string",
+		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
+		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.AuthAccessToken != nil {
+		// handle response
+	}
+}
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+
+
+```go
+package main
+
+import (
+	"context"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	"log"
+)
+
+func main() {
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithServerURL("https://sandbox.upvest.co"),
+	)
+
+	ctx := context.Background()
+	res, err := s.AccessTokens.IssueToken(ctx, operations.IssueTokenRequest{
+		RequestBody: &operations.IssueTokenRequestAuthRequestAccessToken{
+			ClientID:     "66f33cc6-ccf4-4562-8f8d-7c9213d11eda",
+			ClientSecret: "string",
+			Scope:        "string",
+		},
+		Signature:        "string",
+		SignatureInput:   "string",
+		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
+		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.AuthAccessToken != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
+
+```go
+type HTTPClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+```
+
+The built-in `net/http` client satisfies this interface and a default client based on the built-in is provided by default. To replace this default with a client of your own, you can implement this interface yourself or provide your own client configured as desired. Here's a simple example, which adds a client with a 30 second timeout.
+
+```go
+import (
+	"net/http"
+	"time"
+	"github.com/myorg/your-go-sdk"
+)
+
+var (
+	httpClient = &http.Client{Timeout: 30 * time.Second}
+	sdkClient  = sdk.New(sdk.WithClient(httpClient))
+)
+```
+
+This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
+<!-- End Custom HTTP Client -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development

@@ -265,9 +265,9 @@ func CreateListUsersUsersListResponseDataUserBYOLPostalAddressListUsersUsersList
 
 func (u *ListUsersUsersListResponseDataUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
 
-	listUsersUsersListResponseDataUserBYOLPostalAddressAddress := new(ListUsersUsersListResponseDataUserBYOLPostalAddressAddress)
+	listUsersUsersListResponseDataUserBYOLPostalAddressAddress := ListUsersUsersListResponseDataUserBYOLPostalAddressAddress{}
 	if err := utils.UnmarshalJSON(data, &listUsersUsersListResponseDataUserBYOLPostalAddressAddress, "", true, true); err == nil {
-		u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress = listUsersUsersListResponseDataUserBYOLPostalAddressAddress
+		u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress = &listUsersUsersListResponseDataUserBYOLPostalAddressAddress
 		u.Type = ListUsersUsersListResponseDataUserBYOLPostalAddressTypeListUsersUsersListResponseDataUserBYOLPostalAddressAddress
 		return nil
 	}

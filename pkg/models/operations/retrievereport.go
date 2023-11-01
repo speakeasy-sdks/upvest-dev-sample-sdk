@@ -308,9 +308,9 @@ func CreateRetrieveReportReportRetrieveReportReportReport(retrieveReportReportRe
 
 func (u *RetrieveReportReport) UnmarshalJSON(data []byte) error {
 
-	retrieveReportReportReport := new(RetrieveReportReportReport)
+	retrieveReportReportReport := RetrieveReportReportReport{}
 	if err := utils.UnmarshalJSON(data, &retrieveReportReportReport, "", true, true); err == nil {
-		u.RetrieveReportReportReport = retrieveReportReportReport
+		u.RetrieveReportReportReport = &retrieveReportReportReport
 		u.Type = RetrieveReportReportTypeRetrieveReportReportReport
 		return nil
 	}

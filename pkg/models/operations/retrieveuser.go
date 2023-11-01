@@ -272,9 +272,9 @@ func CreateRetrieveUserUserGetResponseUserTOLPostalAddressRetrieveUserUserGetRes
 
 func (u *RetrieveUserUserGetResponseUserTOLPostalAddress) UnmarshalJSON(data []byte) error {
 
-	retrieveUserUserGetResponseUserTOLPostalAddressAddress := new(RetrieveUserUserGetResponseUserTOLPostalAddressAddress)
+	retrieveUserUserGetResponseUserTOLPostalAddressAddress := RetrieveUserUserGetResponseUserTOLPostalAddressAddress{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserTOLPostalAddressAddress, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress = retrieveUserUserGetResponseUserTOLPostalAddressAddress
+		u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress = &retrieveUserUserGetResponseUserTOLPostalAddressAddress
 		u.Type = RetrieveUserUserGetResponseUserTOLPostalAddressTypeRetrieveUserUserGetResponseUserTOLPostalAddressAddress
 		return nil
 	}
@@ -790,9 +790,9 @@ func CreateRetrieveUserUserGetResponseUserBYOLPostalAddressRetrieveUserUserGetRe
 
 func (u *RetrieveUserUserGetResponseUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
 
-	retrieveUserUserGetResponseUserBYOLPostalAddressAddress := new(RetrieveUserUserGetResponseUserBYOLPostalAddressAddress)
+	retrieveUserUserGetResponseUserBYOLPostalAddressAddress := RetrieveUserUserGetResponseUserBYOLPostalAddressAddress{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserBYOLPostalAddressAddress, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress = retrieveUserUserGetResponseUserBYOLPostalAddressAddress
+		u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress = &retrieveUserUserGetResponseUserBYOLPostalAddressAddress
 		u.Type = RetrieveUserUserGetResponseUserBYOLPostalAddressTypeRetrieveUserUserGetResponseUserBYOLPostalAddressAddress
 		return nil
 	}
@@ -1131,16 +1131,16 @@ func CreateRetrieveUserUserGetResponseRetrieveUserUserGetResponseUserTOL(retriev
 
 func (u *RetrieveUserUserGetResponse) UnmarshalJSON(data []byte) error {
 
-	retrieveUserUserGetResponseUserBYOL := new(RetrieveUserUserGetResponseUserBYOL)
+	retrieveUserUserGetResponseUserBYOL := RetrieveUserUserGetResponseUserBYOL{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserBYOL, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserBYOL = retrieveUserUserGetResponseUserBYOL
+		u.RetrieveUserUserGetResponseUserBYOL = &retrieveUserUserGetResponseUserBYOL
 		u.Type = RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserBYOL
 		return nil
 	}
 
-	retrieveUserUserGetResponseUserTOL := new(RetrieveUserUserGetResponseUserTOL)
+	retrieveUserUserGetResponseUserTOL := RetrieveUserUserGetResponseUserTOL{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserTOL, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserTOL = retrieveUserUserGetResponseUserTOL
+		u.RetrieveUserUserGetResponseUserTOL = &retrieveUserUserGetResponseUserTOL
 		u.Type = RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserTOL
 		return nil
 	}

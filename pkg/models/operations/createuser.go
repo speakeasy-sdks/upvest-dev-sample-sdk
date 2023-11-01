@@ -214,9 +214,9 @@ func CreateCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressCreateUse
 
 func (u *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress := new(CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress)
+	createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress := CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress = createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+		u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress = &createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
 		u.Type = CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
 		return nil
 	}
@@ -654,9 +654,9 @@ func CreateCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressCreateUs
 
 func (u *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress := new(CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress)
+	createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress := CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress = createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+		u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress = &createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
 		u.Type = CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
 		return nil
 	}
@@ -917,16 +917,16 @@ func CreateCreateUserUserCreateRequestCreateUserUserCreateRequestUserTOLCreateRe
 
 func (u *CreateUserUserCreateRequest) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOLCreateRequest := new(CreateUserUserCreateRequestUserBYOLCreateRequest)
+	createUserUserCreateRequestUserBYOLCreateRequest := CreateUserUserCreateRequestUserBYOLCreateRequest{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLCreateRequest, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOLCreateRequest = createUserUserCreateRequestUserBYOLCreateRequest
+		u.CreateUserUserCreateRequestUserBYOLCreateRequest = &createUserUserCreateRequestUserBYOLCreateRequest
 		u.Type = CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserBYOLCreateRequest
 		return nil
 	}
 
-	createUserUserCreateRequestUserTOLCreateRequest := new(CreateUserUserCreateRequestUserTOLCreateRequest)
+	createUserUserCreateRequestUserTOLCreateRequest := CreateUserUserCreateRequestUserTOLCreateRequest{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLCreateRequest, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOLCreateRequest = createUserUserCreateRequestUserTOLCreateRequest
+		u.CreateUserUserCreateRequestUserTOLCreateRequest = &createUserUserCreateRequestUserTOLCreateRequest
 		u.Type = CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserTOLCreateRequest
 		return nil
 	}
@@ -1216,9 +1216,9 @@ func CreateCreateUserUserCreateRequestUserTOLPostalAddressCreateUserUserCreateRe
 
 func (u *CreateUserUserCreateRequestUserTOLPostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserTOLPostalAddressAddress := new(CreateUserUserCreateRequestUserTOLPostalAddressAddress)
+	createUserUserCreateRequestUserTOLPostalAddressAddress := CreateUserUserCreateRequestUserTOLPostalAddressAddress{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOLPostalAddressAddress = createUserUserCreateRequestUserTOLPostalAddressAddress
+		u.CreateUserUserCreateRequestUserTOLPostalAddressAddress = &createUserUserCreateRequestUserTOLPostalAddressAddress
 		u.Type = CreateUserUserCreateRequestUserTOLPostalAddressTypeCreateUserUserCreateRequestUserTOLPostalAddressAddress
 		return nil
 	}
@@ -1734,9 +1734,9 @@ func CreateCreateUserUserCreateRequestUserBYOLPostalAddressCreateUserUserCreateR
 
 func (u *CreateUserUserCreateRequestUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOLPostalAddressAddress := new(CreateUserUserCreateRequestUserBYOLPostalAddressAddress)
+	createUserUserCreateRequestUserBYOLPostalAddressAddress := CreateUserUserCreateRequestUserBYOLPostalAddressAddress{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress = createUserUserCreateRequestUserBYOLPostalAddressAddress
+		u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress = &createUserUserCreateRequestUserBYOLPostalAddressAddress
 		u.Type = CreateUserUserCreateRequestUserBYOLPostalAddressTypeCreateUserUserCreateRequestUserBYOLPostalAddressAddress
 		return nil
 	}
@@ -2075,16 +2075,16 @@ func CreateCreateUserUserCreateRequest1CreateUserUserCreateRequestUserTOL(create
 
 func (u *CreateUserUserCreateRequest1) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOL := new(CreateUserUserCreateRequestUserBYOL)
+	createUserUserCreateRequestUserBYOL := CreateUserUserCreateRequestUserBYOL{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOL, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOL = createUserUserCreateRequestUserBYOL
+		u.CreateUserUserCreateRequestUserBYOL = &createUserUserCreateRequestUserBYOL
 		u.Type = CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserBYOL
 		return nil
 	}
 
-	createUserUserCreateRequestUserTOL := new(CreateUserUserCreateRequestUserTOL)
+	createUserUserCreateRequestUserTOL := CreateUserUserCreateRequestUserTOL{}
 	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOL, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOL = createUserUserCreateRequestUserTOL
+		u.CreateUserUserCreateRequestUserTOL = &createUserUserCreateRequestUserTOL
 		u.Type = CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserTOL
 		return nil
 	}

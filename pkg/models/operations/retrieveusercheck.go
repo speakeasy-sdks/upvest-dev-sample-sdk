@@ -896,30 +896,30 @@ func CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckComplian
 
 func (u *RetrieveUserCheckUserCheck) UnmarshalJSON(data []byte) error {
 
-	retrieveUserCheckUserCheckUserCheckCompliance := new(RetrieveUserCheckUserCheckUserCheckCompliance)
+	retrieveUserCheckUserCheckUserCheckCompliance := RetrieveUserCheckUserCheckUserCheckCompliance{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckCompliance, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckCompliance = retrieveUserCheckUserCheckUserCheckCompliance
+		u.RetrieveUserCheckUserCheckUserCheckCompliance = &retrieveUserCheckUserCheckUserCheckCompliance
 		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckCompliance
 		return nil
 	}
 
-	retrieveUserCheckUserCheckUserCheckInstrumentFit := new(RetrieveUserCheckUserCheckUserCheckInstrumentFit)
+	retrieveUserCheckUserCheckUserCheckInstrumentFit := RetrieveUserCheckUserCheckUserCheckInstrumentFit{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckInstrumentFit, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckInstrumentFit = retrieveUserCheckUserCheckUserCheckInstrumentFit
+		u.RetrieveUserCheckUserCheckUserCheckInstrumentFit = &retrieveUserCheckUserCheckUserCheckInstrumentFit
 		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckInstrumentFit
 		return nil
 	}
 
-	retrieveUserCheckUserCheckUserCheckProofOfResidency := new(RetrieveUserCheckUserCheckUserCheckProofOfResidency)
+	retrieveUserCheckUserCheckUserCheckProofOfResidency := RetrieveUserCheckUserCheckUserCheckProofOfResidency{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckProofOfResidency, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckProofOfResidency = retrieveUserCheckUserCheckUserCheckProofOfResidency
+		u.RetrieveUserCheckUserCheckUserCheckProofOfResidency = &retrieveUserCheckUserCheckUserCheckProofOfResidency
 		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckProofOfResidency
 		return nil
 	}
 
-	retrieveUserCheckUserCheckUserCheckKnowYourCustomer := new(RetrieveUserCheckUserCheckUserCheckKnowYourCustomer)
+	retrieveUserCheckUserCheckUserCheckKnowYourCustomer := RetrieveUserCheckUserCheckUserCheckKnowYourCustomer{}
 	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckKnowYourCustomer, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckKnowYourCustomer = retrieveUserCheckUserCheckUserCheckKnowYourCustomer
+		u.RetrieveUserCheckUserCheckUserCheckKnowYourCustomer = &retrieveUserCheckUserCheckUserCheckKnowYourCustomer
 		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckKnowYourCustomer
 		return nil
 	}
