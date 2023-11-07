@@ -1,9 +1,0 @@
-# RetrieveAccountGroupAccountGroupUsers
-
-
-## Fields
-
-| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `ID`                                                                                                               | **string*                                                                                                          | :heavy_minus_sign:                                                                                                 | User unique identifier.                                                                                            |
-| `Type`                                                                                                             | [*RetrieveAccountGroupAccountGroupUsersType](../../models/operations/retrieveaccountgroupaccountgroupuserstype.md) | :heavy_minus_sign:                                                                                                 | Relation type<br/>* OWNER -                                                                                        |

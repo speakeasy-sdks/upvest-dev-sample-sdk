@@ -69,27 +69,27 @@ func (o *RetrieveAccountGroupRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveAccountGroupAccountGroupStatus - Status of the account group
+// RetrieveAccountGroupStatus - Status of the account group
 // * PENDING_APPROVAL - Account group approval is pending - the account group is visible through our API but cannot be acted on.
 // * ACTIVE - Account group is active - full functionality of the Investment API is accessible.
 // * CLOSING - Account group is closing.
 // * CLOSED - Account group is closed.
 // * LOCKED - Account group is locked for all actions.
-type RetrieveAccountGroupAccountGroupStatus string
+type RetrieveAccountGroupStatus string
 
 const (
-	RetrieveAccountGroupAccountGroupStatusPendingApproval RetrieveAccountGroupAccountGroupStatus = "PENDING_APPROVAL"
-	RetrieveAccountGroupAccountGroupStatusActive          RetrieveAccountGroupAccountGroupStatus = "ACTIVE"
-	RetrieveAccountGroupAccountGroupStatusClosing         RetrieveAccountGroupAccountGroupStatus = "CLOSING"
-	RetrieveAccountGroupAccountGroupStatusClosed          RetrieveAccountGroupAccountGroupStatus = "CLOSED"
-	RetrieveAccountGroupAccountGroupStatusLocked          RetrieveAccountGroupAccountGroupStatus = "LOCKED"
+	RetrieveAccountGroupStatusPendingApproval RetrieveAccountGroupStatus = "PENDING_APPROVAL"
+	RetrieveAccountGroupStatusActive          RetrieveAccountGroupStatus = "ACTIVE"
+	RetrieveAccountGroupStatusClosing         RetrieveAccountGroupStatus = "CLOSING"
+	RetrieveAccountGroupStatusClosed          RetrieveAccountGroupStatus = "CLOSED"
+	RetrieveAccountGroupStatusLocked          RetrieveAccountGroupStatus = "LOCKED"
 )
 
-func (e RetrieveAccountGroupAccountGroupStatus) ToPointer() *RetrieveAccountGroupAccountGroupStatus {
+func (e RetrieveAccountGroupStatus) ToPointer() *RetrieveAccountGroupStatus {
 	return &e
 }
 
-func (e *RetrieveAccountGroupAccountGroupStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountGroupStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -104,28 +104,28 @@ func (e *RetrieveAccountGroupAccountGroupStatus) UnmarshalJSON(data []byte) erro
 	case "CLOSED":
 		fallthrough
 	case "LOCKED":
-		*e = RetrieveAccountGroupAccountGroupStatus(v)
+		*e = RetrieveAccountGroupStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountGroupAccountGroupStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountGroupStatus: %v", v)
 	}
 }
 
-// RetrieveAccountGroupAccountGroupType - Account group type.
+// RetrieveAccountGroupType - Account group type.
 // * PERSONAL - Account group of a person holding assets on their own behalf.
 // * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-type RetrieveAccountGroupAccountGroupType string
+type RetrieveAccountGroupType string
 
 const (
-	RetrieveAccountGroupAccountGroupTypePersonal    RetrieveAccountGroupAccountGroupType = "PERSONAL"
-	RetrieveAccountGroupAccountGroupTypeLegalEntity RetrieveAccountGroupAccountGroupType = "LEGAL_ENTITY"
+	RetrieveAccountGroupTypePersonal    RetrieveAccountGroupType = "PERSONAL"
+	RetrieveAccountGroupTypeLegalEntity RetrieveAccountGroupType = "LEGAL_ENTITY"
 )
 
-func (e RetrieveAccountGroupAccountGroupType) ToPointer() *RetrieveAccountGroupAccountGroupType {
+func (e RetrieveAccountGroupType) ToPointer() *RetrieveAccountGroupType {
 	return &e
 }
 
-func (e *RetrieveAccountGroupAccountGroupType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountGroupType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -134,66 +134,66 @@ func (e *RetrieveAccountGroupAccountGroupType) UnmarshalJSON(data []byte) error 
 	case "PERSONAL":
 		fallthrough
 	case "LEGAL_ENTITY":
-		*e = RetrieveAccountGroupAccountGroupType(v)
+		*e = RetrieveAccountGroupType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountGroupAccountGroupType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountGroupType: %v", v)
 	}
 }
 
-// RetrieveAccountGroupAccountGroupUsersType - Relation type
+// RetrieveAccountGroupAccountsType - Relation type
 // * OWNER -
-type RetrieveAccountGroupAccountGroupUsersType string
+type RetrieveAccountGroupAccountsType string
 
 const (
-	RetrieveAccountGroupAccountGroupUsersTypeOwner RetrieveAccountGroupAccountGroupUsersType = "OWNER"
+	RetrieveAccountGroupAccountsTypeOwner RetrieveAccountGroupAccountsType = "OWNER"
 )
 
-func (e RetrieveAccountGroupAccountGroupUsersType) ToPointer() *RetrieveAccountGroupAccountGroupUsersType {
+func (e RetrieveAccountGroupAccountsType) ToPointer() *RetrieveAccountGroupAccountsType {
 	return &e
 }
 
-func (e *RetrieveAccountGroupAccountGroupUsersType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountGroupAccountsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "OWNER":
-		*e = RetrieveAccountGroupAccountGroupUsersType(v)
+		*e = RetrieveAccountGroupAccountsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountGroupAccountGroupUsersType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountGroupAccountsType: %v", v)
 	}
 }
 
-type RetrieveAccountGroupAccountGroupUsers struct {
+type RetrieveAccountGroupUsers struct {
 	// User unique identifier.
 	ID *string `json:"id,omitempty"`
 	// Relation type
 	// * OWNER -
-	Type *RetrieveAccountGroupAccountGroupUsersType `default:"OWNER" json:"type"`
+	Type *RetrieveAccountGroupAccountsType `default:"OWNER" json:"type"`
 }
 
-func (r RetrieveAccountGroupAccountGroupUsers) MarshalJSON() ([]byte, error) {
+func (r RetrieveAccountGroupUsers) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveAccountGroupAccountGroupUsers) UnmarshalJSON(data []byte) error {
+func (r *RetrieveAccountGroupUsers) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveAccountGroupAccountGroupUsers) GetID() *string {
+func (o *RetrieveAccountGroupUsers) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *RetrieveAccountGroupAccountGroupUsers) GetType() *RetrieveAccountGroupAccountGroupUsersType {
+func (o *RetrieveAccountGroupUsers) GetType() *RetrieveAccountGroupAccountsType {
 	if o == nil {
 		return nil
 	}
@@ -214,14 +214,14 @@ type RetrieveAccountGroupAccountGroup struct {
 	// * CLOSING - Account group is closing.
 	// * CLOSED - Account group is closed.
 	// * LOCKED - Account group is locked for all actions.
-	Status RetrieveAccountGroupAccountGroupStatus `json:"status"`
+	Status RetrieveAccountGroupStatus `json:"status"`
 	// Account group type.
 	// * PERSONAL - Account group of a person holding assets on their own behalf.
 	// * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-	Type RetrieveAccountGroupAccountGroupType `json:"type"`
+	Type RetrieveAccountGroupType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	UpdatedAt time.Time                               `json:"updated_at"`
-	Users     []RetrieveAccountGroupAccountGroupUsers `json:"users"`
+	UpdatedAt time.Time                   `json:"updated_at"`
+	Users     []RetrieveAccountGroupUsers `json:"users"`
 }
 
 func (r RetrieveAccountGroupAccountGroup) MarshalJSON() ([]byte, error) {
@@ -256,16 +256,16 @@ func (o *RetrieveAccountGroupAccountGroup) GetSecuritiesAccountNumber() string {
 	return o.SecuritiesAccountNumber
 }
 
-func (o *RetrieveAccountGroupAccountGroup) GetStatus() RetrieveAccountGroupAccountGroupStatus {
+func (o *RetrieveAccountGroupAccountGroup) GetStatus() RetrieveAccountGroupStatus {
 	if o == nil {
-		return RetrieveAccountGroupAccountGroupStatus("")
+		return RetrieveAccountGroupStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveAccountGroupAccountGroup) GetType() RetrieveAccountGroupAccountGroupType {
+func (o *RetrieveAccountGroupAccountGroup) GetType() RetrieveAccountGroupType {
 	if o == nil {
-		return RetrieveAccountGroupAccountGroupType("")
+		return RetrieveAccountGroupType("")
 	}
 	return o.Type
 }
@@ -277,16 +277,16 @@ func (o *RetrieveAccountGroupAccountGroup) GetUpdatedAt() time.Time {
 	return o.UpdatedAt
 }
 
-func (o *RetrieveAccountGroupAccountGroup) GetUsers() []RetrieveAccountGroupAccountGroupUsers {
+func (o *RetrieveAccountGroupAccountGroup) GetUsers() []RetrieveAccountGroupUsers {
 	if o == nil {
-		return []RetrieveAccountGroupAccountGroupUsers{}
+		return []RetrieveAccountGroupUsers{}
 	}
 	return o.Users
 }
 
 type RetrieveAccountGroupResponse struct {
 	// OK
-	AccountGroup *RetrieveAccountGroupAccountGroup
+	TwoHundredApplicationJSONAccountGroup *RetrieveAccountGroupAccountGroup
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -296,11 +296,11 @@ type RetrieveAccountGroupResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *RetrieveAccountGroupResponse) GetAccountGroup() *RetrieveAccountGroupAccountGroup {
+func (o *RetrieveAccountGroupResponse) GetTwoHundredApplicationJSONAccountGroup() *RetrieveAccountGroupAccountGroup {
 	if o == nil {
 		return nil
 	}
-	return o.AccountGroup
+	return o.TwoHundredApplicationJSONAccountGroup
 }
 
 func (o *RetrieveAccountGroupResponse) GetContentType() string {

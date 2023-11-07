@@ -1,5 +1,5 @@
 # Reports
-(*Reports*)
+(*.Reports*)
 
 ## Overview
 
@@ -44,7 +44,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.ReportsListResponse != nil {
+    if res.TwoHundredApplicationJSONReportsListResponse != nil {
         // handle response
     }
 }
@@ -97,7 +97,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Report != nil {
+    if res.TwoHundredApplicationJSONReport != nil {
         // handle response
     }
 }

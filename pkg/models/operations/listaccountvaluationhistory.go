@@ -12,19 +12,19 @@ import (
 	"time"
 )
 
-// ListAccountValuationHistoryOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListAccountValuationHistoryOrder string
+// ListAccountValuationHistoryQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListAccountValuationHistoryQueryParamOrder string
 
 const (
-	ListAccountValuationHistoryOrderAsc  ListAccountValuationHistoryOrder = "ASC"
-	ListAccountValuationHistoryOrderDesc ListAccountValuationHistoryOrder = "DESC"
+	ListAccountValuationHistoryQueryParamOrderAsc  ListAccountValuationHistoryQueryParamOrder = "ASC"
+	ListAccountValuationHistoryQueryParamOrderDesc ListAccountValuationHistoryQueryParamOrder = "DESC"
 )
 
-func (e ListAccountValuationHistoryOrder) ToPointer() *ListAccountValuationHistoryOrder {
+func (e ListAccountValuationHistoryQueryParamOrder) ToPointer() *ListAccountValuationHistoryQueryParamOrder {
 	return &e
 }
 
-func (e *ListAccountValuationHistoryOrder) UnmarshalJSON(data []byte) error {
+func (e *ListAccountValuationHistoryQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -33,35 +33,35 @@ func (e *ListAccountValuationHistoryOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListAccountValuationHistoryOrder(v)
+		*e = ListAccountValuationHistoryQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountValuationHistoryOrder: %v", v)
+		return fmt.Errorf("invalid value for ListAccountValuationHistoryQueryParamOrder: %v", v)
 	}
 }
 
-// ListAccountValuationHistorySort - Sort the result by `valuation_time`.
-type ListAccountValuationHistorySort string
+// ListAccountValuationHistoryQueryParamSort - Sort the result by `valuation_time`.
+type ListAccountValuationHistoryQueryParamSort string
 
 const (
-	ListAccountValuationHistorySortValuationTime ListAccountValuationHistorySort = "valuation_time"
+	ListAccountValuationHistoryQueryParamSortValuationTime ListAccountValuationHistoryQueryParamSort = "valuation_time"
 )
 
-func (e ListAccountValuationHistorySort) ToPointer() *ListAccountValuationHistorySort {
+func (e ListAccountValuationHistoryQueryParamSort) ToPointer() *ListAccountValuationHistoryQueryParamSort {
 	return &e
 }
 
-func (e *ListAccountValuationHistorySort) UnmarshalJSON(data []byte) error {
+func (e *ListAccountValuationHistoryQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "valuation_time":
-		*e = ListAccountValuationHistorySort(v)
+		*e = ListAccountValuationHistoryQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountValuationHistorySort: %v", v)
+		return fmt.Errorf("invalid value for ListAccountValuationHistoryQueryParamSort: %v", v)
 	}
 }
 
@@ -73,14 +73,14 @@ type ListAccountValuationHistoryRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListAccountValuationHistoryOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListAccountValuationHistoryQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `valuation_time`.
-	Sort      *ListAccountValuationHistorySort `default:"valuation_time" queryParam:"style=form,explode=true,name=sort"`
-	StartDate *types.Date                      `queryParam:"style=form,explode=true,name=start_date"`
+	Sort      *ListAccountValuationHistoryQueryParamSort `default:"valuation_time" queryParam:"style=form,explode=true,name=sort"`
+	StartDate *types.Date                                `queryParam:"style=form,explode=true,name=start_date"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -126,7 +126,7 @@ func (o *ListAccountValuationHistoryRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListAccountValuationHistoryRequest) GetOrder() *ListAccountValuationHistoryOrder {
+func (o *ListAccountValuationHistoryRequest) GetOrder() *ListAccountValuationHistoryQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -147,7 +147,7 @@ func (o *ListAccountValuationHistoryRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListAccountValuationHistoryRequest) GetSort() *ListAccountValuationHistorySort {
+func (o *ListAccountValuationHistoryRequest) GetSort() *ListAccountValuationHistoryQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -175,218 +175,218 @@ func (o *ListAccountValuationHistoryRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality - Price quality used for the calculation of the account valuation.
+// ListAccountValuationHistoryPriceQuality - Price quality used for the calculation of the account valuation.
 // * EOD - end of day price
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality string
+type ListAccountValuationHistoryPriceQuality string
 
 const (
-	ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQualityEod ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality = "EOD"
+	ListAccountValuationHistoryPriceQualityEod ListAccountValuationHistoryPriceQuality = "EOD"
 )
 
-func (e ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality) ToPointer() *ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality {
+func (e ListAccountValuationHistoryPriceQuality) ToPointer() *ListAccountValuationHistoryPriceQuality {
 	return &e
 }
 
-func (e *ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality) UnmarshalJSON(data []byte) error {
+func (e *ListAccountValuationHistoryPriceQuality) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EOD":
-		*e = ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality(v)
+		*e = ListAccountValuationHistoryPriceQuality(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality: %v", v)
+		return fmt.Errorf("invalid value for ListAccountValuationHistoryPriceQuality: %v", v)
 	}
 }
 
-// ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionInstrument - Entity representing the financial instrument.
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionInstrument struct {
+// ListAccountValuationHistoryInstrument - Entity representing the financial instrument.
+type ListAccountValuationHistoryInstrument struct {
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	Isin *string `json:"isin,omitempty"`
 	// String representing the instrument internal identifier.
 	UUID string `json:"uuid"`
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionInstrument) GetIsin() *string {
+func (o *ListAccountValuationHistoryInstrument) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionInstrument) GetUUID() string {
+func (o *ListAccountValuationHistoryInstrument) GetUUID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UUID
 }
 
-// ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListAccountValuationHistoryValuationsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency string
+type ListAccountValuationHistoryValuationsCurrency string
 
 const (
-	ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrencyEur ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency = "EUR"
+	ListAccountValuationHistoryValuationsCurrencyEur ListAccountValuationHistoryValuationsCurrency = "EUR"
 )
 
-func (e ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency) ToPointer() *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency {
+func (e ListAccountValuationHistoryValuationsCurrency) ToPointer() *ListAccountValuationHistoryValuationsCurrency {
 	return &e
 }
 
-func (e *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListAccountValuationHistoryValuationsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency(v)
+		*e = ListAccountValuationHistoryValuationsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListAccountValuationHistoryValuationsCurrency: %v", v)
 	}
 }
 
-// ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue - Entity representing the monetary value by amount and currency, and the time of the price used.
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue struct {
+// ListAccountValuationHistorySecurityPositionValue - Entity representing the monetary value by amount and currency, and the time of the price used.
+type ListAccountValuationHistorySecurityPositionValue struct {
 	Amount string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency `default:"EUR" json:"currency"`
+	Currency *ListAccountValuationHistoryValuationsCurrency `default:"EUR" json:"currency"`
 	// The date and time of the price used for the calculation. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	PriceTime time.Time `json:"price_time"`
 }
 
-func (l ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue) MarshalJSON() ([]byte, error) {
+func (l ListAccountValuationHistorySecurityPositionValue) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue) UnmarshalJSON(data []byte) error {
+func (l *ListAccountValuationHistorySecurityPositionValue) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue) GetAmount() string {
+func (o *ListAccountValuationHistorySecurityPositionValue) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue) GetCurrency() *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency {
+func (o *ListAccountValuationHistorySecurityPositionValue) GetCurrency() *ListAccountValuationHistoryValuationsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue) GetPriceTime() time.Time {
+func (o *ListAccountValuationHistorySecurityPositionValue) GetPriceTime() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.PriceTime
 }
 
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPosition struct {
+type ListAccountValuationHistoryAccountValuationSecurityPosition struct {
 	// Entity representing the financial instrument.
-	Instrument ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionInstrument             `json:"instrument"`
-	Quantity   string                                                                                                                        `json:"quantity"`
-	Value      *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue `json:"value"`
-	Weight     *string                                                                                                                       `json:"weight"`
+	Instrument ListAccountValuationHistoryInstrument             `json:"instrument"`
+	Quantity   string                                            `json:"quantity"`
+	Value      *ListAccountValuationHistorySecurityPositionValue `json:"value"`
+	Weight     *string                                           `json:"weight"`
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPosition) GetInstrument() ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionInstrument {
+func (o *ListAccountValuationHistoryAccountValuationSecurityPosition) GetInstrument() ListAccountValuationHistoryInstrument {
 	if o == nil {
-		return ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionInstrument{}
+		return ListAccountValuationHistoryInstrument{}
 	}
 	return o.Instrument
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPosition) GetQuantity() string {
+func (o *ListAccountValuationHistoryAccountValuationSecurityPosition) GetQuantity() string {
 	if o == nil {
 		return ""
 	}
 	return o.Quantity
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPosition) GetValue() *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPositionSecurityPositionValue {
+func (o *ListAccountValuationHistoryAccountValuationSecurityPosition) GetValue() *ListAccountValuationHistorySecurityPositionValue {
 	if o == nil {
 		return nil
 	}
 	return o.Value
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPosition) GetWeight() *string {
+func (o *ListAccountValuationHistoryAccountValuationSecurityPosition) GetWeight() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Weight
 }
 
-// ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListAccountValuationHistoryCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency string
+type ListAccountValuationHistoryCurrency string
 
 const (
-	ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrencyEur ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency = "EUR"
+	ListAccountValuationHistoryCurrencyEur ListAccountValuationHistoryCurrency = "EUR"
 )
 
-func (e ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency) ToPointer() *ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency {
+func (e ListAccountValuationHistoryCurrency) ToPointer() *ListAccountValuationHistoryCurrency {
 	return &e
 }
 
-func (e *ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListAccountValuationHistoryCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency(v)
+		*e = ListAccountValuationHistoryCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListAccountValuationHistoryCurrency: %v", v)
 	}
 }
 
-// ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue - Entity representing the monetary value by amount and currency.
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue struct {
+// ListAccountValuationHistoryTotalSecurityValue - Entity representing the monetary value by amount and currency.
+type ListAccountValuationHistoryTotalSecurityValue struct {
 	Amount string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency `default:"EUR" json:"currency"`
+	Currency *ListAccountValuationHistoryCurrency `default:"EUR" json:"currency"`
 }
 
-func (l ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue) MarshalJSON() ([]byte, error) {
+func (l ListAccountValuationHistoryTotalSecurityValue) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue) UnmarshalJSON(data []byte) error {
+func (l *ListAccountValuationHistoryTotalSecurityValue) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue) GetAmount() string {
+func (o *ListAccountValuationHistoryTotalSecurityValue) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue) GetCurrency() *ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValueCurrency {
+func (o *ListAccountValuationHistoryTotalSecurityValue) GetCurrency() *ListAccountValuationHistoryCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-type ListAccountValuationHistoryAccountValuationListResponseAccountValuation struct {
+type AccountValuation struct {
 	// Account unique identifier.
 	AccountID string `json:"account_id"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
@@ -395,99 +395,99 @@ type ListAccountValuationHistoryAccountValuationListResponseAccountValuation str
 	ID string `json:"id"`
 	// Price quality used for the calculation of the account valuation.
 	// * EOD - end of day price
-	PriceQuality *ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality `default:"EOD" json:"price_quality"`
+	PriceQuality *ListAccountValuationHistoryPriceQuality `default:"EOD" json:"price_quality"`
 	// Positions associated with this account valuation.
-	SecurityPositions []ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPosition `json:"security_positions,omitempty"`
+	SecurityPositions []ListAccountValuationHistoryAccountValuationSecurityPosition `json:"security_positions,omitempty"`
 	// Entity representing the monetary value by amount and currency.
-	TotalSecurityValue ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue `json:"total_security_value"`
+	TotalSecurityValue ListAccountValuationHistoryTotalSecurityValue `json:"total_security_value"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// Date and time as of which the value was calculated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ValuationTime time.Time `json:"valuation_time"`
 }
 
-func (l ListAccountValuationHistoryAccountValuationListResponseAccountValuation) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (a AccountValuation) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
 }
 
-func (l *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (a *AccountValuation) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetAccountID() string {
+func (o *AccountValuation) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetCreatedAt() time.Time {
+func (o *AccountValuation) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetID() string {
+func (o *AccountValuation) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetPriceQuality() *ListAccountValuationHistoryAccountValuationListResponseAccountValuationPriceQuality {
+func (o *AccountValuation) GetPriceQuality() *ListAccountValuationHistoryPriceQuality {
 	if o == nil {
 		return nil
 	}
 	return o.PriceQuality
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetSecurityPositions() []ListAccountValuationHistoryAccountValuationListResponseAccountValuationAccountValuationSecurityPosition {
+func (o *AccountValuation) GetSecurityPositions() []ListAccountValuationHistoryAccountValuationSecurityPosition {
 	if o == nil {
 		return nil
 	}
 	return o.SecurityPositions
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetTotalSecurityValue() ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue {
+func (o *AccountValuation) GetTotalSecurityValue() ListAccountValuationHistoryTotalSecurityValue {
 	if o == nil {
-		return ListAccountValuationHistoryAccountValuationListResponseAccountValuationTotalSecurityValue{}
+		return ListAccountValuationHistoryTotalSecurityValue{}
 	}
 	return o.TotalSecurityValue
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetUpdatedAt() time.Time {
+func (o *AccountValuation) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseAccountValuation) GetValuationTime() time.Time {
+func (o *AccountValuation) GetValuationTime() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ValuationTime
 }
 
-// ListAccountValuationHistoryAccountValuationListResponseMetaOrder - The ordering of the response.
+// ListAccountValuationHistoryOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListAccountValuationHistoryAccountValuationListResponseMetaOrder string
+type ListAccountValuationHistoryOrder string
 
 const (
-	ListAccountValuationHistoryAccountValuationListResponseMetaOrderAsc  ListAccountValuationHistoryAccountValuationListResponseMetaOrder = "ASC"
-	ListAccountValuationHistoryAccountValuationListResponseMetaOrderDesc ListAccountValuationHistoryAccountValuationListResponseMetaOrder = "DESC"
+	ListAccountValuationHistoryOrderAsc  ListAccountValuationHistoryOrder = "ASC"
+	ListAccountValuationHistoryOrderDesc ListAccountValuationHistoryOrder = "DESC"
 )
 
-func (e ListAccountValuationHistoryAccountValuationListResponseMetaOrder) ToPointer() *ListAccountValuationHistoryAccountValuationListResponseMetaOrder {
+func (e ListAccountValuationHistoryOrder) ToPointer() *ListAccountValuationHistoryOrder {
 	return &e
 }
 
-func (e *ListAccountValuationHistoryAccountValuationListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListAccountValuationHistoryOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -496,14 +496,14 @@ func (e *ListAccountValuationHistoryAccountValuationListResponseMetaOrder) Unmar
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListAccountValuationHistoryAccountValuationListResponseMetaOrder(v)
+		*e = ListAccountValuationHistoryOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountValuationHistoryAccountValuationListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListAccountValuationHistoryOrder: %v", v)
 	}
 }
 
-type ListAccountValuationHistoryAccountValuationListResponseMeta struct {
+type ListAccountValuationHistoryMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -513,49 +513,49 @@ type ListAccountValuationHistoryAccountValuationListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListAccountValuationHistoryAccountValuationListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListAccountValuationHistoryOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseMeta) GetCount() int64 {
+func (o *ListAccountValuationHistoryMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseMeta) GetLimit() int64 {
+func (o *ListAccountValuationHistoryMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseMeta) GetOffset() int64 {
+func (o *ListAccountValuationHistoryMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseMeta) GetOrder() *ListAccountValuationHistoryAccountValuationListResponseMetaOrder {
+func (o *ListAccountValuationHistoryMeta) GetOrder() *ListAccountValuationHistoryOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseMeta) GetSort() *string {
+func (o *ListAccountValuationHistoryMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponseMeta) GetTotalCount() int64 {
+func (o *ListAccountValuationHistoryMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -564,27 +564,27 @@ func (o *ListAccountValuationHistoryAccountValuationListResponseMeta) GetTotalCo
 
 // ListAccountValuationHistoryAccountValuationListResponse - Valuations
 type ListAccountValuationHistoryAccountValuationListResponse struct {
-	Data []ListAccountValuationHistoryAccountValuationListResponseAccountValuation `json:"data"`
-	Meta ListAccountValuationHistoryAccountValuationListResponseMeta               `json:"meta"`
+	Data []AccountValuation              `json:"data"`
+	Meta ListAccountValuationHistoryMeta `json:"meta"`
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponse) GetData() []ListAccountValuationHistoryAccountValuationListResponseAccountValuation {
+func (o *ListAccountValuationHistoryAccountValuationListResponse) GetData() []AccountValuation {
 	if o == nil {
-		return []ListAccountValuationHistoryAccountValuationListResponseAccountValuation{}
+		return []AccountValuation{}
 	}
 	return o.Data
 }
 
-func (o *ListAccountValuationHistoryAccountValuationListResponse) GetMeta() ListAccountValuationHistoryAccountValuationListResponseMeta {
+func (o *ListAccountValuationHistoryAccountValuationListResponse) GetMeta() ListAccountValuationHistoryMeta {
 	if o == nil {
-		return ListAccountValuationHistoryAccountValuationListResponseMeta{}
+		return ListAccountValuationHistoryMeta{}
 	}
 	return o.Meta
 }
 
 type ListAccountValuationHistoryResponse struct {
 	// Valuations
-	AccountValuationListResponse *ListAccountValuationHistoryAccountValuationListResponse
+	TwoHundredApplicationJSONAccountValuationListResponse *ListAccountValuationHistoryAccountValuationListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -594,11 +594,11 @@ type ListAccountValuationHistoryResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListAccountValuationHistoryResponse) GetAccountValuationListResponse() *ListAccountValuationHistoryAccountValuationListResponse {
+func (o *ListAccountValuationHistoryResponse) GetTwoHundredApplicationJSONAccountValuationListResponse() *ListAccountValuationHistoryAccountValuationListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.AccountValuationListResponse
+	return o.TwoHundredApplicationJSONAccountValuationListResponse
 }
 
 func (o *ListAccountValuationHistoryResponse) GetContentType() string {

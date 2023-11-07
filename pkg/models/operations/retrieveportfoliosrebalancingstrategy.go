@@ -69,21 +69,21 @@ func (o *RetrievePortfoliosRebalancingStrategyRequest) GetUpvestClientID() strin
 	return o.UpvestClientID
 }
 
-// RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType - The type of the strategy used in the request.
+// RetrievePortfoliosRebalancingStrategyType - The type of the strategy used in the request.
 // * DRIFT - Trigger by drift percentage
 // * SCHEDULED - Trigger by scheduled date
-type RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType string
+type RetrievePortfoliosRebalancingStrategyType string
 
 const (
-	RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsTypeDrift     RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType = "DRIFT"
-	RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsTypeScheduled RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType = "SCHEDULED"
+	RetrievePortfoliosRebalancingStrategyTypeDrift     RetrievePortfoliosRebalancingStrategyType = "DRIFT"
+	RetrievePortfoliosRebalancingStrategyTypeScheduled RetrievePortfoliosRebalancingStrategyType = "SCHEDULED"
 )
 
-func (e RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType) ToPointer() *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType {
+func (e RetrievePortfoliosRebalancingStrategyType) ToPointer() *RetrievePortfoliosRebalancingStrategyType {
 	return &e
 }
 
-func (e *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType) UnmarshalJSON(data []byte) error {
+func (e *RetrievePortfoliosRebalancingStrategyType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -92,14 +92,14 @@ func (e *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyCondi
 	case "DRIFT":
 		fallthrough
 	case "SCHEDULED":
-		*e = RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType(v)
+		*e = RetrievePortfoliosRebalancingStrategyType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType: %v", v)
+		return fmt.Errorf("invalid value for RetrievePortfoliosRebalancingStrategyType: %v", v)
 	}
 }
 
-type RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions struct {
+type RetrievePortfoliosRebalancingStrategyConditions struct {
 	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
@@ -108,37 +108,37 @@ type RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyCondition
 	// The type of the strategy used in the request.
 	// * DRIFT - Trigger by drift percentage
 	// * SCHEDULED - Trigger by scheduled date
-	Type RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType `json:"type"`
+	Type RetrievePortfoliosRebalancingStrategyType `json:"type"`
 }
 
-func (r RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) MarshalJSON() ([]byte, error) {
+func (r RetrievePortfoliosRebalancingStrategyConditions) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) UnmarshalJSON(data []byte) error {
+func (r *RetrievePortfoliosRebalancingStrategyConditions) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) GetAdditionalProperties() map[string]interface{} {
+func (o *RetrievePortfoliosRebalancingStrategyConditions) GetAdditionalProperties() map[string]interface{} {
 	if o == nil {
 		return nil
 	}
 	return o.AdditionalProperties
 }
 
-func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) GetName() string {
+func (o *RetrievePortfoliosRebalancingStrategyConditions) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) GetType() RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType {
+func (o *RetrievePortfoliosRebalancingStrategyConditions) GetType() RetrievePortfoliosRebalancingStrategyType {
 	if o == nil {
-		return RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType("")
+		return RetrievePortfoliosRebalancingStrategyType("")
 	}
 	return o.Type
 }
@@ -146,7 +146,7 @@ func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyCondi
 // RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy - Portfolios
 type RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy struct {
 	// List of conditions
-	Conditions []RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions `json:"conditions"`
+	Conditions []RetrievePortfoliosRebalancingStrategyConditions `json:"conditions"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	ID        string    `json:"id"`
@@ -167,9 +167,9 @@ func (r *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) Unm
 	return nil
 }
 
-func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) GetConditions() []RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions {
+func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) GetConditions() []RetrievePortfoliosRebalancingStrategyConditions {
 	if o == nil {
-		return []RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions{}
+		return []RetrievePortfoliosRebalancingStrategyConditions{}
 	}
 	return o.Conditions
 }
@@ -203,15 +203,22 @@ func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) Get
 }
 
 type RetrievePortfoliosRebalancingStrategyResponse struct {
+	// Portfolios
+	TwoHundredApplicationJSONPortfoliosRebalancingStrategy *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios
-	PortfoliosRebalancingStrategy *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *RetrievePortfoliosRebalancingStrategyResponse) GetTwoHundredApplicationJSONPortfoliosRebalancingStrategy() *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosRebalancingStrategy
 }
 
 func (o *RetrievePortfoliosRebalancingStrategyResponse) GetContentType() string {
@@ -226,13 +233,6 @@ func (o *RetrievePortfoliosRebalancingStrategyResponse) GetHeaders() map[string]
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *RetrievePortfoliosRebalancingStrategyResponse) GetPortfoliosRebalancingStrategy() *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosRebalancingStrategy
 }
 
 func (o *RetrievePortfoliosRebalancingStrategyResponse) GetStatusCode() int {

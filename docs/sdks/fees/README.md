@@ -1,5 +1,5 @@
 # Fees
-(*Fees*)
+(*.Fees*)
 
 ## Overview
 
@@ -41,7 +41,7 @@ func main() {
             CollectionAmount: "string",
             PeriodEnd: types.MustDateFromString("2022-12-20"),
             PeriodStart: types.MustDateFromString("2022-02-15"),
-            Type: operations.CreateFeeCollectionFeeCollectionCreateRequestTypeServiceFee,
+            Type: operations.CreateFeeCollectionTypeServiceFee,
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
@@ -53,7 +53,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.FeeCollection != nil {
+    if res.TwoHundredApplicationJSONFeeCollection != nil {
         // handle response
     }
 }
@@ -107,7 +107,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.FeeCollectionListResponse != nil {
+    if res.TwoHundredApplicationJSONFeeCollectionListResponse != nil {
         // handle response
     }
 }
@@ -160,7 +160,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.FeeCollection != nil {
+    if res.TwoHundredApplicationJSONFeeCollection != nil {
         // handle response
     }
 }

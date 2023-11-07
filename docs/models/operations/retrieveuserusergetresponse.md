@@ -5,15 +5,15 @@ OK
 
 ## Supported Types
 
-### RetrieveUserUserGetResponseUserBYOL
+### RetrieveUserUserBYOL
 
 ```go
-retrieveUserUserGetResponse := operations.CreateRetrieveUserUserGetResponseRetrieveUserUserGetResponseUserBYOL(operations.RetrieveUserUserGetResponseUserBYOL{/* values here */})
+retrieveUserUserGetResponse := operations.CreateRetrieveUserUserGetResponseRetrieveUserUserBYOL(operations.RetrieveUserUserBYOL{/* values here */})
 ```
 
-### RetrieveUserUserGetResponseUserTOL
+### RetrieveUserUserTOL
 
 ```go
-retrieveUserUserGetResponse := operations.CreateRetrieveUserUserGetResponseRetrieveUserUserGetResponseUserTOL(operations.RetrieveUserUserGetResponseUserTOL{/* values here */})
+retrieveUserUserGetResponse := operations.CreateRetrieveUserUserGetResponseRetrieveUserUserTOL(operations.RetrieveUserUserTOL{/* values here */})
 ```
 

@@ -67,7 +67,7 @@ func (o *ListUserIdentifiersRequest) GetUserID() string {
 	return o.UserID
 }
 
-type ListUserIdentifiersIdentifiersListResponseIdentifier struct {
+type Identifier struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Unique identifier for the user's national ID.
@@ -87,67 +87,67 @@ type ListUserIdentifiersIdentifiersListResponseIdentifier struct {
 	UserID string `json:"user_id"`
 }
 
-func (l ListUserIdentifiersIdentifiersListResponseIdentifier) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (i Identifier) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(i, "", false)
 }
 
-func (l *ListUserIdentifiersIdentifiersListResponseIdentifier) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (i *Identifier) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &i, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetCreatedAt() time.Time {
+func (o *Identifier) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetID() string {
+func (o *Identifier) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetIdentifier() string {
+func (o *Identifier) GetIdentifier() string {
 	if o == nil {
 		return ""
 	}
 	return o.Identifier
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetIdentifierStandard() string {
+func (o *Identifier) GetIdentifierStandard() string {
 	if o == nil {
 		return ""
 	}
 	return o.IdentifierStandard
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetIssuingCountry() string {
+func (o *Identifier) GetIssuingCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.IssuingCountry
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetType() *string {
+func (o *Identifier) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetUpdatedAt() time.Time {
+func (o *Identifier) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetUserID() string {
+func (o *Identifier) GetUserID() string {
 	if o == nil {
 		return ""
 	}
@@ -156,26 +156,33 @@ func (o *ListUserIdentifiersIdentifiersListResponseIdentifier) GetUserID() strin
 
 // ListUserIdentifiersIdentifiersListResponse - OK
 type ListUserIdentifiersIdentifiersListResponse struct {
-	Data []ListUserIdentifiersIdentifiersListResponseIdentifier `json:"data"`
+	Data []Identifier `json:"data"`
 }
 
-func (o *ListUserIdentifiersIdentifiersListResponse) GetData() []ListUserIdentifiersIdentifiersListResponseIdentifier {
+func (o *ListUserIdentifiersIdentifiersListResponse) GetData() []Identifier {
 	if o == nil {
-		return []ListUserIdentifiersIdentifiersListResponseIdentifier{}
+		return []Identifier{}
 	}
 	return o.Data
 }
 
 type ListUserIdentifiersResponse struct {
+	// OK
+	TwoHundredApplicationJSONIdentifiersListResponse *ListUserIdentifiersIdentifiersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// OK
-	IdentifiersListResponse *ListUserIdentifiersIdentifiersListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListUserIdentifiersResponse) GetTwoHundredApplicationJSONIdentifiersListResponse() *ListUserIdentifiersIdentifiersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONIdentifiersListResponse
 }
 
 func (o *ListUserIdentifiersResponse) GetContentType() string {
@@ -190,13 +197,6 @@ func (o *ListUserIdentifiersResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListUserIdentifiersResponse) GetIdentifiersListResponse() *ListUserIdentifiersIdentifiersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.IdentifiersListResponse
 }
 
 func (o *ListUserIdentifiersResponse) GetStatusCode() int {

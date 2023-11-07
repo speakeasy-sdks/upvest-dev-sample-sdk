@@ -13,28 +13,28 @@ import (
 	"time"
 )
 
-// ListUsersSort - Sort the result by `created_at`.
-type ListUsersSort string
+// ListUsersQueryParamSort - Sort the result by `created_at`.
+type ListUsersQueryParamSort string
 
 const (
-	ListUsersSortCreatedAt ListUsersSort = "created_at"
+	ListUsersQueryParamSortCreatedAt ListUsersQueryParamSort = "created_at"
 )
 
-func (e ListUsersSort) ToPointer() *ListUsersSort {
+func (e ListUsersQueryParamSort) ToPointer() *ListUsersQueryParamSort {
 	return &e
 }
 
-func (e *ListUsersSort) UnmarshalJSON(data []byte) error {
+func (e *ListUsersQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "created_at":
-		*e = ListUsersSort(v)
+		*e = ListUsersQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUsersSort: %v", v)
+		return fmt.Errorf("invalid value for ListUsersQueryParamSort: %v", v)
 	}
 }
 
@@ -50,7 +50,7 @@ type ListUsersRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `created_at`.
-	Sort *ListUsersSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListUsersQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -103,7 +103,7 @@ func (o *ListUsersRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListUsersRequest) GetSort() *ListUsersSort {
+func (o *ListUsersRequest) GetSort() *ListUsersQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -124,12 +124,12 @@ func (o *ListUsersRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListUsersUsersListResponseData2 - All items on list responses must be objects.
-type ListUsersUsersListResponseData2 struct {
+// Two - All items on list responses must be objects.
+type Two struct {
 }
 
-// ListUsersUsersListResponseDataUserBYOLAddress - Address. Must not be a P.O. box or c/o address.
-type ListUsersUsersListResponseDataUserBYOLAddress struct {
+// ListUsersAddress - Address. Must not be a P.O. box or c/o address.
+type ListUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -143,50 +143,50 @@ type ListUsersUsersListResponseDataUserBYOLAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLAddress) GetAddressLine1() string {
+func (o *ListUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLAddress) GetAddressLine2() *string {
+func (o *ListUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLAddress) GetCity() string {
+func (o *ListUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLAddress) GetCountry() string {
+func (o *ListUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLAddress) GetPostcode() string {
+func (o *ListUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLAddress) GetState() *string {
+func (o *ListUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// ListUsersUsersListResponseDataUserBYOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type ListUsersUsersListResponseDataUserBYOLPostalAddressAddress struct {
+// ListUsersUsersAddress - Address. Must not be a P.O. box or c/o address.
+type ListUsersUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -200,110 +200,110 @@ type ListUsersUsersListResponseDataUserBYOLPostalAddressAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetAddressLine1() string {
+func (o *ListUsersUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetAddressLine2() *string {
+func (o *ListUsersUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetCity() string {
+func (o *ListUsersUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetCountry() string {
+func (o *ListUsersUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetPostcode() string {
+func (o *ListUsersUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) GetState() *string {
+func (o *ListUsersUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type ListUsersUsersListResponseDataUserBYOLPostalAddressType string
+type ListUsersPostalAddressType string
 
 const (
-	ListUsersUsersListResponseDataUserBYOLPostalAddressTypeListUsersUsersListResponseDataUserBYOLPostalAddressAddress ListUsersUsersListResponseDataUserBYOLPostalAddressType = "list_users_Users - List - Response_data_User (BYOL)_postal_address_Address"
+	ListUsersPostalAddressTypeListUsersUsersAddress ListUsersPostalAddressType = "list_users_Users_Address"
 )
 
-type ListUsersUsersListResponseDataUserBYOLPostalAddress struct {
-	ListUsersUsersListResponseDataUserBYOLPostalAddressAddress *ListUsersUsersListResponseDataUserBYOLPostalAddressAddress
+type ListUsersPostalAddress struct {
+	ListUsersUsersAddress *ListUsersUsersAddress
 
-	Type ListUsersUsersListResponseDataUserBYOLPostalAddressType
+	Type ListUsersPostalAddressType
 }
 
-func CreateListUsersUsersListResponseDataUserBYOLPostalAddressListUsersUsersListResponseDataUserBYOLPostalAddressAddress(listUsersUsersListResponseDataUserBYOLPostalAddressAddress ListUsersUsersListResponseDataUserBYOLPostalAddressAddress) ListUsersUsersListResponseDataUserBYOLPostalAddress {
-	typ := ListUsersUsersListResponseDataUserBYOLPostalAddressTypeListUsersUsersListResponseDataUserBYOLPostalAddressAddress
+func CreateListUsersPostalAddressListUsersUsersAddress(listUsersUsersAddress ListUsersUsersAddress) ListUsersPostalAddress {
+	typ := ListUsersPostalAddressTypeListUsersUsersAddress
 
-	return ListUsersUsersListResponseDataUserBYOLPostalAddress{
-		ListUsersUsersListResponseDataUserBYOLPostalAddressAddress: &listUsersUsersListResponseDataUserBYOLPostalAddressAddress,
-		Type: typ,
+	return ListUsersPostalAddress{
+		ListUsersUsersAddress: &listUsersUsersAddress,
+		Type:                  typ,
 	}
 }
 
-func (u *ListUsersUsersListResponseDataUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *ListUsersPostalAddress) UnmarshalJSON(data []byte) error {
 
-	listUsersUsersListResponseDataUserBYOLPostalAddressAddress := ListUsersUsersListResponseDataUserBYOLPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &listUsersUsersListResponseDataUserBYOLPostalAddressAddress, "", true, true); err == nil {
-		u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress = &listUsersUsersListResponseDataUserBYOLPostalAddressAddress
-		u.Type = ListUsersUsersListResponseDataUserBYOLPostalAddressTypeListUsersUsersListResponseDataUserBYOLPostalAddressAddress
+	listUsersUsersAddress := ListUsersUsersAddress{}
+	if err := utils.UnmarshalJSON(data, &listUsersUsersAddress, "", true, true); err == nil {
+		u.ListUsersUsersAddress = &listUsersUsersAddress
+		u.Type = ListUsersPostalAddressTypeListUsersUsersAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u ListUsersUsersListResponseDataUserBYOLPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.ListUsersUsersListResponseDataUserBYOLPostalAddressAddress, "", true)
+func (u ListUsersPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.ListUsersUsersAddress != nil {
+		return utils.MarshalJSON(u.ListUsersUsersAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// ListUsersUsersListResponseDataUserBYOLSalutation - Salutation of the user used in reports and statements.
+// ListUsersSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type ListUsersUsersListResponseDataUserBYOLSalutation string
+type ListUsersSalutation string
 
 const (
-	ListUsersUsersListResponseDataUserBYOLSalutationUnknown                 ListUsersUsersListResponseDataUserBYOLSalutation = ""
-	ListUsersUsersListResponseDataUserBYOLSalutationSalutationMale          ListUsersUsersListResponseDataUserBYOLSalutation = "SALUTATION_MALE"
-	ListUsersUsersListResponseDataUserBYOLSalutationSalutationFemale        ListUsersUsersListResponseDataUserBYOLSalutation = "SALUTATION_FEMALE"
-	ListUsersUsersListResponseDataUserBYOLSalutationSalutationFemaleMarried ListUsersUsersListResponseDataUserBYOLSalutation = "SALUTATION_FEMALE_MARRIED"
-	ListUsersUsersListResponseDataUserBYOLSalutationSalutationDiverse       ListUsersUsersListResponseDataUserBYOLSalutation = "SALUTATION_DIVERSE"
+	ListUsersSalutationUnknown                 ListUsersSalutation = ""
+	ListUsersSalutationSalutationMale          ListUsersSalutation = "SALUTATION_MALE"
+	ListUsersSalutationSalutationFemale        ListUsersSalutation = "SALUTATION_FEMALE"
+	ListUsersSalutationSalutationFemaleMarried ListUsersSalutation = "SALUTATION_FEMALE_MARRIED"
+	ListUsersSalutationSalutationDiverse       ListUsersSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e ListUsersUsersListResponseDataUserBYOLSalutation) ToPointer() *ListUsersUsersListResponseDataUserBYOLSalutation {
+func (e ListUsersSalutation) ToPointer() *ListUsersSalutation {
 	return &e
 }
 
-func (e *ListUsersUsersListResponseDataUserBYOLSalutation) UnmarshalJSON(data []byte) error {
+func (e *ListUsersSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -318,32 +318,32 @@ func (e *ListUsersUsersListResponseDataUserBYOLSalutation) UnmarshalJSON(data []
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = ListUsersUsersListResponseDataUserBYOLSalutation(v)
+		*e = ListUsersSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUsersUsersListResponseDataUserBYOLSalutation: %v", v)
+		return fmt.Errorf("invalid value for ListUsersSalutation: %v", v)
 	}
 }
 
-// ListUsersUsersListResponseDataUserBYOLStatus - Status of the user.
+// ListUsersStatus - Status of the user.
 // * ACTIVE -
 // * INACTIVE -
 // * OFFBOARDING -
 // * OFFBOARDED -
-type ListUsersUsersListResponseDataUserBYOLStatus string
+type ListUsersStatus string
 
 const (
-	ListUsersUsersListResponseDataUserBYOLStatusActive      ListUsersUsersListResponseDataUserBYOLStatus = "ACTIVE"
-	ListUsersUsersListResponseDataUserBYOLStatusInactive    ListUsersUsersListResponseDataUserBYOLStatus = "INACTIVE"
-	ListUsersUsersListResponseDataUserBYOLStatusOffboarding ListUsersUsersListResponseDataUserBYOLStatus = "OFFBOARDING"
-	ListUsersUsersListResponseDataUserBYOLStatusOffboarded  ListUsersUsersListResponseDataUserBYOLStatus = "OFFBOARDED"
+	ListUsersStatusActive      ListUsersStatus = "ACTIVE"
+	ListUsersStatusInactive    ListUsersStatus = "INACTIVE"
+	ListUsersStatusOffboarding ListUsersStatus = "OFFBOARDING"
+	ListUsersStatusOffboarded  ListUsersStatus = "OFFBOARDED"
 )
 
-func (e ListUsersUsersListResponseDataUserBYOLStatus) ToPointer() *ListUsersUsersListResponseDataUserBYOLStatus {
+func (e ListUsersStatus) ToPointer() *ListUsersStatus {
 	return &e
 }
 
-func (e *ListUsersUsersListResponseDataUserBYOLStatus) UnmarshalJSON(data []byte) error {
+func (e *ListUsersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -356,36 +356,36 @@ func (e *ListUsersUsersListResponseDataUserBYOLStatus) UnmarshalJSON(data []byte
 	case "OFFBOARDING":
 		fallthrough
 	case "OFFBOARDED":
-		*e = ListUsersUsersListResponseDataUserBYOLStatus(v)
+		*e = ListUsersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUsersUsersListResponseDataUserBYOLStatus: %v", v)
+		return fmt.Errorf("invalid value for ListUsersStatus: %v", v)
 	}
 }
 
-// ListUsersUsersListResponseDataUserBYOLTitle - Title of the user used in reports and statements.
+// ListUsersTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type ListUsersUsersListResponseDataUserBYOLTitle string
+type ListUsersTitle string
 
 const (
-	ListUsersUsersListResponseDataUserBYOLTitleUnknown  ListUsersUsersListResponseDataUserBYOLTitle = ""
-	ListUsersUsersListResponseDataUserBYOLTitleDr       ListUsersUsersListResponseDataUserBYOLTitle = "DR"
-	ListUsersUsersListResponseDataUserBYOLTitleProf     ListUsersUsersListResponseDataUserBYOLTitle = "PROF"
-	ListUsersUsersListResponseDataUserBYOLTitleProfDr   ListUsersUsersListResponseDataUserBYOLTitle = "PROF_DR"
-	ListUsersUsersListResponseDataUserBYOLTitleDiplIng  ListUsersUsersListResponseDataUserBYOLTitle = "DIPL_ING"
-	ListUsersUsersListResponseDataUserBYOLTitleMagister ListUsersUsersListResponseDataUserBYOLTitle = "MAGISTER"
+	ListUsersTitleUnknown  ListUsersTitle = ""
+	ListUsersTitleDr       ListUsersTitle = "DR"
+	ListUsersTitleProf     ListUsersTitle = "PROF"
+	ListUsersTitleProfDr   ListUsersTitle = "PROF_DR"
+	ListUsersTitleDiplIng  ListUsersTitle = "DIPL_ING"
+	ListUsersTitleMagister ListUsersTitle = "MAGISTER"
 )
 
-func (e ListUsersUsersListResponseDataUserBYOLTitle) ToPointer() *ListUsersUsersListResponseDataUserBYOLTitle {
+func (e ListUsersTitle) ToPointer() *ListUsersTitle {
 	return &e
 }
 
-func (e *ListUsersUsersListResponseDataUserBYOLTitle) UnmarshalJSON(data []byte) error {
+func (e *ListUsersTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -402,17 +402,17 @@ func (e *ListUsersUsersListResponseDataUserBYOLTitle) UnmarshalJSON(data []byte)
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = ListUsersUsersListResponseDataUserBYOLTitle(v)
+		*e = ListUsersTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUsersUsersListResponseDataUserBYOLTitle: %v", v)
+		return fmt.Errorf("invalid value for ListUsersTitle: %v", v)
 	}
 }
 
-type ListUsersUsersListResponseDataUserBYOL struct {
+type ListUsersUserBYOL struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   ListUsersUsersListResponseDataUserBYOLAddress `json:"address"`
-	BirthCity *string                                       `json:"birth_city,omitempty"`
+	Address   ListUsersAddress `json:"address"`
+	BirthCity *string          `json:"birth_city,omitempty"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry *string `json:"birth_country,omitempty"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -430,20 +430,20 @@ type ListUsersUsersListResponseDataUserBYOL struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *ListUsersUsersListResponseDataUserBYOLPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *ListUsersPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *ListUsersUsersListResponseDataUserBYOLSalutation `default:"" json:"salutation"`
+	Salutation *ListUsersSalutation `default:"" json:"salutation"`
 	// Status of the user.
 	// * ACTIVE -
 	// * INACTIVE -
 	// * OFFBOARDING -
 	// * OFFBOARDED -
-	Status ListUsersUsersListResponseDataUserBYOLStatus `json:"status"`
+	Status ListUsersStatus `json:"status"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -451,205 +451,205 @@ type ListUsersUsersListResponseDataUserBYOL struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *ListUsersUsersListResponseDataUserBYOLTitle `default:"" json:"title"`
+	Title *ListUsersTitle `default:"" json:"title"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (l ListUsersUsersListResponseDataUserBYOL) MarshalJSON() ([]byte, error) {
+func (l ListUsersUserBYOL) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUsersUsersListResponseDataUserBYOL) UnmarshalJSON(data []byte) error {
+func (l *ListUsersUserBYOL) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetAddress() ListUsersUsersListResponseDataUserBYOLAddress {
+func (o *ListUsersUserBYOL) GetAddress() ListUsersAddress {
 	if o == nil {
-		return ListUsersUsersListResponseDataUserBYOLAddress{}
+		return ListUsersAddress{}
 	}
 	return o.Address
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetBirthCity() *string {
+func (o *ListUsersUserBYOL) GetBirthCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCity
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetBirthCountry() *string {
+func (o *ListUsersUserBYOL) GetBirthCountry() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCountry
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetBirthDate() types.Date {
+func (o *ListUsersUserBYOL) GetBirthDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.BirthDate
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetBirthName() *string {
+func (o *ListUsersUserBYOL) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetCreatedAt() time.Time {
+func (o *ListUsersUserBYOL) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetFirstName() string {
+func (o *ListUsersUserBYOL) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetID() string {
+func (o *ListUsersUserBYOL) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetLastName() string {
+func (o *ListUsersUserBYOL) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetNationalities() []string {
+func (o *ListUsersUserBYOL) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetPostalAddress() *ListUsersUsersListResponseDataUserBYOLPostalAddress {
+func (o *ListUsersUserBYOL) GetPostalAddress() *ListUsersPostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetSalutation() *ListUsersUsersListResponseDataUserBYOLSalutation {
+func (o *ListUsersUserBYOL) GetSalutation() *ListUsersSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetStatus() ListUsersUsersListResponseDataUserBYOLStatus {
+func (o *ListUsersUserBYOL) GetStatus() ListUsersStatus {
 	if o == nil {
-		return ListUsersUsersListResponseDataUserBYOLStatus("")
+		return ListUsersStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetTitle() *ListUsersUsersListResponseDataUserBYOLTitle {
+func (o *ListUsersUserBYOL) GetTitle() *ListUsersTitle {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-func (o *ListUsersUsersListResponseDataUserBYOL) GetUpdatedAt() time.Time {
+func (o *ListUsersUserBYOL) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-type ListUsersUsersListResponseDataType string
+type ListUsersDataType string
 
 const (
-	ListUsersUsersListResponseDataTypeArrayOflistUsersUsersListResponseDataUserBYOL ListUsersUsersListResponseDataType = "arrayOflist_users_Users - List - Response_data_User (BYOL)"
-	ListUsersUsersListResponseDataTypeArrayOflistUsersUsersListResponseData2        ListUsersUsersListResponseDataType = "arrayOflist_users_Users - List - Response_data_2"
+	ListUsersDataTypeArrayOflistUsersUserBYOL ListUsersDataType = "arrayOflist_users_User (BYOL)"
+	ListUsersDataTypeArrayOf2                 ListUsersDataType = "arrayOf2"
 )
 
-type ListUsersUsersListResponseData struct {
-	ArrayOflistUsersUsersListResponseDataUserBYOL []ListUsersUsersListResponseDataUserBYOL
-	ArrayOflistUsersUsersListResponseData2        []ListUsersUsersListResponseData2
+type ListUsersData struct {
+	ArrayOflistUsersUserBYOL []ListUsersUserBYOL
+	ArrayOf2                 []Two
 
-	Type ListUsersUsersListResponseDataType
+	Type ListUsersDataType
 }
 
-func CreateListUsersUsersListResponseDataArrayOflistUsersUsersListResponseDataUserBYOL(arrayOflistUsersUsersListResponseDataUserBYOL []ListUsersUsersListResponseDataUserBYOL) ListUsersUsersListResponseData {
-	typ := ListUsersUsersListResponseDataTypeArrayOflistUsersUsersListResponseDataUserBYOL
+func CreateListUsersDataArrayOflistUsersUserBYOL(arrayOflistUsersUserBYOL []ListUsersUserBYOL) ListUsersData {
+	typ := ListUsersDataTypeArrayOflistUsersUserBYOL
 
-	return ListUsersUsersListResponseData{
-		ArrayOflistUsersUsersListResponseDataUserBYOL: arrayOflistUsersUsersListResponseDataUserBYOL,
-		Type: typ,
+	return ListUsersData{
+		ArrayOflistUsersUserBYOL: arrayOflistUsersUserBYOL,
+		Type:                     typ,
 	}
 }
 
-func CreateListUsersUsersListResponseDataArrayOflistUsersUsersListResponseData2(arrayOflistUsersUsersListResponseData2 []ListUsersUsersListResponseData2) ListUsersUsersListResponseData {
-	typ := ListUsersUsersListResponseDataTypeArrayOflistUsersUsersListResponseData2
+func CreateListUsersDataArrayOf2(arrayOf2 []Two) ListUsersData {
+	typ := ListUsersDataTypeArrayOf2
 
-	return ListUsersUsersListResponseData{
-		ArrayOflistUsersUsersListResponseData2: arrayOflistUsersUsersListResponseData2,
-		Type:                                   typ,
+	return ListUsersData{
+		ArrayOf2: arrayOf2,
+		Type:     typ,
 	}
 }
 
-func (u *ListUsersUsersListResponseData) UnmarshalJSON(data []byte) error {
+func (u *ListUsersData) UnmarshalJSON(data []byte) error {
 
-	arrayOflistUsersUsersListResponseDataUserBYOL := []ListUsersUsersListResponseDataUserBYOL{}
-	if err := utils.UnmarshalJSON(data, &arrayOflistUsersUsersListResponseDataUserBYOL, "", true, true); err == nil {
-		u.ArrayOflistUsersUsersListResponseDataUserBYOL = arrayOflistUsersUsersListResponseDataUserBYOL
-		u.Type = ListUsersUsersListResponseDataTypeArrayOflistUsersUsersListResponseDataUserBYOL
+	arrayOflistUsersUserBYOL := []ListUsersUserBYOL{}
+	if err := utils.UnmarshalJSON(data, &arrayOflistUsersUserBYOL, "", true, true); err == nil {
+		u.ArrayOflistUsersUserBYOL = arrayOflistUsersUserBYOL
+		u.Type = ListUsersDataTypeArrayOflistUsersUserBYOL
 		return nil
 	}
 
-	arrayOflistUsersUsersListResponseData2 := []ListUsersUsersListResponseData2{}
-	if err := utils.UnmarshalJSON(data, &arrayOflistUsersUsersListResponseData2, "", true, true); err == nil {
-		u.ArrayOflistUsersUsersListResponseData2 = arrayOflistUsersUsersListResponseData2
-		u.Type = ListUsersUsersListResponseDataTypeArrayOflistUsersUsersListResponseData2
+	arrayOf2 := []Two{}
+	if err := utils.UnmarshalJSON(data, &arrayOf2, "", true, true); err == nil {
+		u.ArrayOf2 = arrayOf2
+		u.Type = ListUsersDataTypeArrayOf2
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u ListUsersUsersListResponseData) MarshalJSON() ([]byte, error) {
-	if u.ArrayOflistUsersUsersListResponseDataUserBYOL != nil {
-		return utils.MarshalJSON(u.ArrayOflistUsersUsersListResponseDataUserBYOL, "", true)
+func (u ListUsersData) MarshalJSON() ([]byte, error) {
+	if u.ArrayOflistUsersUserBYOL != nil {
+		return utils.MarshalJSON(u.ArrayOflistUsersUserBYOL, "", true)
 	}
 
-	if u.ArrayOflistUsersUsersListResponseData2 != nil {
-		return utils.MarshalJSON(u.ArrayOflistUsersUsersListResponseData2, "", true)
+	if u.ArrayOf2 != nil {
+		return utils.MarshalJSON(u.ArrayOf2, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// ListUsersUsersListResponseMetaOrder - The ordering of the response.
+// ListUsersOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListUsersUsersListResponseMetaOrder string
+type ListUsersOrder string
 
 const (
-	ListUsersUsersListResponseMetaOrderAsc  ListUsersUsersListResponseMetaOrder = "ASC"
-	ListUsersUsersListResponseMetaOrderDesc ListUsersUsersListResponseMetaOrder = "DESC"
+	ListUsersOrderAsc  ListUsersOrder = "ASC"
+	ListUsersOrderDesc ListUsersOrder = "DESC"
 )
 
-func (e ListUsersUsersListResponseMetaOrder) ToPointer() *ListUsersUsersListResponseMetaOrder {
+func (e ListUsersOrder) ToPointer() *ListUsersOrder {
 	return &e
 }
 
-func (e *ListUsersUsersListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListUsersOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -658,14 +658,14 @@ func (e *ListUsersUsersListResponseMetaOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListUsersUsersListResponseMetaOrder(v)
+		*e = ListUsersOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUsersUsersListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListUsersOrder: %v", v)
 	}
 }
 
-type ListUsersUsersListResponseMeta struct {
+type ListUsersMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -675,49 +675,49 @@ type ListUsersUsersListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListUsersUsersListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListUsersOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListUsersUsersListResponseMeta) GetCount() int64 {
+func (o *ListUsersMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListUsersUsersListResponseMeta) GetLimit() int64 {
+func (o *ListUsersMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListUsersUsersListResponseMeta) GetOffset() int64 {
+func (o *ListUsersMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListUsersUsersListResponseMeta) GetOrder() *ListUsersUsersListResponseMetaOrder {
+func (o *ListUsersMeta) GetOrder() *ListUsersOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListUsersUsersListResponseMeta) GetSort() *string {
+func (o *ListUsersMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListUsersUsersListResponseMeta) GetTotalCount() int64 {
+func (o *ListUsersMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -726,25 +726,27 @@ func (o *ListUsersUsersListResponseMeta) GetTotalCount() int64 {
 
 // ListUsersUsersListResponse - OK
 type ListUsersUsersListResponse struct {
-	Data ListUsersUsersListResponseData `json:"data"`
-	Meta ListUsersUsersListResponseMeta `json:"meta"`
+	Data ListUsersData `json:"data"`
+	Meta ListUsersMeta `json:"meta"`
 }
 
-func (o *ListUsersUsersListResponse) GetData() ListUsersUsersListResponseData {
+func (o *ListUsersUsersListResponse) GetData() ListUsersData {
 	if o == nil {
-		return ListUsersUsersListResponseData{}
+		return ListUsersData{}
 	}
 	return o.Data
 }
 
-func (o *ListUsersUsersListResponse) GetMeta() ListUsersUsersListResponseMeta {
+func (o *ListUsersUsersListResponse) GetMeta() ListUsersMeta {
 	if o == nil {
-		return ListUsersUsersListResponseMeta{}
+		return ListUsersMeta{}
 	}
 	return o.Meta
 }
 
 type ListUsersResponse struct {
+	// OK
+	TwoHundredApplicationJSONUsersListResponse *ListUsersUsersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -752,8 +754,13 @@ type ListUsersResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// OK
-	UsersListResponse *ListUsersUsersListResponse
+}
+
+func (o *ListUsersResponse) GetTwoHundredApplicationJSONUsersListResponse() *ListUsersUsersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONUsersListResponse
 }
 
 func (o *ListUsersResponse) GetContentType() string {
@@ -782,11 +789,4 @@ func (o *ListUsersResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *ListUsersResponse) GetUsersListResponse() *ListUsersUsersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.UsersListResponse
 }

@@ -11,21 +11,21 @@ import (
 	"time"
 )
 
-// UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType - The type of the ID used in the request.
+// UpdatePortfoliosAllocationInstrumentIDType - The type of the ID used in the request.
 // * ISIN - International Securities Identification Number
 // * UPVEST - UPVEST's unique instrument identifier
-type UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType string
+type UpdatePortfoliosAllocationInstrumentIDType string
 
 const (
-	UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDTypeIsin   UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType = "ISIN"
-	UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDTypeUpvest UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType = "UPVEST"
+	UpdatePortfoliosAllocationInstrumentIDTypeIsin   UpdatePortfoliosAllocationInstrumentIDType = "ISIN"
+	UpdatePortfoliosAllocationInstrumentIDTypeUpvest UpdatePortfoliosAllocationInstrumentIDType = "UPVEST"
 )
 
-func (e UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType) ToPointer() *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType {
+func (e UpdatePortfoliosAllocationInstrumentIDType) ToPointer() *UpdatePortfoliosAllocationInstrumentIDType {
 	return &e
 }
 
-func (e *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *UpdatePortfoliosAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,49 +34,49 @@ func (e *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationIn
 	case "ISIN":
 		fallthrough
 	case "UPVEST":
-		*e = UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType(v)
+		*e = UpdatePortfoliosAllocationInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for UpdatePortfoliosAllocationInstrumentIDType: %v", v)
 	}
 }
 
-type UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation struct {
+type UpdatePortfoliosAllocationAllocation struct {
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
 	// * UPVEST - UPVEST's unique instrument identifier
-	InstrumentIDType *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	InstrumentIDType *UpdatePortfoliosAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
 	// Instrument allocation weight
 	Weight string `json:"weight"`
 }
 
-func (u UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation) MarshalJSON() ([]byte, error) {
+func (u UpdatePortfoliosAllocationAllocation) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(u, "", false)
 }
 
-func (u *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation) UnmarshalJSON(data []byte) error {
+func (u *UpdatePortfoliosAllocationAllocation) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation) GetInstrumentID() string {
+func (o *UpdatePortfoliosAllocationAllocation) GetInstrumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.InstrumentID
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation) GetInstrumentIDType() *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocationInstrumentIDType {
+func (o *UpdatePortfoliosAllocationAllocation) GetInstrumentIDType() *UpdatePortfoliosAllocationInstrumentIDType {
 	if o == nil {
 		return nil
 	}
 	return o.InstrumentIDType
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation) GetWeight() string {
+func (o *UpdatePortfoliosAllocationAllocation) GetWeight() string {
 	if o == nil {
 		return ""
 	}
@@ -85,14 +85,14 @@ func (o *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation) 
 
 type UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequest struct {
 	// List of portfolios allocations
-	Allocation []UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation `json:"allocation"`
+	Allocation []UpdatePortfoliosAllocationAllocation `json:"allocation"`
 	// Allocation name
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequest) GetAllocation() []UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation {
+func (o *UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequest) GetAllocation() []UpdatePortfoliosAllocationAllocation {
 	if o == nil {
-		return []UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation{}
+		return []UpdatePortfoliosAllocationAllocation{}
 	}
 	return o.Allocation
 }
@@ -170,21 +170,21 @@ func (o *UpdatePortfoliosAllocationRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType - The type of the ID used in the request.
+// UpdatePortfoliosAllocationPortfoliosInstrumentIDType - The type of the ID used in the request.
 // * ISIN - International Securities Identification Number
 // * UPVEST - UPVEST's unique instrument identifier
-type UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType string
+type UpdatePortfoliosAllocationPortfoliosInstrumentIDType string
 
 const (
-	UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTypeIsin   UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType = "ISIN"
-	UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTypeUpvest UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType = "UPVEST"
+	UpdatePortfoliosAllocationPortfoliosInstrumentIDTypeIsin   UpdatePortfoliosAllocationPortfoliosInstrumentIDType = "ISIN"
+	UpdatePortfoliosAllocationPortfoliosInstrumentIDTypeUpvest UpdatePortfoliosAllocationPortfoliosInstrumentIDType = "UPVEST"
 )
 
-func (e UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType) ToPointer() *UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType {
+func (e UpdatePortfoliosAllocationPortfoliosInstrumentIDType) ToPointer() *UpdatePortfoliosAllocationPortfoliosInstrumentIDType {
 	return &e
 }
 
-func (e *UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *UpdatePortfoliosAllocationPortfoliosInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -193,49 +193,49 @@ func (e *UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTyp
 	case "ISIN":
 		fallthrough
 	case "UPVEST":
-		*e = UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType(v)
+		*e = UpdatePortfoliosAllocationPortfoliosInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for UpdatePortfoliosAllocationPortfoliosInstrumentIDType: %v", v)
 	}
 }
 
-type UpdatePortfoliosAllocationPortfoliosAllocationAllocation struct {
+type UpdatePortfoliosAllocationPortfoliosResponseAllocation struct {
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
 	// * UPVEST - UPVEST's unique instrument identifier
-	InstrumentIDType *UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	InstrumentIDType *UpdatePortfoliosAllocationPortfoliosInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
 	// Instrument allocation weight
 	Weight string `json:"weight"`
 }
 
-func (u UpdatePortfoliosAllocationPortfoliosAllocationAllocation) MarshalJSON() ([]byte, error) {
+func (u UpdatePortfoliosAllocationPortfoliosResponseAllocation) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(u, "", false)
 }
 
-func (u *UpdatePortfoliosAllocationPortfoliosAllocationAllocation) UnmarshalJSON(data []byte) error {
+func (u *UpdatePortfoliosAllocationPortfoliosResponseAllocation) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocationAllocation) GetInstrumentID() string {
+func (o *UpdatePortfoliosAllocationPortfoliosResponseAllocation) GetInstrumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.InstrumentID
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocationAllocation) GetInstrumentIDType() *UpdatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType {
+func (o *UpdatePortfoliosAllocationPortfoliosResponseAllocation) GetInstrumentIDType() *UpdatePortfoliosAllocationPortfoliosInstrumentIDType {
 	if o == nil {
 		return nil
 	}
 	return o.InstrumentIDType
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocationAllocation) GetWeight() string {
+func (o *UpdatePortfoliosAllocationPortfoliosResponseAllocation) GetWeight() string {
 	if o == nil {
 		return ""
 	}
@@ -245,7 +245,7 @@ func (o *UpdatePortfoliosAllocationPortfoliosAllocationAllocation) GetWeight() s
 // UpdatePortfoliosAllocationPortfoliosAllocation - Portfolios allocation
 type UpdatePortfoliosAllocationPortfoliosAllocation struct {
 	// List of portfolios allocations
-	Allocation []UpdatePortfoliosAllocationPortfoliosAllocationAllocation `json:"allocation"`
+	Allocation []UpdatePortfoliosAllocationPortfoliosResponseAllocation `json:"allocation"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	ID        string    `json:"id"`
@@ -266,9 +266,9 @@ func (u *UpdatePortfoliosAllocationPortfoliosAllocation) UnmarshalJSON(data []by
 	return nil
 }
 
-func (o *UpdatePortfoliosAllocationPortfoliosAllocation) GetAllocation() []UpdatePortfoliosAllocationPortfoliosAllocationAllocation {
+func (o *UpdatePortfoliosAllocationPortfoliosAllocation) GetAllocation() []UpdatePortfoliosAllocationPortfoliosResponseAllocation {
 	if o == nil {
-		return []UpdatePortfoliosAllocationPortfoliosAllocationAllocation{}
+		return []UpdatePortfoliosAllocationPortfoliosResponseAllocation{}
 	}
 	return o.Allocation
 }
@@ -302,15 +302,22 @@ func (o *UpdatePortfoliosAllocationPortfoliosAllocation) GetUpdatedAt() time.Tim
 }
 
 type UpdatePortfoliosAllocationResponse struct {
+	// Portfolios allocation
+	TwoHundredApplicationJSONPortfoliosAllocation *UpdatePortfoliosAllocationPortfoliosAllocation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios allocation
-	PortfoliosAllocation *UpdatePortfoliosAllocationPortfoliosAllocation
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *UpdatePortfoliosAllocationResponse) GetTwoHundredApplicationJSONPortfoliosAllocation() *UpdatePortfoliosAllocationPortfoliosAllocation {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosAllocation
 }
 
 func (o *UpdatePortfoliosAllocationResponse) GetContentType() string {
@@ -325,13 +332,6 @@ func (o *UpdatePortfoliosAllocationResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *UpdatePortfoliosAllocationResponse) GetPortfoliosAllocation() *UpdatePortfoliosAllocationPortfoliosAllocation {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosAllocation
 }
 
 func (o *UpdatePortfoliosAllocationResponse) GetStatusCode() int {

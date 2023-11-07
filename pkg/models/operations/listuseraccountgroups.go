@@ -11,28 +11,28 @@ import (
 	"time"
 )
 
-// ListUserAccountGroupsSort - Sort the result by `created_at`.
-type ListUserAccountGroupsSort string
+// ListUserAccountGroupsQueryParamSort - Sort the result by `created_at`.
+type ListUserAccountGroupsQueryParamSort string
 
 const (
-	ListUserAccountGroupsSortCreatedAt ListUserAccountGroupsSort = "created_at"
+	ListUserAccountGroupsQueryParamSortCreatedAt ListUserAccountGroupsQueryParamSort = "created_at"
 )
 
-func (e ListUserAccountGroupsSort) ToPointer() *ListUserAccountGroupsSort {
+func (e ListUserAccountGroupsQueryParamSort) ToPointer() *ListUserAccountGroupsQueryParamSort {
 	return &e
 }
 
-func (e *ListUserAccountGroupsSort) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountGroupsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "created_at":
-		*e = ListUserAccountGroupsSort(v)
+		*e = ListUserAccountGroupsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountGroupsSort: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountGroupsQueryParamSort: %v", v)
 	}
 }
 
@@ -48,7 +48,7 @@ type ListUserAccountGroupsRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `created_at`.
-	Sort *ListUserAccountGroupsSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListUserAccountGroupsQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -102,7 +102,7 @@ func (o *ListUserAccountGroupsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListUserAccountGroupsRequest) GetSort() *ListUserAccountGroupsSort {
+func (o *ListUserAccountGroupsRequest) GetSort() *ListUserAccountGroupsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -130,27 +130,27 @@ func (o *ListUserAccountGroupsRequest) GetUserID() string {
 	return o.UserID
 }
 
-// ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus - Status of the account group
+// ListUserAccountGroupsStatus - Status of the account group
 // * PENDING_APPROVAL - Account group approval is pending - the account group is visible through our API but cannot be acted on.
 // * ACTIVE - Account group is active - full functionality of the Investment API is accessible.
 // * CLOSING - Account group is closing.
 // * CLOSED - Account group is closed.
 // * LOCKED - Account group is locked for all actions.
-type ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus string
+type ListUserAccountGroupsStatus string
 
 const (
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatusPendingApproval ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus = "PENDING_APPROVAL"
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatusActive          ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus = "ACTIVE"
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatusClosing         ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus = "CLOSING"
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatusClosed          ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus = "CLOSED"
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatusLocked          ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus = "LOCKED"
+	ListUserAccountGroupsStatusPendingApproval ListUserAccountGroupsStatus = "PENDING_APPROVAL"
+	ListUserAccountGroupsStatusActive          ListUserAccountGroupsStatus = "ACTIVE"
+	ListUserAccountGroupsStatusClosing         ListUserAccountGroupsStatus = "CLOSING"
+	ListUserAccountGroupsStatusClosed          ListUserAccountGroupsStatus = "CLOSED"
+	ListUserAccountGroupsStatusLocked          ListUserAccountGroupsStatus = "LOCKED"
 )
 
-func (e ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus) ToPointer() *ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus {
+func (e ListUserAccountGroupsStatus) ToPointer() *ListUserAccountGroupsStatus {
 	return &e
 }
 
-func (e *ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountGroupsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -165,28 +165,28 @@ func (e *ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus) Unmar
 	case "CLOSED":
 		fallthrough
 	case "LOCKED":
-		*e = ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus(v)
+		*e = ListUserAccountGroupsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountGroupsStatus: %v", v)
 	}
 }
 
-// ListUserAccountGroupsAccountGroupsListResponseAccountGroupType - Account group type.
+// ListUserAccountGroupsType - Account group type.
 // * PERSONAL - Account group of a person holding assets on their own behalf.
 // * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-type ListUserAccountGroupsAccountGroupsListResponseAccountGroupType string
+type ListUserAccountGroupsType string
 
 const (
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupTypePersonal    ListUserAccountGroupsAccountGroupsListResponseAccountGroupType = "PERSONAL"
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupTypeLegalEntity ListUserAccountGroupsAccountGroupsListResponseAccountGroupType = "LEGAL_ENTITY"
+	ListUserAccountGroupsTypePersonal    ListUserAccountGroupsType = "PERSONAL"
+	ListUserAccountGroupsTypeLegalEntity ListUserAccountGroupsType = "LEGAL_ENTITY"
 )
 
-func (e ListUserAccountGroupsAccountGroupsListResponseAccountGroupType) ToPointer() *ListUserAccountGroupsAccountGroupsListResponseAccountGroupType {
+func (e ListUserAccountGroupsType) ToPointer() *ListUserAccountGroupsType {
 	return &e
 }
 
-func (e *ListUserAccountGroupsAccountGroupsListResponseAccountGroupType) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountGroupsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -195,73 +195,73 @@ func (e *ListUserAccountGroupsAccountGroupsListResponseAccountGroupType) Unmarsh
 	case "PERSONAL":
 		fallthrough
 	case "LEGAL_ENTITY":
-		*e = ListUserAccountGroupsAccountGroupsListResponseAccountGroupType(v)
+		*e = ListUserAccountGroupsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountGroupsAccountGroupsListResponseAccountGroupType: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountGroupsType: %v", v)
 	}
 }
 
-// ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType - Relation type
+// ListUserAccountGroupsUsersType - Relation type
 // * OWNER -
-type ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType string
+type ListUserAccountGroupsUsersType string
 
 const (
-	ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersTypeOwner ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType = "OWNER"
+	ListUserAccountGroupsUsersTypeOwner ListUserAccountGroupsUsersType = "OWNER"
 )
 
-func (e ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType) ToPointer() *ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType {
+func (e ListUserAccountGroupsUsersType) ToPointer() *ListUserAccountGroupsUsersType {
 	return &e
 }
 
-func (e *ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountGroupsUsersType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "OWNER":
-		*e = ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType(v)
+		*e = ListUserAccountGroupsUsersType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountGroupsUsersType: %v", v)
 	}
 }
 
-type ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers struct {
+type ListUserAccountGroupsUsers struct {
 	// User unique identifier.
 	ID *string `json:"id,omitempty"`
 	// Relation type
 	// * OWNER -
-	Type *ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType `default:"OWNER" json:"type"`
+	Type *ListUserAccountGroupsUsersType `default:"OWNER" json:"type"`
 }
 
-func (l ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers) MarshalJSON() ([]byte, error) {
+func (l ListUserAccountGroupsUsers) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers) UnmarshalJSON(data []byte) error {
+func (l *ListUserAccountGroupsUsers) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers) GetID() *string {
+func (o *ListUserAccountGroupsUsers) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers) GetType() *ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsersType {
+func (o *ListUserAccountGroupsUsers) GetType() *ListUserAccountGroupsUsersType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-type ListUserAccountGroupsAccountGroupsListResponseAccountGroup struct {
+type ListUserAccountGroupsAccountGroup struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Account group unique identifier.
@@ -274,91 +274,91 @@ type ListUserAccountGroupsAccountGroupsListResponseAccountGroup struct {
 	// * CLOSING - Account group is closing.
 	// * CLOSED - Account group is closed.
 	// * LOCKED - Account group is locked for all actions.
-	Status ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus `json:"status"`
+	Status ListUserAccountGroupsStatus `json:"status"`
 	// Account group type.
 	// * PERSONAL - Account group of a person holding assets on their own behalf.
 	// * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-	Type ListUserAccountGroupsAccountGroupsListResponseAccountGroupType `json:"type"`
+	Type ListUserAccountGroupsType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	UpdatedAt time.Time                                                         `json:"updated_at"`
-	Users     []ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers `json:"users"`
+	UpdatedAt time.Time                    `json:"updated_at"`
+	Users     []ListUserAccountGroupsUsers `json:"users"`
 }
 
-func (l ListUserAccountGroupsAccountGroupsListResponseAccountGroup) MarshalJSON() ([]byte, error) {
+func (l ListUserAccountGroupsAccountGroup) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) UnmarshalJSON(data []byte) error {
+func (l *ListUserAccountGroupsAccountGroup) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) GetCreatedAt() time.Time {
+func (o *ListUserAccountGroupsAccountGroup) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) GetID() string {
+func (o *ListUserAccountGroupsAccountGroup) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) GetSecuritiesAccountNumber() string {
+func (o *ListUserAccountGroupsAccountGroup) GetSecuritiesAccountNumber() string {
 	if o == nil {
 		return ""
 	}
 	return o.SecuritiesAccountNumber
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) GetStatus() ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus {
+func (o *ListUserAccountGroupsAccountGroup) GetStatus() ListUserAccountGroupsStatus {
 	if o == nil {
-		return ListUserAccountGroupsAccountGroupsListResponseAccountGroupStatus("")
+		return ListUserAccountGroupsStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) GetType() ListUserAccountGroupsAccountGroupsListResponseAccountGroupType {
+func (o *ListUserAccountGroupsAccountGroup) GetType() ListUserAccountGroupsType {
 	if o == nil {
-		return ListUserAccountGroupsAccountGroupsListResponseAccountGroupType("")
+		return ListUserAccountGroupsType("")
 	}
 	return o.Type
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) GetUpdatedAt() time.Time {
+func (o *ListUserAccountGroupsAccountGroup) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseAccountGroup) GetUsers() []ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers {
+func (o *ListUserAccountGroupsAccountGroup) GetUsers() []ListUserAccountGroupsUsers {
 	if o == nil {
-		return []ListUserAccountGroupsAccountGroupsListResponseAccountGroupUsers{}
+		return []ListUserAccountGroupsUsers{}
 	}
 	return o.Users
 }
 
-// ListUserAccountGroupsAccountGroupsListResponseMetaOrder - The ordering of the response.
+// ListUserAccountGroupsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListUserAccountGroupsAccountGroupsListResponseMetaOrder string
+type ListUserAccountGroupsOrder string
 
 const (
-	ListUserAccountGroupsAccountGroupsListResponseMetaOrderAsc  ListUserAccountGroupsAccountGroupsListResponseMetaOrder = "ASC"
-	ListUserAccountGroupsAccountGroupsListResponseMetaOrderDesc ListUserAccountGroupsAccountGroupsListResponseMetaOrder = "DESC"
+	ListUserAccountGroupsOrderAsc  ListUserAccountGroupsOrder = "ASC"
+	ListUserAccountGroupsOrderDesc ListUserAccountGroupsOrder = "DESC"
 )
 
-func (e ListUserAccountGroupsAccountGroupsListResponseMetaOrder) ToPointer() *ListUserAccountGroupsAccountGroupsListResponseMetaOrder {
+func (e ListUserAccountGroupsOrder) ToPointer() *ListUserAccountGroupsOrder {
 	return &e
 }
 
-func (e *ListUserAccountGroupsAccountGroupsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountGroupsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -367,14 +367,14 @@ func (e *ListUserAccountGroupsAccountGroupsListResponseMetaOrder) UnmarshalJSON(
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListUserAccountGroupsAccountGroupsListResponseMetaOrder(v)
+		*e = ListUserAccountGroupsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountGroupsAccountGroupsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountGroupsOrder: %v", v)
 	}
 }
 
-type ListUserAccountGroupsAccountGroupsListResponseMeta struct {
+type ListUserAccountGroupsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -384,49 +384,49 @@ type ListUserAccountGroupsAccountGroupsListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListUserAccountGroupsAccountGroupsListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListUserAccountGroupsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseMeta) GetCount() int64 {
+func (o *ListUserAccountGroupsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseMeta) GetLimit() int64 {
+func (o *ListUserAccountGroupsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseMeta) GetOffset() int64 {
+func (o *ListUserAccountGroupsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseMeta) GetOrder() *ListUserAccountGroupsAccountGroupsListResponseMetaOrder {
+func (o *ListUserAccountGroupsMeta) GetOrder() *ListUserAccountGroupsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseMeta) GetSort() *string {
+func (o *ListUserAccountGroupsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponseMeta) GetTotalCount() int64 {
+func (o *ListUserAccountGroupsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -435,27 +435,27 @@ func (o *ListUserAccountGroupsAccountGroupsListResponseMeta) GetTotalCount() int
 
 // ListUserAccountGroupsAccountGroupsListResponse - OK
 type ListUserAccountGroupsAccountGroupsListResponse struct {
-	Data []ListUserAccountGroupsAccountGroupsListResponseAccountGroup `json:"data"`
-	Meta ListUserAccountGroupsAccountGroupsListResponseMeta           `json:"meta"`
+	Data []ListUserAccountGroupsAccountGroup `json:"data"`
+	Meta ListUserAccountGroupsMeta           `json:"meta"`
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponse) GetData() []ListUserAccountGroupsAccountGroupsListResponseAccountGroup {
+func (o *ListUserAccountGroupsAccountGroupsListResponse) GetData() []ListUserAccountGroupsAccountGroup {
 	if o == nil {
-		return []ListUserAccountGroupsAccountGroupsListResponseAccountGroup{}
+		return []ListUserAccountGroupsAccountGroup{}
 	}
 	return o.Data
 }
 
-func (o *ListUserAccountGroupsAccountGroupsListResponse) GetMeta() ListUserAccountGroupsAccountGroupsListResponseMeta {
+func (o *ListUserAccountGroupsAccountGroupsListResponse) GetMeta() ListUserAccountGroupsMeta {
 	if o == nil {
-		return ListUserAccountGroupsAccountGroupsListResponseMeta{}
+		return ListUserAccountGroupsMeta{}
 	}
 	return o.Meta
 }
 
 type ListUserAccountGroupsResponse struct {
 	// OK
-	AccountGroupsListResponse *ListUserAccountGroupsAccountGroupsListResponse
+	TwoHundredApplicationJSONAccountGroupsListResponse *ListUserAccountGroupsAccountGroupsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -465,11 +465,11 @@ type ListUserAccountGroupsResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListUserAccountGroupsResponse) GetAccountGroupsListResponse() *ListUserAccountGroupsAccountGroupsListResponse {
+func (o *ListUserAccountGroupsResponse) GetTwoHundredApplicationJSONAccountGroupsListResponse() *ListUserAccountGroupsAccountGroupsListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.AccountGroupsListResponse
+	return o.TwoHundredApplicationJSONAccountGroupsListResponse
 }
 
 func (o *ListUserAccountGroupsResponse) GetContentType() string {

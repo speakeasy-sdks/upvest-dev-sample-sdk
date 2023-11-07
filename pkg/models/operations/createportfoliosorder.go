@@ -11,47 +11,47 @@ import (
 	"time"
 )
 
-// CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreatePortfoliosOrderCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency string
+type CreatePortfoliosOrderCurrency string
 
 const (
-	CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrencyEur CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency = "EUR"
+	CreatePortfoliosOrderCurrencyEur CreatePortfoliosOrderCurrency = "EUR"
 )
 
-func (e CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency) ToPointer() *CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency {
+func (e CreatePortfoliosOrderCurrency) ToPointer() *CreatePortfoliosOrderCurrency {
 	return &e
 }
 
-func (e *CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosOrderCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency(v)
+		*e = CreatePortfoliosOrderCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosOrderCurrency: %v", v)
 	}
 }
 
-// CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide - Side of the portfolio order.
+// CreatePortfoliosOrderSide - Side of the portfolio order.
 // * BUY -
 // * SELL -
-type CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide string
+type CreatePortfoliosOrderSide string
 
 const (
-	CreatePortfoliosOrderPortfoliosOrderPlaceRequestSideBuy  CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide = "BUY"
-	CreatePortfoliosOrderPortfoliosOrderPlaceRequestSideSell CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide = "SELL"
+	CreatePortfoliosOrderSideBuy  CreatePortfoliosOrderSide = "BUY"
+	CreatePortfoliosOrderSideSell CreatePortfoliosOrderSide = "SELL"
 )
 
-func (e CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide) ToPointer() *CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide {
+func (e CreatePortfoliosOrderSide) ToPointer() *CreatePortfoliosOrderSide {
 	return &e
 }
 
-func (e *CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosOrderSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -60,10 +60,10 @@ func (e *CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide) UnmarshalJSON(dat
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide(v)
+		*e = CreatePortfoliosOrderSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosOrderSide: %v", v)
 	}
 }
 
@@ -73,13 +73,13 @@ type CreatePortfoliosOrderPortfoliosOrderPlaceRequest struct {
 	CashAmount string `json:"cash_amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency `default:"EUR" json:"currency"`
+	Currency *CreatePortfoliosOrderCurrency `default:"EUR" json:"currency"`
 	// Cash amount is post-tax value
 	PostTax *bool `default:"false" json:"post_tax"`
 	// Side of the portfolio order.
 	// * BUY -
 	// * SELL -
-	Side CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide `json:"side"`
+	Side CreatePortfoliosOrderSide `json:"side"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
@@ -109,7 +109,7 @@ func (o *CreatePortfoliosOrderPortfoliosOrderPlaceRequest) GetCashAmount() strin
 	return o.CashAmount
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrderPlaceRequest) GetCurrency() *CreatePortfoliosOrderPortfoliosOrderPlaceRequestCurrency {
+func (o *CreatePortfoliosOrderPortfoliosOrderPlaceRequest) GetCurrency() *CreatePortfoliosOrderCurrency {
 	if o == nil {
 		return nil
 	}
@@ -123,9 +123,9 @@ func (o *CreatePortfoliosOrderPortfoliosOrderPlaceRequest) GetPostTax() *bool {
 	return o.PostTax
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrderPlaceRequest) GetSide() CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide {
+func (o *CreatePortfoliosOrderPortfoliosOrderPlaceRequest) GetSide() CreatePortfoliosOrderSide {
 	if o == nil {
-		return CreatePortfoliosOrderPortfoliosOrderPlaceRequestSide("")
+		return CreatePortfoliosOrderSide("")
 	}
 	return o.Side
 }
@@ -206,47 +206,47 @@ func (o *CreatePortfoliosOrderRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreatePortfoliosOrderPortfoliosOrderCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreatePortfoliosOrderPortfoliosCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreatePortfoliosOrderPortfoliosOrderCurrency string
+type CreatePortfoliosOrderPortfoliosCurrency string
 
 const (
-	CreatePortfoliosOrderPortfoliosOrderCurrencyEur CreatePortfoliosOrderPortfoliosOrderCurrency = "EUR"
+	CreatePortfoliosOrderPortfoliosCurrencyEur CreatePortfoliosOrderPortfoliosCurrency = "EUR"
 )
 
-func (e CreatePortfoliosOrderPortfoliosOrderCurrency) ToPointer() *CreatePortfoliosOrderPortfoliosOrderCurrency {
+func (e CreatePortfoliosOrderPortfoliosCurrency) ToPointer() *CreatePortfoliosOrderPortfoliosCurrency {
 	return &e
 }
 
-func (e *CreatePortfoliosOrderPortfoliosOrderCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosOrderPortfoliosCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreatePortfoliosOrderPortfoliosOrderCurrency(v)
+		*e = CreatePortfoliosOrderPortfoliosCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosOrderCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosCurrency: %v", v)
 	}
 }
 
-// CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide - Side of the portfolio order.
+// CreatePortfoliosOrderPortfoliosSide - Side of the portfolio order.
 // * BUY -
 // * SELL -
-type CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide string
+type CreatePortfoliosOrderPortfoliosSide string
 
 const (
-	CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSideBuy  CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide = "BUY"
-	CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSideSell CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide = "SELL"
+	CreatePortfoliosOrderPortfoliosSideBuy  CreatePortfoliosOrderPortfoliosSide = "BUY"
+	CreatePortfoliosOrderPortfoliosSideSell CreatePortfoliosOrderPortfoliosSide = "SELL"
 )
 
-func (e CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide) ToPointer() *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide {
+func (e CreatePortfoliosOrderPortfoliosSide) ToPointer() *CreatePortfoliosOrderPortfoliosSide {
 	return &e
 }
 
-func (e *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosOrderPortfoliosSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -255,32 +255,32 @@ func (e *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide) UnmarshalJSON(
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide(v)
+		*e = CreatePortfoliosOrderPortfoliosSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosSide: %v", v)
 	}
 }
 
-// CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus - The execution status of the order.
+// CreatePortfoliosOrderPortfoliosStatus - The execution status of the order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
-type CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus string
+type CreatePortfoliosOrderPortfoliosStatus string
 
 const (
-	CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatusNew        CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus = "NEW"
-	CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatusProcessing CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus = "PROCESSING"
-	CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatusFilled     CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus = "FILLED"
-	CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatusCancelled  CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus = "CANCELLED"
+	CreatePortfoliosOrderPortfoliosStatusNew        CreatePortfoliosOrderPortfoliosStatus = "NEW"
+	CreatePortfoliosOrderPortfoliosStatusProcessing CreatePortfoliosOrderPortfoliosStatus = "PROCESSING"
+	CreatePortfoliosOrderPortfoliosStatusFilled     CreatePortfoliosOrderPortfoliosStatus = "FILLED"
+	CreatePortfoliosOrderPortfoliosStatusCancelled  CreatePortfoliosOrderPortfoliosStatus = "CANCELLED"
 )
 
-func (e CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus) ToPointer() *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus {
+func (e CreatePortfoliosOrderPortfoliosStatus) ToPointer() *CreatePortfoliosOrderPortfoliosStatus {
 	return &e
 }
 
-func (e *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosOrderPortfoliosStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -293,69 +293,69 @@ func (e *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus) UnmarshalJSO
 	case "FILLED":
 		fallthrough
 	case "CANCELLED":
-		*e = CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus(v)
+		*e = CreatePortfoliosOrderPortfoliosStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosStatus: %v", v)
 	}
 }
 
-type CreatePortfoliosOrderPortfoliosOrderPortfoliosOrder struct {
+type PortfoliosOrder struct {
 	ID string `json:"id"`
 	// Side of the portfolio order.
 	// * BUY -
 	// * SELL -
-	Side CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide `json:"side"`
+	Side CreatePortfoliosOrderPortfoliosSide `json:"side"`
 	// The execution status of the order.
 	// * NEW -
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
-	Status CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus `json:"status"`
+	Status CreatePortfoliosOrderPortfoliosStatus `json:"status"`
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrder) GetID() string {
+func (o *PortfoliosOrder) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrder) GetSide() CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide {
+func (o *PortfoliosOrder) GetSide() CreatePortfoliosOrderPortfoliosSide {
 	if o == nil {
-		return CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderSide("")
+		return CreatePortfoliosOrderPortfoliosSide("")
 	}
 	return o.Side
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrderPortfoliosOrder) GetStatus() CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus {
+func (o *PortfoliosOrder) GetStatus() CreatePortfoliosOrderPortfoliosStatus {
 	if o == nil {
-		return CreatePortfoliosOrderPortfoliosOrderPortfoliosOrderStatus("")
+		return CreatePortfoliosOrderPortfoliosStatus("")
 	}
 	return o.Status
 }
 
-// CreatePortfoliosOrderPortfoliosOrderStatus - Execution status of the Portfolio Order.
+// CreatePortfoliosOrderStatus - Execution status of the Portfolio Order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * SETTLED -
 // * CANCELLED -
-type CreatePortfoliosOrderPortfoliosOrderStatus string
+type CreatePortfoliosOrderStatus string
 
 const (
-	CreatePortfoliosOrderPortfoliosOrderStatusNew        CreatePortfoliosOrderPortfoliosOrderStatus = "NEW"
-	CreatePortfoliosOrderPortfoliosOrderStatusProcessing CreatePortfoliosOrderPortfoliosOrderStatus = "PROCESSING"
-	CreatePortfoliosOrderPortfoliosOrderStatusFilled     CreatePortfoliosOrderPortfoliosOrderStatus = "FILLED"
-	CreatePortfoliosOrderPortfoliosOrderStatusSettled    CreatePortfoliosOrderPortfoliosOrderStatus = "SETTLED"
-	CreatePortfoliosOrderPortfoliosOrderStatusCancelled  CreatePortfoliosOrderPortfoliosOrderStatus = "CANCELLED"
+	CreatePortfoliosOrderStatusNew        CreatePortfoliosOrderStatus = "NEW"
+	CreatePortfoliosOrderStatusProcessing CreatePortfoliosOrderStatus = "PROCESSING"
+	CreatePortfoliosOrderStatusFilled     CreatePortfoliosOrderStatus = "FILLED"
+	CreatePortfoliosOrderStatusSettled    CreatePortfoliosOrderStatus = "SETTLED"
+	CreatePortfoliosOrderStatusCancelled  CreatePortfoliosOrderStatus = "CANCELLED"
 )
 
-func (e CreatePortfoliosOrderPortfoliosOrderStatus) ToPointer() *CreatePortfoliosOrderPortfoliosOrderStatus {
+func (e CreatePortfoliosOrderStatus) ToPointer() *CreatePortfoliosOrderStatus {
 	return &e
 }
 
-func (e *CreatePortfoliosOrderPortfoliosOrderStatus) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosOrderStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -370,30 +370,30 @@ func (e *CreatePortfoliosOrderPortfoliosOrderStatus) UnmarshalJSON(data []byte) 
 	case "SETTLED":
 		fallthrough
 	case "CANCELLED":
-		*e = CreatePortfoliosOrderPortfoliosOrderStatus(v)
+		*e = CreatePortfoliosOrderStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosOrderStatus: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosOrderStatus: %v", v)
 	}
 }
 
-// CreatePortfoliosOrderPortfoliosOrderType - Type of the Portfolio Order.
+// CreatePortfoliosOrderType - Type of the Portfolio Order.
 // * BUY -
 // * SELL -
 // * REBALANCING -
-type CreatePortfoliosOrderPortfoliosOrderType string
+type CreatePortfoliosOrderType string
 
 const (
-	CreatePortfoliosOrderPortfoliosOrderTypeBuy         CreatePortfoliosOrderPortfoliosOrderType = "BUY"
-	CreatePortfoliosOrderPortfoliosOrderTypeSell        CreatePortfoliosOrderPortfoliosOrderType = "SELL"
-	CreatePortfoliosOrderPortfoliosOrderTypeRebalancing CreatePortfoliosOrderPortfoliosOrderType = "REBALANCING"
+	CreatePortfoliosOrderTypeBuy         CreatePortfoliosOrderType = "BUY"
+	CreatePortfoliosOrderTypeSell        CreatePortfoliosOrderType = "SELL"
+	CreatePortfoliosOrderTypeRebalancing CreatePortfoliosOrderType = "REBALANCING"
 )
 
-func (e CreatePortfoliosOrderPortfoliosOrderType) ToPointer() *CreatePortfoliosOrderPortfoliosOrderType {
+func (e CreatePortfoliosOrderType) ToPointer() *CreatePortfoliosOrderType {
 	return &e
 }
 
-func (e *CreatePortfoliosOrderPortfoliosOrderType) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosOrderType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -404,10 +404,10 @@ func (e *CreatePortfoliosOrderPortfoliosOrderType) UnmarshalJSON(data []byte) er
 	case "SELL":
 		fallthrough
 	case "REBALANCING":
-		*e = CreatePortfoliosOrderPortfoliosOrderType(v)
+		*e = CreatePortfoliosOrderType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosOrderPortfoliosOrderType: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosOrderType: %v", v)
 	}
 }
 
@@ -421,10 +421,10 @@ type CreatePortfoliosOrderPortfoliosOrder struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreatePortfoliosOrderPortfoliosOrderCurrency `default:"EUR" json:"currency"`
-	ID       string                                        `json:"id"`
+	Currency *CreatePortfoliosOrderPortfoliosCurrency `default:"EUR" json:"currency"`
+	ID       string                                   `json:"id"`
 	// Orders associated with this portfolio order
-	Orders []CreatePortfoliosOrderPortfoliosOrderPortfoliosOrder `json:"orders"`
+	Orders []PortfoliosOrder `json:"orders"`
 	// Cash amount is post-tax value
 	PostTax *bool `default:"false" json:"post_tax"`
 	// Execution status of the Portfolio Order.
@@ -433,12 +433,12 @@ type CreatePortfoliosOrderPortfoliosOrder struct {
 	// * FILLED -
 	// * SETTLED -
 	// * CANCELLED -
-	Status CreatePortfoliosOrderPortfoliosOrderStatus `json:"status"`
+	Status CreatePortfoliosOrderStatus `json:"status"`
 	// Type of the Portfolio Order.
 	// * BUY -
 	// * SELL -
 	// * REBALANCING -
-	Type *CreatePortfoliosOrderPortfoliosOrderType `json:"type,omitempty"`
+	Type *CreatePortfoliosOrderType `json:"type,omitempty"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// User unique identifier.
@@ -484,7 +484,7 @@ func (o *CreatePortfoliosOrderPortfoliosOrder) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrder) GetCurrency() *CreatePortfoliosOrderPortfoliosOrderCurrency {
+func (o *CreatePortfoliosOrderPortfoliosOrder) GetCurrency() *CreatePortfoliosOrderPortfoliosCurrency {
 	if o == nil {
 		return nil
 	}
@@ -498,9 +498,9 @@ func (o *CreatePortfoliosOrderPortfoliosOrder) GetID() string {
 	return o.ID
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrder) GetOrders() []CreatePortfoliosOrderPortfoliosOrderPortfoliosOrder {
+func (o *CreatePortfoliosOrderPortfoliosOrder) GetOrders() []PortfoliosOrder {
 	if o == nil {
-		return []CreatePortfoliosOrderPortfoliosOrderPortfoliosOrder{}
+		return []PortfoliosOrder{}
 	}
 	return o.Orders
 }
@@ -512,14 +512,14 @@ func (o *CreatePortfoliosOrderPortfoliosOrder) GetPostTax() *bool {
 	return o.PostTax
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrder) GetStatus() CreatePortfoliosOrderPortfoliosOrderStatus {
+func (o *CreatePortfoliosOrderPortfoliosOrder) GetStatus() CreatePortfoliosOrderStatus {
 	if o == nil {
-		return CreatePortfoliosOrderPortfoliosOrderStatus("")
+		return CreatePortfoliosOrderStatus("")
 	}
 	return o.Status
 }
 
-func (o *CreatePortfoliosOrderPortfoliosOrder) GetType() *CreatePortfoliosOrderPortfoliosOrderType {
+func (o *CreatePortfoliosOrderPortfoliosOrder) GetType() *CreatePortfoliosOrderType {
 	if o == nil {
 		return nil
 	}
@@ -541,15 +541,22 @@ func (o *CreatePortfoliosOrderPortfoliosOrder) GetUserID() *string {
 }
 
 type CreatePortfoliosOrderResponse struct {
+	// Portfolios order
+	TwoHundredApplicationJSONPortfoliosOrder *CreatePortfoliosOrderPortfoliosOrder
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios order
-	PortfoliosOrder *CreatePortfoliosOrderPortfoliosOrder
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CreatePortfoliosOrderResponse) GetTwoHundredApplicationJSONPortfoliosOrder() *CreatePortfoliosOrderPortfoliosOrder {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosOrder
 }
 
 func (o *CreatePortfoliosOrderResponse) GetContentType() string {
@@ -564,13 +571,6 @@ func (o *CreatePortfoliosOrderResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *CreatePortfoliosOrderResponse) GetPortfoliosOrder() *CreatePortfoliosOrderPortfoliosOrder {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosOrder
 }
 
 func (o *CreatePortfoliosOrderResponse) GetStatusCode() int {

@@ -1,5 +1,5 @@
 # CashBalances
-(*CashBalances*)
+(*.CashBalances*)
 
 ## Overview
 
@@ -43,7 +43,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.RetrieveCashBalance200ApplicationJSONObject != nil {
+    if res.TwoHundredApplicationJSONObject != nil {
         // handle response
     }
 }

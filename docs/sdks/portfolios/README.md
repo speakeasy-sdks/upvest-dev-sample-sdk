@@ -1,5 +1,5 @@
 # Portfolios
-(*Portfolios*)
+(*.Portfolios*)
 
 ## Overview
 
@@ -105,8 +105,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosAllocation(ctx, operations.CreatePortfoliosAllocationRequest{
         RequestBody: &operations.CreatePortfoliosAllocationPortfoliosAllocationCreateRequest{
-            Allocation: []operations.CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation{
-                operations.CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation{
+            Allocation: []operations.Allocation{
+                operations.Allocation{
                     InstrumentID: "string",
                     Weight: "string",
                 },
@@ -122,7 +122,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosAllocation != nil {
+    if res.TwoHundredApplicationJSONPortfoliosAllocation != nil {
         // handle response
     }
 }
@@ -182,7 +182,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosConfiguration != nil {
+    if res.TwoHundredApplicationJSONPortfoliosConfiguration != nil {
         // handle response
     }
 }
@@ -228,7 +228,7 @@ func main() {
         RequestBody: &operations.CreatePortfoliosOrderPortfoliosOrderPlaceRequest{
             AccountID: "09386917-edc7-47c9-8e4c-97774c688b9c",
             CashAmount: "string",
-            Side: operations.CreatePortfoliosOrderPortfoliosOrderPlaceRequestSideBuy,
+            Side: operations.CreatePortfoliosOrderSideBuy,
             UserID: "72dd2124-1a6c-40cd-8d75-ad07e0d9c0bc",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -241,7 +241,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosOrder != nil {
+    if res.TwoHundredApplicationJSONPortfoliosOrder != nil {
         // handle response
     }
 }
@@ -285,13 +285,13 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosRebalancingStrategy(ctx, operations.CreatePortfoliosRebalancingStrategyRequest{
         RequestBody: &operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequest{
-            Conditions: []operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions{
-                operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions{
+            Conditions: []operations.Conditions{
+                operations.Conditions{
                     AdditionalProperties: map[string]interface{}{
                         "key": "string",
                     },
                     Name: "string",
-                    Type: operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsTypeScheduled,
+                    Type: operations.CreatePortfoliosRebalancingStrategyTypeScheduled,
                 },
             },
             Name: "string",
@@ -306,7 +306,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosRebalancingStrategy != nil {
+    if res.TwoHundredApplicationJSONPortfoliosRebalancingStrategy != nil {
         // handle response
     }
 }
@@ -359,7 +359,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosRebalancingExecutionOrderListResponse != nil {
+    if res.TwoHundredApplicationJSONPortfoliosRebalancingExecutionOrderListResponse != nil {
         // handle response
     }
 }
@@ -412,7 +412,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosAllocationAccountsListResponse != nil {
+    if res.TwoHundredApplicationJSONPortfoliosAllocationAccountsListResponse != nil {
         // handle response
     }
 }
@@ -464,7 +464,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosAllocationsListResponse != nil {
+    if res.TwoHundredApplicationJSONPortfoliosAllocationsListResponse != nil {
         // handle response
     }
 }
@@ -516,7 +516,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosConfigurationsListResponse != nil {
+    if res.TwoHundredApplicationJSONPortfoliosConfigurationsListResponse != nil {
         // handle response
     }
 }
@@ -568,7 +568,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosOrdersListResponse != nil {
+    if res.TwoHundredApplicationJSONPortfoliosOrdersListResponse != nil {
         // handle response
     }
 }
@@ -620,7 +620,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosRebalancingStrategyListResponse != nil {
+    if res.TwoHundredApplicationJSONPortfoliosRebalancingStrategyListResponse != nil {
         // handle response
     }
 }
@@ -673,7 +673,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosAllocation != nil {
+    if res.TwoHundredApplicationJSONPortfoliosAllocation != nil {
         // handle response
     }
 }
@@ -726,7 +726,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosConfiguration != nil {
+    if res.TwoHundredApplicationJSONPortfoliosConfiguration != nil {
         // handle response
     }
 }
@@ -779,7 +779,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosOrder != nil {
+    if res.TwoHundredApplicationJSONPortfoliosOrder != nil {
         // handle response
     }
 }
@@ -832,7 +832,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosRebalancingExecution != nil {
+    if res.TwoHundredApplicationJSONPortfoliosRebalancingExecution != nil {
         // handle response
     }
 }
@@ -885,7 +885,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosRebalancingStrategy != nil {
+    if res.TwoHundredApplicationJSONPortfoliosRebalancingStrategy != nil {
         // handle response
     }
 }
@@ -928,8 +928,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.TriggerPortfolioRebalancing(ctx, operations.TriggerPortfolioRebalancingRequest{
-        RequestBody: operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(
-                operations.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts{
+        RequestBody: operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(
+                operations.Accounts{
                     Accounts: []string{
                         "04eef0b9-9d66-414b-85ad-3037ab127a63",
                     },
@@ -945,7 +945,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TriggerPortfolioRebalancingResponse != nil {
+    if res.TwoHundredApplicationJSONTriggerPortfolioRebalancingResponse != nil {
         // handle response
     }
 }
@@ -989,8 +989,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.UpdatePortfoliosAllocation(ctx, operations.UpdatePortfoliosAllocationRequest{
         RequestBody: &operations.UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequest{
-            Allocation: []operations.UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation{
-                operations.UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequestAllocation{
+            Allocation: []operations.UpdatePortfoliosAllocationAllocation{
+                operations.UpdatePortfoliosAllocationAllocation{
                     InstrumentID: "string",
                     Weight: "string",
                 },
@@ -1006,7 +1006,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosAllocation != nil {
+    if res.TwoHundredApplicationJSONPortfoliosAllocation != nil {
         // handle response
     }
 }
@@ -1065,7 +1065,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosConfiguration != nil {
+    if res.TwoHundredApplicationJSONPortfoliosConfiguration != nil {
         // handle response
     }
 }

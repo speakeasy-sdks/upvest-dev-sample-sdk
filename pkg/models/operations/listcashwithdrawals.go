@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListCashWithdrawalsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListCashWithdrawalsOrder string
+// ListCashWithdrawalsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListCashWithdrawalsQueryParamOrder string
 
 const (
-	ListCashWithdrawalsOrderAsc  ListCashWithdrawalsOrder = "ASC"
-	ListCashWithdrawalsOrderDesc ListCashWithdrawalsOrder = "DESC"
+	ListCashWithdrawalsQueryParamOrderAsc  ListCashWithdrawalsQueryParamOrder = "ASC"
+	ListCashWithdrawalsQueryParamOrderDesc ListCashWithdrawalsQueryParamOrder = "DESC"
 )
 
-func (e ListCashWithdrawalsOrder) ToPointer() *ListCashWithdrawalsOrder {
+func (e ListCashWithdrawalsQueryParamOrder) ToPointer() *ListCashWithdrawalsQueryParamOrder {
 	return &e
 }
 
-func (e *ListCashWithdrawalsOrder) UnmarshalJSON(data []byte) error {
+func (e *ListCashWithdrawalsQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,26 +32,26 @@ func (e *ListCashWithdrawalsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListCashWithdrawalsOrder(v)
+		*e = ListCashWithdrawalsQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashWithdrawalsOrder: %v", v)
+		return fmt.Errorf("invalid value for ListCashWithdrawalsQueryParamOrder: %v", v)
 	}
 }
 
-// ListCashWithdrawalsSort - Field of resource to sort by
-type ListCashWithdrawalsSort string
+// ListCashWithdrawalsQueryParamSort - Field of resource to sort by
+type ListCashWithdrawalsQueryParamSort string
 
 const (
-	ListCashWithdrawalsSortID        ListCashWithdrawalsSort = "id"
-	ListCashWithdrawalsSortCreatedAt ListCashWithdrawalsSort = "created_at"
+	ListCashWithdrawalsQueryParamSortID        ListCashWithdrawalsQueryParamSort = "id"
+	ListCashWithdrawalsQueryParamSortCreatedAt ListCashWithdrawalsQueryParamSort = "created_at"
 )
 
-func (e ListCashWithdrawalsSort) ToPointer() *ListCashWithdrawalsSort {
+func (e ListCashWithdrawalsQueryParamSort) ToPointer() *ListCashWithdrawalsQueryParamSort {
 	return &e
 }
 
-func (e *ListCashWithdrawalsSort) UnmarshalJSON(data []byte) error {
+func (e *ListCashWithdrawalsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -60,10 +60,10 @@ func (e *ListCashWithdrawalsSort) UnmarshalJSON(data []byte) error {
 	case "id":
 		fallthrough
 	case "created_at":
-		*e = ListCashWithdrawalsSort(v)
+		*e = ListCashWithdrawalsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashWithdrawalsSort: %v", v)
+		return fmt.Errorf("invalid value for ListCashWithdrawalsQueryParamSort: %v", v)
 	}
 }
 
@@ -74,13 +74,13 @@ type ListCashWithdrawalsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListCashWithdrawalsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListCashWithdrawalsQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Field of resource to sort by
-	Sort *ListCashWithdrawalsSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListCashWithdrawalsQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -119,7 +119,7 @@ func (o *ListCashWithdrawalsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListCashWithdrawalsRequest) GetOrder() *ListCashWithdrawalsOrder {
+func (o *ListCashWithdrawalsRequest) GetOrder() *ListCashWithdrawalsQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -140,7 +140,7 @@ func (o *ListCashWithdrawalsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListCashWithdrawalsRequest) GetSort() *ListCashWithdrawalsSort {
+func (o *ListCashWithdrawalsRequest) GetSort() *ListCashWithdrawalsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -161,51 +161,51 @@ func (o *ListCashWithdrawalsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListCashWithdrawalsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency string
+type ListCashWithdrawalsCurrency string
 
 const (
-	ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrencyEur ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency = "EUR"
+	ListCashWithdrawalsCurrencyEur ListCashWithdrawalsCurrency = "EUR"
 )
 
-func (e ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency) ToPointer() *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency {
+func (e ListCashWithdrawalsCurrency) ToPointer() *ListCashWithdrawalsCurrency {
 	return &e
 }
 
-func (e *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListCashWithdrawalsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency(v)
+		*e = ListCashWithdrawalsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListCashWithdrawalsCurrency: %v", v)
 	}
 }
 
-// ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus - Status of the withdrawal
+// ListCashWithdrawalsStatus - Status of the withdrawal
 // * NEW - Withdrawal is created but not started processing.
 // * PROCESSING - Withdrawal is in processing.
 // * CONFIRMED - Withdrawal was successfully processed.
 // * CANCELLED - Withdrawal was cancelled.
-type ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus string
+type ListCashWithdrawalsStatus string
 
 const (
-	ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatusNew        ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus = "NEW"
-	ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatusProcessing ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus = "PROCESSING"
-	ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatusConfirmed  ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus = "CONFIRMED"
-	ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatusCancelled  ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus = "CANCELLED"
+	ListCashWithdrawalsStatusNew        ListCashWithdrawalsStatus = "NEW"
+	ListCashWithdrawalsStatusProcessing ListCashWithdrawalsStatus = "PROCESSING"
+	ListCashWithdrawalsStatusConfirmed  ListCashWithdrawalsStatus = "CONFIRMED"
+	ListCashWithdrawalsStatusCancelled  ListCashWithdrawalsStatus = "CANCELLED"
 )
 
-func (e ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus) ToPointer() *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus {
+func (e ListCashWithdrawalsStatus) ToPointer() *ListCashWithdrawalsStatus {
 	return &e
 }
 
-func (e *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus) UnmarshalJSON(data []byte) error {
+func (e *ListCashWithdrawalsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -218,14 +218,14 @@ func (e *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus) Unm
 	case "CONFIRMED":
 		fallthrough
 	case "CANCELLED":
-		*e = ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus(v)
+		*e = ListCashWithdrawalsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus: %v", v)
+		return fmt.Errorf("invalid value for ListCashWithdrawalsStatus: %v", v)
 	}
 }
 
-type ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal struct {
+type PaymentsWithdrawal struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
 	Amount         string `json:"amount"`
@@ -233,7 +233,7 @@ type ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency `default:"EUR" json:"currency"`
+	Currency *ListCashWithdrawalsCurrency `default:"EUR" json:"currency"`
 	// Cash withdrawal unique identifier
 	ID string `json:"id"`
 	// Reference account unique identifier.
@@ -245,109 +245,109 @@ type ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal struct {
 	// * PROCESSING - Withdrawal is in processing.
 	// * CONFIRMED - Withdrawal was successfully processed.
 	// * CANCELLED - Withdrawal was cancelled.
-	Status *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus `json:"status,omitempty"`
+	Status *ListCashWithdrawalsStatus `json:"status,omitempty"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (p PaymentsWithdrawal) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
 }
 
-func (l *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (p *PaymentsWithdrawal) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetAccountGroupID() string {
+func (o *PaymentsWithdrawal) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetAmount() string {
+func (o *PaymentsWithdrawal) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetCreatedAt() time.Time {
+func (o *PaymentsWithdrawal) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetCurrency() *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalCurrency {
+func (o *PaymentsWithdrawal) GetCurrency() *ListCashWithdrawalsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetID() string {
+func (o *PaymentsWithdrawal) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetReferenceAccountID() string {
+func (o *PaymentsWithdrawal) GetReferenceAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ReferenceAccountID
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetRemittanceInformation() string {
+func (o *PaymentsWithdrawal) GetRemittanceInformation() string {
 	if o == nil {
 		return ""
 	}
 	return o.RemittanceInformation
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetStatus() *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawalStatus {
+func (o *PaymentsWithdrawal) GetStatus() *ListCashWithdrawalsStatus {
 	if o == nil {
 		return nil
 	}
 	return o.Status
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetUpdatedAt() time.Time {
+func (o *PaymentsWithdrawal) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal) GetUserID() string {
+func (o *PaymentsWithdrawal) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// ListCashWithdrawalsWithdrawalsListResponseMetaOrder - The ordering of the response.
+// ListCashWithdrawalsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListCashWithdrawalsWithdrawalsListResponseMetaOrder string
+type ListCashWithdrawalsOrder string
 
 const (
-	ListCashWithdrawalsWithdrawalsListResponseMetaOrderAsc  ListCashWithdrawalsWithdrawalsListResponseMetaOrder = "ASC"
-	ListCashWithdrawalsWithdrawalsListResponseMetaOrderDesc ListCashWithdrawalsWithdrawalsListResponseMetaOrder = "DESC"
+	ListCashWithdrawalsOrderAsc  ListCashWithdrawalsOrder = "ASC"
+	ListCashWithdrawalsOrderDesc ListCashWithdrawalsOrder = "DESC"
 )
 
-func (e ListCashWithdrawalsWithdrawalsListResponseMetaOrder) ToPointer() *ListCashWithdrawalsWithdrawalsListResponseMetaOrder {
+func (e ListCashWithdrawalsOrder) ToPointer() *ListCashWithdrawalsOrder {
 	return &e
 }
 
-func (e *ListCashWithdrawalsWithdrawalsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListCashWithdrawalsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -356,14 +356,14 @@ func (e *ListCashWithdrawalsWithdrawalsListResponseMetaOrder) UnmarshalJSON(data
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListCashWithdrawalsWithdrawalsListResponseMetaOrder(v)
+		*e = ListCashWithdrawalsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashWithdrawalsWithdrawalsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListCashWithdrawalsOrder: %v", v)
 	}
 }
 
-type ListCashWithdrawalsWithdrawalsListResponseMeta struct {
+type ListCashWithdrawalsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -373,49 +373,49 @@ type ListCashWithdrawalsWithdrawalsListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListCashWithdrawalsWithdrawalsListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListCashWithdrawalsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponseMeta) GetCount() int64 {
+func (o *ListCashWithdrawalsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponseMeta) GetLimit() int64 {
+func (o *ListCashWithdrawalsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponseMeta) GetOffset() int64 {
+func (o *ListCashWithdrawalsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponseMeta) GetOrder() *ListCashWithdrawalsWithdrawalsListResponseMetaOrder {
+func (o *ListCashWithdrawalsMeta) GetOrder() *ListCashWithdrawalsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponseMeta) GetSort() *string {
+func (o *ListCashWithdrawalsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponseMeta) GetTotalCount() int64 {
+func (o *ListCashWithdrawalsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -424,25 +424,27 @@ func (o *ListCashWithdrawalsWithdrawalsListResponseMeta) GetTotalCount() int64 {
 
 // ListCashWithdrawalsWithdrawalsListResponse - Withdrawals list
 type ListCashWithdrawalsWithdrawalsListResponse struct {
-	Data []ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal `json:"data"`
-	Meta ListCashWithdrawalsWithdrawalsListResponseMeta                 `json:"meta"`
+	Data []PaymentsWithdrawal    `json:"data"`
+	Meta ListCashWithdrawalsMeta `json:"meta"`
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponse) GetData() []ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal {
+func (o *ListCashWithdrawalsWithdrawalsListResponse) GetData() []PaymentsWithdrawal {
 	if o == nil {
-		return []ListCashWithdrawalsWithdrawalsListResponsePaymentsWithdrawal{}
+		return []PaymentsWithdrawal{}
 	}
 	return o.Data
 }
 
-func (o *ListCashWithdrawalsWithdrawalsListResponse) GetMeta() ListCashWithdrawalsWithdrawalsListResponseMeta {
+func (o *ListCashWithdrawalsWithdrawalsListResponse) GetMeta() ListCashWithdrawalsMeta {
 	if o == nil {
-		return ListCashWithdrawalsWithdrawalsListResponseMeta{}
+		return ListCashWithdrawalsMeta{}
 	}
 	return o.Meta
 }
 
 type ListCashWithdrawalsResponse struct {
+	// Withdrawals list
+	TwoHundredApplicationJSONWithdrawalsListResponse *ListCashWithdrawalsWithdrawalsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -450,8 +452,13 @@ type ListCashWithdrawalsResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Withdrawals list
-	WithdrawalsListResponse *ListCashWithdrawalsWithdrawalsListResponse
+}
+
+func (o *ListCashWithdrawalsResponse) GetTwoHundredApplicationJSONWithdrawalsListResponse() *ListCashWithdrawalsWithdrawalsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONWithdrawalsListResponse
 }
 
 func (o *ListCashWithdrawalsResponse) GetContentType() string {
@@ -480,11 +487,4 @@ func (o *ListCashWithdrawalsResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *ListCashWithdrawalsResponse) GetWithdrawalsListResponse() *ListCashWithdrawalsWithdrawalsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.WithdrawalsListResponse
 }

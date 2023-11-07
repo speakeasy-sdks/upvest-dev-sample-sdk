@@ -12,47 +12,47 @@ import (
 	"time"
 )
 
-// CreateFeeCollectionFeeCollectionCreateRequestCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// Currency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateFeeCollectionFeeCollectionCreateRequestCurrency string
+type Currency string
 
 const (
-	CreateFeeCollectionFeeCollectionCreateRequestCurrencyEur CreateFeeCollectionFeeCollectionCreateRequestCurrency = "EUR"
+	CurrencyEur Currency = "EUR"
 )
 
-func (e CreateFeeCollectionFeeCollectionCreateRequestCurrency) ToPointer() *CreateFeeCollectionFeeCollectionCreateRequestCurrency {
+func (e Currency) ToPointer() *Currency {
 	return &e
 }
 
-func (e *CreateFeeCollectionFeeCollectionCreateRequestCurrency) UnmarshalJSON(data []byte) error {
+func (e *Currency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateFeeCollectionFeeCollectionCreateRequestCurrency(v)
+		*e = Currency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateFeeCollectionFeeCollectionCreateRequestCurrency: %v", v)
+		return fmt.Errorf("invalid value for Currency: %v", v)
 	}
 }
 
-// CreateFeeCollectionFeeCollectionCreateRequestType - Type of the fee collection
+// CreateFeeCollectionType - Type of the fee collection
 // * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 // * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-type CreateFeeCollectionFeeCollectionCreateRequestType string
+type CreateFeeCollectionType string
 
 const (
-	CreateFeeCollectionFeeCollectionCreateRequestTypeServiceFee            CreateFeeCollectionFeeCollectionCreateRequestType = "SERVICE_FEE"
-	CreateFeeCollectionFeeCollectionCreateRequestTypeServiceFeeLiquidation CreateFeeCollectionFeeCollectionCreateRequestType = "SERVICE_FEE_LIQUIDATION"
+	CreateFeeCollectionTypeServiceFee            CreateFeeCollectionType = "SERVICE_FEE"
+	CreateFeeCollectionTypeServiceFeeLiquidation CreateFeeCollectionType = "SERVICE_FEE_LIQUIDATION"
 )
 
-func (e CreateFeeCollectionFeeCollectionCreateRequestType) ToPointer() *CreateFeeCollectionFeeCollectionCreateRequestType {
+func (e CreateFeeCollectionType) ToPointer() *CreateFeeCollectionType {
 	return &e
 }
 
-func (e *CreateFeeCollectionFeeCollectionCreateRequestType) UnmarshalJSON(data []byte) error {
+func (e *CreateFeeCollectionType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -61,10 +61,10 @@ func (e *CreateFeeCollectionFeeCollectionCreateRequestType) UnmarshalJSON(data [
 	case "SERVICE_FEE":
 		fallthrough
 	case "SERVICE_FEE_LIQUIDATION":
-		*e = CreateFeeCollectionFeeCollectionCreateRequestType(v)
+		*e = CreateFeeCollectionType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateFeeCollectionFeeCollectionCreateRequestType: %v", v)
+		return fmt.Errorf("invalid value for CreateFeeCollectionType: %v", v)
 	}
 }
 
@@ -74,7 +74,7 @@ type CreateFeeCollectionFeeCollectionCreateRequest struct {
 	CollectionAmount string `json:"collection_amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateFeeCollectionFeeCollectionCreateRequestCurrency `default:"EUR" json:"currency"`
+	Currency *Currency `default:"EUR" json:"currency"`
 	// End date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
 	PeriodEnd types.Date `json:"period_end"`
 	// Start date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
@@ -82,7 +82,7 @@ type CreateFeeCollectionFeeCollectionCreateRequest struct {
 	// Type of the fee collection
 	// * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 	// * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-	Type CreateFeeCollectionFeeCollectionCreateRequestType `json:"type"`
+	Type CreateFeeCollectionType `json:"type"`
 }
 
 func (c CreateFeeCollectionFeeCollectionCreateRequest) MarshalJSON() ([]byte, error) {
@@ -110,7 +110,7 @@ func (o *CreateFeeCollectionFeeCollectionCreateRequest) GetCollectionAmount() st
 	return o.CollectionAmount
 }
 
-func (o *CreateFeeCollectionFeeCollectionCreateRequest) GetCurrency() *CreateFeeCollectionFeeCollectionCreateRequestCurrency {
+func (o *CreateFeeCollectionFeeCollectionCreateRequest) GetCurrency() *Currency {
 	if o == nil {
 		return nil
 	}
@@ -131,9 +131,9 @@ func (o *CreateFeeCollectionFeeCollectionCreateRequest) GetPeriodStart() types.D
 	return o.PeriodStart
 }
 
-func (o *CreateFeeCollectionFeeCollectionCreateRequest) GetType() CreateFeeCollectionFeeCollectionCreateRequestType {
+func (o *CreateFeeCollectionFeeCollectionCreateRequest) GetType() CreateFeeCollectionType {
 	if o == nil {
-		return CreateFeeCollectionFeeCollectionCreateRequestType("")
+		return CreateFeeCollectionType("")
 	}
 	return o.Type
 }
@@ -207,68 +207,68 @@ func (o *CreateFeeCollectionRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateFeeCollectionFeeCollectionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateFeeCollectionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateFeeCollectionFeeCollectionCurrency string
+type CreateFeeCollectionCurrency string
 
 const (
-	CreateFeeCollectionFeeCollectionCurrencyEur CreateFeeCollectionFeeCollectionCurrency = "EUR"
+	CreateFeeCollectionCurrencyEur CreateFeeCollectionCurrency = "EUR"
 )
 
-func (e CreateFeeCollectionFeeCollectionCurrency) ToPointer() *CreateFeeCollectionFeeCollectionCurrency {
+func (e CreateFeeCollectionCurrency) ToPointer() *CreateFeeCollectionCurrency {
 	return &e
 }
 
-func (e *CreateFeeCollectionFeeCollectionCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateFeeCollectionCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateFeeCollectionFeeCollectionCurrency(v)
+		*e = CreateFeeCollectionCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateFeeCollectionFeeCollectionCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateFeeCollectionCurrency: %v", v)
 	}
 }
 
-type CreateFeeCollectionFeeCollectionProcessedAmount struct {
+type ProcessedAmount struct {
 	CashBalance *string `json:"cash_balance,omitempty"`
 	SellToCover *string `json:"sell_to_cover,omitempty"`
 }
 
-func (o *CreateFeeCollectionFeeCollectionProcessedAmount) GetCashBalance() *string {
+func (o *ProcessedAmount) GetCashBalance() *string {
 	if o == nil {
 		return nil
 	}
 	return o.CashBalance
 }
 
-func (o *CreateFeeCollectionFeeCollectionProcessedAmount) GetSellToCover() *string {
+func (o *ProcessedAmount) GetSellToCover() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SellToCover
 }
 
-// CreateFeeCollectionFeeCollectionStatus - Status of the fee collection
+// CreateFeeCollectionStatus - Status of the fee collection
 // * PROCESSING - Fee collection is in progress.
 // * FINALISED - Fees have been collected from the account and the funds has been transferred to the client.
 // * CANCELLED - Fee collection has been cancelled.
-type CreateFeeCollectionFeeCollectionStatus string
+type CreateFeeCollectionStatus string
 
 const (
-	CreateFeeCollectionFeeCollectionStatusProcessing CreateFeeCollectionFeeCollectionStatus = "PROCESSING"
-	CreateFeeCollectionFeeCollectionStatusFinalised  CreateFeeCollectionFeeCollectionStatus = "FINALISED"
-	CreateFeeCollectionFeeCollectionStatusCancelled  CreateFeeCollectionFeeCollectionStatus = "CANCELLED"
+	CreateFeeCollectionStatusProcessing CreateFeeCollectionStatus = "PROCESSING"
+	CreateFeeCollectionStatusFinalised  CreateFeeCollectionStatus = "FINALISED"
+	CreateFeeCollectionStatusCancelled  CreateFeeCollectionStatus = "CANCELLED"
 )
 
-func (e CreateFeeCollectionFeeCollectionStatus) ToPointer() *CreateFeeCollectionFeeCollectionStatus {
+func (e CreateFeeCollectionStatus) ToPointer() *CreateFeeCollectionStatus {
 	return &e
 }
 
-func (e *CreateFeeCollectionFeeCollectionStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateFeeCollectionStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -279,28 +279,28 @@ func (e *CreateFeeCollectionFeeCollectionStatus) UnmarshalJSON(data []byte) erro
 	case "FINALISED":
 		fallthrough
 	case "CANCELLED":
-		*e = CreateFeeCollectionFeeCollectionStatus(v)
+		*e = CreateFeeCollectionStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateFeeCollectionFeeCollectionStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateFeeCollectionStatus: %v", v)
 	}
 }
 
-// CreateFeeCollectionFeeCollectionType - Type of the fee collection
+// CreateFeeCollectionFeesType - Type of the fee collection
 // * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 // * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-type CreateFeeCollectionFeeCollectionType string
+type CreateFeeCollectionFeesType string
 
 const (
-	CreateFeeCollectionFeeCollectionTypeServiceFee            CreateFeeCollectionFeeCollectionType = "SERVICE_FEE"
-	CreateFeeCollectionFeeCollectionTypeServiceFeeLiquidation CreateFeeCollectionFeeCollectionType = "SERVICE_FEE_LIQUIDATION"
+	CreateFeeCollectionFeesTypeServiceFee            CreateFeeCollectionFeesType = "SERVICE_FEE"
+	CreateFeeCollectionFeesTypeServiceFeeLiquidation CreateFeeCollectionFeesType = "SERVICE_FEE_LIQUIDATION"
 )
 
-func (e CreateFeeCollectionFeeCollectionType) ToPointer() *CreateFeeCollectionFeeCollectionType {
+func (e CreateFeeCollectionFeesType) ToPointer() *CreateFeeCollectionFeesType {
 	return &e
 }
 
-func (e *CreateFeeCollectionFeeCollectionType) UnmarshalJSON(data []byte) error {
+func (e *CreateFeeCollectionFeesType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -309,10 +309,10 @@ func (e *CreateFeeCollectionFeeCollectionType) UnmarshalJSON(data []byte) error 
 	case "SERVICE_FEE":
 		fallthrough
 	case "SERVICE_FEE_LIQUIDATION":
-		*e = CreateFeeCollectionFeeCollectionType(v)
+		*e = CreateFeeCollectionFeesType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateFeeCollectionFeeCollectionType: %v", v)
+		return fmt.Errorf("invalid value for CreateFeeCollectionFeesType: %v", v)
 	}
 }
 
@@ -327,23 +327,23 @@ type CreateFeeCollectionFeeCollection struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateFeeCollectionFeeCollectionCurrency `default:"EUR" json:"currency"`
+	Currency *CreateFeeCollectionCurrency `default:"EUR" json:"currency"`
 	// Fee collection unique identifier.
 	ID string `json:"id"`
 	// End date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
 	PeriodEnd types.Date `json:"period_end"`
 	// Start date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
-	PeriodStart     types.Date                                      `json:"period_start"`
-	ProcessedAmount CreateFeeCollectionFeeCollectionProcessedAmount `json:"processed_amount"`
+	PeriodStart     types.Date      `json:"period_start"`
+	ProcessedAmount ProcessedAmount `json:"processed_amount"`
 	// Status of the fee collection
 	// * PROCESSING - Fee collection is in progress.
 	// * FINALISED - Fees have been collected from the account and the funds has been transferred to the client.
 	// * CANCELLED - Fee collection has been cancelled.
-	Status CreateFeeCollectionFeeCollectionStatus `json:"status"`
+	Status CreateFeeCollectionStatus `json:"status"`
 	// Type of the fee collection
 	// * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 	// * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-	Type CreateFeeCollectionFeeCollectionType `json:"type"`
+	Type CreateFeeCollectionFeesType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
@@ -387,7 +387,7 @@ func (o *CreateFeeCollectionFeeCollection) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *CreateFeeCollectionFeeCollection) GetCurrency() *CreateFeeCollectionFeeCollectionCurrency {
+func (o *CreateFeeCollectionFeeCollection) GetCurrency() *CreateFeeCollectionCurrency {
 	if o == nil {
 		return nil
 	}
@@ -415,23 +415,23 @@ func (o *CreateFeeCollectionFeeCollection) GetPeriodStart() types.Date {
 	return o.PeriodStart
 }
 
-func (o *CreateFeeCollectionFeeCollection) GetProcessedAmount() CreateFeeCollectionFeeCollectionProcessedAmount {
+func (o *CreateFeeCollectionFeeCollection) GetProcessedAmount() ProcessedAmount {
 	if o == nil {
-		return CreateFeeCollectionFeeCollectionProcessedAmount{}
+		return ProcessedAmount{}
 	}
 	return o.ProcessedAmount
 }
 
-func (o *CreateFeeCollectionFeeCollection) GetStatus() CreateFeeCollectionFeeCollectionStatus {
+func (o *CreateFeeCollectionFeeCollection) GetStatus() CreateFeeCollectionStatus {
 	if o == nil {
-		return CreateFeeCollectionFeeCollectionStatus("")
+		return CreateFeeCollectionStatus("")
 	}
 	return o.Status
 }
 
-func (o *CreateFeeCollectionFeeCollection) GetType() CreateFeeCollectionFeeCollectionType {
+func (o *CreateFeeCollectionFeeCollection) GetType() CreateFeeCollectionFeesType {
 	if o == nil {
-		return CreateFeeCollectionFeeCollectionType("")
+		return CreateFeeCollectionFeesType("")
 	}
 	return o.Type
 }
@@ -444,15 +444,22 @@ func (o *CreateFeeCollectionFeeCollection) GetUpdatedAt() time.Time {
 }
 
 type CreateFeeCollectionResponse struct {
+	// Fee collection created.
+	TwoHundredApplicationJSONFeeCollection *CreateFeeCollectionFeeCollection
 	// HTTP response content type for this operation
 	ContentType string
-	// Fee collection created.
-	FeeCollection *CreateFeeCollectionFeeCollection
-	Headers       map[string][]string
+	Headers     map[string][]string
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CreateFeeCollectionResponse) GetTwoHundredApplicationJSONFeeCollection() *CreateFeeCollectionFeeCollection {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONFeeCollection
 }
 
 func (o *CreateFeeCollectionResponse) GetContentType() string {
@@ -460,13 +467,6 @@ func (o *CreateFeeCollectionResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
-}
-
-func (o *CreateFeeCollectionResponse) GetFeeCollection() *CreateFeeCollectionFeeCollection {
-	if o == nil {
-		return nil
-	}
-	return o.FeeCollection
 }
 
 func (o *CreateFeeCollectionResponse) GetHeaders() map[string][]string {

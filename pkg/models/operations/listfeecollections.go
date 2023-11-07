@@ -105,68 +105,68 @@ func (o *ListFeeCollectionsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListFeeCollectionsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency string
+type ListFeeCollectionsCurrency string
 
 const (
-	ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrencyEur ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency = "EUR"
+	ListFeeCollectionsCurrencyEur ListFeeCollectionsCurrency = "EUR"
 )
 
-func (e ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency) ToPointer() *ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency {
+func (e ListFeeCollectionsCurrency) ToPointer() *ListFeeCollectionsCurrency {
 	return &e
 }
 
-func (e *ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListFeeCollectionsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency(v)
+		*e = ListFeeCollectionsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListFeeCollectionsCurrency: %v", v)
 	}
 }
 
-type ListFeeCollectionsFeeCollectionListResponseFeeCollectionProcessedAmount struct {
+type ListFeeCollectionsProcessedAmount struct {
 	CashBalance *string `json:"cash_balance,omitempty"`
 	SellToCover *string `json:"sell_to_cover,omitempty"`
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollectionProcessedAmount) GetCashBalance() *string {
+func (o *ListFeeCollectionsProcessedAmount) GetCashBalance() *string {
 	if o == nil {
 		return nil
 	}
 	return o.CashBalance
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollectionProcessedAmount) GetSellToCover() *string {
+func (o *ListFeeCollectionsProcessedAmount) GetSellToCover() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SellToCover
 }
 
-// ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus - Status of the fee collection
+// ListFeeCollectionsStatus - Status of the fee collection
 // * PROCESSING - Fee collection is in progress.
 // * FINALISED - Fees have been collected from the account and the funds has been transferred to the client.
 // * CANCELLED - Fee collection has been cancelled.
-type ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus string
+type ListFeeCollectionsStatus string
 
 const (
-	ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatusProcessing ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus = "PROCESSING"
-	ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatusFinalised  ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus = "FINALISED"
-	ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatusCancelled  ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus = "CANCELLED"
+	ListFeeCollectionsStatusProcessing ListFeeCollectionsStatus = "PROCESSING"
+	ListFeeCollectionsStatusFinalised  ListFeeCollectionsStatus = "FINALISED"
+	ListFeeCollectionsStatusCancelled  ListFeeCollectionsStatus = "CANCELLED"
 )
 
-func (e ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus) ToPointer() *ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus {
+func (e ListFeeCollectionsStatus) ToPointer() *ListFeeCollectionsStatus {
 	return &e
 }
 
-func (e *ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus) UnmarshalJSON(data []byte) error {
+func (e *ListFeeCollectionsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -177,28 +177,28 @@ func (e *ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus) Unmarsh
 	case "FINALISED":
 		fallthrough
 	case "CANCELLED":
-		*e = ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus(v)
+		*e = ListFeeCollectionsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus: %v", v)
+		return fmt.Errorf("invalid value for ListFeeCollectionsStatus: %v", v)
 	}
 }
 
-// ListFeeCollectionsFeeCollectionListResponseFeeCollectionType - Type of the fee collection
+// ListFeeCollectionsType - Type of the fee collection
 // * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 // * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-type ListFeeCollectionsFeeCollectionListResponseFeeCollectionType string
+type ListFeeCollectionsType string
 
 const (
-	ListFeeCollectionsFeeCollectionListResponseFeeCollectionTypeServiceFee            ListFeeCollectionsFeeCollectionListResponseFeeCollectionType = "SERVICE_FEE"
-	ListFeeCollectionsFeeCollectionListResponseFeeCollectionTypeServiceFeeLiquidation ListFeeCollectionsFeeCollectionListResponseFeeCollectionType = "SERVICE_FEE_LIQUIDATION"
+	ListFeeCollectionsTypeServiceFee            ListFeeCollectionsType = "SERVICE_FEE"
+	ListFeeCollectionsTypeServiceFeeLiquidation ListFeeCollectionsType = "SERVICE_FEE_LIQUIDATION"
 )
 
-func (e ListFeeCollectionsFeeCollectionListResponseFeeCollectionType) ToPointer() *ListFeeCollectionsFeeCollectionListResponseFeeCollectionType {
+func (e ListFeeCollectionsType) ToPointer() *ListFeeCollectionsType {
 	return &e
 }
 
-func (e *ListFeeCollectionsFeeCollectionListResponseFeeCollectionType) UnmarshalJSON(data []byte) error {
+func (e *ListFeeCollectionsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -207,14 +207,14 @@ func (e *ListFeeCollectionsFeeCollectionListResponseFeeCollectionType) Unmarshal
 	case "SERVICE_FEE":
 		fallthrough
 	case "SERVICE_FEE_LIQUIDATION":
-		*e = ListFeeCollectionsFeeCollectionListResponseFeeCollectionType(v)
+		*e = ListFeeCollectionsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListFeeCollectionsFeeCollectionListResponseFeeCollectionType: %v", v)
+		return fmt.Errorf("invalid value for ListFeeCollectionsType: %v", v)
 	}
 }
 
-type ListFeeCollectionsFeeCollectionListResponseFeeCollection struct {
+type FeeCollection struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
 	// Account unique identifier.
@@ -224,137 +224,137 @@ type ListFeeCollectionsFeeCollectionListResponseFeeCollection struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency `default:"EUR" json:"currency"`
+	Currency *ListFeeCollectionsCurrency `default:"EUR" json:"currency"`
 	// Fee collection unique identifier.
 	ID string `json:"id"`
 	// End date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
 	PeriodEnd types.Date `json:"period_end"`
 	// Start date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
-	PeriodStart     types.Date                                                              `json:"period_start"`
-	ProcessedAmount ListFeeCollectionsFeeCollectionListResponseFeeCollectionProcessedAmount `json:"processed_amount"`
+	PeriodStart     types.Date                        `json:"period_start"`
+	ProcessedAmount ListFeeCollectionsProcessedAmount `json:"processed_amount"`
 	// Status of the fee collection
 	// * PROCESSING - Fee collection is in progress.
 	// * FINALISED - Fees have been collected from the account and the funds has been transferred to the client.
 	// * CANCELLED - Fee collection has been cancelled.
-	Status ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus `json:"status"`
+	Status ListFeeCollectionsStatus `json:"status"`
 	// Type of the fee collection
 	// * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 	// * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-	Type ListFeeCollectionsFeeCollectionListResponseFeeCollectionType `json:"type"`
+	Type ListFeeCollectionsType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (l ListFeeCollectionsFeeCollectionListResponseFeeCollection) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (f FeeCollection) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(f, "", false)
 }
 
-func (l *ListFeeCollectionsFeeCollectionListResponseFeeCollection) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (f *FeeCollection) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &f, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetAccountGroupID() string {
+func (o *FeeCollection) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetAccountID() string {
+func (o *FeeCollection) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetCollectionAmount() string {
+func (o *FeeCollection) GetCollectionAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CollectionAmount
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetCreatedAt() time.Time {
+func (o *FeeCollection) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetCurrency() *ListFeeCollectionsFeeCollectionListResponseFeeCollectionCurrency {
+func (o *FeeCollection) GetCurrency() *ListFeeCollectionsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetID() string {
+func (o *FeeCollection) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetPeriodEnd() types.Date {
+func (o *FeeCollection) GetPeriodEnd() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.PeriodEnd
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetPeriodStart() types.Date {
+func (o *FeeCollection) GetPeriodStart() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.PeriodStart
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetProcessedAmount() ListFeeCollectionsFeeCollectionListResponseFeeCollectionProcessedAmount {
+func (o *FeeCollection) GetProcessedAmount() ListFeeCollectionsProcessedAmount {
 	if o == nil {
-		return ListFeeCollectionsFeeCollectionListResponseFeeCollectionProcessedAmount{}
+		return ListFeeCollectionsProcessedAmount{}
 	}
 	return o.ProcessedAmount
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetStatus() ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus {
+func (o *FeeCollection) GetStatus() ListFeeCollectionsStatus {
 	if o == nil {
-		return ListFeeCollectionsFeeCollectionListResponseFeeCollectionStatus("")
+		return ListFeeCollectionsStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetType() ListFeeCollectionsFeeCollectionListResponseFeeCollectionType {
+func (o *FeeCollection) GetType() ListFeeCollectionsType {
 	if o == nil {
-		return ListFeeCollectionsFeeCollectionListResponseFeeCollectionType("")
+		return ListFeeCollectionsType("")
 	}
 	return o.Type
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseFeeCollection) GetUpdatedAt() time.Time {
+func (o *FeeCollection) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-// ListFeeCollectionsFeeCollectionListResponseMetaOrder - The ordering of the response.
+// ListFeeCollectionsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListFeeCollectionsFeeCollectionListResponseMetaOrder string
+type ListFeeCollectionsOrder string
 
 const (
-	ListFeeCollectionsFeeCollectionListResponseMetaOrderAsc  ListFeeCollectionsFeeCollectionListResponseMetaOrder = "ASC"
-	ListFeeCollectionsFeeCollectionListResponseMetaOrderDesc ListFeeCollectionsFeeCollectionListResponseMetaOrder = "DESC"
+	ListFeeCollectionsOrderAsc  ListFeeCollectionsOrder = "ASC"
+	ListFeeCollectionsOrderDesc ListFeeCollectionsOrder = "DESC"
 )
 
-func (e ListFeeCollectionsFeeCollectionListResponseMetaOrder) ToPointer() *ListFeeCollectionsFeeCollectionListResponseMetaOrder {
+func (e ListFeeCollectionsOrder) ToPointer() *ListFeeCollectionsOrder {
 	return &e
 }
 
-func (e *ListFeeCollectionsFeeCollectionListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListFeeCollectionsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -363,14 +363,14 @@ func (e *ListFeeCollectionsFeeCollectionListResponseMetaOrder) UnmarshalJSON(dat
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListFeeCollectionsFeeCollectionListResponseMetaOrder(v)
+		*e = ListFeeCollectionsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListFeeCollectionsFeeCollectionListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListFeeCollectionsOrder: %v", v)
 	}
 }
 
-type ListFeeCollectionsFeeCollectionListResponseMeta struct {
+type ListFeeCollectionsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -380,49 +380,49 @@ type ListFeeCollectionsFeeCollectionListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListFeeCollectionsFeeCollectionListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListFeeCollectionsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseMeta) GetCount() int64 {
+func (o *ListFeeCollectionsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseMeta) GetLimit() int64 {
+func (o *ListFeeCollectionsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseMeta) GetOffset() int64 {
+func (o *ListFeeCollectionsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseMeta) GetOrder() *ListFeeCollectionsFeeCollectionListResponseMetaOrder {
+func (o *ListFeeCollectionsMeta) GetOrder() *ListFeeCollectionsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseMeta) GetSort() *string {
+func (o *ListFeeCollectionsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponseMeta) GetTotalCount() int64 {
+func (o *ListFeeCollectionsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -431,34 +431,41 @@ func (o *ListFeeCollectionsFeeCollectionListResponseMeta) GetTotalCount() int64 
 
 // ListFeeCollectionsFeeCollectionListResponse - OK
 type ListFeeCollectionsFeeCollectionListResponse struct {
-	Data []ListFeeCollectionsFeeCollectionListResponseFeeCollection `json:"data"`
-	Meta ListFeeCollectionsFeeCollectionListResponseMeta            `json:"meta"`
+	Data []FeeCollection        `json:"data"`
+	Meta ListFeeCollectionsMeta `json:"meta"`
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponse) GetData() []ListFeeCollectionsFeeCollectionListResponseFeeCollection {
+func (o *ListFeeCollectionsFeeCollectionListResponse) GetData() []FeeCollection {
 	if o == nil {
-		return []ListFeeCollectionsFeeCollectionListResponseFeeCollection{}
+		return []FeeCollection{}
 	}
 	return o.Data
 }
 
-func (o *ListFeeCollectionsFeeCollectionListResponse) GetMeta() ListFeeCollectionsFeeCollectionListResponseMeta {
+func (o *ListFeeCollectionsFeeCollectionListResponse) GetMeta() ListFeeCollectionsMeta {
 	if o == nil {
-		return ListFeeCollectionsFeeCollectionListResponseMeta{}
+		return ListFeeCollectionsMeta{}
 	}
 	return o.Meta
 }
 
 type ListFeeCollectionsResponse struct {
+	// OK
+	TwoHundredApplicationJSONFeeCollectionListResponse *ListFeeCollectionsFeeCollectionListResponse
 	// HTTP response content type for this operation
 	ContentType string
-	// OK
-	FeeCollectionListResponse *ListFeeCollectionsFeeCollectionListResponse
-	Headers                   map[string][]string
+	Headers     map[string][]string
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListFeeCollectionsResponse) GetTwoHundredApplicationJSONFeeCollectionListResponse() *ListFeeCollectionsFeeCollectionListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONFeeCollectionListResponse
 }
 
 func (o *ListFeeCollectionsResponse) GetContentType() string {
@@ -466,13 +473,6 @@ func (o *ListFeeCollectionsResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
-}
-
-func (o *ListFeeCollectionsResponse) GetFeeCollectionListResponse() *ListFeeCollectionsFeeCollectionListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.FeeCollectionListResponse
 }
 
 func (o *ListFeeCollectionsResponse) GetHeaders() map[string][]string {

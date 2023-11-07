@@ -11,21 +11,21 @@ import (
 	"time"
 )
 
-// CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType - The type of the strategy used in the request.
+// CreatePortfoliosRebalancingStrategyType - The type of the strategy used in the request.
 // * DRIFT - Trigger by drift percentage
 // * SCHEDULED - Trigger by scheduled date
-type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType string
+type CreatePortfoliosRebalancingStrategyType string
 
 const (
-	CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsTypeDrift     CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType = "DRIFT"
-	CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsTypeScheduled CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType = "SCHEDULED"
+	CreatePortfoliosRebalancingStrategyTypeDrift     CreatePortfoliosRebalancingStrategyType = "DRIFT"
+	CreatePortfoliosRebalancingStrategyTypeScheduled CreatePortfoliosRebalancingStrategyType = "SCHEDULED"
 )
 
-func (e CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType) ToPointer() *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType {
+func (e CreatePortfoliosRebalancingStrategyType) ToPointer() *CreatePortfoliosRebalancingStrategyType {
 	return &e
 }
 
-func (e *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosRebalancingStrategyType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,14 +34,14 @@ func (e *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequest
 	case "DRIFT":
 		fallthrough
 	case "SCHEDULED":
-		*e = CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType(v)
+		*e = CreatePortfoliosRebalancingStrategyType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosRebalancingStrategyType: %v", v)
 	}
 }
 
-type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions struct {
+type Conditions struct {
 	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
@@ -50,51 +50,51 @@ type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestCond
 	// The type of the strategy used in the request.
 	// * DRIFT - Trigger by drift percentage
 	// * SCHEDULED - Trigger by scheduled date
-	Type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType `json:"type"`
+	Type CreatePortfoliosRebalancingStrategyType `json:"type"`
 }
 
-func (c CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions) MarshalJSON() ([]byte, error) {
+func (c Conditions) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions) UnmarshalJSON(data []byte) error {
+func (c *Conditions) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions) GetAdditionalProperties() map[string]interface{} {
+func (o *Conditions) GetAdditionalProperties() map[string]interface{} {
 	if o == nil {
 		return nil
 	}
 	return o.AdditionalProperties
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions) GetName() string {
+func (o *Conditions) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions) GetType() CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType {
+func (o *Conditions) GetType() CreatePortfoliosRebalancingStrategyType {
 	if o == nil {
-		return CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditionsType("")
+		return CreatePortfoliosRebalancingStrategyType("")
 	}
 	return o.Type
 }
 
 type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequest struct {
 	// List of conditions
-	Conditions []CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions `json:"conditions"`
+	Conditions []Conditions `json:"conditions"`
 	// Strategy name
 	Name string `json:"name"`
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequest) GetConditions() []CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions {
+func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequest) GetConditions() []Conditions {
 	if o == nil {
-		return []CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequestConditions{}
+		return []Conditions{}
 	}
 	return o.Conditions
 }
@@ -175,21 +175,21 @@ func (o *CreatePortfoliosRebalancingStrategyRequest) GetUpvestClientID() string 
 	return o.UpvestClientID
 }
 
-// CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType - The type of the strategy used in the request.
+// CreatePortfoliosRebalancingStrategyPortfoliosType - The type of the strategy used in the request.
 // * DRIFT - Trigger by drift percentage
 // * SCHEDULED - Trigger by scheduled date
-type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType string
+type CreatePortfoliosRebalancingStrategyPortfoliosType string
 
 const (
-	CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsTypeDrift     CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType = "DRIFT"
-	CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsTypeScheduled CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType = "SCHEDULED"
+	CreatePortfoliosRebalancingStrategyPortfoliosTypeDrift     CreatePortfoliosRebalancingStrategyPortfoliosType = "DRIFT"
+	CreatePortfoliosRebalancingStrategyPortfoliosTypeScheduled CreatePortfoliosRebalancingStrategyPortfoliosType = "SCHEDULED"
 )
 
-func (e CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType) ToPointer() *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType {
+func (e CreatePortfoliosRebalancingStrategyPortfoliosType) ToPointer() *CreatePortfoliosRebalancingStrategyPortfoliosType {
 	return &e
 }
 
-func (e *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosRebalancingStrategyPortfoliosType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -198,14 +198,14 @@ func (e *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditi
 	case "DRIFT":
 		fallthrough
 	case "SCHEDULED":
-		*e = CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType(v)
+		*e = CreatePortfoliosRebalancingStrategyPortfoliosType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosRebalancingStrategyPortfoliosType: %v", v)
 	}
 }
 
-type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions struct {
+type CreatePortfoliosRebalancingStrategyConditions struct {
 	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
@@ -214,37 +214,37 @@ type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions 
 	// The type of the strategy used in the request.
 	// * DRIFT - Trigger by drift percentage
 	// * SCHEDULED - Trigger by scheduled date
-	Type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType `json:"type"`
+	Type CreatePortfoliosRebalancingStrategyPortfoliosType `json:"type"`
 }
 
-func (c CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) MarshalJSON() ([]byte, error) {
+func (c CreatePortfoliosRebalancingStrategyConditions) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) UnmarshalJSON(data []byte) error {
+func (c *CreatePortfoliosRebalancingStrategyConditions) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) GetAdditionalProperties() map[string]interface{} {
+func (o *CreatePortfoliosRebalancingStrategyConditions) GetAdditionalProperties() map[string]interface{} {
 	if o == nil {
 		return nil
 	}
 	return o.AdditionalProperties
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) GetName() string {
+func (o *CreatePortfoliosRebalancingStrategyConditions) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions) GetType() CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType {
+func (o *CreatePortfoliosRebalancingStrategyConditions) GetType() CreatePortfoliosRebalancingStrategyPortfoliosType {
 	if o == nil {
-		return CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditionsType("")
+		return CreatePortfoliosRebalancingStrategyPortfoliosType("")
 	}
 	return o.Type
 }
@@ -252,7 +252,7 @@ func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditi
 // CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy - Portfolios rebalancing strategy
 type CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy struct {
 	// List of conditions
-	Conditions []CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions `json:"conditions"`
+	Conditions []CreatePortfoliosRebalancingStrategyConditions `json:"conditions"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	ID        string    `json:"id"`
@@ -273,9 +273,9 @@ func (c *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) Unmar
 	return nil
 }
 
-func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) GetConditions() []CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions {
+func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) GetConditions() []CreatePortfoliosRebalancingStrategyConditions {
 	if o == nil {
-		return []CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyConditions{}
+		return []CreatePortfoliosRebalancingStrategyConditions{}
 	}
 	return o.Conditions
 }
@@ -309,15 +309,22 @@ func (o *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) GetUp
 }
 
 type CreatePortfoliosRebalancingStrategyResponse struct {
+	// Portfolios rebalancing strategy
+	TwoHundredApplicationJSONPortfoliosRebalancingStrategy *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios rebalancing strategy
-	PortfoliosRebalancingStrategy *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CreatePortfoliosRebalancingStrategyResponse) GetTwoHundredApplicationJSONPortfoliosRebalancingStrategy() *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosRebalancingStrategy
 }
 
 func (o *CreatePortfoliosRebalancingStrategyResponse) GetContentType() string {
@@ -332,13 +339,6 @@ func (o *CreatePortfoliosRebalancingStrategyResponse) GetHeaders() map[string][]
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *CreatePortfoliosRebalancingStrategyResponse) GetPortfoliosRebalancingStrategy() *CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosRebalancingStrategy
 }
 
 func (o *CreatePortfoliosRebalancingStrategyResponse) GetStatusCode() int {

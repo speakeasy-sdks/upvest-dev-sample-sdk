@@ -11,35 +11,35 @@ import (
 	"time"
 )
 
-// GetAccountValuationPriceQuality - Defines the quality of the price used in the valuation.
-type GetAccountValuationPriceQuality string
+// PriceQuality - Defines the quality of the price used in the valuation.
+type PriceQuality string
 
 const (
-	GetAccountValuationPriceQualityEod GetAccountValuationPriceQuality = "EOD"
+	PriceQualityEod PriceQuality = "EOD"
 )
 
-func (e GetAccountValuationPriceQuality) ToPointer() *GetAccountValuationPriceQuality {
+func (e PriceQuality) ToPointer() *PriceQuality {
 	return &e
 }
 
-func (e *GetAccountValuationPriceQuality) UnmarshalJSON(data []byte) error {
+func (e *PriceQuality) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EOD":
-		*e = GetAccountValuationPriceQuality(v)
+		*e = PriceQuality(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for GetAccountValuationPriceQuality: %v", v)
+		return fmt.Errorf("invalid value for PriceQuality: %v", v)
 	}
 }
 
 type GetAccountValuationRequest struct {
 	AccountID string `pathParam:"style=simple,explode=false,name=account_id"`
 	// Defines the quality of the price used in the valuation.
-	PriceQuality GetAccountValuationPriceQuality `queryParam:"style=form,explode=true,name=price_quality"`
+	PriceQuality PriceQuality `queryParam:"style=form,explode=true,name=price_quality"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
@@ -68,9 +68,9 @@ func (o *GetAccountValuationRequest) GetAccountID() string {
 	return o.AccountID
 }
 
-func (o *GetAccountValuationRequest) GetPriceQuality() GetAccountValuationPriceQuality {
+func (o *GetAccountValuationRequest) GetPriceQuality() PriceQuality {
 	if o == nil {
-		return GetAccountValuationPriceQuality("")
+		return PriceQuality("")
 	}
 	return o.PriceQuality
 }
@@ -103,211 +103,211 @@ func (o *GetAccountValuationRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// GetAccountValuationAccountValuationPriceQuality - Price quality used for the calculation of the account valuation.
+// GetAccountValuationPriceQuality - Price quality used for the calculation of the account valuation.
 // * EOD - end of day price
-type GetAccountValuationAccountValuationPriceQuality string
+type GetAccountValuationPriceQuality string
 
 const (
-	GetAccountValuationAccountValuationPriceQualityEod GetAccountValuationAccountValuationPriceQuality = "EOD"
+	GetAccountValuationPriceQualityEod GetAccountValuationPriceQuality = "EOD"
 )
 
-func (e GetAccountValuationAccountValuationPriceQuality) ToPointer() *GetAccountValuationAccountValuationPriceQuality {
+func (e GetAccountValuationPriceQuality) ToPointer() *GetAccountValuationPriceQuality {
 	return &e
 }
 
-func (e *GetAccountValuationAccountValuationPriceQuality) UnmarshalJSON(data []byte) error {
+func (e *GetAccountValuationPriceQuality) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EOD":
-		*e = GetAccountValuationAccountValuationPriceQuality(v)
+		*e = GetAccountValuationPriceQuality(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for GetAccountValuationAccountValuationPriceQuality: %v", v)
+		return fmt.Errorf("invalid value for GetAccountValuationPriceQuality: %v", v)
 	}
 }
 
-// GetAccountValuationAccountValuationAccountValuationSecurityPositionInstrument - Entity representing the financial instrument.
-type GetAccountValuationAccountValuationAccountValuationSecurityPositionInstrument struct {
+// GetAccountValuationInstrument - Entity representing the financial instrument.
+type GetAccountValuationInstrument struct {
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	Isin *string `json:"isin,omitempty"`
 	// String representing the instrument internal identifier.
 	UUID string `json:"uuid"`
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPositionInstrument) GetIsin() *string {
+func (o *GetAccountValuationInstrument) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPositionInstrument) GetUUID() string {
+func (o *GetAccountValuationInstrument) GetUUID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UUID
 }
 
-// GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// GetAccountValuationValuationsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency string
+type GetAccountValuationValuationsCurrency string
 
 const (
-	GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrencyEur GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency = "EUR"
+	GetAccountValuationValuationsCurrencyEur GetAccountValuationValuationsCurrency = "EUR"
 )
 
-func (e GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency) ToPointer() *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency {
+func (e GetAccountValuationValuationsCurrency) ToPointer() *GetAccountValuationValuationsCurrency {
 	return &e
 }
 
-func (e *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency) UnmarshalJSON(data []byte) error {
+func (e *GetAccountValuationValuationsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency(v)
+		*e = GetAccountValuationValuationsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency: %v", v)
+		return fmt.Errorf("invalid value for GetAccountValuationValuationsCurrency: %v", v)
 	}
 }
 
-// GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue - Entity representing the monetary value by amount and currency, and the time of the price used.
-type GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue struct {
+// SecurityPositionValue - Entity representing the monetary value by amount and currency, and the time of the price used.
+type SecurityPositionValue struct {
 	Amount string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency `default:"EUR" json:"currency"`
+	Currency *GetAccountValuationValuationsCurrency `default:"EUR" json:"currency"`
 	// The date and time of the price used for the calculation. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	PriceTime time.Time `json:"price_time"`
 }
 
-func (g GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(g, "", false)
+func (s SecurityPositionValue) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (g *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+func (s *SecurityPositionValue) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue) GetAmount() string {
+func (o *SecurityPositionValue) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue) GetCurrency() *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValueCurrency {
+func (o *SecurityPositionValue) GetCurrency() *GetAccountValuationValuationsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue) GetPriceTime() time.Time {
+func (o *SecurityPositionValue) GetPriceTime() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.PriceTime
 }
 
-type GetAccountValuationAccountValuationAccountValuationSecurityPosition struct {
+type AccountValuationSecurityPosition struct {
 	// Entity representing the financial instrument.
-	Instrument GetAccountValuationAccountValuationAccountValuationSecurityPositionInstrument             `json:"instrument"`
-	Quantity   string                                                                                    `json:"quantity"`
-	Value      *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue `json:"value"`
-	Weight     *string                                                                                   `json:"weight"`
+	Instrument GetAccountValuationInstrument `json:"instrument"`
+	Quantity   string                        `json:"quantity"`
+	Value      *SecurityPositionValue        `json:"value"`
+	Weight     *string                       `json:"weight"`
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPosition) GetInstrument() GetAccountValuationAccountValuationAccountValuationSecurityPositionInstrument {
+func (o *AccountValuationSecurityPosition) GetInstrument() GetAccountValuationInstrument {
 	if o == nil {
-		return GetAccountValuationAccountValuationAccountValuationSecurityPositionInstrument{}
+		return GetAccountValuationInstrument{}
 	}
 	return o.Instrument
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPosition) GetQuantity() string {
+func (o *AccountValuationSecurityPosition) GetQuantity() string {
 	if o == nil {
 		return ""
 	}
 	return o.Quantity
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPosition) GetValue() *GetAccountValuationAccountValuationAccountValuationSecurityPositionSecurityPositionValue {
+func (o *AccountValuationSecurityPosition) GetValue() *SecurityPositionValue {
 	if o == nil {
 		return nil
 	}
 	return o.Value
 }
 
-func (o *GetAccountValuationAccountValuationAccountValuationSecurityPosition) GetWeight() *string {
+func (o *AccountValuationSecurityPosition) GetWeight() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Weight
 }
 
-// GetAccountValuationAccountValuationTotalSecurityValueCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// GetAccountValuationCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type GetAccountValuationAccountValuationTotalSecurityValueCurrency string
+type GetAccountValuationCurrency string
 
 const (
-	GetAccountValuationAccountValuationTotalSecurityValueCurrencyEur GetAccountValuationAccountValuationTotalSecurityValueCurrency = "EUR"
+	GetAccountValuationCurrencyEur GetAccountValuationCurrency = "EUR"
 )
 
-func (e GetAccountValuationAccountValuationTotalSecurityValueCurrency) ToPointer() *GetAccountValuationAccountValuationTotalSecurityValueCurrency {
+func (e GetAccountValuationCurrency) ToPointer() *GetAccountValuationCurrency {
 	return &e
 }
 
-func (e *GetAccountValuationAccountValuationTotalSecurityValueCurrency) UnmarshalJSON(data []byte) error {
+func (e *GetAccountValuationCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = GetAccountValuationAccountValuationTotalSecurityValueCurrency(v)
+		*e = GetAccountValuationCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for GetAccountValuationAccountValuationTotalSecurityValueCurrency: %v", v)
+		return fmt.Errorf("invalid value for GetAccountValuationCurrency: %v", v)
 	}
 }
 
-// GetAccountValuationAccountValuationTotalSecurityValue - Entity representing the monetary value by amount and currency.
-type GetAccountValuationAccountValuationTotalSecurityValue struct {
+// TotalSecurityValue - Entity representing the monetary value by amount and currency.
+type TotalSecurityValue struct {
 	Amount string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *GetAccountValuationAccountValuationTotalSecurityValueCurrency `default:"EUR" json:"currency"`
+	Currency *GetAccountValuationCurrency `default:"EUR" json:"currency"`
 }
 
-func (g GetAccountValuationAccountValuationTotalSecurityValue) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(g, "", false)
+func (t TotalSecurityValue) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (g *GetAccountValuationAccountValuationTotalSecurityValue) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+func (t *TotalSecurityValue) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *GetAccountValuationAccountValuationTotalSecurityValue) GetAmount() string {
+func (o *TotalSecurityValue) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *GetAccountValuationAccountValuationTotalSecurityValue) GetCurrency() *GetAccountValuationAccountValuationTotalSecurityValueCurrency {
+func (o *TotalSecurityValue) GetCurrency() *GetAccountValuationCurrency {
 	if o == nil {
 		return nil
 	}
@@ -324,11 +324,11 @@ type GetAccountValuationAccountValuation struct {
 	ID string `json:"id"`
 	// Price quality used for the calculation of the account valuation.
 	// * EOD - end of day price
-	PriceQuality *GetAccountValuationAccountValuationPriceQuality `default:"EOD" json:"price_quality"`
+	PriceQuality *GetAccountValuationPriceQuality `default:"EOD" json:"price_quality"`
 	// Positions associated with this account valuation.
-	SecurityPositions []GetAccountValuationAccountValuationAccountValuationSecurityPosition `json:"security_positions,omitempty"`
+	SecurityPositions []AccountValuationSecurityPosition `json:"security_positions,omitempty"`
 	// Entity representing the monetary value by amount and currency.
-	TotalSecurityValue GetAccountValuationAccountValuationTotalSecurityValue `json:"total_security_value"`
+	TotalSecurityValue TotalSecurityValue `json:"total_security_value"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// Date and time as of which the value was calculated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
@@ -367,23 +367,23 @@ func (o *GetAccountValuationAccountValuation) GetID() string {
 	return o.ID
 }
 
-func (o *GetAccountValuationAccountValuation) GetPriceQuality() *GetAccountValuationAccountValuationPriceQuality {
+func (o *GetAccountValuationAccountValuation) GetPriceQuality() *GetAccountValuationPriceQuality {
 	if o == nil {
 		return nil
 	}
 	return o.PriceQuality
 }
 
-func (o *GetAccountValuationAccountValuation) GetSecurityPositions() []GetAccountValuationAccountValuationAccountValuationSecurityPosition {
+func (o *GetAccountValuationAccountValuation) GetSecurityPositions() []AccountValuationSecurityPosition {
 	if o == nil {
 		return nil
 	}
 	return o.SecurityPositions
 }
 
-func (o *GetAccountValuationAccountValuation) GetTotalSecurityValue() GetAccountValuationAccountValuationTotalSecurityValue {
+func (o *GetAccountValuationAccountValuation) GetTotalSecurityValue() TotalSecurityValue {
 	if o == nil {
-		return GetAccountValuationAccountValuationTotalSecurityValue{}
+		return TotalSecurityValue{}
 	}
 	return o.TotalSecurityValue
 }
@@ -404,7 +404,7 @@ func (o *GetAccountValuationAccountValuation) GetValuationTime() time.Time {
 
 type GetAccountValuationResponse struct {
 	// Valuations
-	AccountValuation *GetAccountValuationAccountValuation
+	TwoHundredApplicationJSONAccountValuation *GetAccountValuationAccountValuation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -414,11 +414,11 @@ type GetAccountValuationResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *GetAccountValuationResponse) GetAccountValuation() *GetAccountValuationAccountValuation {
+func (o *GetAccountValuationResponse) GetTwoHundredApplicationJSONAccountValuation() *GetAccountValuationAccountValuation {
 	if o == nil {
 		return nil
 	}
-	return o.AccountValuation
+	return o.TwoHundredApplicationJSONAccountValuation
 }
 
 func (o *GetAccountValuationResponse) GetContentType() string {

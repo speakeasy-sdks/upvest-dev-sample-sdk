@@ -12,8 +12,8 @@ import (
 	"net/http"
 )
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress - Address. Must not be a P.O. box or c/o address.
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress struct {
+// UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress - Address. Must not be a P.O. box or c/o address.
+type UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -27,49 +27,49 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress s
 	State *string `json:"state,omitempty"`
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress) GetAddressLine1() string {
+func (o *UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress) GetAddressLine2() *string {
+func (o *UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress) GetCity() string {
+func (o *UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress) GetCountry() string {
+func (o *UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress) GetPostcode() string {
+func (o *UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress) GetState() *string {
+func (o *UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType - The type of document used to proof data change
+// UserDataChangeUsersRequestDocumentType - The type of document used to proof data change
 // * UTILITY_BILL - Utility bill
 // * TELEPHONE_BILL - Telephone bill
 // * INTERNET_BILL - Internet bill
@@ -77,23 +77,23 @@ func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddre
 // * REGISTRATION_CERT - Registration certificate
 // * RESIDENCE_PERMIT - Residence permit
 // * ID_CARD - National Identification document
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType string
+type UserDataChangeUsersRequestDocumentType string
 
 const (
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentTypeUtilityBill      UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType = "UTILITY_BILL"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentTypeTelephoneBill    UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType = "TELEPHONE_BILL"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentTypeInternetBill     UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType = "INTERNET_BILL"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentTypeBankStatement    UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType = "BANK_STATEMENT"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentTypeRegistrationCert UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType = "REGISTRATION_CERT"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentTypeResidencePermit  UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType = "RESIDENCE_PERMIT"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentTypeIDCard           UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType = "ID_CARD"
+	UserDataChangeUsersRequestDocumentTypeUtilityBill      UserDataChangeUsersRequestDocumentType = "UTILITY_BILL"
+	UserDataChangeUsersRequestDocumentTypeTelephoneBill    UserDataChangeUsersRequestDocumentType = "TELEPHONE_BILL"
+	UserDataChangeUsersRequestDocumentTypeInternetBill     UserDataChangeUsersRequestDocumentType = "INTERNET_BILL"
+	UserDataChangeUsersRequestDocumentTypeBankStatement    UserDataChangeUsersRequestDocumentType = "BANK_STATEMENT"
+	UserDataChangeUsersRequestDocumentTypeRegistrationCert UserDataChangeUsersRequestDocumentType = "REGISTRATION_CERT"
+	UserDataChangeUsersRequestDocumentTypeResidencePermit  UserDataChangeUsersRequestDocumentType = "RESIDENCE_PERMIT"
+	UserDataChangeUsersRequestDocumentTypeIDCard           UserDataChangeUsersRequestDocumentType = "ID_CARD"
 )
 
-func (e UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType) ToPointer() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType {
+func (e UserDataChangeUsersRequestDocumentType) ToPointer() *UserDataChangeUsersRequestDocumentType {
 	return &e
 }
 
-func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType) UnmarshalJSON(data []byte) error {
+func (e *UserDataChangeUsersRequestDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -112,16 +112,16 @@ func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocum
 	case "RESIDENCE_PERMIT":
 		fallthrough
 	case "ID_CARD":
-		*e = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType(v)
+		*e = UserDataChangeUsersRequestDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType: %v", v)
+		return fmt.Errorf("invalid value for UserDataChangeUsersRequestDocumentType: %v", v)
 	}
 }
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress struct {
+type UserDataChangeUsersRequestRequestBodyAddress struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress `json:"address"`
+	Address UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress `json:"address"`
 	// Download link for the document that proofs data change.
 	DataDownloadLink string `json:"data_download_link"`
 	// The type of document used to proof data change
@@ -132,65 +132,65 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress struct {
 	// * REGISTRATION_CERT - Registration certificate
 	// * RESIDENCE_PERMIT - Residence permit
 	// * ID_CARD - National Identification document
-	DocumentType UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType `json:"document_type"`
+	DocumentType UserDataChangeUsersRequestDocumentType `json:"document_type"`
 	// Issuance date in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
 	IssuanceDate types.Date `json:"issuance_date"`
 }
 
-func (u UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress) MarshalJSON() ([]byte, error) {
+func (u UserDataChangeUsersRequestRequestBodyAddress) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(u, "", false)
 }
 
-func (u *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress) UnmarshalJSON(data []byte) error {
+func (u *UserDataChangeUsersRequestRequestBodyAddress) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress) GetAddress() UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress {
+func (o *UserDataChangeUsersRequestRequestBodyAddress) GetAddress() UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress {
 	if o == nil {
-		return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressAddress{}
+		return UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress{}
 	}
 	return o.Address
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress) GetDataDownloadLink() string {
+func (o *UserDataChangeUsersRequestRequestBodyAddress) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress) GetDocumentType() UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType {
+func (o *UserDataChangeUsersRequestRequestBodyAddress) GetDocumentType() UserDataChangeUsersRequestDocumentType {
 	if o == nil {
-		return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddressDocumentType("")
+		return UserDataChangeUsersRequestDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress) GetIssuanceDate() types.Date {
+func (o *UserDataChangeUsersRequestRequestBodyAddress) GetIssuanceDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.IssuanceDate
 }
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType - The type of document used to proof data change
+// UserDataChangeUsersDocumentType - The type of document used to proof data change
 // * PASSPORT - Passport
 // * ID_CARD - National Identification document
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType string
+type UserDataChangeUsersDocumentType string
 
 const (
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentTypePassport UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType = "PASSPORT"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentTypeIDCard   UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType = "ID_CARD"
+	UserDataChangeUsersDocumentTypePassport UserDataChangeUsersDocumentType = "PASSPORT"
+	UserDataChangeUsersDocumentTypeIDCard   UserDataChangeUsersDocumentType = "ID_CARD"
 )
 
-func (e UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType) ToPointer() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType {
+func (e UserDataChangeUsersDocumentType) ToPointer() *UserDataChangeUsersDocumentType {
 	return &e
 }
 
-func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType) UnmarshalJSON(data []byte) error {
+func (e *UserDataChangeUsersDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -199,67 +199,67 @@ func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityD
 	case "PASSPORT":
 		fallthrough
 	case "ID_CARD":
-		*e = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType(v)
+		*e = UserDataChangeUsersDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType: %v", v)
+		return fmt.Errorf("invalid value for UserDataChangeUsersDocumentType: %v", v)
 	}
 }
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality struct {
+type Nationality struct {
 	// Download link for the document that proofs data change.
 	DataDownloadLink string `json:"data_download_link"`
 	// The type of document used to proof data change
 	// * PASSPORT - Passport
 	// * ID_CARD - National Identification document
-	DocumentType UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType `json:"document_type"`
+	DocumentType UserDataChangeUsersDocumentType `json:"document_type"`
 	// Issuance date in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
 	IssuanceDate types.Date `json:"issuance_date"`
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 }
 
-func (u UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
+func (n Nationality) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(n, "", false)
 }
 
-func (u *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
+func (n *Nationality) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &n, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality) GetDataDownloadLink() string {
+func (o *Nationality) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality) GetDocumentType() UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType {
+func (o *Nationality) GetDocumentType() UserDataChangeUsersDocumentType {
 	if o == nil {
-		return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationalityDocumentType("")
+		return UserDataChangeUsersDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality) GetIssuanceDate() types.Date {
+func (o *Nationality) GetIssuanceDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.IssuanceDate
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality) GetNationalities() []string {
+func (o *Nationality) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress struct {
+// UserDataChangeUsersRequestAddress - Address. Must not be a P.O. box or c/o address.
+type UserDataChangeUsersRequestAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -273,110 +273,110 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddre
 	State *string `json:"state,omitempty"`
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetAddressLine1() string {
+func (o *UserDataChangeUsersRequestAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetAddressLine2() *string {
+func (o *UserDataChangeUsersRequestAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetCity() string {
+func (o *UserDataChangeUsersRequestAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetCountry() string {
+func (o *UserDataChangeUsersRequestAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetPostcode() string {
+func (o *UserDataChangeUsersRequestAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) GetState() *string {
+func (o *UserDataChangeUsersRequestAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressType string
+type UserDataChangeUsersPostalAddressType string
 
 const (
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressType = "user_data_change_User - Data Change - Request_User (TOL) - Data Change Request_Other_postal_address_Address"
+	UserDataChangeUsersPostalAddressTypeUserDataChangeUsersRequestAddress UserDataChangeUsersPostalAddressType = "user_data_change_Users_request_Address"
 )
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress struct {
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+type UserDataChangeUsersPostalAddress struct {
+	UserDataChangeUsersRequestAddress *UserDataChangeUsersRequestAddress
 
-	Type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressType
+	Type UserDataChangeUsersPostalAddressType
 }
 
-func CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress(userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress) UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress {
-	typ := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+func CreateUserDataChangeUsersPostalAddressUserDataChangeUsersRequestAddress(userDataChangeUsersRequestAddress UserDataChangeUsersRequestAddress) UserDataChangeUsersPostalAddress {
+	typ := UserDataChangeUsersPostalAddressTypeUserDataChangeUsersRequestAddress
 
-	return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress{
-		UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress: &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress,
-		Type: typ,
+	return UserDataChangeUsersPostalAddress{
+		UserDataChangeUsersRequestAddress: &userDataChangeUsersRequestAddress,
+		Type:                              typ,
 	}
 }
 
-func (u *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *UserDataChangeUsersPostalAddress) UnmarshalJSON(data []byte) error {
 
-	userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress = &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
-		u.Type = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress
+	userDataChangeUsersRequestAddress := UserDataChangeUsersRequestAddress{}
+	if err := utils.UnmarshalJSON(data, &userDataChangeUsersRequestAddress, "", true, true); err == nil {
+		u.UserDataChangeUsersRequestAddress = &userDataChangeUsersRequestAddress
+		u.Type = UserDataChangeUsersPostalAddressTypeUserDataChangeUsersRequestAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddressAddress, "", true)
+func (u UserDataChangeUsersPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.UserDataChangeUsersRequestAddress != nil {
+		return utils.MarshalJSON(u.UserDataChangeUsersRequestAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation - Salutation of the user used in reports and statements.
+// UserDataChangeUsersSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation string
+type UserDataChangeUsersSalutation string
 
 const (
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutationUnknown                 UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation = ""
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutationSalutationMale          UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation = "SALUTATION_MALE"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutationSalutationFemale        UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation = "SALUTATION_FEMALE"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutationSalutationFemaleMarried UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation = "SALUTATION_FEMALE_MARRIED"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutationSalutationDiverse       UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation = "SALUTATION_DIVERSE"
+	UserDataChangeUsersSalutationUnknown                 UserDataChangeUsersSalutation = ""
+	UserDataChangeUsersSalutationSalutationMale          UserDataChangeUsersSalutation = "SALUTATION_MALE"
+	UserDataChangeUsersSalutationSalutationFemale        UserDataChangeUsersSalutation = "SALUTATION_FEMALE"
+	UserDataChangeUsersSalutationSalutationFemaleMarried UserDataChangeUsersSalutation = "SALUTATION_FEMALE_MARRIED"
+	UserDataChangeUsersSalutationSalutationDiverse       UserDataChangeUsersSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation) ToPointer() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation {
+func (e UserDataChangeUsersSalutation) ToPointer() *UserDataChangeUsersSalutation {
 	return &e
 }
 
-func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation) UnmarshalJSON(data []byte) error {
+func (e *UserDataChangeUsersSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -391,36 +391,36 @@ func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutat
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation(v)
+		*e = UserDataChangeUsersSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation: %v", v)
+		return fmt.Errorf("invalid value for UserDataChangeUsersSalutation: %v", v)
 	}
 }
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle - Title of the user used in reports and statements.
+// UserDataChangeUsersTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle string
+type UserDataChangeUsersTitle string
 
 const (
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitleUnknown  UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle = ""
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitleDr       UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle = "DR"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitleProf     UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle = "PROF"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitleProfDr   UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle = "PROF_DR"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitleDiplIng  UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle = "DIPL_ING"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitleMagister UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle = "MAGISTER"
+	UserDataChangeUsersTitleUnknown  UserDataChangeUsersTitle = ""
+	UserDataChangeUsersTitleDr       UserDataChangeUsersTitle = "DR"
+	UserDataChangeUsersTitleProf     UserDataChangeUsersTitle = "PROF"
+	UserDataChangeUsersTitleProfDr   UserDataChangeUsersTitle = "PROF_DR"
+	UserDataChangeUsersTitleDiplIng  UserDataChangeUsersTitle = "DIPL_ING"
+	UserDataChangeUsersTitleMagister UserDataChangeUsersTitle = "MAGISTER"
 )
 
-func (e UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle) ToPointer() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle {
+func (e UserDataChangeUsersTitle) ToPointer() *UserDataChangeUsersTitle {
 	return &e
 }
 
-func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle) UnmarshalJSON(data []byte) error {
+func (e *UserDataChangeUsersTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -437,14 +437,14 @@ func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle) 
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle(v)
+		*e = UserDataChangeUsersTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle: %v", v)
+		return fmt.Errorf("invalid value for UserDataChangeUsersTitle: %v", v)
 	}
 }
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther struct {
+type Other struct {
 	// If applicable, birth name of the user.
 	BirthName *string `json:"birth_name,omitempty"`
 	// Email of the user. Must be a valid email address.
@@ -452,14 +452,14 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *UserDataChangeUsersPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation `default:"" json:"salutation"`
+	Salutation *UserDataChangeUsersSalutation `default:"" json:"salutation"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -467,77 +467,77 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle `default:"" json:"title"`
+	Title *UserDataChangeUsersTitle `default:"" json:"title"`
 }
 
-func (u UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
+func (o Other) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(o, "", false)
 }
 
-func (u *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
+func (o *Other) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &o, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetBirthName() *string {
+func (o *Other) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetEmail() *string {
+func (o *Other) GetEmail() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Email
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetPhoneNumber() *string {
+func (o *Other) GetPhoneNumber() *string {
 	if o == nil {
 		return nil
 	}
 	return o.PhoneNumber
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetPostalAddress() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherPostalAddress {
+func (o *Other) GetPostalAddress() *UserDataChangeUsersPostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetSalutation() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherSalutation {
+func (o *Other) GetSalutation() *UserDataChangeUsersSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) GetTitle() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOtherTitle {
+func (o *Other) GetTitle() *UserDataChangeUsersTitle {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-// UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType - The type of document used to proof data change
+// UserDataChangeDocumentType - The type of document used to proof data change
 // * PASSPORT - Passport
 // * ID_CARD - National Identification document
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType string
+type UserDataChangeDocumentType string
 
 const (
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentTypePassport UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType = "PASSPORT"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentTypeIDCard   UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType = "ID_CARD"
+	UserDataChangeDocumentTypePassport UserDataChangeDocumentType = "PASSPORT"
+	UserDataChangeDocumentTypeIDCard   UserDataChangeDocumentType = "ID_CARD"
 )
 
-func (e UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType) ToPointer() *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType {
+func (e UserDataChangeDocumentType) ToPointer() *UserDataChangeDocumentType {
 	return &e
 }
 
-func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType) UnmarshalJSON(data []byte) error {
+func (e *UserDataChangeDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -546,20 +546,20 @@ func (e *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDo
 	case "PASSPORT":
 		fallthrough
 	case "ID_CARD":
-		*e = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType(v)
+		*e = UserDataChangeDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType: %v", v)
+		return fmt.Errorf("invalid value for UserDataChangeDocumentType: %v", v)
 	}
 }
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange struct {
+type NameChange struct {
 	// Download link for the document that proofs data change.
 	DataDownloadLink string `json:"data_download_link"`
 	// The type of document used to proof data change
 	// * PASSPORT - Passport
 	// * ID_CARD - National Identification document
-	DocumentType UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType `json:"document_type"`
+	DocumentType UserDataChangeDocumentType `json:"document_type"`
 	// First name of the user.
 	FirstName string `json:"first_name"`
 	// Issuance date in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -568,161 +568,161 @@ type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange struc
 	LastName string `json:"last_name"`
 }
 
-func (u UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
+func (n NameChange) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(n, "", false)
 }
 
-func (u *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
+func (n *NameChange) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &n, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) GetDataDownloadLink() string {
+func (o *NameChange) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) GetDocumentType() UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType {
+func (o *NameChange) GetDocumentType() UserDataChangeDocumentType {
 	if o == nil {
-		return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChangeDocumentType("")
+		return UserDataChangeDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) GetFirstName() string {
+func (o *NameChange) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) GetIssuanceDate() types.Date {
+func (o *NameChange) GetIssuanceDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.IssuanceDate
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) GetLastName() string {
+func (o *NameChange) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestType string
+type UserTOLDataChangeRequestType string
 
 const (
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange  UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestType = "user_data_change_User - Data Change - Request_User (TOL) - Data Change Request_Name change"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther       UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestType = "user_data_change_User - Data Change - Request_User (TOL) - Data Change Request_Other"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestType = "user_data_change_User - Data Change - Request_User (TOL) - Data Change Request_Nationality"
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress     UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestType = "user_data_change_User - Data Change - Request_User (TOL) - Data Change Request_Address"
+	UserTOLDataChangeRequestTypeNameChange                                   UserTOLDataChangeRequestType = "Name change"
+	UserTOLDataChangeRequestTypeOther                                        UserTOLDataChangeRequestType = "Other"
+	UserTOLDataChangeRequestTypeNationality                                  UserTOLDataChangeRequestType = "Nationality"
+	UserTOLDataChangeRequestTypeUserDataChangeUsersRequestRequestBodyAddress UserTOLDataChangeRequestType = "user_data_change_Users_request_requestBody_Address"
 )
 
-type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest struct {
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange  *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther       *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress     *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress
+type UserTOLDataChangeRequest struct {
+	NameChange                                   *NameChange
+	Other                                        *Other
+	Nationality                                  *Nationality
+	UserDataChangeUsersRequestRequestBodyAddress *UserDataChangeUsersRequestRequestBodyAddress
 
-	Type UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestType
+	Type UserTOLDataChangeRequestType
 }
 
-func CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange(userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange) UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest {
-	typ := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange
+func CreateUserTOLDataChangeRequestNameChange(nameChange NameChange) UserTOLDataChangeRequest {
+	typ := UserTOLDataChangeRequestTypeNameChange
 
-	return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest{
-		UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange: &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange,
+	return UserTOLDataChangeRequest{
+		NameChange: &nameChange,
+		Type:       typ,
+	}
+}
+
+func CreateUserTOLDataChangeRequestOther(other Other) UserTOLDataChangeRequest {
+	typ := UserTOLDataChangeRequestTypeOther
+
+	return UserTOLDataChangeRequest{
+		Other: &other,
+		Type:  typ,
+	}
+}
+
+func CreateUserTOLDataChangeRequestNationality(nationality Nationality) UserTOLDataChangeRequest {
+	typ := UserTOLDataChangeRequestTypeNationality
+
+	return UserTOLDataChangeRequest{
+		Nationality: &nationality,
+		Type:        typ,
+	}
+}
+
+func CreateUserTOLDataChangeRequestUserDataChangeUsersRequestRequestBodyAddress(userDataChangeUsersRequestRequestBodyAddress UserDataChangeUsersRequestRequestBodyAddress) UserTOLDataChangeRequest {
+	typ := UserTOLDataChangeRequestTypeUserDataChangeUsersRequestRequestBodyAddress
+
+	return UserTOLDataChangeRequest{
+		UserDataChangeUsersRequestRequestBodyAddress: &userDataChangeUsersRequestRequestBodyAddress,
 		Type: typ,
 	}
 }
 
-func CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther(userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther) UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest {
-	typ := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther
+func (u *UserTOLDataChangeRequest) UnmarshalJSON(data []byte) error {
 
-	return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest{
-		UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther: &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther,
-		Type: typ,
-	}
-}
-
-func CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality(userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality) UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest {
-	typ := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality
-
-	return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest{
-		UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality: &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality,
-		Type: typ,
-	}
-}
-
-func CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress(userDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress) UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest {
-	typ := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress
-
-	return UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest{
-		UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress: &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress,
-		Type: typ,
-	}
-}
-
-func (u *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest) UnmarshalJSON(data []byte) error {
-
-	userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality = &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality
-		u.Type = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality
+	nationality := Nationality{}
+	if err := utils.UnmarshalJSON(data, &nationality, "", true, true); err == nil {
+		u.Nationality = &nationality
+		u.Type = UserTOLDataChangeRequestTypeNationality
 		return nil
 	}
 
-	userDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress = &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress
-		u.Type = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress
+	userDataChangeUsersRequestRequestBodyAddress := UserDataChangeUsersRequestRequestBodyAddress{}
+	if err := utils.UnmarshalJSON(data, &userDataChangeUsersRequestRequestBodyAddress, "", true, true); err == nil {
+		u.UserDataChangeUsersRequestRequestBodyAddress = &userDataChangeUsersRequestRequestBodyAddress
+		u.Type = UserTOLDataChangeRequestTypeUserDataChangeUsersRequestRequestBodyAddress
 		return nil
 	}
 
-	userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange = &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange
-		u.Type = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange
+	nameChange := NameChange{}
+	if err := utils.UnmarshalJSON(data, &nameChange, "", true, true); err == nil {
+		u.NameChange = &nameChange
+		u.Type = UserTOLDataChangeRequestTypeNameChange
 		return nil
 	}
 
-	userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther = &userDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther
-		u.Type = UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther
+	other := Other{}
+	if err := utils.UnmarshalJSON(data, &other, "", true, true); err == nil {
+		u.Other = &other
+		u.Type = UserTOLDataChangeRequestTypeOther
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest) MarshalJSON() ([]byte, error) {
-	if u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNameChange, "", true)
+func (u UserTOLDataChangeRequest) MarshalJSON() ([]byte, error) {
+	if u.NameChange != nil {
+		return utils.MarshalJSON(u.NameChange, "", true)
 	}
 
-	if u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestOther, "", true)
+	if u.Other != nil {
+		return utils.MarshalJSON(u.Other, "", true)
 	}
 
-	if u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestNationality, "", true)
+	if u.Nationality != nil {
+		return utils.MarshalJSON(u.Nationality, "", true)
 	}
 
-	if u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequestAddress, "", true)
+	if u.UserDataChangeUsersRequestRequestBodyAddress != nil {
+		return utils.MarshalJSON(u.UserDataChangeUsersRequestRequestBodyAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress - Address. Must not be a P.O. box or c/o address.
-type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress struct {
+// UserDataChangeUsersAddress - Address. Must not be a P.O. box or c/o address.
+type UserDataChangeUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -736,50 +736,50 @@ type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress struct 
 	State *string `json:"state,omitempty"`
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress) GetAddressLine1() string {
+func (o *UserDataChangeUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress) GetAddressLine2() *string {
+func (o *UserDataChangeUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress) GetCity() string {
+func (o *UserDataChangeUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress) GetCountry() string {
+func (o *UserDataChangeUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress) GetPostcode() string {
+func (o *UserDataChangeUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress) GetState() *string {
+func (o *UserDataChangeUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress struct {
+// UserDataChangeAddress - Address. Must not be a P.O. box or c/o address.
+type UserDataChangeAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -793,110 +793,110 @@ type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAd
 	State *string `json:"state,omitempty"`
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetAddressLine1() string {
+func (o *UserDataChangeAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetAddressLine2() *string {
+func (o *UserDataChangeAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetCity() string {
+func (o *UserDataChangeAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetCountry() string {
+func (o *UserDataChangeAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetPostcode() string {
+func (o *UserDataChangeAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) GetState() *string {
+func (o *UserDataChangeAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressType string
+type UserDataChangePostalAddressType string
 
 const (
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressType = "user_data_change_User - Data Change - Request_User (BYOL) - Data Change Request_postal_address_Address"
+	UserDataChangePostalAddressTypeUserDataChangeAddress UserDataChangePostalAddressType = "user_data_change_Address"
 )
 
-type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress struct {
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
+type UserDataChangePostalAddress struct {
+	UserDataChangeAddress *UserDataChangeAddress
 
-	Type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressType
+	Type UserDataChangePostalAddressType
 }
 
-func CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress(userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress) UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress {
-	typ := UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
+func CreateUserDataChangePostalAddressUserDataChangeAddress(userDataChangeAddress UserDataChangeAddress) UserDataChangePostalAddress {
+	typ := UserDataChangePostalAddressTypeUserDataChangeAddress
 
-	return UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress{
-		UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress: &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress,
-		Type: typ,
+	return UserDataChangePostalAddress{
+		UserDataChangeAddress: &userDataChangeAddress,
+		Type:                  typ,
 	}
 }
 
-func (u *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *UserDataChangePostalAddress) UnmarshalJSON(data []byte) error {
 
-	userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress := UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress = &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
-		u.Type = UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress
+	userDataChangeAddress := UserDataChangeAddress{}
+	if err := utils.UnmarshalJSON(data, &userDataChangeAddress, "", true, true); err == nil {
+		u.UserDataChangeAddress = &userDataChangeAddress
+		u.Type = UserDataChangePostalAddressTypeUserDataChangeAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress, "", true)
+func (u UserDataChangePostalAddress) MarshalJSON() ([]byte, error) {
+	if u.UserDataChangeAddress != nil {
+		return utils.MarshalJSON(u.UserDataChangeAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation - Salutation of the user used in reports and statements.
+// UserDataChangeSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation string
+type UserDataChangeSalutation string
 
 const (
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutationUnknown                 UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation = ""
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutationSalutationMale          UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation = "SALUTATION_MALE"
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutationSalutationFemale        UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation = "SALUTATION_FEMALE"
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutationSalutationFemaleMarried UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation = "SALUTATION_FEMALE_MARRIED"
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutationSalutationDiverse       UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation = "SALUTATION_DIVERSE"
+	UserDataChangeSalutationUnknown                 UserDataChangeSalutation = ""
+	UserDataChangeSalutationSalutationMale          UserDataChangeSalutation = "SALUTATION_MALE"
+	UserDataChangeSalutationSalutationFemale        UserDataChangeSalutation = "SALUTATION_FEMALE"
+	UserDataChangeSalutationSalutationFemaleMarried UserDataChangeSalutation = "SALUTATION_FEMALE_MARRIED"
+	UserDataChangeSalutationSalutationDiverse       UserDataChangeSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation) ToPointer() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation {
+func (e UserDataChangeSalutation) ToPointer() *UserDataChangeSalutation {
 	return &e
 }
 
-func (e *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation) UnmarshalJSON(data []byte) error {
+func (e *UserDataChangeSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -911,36 +911,36 @@ func (e *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation)
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation(v)
+		*e = UserDataChangeSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation: %v", v)
+		return fmt.Errorf("invalid value for UserDataChangeSalutation: %v", v)
 	}
 }
 
-// UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle - Title of the user used in reports and statements.
+// UserDataChangeTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle string
+type UserDataChangeTitle string
 
 const (
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitleUnknown  UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle = ""
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitleDr       UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle = "DR"
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitleProf     UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle = "PROF"
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitleProfDr   UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle = "PROF_DR"
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitleDiplIng  UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle = "DIPL_ING"
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitleMagister UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle = "MAGISTER"
+	UserDataChangeTitleUnknown  UserDataChangeTitle = ""
+	UserDataChangeTitleDr       UserDataChangeTitle = "DR"
+	UserDataChangeTitleProf     UserDataChangeTitle = "PROF"
+	UserDataChangeTitleProfDr   UserDataChangeTitle = "PROF_DR"
+	UserDataChangeTitleDiplIng  UserDataChangeTitle = "DIPL_ING"
+	UserDataChangeTitleMagister UserDataChangeTitle = "MAGISTER"
 )
 
-func (e UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle) ToPointer() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle {
+func (e UserDataChangeTitle) ToPointer() *UserDataChangeTitle {
 	return &e
 }
 
-func (e *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle) UnmarshalJSON(data []byte) error {
+func (e *UserDataChangeTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -957,17 +957,17 @@ func (e *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle) Unma
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle(v)
+		*e = UserDataChangeTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle: %v", v)
+		return fmt.Errorf("invalid value for UserDataChangeTitle: %v", v)
 	}
 }
 
-type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest struct {
+type UserBYOLDataChangeRequest struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress `json:"address,omitempty"`
-	BirthCity *string                                                              `json:"birth_city,omitempty"`
+	Address   *UserDataChangeUsersAddress `json:"address,omitempty"`
+	BirthCity *string                     `json:"birth_city,omitempty"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry *string `json:"birth_country,omitempty"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -981,14 +981,14 @@ type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *UserDataChangePostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation `default:"" json:"salutation"`
+	Salutation *UserDataChangeSalutation `default:"" json:"salutation"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -996,91 +996,91 @@ type UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle `default:"" json:"title"`
+	Title *UserDataChangeTitle `default:"" json:"title"`
 }
 
-func (u UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) MarshalJSON() ([]byte, error) {
+func (u UserBYOLDataChangeRequest) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(u, "", false)
 }
 
-func (u *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) UnmarshalJSON(data []byte) error {
+func (u *UserBYOLDataChangeRequest) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetAddress() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress {
+func (o *UserBYOLDataChangeRequest) GetAddress() *UserDataChangeUsersAddress {
 	if o == nil {
 		return nil
 	}
 	return o.Address
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetBirthCity() *string {
+func (o *UserBYOLDataChangeRequest) GetBirthCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCity
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetBirthCountry() *string {
+func (o *UserBYOLDataChangeRequest) GetBirthCountry() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCountry
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetBirthDate() *types.Date {
+func (o *UserBYOLDataChangeRequest) GetBirthDate() *types.Date {
 	if o == nil {
 		return nil
 	}
 	return o.BirthDate
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetBirthName() *string {
+func (o *UserBYOLDataChangeRequest) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetFirstName() *string {
+func (o *UserBYOLDataChangeRequest) GetFirstName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.FirstName
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetLastName() *string {
+func (o *UserBYOLDataChangeRequest) GetLastName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.LastName
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetNationalities() []string {
+func (o *UserBYOLDataChangeRequest) GetNationalities() []string {
 	if o == nil {
 		return nil
 	}
 	return o.Nationalities
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetPostalAddress() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddress {
+func (o *UserBYOLDataChangeRequest) GetPostalAddress() *UserDataChangePostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetSalutation() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestSalutation {
+func (o *UserBYOLDataChangeRequest) GetSalutation() *UserDataChangeSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetTitle() *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestTitle {
+func (o *UserBYOLDataChangeRequest) GetTitle() *UserDataChangeTitle {
 	if o == nil {
 		return nil
 	}
@@ -1090,48 +1090,48 @@ func (o *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) GetTitle(
 type UserDataChangeUserDataChangeRequestType string
 
 const (
-	UserDataChangeUserDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest UserDataChangeUserDataChangeRequestType = "user_data_change_User - Data Change - Request_User (BYOL) - Data Change Request"
-	UserDataChangeUserDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequest  UserDataChangeUserDataChangeRequestType = "user_data_change_User - Data Change - Request_User (TOL) - Data Change Request"
+	UserDataChangeUserDataChangeRequestTypeUserBYOLDataChangeRequest UserDataChangeUserDataChangeRequestType = "User (BYOL) - Data Change Request"
+	UserDataChangeUserDataChangeRequestTypeUserTOLDataChangeRequest  UserDataChangeUserDataChangeRequestType = "User (TOL) - Data Change Request"
 )
 
 type UserDataChangeUserDataChangeRequest struct {
-	UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest *UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest
-	UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest  *UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest
+	UserBYOLDataChangeRequest *UserBYOLDataChangeRequest
+	UserTOLDataChangeRequest  *UserTOLDataChangeRequest
 
 	Type UserDataChangeUserDataChangeRequestType
 }
 
-func CreateUserDataChangeUserDataChangeRequestUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(userDataChangeUserDataChangeRequestUserBYOLDataChangeRequest UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest) UserDataChangeUserDataChangeRequest {
-	typ := UserDataChangeUserDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest
+func CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(userBYOLDataChangeRequest UserBYOLDataChangeRequest) UserDataChangeUserDataChangeRequest {
+	typ := UserDataChangeUserDataChangeRequestTypeUserBYOLDataChangeRequest
 
 	return UserDataChangeUserDataChangeRequest{
-		UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest: &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequest,
-		Type: typ,
+		UserBYOLDataChangeRequest: &userBYOLDataChangeRequest,
+		Type:                      typ,
 	}
 }
 
-func CreateUserDataChangeUserDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequest(userDataChangeUserDataChangeRequestUserTOLDataChangeRequest UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest) UserDataChangeUserDataChangeRequest {
-	typ := UserDataChangeUserDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequest
+func CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequest(userTOLDataChangeRequest UserTOLDataChangeRequest) UserDataChangeUserDataChangeRequest {
+	typ := UserDataChangeUserDataChangeRequestTypeUserTOLDataChangeRequest
 
 	return UserDataChangeUserDataChangeRequest{
-		UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest: &userDataChangeUserDataChangeRequestUserTOLDataChangeRequest,
-		Type: typ,
+		UserTOLDataChangeRequest: &userTOLDataChangeRequest,
+		Type:                     typ,
 	}
 }
 
 func (u *UserDataChangeUserDataChangeRequest) UnmarshalJSON(data []byte) error {
 
-	userDataChangeUserDataChangeRequestUserBYOLDataChangeRequest := UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequest, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest = &userDataChangeUserDataChangeRequestUserBYOLDataChangeRequest
-		u.Type = UserDataChangeUserDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest
+	userBYOLDataChangeRequest := UserBYOLDataChangeRequest{}
+	if err := utils.UnmarshalJSON(data, &userBYOLDataChangeRequest, "", true, true); err == nil {
+		u.UserBYOLDataChangeRequest = &userBYOLDataChangeRequest
+		u.Type = UserDataChangeUserDataChangeRequestTypeUserBYOLDataChangeRequest
 		return nil
 	}
 
-	userDataChangeUserDataChangeRequestUserTOLDataChangeRequest := UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest{}
-	if err := utils.UnmarshalJSON(data, &userDataChangeUserDataChangeRequestUserTOLDataChangeRequest, "", true, true); err == nil {
-		u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest = &userDataChangeUserDataChangeRequestUserTOLDataChangeRequest
-		u.Type = UserDataChangeUserDataChangeRequestTypeUserDataChangeUserDataChangeRequestUserTOLDataChangeRequest
+	userTOLDataChangeRequest := UserTOLDataChangeRequest{}
+	if err := utils.UnmarshalJSON(data, &userTOLDataChangeRequest, "", true, true); err == nil {
+		u.UserTOLDataChangeRequest = &userTOLDataChangeRequest
+		u.Type = UserDataChangeUserDataChangeRequestTypeUserTOLDataChangeRequest
 		return nil
 	}
 
@@ -1139,12 +1139,12 @@ func (u *UserDataChangeUserDataChangeRequest) UnmarshalJSON(data []byte) error {
 }
 
 func (u UserDataChangeUserDataChangeRequest) MarshalJSON() ([]byte, error) {
-	if u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest, "", true)
+	if u.UserBYOLDataChangeRequest != nil {
+		return utils.MarshalJSON(u.UserBYOLDataChangeRequest, "", true)
 	}
 
-	if u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest != nil {
-		return utils.MarshalJSON(u.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest, "", true)
+	if u.UserTOLDataChangeRequest != nil {
+		return utils.MarshalJSON(u.UserTOLDataChangeRequest, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")

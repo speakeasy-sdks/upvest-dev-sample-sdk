@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListMandatesOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListMandatesOrder string
+// QueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type QueryParamOrder string
 
 const (
-	ListMandatesOrderAsc  ListMandatesOrder = "ASC"
-	ListMandatesOrderDesc ListMandatesOrder = "DESC"
+	QueryParamOrderAsc  QueryParamOrder = "ASC"
+	QueryParamOrderDesc QueryParamOrder = "DESC"
 )
 
-func (e ListMandatesOrder) ToPointer() *ListMandatesOrder {
+func (e QueryParamOrder) ToPointer() *QueryParamOrder {
 	return &e
 }
 
-func (e *ListMandatesOrder) UnmarshalJSON(data []byte) error {
+func (e *QueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,26 +32,26 @@ func (e *ListMandatesOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListMandatesOrder(v)
+		*e = QueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListMandatesOrder: %v", v)
+		return fmt.Errorf("invalid value for QueryParamOrder: %v", v)
 	}
 }
 
-// ListMandatesSort - Field of resource to sort by
-type ListMandatesSort string
+// ListMandatesQueryParamSort - Field of resource to sort by
+type ListMandatesQueryParamSort string
 
 const (
-	ListMandatesSortID        ListMandatesSort = "id"
-	ListMandatesSortCreatedAt ListMandatesSort = "created_at"
+	ListMandatesQueryParamSortID        ListMandatesQueryParamSort = "id"
+	ListMandatesQueryParamSortCreatedAt ListMandatesQueryParamSort = "created_at"
 )
 
-func (e ListMandatesSort) ToPointer() *ListMandatesSort {
+func (e ListMandatesQueryParamSort) ToPointer() *ListMandatesQueryParamSort {
 	return &e
 }
 
-func (e *ListMandatesSort) UnmarshalJSON(data []byte) error {
+func (e *ListMandatesQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -60,10 +60,10 @@ func (e *ListMandatesSort) UnmarshalJSON(data []byte) error {
 	case "id":
 		fallthrough
 	case "created_at":
-		*e = ListMandatesSort(v)
+		*e = ListMandatesQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListMandatesSort: %v", v)
+		return fmt.Errorf("invalid value for ListMandatesQueryParamSort: %v", v)
 	}
 }
 
@@ -73,13 +73,13 @@ type ListMandatesRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListMandatesOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *QueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Field of resource to sort by
-	Sort *ListMandatesSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListMandatesQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -112,7 +112,7 @@ func (o *ListMandatesRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListMandatesRequest) GetOrder() *ListMandatesOrder {
+func (o *ListMandatesRequest) GetOrder() *QueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -133,7 +133,7 @@ func (o *ListMandatesRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListMandatesRequest) GetSort() *ListMandatesSort {
+func (o *ListMandatesRequest) GetSort() *ListMandatesQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -161,8 +161,8 @@ func (o *ListMandatesRequest) GetUserID() string {
 	return o.UserID
 }
 
-// ListMandatesMandatesListResponseDirectDebitMandateAddress - Address. Must not be a P.O. box or c/o address.
-type ListMandatesMandatesListResponseDirectDebitMandateAddress struct {
+// ListMandatesAddress - Address. Must not be a P.O. box or c/o address.
+type ListMandatesAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -176,75 +176,75 @@ type ListMandatesMandatesListResponseDirectDebitMandateAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandateAddress) GetAddressLine1() string {
+func (o *ListMandatesAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandateAddress) GetAddressLine2() *string {
+func (o *ListMandatesAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandateAddress) GetCity() string {
+func (o *ListMandatesAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandateAddress) GetCountry() string {
+func (o *ListMandatesAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandateAddress) GetPostcode() string {
+func (o *ListMandatesAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandateAddress) GetState() *string {
+func (o *ListMandatesAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// ListMandatesMandatesListResponseDirectDebitMandateType - Type of mandate.
+// ListMandatesType - Type of mandate.
 // * RECURRENT -
-type ListMandatesMandatesListResponseDirectDebitMandateType string
+type ListMandatesType string
 
 const (
-	ListMandatesMandatesListResponseDirectDebitMandateTypeRecurrent ListMandatesMandatesListResponseDirectDebitMandateType = "RECURRENT"
+	ListMandatesTypeRecurrent ListMandatesType = "RECURRENT"
 )
 
-func (e ListMandatesMandatesListResponseDirectDebitMandateType) ToPointer() *ListMandatesMandatesListResponseDirectDebitMandateType {
+func (e ListMandatesType) ToPointer() *ListMandatesType {
 	return &e
 }
 
-func (e *ListMandatesMandatesListResponseDirectDebitMandateType) UnmarshalJSON(data []byte) error {
+func (e *ListMandatesType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "RECURRENT":
-		*e = ListMandatesMandatesListResponseDirectDebitMandateType(v)
+		*e = ListMandatesType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListMandatesMandatesListResponseDirectDebitMandateType: %v", v)
+		return fmt.Errorf("invalid value for ListMandatesType: %v", v)
 	}
 }
 
-type ListMandatesMandatesListResponseDirectDebitMandate struct {
+type DirectDebitMandate struct {
 	// Business Identifier Code (also known as SWIFT-BIC, BIC, SWIFT ID or SWIFT code) [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362).
 	Bic string `json:"bic"`
 	// Timestamp of when user validated the mandate
@@ -252,7 +252,7 @@ type ListMandatesMandatesListResponseDirectDebitMandate struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	CreditorAddress ListMandatesMandatesListResponseDirectDebitMandateAddress `json:"creditor_address"`
+	CreditorAddress ListMandatesAddress `json:"creditor_address"`
 	// Banking identifier of the creditor.
 	CreditorID string `json:"creditor_id"`
 	// Name of the creditor on the mandate.
@@ -263,107 +263,107 @@ type ListMandatesMandatesListResponseDirectDebitMandate struct {
 	ID string `json:"id"`
 	// Type of mandate.
 	// * RECURRENT -
-	Type *ListMandatesMandatesListResponseDirectDebitMandateType `default:"RECURRENT" json:"type"`
+	Type *ListMandatesType `default:"RECURRENT" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListMandatesMandatesListResponseDirectDebitMandate) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (d DirectDebitMandate) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
 }
 
-func (l *ListMandatesMandatesListResponseDirectDebitMandate) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (d *DirectDebitMandate) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetBic() string {
+func (o *DirectDebitMandate) GetBic() string {
 	if o == nil {
 		return ""
 	}
 	return o.Bic
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetConfirmedAt() time.Time {
+func (o *DirectDebitMandate) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetCreatedAt() time.Time {
+func (o *DirectDebitMandate) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetCreditorAddress() ListMandatesMandatesListResponseDirectDebitMandateAddress {
+func (o *DirectDebitMandate) GetCreditorAddress() ListMandatesAddress {
 	if o == nil {
-		return ListMandatesMandatesListResponseDirectDebitMandateAddress{}
+		return ListMandatesAddress{}
 	}
 	return o.CreditorAddress
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetCreditorID() string {
+func (o *DirectDebitMandate) GetCreditorID() string {
 	if o == nil {
 		return ""
 	}
 	return o.CreditorID
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetCreditorName() string {
+func (o *DirectDebitMandate) GetCreditorName() string {
 	if o == nil {
 		return ""
 	}
 	return o.CreditorName
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetIban() string {
+func (o *DirectDebitMandate) GetIban() string {
 	if o == nil {
 		return ""
 	}
 	return o.Iban
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetID() string {
+func (o *DirectDebitMandate) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetType() *ListMandatesMandatesListResponseDirectDebitMandateType {
+func (o *DirectDebitMandate) GetType() *ListMandatesType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ListMandatesMandatesListResponseDirectDebitMandate) GetUserID() string {
+func (o *DirectDebitMandate) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// ListMandatesMandatesListResponseMetaOrder - The ordering of the response.
+// ListMandatesOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListMandatesMandatesListResponseMetaOrder string
+type ListMandatesOrder string
 
 const (
-	ListMandatesMandatesListResponseMetaOrderAsc  ListMandatesMandatesListResponseMetaOrder = "ASC"
-	ListMandatesMandatesListResponseMetaOrderDesc ListMandatesMandatesListResponseMetaOrder = "DESC"
+	ListMandatesOrderAsc  ListMandatesOrder = "ASC"
+	ListMandatesOrderDesc ListMandatesOrder = "DESC"
 )
 
-func (e ListMandatesMandatesListResponseMetaOrder) ToPointer() *ListMandatesMandatesListResponseMetaOrder {
+func (e ListMandatesOrder) ToPointer() *ListMandatesOrder {
 	return &e
 }
 
-func (e *ListMandatesMandatesListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListMandatesOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -372,14 +372,14 @@ func (e *ListMandatesMandatesListResponseMetaOrder) UnmarshalJSON(data []byte) e
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListMandatesMandatesListResponseMetaOrder(v)
+		*e = ListMandatesOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListMandatesMandatesListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListMandatesOrder: %v", v)
 	}
 }
 
-type ListMandatesMandatesListResponseMeta struct {
+type ListMandatesMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -389,49 +389,49 @@ type ListMandatesMandatesListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListMandatesMandatesListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListMandatesOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListMandatesMandatesListResponseMeta) GetCount() int64 {
+func (o *ListMandatesMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListMandatesMandatesListResponseMeta) GetLimit() int64 {
+func (o *ListMandatesMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListMandatesMandatesListResponseMeta) GetOffset() int64 {
+func (o *ListMandatesMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListMandatesMandatesListResponseMeta) GetOrder() *ListMandatesMandatesListResponseMetaOrder {
+func (o *ListMandatesMeta) GetOrder() *ListMandatesOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListMandatesMandatesListResponseMeta) GetSort() *string {
+func (o *ListMandatesMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListMandatesMandatesListResponseMeta) GetTotalCount() int64 {
+func (o *ListMandatesMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -440,34 +440,41 @@ func (o *ListMandatesMandatesListResponseMeta) GetTotalCount() int64 {
 
 // ListMandatesMandatesListResponse - Mandates list
 type ListMandatesMandatesListResponse struct {
-	Data []ListMandatesMandatesListResponseDirectDebitMandate `json:"data"`
-	Meta ListMandatesMandatesListResponseMeta                 `json:"meta"`
+	Data []DirectDebitMandate `json:"data"`
+	Meta ListMandatesMeta     `json:"meta"`
 }
 
-func (o *ListMandatesMandatesListResponse) GetData() []ListMandatesMandatesListResponseDirectDebitMandate {
+func (o *ListMandatesMandatesListResponse) GetData() []DirectDebitMandate {
 	if o == nil {
-		return []ListMandatesMandatesListResponseDirectDebitMandate{}
+		return []DirectDebitMandate{}
 	}
 	return o.Data
 }
 
-func (o *ListMandatesMandatesListResponse) GetMeta() ListMandatesMandatesListResponseMeta {
+func (o *ListMandatesMandatesListResponse) GetMeta() ListMandatesMeta {
 	if o == nil {
-		return ListMandatesMandatesListResponseMeta{}
+		return ListMandatesMeta{}
 	}
 	return o.Meta
 }
 
 type ListMandatesResponse struct {
+	// Mandates list
+	TwoHundredApplicationJSONMandatesListResponse *ListMandatesMandatesListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Mandates list
-	MandatesListResponse *ListMandatesMandatesListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListMandatesResponse) GetTwoHundredApplicationJSONMandatesListResponse() *ListMandatesMandatesListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONMandatesListResponse
 }
 
 func (o *ListMandatesResponse) GetContentType() string {
@@ -482,13 +489,6 @@ func (o *ListMandatesResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListMandatesResponse) GetMandatesListResponse() *ListMandatesMandatesListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.MandatesListResponse
 }
 
 func (o *ListMandatesResponse) GetStatusCode() int {

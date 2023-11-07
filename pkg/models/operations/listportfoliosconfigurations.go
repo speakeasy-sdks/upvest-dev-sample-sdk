@@ -11,28 +11,28 @@ import (
 	"time"
 )
 
-// ListPortfoliosConfigurationsSort - Sort the result by `account_id`.
-type ListPortfoliosConfigurationsSort string
+// ListPortfoliosConfigurationsQueryParamSort - Sort the result by `account_id`.
+type ListPortfoliosConfigurationsQueryParamSort string
 
 const (
-	ListPortfoliosConfigurationsSortAccountID ListPortfoliosConfigurationsSort = "account_id"
+	ListPortfoliosConfigurationsQueryParamSortAccountID ListPortfoliosConfigurationsQueryParamSort = "account_id"
 )
 
-func (e ListPortfoliosConfigurationsSort) ToPointer() *ListPortfoliosConfigurationsSort {
+func (e ListPortfoliosConfigurationsQueryParamSort) ToPointer() *ListPortfoliosConfigurationsQueryParamSort {
 	return &e
 }
 
-func (e *ListPortfoliosConfigurationsSort) UnmarshalJSON(data []byte) error {
+func (e *ListPortfoliosConfigurationsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "account_id":
-		*e = ListPortfoliosConfigurationsSort(v)
+		*e = ListPortfoliosConfigurationsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfoliosConfigurationsSort: %v", v)
+		return fmt.Errorf("invalid value for ListPortfoliosConfigurationsQueryParamSort: %v", v)
 	}
 }
 
@@ -54,7 +54,7 @@ type ListPortfoliosConfigurationsRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `account_id`.
-	Sort *ListPortfoliosConfigurationsSort `default:"account_id" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListPortfoliosConfigurationsQueryParamSort `default:"account_id" queryParam:"style=form,explode=true,name=sort"`
 	// Returns portfolio configurations with dates starting from and including this date (UTC)
 	StartDate *string `queryParam:"style=form,explode=true,name=start_date"`
 	// Upvest API version (Note: Do not include quotation marks)
@@ -130,7 +130,7 @@ func (o *ListPortfoliosConfigurationsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListPortfoliosConfigurationsRequest) GetSort() *ListPortfoliosConfigurationsSort {
+func (o *ListPortfoliosConfigurationsRequest) GetSort() *ListPortfoliosConfigurationsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -158,7 +158,7 @@ func (o *ListPortfoliosConfigurationsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-type ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration struct {
+type PortfoliosConfiguration struct {
 	// Account unique identifier.
 	AccountID    string `json:"account_id"`
 	AllocationID string `json:"allocation_id"`
@@ -170,67 +170,67 @@ type ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosC
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (l ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (p PortfoliosConfiguration) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
 }
 
-func (l *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (p *PortfoliosConfiguration) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration) GetAccountID() string {
+func (o *PortfoliosConfiguration) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration) GetAllocationID() string {
+func (o *PortfoliosConfiguration) GetAllocationID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AllocationID
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration) GetCreatedAt() time.Time {
+func (o *PortfoliosConfiguration) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration) GetRebalancingStrategyIds() []string {
+func (o *PortfoliosConfiguration) GetRebalancingStrategyIds() []string {
 	if o == nil {
 		return nil
 	}
 	return o.RebalancingStrategyIds
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration) GetUpdatedAt() time.Time {
+func (o *PortfoliosConfiguration) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-// ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder - The ordering of the response.
+// ListPortfoliosConfigurationsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder string
+type ListPortfoliosConfigurationsOrder string
 
 const (
-	ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrderAsc  ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder = "ASC"
-	ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrderDesc ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder = "DESC"
+	ListPortfoliosConfigurationsOrderAsc  ListPortfoliosConfigurationsOrder = "ASC"
+	ListPortfoliosConfigurationsOrderDesc ListPortfoliosConfigurationsOrder = "DESC"
 )
 
-func (e ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder) ToPointer() *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder {
+func (e ListPortfoliosConfigurationsOrder) ToPointer() *ListPortfoliosConfigurationsOrder {
 	return &e
 }
 
-func (e *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListPortfoliosConfigurationsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -239,14 +239,14 @@ func (e *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrd
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder(v)
+		*e = ListPortfoliosConfigurationsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListPortfoliosConfigurationsOrder: %v", v)
 	}
 }
 
-type ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta struct {
+type ListPortfoliosConfigurationsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -256,49 +256,49 @@ type ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta struct
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListPortfoliosConfigurationsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta) GetCount() int64 {
+func (o *ListPortfoliosConfigurationsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta) GetLimit() int64 {
+func (o *ListPortfoliosConfigurationsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta) GetOffset() int64 {
+func (o *ListPortfoliosConfigurationsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta) GetOrder() *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMetaOrder {
+func (o *ListPortfoliosConfigurationsMeta) GetOrder() *ListPortfoliosConfigurationsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta) GetSort() *string {
+func (o *ListPortfoliosConfigurationsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta) GetTotalCount() int64 {
+func (o *ListPortfoliosConfigurationsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -307,34 +307,41 @@ func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta) G
 
 // ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse - Portfolios configurations
 type ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse struct {
-	Data []ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration `json:"data"`
-	Meta ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta                      `json:"meta"`
+	Data []PortfoliosConfiguration        `json:"data"`
+	Meta ListPortfoliosConfigurationsMeta `json:"meta"`
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse) GetData() []ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration {
+func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse) GetData() []PortfoliosConfiguration {
 	if o == nil {
-		return []ListPortfoliosConfigurationsPortfoliosConfigurationsListResponsePortfoliosConfiguration{}
+		return []PortfoliosConfiguration{}
 	}
 	return o.Data
 }
 
-func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse) GetMeta() ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta {
+func (o *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse) GetMeta() ListPortfoliosConfigurationsMeta {
 	if o == nil {
-		return ListPortfoliosConfigurationsPortfoliosConfigurationsListResponseMeta{}
+		return ListPortfoliosConfigurationsMeta{}
 	}
 	return o.Meta
 }
 
 type ListPortfoliosConfigurationsResponse struct {
+	// Portfolios configurations
+	TwoHundredApplicationJSONPortfoliosConfigurationsListResponse *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios configurations
-	PortfoliosConfigurationsListResponse *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListPortfoliosConfigurationsResponse) GetTwoHundredApplicationJSONPortfoliosConfigurationsListResponse() *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosConfigurationsListResponse
 }
 
 func (o *ListPortfoliosConfigurationsResponse) GetContentType() string {
@@ -349,13 +356,6 @@ func (o *ListPortfoliosConfigurationsResponse) GetHeaders() map[string][]string 
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListPortfoliosConfigurationsResponse) GetPortfoliosConfigurationsListResponse() *ListPortfoliosConfigurationsPortfoliosConfigurationsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosConfigurationsListResponse
 }
 
 func (o *ListPortfoliosConfigurationsResponse) GetStatusCode() int {

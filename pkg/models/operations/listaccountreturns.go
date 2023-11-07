@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListAccountReturnsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListAccountReturnsOrder string
+// ListAccountReturnsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListAccountReturnsQueryParamOrder string
 
 const (
-	ListAccountReturnsOrderAsc  ListAccountReturnsOrder = "ASC"
-	ListAccountReturnsOrderDesc ListAccountReturnsOrder = "DESC"
+	ListAccountReturnsQueryParamOrderAsc  ListAccountReturnsQueryParamOrder = "ASC"
+	ListAccountReturnsQueryParamOrderDesc ListAccountReturnsQueryParamOrder = "DESC"
 )
 
-func (e ListAccountReturnsOrder) ToPointer() *ListAccountReturnsOrder {
+func (e ListAccountReturnsQueryParamOrder) ToPointer() *ListAccountReturnsQueryParamOrder {
 	return &e
 }
 
-func (e *ListAccountReturnsOrder) UnmarshalJSON(data []byte) error {
+func (e *ListAccountReturnsQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,35 +32,35 @@ func (e *ListAccountReturnsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListAccountReturnsOrder(v)
+		*e = ListAccountReturnsQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountReturnsOrder: %v", v)
+		return fmt.Errorf("invalid value for ListAccountReturnsQueryParamOrder: %v", v)
 	}
 }
 
-// ListAccountReturnsSort - Sort the result by `date`.
-type ListAccountReturnsSort string
+// ListAccountReturnsQueryParamSort - Sort the result by `date`.
+type ListAccountReturnsQueryParamSort string
 
 const (
-	ListAccountReturnsSortDate ListAccountReturnsSort = "date"
+	ListAccountReturnsQueryParamSortDate ListAccountReturnsQueryParamSort = "date"
 )
 
-func (e ListAccountReturnsSort) ToPointer() *ListAccountReturnsSort {
+func (e ListAccountReturnsQueryParamSort) ToPointer() *ListAccountReturnsQueryParamSort {
 	return &e
 }
 
-func (e *ListAccountReturnsSort) UnmarshalJSON(data []byte) error {
+func (e *ListAccountReturnsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "date":
-		*e = ListAccountReturnsSort(v)
+		*e = ListAccountReturnsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountReturnsSort: %v", v)
+		return fmt.Errorf("invalid value for ListAccountReturnsQueryParamSort: %v", v)
 	}
 }
 
@@ -73,13 +73,13 @@ type ListAccountReturnsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListAccountReturnsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListAccountReturnsQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `date`.
-	Sort *ListAccountReturnsSort `default:"date" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListAccountReturnsQueryParamSort `default:"date" queryParam:"style=form,explode=true,name=sort"`
 	// Returns account returns starting from and including this date (UTC)
 	StartDate *string `queryParam:"style=form,explode=true,name=start_date"`
 	// Upvest API version (Note: Do not include quotation marks)
@@ -127,7 +127,7 @@ func (o *ListAccountReturnsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListAccountReturnsRequest) GetOrder() *ListAccountReturnsOrder {
+func (o *ListAccountReturnsRequest) GetOrder() *ListAccountReturnsQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -148,7 +148,7 @@ func (o *ListAccountReturnsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListAccountReturnsRequest) GetSort() *ListAccountReturnsSort {
+func (o *ListAccountReturnsRequest) GetSort() *ListAccountReturnsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -176,100 +176,100 @@ func (o *ListAccountReturnsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-type ListAccountReturnsAccountReturnListResponseAccountReturnsTwr struct {
+type Twr struct {
 	Cumulative *string `json:"cumulative,omitempty"`
 	// Date when the cumulative time-weighted returns calculation starts.
 	CumulativeStartDate *time.Time `json:"cumulative_start_date,omitempty"`
 	Daily               *string    `json:"daily,omitempty"`
 }
 
-func (l ListAccountReturnsAccountReturnListResponseAccountReturnsTwr) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (t Twr) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (l *ListAccountReturnsAccountReturnListResponseAccountReturnsTwr) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (t *Twr) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseAccountReturnsTwr) GetCumulative() *string {
+func (o *Twr) GetCumulative() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Cumulative
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseAccountReturnsTwr) GetCumulativeStartDate() *time.Time {
+func (o *Twr) GetCumulativeStartDate() *time.Time {
 	if o == nil {
 		return nil
 	}
 	return o.CumulativeStartDate
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseAccountReturnsTwr) GetDaily() *string {
+func (o *Twr) GetDaily() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Daily
 }
 
-type ListAccountReturnsAccountReturnListResponseAccountReturns struct {
+type AccountReturns struct {
 	// Account unique identifier.
 	AccountID string `json:"account_id"`
 	// Date when returns were calculated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	Date time.Time                                                    `json:"date"`
-	Twr  ListAccountReturnsAccountReturnListResponseAccountReturnsTwr `json:"twr"`
+	Date time.Time `json:"date"`
+	Twr  Twr       `json:"twr"`
 }
 
-func (l ListAccountReturnsAccountReturnListResponseAccountReturns) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (a AccountReturns) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
 }
 
-func (l *ListAccountReturnsAccountReturnListResponseAccountReturns) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (a *AccountReturns) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseAccountReturns) GetAccountID() string {
+func (o *AccountReturns) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseAccountReturns) GetDate() time.Time {
+func (o *AccountReturns) GetDate() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.Date
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseAccountReturns) GetTwr() ListAccountReturnsAccountReturnListResponseAccountReturnsTwr {
+func (o *AccountReturns) GetTwr() Twr {
 	if o == nil {
-		return ListAccountReturnsAccountReturnListResponseAccountReturnsTwr{}
+		return Twr{}
 	}
 	return o.Twr
 }
 
-// ListAccountReturnsAccountReturnListResponseMetaOrder - The ordering of the response.
+// ListAccountReturnsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListAccountReturnsAccountReturnListResponseMetaOrder string
+type ListAccountReturnsOrder string
 
 const (
-	ListAccountReturnsAccountReturnListResponseMetaOrderAsc  ListAccountReturnsAccountReturnListResponseMetaOrder = "ASC"
-	ListAccountReturnsAccountReturnListResponseMetaOrderDesc ListAccountReturnsAccountReturnListResponseMetaOrder = "DESC"
+	ListAccountReturnsOrderAsc  ListAccountReturnsOrder = "ASC"
+	ListAccountReturnsOrderDesc ListAccountReturnsOrder = "DESC"
 )
 
-func (e ListAccountReturnsAccountReturnListResponseMetaOrder) ToPointer() *ListAccountReturnsAccountReturnListResponseMetaOrder {
+func (e ListAccountReturnsOrder) ToPointer() *ListAccountReturnsOrder {
 	return &e
 }
 
-func (e *ListAccountReturnsAccountReturnListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListAccountReturnsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -278,14 +278,14 @@ func (e *ListAccountReturnsAccountReturnListResponseMetaOrder) UnmarshalJSON(dat
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListAccountReturnsAccountReturnListResponseMetaOrder(v)
+		*e = ListAccountReturnsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountReturnsAccountReturnListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListAccountReturnsOrder: %v", v)
 	}
 }
 
-type ListAccountReturnsAccountReturnListResponseMeta struct {
+type ListAccountReturnsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -295,49 +295,49 @@ type ListAccountReturnsAccountReturnListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListAccountReturnsAccountReturnListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListAccountReturnsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseMeta) GetCount() int64 {
+func (o *ListAccountReturnsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseMeta) GetLimit() int64 {
+func (o *ListAccountReturnsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseMeta) GetOffset() int64 {
+func (o *ListAccountReturnsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseMeta) GetOrder() *ListAccountReturnsAccountReturnListResponseMetaOrder {
+func (o *ListAccountReturnsMeta) GetOrder() *ListAccountReturnsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseMeta) GetSort() *string {
+func (o *ListAccountReturnsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListAccountReturnsAccountReturnListResponseMeta) GetTotalCount() int64 {
+func (o *ListAccountReturnsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -346,27 +346,27 @@ func (o *ListAccountReturnsAccountReturnListResponseMeta) GetTotalCount() int64 
 
 // ListAccountReturnsAccountReturnListResponse - OK
 type ListAccountReturnsAccountReturnListResponse struct {
-	Data []ListAccountReturnsAccountReturnListResponseAccountReturns `json:"data"`
-	Meta ListAccountReturnsAccountReturnListResponseMeta             `json:"meta"`
+	Data []AccountReturns       `json:"data"`
+	Meta ListAccountReturnsMeta `json:"meta"`
 }
 
-func (o *ListAccountReturnsAccountReturnListResponse) GetData() []ListAccountReturnsAccountReturnListResponseAccountReturns {
+func (o *ListAccountReturnsAccountReturnListResponse) GetData() []AccountReturns {
 	if o == nil {
-		return []ListAccountReturnsAccountReturnListResponseAccountReturns{}
+		return []AccountReturns{}
 	}
 	return o.Data
 }
 
-func (o *ListAccountReturnsAccountReturnListResponse) GetMeta() ListAccountReturnsAccountReturnListResponseMeta {
+func (o *ListAccountReturnsAccountReturnListResponse) GetMeta() ListAccountReturnsMeta {
 	if o == nil {
-		return ListAccountReturnsAccountReturnListResponseMeta{}
+		return ListAccountReturnsMeta{}
 	}
 	return o.Meta
 }
 
 type ListAccountReturnsResponse struct {
 	// OK
-	AccountReturnListResponse *ListAccountReturnsAccountReturnListResponse
+	TwoHundredApplicationJSONAccountReturnListResponse *ListAccountReturnsAccountReturnListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -376,11 +376,11 @@ type ListAccountReturnsResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListAccountReturnsResponse) GetAccountReturnListResponse() *ListAccountReturnsAccountReturnListResponse {
+func (o *ListAccountReturnsResponse) GetTwoHundredApplicationJSONAccountReturnListResponse() *ListAccountReturnsAccountReturnListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.AccountReturnListResponse
+	return o.TwoHundredApplicationJSONAccountReturnListResponse
 }
 
 func (o *ListAccountReturnsResponse) GetContentType() string {

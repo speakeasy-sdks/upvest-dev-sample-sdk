@@ -11,21 +11,21 @@ import (
 	"time"
 )
 
-// CreateAccountGroupAccountGroupCreateRequestType - Account group type.
+// CreateAccountGroupType - Account group type.
 // * PERSONAL - Account group of a person holding assets on their own behalf.
 // * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-type CreateAccountGroupAccountGroupCreateRequestType string
+type CreateAccountGroupType string
 
 const (
-	CreateAccountGroupAccountGroupCreateRequestTypePersonal    CreateAccountGroupAccountGroupCreateRequestType = "PERSONAL"
-	CreateAccountGroupAccountGroupCreateRequestTypeLegalEntity CreateAccountGroupAccountGroupCreateRequestType = "LEGAL_ENTITY"
+	CreateAccountGroupTypePersonal    CreateAccountGroupType = "PERSONAL"
+	CreateAccountGroupTypeLegalEntity CreateAccountGroupType = "LEGAL_ENTITY"
 )
 
-func (e CreateAccountGroupAccountGroupCreateRequestType) ToPointer() *CreateAccountGroupAccountGroupCreateRequestType {
+func (e CreateAccountGroupType) ToPointer() *CreateAccountGroupType {
 	return &e
 }
 
-func (e *CreateAccountGroupAccountGroupCreateRequestType) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountGroupType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,10 +34,10 @@ func (e *CreateAccountGroupAccountGroupCreateRequestType) UnmarshalJSON(data []b
 	case "PERSONAL":
 		fallthrough
 	case "LEGAL_ENTITY":
-		*e = CreateAccountGroupAccountGroupCreateRequestType(v)
+		*e = CreateAccountGroupType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountGroupAccountGroupCreateRequestType: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountGroupType: %v", v)
 	}
 }
 
@@ -45,14 +45,14 @@ type CreateAccountGroupAccountGroupCreateRequest struct {
 	// Account group type.
 	// * PERSONAL - Account group of a person holding assets on their own behalf.
 	// * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-	Type CreateAccountGroupAccountGroupCreateRequestType `json:"type"`
+	Type CreateAccountGroupType `json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (o *CreateAccountGroupAccountGroupCreateRequest) GetType() CreateAccountGroupAccountGroupCreateRequestType {
+func (o *CreateAccountGroupAccountGroupCreateRequest) GetType() CreateAccountGroupType {
 	if o == nil {
-		return CreateAccountGroupAccountGroupCreateRequestType("")
+		return CreateAccountGroupType("")
 	}
 	return o.Type
 }
@@ -133,27 +133,27 @@ func (o *CreateAccountGroupRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateAccountGroupAccountGroupStatus - Status of the account group
+// CreateAccountGroupStatus - Status of the account group
 // * PENDING_APPROVAL - Account group approval is pending - the account group is visible through our API but cannot be acted on.
 // * ACTIVE - Account group is active - full functionality of the Investment API is accessible.
 // * CLOSING - Account group is closing.
 // * CLOSED - Account group is closed.
 // * LOCKED - Account group is locked for all actions.
-type CreateAccountGroupAccountGroupStatus string
+type CreateAccountGroupStatus string
 
 const (
-	CreateAccountGroupAccountGroupStatusPendingApproval CreateAccountGroupAccountGroupStatus = "PENDING_APPROVAL"
-	CreateAccountGroupAccountGroupStatusActive          CreateAccountGroupAccountGroupStatus = "ACTIVE"
-	CreateAccountGroupAccountGroupStatusClosing         CreateAccountGroupAccountGroupStatus = "CLOSING"
-	CreateAccountGroupAccountGroupStatusClosed          CreateAccountGroupAccountGroupStatus = "CLOSED"
-	CreateAccountGroupAccountGroupStatusLocked          CreateAccountGroupAccountGroupStatus = "LOCKED"
+	CreateAccountGroupStatusPendingApproval CreateAccountGroupStatus = "PENDING_APPROVAL"
+	CreateAccountGroupStatusActive          CreateAccountGroupStatus = "ACTIVE"
+	CreateAccountGroupStatusClosing         CreateAccountGroupStatus = "CLOSING"
+	CreateAccountGroupStatusClosed          CreateAccountGroupStatus = "CLOSED"
+	CreateAccountGroupStatusLocked          CreateAccountGroupStatus = "LOCKED"
 )
 
-func (e CreateAccountGroupAccountGroupStatus) ToPointer() *CreateAccountGroupAccountGroupStatus {
+func (e CreateAccountGroupStatus) ToPointer() *CreateAccountGroupStatus {
 	return &e
 }
 
-func (e *CreateAccountGroupAccountGroupStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountGroupStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -168,28 +168,28 @@ func (e *CreateAccountGroupAccountGroupStatus) UnmarshalJSON(data []byte) error 
 	case "CLOSED":
 		fallthrough
 	case "LOCKED":
-		*e = CreateAccountGroupAccountGroupStatus(v)
+		*e = CreateAccountGroupStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountGroupAccountGroupStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountGroupStatus: %v", v)
 	}
 }
 
-// CreateAccountGroupAccountGroupType - Account group type.
+// CreateAccountGroupAccountsType - Account group type.
 // * PERSONAL - Account group of a person holding assets on their own behalf.
 // * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-type CreateAccountGroupAccountGroupType string
+type CreateAccountGroupAccountsType string
 
 const (
-	CreateAccountGroupAccountGroupTypePersonal    CreateAccountGroupAccountGroupType = "PERSONAL"
-	CreateAccountGroupAccountGroupTypeLegalEntity CreateAccountGroupAccountGroupType = "LEGAL_ENTITY"
+	CreateAccountGroupAccountsTypePersonal    CreateAccountGroupAccountsType = "PERSONAL"
+	CreateAccountGroupAccountsTypeLegalEntity CreateAccountGroupAccountsType = "LEGAL_ENTITY"
 )
 
-func (e CreateAccountGroupAccountGroupType) ToPointer() *CreateAccountGroupAccountGroupType {
+func (e CreateAccountGroupAccountsType) ToPointer() *CreateAccountGroupAccountsType {
 	return &e
 }
 
-func (e *CreateAccountGroupAccountGroupType) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountGroupAccountsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -198,66 +198,66 @@ func (e *CreateAccountGroupAccountGroupType) UnmarshalJSON(data []byte) error {
 	case "PERSONAL":
 		fallthrough
 	case "LEGAL_ENTITY":
-		*e = CreateAccountGroupAccountGroupType(v)
+		*e = CreateAccountGroupAccountsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountGroupAccountGroupType: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountGroupAccountsType: %v", v)
 	}
 }
 
-// CreateAccountGroupAccountGroupUsersType - Relation type
+// CreateAccountGroupAccountsResponseType - Relation type
 // * OWNER -
-type CreateAccountGroupAccountGroupUsersType string
+type CreateAccountGroupAccountsResponseType string
 
 const (
-	CreateAccountGroupAccountGroupUsersTypeOwner CreateAccountGroupAccountGroupUsersType = "OWNER"
+	CreateAccountGroupAccountsResponseTypeOwner CreateAccountGroupAccountsResponseType = "OWNER"
 )
 
-func (e CreateAccountGroupAccountGroupUsersType) ToPointer() *CreateAccountGroupAccountGroupUsersType {
+func (e CreateAccountGroupAccountsResponseType) ToPointer() *CreateAccountGroupAccountsResponseType {
 	return &e
 }
 
-func (e *CreateAccountGroupAccountGroupUsersType) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountGroupAccountsResponseType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "OWNER":
-		*e = CreateAccountGroupAccountGroupUsersType(v)
+		*e = CreateAccountGroupAccountsResponseType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountGroupAccountGroupUsersType: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountGroupAccountsResponseType: %v", v)
 	}
 }
 
-type CreateAccountGroupAccountGroupUsers struct {
+type CreateAccountGroupUsers struct {
 	// User unique identifier.
 	ID *string `json:"id,omitempty"`
 	// Relation type
 	// * OWNER -
-	Type *CreateAccountGroupAccountGroupUsersType `default:"OWNER" json:"type"`
+	Type *CreateAccountGroupAccountsResponseType `default:"OWNER" json:"type"`
 }
 
-func (c CreateAccountGroupAccountGroupUsers) MarshalJSON() ([]byte, error) {
+func (c CreateAccountGroupUsers) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreateAccountGroupAccountGroupUsers) UnmarshalJSON(data []byte) error {
+func (c *CreateAccountGroupUsers) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateAccountGroupAccountGroupUsers) GetID() *string {
+func (o *CreateAccountGroupUsers) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *CreateAccountGroupAccountGroupUsers) GetType() *CreateAccountGroupAccountGroupUsersType {
+func (o *CreateAccountGroupUsers) GetType() *CreateAccountGroupAccountsResponseType {
 	if o == nil {
 		return nil
 	}
@@ -278,14 +278,14 @@ type CreateAccountGroupAccountGroup struct {
 	// * CLOSING - Account group is closing.
 	// * CLOSED - Account group is closed.
 	// * LOCKED - Account group is locked for all actions.
-	Status CreateAccountGroupAccountGroupStatus `json:"status"`
+	Status CreateAccountGroupStatus `json:"status"`
 	// Account group type.
 	// * PERSONAL - Account group of a person holding assets on their own behalf.
 	// * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.
-	Type CreateAccountGroupAccountGroupType `json:"type"`
+	Type CreateAccountGroupAccountsType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	UpdatedAt time.Time                             `json:"updated_at"`
-	Users     []CreateAccountGroupAccountGroupUsers `json:"users"`
+	UpdatedAt time.Time                 `json:"updated_at"`
+	Users     []CreateAccountGroupUsers `json:"users"`
 }
 
 func (c CreateAccountGroupAccountGroup) MarshalJSON() ([]byte, error) {
@@ -320,16 +320,16 @@ func (o *CreateAccountGroupAccountGroup) GetSecuritiesAccountNumber() string {
 	return o.SecuritiesAccountNumber
 }
 
-func (o *CreateAccountGroupAccountGroup) GetStatus() CreateAccountGroupAccountGroupStatus {
+func (o *CreateAccountGroupAccountGroup) GetStatus() CreateAccountGroupStatus {
 	if o == nil {
-		return CreateAccountGroupAccountGroupStatus("")
+		return CreateAccountGroupStatus("")
 	}
 	return o.Status
 }
 
-func (o *CreateAccountGroupAccountGroup) GetType() CreateAccountGroupAccountGroupType {
+func (o *CreateAccountGroupAccountGroup) GetType() CreateAccountGroupAccountsType {
 	if o == nil {
-		return CreateAccountGroupAccountGroupType("")
+		return CreateAccountGroupAccountsType("")
 	}
 	return o.Type
 }
@@ -341,16 +341,16 @@ func (o *CreateAccountGroupAccountGroup) GetUpdatedAt() time.Time {
 	return o.UpdatedAt
 }
 
-func (o *CreateAccountGroupAccountGroup) GetUsers() []CreateAccountGroupAccountGroupUsers {
+func (o *CreateAccountGroupAccountGroup) GetUsers() []CreateAccountGroupUsers {
 	if o == nil {
-		return []CreateAccountGroupAccountGroupUsers{}
+		return []CreateAccountGroupUsers{}
 	}
 	return o.Users
 }
 
 type CreateAccountGroupResponse struct {
 	// Account group created.
-	AccountGroup *CreateAccountGroupAccountGroup
+	TwoHundredApplicationJSONAccountGroup *CreateAccountGroupAccountGroup
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -360,11 +360,11 @@ type CreateAccountGroupResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *CreateAccountGroupResponse) GetAccountGroup() *CreateAccountGroupAccountGroup {
+func (o *CreateAccountGroupResponse) GetTwoHundredApplicationJSONAccountGroup() *CreateAccountGroupAccountGroup {
 	if o == nil {
 		return nil
 	}
-	return o.AccountGroup
+	return o.TwoHundredApplicationJSONAccountGroup
 }
 
 func (o *CreateAccountGroupResponse) GetContentType() string {

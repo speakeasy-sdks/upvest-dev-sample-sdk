@@ -1,5 +1,5 @@
 # Valuations
-(*Valuations*)
+(*.Valuations*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Valuations.GetAccountValuation(ctx, operations.GetAccountValuationRequest{
         AccountID: "4767938f-4376-4441-a2b6-0a26456b8e4f",
-        PriceQuality: operations.GetAccountValuationPriceQualityEod,
+        PriceQuality: operations.PriceQualityEod,
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
@@ -45,7 +45,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountValuation != nil {
+    if res.TwoHundredApplicationJSONAccountValuation != nil {
         // handle response
     }
 }
@@ -98,7 +98,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountValuationListResponse != nil {
+    if res.TwoHundredApplicationJSONAccountValuationListResponse != nil {
         // handle response
     }
 }

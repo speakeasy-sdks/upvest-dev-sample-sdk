@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListWebhooksOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListWebhooksOrder string
+// ListWebhooksQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListWebhooksQueryParamOrder string
 
 const (
-	ListWebhooksOrderAsc  ListWebhooksOrder = "ASC"
-	ListWebhooksOrderDesc ListWebhooksOrder = "DESC"
+	ListWebhooksQueryParamOrderAsc  ListWebhooksQueryParamOrder = "ASC"
+	ListWebhooksQueryParamOrderDesc ListWebhooksQueryParamOrder = "DESC"
 )
 
-func (e ListWebhooksOrder) ToPointer() *ListWebhooksOrder {
+func (e ListWebhooksQueryParamOrder) ToPointer() *ListWebhooksQueryParamOrder {
 	return &e
 }
 
-func (e *ListWebhooksOrder) UnmarshalJSON(data []byte) error {
+func (e *ListWebhooksQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,29 +32,29 @@ func (e *ListWebhooksOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListWebhooksOrder(v)
+		*e = ListWebhooksQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListWebhooksOrder: %v", v)
+		return fmt.Errorf("invalid value for ListWebhooksQueryParamOrder: %v", v)
 	}
 }
 
-// ListWebhooksSort - Sort the result by `created_at`, `updated_at`, `title`, `url`, or `enabled`.
-type ListWebhooksSort string
+// ListWebhooksQueryParamSort - Sort the result by `created_at`, `updated_at`, `title`, `url`, or `enabled`.
+type ListWebhooksQueryParamSort string
 
 const (
-	ListWebhooksSortCreatedAt ListWebhooksSort = "created_at"
-	ListWebhooksSortUpdatedAt ListWebhooksSort = "updated_at"
-	ListWebhooksSortTitle     ListWebhooksSort = "title"
-	ListWebhooksSortURL       ListWebhooksSort = "url"
-	ListWebhooksSortEnabled   ListWebhooksSort = "enabled"
+	ListWebhooksQueryParamSortCreatedAt ListWebhooksQueryParamSort = "created_at"
+	ListWebhooksQueryParamSortUpdatedAt ListWebhooksQueryParamSort = "updated_at"
+	ListWebhooksQueryParamSortTitle     ListWebhooksQueryParamSort = "title"
+	ListWebhooksQueryParamSortURL       ListWebhooksQueryParamSort = "url"
+	ListWebhooksQueryParamSortEnabled   ListWebhooksQueryParamSort = "enabled"
 )
 
-func (e ListWebhooksSort) ToPointer() *ListWebhooksSort {
+func (e ListWebhooksQueryParamSort) ToPointer() *ListWebhooksQueryParamSort {
 	return &e
 }
 
-func (e *ListWebhooksSort) UnmarshalJSON(data []byte) error {
+func (e *ListWebhooksQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -69,10 +69,10 @@ func (e *ListWebhooksSort) UnmarshalJSON(data []byte) error {
 	case "url":
 		fallthrough
 	case "enabled":
-		*e = ListWebhooksSort(v)
+		*e = ListWebhooksQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListWebhooksSort: %v", v)
+		return fmt.Errorf("invalid value for ListWebhooksQueryParamSort: %v", v)
 	}
 }
 
@@ -82,13 +82,13 @@ type ListWebhooksRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListWebhooksOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListWebhooksQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `created_at`, `updated_at`, `title`, `url`, or `enabled`.
-	Sort *ListWebhooksSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListWebhooksQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -120,7 +120,7 @@ func (o *ListWebhooksRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListWebhooksRequest) GetOrder() *ListWebhooksOrder {
+func (o *ListWebhooksRequest) GetOrder() *ListWebhooksQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -141,7 +141,7 @@ func (o *ListWebhooksRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListWebhooksRequest) GetSort() *ListWebhooksSort {
+func (o *ListWebhooksRequest) GetSort() *ListWebhooksQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -162,65 +162,65 @@ func (o *ListWebhooksRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListWebhooksWebhooksListResponseWebhookConfig - Configuration of webhook packages collection.
-type ListWebhooksWebhooksListResponseWebhookConfig struct {
+// ListWebhooksConfig - Configuration of webhook packages collection.
+type ListWebhooksConfig struct {
 	// Maximum time of package collection.
 	Delay *string `json:"delay,omitempty"`
 	// Maximum package size (bytes)
 	MaxPackageSize *int64 `json:"max_package_size,omitempty"`
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhookConfig) GetDelay() *string {
+func (o *ListWebhooksConfig) GetDelay() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Delay
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhookConfig) GetMaxPackageSize() *int64 {
+func (o *ListWebhooksConfig) GetMaxPackageSize() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MaxPackageSize
 }
 
-type ListWebhooksWebhooksListResponseWebhookType string
+type ListWebhooksType string
 
 const (
-	ListWebhooksWebhooksListResponseWebhookTypeAll                      ListWebhooksWebhooksListResponseWebhookType = "ALL"
-	ListWebhooksWebhooksListResponseWebhookTypeUser                     ListWebhooksWebhooksListResponseWebhookType = "USER"
-	ListWebhooksWebhooksListResponseWebhookTypeUserCheck                ListWebhooksWebhooksListResponseWebhookType = "USER_CHECK"
-	ListWebhooksWebhooksListResponseWebhookTypeOrder                    ListWebhooksWebhooksListResponseWebhookType = "ORDER"
-	ListWebhooksWebhooksListResponseWebhookTypeOrderCancellation        ListWebhooksWebhooksListResponseWebhookType = "ORDER_CANCELLATION"
-	ListWebhooksWebhooksListResponseWebhookTypeExecution                ListWebhooksWebhooksListResponseWebhookType = "EXECUTION"
-	ListWebhooksWebhooksListResponseWebhookTypePosition                 ListWebhooksWebhooksListResponseWebhookType = "POSITION"
-	ListWebhooksWebhooksListResponseWebhookTypeCashBalance              ListWebhooksWebhooksListResponseWebhookType = "CASH_BALANCE"
-	ListWebhooksWebhooksListResponseWebhookTypeAccount                  ListWebhooksWebhooksListResponseWebhookType = "ACCOUNT"
-	ListWebhooksWebhooksListResponseWebhookTypeAccountGroup             ListWebhooksWebhooksListResponseWebhookType = "ACCOUNT_GROUP"
-	ListWebhooksWebhooksListResponseWebhookTypeReport                   ListWebhooksWebhooksListResponseWebhookType = "REPORT"
-	ListWebhooksWebhooksListResponseWebhookTypeTreasuryReport           ListWebhooksWebhooksListResponseWebhookType = "TREASURY_REPORT"
-	ListWebhooksWebhooksListResponseWebhookTypeDirectDebit              ListWebhooksWebhooksListResponseWebhookType = "DIRECT_DEBIT"
-	ListWebhooksWebhooksListResponseWebhookTypeWithdrawal               ListWebhooksWebhooksListResponseWebhookType = "WITHDRAWAL"
-	ListWebhooksWebhooksListResponseWebhookTypePortfolio                ListWebhooksWebhooksListResponseWebhookType = "PORTFOLIO"
-	ListWebhooksWebhooksListResponseWebhookTypePortfolioAllocation      ListWebhooksWebhooksListResponseWebhookType = "PORTFOLIO_ALLOCATION"
-	ListWebhooksWebhooksListResponseWebhookTypePortfolioOrder           ListWebhooksWebhooksListResponseWebhookType = "PORTFOLIO_ORDER"
-	ListWebhooksWebhooksListResponseWebhookTypeCorporateAction          ListWebhooksWebhooksListResponseWebhookType = "CORPORATE_ACTION"
-	ListWebhooksWebhooksListResponseWebhookTypeAccountValuation         ListWebhooksWebhooksListResponseWebhookType = "ACCOUNT_VALUATION"
-	ListWebhooksWebhooksListResponseWebhookTypeIntradayAccountValuation ListWebhooksWebhooksListResponseWebhookType = "INTRADAY_ACCOUNT_VALUATION"
-	ListWebhooksWebhooksListResponseWebhookTypeCashTransaction          ListWebhooksWebhooksListResponseWebhookType = "CASH_TRANSACTION"
-	ListWebhooksWebhooksListResponseWebhookTypeSecurityTransaction      ListWebhooksWebhooksListResponseWebhookType = "SECURITY_TRANSACTION"
-	ListWebhooksWebhooksListResponseWebhookTypeAccountLiquidation       ListWebhooksWebhooksListResponseWebhookType = "ACCOUNT_LIQUIDATION"
-	ListWebhooksWebhooksListResponseWebhookTypeAccountReturns           ListWebhooksWebhooksListResponseWebhookType = "ACCOUNT_RETURNS"
-	ListWebhooksWebhooksListResponseWebhookTypeVirtualCashIncrease      ListWebhooksWebhooksListResponseWebhookType = "VIRTUAL_CASH_INCREASE"
-	ListWebhooksWebhooksListResponseWebhookTypeVirtualCashDecrease      ListWebhooksWebhooksListResponseWebhookType = "VIRTUAL_CASH_DECREASE"
-	ListWebhooksWebhooksListResponseWebhookTypeFeeCollection            ListWebhooksWebhooksListResponseWebhookType = "FEE_COLLECTION"
+	ListWebhooksTypeAll                      ListWebhooksType = "ALL"
+	ListWebhooksTypeUser                     ListWebhooksType = "USER"
+	ListWebhooksTypeUserCheck                ListWebhooksType = "USER_CHECK"
+	ListWebhooksTypeOrder                    ListWebhooksType = "ORDER"
+	ListWebhooksTypeOrderCancellation        ListWebhooksType = "ORDER_CANCELLATION"
+	ListWebhooksTypeExecution                ListWebhooksType = "EXECUTION"
+	ListWebhooksTypePosition                 ListWebhooksType = "POSITION"
+	ListWebhooksTypeCashBalance              ListWebhooksType = "CASH_BALANCE"
+	ListWebhooksTypeAccount                  ListWebhooksType = "ACCOUNT"
+	ListWebhooksTypeAccountGroup             ListWebhooksType = "ACCOUNT_GROUP"
+	ListWebhooksTypeReport                   ListWebhooksType = "REPORT"
+	ListWebhooksTypeTreasuryReport           ListWebhooksType = "TREASURY_REPORT"
+	ListWebhooksTypeDirectDebit              ListWebhooksType = "DIRECT_DEBIT"
+	ListWebhooksTypeWithdrawal               ListWebhooksType = "WITHDRAWAL"
+	ListWebhooksTypePortfolio                ListWebhooksType = "PORTFOLIO"
+	ListWebhooksTypePortfolioAllocation      ListWebhooksType = "PORTFOLIO_ALLOCATION"
+	ListWebhooksTypePortfolioOrder           ListWebhooksType = "PORTFOLIO_ORDER"
+	ListWebhooksTypeCorporateAction          ListWebhooksType = "CORPORATE_ACTION"
+	ListWebhooksTypeAccountValuation         ListWebhooksType = "ACCOUNT_VALUATION"
+	ListWebhooksTypeIntradayAccountValuation ListWebhooksType = "INTRADAY_ACCOUNT_VALUATION"
+	ListWebhooksTypeCashTransaction          ListWebhooksType = "CASH_TRANSACTION"
+	ListWebhooksTypeSecurityTransaction      ListWebhooksType = "SECURITY_TRANSACTION"
+	ListWebhooksTypeAccountLiquidation       ListWebhooksType = "ACCOUNT_LIQUIDATION"
+	ListWebhooksTypeAccountReturns           ListWebhooksType = "ACCOUNT_RETURNS"
+	ListWebhooksTypeVirtualCashIncrease      ListWebhooksType = "VIRTUAL_CASH_INCREASE"
+	ListWebhooksTypeVirtualCashDecrease      ListWebhooksType = "VIRTUAL_CASH_DECREASE"
+	ListWebhooksTypeFeeCollection            ListWebhooksType = "FEE_COLLECTION"
 )
 
-func (e ListWebhooksWebhooksListResponseWebhookType) ToPointer() *ListWebhooksWebhooksListResponseWebhookType {
+func (e ListWebhooksType) ToPointer() *ListWebhooksType {
 	return &e
 }
 
-func (e *ListWebhooksWebhooksListResponseWebhookType) UnmarshalJSON(data []byte) error {
+func (e *ListWebhooksType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -279,16 +279,16 @@ func (e *ListWebhooksWebhooksListResponseWebhookType) UnmarshalJSON(data []byte)
 	case "VIRTUAL_CASH_DECREASE":
 		fallthrough
 	case "FEE_COLLECTION":
-		*e = ListWebhooksWebhooksListResponseWebhookType(v)
+		*e = ListWebhooksType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListWebhooksWebhooksListResponseWebhookType: %v", v)
+		return fmt.Errorf("invalid value for ListWebhooksType: %v", v)
 	}
 }
 
-type ListWebhooksWebhooksListResponseWebhook struct {
+type Webhook struct {
 	// Configuration of webhook packages collection.
-	Config ListWebhooksWebhooksListResponseWebhookConfig `json:"config"`
+	Config ListWebhooksConfig `json:"config"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Enable/disable webhook.
@@ -298,95 +298,95 @@ type ListWebhooksWebhooksListResponseWebhook struct {
 	// Title of the webhook for use on tenant side.
 	Title string `json:"title"`
 	// What kind of events to be sent by the webhook.
-	Type []ListWebhooksWebhooksListResponseWebhookType `json:"type"`
+	Type []ListWebhooksType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// The callback URL to be called by the webhook.
 	URL string `json:"url"`
 }
 
-func (l ListWebhooksWebhooksListResponseWebhook) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (w Webhook) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
 }
 
-func (l *ListWebhooksWebhooksListResponseWebhook) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (w *Webhook) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetConfig() ListWebhooksWebhooksListResponseWebhookConfig {
+func (o *Webhook) GetConfig() ListWebhooksConfig {
 	if o == nil {
-		return ListWebhooksWebhooksListResponseWebhookConfig{}
+		return ListWebhooksConfig{}
 	}
 	return o.Config
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetCreatedAt() time.Time {
+func (o *Webhook) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetEnabled() bool {
+func (o *Webhook) GetEnabled() bool {
 	if o == nil {
 		return false
 	}
 	return o.Enabled
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetID() string {
+func (o *Webhook) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetTitle() string {
+func (o *Webhook) GetTitle() string {
 	if o == nil {
 		return ""
 	}
 	return o.Title
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetType() []ListWebhooksWebhooksListResponseWebhookType {
+func (o *Webhook) GetType() []ListWebhooksType {
 	if o == nil {
-		return []ListWebhooksWebhooksListResponseWebhookType{}
+		return []ListWebhooksType{}
 	}
 	return o.Type
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetUpdatedAt() time.Time {
+func (o *Webhook) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListWebhooksWebhooksListResponseWebhook) GetURL() string {
+func (o *Webhook) GetURL() string {
 	if o == nil {
 		return ""
 	}
 	return o.URL
 }
 
-// ListWebhooksWebhooksListResponseMetaOrder - The ordering of the response.
+// ListWebhooksOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListWebhooksWebhooksListResponseMetaOrder string
+type ListWebhooksOrder string
 
 const (
-	ListWebhooksWebhooksListResponseMetaOrderAsc  ListWebhooksWebhooksListResponseMetaOrder = "ASC"
-	ListWebhooksWebhooksListResponseMetaOrderDesc ListWebhooksWebhooksListResponseMetaOrder = "DESC"
+	ListWebhooksOrderAsc  ListWebhooksOrder = "ASC"
+	ListWebhooksOrderDesc ListWebhooksOrder = "DESC"
 )
 
-func (e ListWebhooksWebhooksListResponseMetaOrder) ToPointer() *ListWebhooksWebhooksListResponseMetaOrder {
+func (e ListWebhooksOrder) ToPointer() *ListWebhooksOrder {
 	return &e
 }
 
-func (e *ListWebhooksWebhooksListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListWebhooksOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -395,14 +395,14 @@ func (e *ListWebhooksWebhooksListResponseMetaOrder) UnmarshalJSON(data []byte) e
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListWebhooksWebhooksListResponseMetaOrder(v)
+		*e = ListWebhooksOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListWebhooksWebhooksListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListWebhooksOrder: %v", v)
 	}
 }
 
-type ListWebhooksWebhooksListResponseMeta struct {
+type ListWebhooksMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -412,49 +412,49 @@ type ListWebhooksWebhooksListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListWebhooksWebhooksListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListWebhooksOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListWebhooksWebhooksListResponseMeta) GetCount() int64 {
+func (o *ListWebhooksMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListWebhooksWebhooksListResponseMeta) GetLimit() int64 {
+func (o *ListWebhooksMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListWebhooksWebhooksListResponseMeta) GetOffset() int64 {
+func (o *ListWebhooksMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListWebhooksWebhooksListResponseMeta) GetOrder() *ListWebhooksWebhooksListResponseMetaOrder {
+func (o *ListWebhooksMeta) GetOrder() *ListWebhooksOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListWebhooksWebhooksListResponseMeta) GetSort() *string {
+func (o *ListWebhooksMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListWebhooksWebhooksListResponseMeta) GetTotalCount() int64 {
+func (o *ListWebhooksMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -463,25 +463,27 @@ func (o *ListWebhooksWebhooksListResponseMeta) GetTotalCount() int64 {
 
 // ListWebhooksWebhooksListResponse - An object with a data property that contains an array of webhook subscription objects.
 type ListWebhooksWebhooksListResponse struct {
-	Data []ListWebhooksWebhooksListResponseWebhook `json:"data"`
-	Meta ListWebhooksWebhooksListResponseMeta      `json:"meta"`
+	Data []Webhook        `json:"data"`
+	Meta ListWebhooksMeta `json:"meta"`
 }
 
-func (o *ListWebhooksWebhooksListResponse) GetData() []ListWebhooksWebhooksListResponseWebhook {
+func (o *ListWebhooksWebhooksListResponse) GetData() []Webhook {
 	if o == nil {
-		return []ListWebhooksWebhooksListResponseWebhook{}
+		return []Webhook{}
 	}
 	return o.Data
 }
 
-func (o *ListWebhooksWebhooksListResponse) GetMeta() ListWebhooksWebhooksListResponseMeta {
+func (o *ListWebhooksWebhooksListResponse) GetMeta() ListWebhooksMeta {
 	if o == nil {
-		return ListWebhooksWebhooksListResponseMeta{}
+		return ListWebhooksMeta{}
 	}
 	return o.Meta
 }
 
 type ListWebhooksResponse struct {
+	// An object with a data property that contains an array of webhook subscription objects.
+	TwoHundredApplicationJSONWebhooksListResponse *ListWebhooksWebhooksListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -489,8 +491,13 @@ type ListWebhooksResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// An object with a data property that contains an array of webhook subscription objects.
-	WebhooksListResponse *ListWebhooksWebhooksListResponse
+}
+
+func (o *ListWebhooksResponse) GetTwoHundredApplicationJSONWebhooksListResponse() *ListWebhooksWebhooksListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONWebhooksListResponse
 }
 
 func (o *ListWebhooksResponse) GetContentType() string {
@@ -519,11 +526,4 @@ func (o *ListWebhooksResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *ListWebhooksResponse) GetWebhooksListResponse() *ListWebhooksWebhooksListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.WebhooksListResponse
 }

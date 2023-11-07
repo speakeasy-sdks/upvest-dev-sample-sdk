@@ -1,5 +1,5 @@
 # ReferenceAccounts
-(*ReferenceAccounts*)
+(*.ReferenceAccounts*)
 
 ## Overview
 
@@ -53,7 +53,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.ReferenceAccount != nil {
+    if res.TwoHundredApplicationJSONReferenceAccount != nil {
         // handle response
     }
 }
@@ -159,7 +159,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.UsersListResponse != nil {
+    if res.TwoHundredApplicationJSONUsersListResponse != nil {
         // handle response
     }
 }
@@ -212,7 +212,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.ReferenceAccount != nil {
+    if res.TwoHundredApplicationJSONReferenceAccount != nil {
         // handle response
     }
 }

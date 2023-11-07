@@ -71,8 +71,8 @@ func (o *RetrieveUserRequest) GetUserID() string {
 	return o.UserID
 }
 
-// RetrieveUserUserGetResponseUserTOLAddress - Address. Must not be a P.O. box or c/o address.
-type RetrieveUserUserGetResponseUserTOLAddress struct {
+// RetrieveUserUsersAddress - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -86,114 +86,114 @@ type RetrieveUserUserGetResponseUserTOLAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLAddress) GetAddressLine1() string {
+func (o *RetrieveUserUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLAddress) GetAddressLine2() *string {
+func (o *RetrieveUserUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLAddress) GetCity() string {
+func (o *RetrieveUserUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLAddress) GetCountry() string {
+func (o *RetrieveUserUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLAddress) GetPostcode() string {
+func (o *RetrieveUserUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLAddress) GetState() *string {
+func (o *RetrieveUserUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type RetrieveUserUserGetResponseUserTOLDataPrivacyAndSharingAgreement struct {
+type RetrieveUserDataPrivacyAndSharingAgreement struct {
 	// Timestamp at which the user consented to the data sharing agreement. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// Consent unique identifier.
 	ConsentDocumentID string `json:"consent_document_id"`
 }
 
-func (r RetrieveUserUserGetResponseUserTOLDataPrivacyAndSharingAgreement) MarshalJSON() ([]byte, error) {
+func (r RetrieveUserDataPrivacyAndSharingAgreement) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveUserUserGetResponseUserTOLDataPrivacyAndSharingAgreement) UnmarshalJSON(data []byte) error {
+func (r *RetrieveUserDataPrivacyAndSharingAgreement) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLDataPrivacyAndSharingAgreement) GetConfirmedAt() time.Time {
+func (o *RetrieveUserDataPrivacyAndSharingAgreement) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLDataPrivacyAndSharingAgreement) GetConsentDocumentID() string {
+func (o *RetrieveUserDataPrivacyAndSharingAgreement) GetConsentDocumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ConsentDocumentID
 }
 
-type RetrieveUserUserGetResponseUserTOLFatca struct {
+type RetrieveUserFatca struct {
 	// Timestamp at which the user confirmed their FATCA status. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// The user’s FATCA status is true if the user is subject to paying taxes in the US, otherwise it can be set to false.
 	Status bool `json:"status"`
 }
 
-func (r RetrieveUserUserGetResponseUserTOLFatca) MarshalJSON() ([]byte, error) {
+func (r RetrieveUserFatca) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveUserUserGetResponseUserTOLFatca) UnmarshalJSON(data []byte) error {
+func (r *RetrieveUserFatca) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLFatca) GetConfirmedAt() time.Time {
+func (o *RetrieveUserFatca) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLFatca) GetStatus() bool {
+func (o *RetrieveUserFatca) GetStatus() bool {
 	if o == nil {
 		return false
 	}
 	return o.Status
 }
 
-// RetrieveUserUserGetResponseUserTOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type RetrieveUserUserGetResponseUserTOLPostalAddressAddress struct {
+// RetrieveUserUsersResponseAddress - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserUsersResponseAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -207,110 +207,110 @@ type RetrieveUserUserGetResponseUserTOLPostalAddressAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetAddressLine1() string {
+func (o *RetrieveUserUsersResponseAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetAddressLine2() *string {
+func (o *RetrieveUserUsersResponseAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetCity() string {
+func (o *RetrieveUserUsersResponseAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetCountry() string {
+func (o *RetrieveUserUsersResponseAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetPostcode() string {
+func (o *RetrieveUserUsersResponseAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLPostalAddressAddress) GetState() *string {
+func (o *RetrieveUserUsersResponseAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type RetrieveUserUserGetResponseUserTOLPostalAddressType string
+type RetrieveUserUsersPostalAddressType string
 
 const (
-	RetrieveUserUserGetResponseUserTOLPostalAddressTypeRetrieveUserUserGetResponseUserTOLPostalAddressAddress RetrieveUserUserGetResponseUserTOLPostalAddressType = "retrieve_user_User - Get - Response_User (TOL)_postal_address_Address"
+	RetrieveUserUsersPostalAddressTypeRetrieveUserUsersResponseAddress RetrieveUserUsersPostalAddressType = "retrieve_user_Users_response_Address"
 )
 
-type RetrieveUserUserGetResponseUserTOLPostalAddress struct {
-	RetrieveUserUserGetResponseUserTOLPostalAddressAddress *RetrieveUserUserGetResponseUserTOLPostalAddressAddress
+type RetrieveUserUsersPostalAddress struct {
+	RetrieveUserUsersResponseAddress *RetrieveUserUsersResponseAddress
 
-	Type RetrieveUserUserGetResponseUserTOLPostalAddressType
+	Type RetrieveUserUsersPostalAddressType
 }
 
-func CreateRetrieveUserUserGetResponseUserTOLPostalAddressRetrieveUserUserGetResponseUserTOLPostalAddressAddress(retrieveUserUserGetResponseUserTOLPostalAddressAddress RetrieveUserUserGetResponseUserTOLPostalAddressAddress) RetrieveUserUserGetResponseUserTOLPostalAddress {
-	typ := RetrieveUserUserGetResponseUserTOLPostalAddressTypeRetrieveUserUserGetResponseUserTOLPostalAddressAddress
+func CreateRetrieveUserUsersPostalAddressRetrieveUserUsersResponseAddress(retrieveUserUsersResponseAddress RetrieveUserUsersResponseAddress) RetrieveUserUsersPostalAddress {
+	typ := RetrieveUserUsersPostalAddressTypeRetrieveUserUsersResponseAddress
 
-	return RetrieveUserUserGetResponseUserTOLPostalAddress{
-		RetrieveUserUserGetResponseUserTOLPostalAddressAddress: &retrieveUserUserGetResponseUserTOLPostalAddressAddress,
-		Type: typ,
+	return RetrieveUserUsersPostalAddress{
+		RetrieveUserUsersResponseAddress: &retrieveUserUsersResponseAddress,
+		Type:                             typ,
 	}
 }
 
-func (u *RetrieveUserUserGetResponseUserTOLPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *RetrieveUserUsersPostalAddress) UnmarshalJSON(data []byte) error {
 
-	retrieveUserUserGetResponseUserTOLPostalAddressAddress := RetrieveUserUserGetResponseUserTOLPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserTOLPostalAddressAddress, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress = &retrieveUserUserGetResponseUserTOLPostalAddressAddress
-		u.Type = RetrieveUserUserGetResponseUserTOLPostalAddressTypeRetrieveUserUserGetResponseUserTOLPostalAddressAddress
+	retrieveUserUsersResponseAddress := RetrieveUserUsersResponseAddress{}
+	if err := utils.UnmarshalJSON(data, &retrieveUserUsersResponseAddress, "", true, true); err == nil {
+		u.RetrieveUserUsersResponseAddress = &retrieveUserUsersResponseAddress
+		u.Type = RetrieveUserUsersPostalAddressTypeRetrieveUserUsersResponseAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u RetrieveUserUserGetResponseUserTOLPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.RetrieveUserUserGetResponseUserTOLPostalAddressAddress, "", true)
+func (u RetrieveUserUsersPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.RetrieveUserUsersResponseAddress != nil {
+		return utils.MarshalJSON(u.RetrieveUserUsersResponseAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// RetrieveUserUserGetResponseUserTOLSalutation - Salutation of the user used in reports and statements.
+// RetrieveUserUsersSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type RetrieveUserUserGetResponseUserTOLSalutation string
+type RetrieveUserUsersSalutation string
 
 const (
-	RetrieveUserUserGetResponseUserTOLSalutationUnknown                 RetrieveUserUserGetResponseUserTOLSalutation = ""
-	RetrieveUserUserGetResponseUserTOLSalutationSalutationMale          RetrieveUserUserGetResponseUserTOLSalutation = "SALUTATION_MALE"
-	RetrieveUserUserGetResponseUserTOLSalutationSalutationFemale        RetrieveUserUserGetResponseUserTOLSalutation = "SALUTATION_FEMALE"
-	RetrieveUserUserGetResponseUserTOLSalutationSalutationFemaleMarried RetrieveUserUserGetResponseUserTOLSalutation = "SALUTATION_FEMALE_MARRIED"
-	RetrieveUserUserGetResponseUserTOLSalutationSalutationDiverse       RetrieveUserUserGetResponseUserTOLSalutation = "SALUTATION_DIVERSE"
+	RetrieveUserUsersSalutationUnknown                 RetrieveUserUsersSalutation = ""
+	RetrieveUserUsersSalutationSalutationMale          RetrieveUserUsersSalutation = "SALUTATION_MALE"
+	RetrieveUserUsersSalutationSalutationFemale        RetrieveUserUsersSalutation = "SALUTATION_FEMALE"
+	RetrieveUserUsersSalutationSalutationFemaleMarried RetrieveUserUsersSalutation = "SALUTATION_FEMALE_MARRIED"
+	RetrieveUserUsersSalutationSalutationDiverse       RetrieveUserUsersSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e RetrieveUserUserGetResponseUserTOLSalutation) ToPointer() *RetrieveUserUserGetResponseUserTOLSalutation {
+func (e RetrieveUserUsersSalutation) ToPointer() *RetrieveUserUsersSalutation {
 	return &e
 }
 
-func (e *RetrieveUserUserGetResponseUserTOLSalutation) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserUsersSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -325,32 +325,32 @@ func (e *RetrieveUserUserGetResponseUserTOLSalutation) UnmarshalJSON(data []byte
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = RetrieveUserUserGetResponseUserTOLSalutation(v)
+		*e = RetrieveUserUsersSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserUserGetResponseUserTOLSalutation: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserUsersSalutation: %v", v)
 	}
 }
 
-// RetrieveUserUserGetResponseUserTOLStatus - Status of the user.
+// RetrieveUserUsersStatus - Status of the user.
 // * ACTIVE -
 // * INACTIVE -
 // * OFFBOARDING -
 // * OFFBOARDED -
-type RetrieveUserUserGetResponseUserTOLStatus string
+type RetrieveUserUsersStatus string
 
 const (
-	RetrieveUserUserGetResponseUserTOLStatusActive      RetrieveUserUserGetResponseUserTOLStatus = "ACTIVE"
-	RetrieveUserUserGetResponseUserTOLStatusInactive    RetrieveUserUserGetResponseUserTOLStatus = "INACTIVE"
-	RetrieveUserUserGetResponseUserTOLStatusOffboarding RetrieveUserUserGetResponseUserTOLStatus = "OFFBOARDING"
-	RetrieveUserUserGetResponseUserTOLStatusOffboarded  RetrieveUserUserGetResponseUserTOLStatus = "OFFBOARDED"
+	RetrieveUserUsersStatusActive      RetrieveUserUsersStatus = "ACTIVE"
+	RetrieveUserUsersStatusInactive    RetrieveUserUsersStatus = "INACTIVE"
+	RetrieveUserUsersStatusOffboarding RetrieveUserUsersStatus = "OFFBOARDING"
+	RetrieveUserUsersStatusOffboarded  RetrieveUserUsersStatus = "OFFBOARDED"
 )
 
-func (e RetrieveUserUserGetResponseUserTOLStatus) ToPointer() *RetrieveUserUserGetResponseUserTOLStatus {
+func (e RetrieveUserUsersStatus) ToPointer() *RetrieveUserUsersStatus {
 	return &e
 }
 
-func (e *RetrieveUserUserGetResponseUserTOLStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserUsersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -363,68 +363,68 @@ func (e *RetrieveUserUserGetResponseUserTOLStatus) UnmarshalJSON(data []byte) er
 	case "OFFBOARDING":
 		fallthrough
 	case "OFFBOARDED":
-		*e = RetrieveUserUserGetResponseUserTOLStatus(v)
+		*e = RetrieveUserUsersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserUserGetResponseUserTOLStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserUsersStatus: %v", v)
 	}
 }
 
-type RetrieveUserUserGetResponseUserTOLTermsAndConditions struct {
+type RetrieveUserTermsAndConditions struct {
 	// Timestamp at which the user consented to the terms & conditions. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// Consent unique identifier.
 	ConsentDocumentID string `json:"consent_document_id"`
 }
 
-func (r RetrieveUserUserGetResponseUserTOLTermsAndConditions) MarshalJSON() ([]byte, error) {
+func (r RetrieveUserTermsAndConditions) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveUserUserGetResponseUserTOLTermsAndConditions) UnmarshalJSON(data []byte) error {
+func (r *RetrieveUserTermsAndConditions) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLTermsAndConditions) GetConfirmedAt() time.Time {
+func (o *RetrieveUserTermsAndConditions) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *RetrieveUserUserGetResponseUserTOLTermsAndConditions) GetConsentDocumentID() string {
+func (o *RetrieveUserTermsAndConditions) GetConsentDocumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ConsentDocumentID
 }
 
-// RetrieveUserUserGetResponseUserTOLTitle - Title of the user used in reports and statements.
+// RetrieveUserUsersTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type RetrieveUserUserGetResponseUserTOLTitle string
+type RetrieveUserUsersTitle string
 
 const (
-	RetrieveUserUserGetResponseUserTOLTitleUnknown  RetrieveUserUserGetResponseUserTOLTitle = ""
-	RetrieveUserUserGetResponseUserTOLTitleDr       RetrieveUserUserGetResponseUserTOLTitle = "DR"
-	RetrieveUserUserGetResponseUserTOLTitleProf     RetrieveUserUserGetResponseUserTOLTitle = "PROF"
-	RetrieveUserUserGetResponseUserTOLTitleProfDr   RetrieveUserUserGetResponseUserTOLTitle = "PROF_DR"
-	RetrieveUserUserGetResponseUserTOLTitleDiplIng  RetrieveUserUserGetResponseUserTOLTitle = "DIPL_ING"
-	RetrieveUserUserGetResponseUserTOLTitleMagister RetrieveUserUserGetResponseUserTOLTitle = "MAGISTER"
+	RetrieveUserUsersTitleUnknown  RetrieveUserUsersTitle = ""
+	RetrieveUserUsersTitleDr       RetrieveUserUsersTitle = "DR"
+	RetrieveUserUsersTitleProf     RetrieveUserUsersTitle = "PROF"
+	RetrieveUserUsersTitleProfDr   RetrieveUserUsersTitle = "PROF_DR"
+	RetrieveUserUsersTitleDiplIng  RetrieveUserUsersTitle = "DIPL_ING"
+	RetrieveUserUsersTitleMagister RetrieveUserUsersTitle = "MAGISTER"
 )
 
-func (e RetrieveUserUserGetResponseUserTOLTitle) ToPointer() *RetrieveUserUserGetResponseUserTOLTitle {
+func (e RetrieveUserUsersTitle) ToPointer() *RetrieveUserUsersTitle {
 	return &e
 }
 
-func (e *RetrieveUserUserGetResponseUserTOLTitle) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserUsersTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -441,17 +441,17 @@ func (e *RetrieveUserUserGetResponseUserTOLTitle) UnmarshalJSON(data []byte) err
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = RetrieveUserUserGetResponseUserTOLTitle(v)
+		*e = RetrieveUserUsersTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserUserGetResponseUserTOLTitle: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserUsersTitle: %v", v)
 	}
 }
 
-type RetrieveUserUserGetResponseUserTOL struct {
+type RetrieveUserUserTOL struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   RetrieveUserUserGetResponseUserTOLAddress `json:"address"`
-	BirthCity *string                                   `json:"birth_city,omitempty"`
+	Address   RetrieveUserUsersAddress `json:"address"`
+	BirthCity *string                  `json:"birth_city,omitempty"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry *string `json:"birth_country,omitempty"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -459,11 +459,11 @@ type RetrieveUserUserGetResponseUserTOL struct {
 	// If applicable, birth name of the user.
 	BirthName *string `json:"birth_name,omitempty"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	CreatedAt                      time.Time                                                         `json:"created_at"`
-	DataPrivacyAndSharingAgreement *RetrieveUserUserGetResponseUserTOLDataPrivacyAndSharingAgreement `json:"data_privacy_and_sharing_agreement,omitempty"`
+	CreatedAt                      time.Time                                   `json:"created_at"`
+	DataPrivacyAndSharingAgreement *RetrieveUserDataPrivacyAndSharingAgreement `json:"data_privacy_and_sharing_agreement,omitempty"`
 	// Email of the user. Must be a valid email address.
-	Email *string                                  `json:"email,omitempty"`
-	Fatca *RetrieveUserUserGetResponseUserTOLFatca `json:"fatca,omitempty"`
+	Email *string            `json:"email,omitempty"`
+	Fatca *RetrieveUserFatca `json:"fatca,omitempty"`
 	// First name of the user.
 	FirstName string `json:"first_name"`
 	// User unique identifier.
@@ -475,21 +475,21 @@ type RetrieveUserUserGetResponseUserTOL struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *RetrieveUserUserGetResponseUserTOLPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *RetrieveUserUsersPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *RetrieveUserUserGetResponseUserTOLSalutation `default:"" json:"salutation"`
+	Salutation *RetrieveUserUsersSalutation `default:"" json:"salutation"`
 	// Status of the user.
 	// * ACTIVE -
 	// * INACTIVE -
 	// * OFFBOARDING -
 	// * OFFBOARDED -
-	Status             RetrieveUserUserGetResponseUserTOLStatus              `json:"status"`
-	TermsAndConditions *RetrieveUserUserGetResponseUserTOLTermsAndConditions `json:"terms_and_conditions,omitempty"`
+	Status             RetrieveUserUsersStatus         `json:"status"`
+	TermsAndConditions *RetrieveUserTermsAndConditions `json:"terms_and_conditions,omitempty"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -497,164 +497,164 @@ type RetrieveUserUserGetResponseUserTOL struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *RetrieveUserUserGetResponseUserTOLTitle `default:"" json:"title"`
+	Title *RetrieveUserUsersTitle `default:"" json:"title"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (r RetrieveUserUserGetResponseUserTOL) MarshalJSON() ([]byte, error) {
+func (r RetrieveUserUserTOL) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveUserUserGetResponseUserTOL) UnmarshalJSON(data []byte) error {
+func (r *RetrieveUserUserTOL) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetAddress() RetrieveUserUserGetResponseUserTOLAddress {
+func (o *RetrieveUserUserTOL) GetAddress() RetrieveUserUsersAddress {
 	if o == nil {
-		return RetrieveUserUserGetResponseUserTOLAddress{}
+		return RetrieveUserUsersAddress{}
 	}
 	return o.Address
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetBirthCity() *string {
+func (o *RetrieveUserUserTOL) GetBirthCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCity
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetBirthCountry() *string {
+func (o *RetrieveUserUserTOL) GetBirthCountry() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCountry
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetBirthDate() types.Date {
+func (o *RetrieveUserUserTOL) GetBirthDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.BirthDate
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetBirthName() *string {
+func (o *RetrieveUserUserTOL) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetCreatedAt() time.Time {
+func (o *RetrieveUserUserTOL) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetDataPrivacyAndSharingAgreement() *RetrieveUserUserGetResponseUserTOLDataPrivacyAndSharingAgreement {
+func (o *RetrieveUserUserTOL) GetDataPrivacyAndSharingAgreement() *RetrieveUserDataPrivacyAndSharingAgreement {
 	if o == nil {
 		return nil
 	}
 	return o.DataPrivacyAndSharingAgreement
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetEmail() *string {
+func (o *RetrieveUserUserTOL) GetEmail() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Email
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetFatca() *RetrieveUserUserGetResponseUserTOLFatca {
+func (o *RetrieveUserUserTOL) GetFatca() *RetrieveUserFatca {
 	if o == nil {
 		return nil
 	}
 	return o.Fatca
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetFirstName() string {
+func (o *RetrieveUserUserTOL) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetID() string {
+func (o *RetrieveUserUserTOL) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetLastName() string {
+func (o *RetrieveUserUserTOL) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetNationalities() []string {
+func (o *RetrieveUserUserTOL) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetPhoneNumber() *string {
+func (o *RetrieveUserUserTOL) GetPhoneNumber() *string {
 	if o == nil {
 		return nil
 	}
 	return o.PhoneNumber
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetPostalAddress() *RetrieveUserUserGetResponseUserTOLPostalAddress {
+func (o *RetrieveUserUserTOL) GetPostalAddress() *RetrieveUserUsersPostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetSalutation() *RetrieveUserUserGetResponseUserTOLSalutation {
+func (o *RetrieveUserUserTOL) GetSalutation() *RetrieveUserUsersSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetStatus() RetrieveUserUserGetResponseUserTOLStatus {
+func (o *RetrieveUserUserTOL) GetStatus() RetrieveUserUsersStatus {
 	if o == nil {
-		return RetrieveUserUserGetResponseUserTOLStatus("")
+		return RetrieveUserUsersStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetTermsAndConditions() *RetrieveUserUserGetResponseUserTOLTermsAndConditions {
+func (o *RetrieveUserUserTOL) GetTermsAndConditions() *RetrieveUserTermsAndConditions {
 	if o == nil {
 		return nil
 	}
 	return o.TermsAndConditions
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetTitle() *RetrieveUserUserGetResponseUserTOLTitle {
+func (o *RetrieveUserUserTOL) GetTitle() *RetrieveUserUsersTitle {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-func (o *RetrieveUserUserGetResponseUserTOL) GetUpdatedAt() time.Time {
+func (o *RetrieveUserUserTOL) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-// RetrieveUserUserGetResponseUserBYOLAddress - Address. Must not be a P.O. box or c/o address.
-type RetrieveUserUserGetResponseUserBYOLAddress struct {
+// RetrieveUserAddress - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -668,50 +668,50 @@ type RetrieveUserUserGetResponseUserBYOLAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLAddress) GetAddressLine1() string {
+func (o *RetrieveUserAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLAddress) GetAddressLine2() *string {
+func (o *RetrieveUserAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLAddress) GetCity() string {
+func (o *RetrieveUserAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLAddress) GetCountry() string {
+func (o *RetrieveUserAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLAddress) GetPostcode() string {
+func (o *RetrieveUserAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLAddress) GetState() *string {
+func (o *RetrieveUserAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// RetrieveUserUserGetResponseUserBYOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type RetrieveUserUserGetResponseUserBYOLPostalAddressAddress struct {
+// RetrieveUserUsersResponse200Address - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserUsersResponse200Address struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -725,110 +725,110 @@ type RetrieveUserUserGetResponseUserBYOLPostalAddressAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetAddressLine1() string {
+func (o *RetrieveUserUsersResponse200Address) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetAddressLine2() *string {
+func (o *RetrieveUserUsersResponse200Address) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetCity() string {
+func (o *RetrieveUserUsersResponse200Address) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetCountry() string {
+func (o *RetrieveUserUsersResponse200Address) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetPostcode() string {
+func (o *RetrieveUserUsersResponse200Address) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) GetState() *string {
+func (o *RetrieveUserUsersResponse200Address) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type RetrieveUserUserGetResponseUserBYOLPostalAddressType string
+type RetrieveUserPostalAddressType string
 
 const (
-	RetrieveUserUserGetResponseUserBYOLPostalAddressTypeRetrieveUserUserGetResponseUserBYOLPostalAddressAddress RetrieveUserUserGetResponseUserBYOLPostalAddressType = "retrieve_user_User - Get - Response_User (BYOL)_postal_address_Address"
+	RetrieveUserPostalAddressTypeRetrieveUserUsersResponse200Address RetrieveUserPostalAddressType = "retrieve_user_Users_response_200_Address"
 )
 
-type RetrieveUserUserGetResponseUserBYOLPostalAddress struct {
-	RetrieveUserUserGetResponseUserBYOLPostalAddressAddress *RetrieveUserUserGetResponseUserBYOLPostalAddressAddress
+type RetrieveUserPostalAddress struct {
+	RetrieveUserUsersResponse200Address *RetrieveUserUsersResponse200Address
 
-	Type RetrieveUserUserGetResponseUserBYOLPostalAddressType
+	Type RetrieveUserPostalAddressType
 }
 
-func CreateRetrieveUserUserGetResponseUserBYOLPostalAddressRetrieveUserUserGetResponseUserBYOLPostalAddressAddress(retrieveUserUserGetResponseUserBYOLPostalAddressAddress RetrieveUserUserGetResponseUserBYOLPostalAddressAddress) RetrieveUserUserGetResponseUserBYOLPostalAddress {
-	typ := RetrieveUserUserGetResponseUserBYOLPostalAddressTypeRetrieveUserUserGetResponseUserBYOLPostalAddressAddress
+func CreateRetrieveUserPostalAddressRetrieveUserUsersResponse200Address(retrieveUserUsersResponse200Address RetrieveUserUsersResponse200Address) RetrieveUserPostalAddress {
+	typ := RetrieveUserPostalAddressTypeRetrieveUserUsersResponse200Address
 
-	return RetrieveUserUserGetResponseUserBYOLPostalAddress{
-		RetrieveUserUserGetResponseUserBYOLPostalAddressAddress: &retrieveUserUserGetResponseUserBYOLPostalAddressAddress,
-		Type: typ,
+	return RetrieveUserPostalAddress{
+		RetrieveUserUsersResponse200Address: &retrieveUserUsersResponse200Address,
+		Type:                                typ,
 	}
 }
 
-func (u *RetrieveUserUserGetResponseUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *RetrieveUserPostalAddress) UnmarshalJSON(data []byte) error {
 
-	retrieveUserUserGetResponseUserBYOLPostalAddressAddress := RetrieveUserUserGetResponseUserBYOLPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserBYOLPostalAddressAddress, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress = &retrieveUserUserGetResponseUserBYOLPostalAddressAddress
-		u.Type = RetrieveUserUserGetResponseUserBYOLPostalAddressTypeRetrieveUserUserGetResponseUserBYOLPostalAddressAddress
+	retrieveUserUsersResponse200Address := RetrieveUserUsersResponse200Address{}
+	if err := utils.UnmarshalJSON(data, &retrieveUserUsersResponse200Address, "", true, true); err == nil {
+		u.RetrieveUserUsersResponse200Address = &retrieveUserUsersResponse200Address
+		u.Type = RetrieveUserPostalAddressTypeRetrieveUserUsersResponse200Address
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u RetrieveUserUserGetResponseUserBYOLPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.RetrieveUserUserGetResponseUserBYOLPostalAddressAddress, "", true)
+func (u RetrieveUserPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.RetrieveUserUsersResponse200Address != nil {
+		return utils.MarshalJSON(u.RetrieveUserUsersResponse200Address, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// RetrieveUserUserGetResponseUserBYOLSalutation - Salutation of the user used in reports and statements.
+// RetrieveUserSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type RetrieveUserUserGetResponseUserBYOLSalutation string
+type RetrieveUserSalutation string
 
 const (
-	RetrieveUserUserGetResponseUserBYOLSalutationUnknown                 RetrieveUserUserGetResponseUserBYOLSalutation = ""
-	RetrieveUserUserGetResponseUserBYOLSalutationSalutationMale          RetrieveUserUserGetResponseUserBYOLSalutation = "SALUTATION_MALE"
-	RetrieveUserUserGetResponseUserBYOLSalutationSalutationFemale        RetrieveUserUserGetResponseUserBYOLSalutation = "SALUTATION_FEMALE"
-	RetrieveUserUserGetResponseUserBYOLSalutationSalutationFemaleMarried RetrieveUserUserGetResponseUserBYOLSalutation = "SALUTATION_FEMALE_MARRIED"
-	RetrieveUserUserGetResponseUserBYOLSalutationSalutationDiverse       RetrieveUserUserGetResponseUserBYOLSalutation = "SALUTATION_DIVERSE"
+	RetrieveUserSalutationUnknown                 RetrieveUserSalutation = ""
+	RetrieveUserSalutationSalutationMale          RetrieveUserSalutation = "SALUTATION_MALE"
+	RetrieveUserSalutationSalutationFemale        RetrieveUserSalutation = "SALUTATION_FEMALE"
+	RetrieveUserSalutationSalutationFemaleMarried RetrieveUserSalutation = "SALUTATION_FEMALE_MARRIED"
+	RetrieveUserSalutationSalutationDiverse       RetrieveUserSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e RetrieveUserUserGetResponseUserBYOLSalutation) ToPointer() *RetrieveUserUserGetResponseUserBYOLSalutation {
+func (e RetrieveUserSalutation) ToPointer() *RetrieveUserSalutation {
 	return &e
 }
 
-func (e *RetrieveUserUserGetResponseUserBYOLSalutation) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -843,32 +843,32 @@ func (e *RetrieveUserUserGetResponseUserBYOLSalutation) UnmarshalJSON(data []byt
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = RetrieveUserUserGetResponseUserBYOLSalutation(v)
+		*e = RetrieveUserSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserUserGetResponseUserBYOLSalutation: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserSalutation: %v", v)
 	}
 }
 
-// RetrieveUserUserGetResponseUserBYOLStatus - Status of the user.
+// RetrieveUserStatus - Status of the user.
 // * ACTIVE -
 // * INACTIVE -
 // * OFFBOARDING -
 // * OFFBOARDED -
-type RetrieveUserUserGetResponseUserBYOLStatus string
+type RetrieveUserStatus string
 
 const (
-	RetrieveUserUserGetResponseUserBYOLStatusActive      RetrieveUserUserGetResponseUserBYOLStatus = "ACTIVE"
-	RetrieveUserUserGetResponseUserBYOLStatusInactive    RetrieveUserUserGetResponseUserBYOLStatus = "INACTIVE"
-	RetrieveUserUserGetResponseUserBYOLStatusOffboarding RetrieveUserUserGetResponseUserBYOLStatus = "OFFBOARDING"
-	RetrieveUserUserGetResponseUserBYOLStatusOffboarded  RetrieveUserUserGetResponseUserBYOLStatus = "OFFBOARDED"
+	RetrieveUserStatusActive      RetrieveUserStatus = "ACTIVE"
+	RetrieveUserStatusInactive    RetrieveUserStatus = "INACTIVE"
+	RetrieveUserStatusOffboarding RetrieveUserStatus = "OFFBOARDING"
+	RetrieveUserStatusOffboarded  RetrieveUserStatus = "OFFBOARDED"
 )
 
-func (e RetrieveUserUserGetResponseUserBYOLStatus) ToPointer() *RetrieveUserUserGetResponseUserBYOLStatus {
+func (e RetrieveUserStatus) ToPointer() *RetrieveUserStatus {
 	return &e
 }
 
-func (e *RetrieveUserUserGetResponseUserBYOLStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -881,36 +881,36 @@ func (e *RetrieveUserUserGetResponseUserBYOLStatus) UnmarshalJSON(data []byte) e
 	case "OFFBOARDING":
 		fallthrough
 	case "OFFBOARDED":
-		*e = RetrieveUserUserGetResponseUserBYOLStatus(v)
+		*e = RetrieveUserStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserUserGetResponseUserBYOLStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserStatus: %v", v)
 	}
 }
 
-// RetrieveUserUserGetResponseUserBYOLTitle - Title of the user used in reports and statements.
+// RetrieveUserTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type RetrieveUserUserGetResponseUserBYOLTitle string
+type RetrieveUserTitle string
 
 const (
-	RetrieveUserUserGetResponseUserBYOLTitleUnknown  RetrieveUserUserGetResponseUserBYOLTitle = ""
-	RetrieveUserUserGetResponseUserBYOLTitleDr       RetrieveUserUserGetResponseUserBYOLTitle = "DR"
-	RetrieveUserUserGetResponseUserBYOLTitleProf     RetrieveUserUserGetResponseUserBYOLTitle = "PROF"
-	RetrieveUserUserGetResponseUserBYOLTitleProfDr   RetrieveUserUserGetResponseUserBYOLTitle = "PROF_DR"
-	RetrieveUserUserGetResponseUserBYOLTitleDiplIng  RetrieveUserUserGetResponseUserBYOLTitle = "DIPL_ING"
-	RetrieveUserUserGetResponseUserBYOLTitleMagister RetrieveUserUserGetResponseUserBYOLTitle = "MAGISTER"
+	RetrieveUserTitleUnknown  RetrieveUserTitle = ""
+	RetrieveUserTitleDr       RetrieveUserTitle = "DR"
+	RetrieveUserTitleProf     RetrieveUserTitle = "PROF"
+	RetrieveUserTitleProfDr   RetrieveUserTitle = "PROF_DR"
+	RetrieveUserTitleDiplIng  RetrieveUserTitle = "DIPL_ING"
+	RetrieveUserTitleMagister RetrieveUserTitle = "MAGISTER"
 )
 
-func (e RetrieveUserUserGetResponseUserBYOLTitle) ToPointer() *RetrieveUserUserGetResponseUserBYOLTitle {
+func (e RetrieveUserTitle) ToPointer() *RetrieveUserTitle {
 	return &e
 }
 
-func (e *RetrieveUserUserGetResponseUserBYOLTitle) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -927,17 +927,17 @@ func (e *RetrieveUserUserGetResponseUserBYOLTitle) UnmarshalJSON(data []byte) er
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = RetrieveUserUserGetResponseUserBYOLTitle(v)
+		*e = RetrieveUserTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserUserGetResponseUserBYOLTitle: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserTitle: %v", v)
 	}
 }
 
-type RetrieveUserUserGetResponseUserBYOL struct {
+type RetrieveUserUserBYOL struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   RetrieveUserUserGetResponseUserBYOLAddress `json:"address"`
-	BirthCity *string                                    `json:"birth_city,omitempty"`
+	Address   RetrieveUserAddress `json:"address"`
+	BirthCity *string             `json:"birth_city,omitempty"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry *string `json:"birth_country,omitempty"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -955,20 +955,20 @@ type RetrieveUserUserGetResponseUserBYOL struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *RetrieveUserUserGetResponseUserBYOLPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *RetrieveUserPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *RetrieveUserUserGetResponseUserBYOLSalutation `default:"" json:"salutation"`
+	Salutation *RetrieveUserSalutation `default:"" json:"salutation"`
 	// Status of the user.
 	// * ACTIVE -
 	// * INACTIVE -
 	// * OFFBOARDING -
 	// * OFFBOARDED -
-	Status RetrieveUserUserGetResponseUserBYOLStatus `json:"status"`
+	Status RetrieveUserStatus `json:"status"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -976,121 +976,121 @@ type RetrieveUserUserGetResponseUserBYOL struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *RetrieveUserUserGetResponseUserBYOLTitle `default:"" json:"title"`
+	Title *RetrieveUserTitle `default:"" json:"title"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (r RetrieveUserUserGetResponseUserBYOL) MarshalJSON() ([]byte, error) {
+func (r RetrieveUserUserBYOL) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveUserUserGetResponseUserBYOL) UnmarshalJSON(data []byte) error {
+func (r *RetrieveUserUserBYOL) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetAddress() RetrieveUserUserGetResponseUserBYOLAddress {
+func (o *RetrieveUserUserBYOL) GetAddress() RetrieveUserAddress {
 	if o == nil {
-		return RetrieveUserUserGetResponseUserBYOLAddress{}
+		return RetrieveUserAddress{}
 	}
 	return o.Address
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetBirthCity() *string {
+func (o *RetrieveUserUserBYOL) GetBirthCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCity
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetBirthCountry() *string {
+func (o *RetrieveUserUserBYOL) GetBirthCountry() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCountry
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetBirthDate() types.Date {
+func (o *RetrieveUserUserBYOL) GetBirthDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.BirthDate
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetBirthName() *string {
+func (o *RetrieveUserUserBYOL) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetCreatedAt() time.Time {
+func (o *RetrieveUserUserBYOL) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetFirstName() string {
+func (o *RetrieveUserUserBYOL) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetID() string {
+func (o *RetrieveUserUserBYOL) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetLastName() string {
+func (o *RetrieveUserUserBYOL) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetNationalities() []string {
+func (o *RetrieveUserUserBYOL) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetPostalAddress() *RetrieveUserUserGetResponseUserBYOLPostalAddress {
+func (o *RetrieveUserUserBYOL) GetPostalAddress() *RetrieveUserPostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetSalutation() *RetrieveUserUserGetResponseUserBYOLSalutation {
+func (o *RetrieveUserUserBYOL) GetSalutation() *RetrieveUserSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetStatus() RetrieveUserUserGetResponseUserBYOLStatus {
+func (o *RetrieveUserUserBYOL) GetStatus() RetrieveUserStatus {
 	if o == nil {
-		return RetrieveUserUserGetResponseUserBYOLStatus("")
+		return RetrieveUserStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetTitle() *RetrieveUserUserGetResponseUserBYOLTitle {
+func (o *RetrieveUserUserBYOL) GetTitle() *RetrieveUserTitle {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-func (o *RetrieveUserUserGetResponseUserBYOL) GetUpdatedAt() time.Time {
+func (o *RetrieveUserUserBYOL) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
@@ -1100,48 +1100,48 @@ func (o *RetrieveUserUserGetResponseUserBYOL) GetUpdatedAt() time.Time {
 type RetrieveUserUserGetResponseType string
 
 const (
-	RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserBYOL RetrieveUserUserGetResponseType = "retrieve_user_User - Get - Response_User (BYOL)"
-	RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserTOL  RetrieveUserUserGetResponseType = "retrieve_user_User - Get - Response_User (TOL)"
+	RetrieveUserUserGetResponseTypeRetrieveUserUserBYOL RetrieveUserUserGetResponseType = "retrieve_user_User (BYOL)"
+	RetrieveUserUserGetResponseTypeRetrieveUserUserTOL  RetrieveUserUserGetResponseType = "retrieve_user_User (TOL)"
 )
 
 type RetrieveUserUserGetResponse struct {
-	RetrieveUserUserGetResponseUserBYOL *RetrieveUserUserGetResponseUserBYOL
-	RetrieveUserUserGetResponseUserTOL  *RetrieveUserUserGetResponseUserTOL
+	RetrieveUserUserBYOL *RetrieveUserUserBYOL
+	RetrieveUserUserTOL  *RetrieveUserUserTOL
 
 	Type RetrieveUserUserGetResponseType
 }
 
-func CreateRetrieveUserUserGetResponseRetrieveUserUserGetResponseUserBYOL(retrieveUserUserGetResponseUserBYOL RetrieveUserUserGetResponseUserBYOL) RetrieveUserUserGetResponse {
-	typ := RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserBYOL
+func CreateRetrieveUserUserGetResponseRetrieveUserUserBYOL(retrieveUserUserBYOL RetrieveUserUserBYOL) RetrieveUserUserGetResponse {
+	typ := RetrieveUserUserGetResponseTypeRetrieveUserUserBYOL
 
 	return RetrieveUserUserGetResponse{
-		RetrieveUserUserGetResponseUserBYOL: &retrieveUserUserGetResponseUserBYOL,
-		Type:                                typ,
+		RetrieveUserUserBYOL: &retrieveUserUserBYOL,
+		Type:                 typ,
 	}
 }
 
-func CreateRetrieveUserUserGetResponseRetrieveUserUserGetResponseUserTOL(retrieveUserUserGetResponseUserTOL RetrieveUserUserGetResponseUserTOL) RetrieveUserUserGetResponse {
-	typ := RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserTOL
+func CreateRetrieveUserUserGetResponseRetrieveUserUserTOL(retrieveUserUserTOL RetrieveUserUserTOL) RetrieveUserUserGetResponse {
+	typ := RetrieveUserUserGetResponseTypeRetrieveUserUserTOL
 
 	return RetrieveUserUserGetResponse{
-		RetrieveUserUserGetResponseUserTOL: &retrieveUserUserGetResponseUserTOL,
-		Type:                               typ,
+		RetrieveUserUserTOL: &retrieveUserUserTOL,
+		Type:                typ,
 	}
 }
 
 func (u *RetrieveUserUserGetResponse) UnmarshalJSON(data []byte) error {
 
-	retrieveUserUserGetResponseUserBYOL := RetrieveUserUserGetResponseUserBYOL{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserBYOL, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserBYOL = &retrieveUserUserGetResponseUserBYOL
-		u.Type = RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserBYOL
+	retrieveUserUserBYOL := RetrieveUserUserBYOL{}
+	if err := utils.UnmarshalJSON(data, &retrieveUserUserBYOL, "", true, true); err == nil {
+		u.RetrieveUserUserBYOL = &retrieveUserUserBYOL
+		u.Type = RetrieveUserUserGetResponseTypeRetrieveUserUserBYOL
 		return nil
 	}
 
-	retrieveUserUserGetResponseUserTOL := RetrieveUserUserGetResponseUserTOL{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserUserGetResponseUserTOL, "", true, true); err == nil {
-		u.RetrieveUserUserGetResponseUserTOL = &retrieveUserUserGetResponseUserTOL
-		u.Type = RetrieveUserUserGetResponseTypeRetrieveUserUserGetResponseUserTOL
+	retrieveUserUserTOL := RetrieveUserUserTOL{}
+	if err := utils.UnmarshalJSON(data, &retrieveUserUserTOL, "", true, true); err == nil {
+		u.RetrieveUserUserTOL = &retrieveUserUserTOL
+		u.Type = RetrieveUserUserGetResponseTypeRetrieveUserUserTOL
 		return nil
 	}
 
@@ -1149,18 +1149,20 @@ func (u *RetrieveUserUserGetResponse) UnmarshalJSON(data []byte) error {
 }
 
 func (u RetrieveUserUserGetResponse) MarshalJSON() ([]byte, error) {
-	if u.RetrieveUserUserGetResponseUserBYOL != nil {
-		return utils.MarshalJSON(u.RetrieveUserUserGetResponseUserBYOL, "", true)
+	if u.RetrieveUserUserBYOL != nil {
+		return utils.MarshalJSON(u.RetrieveUserUserBYOL, "", true)
 	}
 
-	if u.RetrieveUserUserGetResponseUserTOL != nil {
-		return utils.MarshalJSON(u.RetrieveUserUserGetResponseUserTOL, "", true)
+	if u.RetrieveUserUserTOL != nil {
+		return utils.MarshalJSON(u.RetrieveUserUserTOL, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 type RetrieveUserResponse struct {
+	// OK
+	TwoHundredApplicationJSONUserGetResponse *RetrieveUserUserGetResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -1168,8 +1170,13 @@ type RetrieveUserResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// OK
-	UserGetResponse *RetrieveUserUserGetResponse
+}
+
+func (o *RetrieveUserResponse) GetTwoHundredApplicationJSONUserGetResponse() *RetrieveUserUserGetResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONUserGetResponse
 }
 
 func (o *RetrieveUserResponse) GetContentType() string {
@@ -1198,11 +1205,4 @@ func (o *RetrieveUserResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *RetrieveUserResponse) GetUserGetResponse() *RetrieveUserUserGetResponse {
-	if o == nil {
-		return nil
-	}
-	return o.UserGetResponse
 }

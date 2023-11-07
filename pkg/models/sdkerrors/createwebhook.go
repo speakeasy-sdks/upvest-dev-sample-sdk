@@ -7,6 +7,181 @@ import (
 	"net/http"
 )
 
+// CreateWebhookWebhooksResponse504Error - Gateway Timeout. The service gateway has reached its internal timeout.
+type CreateWebhookWebhooksResponse504Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &CreateWebhookWebhooksResponse504Error{}
+
+func (e *CreateWebhookWebhooksResponse504Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// CreateWebhookWebhooksResponse503Error - Service Unavailable. The service handling for this request cannot be reached at this time.
+type CreateWebhookWebhooksResponse503Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &CreateWebhookWebhooksResponse503Error{}
+
+func (e *CreateWebhookWebhooksResponse503Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// CreateWebhookWebhooksResponse500Error - Internal Server Error. The service encountered an unexpected error.
+type CreateWebhookWebhooksResponse500Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &CreateWebhookWebhooksResponse500Error{}
+
+func (e *CreateWebhookWebhooksResponse500Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// CreateWebhookWebhooksResponse429Error - Too Many Requests. The caller has exceeded their quota for the time period and has been throttled.
+type CreateWebhookWebhooksResponse429Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &CreateWebhookWebhooksResponse429Error{}
+
+func (e *CreateWebhookWebhooksResponse429Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// CreateWebhookWebhooksResponse406Error - Not Acceptable. The resource does not have a current representation that would be acceptable to the user agent. "Accept" header defined unsupported value.
+type CreateWebhookWebhooksResponse406Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &CreateWebhookWebhooksResponse406Error{}
+
+func (e *CreateWebhookWebhooksResponse406Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// CreateWebhookWebhooksResponseError - Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+type CreateWebhookWebhooksResponseError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &CreateWebhookWebhooksResponseError{}
+
+func (e *CreateWebhookWebhooksResponseError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// CreateWebhookWebhooksError - Unauthorized. The caller has not been authenticated.
+type CreateWebhookWebhooksError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &CreateWebhookWebhooksError{}
+
+func (e *CreateWebhookWebhooksError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
 // CreateWebhookError - Bad Request. The incoming request had a malformed parameter/object.
 type CreateWebhookError struct {
 	// Raw HTTP response; suitable for custom response parsing

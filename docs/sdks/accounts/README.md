@@ -1,5 +1,5 @@
 # Accounts
-(*Accounts*)
+(*.Accounts*)
 
 ## Overview
 
@@ -149,7 +149,7 @@ func main() {
     res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
         RequestBody: &operations.CreateAccountRequestBody{
             AccountGroupID: "e9562292-f304-4c6a-8db0-ea541f32fba9",
-            Type: operations.CreateAccountRequestBodyTypeTrading,
+            Type: operations.TypeTrading,
             UserID: "d04cd2d5-ae02-4bb1-9118-75a95a0f2373",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -162,7 +162,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Account != nil {
+    if res.TwoHundredApplicationJSONAccount != nil {
         // handle response
     }
 }
@@ -206,7 +206,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.CreateAccountGroup(ctx, operations.CreateAccountGroupRequest{
         RequestBody: &operations.CreateAccountGroupAccountGroupCreateRequest{
-            Type: operations.CreateAccountGroupAccountGroupCreateRequestTypeLegalEntity,
+            Type: operations.CreateAccountGroupTypeLegalEntity,
             UserID: "9172e12f-f215-477c-9ccc-f257f38b8e8a",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -219,7 +219,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountGroup != nil {
+    if res.TwoHundredApplicationJSONAccountGroup != nil {
         // handle response
     }
 }
@@ -271,7 +271,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountGroupsListResponse != nil {
+    if res.TwoHundredApplicationJSONAccountGroupsListResponse != nil {
         // handle response
     }
 }
@@ -323,7 +323,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountsListResponse != nil {
+    if res.TwoHundredApplicationJSONAccountsListResponse != nil {
         // handle response
     }
 }
@@ -376,7 +376,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Account != nil {
+    if res.TwoHundredApplicationJSONAccount != nil {
         // handle response
     }
 }
@@ -429,7 +429,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountGroup != nil {
+    if res.TwoHundredApplicationJSONAccountGroup != nil {
         // handle response
     }
 }
@@ -483,7 +483,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Account != nil {
+    if res.TwoHundredApplicationJSONAccount != nil {
         // handle response
     }
 }

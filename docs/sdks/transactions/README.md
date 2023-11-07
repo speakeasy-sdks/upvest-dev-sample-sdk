@@ -1,5 +1,5 @@
 # Transactions
-(*Transactions*)
+(*.Transactions*)
 
 ## Overview
 
@@ -46,7 +46,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.CashTransactionListResponse != nil {
+    if res.TwoHundredApplicationJSONCashTransactionListResponse != nil {
         // handle response
     }
 }
@@ -100,7 +100,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.SecurityTransactionListResponse != nil {
+    if res.TwoHundredApplicationJSONSecurityTransactionListResponse != nil {
         // handle response
     }
 }

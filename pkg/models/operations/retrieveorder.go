@@ -69,25 +69,25 @@ func (o *RetrieveOrderRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveOrderOrderCancellationReason - Reason for Order cancellation. The field is present in case the Order has a status of CANCELLED.
+// RetrieveOrderCancellationReason - Reason for Order cancellation. The field is present in case the Order has a status of CANCELLED.
 // * CANCELLED_BY_CLIENT -
 // * CANCELLED_BY_UPVEST_OPERATIONS -
 // * CANCELLED_BY_TRADING_PARTNER -
 // * CANCELLED_BY_UPVEST_PLATFORM -
-type RetrieveOrderOrderCancellationReason string
+type RetrieveOrderCancellationReason string
 
 const (
-	RetrieveOrderOrderCancellationReasonCancelledByClient           RetrieveOrderOrderCancellationReason = "CANCELLED_BY_CLIENT"
-	RetrieveOrderOrderCancellationReasonCancelledByUpvestOperations RetrieveOrderOrderCancellationReason = "CANCELLED_BY_UPVEST_OPERATIONS"
-	RetrieveOrderOrderCancellationReasonCancelledByTradingPartner   RetrieveOrderOrderCancellationReason = "CANCELLED_BY_TRADING_PARTNER"
-	RetrieveOrderOrderCancellationReasonCancelledByUpvestPlatform   RetrieveOrderOrderCancellationReason = "CANCELLED_BY_UPVEST_PLATFORM"
+	RetrieveOrderCancellationReasonCancelledByClient           RetrieveOrderCancellationReason = "CANCELLED_BY_CLIENT"
+	RetrieveOrderCancellationReasonCancelledByUpvestOperations RetrieveOrderCancellationReason = "CANCELLED_BY_UPVEST_OPERATIONS"
+	RetrieveOrderCancellationReasonCancelledByTradingPartner   RetrieveOrderCancellationReason = "CANCELLED_BY_TRADING_PARTNER"
+	RetrieveOrderCancellationReasonCancelledByUpvestPlatform   RetrieveOrderCancellationReason = "CANCELLED_BY_UPVEST_PLATFORM"
 )
 
-func (e RetrieveOrderOrderCancellationReason) ToPointer() *RetrieveOrderOrderCancellationReason {
+func (e RetrieveOrderCancellationReason) ToPointer() *RetrieveOrderCancellationReason {
 	return &e
 }
 
-func (e *RetrieveOrderOrderCancellationReason) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderCancellationReason) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -100,53 +100,53 @@ func (e *RetrieveOrderOrderCancellationReason) UnmarshalJSON(data []byte) error 
 	case "CANCELLED_BY_TRADING_PARTNER":
 		fallthrough
 	case "CANCELLED_BY_UPVEST_PLATFORM":
-		*e = RetrieveOrderOrderCancellationReason(v)
+		*e = RetrieveOrderCancellationReason(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderCancellationReason: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderCancellationReason: %v", v)
 	}
 }
 
-// RetrieveOrderOrderCurrency - The currency for the order.
-type RetrieveOrderOrderCurrency string
+// RetrieveOrderCurrency - The currency for the order.
+type RetrieveOrderCurrency string
 
 const (
-	RetrieveOrderOrderCurrencyEur RetrieveOrderOrderCurrency = "EUR"
+	RetrieveOrderCurrencyEur RetrieveOrderCurrency = "EUR"
 )
 
-func (e RetrieveOrderOrderCurrency) ToPointer() *RetrieveOrderOrderCurrency {
+func (e RetrieveOrderCurrency) ToPointer() *RetrieveOrderCurrency {
 	return &e
 }
 
-func (e *RetrieveOrderOrderCurrency) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = RetrieveOrderOrderCurrency(v)
+		*e = RetrieveOrderCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderCurrency: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderCurrency: %v", v)
 	}
 }
 
-// RetrieveOrderOrderExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
+// RetrieveOrderExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 // * STRAIGHT_THROUGH -
 // * BLOCK -
-type RetrieveOrderOrderExecutionFlow string
+type RetrieveOrderExecutionFlow string
 
 const (
-	RetrieveOrderOrderExecutionFlowStraightThrough RetrieveOrderOrderExecutionFlow = "STRAIGHT_THROUGH"
-	RetrieveOrderOrderExecutionFlowBlock           RetrieveOrderOrderExecutionFlow = "BLOCK"
+	RetrieveOrderExecutionFlowStraightThrough RetrieveOrderExecutionFlow = "STRAIGHT_THROUGH"
+	RetrieveOrderExecutionFlowBlock           RetrieveOrderExecutionFlow = "BLOCK"
 )
 
-func (e RetrieveOrderOrderExecutionFlow) ToPointer() *RetrieveOrderOrderExecutionFlow {
+func (e RetrieveOrderExecutionFlow) ToPointer() *RetrieveOrderExecutionFlow {
 	return &e
 }
 
-func (e *RetrieveOrderOrderExecutionFlow) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderExecutionFlow) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -155,54 +155,54 @@ func (e *RetrieveOrderOrderExecutionFlow) UnmarshalJSON(data []byte) error {
 	case "STRAIGHT_THROUGH":
 		fallthrough
 	case "BLOCK":
-		*e = RetrieveOrderOrderExecutionFlow(v)
+		*e = RetrieveOrderExecutionFlow(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderExecutionFlow: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderExecutionFlow: %v", v)
 	}
 }
 
-// RetrieveOrderOrderOrderExecutionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// RetrieveOrderOrdersCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type RetrieveOrderOrderOrderExecutionCurrency string
+type RetrieveOrderOrdersCurrency string
 
 const (
-	RetrieveOrderOrderOrderExecutionCurrencyEur RetrieveOrderOrderOrderExecutionCurrency = "EUR"
+	RetrieveOrderOrdersCurrencyEur RetrieveOrderOrdersCurrency = "EUR"
 )
 
-func (e RetrieveOrderOrderOrderExecutionCurrency) ToPointer() *RetrieveOrderOrderOrderExecutionCurrency {
+func (e RetrieveOrderOrdersCurrency) ToPointer() *RetrieveOrderOrdersCurrency {
 	return &e
 }
 
-func (e *RetrieveOrderOrderOrderExecutionCurrency) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderOrdersCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = RetrieveOrderOrderOrderExecutionCurrency(v)
+		*e = RetrieveOrderOrdersCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderOrderExecutionCurrency: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderOrdersCurrency: %v", v)
 	}
 }
 
-// RetrieveOrderOrderOrderExecutionSide - Side of the execution.
+// RetrieveOrderOrdersSide - Side of the execution.
 // * BUY -
 // * SELL -
-type RetrieveOrderOrderOrderExecutionSide string
+type RetrieveOrderOrdersSide string
 
 const (
-	RetrieveOrderOrderOrderExecutionSideBuy  RetrieveOrderOrderOrderExecutionSide = "BUY"
-	RetrieveOrderOrderOrderExecutionSideSell RetrieveOrderOrderOrderExecutionSide = "SELL"
+	RetrieveOrderOrdersSideBuy  RetrieveOrderOrdersSide = "BUY"
+	RetrieveOrderOrdersSideSell RetrieveOrderOrdersSide = "SELL"
 )
 
-func (e RetrieveOrderOrderOrderExecutionSide) ToPointer() *RetrieveOrderOrderOrderExecutionSide {
+func (e RetrieveOrderOrdersSide) ToPointer() *RetrieveOrderOrdersSide {
 	return &e
 }
 
-func (e *RetrieveOrderOrderOrderExecutionSide) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderOrdersSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -211,30 +211,30 @@ func (e *RetrieveOrderOrderOrderExecutionSide) UnmarshalJSON(data []byte) error 
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = RetrieveOrderOrderOrderExecutionSide(v)
+		*e = RetrieveOrderOrdersSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderOrderExecutionSide: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderOrdersSide: %v", v)
 	}
 }
 
-// RetrieveOrderOrderOrderExecutionStatus - Execution status of the Execution.
+// RetrieveOrderOrdersStatus - Execution status of the Execution.
 // * FILLED -
 // * SETTLED -
 // * CANCELLED -
-type RetrieveOrderOrderOrderExecutionStatus string
+type RetrieveOrderOrdersStatus string
 
 const (
-	RetrieveOrderOrderOrderExecutionStatusFilled    RetrieveOrderOrderOrderExecutionStatus = "FILLED"
-	RetrieveOrderOrderOrderExecutionStatusSettled   RetrieveOrderOrderOrderExecutionStatus = "SETTLED"
-	RetrieveOrderOrderOrderExecutionStatusCancelled RetrieveOrderOrderOrderExecutionStatus = "CANCELLED"
+	RetrieveOrderOrdersStatusFilled    RetrieveOrderOrdersStatus = "FILLED"
+	RetrieveOrderOrdersStatusSettled   RetrieveOrderOrdersStatus = "SETTLED"
+	RetrieveOrderOrdersStatusCancelled RetrieveOrderOrdersStatus = "CANCELLED"
 )
 
-func (e RetrieveOrderOrderOrderExecutionStatus) ToPointer() *RetrieveOrderOrderOrderExecutionStatus {
+func (e RetrieveOrderOrdersStatus) ToPointer() *RetrieveOrderOrdersStatus {
 	return &e
 }
 
-func (e *RetrieveOrderOrderOrderExecutionStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderOrdersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -245,183 +245,183 @@ func (e *RetrieveOrderOrderOrderExecutionStatus) UnmarshalJSON(data []byte) erro
 	case "SETTLED":
 		fallthrough
 	case "CANCELLED":
-		*e = RetrieveOrderOrderOrderExecutionStatus(v)
+		*e = RetrieveOrderOrdersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderOrderExecutionStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderOrdersStatus: %v", v)
 	}
 }
 
-// RetrieveOrderOrderOrderExecutionTaxType - Tax type
+// RetrieveOrderType - Tax type
 // * TOTAL -
-type RetrieveOrderOrderOrderExecutionTaxType string
+type RetrieveOrderType string
 
 const (
-	RetrieveOrderOrderOrderExecutionTaxTypeTotal RetrieveOrderOrderOrderExecutionTaxType = "TOTAL"
+	RetrieveOrderTypeTotal RetrieveOrderType = "TOTAL"
 )
 
-func (e RetrieveOrderOrderOrderExecutionTaxType) ToPointer() *RetrieveOrderOrderOrderExecutionTaxType {
+func (e RetrieveOrderType) ToPointer() *RetrieveOrderType {
 	return &e
 }
 
-func (e *RetrieveOrderOrderOrderExecutionTaxType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "TOTAL":
-		*e = RetrieveOrderOrderOrderExecutionTaxType(v)
+		*e = RetrieveOrderType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderOrderExecutionTaxType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderType: %v", v)
 	}
 }
 
-type RetrieveOrderOrderOrderExecutionTax struct {
+type RetrieveOrderTax struct {
 	Amount string `json:"amount"`
 	// Tax type
 	// * TOTAL -
-	Type *RetrieveOrderOrderOrderExecutionTaxType `default:"TOTAL" json:"type"`
+	Type *RetrieveOrderType `default:"TOTAL" json:"type"`
 }
 
-func (r RetrieveOrderOrderOrderExecutionTax) MarshalJSON() ([]byte, error) {
+func (r RetrieveOrderTax) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveOrderOrderOrderExecutionTax) UnmarshalJSON(data []byte) error {
+func (r *RetrieveOrderTax) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveOrderOrderOrderExecutionTax) GetAmount() string {
+func (o *RetrieveOrderTax) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *RetrieveOrderOrderOrderExecutionTax) GetType() *RetrieveOrderOrderOrderExecutionTaxType {
+func (o *RetrieveOrderTax) GetType() *RetrieveOrderType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-type RetrieveOrderOrderOrderExecution struct {
+type RetrieveOrderOrderExecution struct {
 	CashAmount string `json:"cash_amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency       *RetrieveOrderOrderOrderExecutionCurrency `default:"EUR" json:"currency"`
-	ID             string                                    `json:"id"`
-	OrderID        string                                    `json:"order_id"`
-	Price          string                                    `json:"price"`
-	SettlementDate *string                                   `json:"settlement_date,omitempty"`
-	ShareQuantity  string                                    `json:"share_quantity"`
+	Currency       *RetrieveOrderOrdersCurrency `default:"EUR" json:"currency"`
+	ID             string                       `json:"id"`
+	OrderID        string                       `json:"order_id"`
+	Price          string                       `json:"price"`
+	SettlementDate *string                      `json:"settlement_date,omitempty"`
+	ShareQuantity  string                       `json:"share_quantity"`
 	// Side of the execution.
 	// * BUY -
 	// * SELL -
-	Side RetrieveOrderOrderOrderExecutionSide `json:"side"`
+	Side RetrieveOrderOrdersSide `json:"side"`
 	// Execution status of the Execution.
 	// * FILLED -
 	// * SETTLED -
 	// * CANCELLED -
-	Status          RetrieveOrderOrderOrderExecutionStatus `json:"status"`
-	Taxes           []RetrieveOrderOrderOrderExecutionTax  `json:"taxes"`
-	TransactionTime time.Time                              `json:"transaction_time"`
+	Status          RetrieveOrderOrdersStatus `json:"status"`
+	Taxes           []RetrieveOrderTax        `json:"taxes"`
+	TransactionTime time.Time                 `json:"transaction_time"`
 }
 
-func (r RetrieveOrderOrderOrderExecution) MarshalJSON() ([]byte, error) {
+func (r RetrieveOrderOrderExecution) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveOrderOrderOrderExecution) UnmarshalJSON(data []byte) error {
+func (r *RetrieveOrderOrderExecution) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetCashAmount() string {
+func (o *RetrieveOrderOrderExecution) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetCurrency() *RetrieveOrderOrderOrderExecutionCurrency {
+func (o *RetrieveOrderOrderExecution) GetCurrency() *RetrieveOrderOrdersCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetID() string {
+func (o *RetrieveOrderOrderExecution) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetOrderID() string {
+func (o *RetrieveOrderOrderExecution) GetOrderID() string {
 	if o == nil {
 		return ""
 	}
 	return o.OrderID
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetPrice() string {
+func (o *RetrieveOrderOrderExecution) GetPrice() string {
 	if o == nil {
 		return ""
 	}
 	return o.Price
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetSettlementDate() *string {
+func (o *RetrieveOrderOrderExecution) GetSettlementDate() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SettlementDate
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetShareQuantity() string {
+func (o *RetrieveOrderOrderExecution) GetShareQuantity() string {
 	if o == nil {
 		return ""
 	}
 	return o.ShareQuantity
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetSide() RetrieveOrderOrderOrderExecutionSide {
+func (o *RetrieveOrderOrderExecution) GetSide() RetrieveOrderOrdersSide {
 	if o == nil {
-		return RetrieveOrderOrderOrderExecutionSide("")
+		return RetrieveOrderOrdersSide("")
 	}
 	return o.Side
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetStatus() RetrieveOrderOrderOrderExecutionStatus {
+func (o *RetrieveOrderOrderExecution) GetStatus() RetrieveOrderOrdersStatus {
 	if o == nil {
-		return RetrieveOrderOrderOrderExecutionStatus("")
+		return RetrieveOrderOrdersStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetTaxes() []RetrieveOrderOrderOrderExecutionTax {
+func (o *RetrieveOrderOrderExecution) GetTaxes() []RetrieveOrderTax {
 	if o == nil {
-		return []RetrieveOrderOrderOrderExecutionTax{}
+		return []RetrieveOrderTax{}
 	}
 	return o.Taxes
 }
 
-func (o *RetrieveOrderOrderOrderExecution) GetTransactionTime() time.Time {
+func (o *RetrieveOrderOrderExecution) GetTransactionTime() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.TransactionTime
 }
 
-// RetrieveOrderOrderInitiationFlow - Initiation flow used during order creation, i.e. what triggered the order.
+// RetrieveOrderInitiationFlow - Initiation flow used during order creation, i.e. what triggered the order.
 // * API -
 // * PORTFOLIO -
 // * CASH_DIVIDEND_REINVESTMENT -
@@ -430,24 +430,24 @@ func (o *RetrieveOrderOrderOrderExecution) GetTransactionTime() time.Time {
 // * SELL_TO_COVER_TAXES -
 // * ACCOUNT_LIQUIDATION -
 // * UPVEST_OPERATIONS -
-type RetrieveOrderOrderInitiationFlow string
+type RetrieveOrderInitiationFlow string
 
 const (
-	RetrieveOrderOrderInitiationFlowAPI                      RetrieveOrderOrderInitiationFlow = "API"
-	RetrieveOrderOrderInitiationFlowPortfolio                RetrieveOrderOrderInitiationFlow = "PORTFOLIO"
-	RetrieveOrderOrderInitiationFlowCashDividendReinvestment RetrieveOrderOrderInitiationFlow = "CASH_DIVIDEND_REINVESTMENT"
-	RetrieveOrderOrderInitiationFlowPortfolioRebalancing     RetrieveOrderOrderInitiationFlow = "PORTFOLIO_REBALANCING"
-	RetrieveOrderOrderInitiationFlowSellToCoverFees          RetrieveOrderOrderInitiationFlow = "SELL_TO_COVER_FEES"
-	RetrieveOrderOrderInitiationFlowSellToCoverTaxes         RetrieveOrderOrderInitiationFlow = "SELL_TO_COVER_TAXES"
-	RetrieveOrderOrderInitiationFlowAccountLiquidation       RetrieveOrderOrderInitiationFlow = "ACCOUNT_LIQUIDATION"
-	RetrieveOrderOrderInitiationFlowUpvestOperations         RetrieveOrderOrderInitiationFlow = "UPVEST_OPERATIONS"
+	RetrieveOrderInitiationFlowAPI                      RetrieveOrderInitiationFlow = "API"
+	RetrieveOrderInitiationFlowPortfolio                RetrieveOrderInitiationFlow = "PORTFOLIO"
+	RetrieveOrderInitiationFlowCashDividendReinvestment RetrieveOrderInitiationFlow = "CASH_DIVIDEND_REINVESTMENT"
+	RetrieveOrderInitiationFlowPortfolioRebalancing     RetrieveOrderInitiationFlow = "PORTFOLIO_REBALANCING"
+	RetrieveOrderInitiationFlowSellToCoverFees          RetrieveOrderInitiationFlow = "SELL_TO_COVER_FEES"
+	RetrieveOrderInitiationFlowSellToCoverTaxes         RetrieveOrderInitiationFlow = "SELL_TO_COVER_TAXES"
+	RetrieveOrderInitiationFlowAccountLiquidation       RetrieveOrderInitiationFlow = "ACCOUNT_LIQUIDATION"
+	RetrieveOrderInitiationFlowUpvestOperations         RetrieveOrderInitiationFlow = "UPVEST_OPERATIONS"
 )
 
-func (e RetrieveOrderOrderInitiationFlow) ToPointer() *RetrieveOrderOrderInitiationFlow {
+func (e RetrieveOrderInitiationFlow) ToPointer() *RetrieveOrderInitiationFlow {
 	return &e
 }
 
-func (e *RetrieveOrderOrderInitiationFlow) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderInitiationFlow) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -468,56 +468,56 @@ func (e *RetrieveOrderOrderInitiationFlow) UnmarshalJSON(data []byte) error {
 	case "ACCOUNT_LIQUIDATION":
 		fallthrough
 	case "UPVEST_OPERATIONS":
-		*e = RetrieveOrderOrderInitiationFlow(v)
+		*e = RetrieveOrderInitiationFlow(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderInitiationFlow: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderInitiationFlow: %v", v)
 	}
 }
 
-// RetrieveOrderOrderInstrumentIDType - The type of the ID used in the request.
+// RetrieveOrderInstrumentIDType - The type of the ID used in the request.
 // * ISIN -
-type RetrieveOrderOrderInstrumentIDType string
+type RetrieveOrderInstrumentIDType string
 
 const (
-	RetrieveOrderOrderInstrumentIDTypeIsin RetrieveOrderOrderInstrumentIDType = "ISIN"
+	RetrieveOrderInstrumentIDTypeIsin RetrieveOrderInstrumentIDType = "ISIN"
 )
 
-func (e RetrieveOrderOrderInstrumentIDType) ToPointer() *RetrieveOrderOrderInstrumentIDType {
+func (e RetrieveOrderInstrumentIDType) ToPointer() *RetrieveOrderInstrumentIDType {
 	return &e
 }
 
-func (e *RetrieveOrderOrderInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "ISIN":
-		*e = RetrieveOrderOrderInstrumentIDType(v)
+		*e = RetrieveOrderInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderInstrumentIDType: %v", v)
 	}
 }
 
-// RetrieveOrderOrderOrderType - Type of the order.
+// RetrieveOrderOrderType - Type of the order.
 // * MARKET -
 // * LIMIT -
 // * STOP -
-type RetrieveOrderOrderOrderType string
+type RetrieveOrderOrderType string
 
 const (
-	RetrieveOrderOrderOrderTypeMarket RetrieveOrderOrderOrderType = "MARKET"
-	RetrieveOrderOrderOrderTypeLimit  RetrieveOrderOrderOrderType = "LIMIT"
-	RetrieveOrderOrderOrderTypeStop   RetrieveOrderOrderOrderType = "STOP"
+	RetrieveOrderOrderTypeMarket RetrieveOrderOrderType = "MARKET"
+	RetrieveOrderOrderTypeLimit  RetrieveOrderOrderType = "LIMIT"
+	RetrieveOrderOrderTypeStop   RetrieveOrderOrderType = "STOP"
 )
 
-func (e RetrieveOrderOrderOrderType) ToPointer() *RetrieveOrderOrderOrderType {
+func (e RetrieveOrderOrderType) ToPointer() *RetrieveOrderOrderType {
 	return &e
 }
 
-func (e *RetrieveOrderOrderOrderType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderOrderType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -528,28 +528,28 @@ func (e *RetrieveOrderOrderOrderType) UnmarshalJSON(data []byte) error {
 	case "LIMIT":
 		fallthrough
 	case "STOP":
-		*e = RetrieveOrderOrderOrderType(v)
+		*e = RetrieveOrderOrderType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderOrderType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderOrderType: %v", v)
 	}
 }
 
-// RetrieveOrderOrderSide - Side of the order.
+// RetrieveOrderSide - Side of the order.
 // * BUY -
 // * SELL -
-type RetrieveOrderOrderSide string
+type RetrieveOrderSide string
 
 const (
-	RetrieveOrderOrderSideBuy  RetrieveOrderOrderSide = "BUY"
-	RetrieveOrderOrderSideSell RetrieveOrderOrderSide = "SELL"
+	RetrieveOrderSideBuy  RetrieveOrderSide = "BUY"
+	RetrieveOrderSideSell RetrieveOrderSide = "SELL"
 )
 
-func (e RetrieveOrderOrderSide) ToPointer() *RetrieveOrderOrderSide {
+func (e RetrieveOrderSide) ToPointer() *RetrieveOrderSide {
 	return &e
 }
 
-func (e *RetrieveOrderOrderSide) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -558,32 +558,32 @@ func (e *RetrieveOrderOrderSide) UnmarshalJSON(data []byte) error {
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = RetrieveOrderOrderSide(v)
+		*e = RetrieveOrderSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderSide: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderSide: %v", v)
 	}
 }
 
-// RetrieveOrderOrderStatus - The execution status of the order.
+// RetrieveOrderStatus - The execution status of the order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
-type RetrieveOrderOrderStatus string
+type RetrieveOrderStatus string
 
 const (
-	RetrieveOrderOrderStatusNew        RetrieveOrderOrderStatus = "NEW"
-	RetrieveOrderOrderStatusProcessing RetrieveOrderOrderStatus = "PROCESSING"
-	RetrieveOrderOrderStatusFilled     RetrieveOrderOrderStatus = "FILLED"
-	RetrieveOrderOrderStatusCancelled  RetrieveOrderOrderStatus = "CANCELLED"
+	RetrieveOrderStatusNew        RetrieveOrderStatus = "NEW"
+	RetrieveOrderStatusProcessing RetrieveOrderStatus = "PROCESSING"
+	RetrieveOrderStatusFilled     RetrieveOrderStatus = "FILLED"
+	RetrieveOrderStatusCancelled  RetrieveOrderStatus = "CANCELLED"
 )
 
-func (e RetrieveOrderOrderStatus) ToPointer() *RetrieveOrderOrderStatus {
+func (e RetrieveOrderStatus) ToPointer() *RetrieveOrderStatus {
 	return &e
 }
 
-func (e *RetrieveOrderOrderStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -596,10 +596,10 @@ func (e *RetrieveOrderOrderStatus) UnmarshalJSON(data []byte) error {
 	case "FILLED":
 		fallthrough
 	case "CANCELLED":
-		*e = RetrieveOrderOrderStatus(v)
+		*e = RetrieveOrderStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderOrderStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderStatus: %v", v)
 	}
 }
 
@@ -612,22 +612,22 @@ type RetrieveOrderOrder struct {
 	// * CANCELLED_BY_UPVEST_OPERATIONS -
 	// * CANCELLED_BY_TRADING_PARTNER -
 	// * CANCELLED_BY_UPVEST_PLATFORM -
-	CancellationReason *RetrieveOrderOrderCancellationReason `json:"cancellation_reason,omitempty"`
-	CashAmount         string                                `json:"cash_amount"`
+	CancellationReason *RetrieveOrderCancellationReason `json:"cancellation_reason,omitempty"`
+	CashAmount         string                           `json:"cash_amount"`
 	// An ID provided by the client
 	ClientReference string `json:"client_reference"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	CreatedAt time.Time                   `json:"created_at"`
-	Currency  *RetrieveOrderOrderCurrency `default:"EUR" json:"currency"`
+	CreatedAt time.Time              `json:"created_at"`
+	Currency  *RetrieveOrderCurrency `default:"EUR" json:"currency"`
 	// Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 	// * STRAIGHT_THROUGH -
 	// * BLOCK -
-	ExecutionFlow *RetrieveOrderOrderExecutionFlow `json:"execution_flow,omitempty"`
+	ExecutionFlow *RetrieveOrderExecutionFlow `json:"execution_flow,omitempty"`
 	// Order executions associated with this order
-	Executions []RetrieveOrderOrderOrderExecution `json:"executions"`
-	ExpiryDate *string                            `json:"expiry_date,omitempty"`
-	Fee        string                             `json:"fee"`
-	ID         string                             `json:"id"`
+	Executions []RetrieveOrderOrderExecution `json:"executions"`
+	ExpiryDate *string                       `json:"expiry_date,omitempty"`
+	Fee        string                        `json:"fee"`
+	ID         string                        `json:"id"`
 	// Initiation flow used during order creation, i.e. what triggered the order.
 	// * API -
 	// * PORTFOLIO -
@@ -637,30 +637,30 @@ type RetrieveOrderOrder struct {
 	// * SELL_TO_COVER_TAXES -
 	// * ACCOUNT_LIQUIDATION -
 	// * UPVEST_OPERATIONS -
-	InitiationFlow RetrieveOrderOrderInitiationFlow `json:"initiation_flow"`
+	InitiationFlow RetrieveOrderInitiationFlow `json:"initiation_flow"`
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN -
-	InstrumentIDType *RetrieveOrderOrderInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
-	LimitPrice       *string                             `json:"limit_price,omitempty"`
+	InstrumentIDType *RetrieveOrderInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	LimitPrice       *string                        `json:"limit_price,omitempty"`
 	// Type of the order.
 	// * MARKET -
 	// * LIMIT -
 	// * STOP -
-	OrderType RetrieveOrderOrderOrderType `json:"order_type"`
-	Quantity  string                      `json:"quantity"`
+	OrderType RetrieveOrderOrderType `json:"order_type"`
+	Quantity  string                 `json:"quantity"`
 	// Side of the order.
 	// * BUY -
 	// * SELL -
-	Side RetrieveOrderOrderSide `json:"side"`
+	Side RetrieveOrderSide `json:"side"`
 	// The execution status of the order.
 	// * NEW -
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
-	Status    RetrieveOrderOrderStatus `json:"status"`
-	StopPrice *string                  `json:"stop_price,omitempty"`
+	Status    RetrieveOrderStatus `json:"status"`
+	StopPrice *string             `json:"stop_price,omitempty"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// The ID of the user
@@ -687,7 +687,7 @@ func (o *RetrieveOrderOrder) GetAccountID() string {
 	return o.AccountID
 }
 
-func (o *RetrieveOrderOrder) GetCancellationReason() *RetrieveOrderOrderCancellationReason {
+func (o *RetrieveOrderOrder) GetCancellationReason() *RetrieveOrderCancellationReason {
 	if o == nil {
 		return nil
 	}
@@ -715,23 +715,23 @@ func (o *RetrieveOrderOrder) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *RetrieveOrderOrder) GetCurrency() *RetrieveOrderOrderCurrency {
+func (o *RetrieveOrderOrder) GetCurrency() *RetrieveOrderCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *RetrieveOrderOrder) GetExecutionFlow() *RetrieveOrderOrderExecutionFlow {
+func (o *RetrieveOrderOrder) GetExecutionFlow() *RetrieveOrderExecutionFlow {
 	if o == nil {
 		return nil
 	}
 	return o.ExecutionFlow
 }
 
-func (o *RetrieveOrderOrder) GetExecutions() []RetrieveOrderOrderOrderExecution {
+func (o *RetrieveOrderOrder) GetExecutions() []RetrieveOrderOrderExecution {
 	if o == nil {
-		return []RetrieveOrderOrderOrderExecution{}
+		return []RetrieveOrderOrderExecution{}
 	}
 	return o.Executions
 }
@@ -757,9 +757,9 @@ func (o *RetrieveOrderOrder) GetID() string {
 	return o.ID
 }
 
-func (o *RetrieveOrderOrder) GetInitiationFlow() RetrieveOrderOrderInitiationFlow {
+func (o *RetrieveOrderOrder) GetInitiationFlow() RetrieveOrderInitiationFlow {
 	if o == nil {
-		return RetrieveOrderOrderInitiationFlow("")
+		return RetrieveOrderInitiationFlow("")
 	}
 	return o.InitiationFlow
 }
@@ -771,7 +771,7 @@ func (o *RetrieveOrderOrder) GetInstrumentID() string {
 	return o.InstrumentID
 }
 
-func (o *RetrieveOrderOrder) GetInstrumentIDType() *RetrieveOrderOrderInstrumentIDType {
+func (o *RetrieveOrderOrder) GetInstrumentIDType() *RetrieveOrderInstrumentIDType {
 	if o == nil {
 		return nil
 	}
@@ -785,9 +785,9 @@ func (o *RetrieveOrderOrder) GetLimitPrice() *string {
 	return o.LimitPrice
 }
 
-func (o *RetrieveOrderOrder) GetOrderType() RetrieveOrderOrderOrderType {
+func (o *RetrieveOrderOrder) GetOrderType() RetrieveOrderOrderType {
 	if o == nil {
-		return RetrieveOrderOrderOrderType("")
+		return RetrieveOrderOrderType("")
 	}
 	return o.OrderType
 }
@@ -799,16 +799,16 @@ func (o *RetrieveOrderOrder) GetQuantity() string {
 	return o.Quantity
 }
 
-func (o *RetrieveOrderOrder) GetSide() RetrieveOrderOrderSide {
+func (o *RetrieveOrderOrder) GetSide() RetrieveOrderSide {
 	if o == nil {
-		return RetrieveOrderOrderSide("")
+		return RetrieveOrderSide("")
 	}
 	return o.Side
 }
 
-func (o *RetrieveOrderOrder) GetStatus() RetrieveOrderOrderStatus {
+func (o *RetrieveOrderOrder) GetStatus() RetrieveOrderStatus {
 	if o == nil {
-		return RetrieveOrderOrderStatus("")
+		return RetrieveOrderStatus("")
 	}
 	return o.Status
 }
@@ -842,15 +842,22 @@ func (o *RetrieveOrderOrder) GetUserInstrumentFitAcknowledgement() *bool {
 }
 
 type RetrieveOrderResponse struct {
+	// OK
+	TwoHundredApplicationJSONOrder *RetrieveOrderOrder
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// OK
-	Order *RetrieveOrderOrder
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *RetrieveOrderResponse) GetTwoHundredApplicationJSONOrder() *RetrieveOrderOrder {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONOrder
 }
 
 func (o *RetrieveOrderResponse) GetContentType() string {
@@ -865,13 +872,6 @@ func (o *RetrieveOrderResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *RetrieveOrderResponse) GetOrder() *RetrieveOrderOrder {
-	if o == nil {
-		return nil
-	}
-	return o.Order
 }
 
 func (o *RetrieveOrderResponse) GetStatusCode() int {

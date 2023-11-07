@@ -1,5 +1,5 @@
 # Payments
-(*Payments*)
+(*.Payments*)
 
 ## Overview
 
@@ -108,7 +108,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PaymentsWithdrawal != nil {
+    if res.TwoHundredApplicationJSONPaymentsWithdrawal != nil {
         // handle response
     }
 }
@@ -167,7 +167,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.CreateDirectDebit200ApplicationJSONObject != nil {
+    if res.TwoHundredApplicationJSONObject != nil {
         // handle response
     }
 }
@@ -220,7 +220,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.WithdrawalsListResponse != nil {
+    if res.TwoHundredApplicationJSONWithdrawalsListResponse != nil {
         // handle response
     }
 }
@@ -273,7 +273,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PaymentsDirectDebitsListResponse != nil {
+    if res.TwoHundredApplicationJSONPaymentsDirectDebitsListResponse != nil {
         // handle response
     }
 }
@@ -326,7 +326,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PaymentsWithdrawal != nil {
+    if res.TwoHundredApplicationJSONPaymentsWithdrawal != nil {
         // handle response
     }
 }
@@ -379,7 +379,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.RetrieveDirectDebit200ApplicationJSONObject != nil {
+    if res.TwoHundredApplicationJSONObject != nil {
         // handle response
     }
 }

@@ -69,21 +69,21 @@ func (o *RetrievePortfoliosAllocationRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType - The type of the ID used in the request.
+// RetrievePortfoliosAllocationInstrumentIDType - The type of the ID used in the request.
 // * ISIN - International Securities Identification Number
 // * UPVEST - UPVEST's unique instrument identifier
-type RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType string
+type RetrievePortfoliosAllocationInstrumentIDType string
 
 const (
-	RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTypeIsin   RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType = "ISIN"
-	RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTypeUpvest RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType = "UPVEST"
+	RetrievePortfoliosAllocationInstrumentIDTypeIsin   RetrievePortfoliosAllocationInstrumentIDType = "ISIN"
+	RetrievePortfoliosAllocationInstrumentIDTypeUpvest RetrievePortfoliosAllocationInstrumentIDType = "UPVEST"
 )
 
-func (e RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType) ToPointer() *RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType {
+func (e RetrievePortfoliosAllocationInstrumentIDType) ToPointer() *RetrievePortfoliosAllocationInstrumentIDType {
 	return &e
 }
 
-func (e *RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *RetrievePortfoliosAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -92,49 +92,49 @@ func (e *RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDT
 	case "ISIN":
 		fallthrough
 	case "UPVEST":
-		*e = RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType(v)
+		*e = RetrievePortfoliosAllocationInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for RetrievePortfoliosAllocationInstrumentIDType: %v", v)
 	}
 }
 
-type RetrievePortfoliosAllocationPortfoliosAllocationAllocation struct {
+type RetrievePortfoliosAllocationAllocation struct {
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
 	// * UPVEST - UPVEST's unique instrument identifier
-	InstrumentIDType *RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	InstrumentIDType *RetrievePortfoliosAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
 	// Instrument allocation weight
 	Weight string `json:"weight"`
 }
 
-func (r RetrievePortfoliosAllocationPortfoliosAllocationAllocation) MarshalJSON() ([]byte, error) {
+func (r RetrievePortfoliosAllocationAllocation) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrievePortfoliosAllocationPortfoliosAllocationAllocation) UnmarshalJSON(data []byte) error {
+func (r *RetrievePortfoliosAllocationAllocation) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrievePortfoliosAllocationPortfoliosAllocationAllocation) GetInstrumentID() string {
+func (o *RetrievePortfoliosAllocationAllocation) GetInstrumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.InstrumentID
 }
 
-func (o *RetrievePortfoliosAllocationPortfoliosAllocationAllocation) GetInstrumentIDType() *RetrievePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType {
+func (o *RetrievePortfoliosAllocationAllocation) GetInstrumentIDType() *RetrievePortfoliosAllocationInstrumentIDType {
 	if o == nil {
 		return nil
 	}
 	return o.InstrumentIDType
 }
 
-func (o *RetrievePortfoliosAllocationPortfoliosAllocationAllocation) GetWeight() string {
+func (o *RetrievePortfoliosAllocationAllocation) GetWeight() string {
 	if o == nil {
 		return ""
 	}
@@ -144,7 +144,7 @@ func (o *RetrievePortfoliosAllocationPortfoliosAllocationAllocation) GetWeight()
 // RetrievePortfoliosAllocationPortfoliosAllocation - Portfolios allocation
 type RetrievePortfoliosAllocationPortfoliosAllocation struct {
 	// List of portfolios allocations
-	Allocation []RetrievePortfoliosAllocationPortfoliosAllocationAllocation `json:"allocation"`
+	Allocation []RetrievePortfoliosAllocationAllocation `json:"allocation"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	ID        string    `json:"id"`
@@ -165,9 +165,9 @@ func (r *RetrievePortfoliosAllocationPortfoliosAllocation) UnmarshalJSON(data []
 	return nil
 }
 
-func (o *RetrievePortfoliosAllocationPortfoliosAllocation) GetAllocation() []RetrievePortfoliosAllocationPortfoliosAllocationAllocation {
+func (o *RetrievePortfoliosAllocationPortfoliosAllocation) GetAllocation() []RetrievePortfoliosAllocationAllocation {
 	if o == nil {
-		return []RetrievePortfoliosAllocationPortfoliosAllocationAllocation{}
+		return []RetrievePortfoliosAllocationAllocation{}
 	}
 	return o.Allocation
 }
@@ -201,15 +201,22 @@ func (o *RetrievePortfoliosAllocationPortfoliosAllocation) GetUpdatedAt() time.T
 }
 
 type RetrievePortfoliosAllocationResponse struct {
+	// Portfolios allocation
+	TwoHundredApplicationJSONPortfoliosAllocation *RetrievePortfoliosAllocationPortfoliosAllocation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios allocation
-	PortfoliosAllocation *RetrievePortfoliosAllocationPortfoliosAllocation
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *RetrievePortfoliosAllocationResponse) GetTwoHundredApplicationJSONPortfoliosAllocation() *RetrievePortfoliosAllocationPortfoliosAllocation {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosAllocation
 }
 
 func (o *RetrievePortfoliosAllocationResponse) GetContentType() string {
@@ -224,13 +231,6 @@ func (o *RetrievePortfoliosAllocationResponse) GetHeaders() map[string][]string 
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *RetrievePortfoliosAllocationResponse) GetPortfoliosAllocation() *RetrievePortfoliosAllocationPortfoliosAllocation {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosAllocation
 }
 
 func (o *RetrievePortfoliosAllocationResponse) GetStatusCode() int {

@@ -13,8 +13,8 @@ import (
 	"time"
 )
 
-// CreateUserUserCreateRequestUserTOLCreateRequestAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserTOLCreateRequestAddress struct {
+// CreateUserUsersRequestAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUsersRequestAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -28,114 +28,114 @@ type CreateUserUserCreateRequestUserTOLCreateRequestAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestAddress) GetAddressLine1() string {
+func (o *CreateUserUsersRequestAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestAddress) GetAddressLine2() *string {
+func (o *CreateUserUsersRequestAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestAddress) GetCity() string {
+func (o *CreateUserUsersRequestAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestAddress) GetCountry() string {
+func (o *CreateUserUsersRequestAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestAddress) GetPostcode() string {
+func (o *CreateUserUsersRequestAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestAddress) GetState() *string {
+func (o *CreateUserUsersRequestAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement struct {
+type DataPrivacyAndSharingAgreement struct {
 	// Timestamp at which the user consented to the data sharing agreement. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// Consent unique identifier.
 	ConsentDocumentID string `json:"consent_document_id"`
 }
 
-func (c CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (d DataPrivacyAndSharingAgreement) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+func (d *DataPrivacyAndSharingAgreement) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement) GetConfirmedAt() time.Time {
+func (o *DataPrivacyAndSharingAgreement) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement) GetConsentDocumentID() string {
+func (o *DataPrivacyAndSharingAgreement) GetConsentDocumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ConsentDocumentID
 }
 
-type CreateUserUserCreateRequestUserTOLCreateRequestFatca struct {
+type Fatca struct {
 	// Timestamp at which the user confirmed their FATCA status. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// The user’s FATCA status is true if the user is subject to paying taxes in the US, otherwise it can be set to false.
 	Status bool `json:"status"`
 }
 
-func (c CreateUserUserCreateRequestUserTOLCreateRequestFatca) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (f Fatca) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(f, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOLCreateRequestFatca) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+func (f *Fatca) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &f, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestFatca) GetConfirmedAt() time.Time {
+func (o *Fatca) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestFatca) GetStatus() bool {
+func (o *Fatca) GetStatus() bool {
 	if o == nil {
 		return false
 	}
 	return o.Status
 }
 
-// CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress struct {
+// CreateUserUsersAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -149,110 +149,110 @@ type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress struct 
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetAddressLine1() string {
+func (o *CreateUserUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetAddressLine2() *string {
+func (o *CreateUserUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetCity() string {
+func (o *CreateUserUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetCountry() string {
+func (o *CreateUserUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetPostcode() string {
+func (o *CreateUserUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) GetState() *string {
+func (o *CreateUserUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressType string
+type CreateUserPostalAddressType string
 
 const (
-	CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressType = "create_user_User - Create - Request_User (TOL) - Create - Request_postal_address_Address"
+	CreateUserPostalAddressTypeCreateUserUsersAddress CreateUserPostalAddressType = "create_user_Users_Address"
 )
 
-type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress struct {
-	CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+type CreateUserPostalAddress struct {
+	CreateUserUsersAddress *CreateUserUsersAddress
 
-	Type CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressType
+	Type CreateUserPostalAddressType
 }
 
-func CreateCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress(createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress) CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress {
-	typ := CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+func CreateCreateUserPostalAddressCreateUserUsersAddress(createUserUsersAddress CreateUserUsersAddress) CreateUserPostalAddress {
+	typ := CreateUserPostalAddressTypeCreateUserUsersAddress
 
-	return CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress{
-		CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress: &createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress,
-		Type: typ,
+	return CreateUserPostalAddress{
+		CreateUserUsersAddress: &createUserUsersAddress,
+		Type:                   typ,
 	}
 }
 
-func (u *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *CreateUserPostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress := CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress = &createUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
-		u.Type = CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress
+	createUserUsersAddress := CreateUserUsersAddress{}
+	if err := utils.UnmarshalJSON(data, &createUserUsersAddress, "", true, true); err == nil {
+		u.CreateUserUsersAddress = &createUserUsersAddress
+		u.Type = CreateUserPostalAddressTypeCreateUserUsersAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserTOLCreateRequestPostalAddressAddress, "", true)
+func (u CreateUserPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.CreateUserUsersAddress != nil {
+		return utils.MarshalJSON(u.CreateUserUsersAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// CreateUserUserCreateRequestUserTOLCreateRequestSalutation - Salutation of the user used in reports and statements.
+// CreateUserSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type CreateUserUserCreateRequestUserTOLCreateRequestSalutation string
+type CreateUserSalutation string
 
 const (
-	CreateUserUserCreateRequestUserTOLCreateRequestSalutationUnknown                 CreateUserUserCreateRequestUserTOLCreateRequestSalutation = ""
-	CreateUserUserCreateRequestUserTOLCreateRequestSalutationSalutationMale          CreateUserUserCreateRequestUserTOLCreateRequestSalutation = "SALUTATION_MALE"
-	CreateUserUserCreateRequestUserTOLCreateRequestSalutationSalutationFemale        CreateUserUserCreateRequestUserTOLCreateRequestSalutation = "SALUTATION_FEMALE"
-	CreateUserUserCreateRequestUserTOLCreateRequestSalutationSalutationFemaleMarried CreateUserUserCreateRequestUserTOLCreateRequestSalutation = "SALUTATION_FEMALE_MARRIED"
-	CreateUserUserCreateRequestUserTOLCreateRequestSalutationSalutationDiverse       CreateUserUserCreateRequestUserTOLCreateRequestSalutation = "SALUTATION_DIVERSE"
+	CreateUserSalutationUnknown                 CreateUserSalutation = ""
+	CreateUserSalutationSalutationMale          CreateUserSalutation = "SALUTATION_MALE"
+	CreateUserSalutationSalutationFemale        CreateUserSalutation = "SALUTATION_FEMALE"
+	CreateUserSalutationSalutationFemaleMarried CreateUserSalutation = "SALUTATION_FEMALE_MARRIED"
+	CreateUserSalutationSalutationDiverse       CreateUserSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e CreateUserUserCreateRequestUserTOLCreateRequestSalutation) ToPointer() *CreateUserUserCreateRequestUserTOLCreateRequestSalutation {
+func (e CreateUserSalutation) ToPointer() *CreateUserSalutation {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserTOLCreateRequestSalutation) UnmarshalJSON(data []byte) error {
+func (e *CreateUserSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -267,68 +267,68 @@ func (e *CreateUserUserCreateRequestUserTOLCreateRequestSalutation) UnmarshalJSO
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = CreateUserUserCreateRequestUserTOLCreateRequestSalutation(v)
+		*e = CreateUserSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserTOLCreateRequestSalutation: %v", v)
+		return fmt.Errorf("invalid value for CreateUserSalutation: %v", v)
 	}
 }
 
-type CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions struct {
+type TermsAndConditions struct {
 	// Timestamp at which the user consented to the terms & conditions. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// Consent unique identifier.
 	ConsentDocumentID string `json:"consent_document_id"`
 }
 
-func (c CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (t TermsAndConditions) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+func (t *TermsAndConditions) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions) GetConfirmedAt() time.Time {
+func (o *TermsAndConditions) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions) GetConsentDocumentID() string {
+func (o *TermsAndConditions) GetConsentDocumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ConsentDocumentID
 }
 
-// CreateUserUserCreateRequestUserTOLCreateRequestTitle - Title of the user used in reports and statements.
+// CreateUserTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type CreateUserUserCreateRequestUserTOLCreateRequestTitle string
+type CreateUserTitle string
 
 const (
-	CreateUserUserCreateRequestUserTOLCreateRequestTitleUnknown  CreateUserUserCreateRequestUserTOLCreateRequestTitle = ""
-	CreateUserUserCreateRequestUserTOLCreateRequestTitleDr       CreateUserUserCreateRequestUserTOLCreateRequestTitle = "DR"
-	CreateUserUserCreateRequestUserTOLCreateRequestTitleProf     CreateUserUserCreateRequestUserTOLCreateRequestTitle = "PROF"
-	CreateUserUserCreateRequestUserTOLCreateRequestTitleProfDr   CreateUserUserCreateRequestUserTOLCreateRequestTitle = "PROF_DR"
-	CreateUserUserCreateRequestUserTOLCreateRequestTitleDiplIng  CreateUserUserCreateRequestUserTOLCreateRequestTitle = "DIPL_ING"
-	CreateUserUserCreateRequestUserTOLCreateRequestTitleMagister CreateUserUserCreateRequestUserTOLCreateRequestTitle = "MAGISTER"
+	CreateUserTitleUnknown  CreateUserTitle = ""
+	CreateUserTitleDr       CreateUserTitle = "DR"
+	CreateUserTitleProf     CreateUserTitle = "PROF"
+	CreateUserTitleProfDr   CreateUserTitle = "PROF_DR"
+	CreateUserTitleDiplIng  CreateUserTitle = "DIPL_ING"
+	CreateUserTitleMagister CreateUserTitle = "MAGISTER"
 )
 
-func (e CreateUserUserCreateRequestUserTOLCreateRequestTitle) ToPointer() *CreateUserUserCreateRequestUserTOLCreateRequestTitle {
+func (e CreateUserTitle) ToPointer() *CreateUserTitle {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserTOLCreateRequestTitle) UnmarshalJSON(data []byte) error {
+func (e *CreateUserTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -345,27 +345,27 @@ func (e *CreateUserUserCreateRequestUserTOLCreateRequestTitle) UnmarshalJSON(dat
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = CreateUserUserCreateRequestUserTOLCreateRequestTitle(v)
+		*e = CreateUserTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserTOLCreateRequestTitle: %v", v)
+		return fmt.Errorf("invalid value for CreateUserTitle: %v", v)
 	}
 }
 
-type CreateUserUserCreateRequestUserTOLCreateRequest struct {
+type UserTOLCreateRequest struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   CreateUserUserCreateRequestUserTOLCreateRequestAddress `json:"address"`
-	BirthCity string                                                 `json:"birth_city"`
+	Address   CreateUserUsersRequestAddress `json:"address"`
+	BirthCity string                        `json:"birth_city"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry string `json:"birth_country"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
 	BirthDate types.Date `json:"birth_date"`
 	// If applicable, birth name of the user.
-	BirthName                      *string                                                                       `json:"birth_name,omitempty"`
-	DataPrivacyAndSharingAgreement CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement `json:"data_privacy_and_sharing_agreement"`
+	BirthName                      *string                        `json:"birth_name,omitempty"`
+	DataPrivacyAndSharingAgreement DataPrivacyAndSharingAgreement `json:"data_privacy_and_sharing_agreement"`
 	// Email of the user. Must be a valid email address.
-	Email string                                               `json:"email"`
-	Fatca CreateUserUserCreateRequestUserTOLCreateRequestFatca `json:"fatca"`
+	Email string `json:"email"`
+	Fatca Fatca  `json:"fatca"`
 	// First name of the user.
 	FirstName string `json:"first_name"`
 	// Last name of the user.
@@ -375,15 +375,15 @@ type CreateUserUserCreateRequestUserTOLCreateRequest struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *CreateUserPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation         *CreateUserUserCreateRequestUserTOLCreateRequestSalutation        `default:"" json:"salutation"`
-	TermsAndConditions CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions `json:"terms_and_conditions"`
+	Salutation         *CreateUserSalutation `default:"" json:"salutation"`
+	TermsAndConditions TermsAndConditions    `json:"terms_and_conditions"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -391,134 +391,134 @@ type CreateUserUserCreateRequestUserTOLCreateRequest struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *CreateUserUserCreateRequestUserTOLCreateRequestTitle `default:"" json:"title"`
+	Title *CreateUserTitle `default:"" json:"title"`
 }
 
-func (c CreateUserUserCreateRequestUserTOLCreateRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u UserTOLCreateRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOLCreateRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, true); err != nil {
+func (u *UserTOLCreateRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetAddress() CreateUserUserCreateRequestUserTOLCreateRequestAddress {
+func (o *UserTOLCreateRequest) GetAddress() CreateUserUsersRequestAddress {
 	if o == nil {
-		return CreateUserUserCreateRequestUserTOLCreateRequestAddress{}
+		return CreateUserUsersRequestAddress{}
 	}
 	return o.Address
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetBirthCity() string {
+func (o *UserTOLCreateRequest) GetBirthCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.BirthCity
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetBirthCountry() string {
+func (o *UserTOLCreateRequest) GetBirthCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.BirthCountry
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetBirthDate() types.Date {
+func (o *UserTOLCreateRequest) GetBirthDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.BirthDate
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetBirthName() *string {
+func (o *UserTOLCreateRequest) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetDataPrivacyAndSharingAgreement() CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement {
+func (o *UserTOLCreateRequest) GetDataPrivacyAndSharingAgreement() DataPrivacyAndSharingAgreement {
 	if o == nil {
-		return CreateUserUserCreateRequestUserTOLCreateRequestDataPrivacyAndSharingAgreement{}
+		return DataPrivacyAndSharingAgreement{}
 	}
 	return o.DataPrivacyAndSharingAgreement
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetEmail() string {
+func (o *UserTOLCreateRequest) GetEmail() string {
 	if o == nil {
 		return ""
 	}
 	return o.Email
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetFatca() CreateUserUserCreateRequestUserTOLCreateRequestFatca {
+func (o *UserTOLCreateRequest) GetFatca() Fatca {
 	if o == nil {
-		return CreateUserUserCreateRequestUserTOLCreateRequestFatca{}
+		return Fatca{}
 	}
 	return o.Fatca
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetFirstName() string {
+func (o *UserTOLCreateRequest) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetLastName() string {
+func (o *UserTOLCreateRequest) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetNationalities() []string {
+func (o *UserTOLCreateRequest) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetPhoneNumber() *string {
+func (o *UserTOLCreateRequest) GetPhoneNumber() *string {
 	if o == nil {
 		return nil
 	}
 	return o.PhoneNumber
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetPostalAddress() *CreateUserUserCreateRequestUserTOLCreateRequestPostalAddress {
+func (o *UserTOLCreateRequest) GetPostalAddress() *CreateUserPostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetSalutation() *CreateUserUserCreateRequestUserTOLCreateRequestSalutation {
+func (o *UserTOLCreateRequest) GetSalutation() *CreateUserSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetTermsAndConditions() CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions {
+func (o *UserTOLCreateRequest) GetTermsAndConditions() TermsAndConditions {
 	if o == nil {
-		return CreateUserUserCreateRequestUserTOLCreateRequestTermsAndConditions{}
+		return TermsAndConditions{}
 	}
 	return o.TermsAndConditions
 }
 
-func (o *CreateUserUserCreateRequestUserTOLCreateRequest) GetTitle() *CreateUserUserCreateRequestUserTOLCreateRequestTitle {
+func (o *UserTOLCreateRequest) GetTitle() *CreateUserTitle {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-// CreateUserUserCreateRequestUserBYOLCreateRequestAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserBYOLCreateRequestAddress struct {
+// CreateUserAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -532,50 +532,50 @@ type CreateUserUserCreateRequestUserBYOLCreateRequestAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestAddress) GetAddressLine1() string {
+func (o *CreateUserAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestAddress) GetAddressLine2() *string {
+func (o *CreateUserAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestAddress) GetCity() string {
+func (o *CreateUserAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestAddress) GetCountry() string {
+func (o *CreateUserAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestAddress) GetPostcode() string {
+func (o *CreateUserAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestAddress) GetState() *string {
+func (o *CreateUserAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress struct {
+// Address - Address. Must not be a P.O. box or c/o address.
+type Address struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -589,110 +589,110 @@ type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress struct
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetAddressLine1() string {
+func (o *Address) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetAddressLine2() *string {
+func (o *Address) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetCity() string {
+func (o *Address) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetCountry() string {
+func (o *Address) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetPostcode() string {
+func (o *Address) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) GetState() *string {
+func (o *Address) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressType string
+type PostalAddressType string
 
 const (
-	CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressType = "create_user_User - Create - Request_User (BYOL) - Create - Request_postal_address_Address"
+	PostalAddressTypeAddress PostalAddressType = "Address"
 )
 
-type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress struct {
-	CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+type PostalAddress struct {
+	Address *Address
 
-	Type CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressType
+	Type PostalAddressType
 }
 
-func CreateCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress(createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress) CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress {
-	typ := CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+func CreatePostalAddressAddress(address Address) PostalAddress {
+	typ := PostalAddressTypeAddress
 
-	return CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress{
-		CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress: &createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress,
-		Type: typ,
+	return PostalAddress{
+		Address: &address,
+		Type:    typ,
 	}
 }
 
-func (u *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *PostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress := CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress = &createUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
-		u.Type = CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressTypeCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress
+	address := Address{}
+	if err := utils.UnmarshalJSON(data, &address, "", true, true); err == nil {
+		u.Address = &address
+		u.Type = PostalAddressTypeAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress, "", true)
+func (u PostalAddress) MarshalJSON() ([]byte, error) {
+	if u.Address != nil {
+		return utils.MarshalJSON(u.Address, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// CreateUserUserCreateRequestUserBYOLCreateRequestSalutation - Salutation of the user used in reports and statements.
+// Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type CreateUserUserCreateRequestUserBYOLCreateRequestSalutation string
+type Salutation string
 
 const (
-	CreateUserUserCreateRequestUserBYOLCreateRequestSalutationUnknown                 CreateUserUserCreateRequestUserBYOLCreateRequestSalutation = ""
-	CreateUserUserCreateRequestUserBYOLCreateRequestSalutationSalutationMale          CreateUserUserCreateRequestUserBYOLCreateRequestSalutation = "SALUTATION_MALE"
-	CreateUserUserCreateRequestUserBYOLCreateRequestSalutationSalutationFemale        CreateUserUserCreateRequestUserBYOLCreateRequestSalutation = "SALUTATION_FEMALE"
-	CreateUserUserCreateRequestUserBYOLCreateRequestSalutationSalutationFemaleMarried CreateUserUserCreateRequestUserBYOLCreateRequestSalutation = "SALUTATION_FEMALE_MARRIED"
-	CreateUserUserCreateRequestUserBYOLCreateRequestSalutationSalutationDiverse       CreateUserUserCreateRequestUserBYOLCreateRequestSalutation = "SALUTATION_DIVERSE"
+	SalutationUnknown                 Salutation = ""
+	SalutationSalutationMale          Salutation = "SALUTATION_MALE"
+	SalutationSalutationFemale        Salutation = "SALUTATION_FEMALE"
+	SalutationSalutationFemaleMarried Salutation = "SALUTATION_FEMALE_MARRIED"
+	SalutationSalutationDiverse       Salutation = "SALUTATION_DIVERSE"
 )
 
-func (e CreateUserUserCreateRequestUserBYOLCreateRequestSalutation) ToPointer() *CreateUserUserCreateRequestUserBYOLCreateRequestSalutation {
+func (e Salutation) ToPointer() *Salutation {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserBYOLCreateRequestSalutation) UnmarshalJSON(data []byte) error {
+func (e *Salutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -707,36 +707,36 @@ func (e *CreateUserUserCreateRequestUserBYOLCreateRequestSalutation) UnmarshalJS
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = CreateUserUserCreateRequestUserBYOLCreateRequestSalutation(v)
+		*e = Salutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserBYOLCreateRequestSalutation: %v", v)
+		return fmt.Errorf("invalid value for Salutation: %v", v)
 	}
 }
 
-// CreateUserUserCreateRequestUserBYOLCreateRequestTitle - Title of the user used in reports and statements.
+// Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type CreateUserUserCreateRequestUserBYOLCreateRequestTitle string
+type Title string
 
 const (
-	CreateUserUserCreateRequestUserBYOLCreateRequestTitleUnknown  CreateUserUserCreateRequestUserBYOLCreateRequestTitle = ""
-	CreateUserUserCreateRequestUserBYOLCreateRequestTitleDr       CreateUserUserCreateRequestUserBYOLCreateRequestTitle = "DR"
-	CreateUserUserCreateRequestUserBYOLCreateRequestTitleProf     CreateUserUserCreateRequestUserBYOLCreateRequestTitle = "PROF"
-	CreateUserUserCreateRequestUserBYOLCreateRequestTitleProfDr   CreateUserUserCreateRequestUserBYOLCreateRequestTitle = "PROF_DR"
-	CreateUserUserCreateRequestUserBYOLCreateRequestTitleDiplIng  CreateUserUserCreateRequestUserBYOLCreateRequestTitle = "DIPL_ING"
-	CreateUserUserCreateRequestUserBYOLCreateRequestTitleMagister CreateUserUserCreateRequestUserBYOLCreateRequestTitle = "MAGISTER"
+	TitleUnknown  Title = ""
+	TitleDr       Title = "DR"
+	TitleProf     Title = "PROF"
+	TitleProfDr   Title = "PROF_DR"
+	TitleDiplIng  Title = "DIPL_ING"
+	TitleMagister Title = "MAGISTER"
 )
 
-func (e CreateUserUserCreateRequestUserBYOLCreateRequestTitle) ToPointer() *CreateUserUserCreateRequestUserBYOLCreateRequestTitle {
+func (e Title) ToPointer() *Title {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserBYOLCreateRequestTitle) UnmarshalJSON(data []byte) error {
+func (e *Title) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -753,17 +753,17 @@ func (e *CreateUserUserCreateRequestUserBYOLCreateRequestTitle) UnmarshalJSON(da
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = CreateUserUserCreateRequestUserBYOLCreateRequestTitle(v)
+		*e = Title(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserBYOLCreateRequestTitle: %v", v)
+		return fmt.Errorf("invalid value for Title: %v", v)
 	}
 }
 
-type CreateUserUserCreateRequestUserBYOLCreateRequest struct {
+type UserBYOLCreateRequest struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   CreateUserUserCreateRequestUserBYOLCreateRequestAddress `json:"address"`
-	BirthCity *string                                                 `json:"birth_city,omitempty"`
+	Address   CreateUserAddress `json:"address"`
+	BirthCity *string           `json:"birth_city,omitempty"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry *string `json:"birth_country,omitempty"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -777,14 +777,14 @@ type CreateUserUserCreateRequestUserBYOLCreateRequest struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *PostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *CreateUserUserCreateRequestUserBYOLCreateRequestSalutation `default:"" json:"salutation"`
+	Salutation *Salutation `default:"" json:"salutation"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -792,91 +792,91 @@ type CreateUserUserCreateRequestUserBYOLCreateRequest struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *CreateUserUserCreateRequestUserBYOLCreateRequestTitle `default:"" json:"title"`
+	Title *Title `default:"" json:"title"`
 }
 
-func (c CreateUserUserCreateRequestUserBYOLCreateRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u UserBYOLCreateRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserBYOLCreateRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, true); err != nil {
+func (u *UserBYOLCreateRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetAddress() CreateUserUserCreateRequestUserBYOLCreateRequestAddress {
+func (o *UserBYOLCreateRequest) GetAddress() CreateUserAddress {
 	if o == nil {
-		return CreateUserUserCreateRequestUserBYOLCreateRequestAddress{}
+		return CreateUserAddress{}
 	}
 	return o.Address
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetBirthCity() *string {
+func (o *UserBYOLCreateRequest) GetBirthCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCity
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetBirthCountry() *string {
+func (o *UserBYOLCreateRequest) GetBirthCountry() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCountry
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetBirthDate() types.Date {
+func (o *UserBYOLCreateRequest) GetBirthDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.BirthDate
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetBirthName() *string {
+func (o *UserBYOLCreateRequest) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetFirstName() string {
+func (o *UserBYOLCreateRequest) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetLastName() string {
+func (o *UserBYOLCreateRequest) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetNationalities() []string {
+func (o *UserBYOLCreateRequest) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetPostalAddress() *CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddress {
+func (o *UserBYOLCreateRequest) GetPostalAddress() *PostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetSalutation() *CreateUserUserCreateRequestUserBYOLCreateRequestSalutation {
+func (o *UserBYOLCreateRequest) GetSalutation() *Salutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetTitle() *CreateUserUserCreateRequestUserBYOLCreateRequestTitle {
+func (o *UserBYOLCreateRequest) GetTitle() *Title {
 	if o == nil {
 		return nil
 	}
@@ -886,48 +886,48 @@ func (o *CreateUserUserCreateRequestUserBYOLCreateRequest) GetTitle() *CreateUse
 type CreateUserUserCreateRequestType string
 
 const (
-	CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserBYOLCreateRequest CreateUserUserCreateRequestType = "create_user_User - Create - Request_User (BYOL) - Create - Request"
-	CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserTOLCreateRequest  CreateUserUserCreateRequestType = "create_user_User - Create - Request_User (TOL) - Create - Request"
+	CreateUserUserCreateRequestTypeUserBYOLCreateRequest CreateUserUserCreateRequestType = "User (BYOL) - Create - Request"
+	CreateUserUserCreateRequestTypeUserTOLCreateRequest  CreateUserUserCreateRequestType = "User (TOL) - Create - Request"
 )
 
 type CreateUserUserCreateRequest struct {
-	CreateUserUserCreateRequestUserBYOLCreateRequest *CreateUserUserCreateRequestUserBYOLCreateRequest
-	CreateUserUserCreateRequestUserTOLCreateRequest  *CreateUserUserCreateRequestUserTOLCreateRequest
+	UserBYOLCreateRequest *UserBYOLCreateRequest
+	UserTOLCreateRequest  *UserTOLCreateRequest
 
 	Type CreateUserUserCreateRequestType
 }
 
-func CreateCreateUserUserCreateRequestCreateUserUserCreateRequestUserBYOLCreateRequest(createUserUserCreateRequestUserBYOLCreateRequest CreateUserUserCreateRequestUserBYOLCreateRequest) CreateUserUserCreateRequest {
-	typ := CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserBYOLCreateRequest
+func CreateCreateUserUserCreateRequestUserBYOLCreateRequest(userBYOLCreateRequest UserBYOLCreateRequest) CreateUserUserCreateRequest {
+	typ := CreateUserUserCreateRequestTypeUserBYOLCreateRequest
 
 	return CreateUserUserCreateRequest{
-		CreateUserUserCreateRequestUserBYOLCreateRequest: &createUserUserCreateRequestUserBYOLCreateRequest,
-		Type: typ,
+		UserBYOLCreateRequest: &userBYOLCreateRequest,
+		Type:                  typ,
 	}
 }
 
-func CreateCreateUserUserCreateRequestCreateUserUserCreateRequestUserTOLCreateRequest(createUserUserCreateRequestUserTOLCreateRequest CreateUserUserCreateRequestUserTOLCreateRequest) CreateUserUserCreateRequest {
-	typ := CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserTOLCreateRequest
+func CreateCreateUserUserCreateRequestUserTOLCreateRequest(userTOLCreateRequest UserTOLCreateRequest) CreateUserUserCreateRequest {
+	typ := CreateUserUserCreateRequestTypeUserTOLCreateRequest
 
 	return CreateUserUserCreateRequest{
-		CreateUserUserCreateRequestUserTOLCreateRequest: &createUserUserCreateRequestUserTOLCreateRequest,
-		Type: typ,
+		UserTOLCreateRequest: &userTOLCreateRequest,
+		Type:                 typ,
 	}
 }
 
 func (u *CreateUserUserCreateRequest) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOLCreateRequest := CreateUserUserCreateRequestUserBYOLCreateRequest{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLCreateRequest, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOLCreateRequest = &createUserUserCreateRequestUserBYOLCreateRequest
-		u.Type = CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserBYOLCreateRequest
+	userBYOLCreateRequest := UserBYOLCreateRequest{}
+	if err := utils.UnmarshalJSON(data, &userBYOLCreateRequest, "", true, true); err == nil {
+		u.UserBYOLCreateRequest = &userBYOLCreateRequest
+		u.Type = CreateUserUserCreateRequestTypeUserBYOLCreateRequest
 		return nil
 	}
 
-	createUserUserCreateRequestUserTOLCreateRequest := CreateUserUserCreateRequestUserTOLCreateRequest{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLCreateRequest, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOLCreateRequest = &createUserUserCreateRequestUserTOLCreateRequest
-		u.Type = CreateUserUserCreateRequestTypeCreateUserUserCreateRequestUserTOLCreateRequest
+	userTOLCreateRequest := UserTOLCreateRequest{}
+	if err := utils.UnmarshalJSON(data, &userTOLCreateRequest, "", true, true); err == nil {
+		u.UserTOLCreateRequest = &userTOLCreateRequest
+		u.Type = CreateUserUserCreateRequestTypeUserTOLCreateRequest
 		return nil
 	}
 
@@ -935,12 +935,12 @@ func (u *CreateUserUserCreateRequest) UnmarshalJSON(data []byte) error {
 }
 
 func (u CreateUserUserCreateRequest) MarshalJSON() ([]byte, error) {
-	if u.CreateUserUserCreateRequestUserBYOLCreateRequest != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserBYOLCreateRequest, "", true)
+	if u.UserBYOLCreateRequest != nil {
+		return utils.MarshalJSON(u.UserBYOLCreateRequest, "", true)
 	}
 
-	if u.CreateUserUserCreateRequestUserTOLCreateRequest != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserTOLCreateRequest, "", true)
+	if u.UserTOLCreateRequest != nil {
+		return utils.MarshalJSON(u.UserTOLCreateRequest, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -1015,8 +1015,8 @@ func (o *CreateUserRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateUserUserCreateRequestUserTOLAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserTOLAddress struct {
+// CreateUserUsersResponse200Address - Address. Must not be a P.O. box or c/o address.
+type CreateUserUsersResponse200Address struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -1030,114 +1030,114 @@ type CreateUserUserCreateRequestUserTOLAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserTOLAddress) GetAddressLine1() string {
+func (o *CreateUserUsersResponse200Address) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserTOLAddress) GetAddressLine2() *string {
+func (o *CreateUserUsersResponse200Address) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserTOLAddress) GetCity() string {
+func (o *CreateUserUsersResponse200Address) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserTOLAddress) GetCountry() string {
+func (o *CreateUserUsersResponse200Address) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserTOLAddress) GetPostcode() string {
+func (o *CreateUserUsersResponse200Address) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserTOLAddress) GetState() *string {
+func (o *CreateUserUsersResponse200Address) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type CreateUserUserCreateRequestUserTOLDataPrivacyAndSharingAgreement struct {
+type CreateUserDataPrivacyAndSharingAgreement struct {
 	// Timestamp at which the user consented to the data sharing agreement. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// Consent unique identifier.
 	ConsentDocumentID string `json:"consent_document_id"`
 }
 
-func (c CreateUserUserCreateRequestUserTOLDataPrivacyAndSharingAgreement) MarshalJSON() ([]byte, error) {
+func (c CreateUserDataPrivacyAndSharingAgreement) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOLDataPrivacyAndSharingAgreement) UnmarshalJSON(data []byte) error {
+func (c *CreateUserDataPrivacyAndSharingAgreement) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOLDataPrivacyAndSharingAgreement) GetConfirmedAt() time.Time {
+func (o *CreateUserDataPrivacyAndSharingAgreement) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *CreateUserUserCreateRequestUserTOLDataPrivacyAndSharingAgreement) GetConsentDocumentID() string {
+func (o *CreateUserDataPrivacyAndSharingAgreement) GetConsentDocumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ConsentDocumentID
 }
 
-type CreateUserUserCreateRequestUserTOLFatca struct {
+type CreateUserFatca struct {
 	// Timestamp at which the user confirmed their FATCA status. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// The user’s FATCA status is true if the user is subject to paying taxes in the US, otherwise it can be set to false.
 	Status bool `json:"status"`
 }
 
-func (c CreateUserUserCreateRequestUserTOLFatca) MarshalJSON() ([]byte, error) {
+func (c CreateUserFatca) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOLFatca) UnmarshalJSON(data []byte) error {
+func (c *CreateUserFatca) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOLFatca) GetConfirmedAt() time.Time {
+func (o *CreateUserFatca) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *CreateUserUserCreateRequestUserTOLFatca) GetStatus() bool {
+func (o *CreateUserFatca) GetStatus() bool {
 	if o == nil {
 		return false
 	}
 	return o.Status
 }
 
-// CreateUserUserCreateRequestUserTOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserTOLPostalAddressAddress struct {
+// CreateUserUsersResponse200ApplicationJSONAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUsersResponse200ApplicationJSONAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -1151,110 +1151,110 @@ type CreateUserUserCreateRequestUserTOLPostalAddressAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetAddressLine1() string {
+func (o *CreateUserUsersResponse200ApplicationJSONAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetAddressLine2() *string {
+func (o *CreateUserUsersResponse200ApplicationJSONAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetCity() string {
+func (o *CreateUserUsersResponse200ApplicationJSONAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetCountry() string {
+func (o *CreateUserUsersResponse200ApplicationJSONAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetPostcode() string {
+func (o *CreateUserUsersResponse200ApplicationJSONAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserTOLPostalAddressAddress) GetState() *string {
+func (o *CreateUserUsersResponse200ApplicationJSONAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type CreateUserUserCreateRequestUserTOLPostalAddressType string
+type CreateUserUsersResponsePostalAddressType string
 
 const (
-	CreateUserUserCreateRequestUserTOLPostalAddressTypeCreateUserUserCreateRequestUserTOLPostalAddressAddress CreateUserUserCreateRequestUserTOLPostalAddressType = "create_user_User - Create - Request_User (TOL)_postal_address_Address"
+	CreateUserUsersResponsePostalAddressTypeCreateUserUsersResponse200ApplicationJSONAddress CreateUserUsersResponsePostalAddressType = "create_user_Users_response_200_ApplicationJSON_Address"
 )
 
-type CreateUserUserCreateRequestUserTOLPostalAddress struct {
-	CreateUserUserCreateRequestUserTOLPostalAddressAddress *CreateUserUserCreateRequestUserTOLPostalAddressAddress
+type CreateUserUsersResponsePostalAddress struct {
+	CreateUserUsersResponse200ApplicationJSONAddress *CreateUserUsersResponse200ApplicationJSONAddress
 
-	Type CreateUserUserCreateRequestUserTOLPostalAddressType
+	Type CreateUserUsersResponsePostalAddressType
 }
 
-func CreateCreateUserUserCreateRequestUserTOLPostalAddressCreateUserUserCreateRequestUserTOLPostalAddressAddress(createUserUserCreateRequestUserTOLPostalAddressAddress CreateUserUserCreateRequestUserTOLPostalAddressAddress) CreateUserUserCreateRequestUserTOLPostalAddress {
-	typ := CreateUserUserCreateRequestUserTOLPostalAddressTypeCreateUserUserCreateRequestUserTOLPostalAddressAddress
+func CreateCreateUserUsersResponsePostalAddressCreateUserUsersResponse200ApplicationJSONAddress(createUserUsersResponse200ApplicationJSONAddress CreateUserUsersResponse200ApplicationJSONAddress) CreateUserUsersResponsePostalAddress {
+	typ := CreateUserUsersResponsePostalAddressTypeCreateUserUsersResponse200ApplicationJSONAddress
 
-	return CreateUserUserCreateRequestUserTOLPostalAddress{
-		CreateUserUserCreateRequestUserTOLPostalAddressAddress: &createUserUserCreateRequestUserTOLPostalAddressAddress,
+	return CreateUserUsersResponsePostalAddress{
+		CreateUserUsersResponse200ApplicationJSONAddress: &createUserUsersResponse200ApplicationJSONAddress,
 		Type: typ,
 	}
 }
 
-func (u *CreateUserUserCreateRequestUserTOLPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *CreateUserUsersResponsePostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserTOLPostalAddressAddress := CreateUserUserCreateRequestUserTOLPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOLPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOLPostalAddressAddress = &createUserUserCreateRequestUserTOLPostalAddressAddress
-		u.Type = CreateUserUserCreateRequestUserTOLPostalAddressTypeCreateUserUserCreateRequestUserTOLPostalAddressAddress
+	createUserUsersResponse200ApplicationJSONAddress := CreateUserUsersResponse200ApplicationJSONAddress{}
+	if err := utils.UnmarshalJSON(data, &createUserUsersResponse200ApplicationJSONAddress, "", true, true); err == nil {
+		u.CreateUserUsersResponse200ApplicationJSONAddress = &createUserUsersResponse200ApplicationJSONAddress
+		u.Type = CreateUserUsersResponsePostalAddressTypeCreateUserUsersResponse200ApplicationJSONAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u CreateUserUserCreateRequestUserTOLPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.CreateUserUserCreateRequestUserTOLPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserTOLPostalAddressAddress, "", true)
+func (u CreateUserUsersResponsePostalAddress) MarshalJSON() ([]byte, error) {
+	if u.CreateUserUsersResponse200ApplicationJSONAddress != nil {
+		return utils.MarshalJSON(u.CreateUserUsersResponse200ApplicationJSONAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// CreateUserUserCreateRequestUserTOLSalutation - Salutation of the user used in reports and statements.
+// CreateUserUsersResponseSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type CreateUserUserCreateRequestUserTOLSalutation string
+type CreateUserUsersResponseSalutation string
 
 const (
-	CreateUserUserCreateRequestUserTOLSalutationUnknown                 CreateUserUserCreateRequestUserTOLSalutation = ""
-	CreateUserUserCreateRequestUserTOLSalutationSalutationMale          CreateUserUserCreateRequestUserTOLSalutation = "SALUTATION_MALE"
-	CreateUserUserCreateRequestUserTOLSalutationSalutationFemale        CreateUserUserCreateRequestUserTOLSalutation = "SALUTATION_FEMALE"
-	CreateUserUserCreateRequestUserTOLSalutationSalutationFemaleMarried CreateUserUserCreateRequestUserTOLSalutation = "SALUTATION_FEMALE_MARRIED"
-	CreateUserUserCreateRequestUserTOLSalutationSalutationDiverse       CreateUserUserCreateRequestUserTOLSalutation = "SALUTATION_DIVERSE"
+	CreateUserUsersResponseSalutationUnknown                 CreateUserUsersResponseSalutation = ""
+	CreateUserUsersResponseSalutationSalutationMale          CreateUserUsersResponseSalutation = "SALUTATION_MALE"
+	CreateUserUsersResponseSalutationSalutationFemale        CreateUserUsersResponseSalutation = "SALUTATION_FEMALE"
+	CreateUserUsersResponseSalutationSalutationFemaleMarried CreateUserUsersResponseSalutation = "SALUTATION_FEMALE_MARRIED"
+	CreateUserUsersResponseSalutationSalutationDiverse       CreateUserUsersResponseSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e CreateUserUserCreateRequestUserTOLSalutation) ToPointer() *CreateUserUserCreateRequestUserTOLSalutation {
+func (e CreateUserUsersResponseSalutation) ToPointer() *CreateUserUsersResponseSalutation {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserTOLSalutation) UnmarshalJSON(data []byte) error {
+func (e *CreateUserUsersResponseSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -1269,32 +1269,32 @@ func (e *CreateUserUserCreateRequestUserTOLSalutation) UnmarshalJSON(data []byte
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = CreateUserUserCreateRequestUserTOLSalutation(v)
+		*e = CreateUserUsersResponseSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserTOLSalutation: %v", v)
+		return fmt.Errorf("invalid value for CreateUserUsersResponseSalutation: %v", v)
 	}
 }
 
-// CreateUserUserCreateRequestUserTOLStatus - Status of the user.
+// CreateUserUsersStatus - Status of the user.
 // * ACTIVE -
 // * INACTIVE -
 // * OFFBOARDING -
 // * OFFBOARDED -
-type CreateUserUserCreateRequestUserTOLStatus string
+type CreateUserUsersStatus string
 
 const (
-	CreateUserUserCreateRequestUserTOLStatusActive      CreateUserUserCreateRequestUserTOLStatus = "ACTIVE"
-	CreateUserUserCreateRequestUserTOLStatusInactive    CreateUserUserCreateRequestUserTOLStatus = "INACTIVE"
-	CreateUserUserCreateRequestUserTOLStatusOffboarding CreateUserUserCreateRequestUserTOLStatus = "OFFBOARDING"
-	CreateUserUserCreateRequestUserTOLStatusOffboarded  CreateUserUserCreateRequestUserTOLStatus = "OFFBOARDED"
+	CreateUserUsersStatusActive      CreateUserUsersStatus = "ACTIVE"
+	CreateUserUsersStatusInactive    CreateUserUsersStatus = "INACTIVE"
+	CreateUserUsersStatusOffboarding CreateUserUsersStatus = "OFFBOARDING"
+	CreateUserUsersStatusOffboarded  CreateUserUsersStatus = "OFFBOARDED"
 )
 
-func (e CreateUserUserCreateRequestUserTOLStatus) ToPointer() *CreateUserUserCreateRequestUserTOLStatus {
+func (e CreateUserUsersStatus) ToPointer() *CreateUserUsersStatus {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserTOLStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateUserUsersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -1307,68 +1307,68 @@ func (e *CreateUserUserCreateRequestUserTOLStatus) UnmarshalJSON(data []byte) er
 	case "OFFBOARDING":
 		fallthrough
 	case "OFFBOARDED":
-		*e = CreateUserUserCreateRequestUserTOLStatus(v)
+		*e = CreateUserUsersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserTOLStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateUserUsersStatus: %v", v)
 	}
 }
 
-type CreateUserUserCreateRequestUserTOLTermsAndConditions struct {
+type CreateUserTermsAndConditions struct {
 	// Timestamp at which the user consented to the terms & conditions. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ConfirmedAt time.Time `json:"confirmed_at"`
 	// Consent unique identifier.
 	ConsentDocumentID string `json:"consent_document_id"`
 }
 
-func (c CreateUserUserCreateRequestUserTOLTermsAndConditions) MarshalJSON() ([]byte, error) {
+func (c CreateUserTermsAndConditions) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOLTermsAndConditions) UnmarshalJSON(data []byte) error {
+func (c *CreateUserTermsAndConditions) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOLTermsAndConditions) GetConfirmedAt() time.Time {
+func (o *CreateUserTermsAndConditions) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *CreateUserUserCreateRequestUserTOLTermsAndConditions) GetConsentDocumentID() string {
+func (o *CreateUserTermsAndConditions) GetConsentDocumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ConsentDocumentID
 }
 
-// CreateUserUserCreateRequestUserTOLTitle - Title of the user used in reports and statements.
+// CreateUserUsersResponseTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type CreateUserUserCreateRequestUserTOLTitle string
+type CreateUserUsersResponseTitle string
 
 const (
-	CreateUserUserCreateRequestUserTOLTitleUnknown  CreateUserUserCreateRequestUserTOLTitle = ""
-	CreateUserUserCreateRequestUserTOLTitleDr       CreateUserUserCreateRequestUserTOLTitle = "DR"
-	CreateUserUserCreateRequestUserTOLTitleProf     CreateUserUserCreateRequestUserTOLTitle = "PROF"
-	CreateUserUserCreateRequestUserTOLTitleProfDr   CreateUserUserCreateRequestUserTOLTitle = "PROF_DR"
-	CreateUserUserCreateRequestUserTOLTitleDiplIng  CreateUserUserCreateRequestUserTOLTitle = "DIPL_ING"
-	CreateUserUserCreateRequestUserTOLTitleMagister CreateUserUserCreateRequestUserTOLTitle = "MAGISTER"
+	CreateUserUsersResponseTitleUnknown  CreateUserUsersResponseTitle = ""
+	CreateUserUsersResponseTitleDr       CreateUserUsersResponseTitle = "DR"
+	CreateUserUsersResponseTitleProf     CreateUserUsersResponseTitle = "PROF"
+	CreateUserUsersResponseTitleProfDr   CreateUserUsersResponseTitle = "PROF_DR"
+	CreateUserUsersResponseTitleDiplIng  CreateUserUsersResponseTitle = "DIPL_ING"
+	CreateUserUsersResponseTitleMagister CreateUserUsersResponseTitle = "MAGISTER"
 )
 
-func (e CreateUserUserCreateRequestUserTOLTitle) ToPointer() *CreateUserUserCreateRequestUserTOLTitle {
+func (e CreateUserUsersResponseTitle) ToPointer() *CreateUserUsersResponseTitle {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserTOLTitle) UnmarshalJSON(data []byte) error {
+func (e *CreateUserUsersResponseTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -1385,17 +1385,17 @@ func (e *CreateUserUserCreateRequestUserTOLTitle) UnmarshalJSON(data []byte) err
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = CreateUserUserCreateRequestUserTOLTitle(v)
+		*e = CreateUserUsersResponseTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserTOLTitle: %v", v)
+		return fmt.Errorf("invalid value for CreateUserUsersResponseTitle: %v", v)
 	}
 }
 
-type CreateUserUserCreateRequestUserTOL struct {
+type UserTOL struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   CreateUserUserCreateRequestUserTOLAddress `json:"address"`
-	BirthCity *string                                   `json:"birth_city,omitempty"`
+	Address   CreateUserUsersResponse200Address `json:"address"`
+	BirthCity *string                           `json:"birth_city,omitempty"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry *string `json:"birth_country,omitempty"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -1403,11 +1403,11 @@ type CreateUserUserCreateRequestUserTOL struct {
 	// If applicable, birth name of the user.
 	BirthName *string `json:"birth_name,omitempty"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	CreatedAt                      time.Time                                                         `json:"created_at"`
-	DataPrivacyAndSharingAgreement *CreateUserUserCreateRequestUserTOLDataPrivacyAndSharingAgreement `json:"data_privacy_and_sharing_agreement,omitempty"`
+	CreatedAt                      time.Time                                 `json:"created_at"`
+	DataPrivacyAndSharingAgreement *CreateUserDataPrivacyAndSharingAgreement `json:"data_privacy_and_sharing_agreement,omitempty"`
 	// Email of the user. Must be a valid email address.
-	Email *string                                  `json:"email,omitempty"`
-	Fatca *CreateUserUserCreateRequestUserTOLFatca `json:"fatca,omitempty"`
+	Email *string          `json:"email,omitempty"`
+	Fatca *CreateUserFatca `json:"fatca,omitempty"`
 	// First name of the user.
 	FirstName string `json:"first_name"`
 	// User unique identifier.
@@ -1419,21 +1419,21 @@ type CreateUserUserCreateRequestUserTOL struct {
 	// Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserTOLPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *CreateUserUsersResponsePostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *CreateUserUserCreateRequestUserTOLSalutation `default:"" json:"salutation"`
+	Salutation *CreateUserUsersResponseSalutation `default:"" json:"salutation"`
 	// Status of the user.
 	// * ACTIVE -
 	// * INACTIVE -
 	// * OFFBOARDING -
 	// * OFFBOARDED -
-	Status             CreateUserUserCreateRequestUserTOLStatus              `json:"status"`
-	TermsAndConditions *CreateUserUserCreateRequestUserTOLTermsAndConditions `json:"terms_and_conditions,omitempty"`
+	Status             CreateUserUsersStatus         `json:"status"`
+	TermsAndConditions *CreateUserTermsAndConditions `json:"terms_and_conditions,omitempty"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -1441,164 +1441,164 @@ type CreateUserUserCreateRequestUserTOL struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *CreateUserUserCreateRequestUserTOLTitle `default:"" json:"title"`
+	Title *CreateUserUsersResponseTitle `default:"" json:"title"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (c CreateUserUserCreateRequestUserTOL) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u UserTOL) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserTOL) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, true); err != nil {
+func (u *UserTOL) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetAddress() CreateUserUserCreateRequestUserTOLAddress {
+func (o *UserTOL) GetAddress() CreateUserUsersResponse200Address {
 	if o == nil {
-		return CreateUserUserCreateRequestUserTOLAddress{}
+		return CreateUserUsersResponse200Address{}
 	}
 	return o.Address
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetBirthCity() *string {
+func (o *UserTOL) GetBirthCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCity
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetBirthCountry() *string {
+func (o *UserTOL) GetBirthCountry() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCountry
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetBirthDate() types.Date {
+func (o *UserTOL) GetBirthDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.BirthDate
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetBirthName() *string {
+func (o *UserTOL) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetCreatedAt() time.Time {
+func (o *UserTOL) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetDataPrivacyAndSharingAgreement() *CreateUserUserCreateRequestUserTOLDataPrivacyAndSharingAgreement {
+func (o *UserTOL) GetDataPrivacyAndSharingAgreement() *CreateUserDataPrivacyAndSharingAgreement {
 	if o == nil {
 		return nil
 	}
 	return o.DataPrivacyAndSharingAgreement
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetEmail() *string {
+func (o *UserTOL) GetEmail() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Email
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetFatca() *CreateUserUserCreateRequestUserTOLFatca {
+func (o *UserTOL) GetFatca() *CreateUserFatca {
 	if o == nil {
 		return nil
 	}
 	return o.Fatca
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetFirstName() string {
+func (o *UserTOL) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetID() string {
+func (o *UserTOL) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetLastName() string {
+func (o *UserTOL) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetNationalities() []string {
+func (o *UserTOL) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetPhoneNumber() *string {
+func (o *UserTOL) GetPhoneNumber() *string {
 	if o == nil {
 		return nil
 	}
 	return o.PhoneNumber
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetPostalAddress() *CreateUserUserCreateRequestUserTOLPostalAddress {
+func (o *UserTOL) GetPostalAddress() *CreateUserUsersResponsePostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetSalutation() *CreateUserUserCreateRequestUserTOLSalutation {
+func (o *UserTOL) GetSalutation() *CreateUserUsersResponseSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetStatus() CreateUserUserCreateRequestUserTOLStatus {
+func (o *UserTOL) GetStatus() CreateUserUsersStatus {
 	if o == nil {
-		return CreateUserUserCreateRequestUserTOLStatus("")
+		return CreateUserUsersStatus("")
 	}
 	return o.Status
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetTermsAndConditions() *CreateUserUserCreateRequestUserTOLTermsAndConditions {
+func (o *UserTOL) GetTermsAndConditions() *CreateUserTermsAndConditions {
 	if o == nil {
 		return nil
 	}
 	return o.TermsAndConditions
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetTitle() *CreateUserUserCreateRequestUserTOLTitle {
+func (o *UserTOL) GetTitle() *CreateUserUsersResponseTitle {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-func (o *CreateUserUserCreateRequestUserTOL) GetUpdatedAt() time.Time {
+func (o *UserTOL) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-// CreateUserUserCreateRequestUserBYOLAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserBYOLAddress struct {
+// CreateUserUsersResponseAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUsersResponseAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -1612,50 +1612,50 @@ type CreateUserUserCreateRequestUserBYOLAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLAddress) GetAddressLine1() string {
+func (o *CreateUserUsersResponseAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLAddress) GetAddressLine2() *string {
+func (o *CreateUserUsersResponseAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLAddress) GetCity() string {
+func (o *CreateUserUsersResponseAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLAddress) GetCountry() string {
+func (o *CreateUserUsersResponseAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLAddress) GetPostcode() string {
+func (o *CreateUserUsersResponseAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLAddress) GetState() *string {
+func (o *CreateUserUsersResponseAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// CreateUserUserCreateRequestUserBYOLPostalAddressAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserUserCreateRequestUserBYOLPostalAddressAddress struct {
+// CreateUserUsersResponse200ApplicationJSONResponseBodyAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserUsersResponse200ApplicationJSONResponseBodyAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -1669,110 +1669,110 @@ type CreateUserUserCreateRequestUserBYOLPostalAddressAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetAddressLine1() string {
+func (o *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetAddressLine2() *string {
+func (o *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetCity() string {
+func (o *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetCountry() string {
+func (o *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetPostcode() string {
+func (o *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserUserCreateRequestUserBYOLPostalAddressAddress) GetState() *string {
+func (o *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-type CreateUserUserCreateRequestUserBYOLPostalAddressType string
+type CreateUserUsersPostalAddressType string
 
 const (
-	CreateUserUserCreateRequestUserBYOLPostalAddressTypeCreateUserUserCreateRequestUserBYOLPostalAddressAddress CreateUserUserCreateRequestUserBYOLPostalAddressType = "create_user_User - Create - Request_User (BYOL)_postal_address_Address"
+	CreateUserUsersPostalAddressTypeCreateUserUsersResponse200ApplicationJSONResponseBodyAddress CreateUserUsersPostalAddressType = "create_user_Users_response_200_ApplicationJSON_responseBody_Address"
 )
 
-type CreateUserUserCreateRequestUserBYOLPostalAddress struct {
-	CreateUserUserCreateRequestUserBYOLPostalAddressAddress *CreateUserUserCreateRequestUserBYOLPostalAddressAddress
+type CreateUserUsersPostalAddress struct {
+	CreateUserUsersResponse200ApplicationJSONResponseBodyAddress *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress
 
-	Type CreateUserUserCreateRequestUserBYOLPostalAddressType
+	Type CreateUserUsersPostalAddressType
 }
 
-func CreateCreateUserUserCreateRequestUserBYOLPostalAddressCreateUserUserCreateRequestUserBYOLPostalAddressAddress(createUserUserCreateRequestUserBYOLPostalAddressAddress CreateUserUserCreateRequestUserBYOLPostalAddressAddress) CreateUserUserCreateRequestUserBYOLPostalAddress {
-	typ := CreateUserUserCreateRequestUserBYOLPostalAddressTypeCreateUserUserCreateRequestUserBYOLPostalAddressAddress
+func CreateCreateUserUsersPostalAddressCreateUserUsersResponse200ApplicationJSONResponseBodyAddress(createUserUsersResponse200ApplicationJSONResponseBodyAddress CreateUserUsersResponse200ApplicationJSONResponseBodyAddress) CreateUserUsersPostalAddress {
+	typ := CreateUserUsersPostalAddressTypeCreateUserUsersResponse200ApplicationJSONResponseBodyAddress
 
-	return CreateUserUserCreateRequestUserBYOLPostalAddress{
-		CreateUserUserCreateRequestUserBYOLPostalAddressAddress: &createUserUserCreateRequestUserBYOLPostalAddressAddress,
+	return CreateUserUsersPostalAddress{
+		CreateUserUsersResponse200ApplicationJSONResponseBodyAddress: &createUserUsersResponse200ApplicationJSONResponseBodyAddress,
 		Type: typ,
 	}
 }
 
-func (u *CreateUserUserCreateRequestUserBYOLPostalAddress) UnmarshalJSON(data []byte) error {
+func (u *CreateUserUsersPostalAddress) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOLPostalAddressAddress := CreateUserUserCreateRequestUserBYOLPostalAddressAddress{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOLPostalAddressAddress, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress = &createUserUserCreateRequestUserBYOLPostalAddressAddress
-		u.Type = CreateUserUserCreateRequestUserBYOLPostalAddressTypeCreateUserUserCreateRequestUserBYOLPostalAddressAddress
+	createUserUsersResponse200ApplicationJSONResponseBodyAddress := CreateUserUsersResponse200ApplicationJSONResponseBodyAddress{}
+	if err := utils.UnmarshalJSON(data, &createUserUsersResponse200ApplicationJSONResponseBodyAddress, "", true, true); err == nil {
+		u.CreateUserUsersResponse200ApplicationJSONResponseBodyAddress = &createUserUsersResponse200ApplicationJSONResponseBodyAddress
+		u.Type = CreateUserUsersPostalAddressTypeCreateUserUsersResponse200ApplicationJSONResponseBodyAddress
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u CreateUserUserCreateRequestUserBYOLPostalAddress) MarshalJSON() ([]byte, error) {
-	if u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserBYOLPostalAddressAddress, "", true)
+func (u CreateUserUsersPostalAddress) MarshalJSON() ([]byte, error) {
+	if u.CreateUserUsersResponse200ApplicationJSONResponseBodyAddress != nil {
+		return utils.MarshalJSON(u.CreateUserUsersResponse200ApplicationJSONResponseBodyAddress, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// CreateUserUserCreateRequestUserBYOLSalutation - Salutation of the user used in reports and statements.
+// CreateUserUsersSalutation - Salutation of the user used in reports and statements.
 // * (empty string) -
 // * SALUTATION_MALE -
 // * SALUTATION_FEMALE -
 // * SALUTATION_FEMALE_MARRIED -
 // * SALUTATION_DIVERSE -
-type CreateUserUserCreateRequestUserBYOLSalutation string
+type CreateUserUsersSalutation string
 
 const (
-	CreateUserUserCreateRequestUserBYOLSalutationUnknown                 CreateUserUserCreateRequestUserBYOLSalutation = ""
-	CreateUserUserCreateRequestUserBYOLSalutationSalutationMale          CreateUserUserCreateRequestUserBYOLSalutation = "SALUTATION_MALE"
-	CreateUserUserCreateRequestUserBYOLSalutationSalutationFemale        CreateUserUserCreateRequestUserBYOLSalutation = "SALUTATION_FEMALE"
-	CreateUserUserCreateRequestUserBYOLSalutationSalutationFemaleMarried CreateUserUserCreateRequestUserBYOLSalutation = "SALUTATION_FEMALE_MARRIED"
-	CreateUserUserCreateRequestUserBYOLSalutationSalutationDiverse       CreateUserUserCreateRequestUserBYOLSalutation = "SALUTATION_DIVERSE"
+	CreateUserUsersSalutationUnknown                 CreateUserUsersSalutation = ""
+	CreateUserUsersSalutationSalutationMale          CreateUserUsersSalutation = "SALUTATION_MALE"
+	CreateUserUsersSalutationSalutationFemale        CreateUserUsersSalutation = "SALUTATION_FEMALE"
+	CreateUserUsersSalutationSalutationFemaleMarried CreateUserUsersSalutation = "SALUTATION_FEMALE_MARRIED"
+	CreateUserUsersSalutationSalutationDiverse       CreateUserUsersSalutation = "SALUTATION_DIVERSE"
 )
 
-func (e CreateUserUserCreateRequestUserBYOLSalutation) ToPointer() *CreateUserUserCreateRequestUserBYOLSalutation {
+func (e CreateUserUsersSalutation) ToPointer() *CreateUserUsersSalutation {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserBYOLSalutation) UnmarshalJSON(data []byte) error {
+func (e *CreateUserUsersSalutation) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -1787,32 +1787,32 @@ func (e *CreateUserUserCreateRequestUserBYOLSalutation) UnmarshalJSON(data []byt
 	case "SALUTATION_FEMALE_MARRIED":
 		fallthrough
 	case "SALUTATION_DIVERSE":
-		*e = CreateUserUserCreateRequestUserBYOLSalutation(v)
+		*e = CreateUserUsersSalutation(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserBYOLSalutation: %v", v)
+		return fmt.Errorf("invalid value for CreateUserUsersSalutation: %v", v)
 	}
 }
 
-// CreateUserUserCreateRequestUserBYOLStatus - Status of the user.
+// CreateUserStatus - Status of the user.
 // * ACTIVE -
 // * INACTIVE -
 // * OFFBOARDING -
 // * OFFBOARDED -
-type CreateUserUserCreateRequestUserBYOLStatus string
+type CreateUserStatus string
 
 const (
-	CreateUserUserCreateRequestUserBYOLStatusActive      CreateUserUserCreateRequestUserBYOLStatus = "ACTIVE"
-	CreateUserUserCreateRequestUserBYOLStatusInactive    CreateUserUserCreateRequestUserBYOLStatus = "INACTIVE"
-	CreateUserUserCreateRequestUserBYOLStatusOffboarding CreateUserUserCreateRequestUserBYOLStatus = "OFFBOARDING"
-	CreateUserUserCreateRequestUserBYOLStatusOffboarded  CreateUserUserCreateRequestUserBYOLStatus = "OFFBOARDED"
+	CreateUserStatusActive      CreateUserStatus = "ACTIVE"
+	CreateUserStatusInactive    CreateUserStatus = "INACTIVE"
+	CreateUserStatusOffboarding CreateUserStatus = "OFFBOARDING"
+	CreateUserStatusOffboarded  CreateUserStatus = "OFFBOARDED"
 )
 
-func (e CreateUserUserCreateRequestUserBYOLStatus) ToPointer() *CreateUserUserCreateRequestUserBYOLStatus {
+func (e CreateUserStatus) ToPointer() *CreateUserStatus {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserBYOLStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateUserStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -1825,36 +1825,36 @@ func (e *CreateUserUserCreateRequestUserBYOLStatus) UnmarshalJSON(data []byte) e
 	case "OFFBOARDING":
 		fallthrough
 	case "OFFBOARDED":
-		*e = CreateUserUserCreateRequestUserBYOLStatus(v)
+		*e = CreateUserStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserBYOLStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateUserStatus: %v", v)
 	}
 }
 
-// CreateUserUserCreateRequestUserBYOLTitle - Title of the user used in reports and statements.
+// CreateUserUsersTitle - Title of the user used in reports and statements.
 // * (empty string) -
 // * DR - Doctor
 // * PROF - Professor
 // * PROF_DR -
 // * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 // * MAGISTER -
-type CreateUserUserCreateRequestUserBYOLTitle string
+type CreateUserUsersTitle string
 
 const (
-	CreateUserUserCreateRequestUserBYOLTitleUnknown  CreateUserUserCreateRequestUserBYOLTitle = ""
-	CreateUserUserCreateRequestUserBYOLTitleDr       CreateUserUserCreateRequestUserBYOLTitle = "DR"
-	CreateUserUserCreateRequestUserBYOLTitleProf     CreateUserUserCreateRequestUserBYOLTitle = "PROF"
-	CreateUserUserCreateRequestUserBYOLTitleProfDr   CreateUserUserCreateRequestUserBYOLTitle = "PROF_DR"
-	CreateUserUserCreateRequestUserBYOLTitleDiplIng  CreateUserUserCreateRequestUserBYOLTitle = "DIPL_ING"
-	CreateUserUserCreateRequestUserBYOLTitleMagister CreateUserUserCreateRequestUserBYOLTitle = "MAGISTER"
+	CreateUserUsersTitleUnknown  CreateUserUsersTitle = ""
+	CreateUserUsersTitleDr       CreateUserUsersTitle = "DR"
+	CreateUserUsersTitleProf     CreateUserUsersTitle = "PROF"
+	CreateUserUsersTitleProfDr   CreateUserUsersTitle = "PROF_DR"
+	CreateUserUsersTitleDiplIng  CreateUserUsersTitle = "DIPL_ING"
+	CreateUserUsersTitleMagister CreateUserUsersTitle = "MAGISTER"
 )
 
-func (e CreateUserUserCreateRequestUserBYOLTitle) ToPointer() *CreateUserUserCreateRequestUserBYOLTitle {
+func (e CreateUserUsersTitle) ToPointer() *CreateUserUsersTitle {
 	return &e
 }
 
-func (e *CreateUserUserCreateRequestUserBYOLTitle) UnmarshalJSON(data []byte) error {
+func (e *CreateUserUsersTitle) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -1871,17 +1871,17 @@ func (e *CreateUserUserCreateRequestUserBYOLTitle) UnmarshalJSON(data []byte) er
 	case "DIPL_ING":
 		fallthrough
 	case "MAGISTER":
-		*e = CreateUserUserCreateRequestUserBYOLTitle(v)
+		*e = CreateUserUsersTitle(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserUserCreateRequestUserBYOLTitle: %v", v)
+		return fmt.Errorf("invalid value for CreateUserUsersTitle: %v", v)
 	}
 }
 
-type CreateUserUserCreateRequestUserBYOL struct {
+type UserBYOL struct {
 	// Address. Must not be a P.O. box or c/o address.
-	Address   CreateUserUserCreateRequestUserBYOLAddress `json:"address"`
-	BirthCity *string                                    `json:"birth_city,omitempty"`
+	Address   CreateUserUsersResponseAddress `json:"address"`
+	BirthCity *string                        `json:"birth_city,omitempty"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	BirthCountry *string `json:"birth_country,omitempty"`
 	// Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339)
@@ -1899,20 +1899,20 @@ type CreateUserUserCreateRequestUserBYOL struct {
 	// Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationalities []string `json:"nationalities"`
 	// User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
-	PostalAddress *CreateUserUserCreateRequestUserBYOLPostalAddress `json:"postal_address,omitempty"`
+	PostalAddress *CreateUserUsersPostalAddress `json:"postal_address,omitempty"`
 	// Salutation of the user used in reports and statements.
 	// * (empty string) -
 	// * SALUTATION_MALE -
 	// * SALUTATION_FEMALE -
 	// * SALUTATION_FEMALE_MARRIED -
 	// * SALUTATION_DIVERSE -
-	Salutation *CreateUserUserCreateRequestUserBYOLSalutation `default:"" json:"salutation"`
+	Salutation *CreateUserUsersSalutation `default:"" json:"salutation"`
 	// Status of the user.
 	// * ACTIVE -
 	// * INACTIVE -
 	// * OFFBOARDING -
 	// * OFFBOARDED -
-	Status CreateUserUserCreateRequestUserBYOLStatus `json:"status"`
+	Status CreateUserStatus `json:"status"`
 	// Title of the user used in reports and statements.
 	// * (empty string) -
 	// * DR - Doctor
@@ -1920,191 +1920,193 @@ type CreateUserUserCreateRequestUserBYOL struct {
 	// * PROF_DR -
 	// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
 	// * MAGISTER -
-	Title *CreateUserUserCreateRequestUserBYOLTitle `default:"" json:"title"`
+	Title *CreateUserUsersTitle `default:"" json:"title"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (c CreateUserUserCreateRequestUserBYOL) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u UserBYOL) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateUserUserCreateRequestUserBYOL) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, true); err != nil {
+func (u *UserBYOL) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetAddress() CreateUserUserCreateRequestUserBYOLAddress {
+func (o *UserBYOL) GetAddress() CreateUserUsersResponseAddress {
 	if o == nil {
-		return CreateUserUserCreateRequestUserBYOLAddress{}
+		return CreateUserUsersResponseAddress{}
 	}
 	return o.Address
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetBirthCity() *string {
+func (o *UserBYOL) GetBirthCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCity
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetBirthCountry() *string {
+func (o *UserBYOL) GetBirthCountry() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthCountry
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetBirthDate() types.Date {
+func (o *UserBYOL) GetBirthDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.BirthDate
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetBirthName() *string {
+func (o *UserBYOL) GetBirthName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.BirthName
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetCreatedAt() time.Time {
+func (o *UserBYOL) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetFirstName() string {
+func (o *UserBYOL) GetFirstName() string {
 	if o == nil {
 		return ""
 	}
 	return o.FirstName
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetID() string {
+func (o *UserBYOL) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetLastName() string {
+func (o *UserBYOL) GetLastName() string {
 	if o == nil {
 		return ""
 	}
 	return o.LastName
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetNationalities() []string {
+func (o *UserBYOL) GetNationalities() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Nationalities
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetPostalAddress() *CreateUserUserCreateRequestUserBYOLPostalAddress {
+func (o *UserBYOL) GetPostalAddress() *CreateUserUsersPostalAddress {
 	if o == nil {
 		return nil
 	}
 	return o.PostalAddress
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetSalutation() *CreateUserUserCreateRequestUserBYOLSalutation {
+func (o *UserBYOL) GetSalutation() *CreateUserUsersSalutation {
 	if o == nil {
 		return nil
 	}
 	return o.Salutation
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetStatus() CreateUserUserCreateRequestUserBYOLStatus {
+func (o *UserBYOL) GetStatus() CreateUserStatus {
 	if o == nil {
-		return CreateUserUserCreateRequestUserBYOLStatus("")
+		return CreateUserStatus("")
 	}
 	return o.Status
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetTitle() *CreateUserUserCreateRequestUserBYOLTitle {
+func (o *UserBYOL) GetTitle() *CreateUserUsersTitle {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-func (o *CreateUserUserCreateRequestUserBYOL) GetUpdatedAt() time.Time {
+func (o *UserBYOL) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-type CreateUserUserCreateRequest1Type string
+type CreateUserUsersUserCreateRequestType string
 
 const (
-	CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserBYOL CreateUserUserCreateRequest1Type = "create_user_User - Create - Request_User (BYOL)"
-	CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserTOL  CreateUserUserCreateRequest1Type = "create_user_User - Create - Request_User (TOL)"
+	CreateUserUsersUserCreateRequestTypeUserBYOL CreateUserUsersUserCreateRequestType = "User (BYOL)"
+	CreateUserUsersUserCreateRequestTypeUserTOL  CreateUserUsersUserCreateRequestType = "User (TOL)"
 )
 
-type CreateUserUserCreateRequest1 struct {
-	CreateUserUserCreateRequestUserBYOL *CreateUserUserCreateRequestUserBYOL
-	CreateUserUserCreateRequestUserTOL  *CreateUserUserCreateRequestUserTOL
+type CreateUserUsersUserCreateRequest struct {
+	UserBYOL *UserBYOL
+	UserTOL  *UserTOL
 
-	Type CreateUserUserCreateRequest1Type
+	Type CreateUserUsersUserCreateRequestType
 }
 
-func CreateCreateUserUserCreateRequest1CreateUserUserCreateRequestUserBYOL(createUserUserCreateRequestUserBYOL CreateUserUserCreateRequestUserBYOL) CreateUserUserCreateRequest1 {
-	typ := CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserBYOL
+func CreateCreateUserUsersUserCreateRequestUserBYOL(userBYOL UserBYOL) CreateUserUsersUserCreateRequest {
+	typ := CreateUserUsersUserCreateRequestTypeUserBYOL
 
-	return CreateUserUserCreateRequest1{
-		CreateUserUserCreateRequestUserBYOL: &createUserUserCreateRequestUserBYOL,
-		Type:                                typ,
+	return CreateUserUsersUserCreateRequest{
+		UserBYOL: &userBYOL,
+		Type:     typ,
 	}
 }
 
-func CreateCreateUserUserCreateRequest1CreateUserUserCreateRequestUserTOL(createUserUserCreateRequestUserTOL CreateUserUserCreateRequestUserTOL) CreateUserUserCreateRequest1 {
-	typ := CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserTOL
+func CreateCreateUserUsersUserCreateRequestUserTOL(userTOL UserTOL) CreateUserUsersUserCreateRequest {
+	typ := CreateUserUsersUserCreateRequestTypeUserTOL
 
-	return CreateUserUserCreateRequest1{
-		CreateUserUserCreateRequestUserTOL: &createUserUserCreateRequestUserTOL,
-		Type:                               typ,
+	return CreateUserUsersUserCreateRequest{
+		UserTOL: &userTOL,
+		Type:    typ,
 	}
 }
 
-func (u *CreateUserUserCreateRequest1) UnmarshalJSON(data []byte) error {
+func (u *CreateUserUsersUserCreateRequest) UnmarshalJSON(data []byte) error {
 
-	createUserUserCreateRequestUserBYOL := CreateUserUserCreateRequestUserBYOL{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserBYOL, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserBYOL = &createUserUserCreateRequestUserBYOL
-		u.Type = CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserBYOL
+	userBYOL := UserBYOL{}
+	if err := utils.UnmarshalJSON(data, &userBYOL, "", true, true); err == nil {
+		u.UserBYOL = &userBYOL
+		u.Type = CreateUserUsersUserCreateRequestTypeUserBYOL
 		return nil
 	}
 
-	createUserUserCreateRequestUserTOL := CreateUserUserCreateRequestUserTOL{}
-	if err := utils.UnmarshalJSON(data, &createUserUserCreateRequestUserTOL, "", true, true); err == nil {
-		u.CreateUserUserCreateRequestUserTOL = &createUserUserCreateRequestUserTOL
-		u.Type = CreateUserUserCreateRequest1TypeCreateUserUserCreateRequestUserTOL
+	userTOL := UserTOL{}
+	if err := utils.UnmarshalJSON(data, &userTOL, "", true, true); err == nil {
+		u.UserTOL = &userTOL
+		u.Type = CreateUserUsersUserCreateRequestTypeUserTOL
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u CreateUserUserCreateRequest1) MarshalJSON() ([]byte, error) {
-	if u.CreateUserUserCreateRequestUserBYOL != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserBYOL, "", true)
+func (u CreateUserUsersUserCreateRequest) MarshalJSON() ([]byte, error) {
+	if u.UserBYOL != nil {
+		return utils.MarshalJSON(u.UserBYOL, "", true)
 	}
 
-	if u.CreateUserUserCreateRequestUserTOL != nil {
-		return utils.MarshalJSON(u.CreateUserUserCreateRequestUserTOL, "", true)
+	if u.UserTOL != nil {
+		return utils.MarshalJSON(u.UserTOL, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 type CreateUserResponse struct {
+	// User created.
+	TwoHundredApplicationJSONUserCreateRequest *CreateUserUsersUserCreateRequest
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -2112,8 +2114,13 @@ type CreateUserResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// User created.
-	UserCreateRequest *CreateUserUserCreateRequest1
+}
+
+func (o *CreateUserResponse) GetTwoHundredApplicationJSONUserCreateRequest() *CreateUserUsersUserCreateRequest {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONUserCreateRequest
 }
 
 func (o *CreateUserResponse) GetContentType() string {
@@ -2142,11 +2149,4 @@ func (o *CreateUserResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *CreateUserResponse) GetUserCreateRequest() *CreateUserUserCreateRequest1 {
-	if o == nil {
-		return nil
-	}
-	return o.UserCreateRequest
 }

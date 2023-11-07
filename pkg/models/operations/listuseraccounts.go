@@ -11,28 +11,28 @@ import (
 	"time"
 )
 
-// ListUserAccountsSort - Sort the result by `created_at`.
-type ListUserAccountsSort string
+// ListUserAccountsQueryParamSort - Sort the result by `created_at`.
+type ListUserAccountsQueryParamSort string
 
 const (
-	ListUserAccountsSortCreatedAt ListUserAccountsSort = "created_at"
+	ListUserAccountsQueryParamSortCreatedAt ListUserAccountsQueryParamSort = "created_at"
 )
 
-func (e ListUserAccountsSort) ToPointer() *ListUserAccountsSort {
+func (e ListUserAccountsQueryParamSort) ToPointer() *ListUserAccountsQueryParamSort {
 	return &e
 }
 
-func (e *ListUserAccountsSort) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "created_at":
-		*e = ListUserAccountsSort(v)
+		*e = ListUserAccountsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountsSort: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountsQueryParamSort: %v", v)
 	}
 }
 
@@ -48,7 +48,7 @@ type ListUserAccountsRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `created_at`.
-	Sort *ListUserAccountsSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListUserAccountsQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -102,7 +102,7 @@ func (o *ListUserAccountsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListUserAccountsRequest) GetSort() *ListUserAccountsSort {
+func (o *ListUserAccountsRequest) GetSort() *ListUserAccountsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -130,27 +130,27 @@ func (o *ListUserAccountsRequest) GetUserID() string {
 	return o.UserID
 }
 
-// ListUserAccountsAccountsListResponseAccountStatus - The status of the account
+// ListUserAccountsStatus - The status of the account
 // * PENDING_APPROVAL - Account approval is pending - the account is visible through our API but cannot be acted on.
 // * ACTIVE - Account is active - full functionality of the Investment API is accessible.
 // * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 // * CLOSED - Account is closed with zero balance successfully.
 // * LOCKED - Account is locked for all actions.
-type ListUserAccountsAccountsListResponseAccountStatus string
+type ListUserAccountsStatus string
 
 const (
-	ListUserAccountsAccountsListResponseAccountStatusPendingApproval ListUserAccountsAccountsListResponseAccountStatus = "PENDING_APPROVAL"
-	ListUserAccountsAccountsListResponseAccountStatusActive          ListUserAccountsAccountsListResponseAccountStatus = "ACTIVE"
-	ListUserAccountsAccountsListResponseAccountStatusClosing         ListUserAccountsAccountsListResponseAccountStatus = "CLOSING"
-	ListUserAccountsAccountsListResponseAccountStatusClosed          ListUserAccountsAccountsListResponseAccountStatus = "CLOSED"
-	ListUserAccountsAccountsListResponseAccountStatusLocked          ListUserAccountsAccountsListResponseAccountStatus = "LOCKED"
+	ListUserAccountsStatusPendingApproval ListUserAccountsStatus = "PENDING_APPROVAL"
+	ListUserAccountsStatusActive          ListUserAccountsStatus = "ACTIVE"
+	ListUserAccountsStatusClosing         ListUserAccountsStatus = "CLOSING"
+	ListUserAccountsStatusClosed          ListUserAccountsStatus = "CLOSED"
+	ListUserAccountsStatusLocked          ListUserAccountsStatus = "LOCKED"
 )
 
-func (e ListUserAccountsAccountsListResponseAccountStatus) ToPointer() *ListUserAccountsAccountsListResponseAccountStatus {
+func (e ListUserAccountsStatus) ToPointer() *ListUserAccountsStatus {
 	return &e
 }
 
-func (e *ListUserAccountsAccountsListResponseAccountStatus) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -165,28 +165,28 @@ func (e *ListUserAccountsAccountsListResponseAccountStatus) UnmarshalJSON(data [
 	case "CLOSED":
 		fallthrough
 	case "LOCKED":
-		*e = ListUserAccountsAccountsListResponseAccountStatus(v)
+		*e = ListUserAccountsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountsAccountsListResponseAccountStatus: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountsStatus: %v", v)
 	}
 }
 
-// ListUserAccountsAccountsListResponseAccountType - Account type.
+// ListUserAccountsType - Account type.
 // * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 // * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-type ListUserAccountsAccountsListResponseAccountType string
+type ListUserAccountsType string
 
 const (
-	ListUserAccountsAccountsListResponseAccountTypeTrading   ListUserAccountsAccountsListResponseAccountType = "TRADING"
-	ListUserAccountsAccountsListResponseAccountTypePortfolio ListUserAccountsAccountsListResponseAccountType = "PORTFOLIO"
+	ListUserAccountsTypeTrading   ListUserAccountsType = "TRADING"
+	ListUserAccountsTypePortfolio ListUserAccountsType = "PORTFOLIO"
 )
 
-func (e ListUserAccountsAccountsListResponseAccountType) ToPointer() *ListUserAccountsAccountsListResponseAccountType {
+func (e ListUserAccountsType) ToPointer() *ListUserAccountsType {
 	return &e
 }
 
-func (e *ListUserAccountsAccountsListResponseAccountType) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -195,73 +195,73 @@ func (e *ListUserAccountsAccountsListResponseAccountType) UnmarshalJSON(data []b
 	case "TRADING":
 		fallthrough
 	case "PORTFOLIO":
-		*e = ListUserAccountsAccountsListResponseAccountType(v)
+		*e = ListUserAccountsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountsAccountsListResponseAccountType: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountsType: %v", v)
 	}
 }
 
-// ListUserAccountsAccountsListResponseAccountUsersType - Relation type
+// ListUserAccountsUsersType - Relation type
 // * OWNER -
-type ListUserAccountsAccountsListResponseAccountUsersType string
+type ListUserAccountsUsersType string
 
 const (
-	ListUserAccountsAccountsListResponseAccountUsersTypeOwner ListUserAccountsAccountsListResponseAccountUsersType = "OWNER"
+	ListUserAccountsUsersTypeOwner ListUserAccountsUsersType = "OWNER"
 )
 
-func (e ListUserAccountsAccountsListResponseAccountUsersType) ToPointer() *ListUserAccountsAccountsListResponseAccountUsersType {
+func (e ListUserAccountsUsersType) ToPointer() *ListUserAccountsUsersType {
 	return &e
 }
 
-func (e *ListUserAccountsAccountsListResponseAccountUsersType) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountsUsersType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "OWNER":
-		*e = ListUserAccountsAccountsListResponseAccountUsersType(v)
+		*e = ListUserAccountsUsersType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountsAccountsListResponseAccountUsersType: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountsUsersType: %v", v)
 	}
 }
 
-type ListUserAccountsAccountsListResponseAccountUsers struct {
+type ListUserAccountsUsers struct {
 	// User unique identifier.
 	ID *string `json:"id,omitempty"`
 	// Relation type
 	// * OWNER -
-	Type *ListUserAccountsAccountsListResponseAccountUsersType `default:"OWNER" json:"type"`
+	Type *ListUserAccountsUsersType `default:"OWNER" json:"type"`
 }
 
-func (l ListUserAccountsAccountsListResponseAccountUsers) MarshalJSON() ([]byte, error) {
+func (l ListUserAccountsUsers) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserAccountsAccountsListResponseAccountUsers) UnmarshalJSON(data []byte) error {
+func (l *ListUserAccountsUsers) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserAccountsAccountsListResponseAccountUsers) GetID() *string {
+func (o *ListUserAccountsUsers) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *ListUserAccountsAccountsListResponseAccountUsers) GetType() *ListUserAccountsAccountsListResponseAccountUsersType {
+func (o *ListUserAccountsUsers) GetType() *ListUserAccountsUsersType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-type ListUserAccountsAccountsListResponseAccount struct {
+type ListUserAccountsAccount struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
 	// The serial account number of the account in the account group.
@@ -278,105 +278,105 @@ type ListUserAccountsAccountsListResponseAccount struct {
 	// * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 	// * CLOSED - Account is closed with zero balance successfully.
 	// * LOCKED - Account is locked for all actions.
-	Status ListUserAccountsAccountsListResponseAccountStatus `json:"status"`
+	Status ListUserAccountsStatus `json:"status"`
 	// Account type.
 	// * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 	// * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-	Type ListUserAccountsAccountsListResponseAccountType `json:"type"`
+	Type ListUserAccountsType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	UpdatedAt time.Time                                          `json:"updated_at"`
-	Users     []ListUserAccountsAccountsListResponseAccountUsers `json:"users"`
+	UpdatedAt time.Time               `json:"updated_at"`
+	Users     []ListUserAccountsUsers `json:"users"`
 }
 
-func (l ListUserAccountsAccountsListResponseAccount) MarshalJSON() ([]byte, error) {
+func (l ListUserAccountsAccount) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserAccountsAccountsListResponseAccount) UnmarshalJSON(data []byte) error {
+func (l *ListUserAccountsAccount) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetAccountGroupID() string {
+func (o *ListUserAccountsAccount) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetAccountNumber() int64 {
+func (o *ListUserAccountsAccount) GetAccountNumber() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.AccountNumber
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetCreatedAt() time.Time {
+func (o *ListUserAccountsAccount) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetID() string {
+func (o *ListUserAccountsAccount) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetName() string {
+func (o *ListUserAccountsAccount) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetStatus() ListUserAccountsAccountsListResponseAccountStatus {
+func (o *ListUserAccountsAccount) GetStatus() ListUserAccountsStatus {
 	if o == nil {
-		return ListUserAccountsAccountsListResponseAccountStatus("")
+		return ListUserAccountsStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetType() ListUserAccountsAccountsListResponseAccountType {
+func (o *ListUserAccountsAccount) GetType() ListUserAccountsType {
 	if o == nil {
-		return ListUserAccountsAccountsListResponseAccountType("")
+		return ListUserAccountsType("")
 	}
 	return o.Type
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetUpdatedAt() time.Time {
+func (o *ListUserAccountsAccount) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListUserAccountsAccountsListResponseAccount) GetUsers() []ListUserAccountsAccountsListResponseAccountUsers {
+func (o *ListUserAccountsAccount) GetUsers() []ListUserAccountsUsers {
 	if o == nil {
-		return []ListUserAccountsAccountsListResponseAccountUsers{}
+		return []ListUserAccountsUsers{}
 	}
 	return o.Users
 }
 
-// ListUserAccountsAccountsListResponseMetaOrder - The ordering of the response.
+// ListUserAccountsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListUserAccountsAccountsListResponseMetaOrder string
+type ListUserAccountsOrder string
 
 const (
-	ListUserAccountsAccountsListResponseMetaOrderAsc  ListUserAccountsAccountsListResponseMetaOrder = "ASC"
-	ListUserAccountsAccountsListResponseMetaOrderDesc ListUserAccountsAccountsListResponseMetaOrder = "DESC"
+	ListUserAccountsOrderAsc  ListUserAccountsOrder = "ASC"
+	ListUserAccountsOrderDesc ListUserAccountsOrder = "DESC"
 )
 
-func (e ListUserAccountsAccountsListResponseMetaOrder) ToPointer() *ListUserAccountsAccountsListResponseMetaOrder {
+func (e ListUserAccountsOrder) ToPointer() *ListUserAccountsOrder {
 	return &e
 }
 
-func (e *ListUserAccountsAccountsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListUserAccountsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -385,14 +385,14 @@ func (e *ListUserAccountsAccountsListResponseMetaOrder) UnmarshalJSON(data []byt
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListUserAccountsAccountsListResponseMetaOrder(v)
+		*e = ListUserAccountsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserAccountsAccountsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListUserAccountsOrder: %v", v)
 	}
 }
 
-type ListUserAccountsAccountsListResponseMeta struct {
+type ListUserAccountsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -402,49 +402,49 @@ type ListUserAccountsAccountsListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListUserAccountsAccountsListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListUserAccountsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListUserAccountsAccountsListResponseMeta) GetCount() int64 {
+func (o *ListUserAccountsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListUserAccountsAccountsListResponseMeta) GetLimit() int64 {
+func (o *ListUserAccountsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListUserAccountsAccountsListResponseMeta) GetOffset() int64 {
+func (o *ListUserAccountsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListUserAccountsAccountsListResponseMeta) GetOrder() *ListUserAccountsAccountsListResponseMetaOrder {
+func (o *ListUserAccountsMeta) GetOrder() *ListUserAccountsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListUserAccountsAccountsListResponseMeta) GetSort() *string {
+func (o *ListUserAccountsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListUserAccountsAccountsListResponseMeta) GetTotalCount() int64 {
+func (o *ListUserAccountsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -453,27 +453,27 @@ func (o *ListUserAccountsAccountsListResponseMeta) GetTotalCount() int64 {
 
 // ListUserAccountsAccountsListResponse - OK
 type ListUserAccountsAccountsListResponse struct {
-	Data []ListUserAccountsAccountsListResponseAccount `json:"data"`
-	Meta ListUserAccountsAccountsListResponseMeta      `json:"meta"`
+	Data []ListUserAccountsAccount `json:"data"`
+	Meta ListUserAccountsMeta      `json:"meta"`
 }
 
-func (o *ListUserAccountsAccountsListResponse) GetData() []ListUserAccountsAccountsListResponseAccount {
+func (o *ListUserAccountsAccountsListResponse) GetData() []ListUserAccountsAccount {
 	if o == nil {
-		return []ListUserAccountsAccountsListResponseAccount{}
+		return []ListUserAccountsAccount{}
 	}
 	return o.Data
 }
 
-func (o *ListUserAccountsAccountsListResponse) GetMeta() ListUserAccountsAccountsListResponseMeta {
+func (o *ListUserAccountsAccountsListResponse) GetMeta() ListUserAccountsMeta {
 	if o == nil {
-		return ListUserAccountsAccountsListResponseMeta{}
+		return ListUserAccountsMeta{}
 	}
 	return o.Meta
 }
 
 type ListUserAccountsResponse struct {
 	// OK
-	AccountsListResponse *ListUserAccountsAccountsListResponse
+	TwoHundredApplicationJSONAccountsListResponse *ListUserAccountsAccountsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -483,11 +483,11 @@ type ListUserAccountsResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListUserAccountsResponse) GetAccountsListResponse() *ListUserAccountsAccountsListResponse {
+func (o *ListUserAccountsResponse) GetTwoHundredApplicationJSONAccountsListResponse() *ListUserAccountsAccountsListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.AccountsListResponse
+	return o.TwoHundredApplicationJSONAccountsListResponse
 }
 
 func (o *ListUserAccountsResponse) GetContentType() string {

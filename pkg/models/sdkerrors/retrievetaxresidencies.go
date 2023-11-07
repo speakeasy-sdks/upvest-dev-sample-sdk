@@ -7,6 +7,206 @@ import (
 	"net/http"
 )
 
+// RetrieveTaxResidenciesTaxesResponse504Error - Gateway Timeout. The service gateway has reached its internal timeout.
+type RetrieveTaxResidenciesTaxesResponse504Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesResponse504Error{}
+
+func (e *RetrieveTaxResidenciesTaxesResponse504Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// RetrieveTaxResidenciesTaxesResponse503Error - Service Unavailable. The service handling for this request cannot be reached at this time.
+type RetrieveTaxResidenciesTaxesResponse503Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesResponse503Error{}
+
+func (e *RetrieveTaxResidenciesTaxesResponse503Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// RetrieveTaxResidenciesTaxesResponse500Error - Internal Server Error. The service encountered an unexpected error.
+type RetrieveTaxResidenciesTaxesResponse500Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesResponse500Error{}
+
+func (e *RetrieveTaxResidenciesTaxesResponse500Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// RetrieveTaxResidenciesTaxesResponse429Error - Too Many Requests. The caller has exceeded their quota for the time period and has been throttled.
+type RetrieveTaxResidenciesTaxesResponse429Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesResponse429Error{}
+
+func (e *RetrieveTaxResidenciesTaxesResponse429Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// RetrieveTaxResidenciesTaxesResponse406Error - Not Acceptable. The resource does not have a current representation that would be acceptable to the user agent. "Accept" header defined unsupported value.
+type RetrieveTaxResidenciesTaxesResponse406Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesResponse406Error{}
+
+func (e *RetrieveTaxResidenciesTaxesResponse406Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// RetrieveTaxResidenciesTaxesResponse405Error - Method Not Allowed. The requested method is not allowed on the requested resource.
+type RetrieveTaxResidenciesTaxesResponse405Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesResponse405Error{}
+
+func (e *RetrieveTaxResidenciesTaxesResponse405Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// RetrieveTaxResidenciesTaxesResponseError - Not Found. The requested resource could not be found.
+type RetrieveTaxResidenciesTaxesResponseError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesResponseError{}
+
+func (e *RetrieveTaxResidenciesTaxesResponseError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// RetrieveTaxResidenciesTaxesError - Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+type RetrieveTaxResidenciesTaxesError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &RetrieveTaxResidenciesTaxesError{}
+
+func (e *RetrieveTaxResidenciesTaxesError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
 // RetrieveTaxResidenciesError - Unauthorized. The caller has not been authenticated.
 type RetrieveTaxResidenciesError struct {
 	// Raw HTTP response; suitable for custom response parsing

@@ -9,24 +9,24 @@ import (
 	"net/http"
 )
 
-type TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations struct {
+type Allocations struct {
 	// List of allocations
 	Allocations []string `json:"allocations"`
 }
 
-func (o *TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations) GetAllocations() []string {
+func (o *Allocations) GetAllocations() []string {
 	if o == nil {
 		return []string{}
 	}
 	return o.Allocations
 }
 
-type TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts struct {
+type Accounts struct {
 	// List of accounts
 	Accounts []string `json:"accounts"`
 }
 
-func (o *TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts) GetAccounts() []string {
+func (o *Accounts) GetAccounts() []string {
 	if o == nil {
 		return []string{}
 	}
@@ -36,48 +36,48 @@ func (o *TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts) 
 type TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestType string
 
 const (
-	TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts    TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestType = "trigger_portfolio_rebalancing_Trigger portfolio rebalancing - Request_Accounts"
-	TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestType = "trigger_portfolio_rebalancing_Trigger portfolio rebalancing - Request_Allocations"
+	TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeAccounts    TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestType = "Accounts"
+	TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeAllocations TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestType = "Allocations"
 )
 
 type TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest struct {
-	TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts    *TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts
-	TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations *TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations
+	Accounts    *Accounts
+	Allocations *Allocations
 
 	Type TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestType
 }
 
-func CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts) TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest {
-	typ := TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts
+func CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(accounts Accounts) TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest {
+	typ := TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeAccounts
 
 	return TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest{
-		TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts: &triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts,
-		Type: typ,
+		Accounts: &accounts,
+		Type:     typ,
 	}
 }
 
-func CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations(triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations) TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest {
-	typ := TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations
+func CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations(allocations Allocations) TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest {
+	typ := TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeAllocations
 
 	return TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest{
-		TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations: &triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations,
-		Type: typ,
+		Allocations: &allocations,
+		Type:        typ,
 	}
 }
 
 func (u *TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest) UnmarshalJSON(data []byte) error {
 
-	triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts := TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts{}
-	if err := utils.UnmarshalJSON(data, &triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts, "", true, true); err == nil {
-		u.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts = &triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts
-		u.Type = TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts
+	accounts := Accounts{}
+	if err := utils.UnmarshalJSON(data, &accounts, "", true, true); err == nil {
+		u.Accounts = &accounts
+		u.Type = TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeAccounts
 		return nil
 	}
 
-	triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations := TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations{}
-	if err := utils.UnmarshalJSON(data, &triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations, "", true, true); err == nil {
-		u.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations = &triggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations
-		u.Type = TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations
+	allocations := Allocations{}
+	if err := utils.UnmarshalJSON(data, &allocations, "", true, true); err == nil {
+		u.Allocations = &allocations
+		u.Type = TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTypeAllocations
 		return nil
 	}
 
@@ -85,12 +85,12 @@ func (u *TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest) Unmarsha
 }
 
 func (u TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequest) MarshalJSON() ([]byte, error) {
-	if u.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts != nil {
-		return utils.MarshalJSON(u.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts, "", true)
+	if u.Accounts != nil {
+		return utils.MarshalJSON(u.Accounts, "", true)
 	}
 
-	if u.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations != nil {
-		return utils.MarshalJSON(u.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations, "", true)
+	if u.Allocations != nil {
+		return utils.MarshalJSON(u.Allocations, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -178,6 +178,8 @@ func (o *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse) GetID()
 }
 
 type TriggerPortfolioRebalancingResponse struct {
+	// Portfolio
+	TwoHundredApplicationJSONTriggerPortfolioRebalancingResponse *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -185,8 +187,13 @@ type TriggerPortfolioRebalancingResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Portfolio
-	TriggerPortfolioRebalancingResponse *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse
+}
+
+func (o *TriggerPortfolioRebalancingResponse) GetTwoHundredApplicationJSONTriggerPortfolioRebalancingResponse() *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONTriggerPortfolioRebalancingResponse
 }
 
 func (o *TriggerPortfolioRebalancingResponse) GetContentType() string {
@@ -215,11 +222,4 @@ func (o *TriggerPortfolioRebalancingResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *TriggerPortfolioRebalancingResponse) GetTriggerPortfolioRebalancingResponse() *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TriggerPortfolioRebalancingResponse
 }

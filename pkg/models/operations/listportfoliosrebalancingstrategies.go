@@ -11,28 +11,28 @@ import (
 	"time"
 )
 
-// ListPortfoliosRebalancingStrategiesSort - Sort the result by `id`.
-type ListPortfoliosRebalancingStrategiesSort string
+// ListPortfoliosRebalancingStrategiesQueryParamSort - Sort the result by `id`.
+type ListPortfoliosRebalancingStrategiesQueryParamSort string
 
 const (
-	ListPortfoliosRebalancingStrategiesSortID ListPortfoliosRebalancingStrategiesSort = "id"
+	ListPortfoliosRebalancingStrategiesQueryParamSortID ListPortfoliosRebalancingStrategiesQueryParamSort = "id"
 )
 
-func (e ListPortfoliosRebalancingStrategiesSort) ToPointer() *ListPortfoliosRebalancingStrategiesSort {
+func (e ListPortfoliosRebalancingStrategiesQueryParamSort) ToPointer() *ListPortfoliosRebalancingStrategiesQueryParamSort {
 	return &e
 }
 
-func (e *ListPortfoliosRebalancingStrategiesSort) UnmarshalJSON(data []byte) error {
+func (e *ListPortfoliosRebalancingStrategiesQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "id":
-		*e = ListPortfoliosRebalancingStrategiesSort(v)
+		*e = ListPortfoliosRebalancingStrategiesQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfoliosRebalancingStrategiesSort: %v", v)
+		return fmt.Errorf("invalid value for ListPortfoliosRebalancingStrategiesQueryParamSort: %v", v)
 	}
 }
 
@@ -48,7 +48,7 @@ type ListPortfoliosRebalancingStrategiesRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `id`.
-	Sort *ListPortfoliosRebalancingStrategiesSort `default:"id" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListPortfoliosRebalancingStrategiesQueryParamSort `default:"id" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -101,7 +101,7 @@ func (o *ListPortfoliosRebalancingStrategiesRequest) GetSignatureInput() string 
 	return o.SignatureInput
 }
 
-func (o *ListPortfoliosRebalancingStrategiesRequest) GetSort() *ListPortfoliosRebalancingStrategiesSort {
+func (o *ListPortfoliosRebalancingStrategiesRequest) GetSort() *ListPortfoliosRebalancingStrategiesQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -122,21 +122,21 @@ func (o *ListPortfoliosRebalancingStrategiesRequest) GetUpvestClientID() string 
 	return o.UpvestClientID
 }
 
-// ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType - The type of the strategy used in the request.
+// ListPortfoliosRebalancingStrategiesType - The type of the strategy used in the request.
 // * DRIFT - Trigger by drift percentage
 // * SCHEDULED - Trigger by scheduled date
-type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType string
+type ListPortfoliosRebalancingStrategiesType string
 
 const (
-	ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsTypeDrift     ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType = "DRIFT"
-	ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsTypeScheduled ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType = "SCHEDULED"
+	ListPortfoliosRebalancingStrategiesTypeDrift     ListPortfoliosRebalancingStrategiesType = "DRIFT"
+	ListPortfoliosRebalancingStrategiesTypeScheduled ListPortfoliosRebalancingStrategiesType = "SCHEDULED"
 )
 
-func (e ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType) ToPointer() *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType {
+func (e ListPortfoliosRebalancingStrategiesType) ToPointer() *ListPortfoliosRebalancingStrategiesType {
 	return &e
 }
 
-func (e *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType) UnmarshalJSON(data []byte) error {
+func (e *ListPortfoliosRebalancingStrategiesType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -145,14 +145,14 @@ func (e *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListRes
 	case "DRIFT":
 		fallthrough
 	case "SCHEDULED":
-		*e = ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType(v)
+		*e = ListPortfoliosRebalancingStrategiesType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType: %v", v)
+		return fmt.Errorf("invalid value for ListPortfoliosRebalancingStrategiesType: %v", v)
 	}
 }
 
-type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions struct {
+type ListPortfoliosRebalancingStrategiesConditions struct {
 	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
@@ -161,44 +161,44 @@ type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListRespons
 	// The type of the strategy used in the request.
 	// * DRIFT - Trigger by drift percentage
 	// * SCHEDULED - Trigger by scheduled date
-	Type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType `json:"type"`
+	Type ListPortfoliosRebalancingStrategiesType `json:"type"`
 }
 
-func (l ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions) MarshalJSON() ([]byte, error) {
+func (l ListPortfoliosRebalancingStrategiesConditions) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions) UnmarshalJSON(data []byte) error {
+func (l *ListPortfoliosRebalancingStrategiesConditions) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions) GetAdditionalProperties() map[string]interface{} {
+func (o *ListPortfoliosRebalancingStrategiesConditions) GetAdditionalProperties() map[string]interface{} {
 	if o == nil {
 		return nil
 	}
 	return o.AdditionalProperties
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions) GetName() string {
+func (o *ListPortfoliosRebalancingStrategiesConditions) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions) GetType() ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType {
+func (o *ListPortfoliosRebalancingStrategiesConditions) GetType() ListPortfoliosRebalancingStrategiesType {
 	if o == nil {
-		return ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditionsType("")
+		return ListPortfoliosRebalancingStrategiesType("")
 	}
 	return o.Type
 }
 
-type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy struct {
+type PortfoliosRebalancingStrategy struct {
 	// List of conditions
-	Conditions []ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions `json:"conditions"`
+	Conditions []ListPortfoliosRebalancingStrategiesConditions `json:"conditions"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	ID        string    `json:"id"`
@@ -208,67 +208,67 @@ type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListRespons
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (l ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (p PortfoliosRebalancingStrategy) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
 }
 
-func (l *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (p *PortfoliosRebalancingStrategy) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy) GetConditions() []ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions {
+func (o *PortfoliosRebalancingStrategy) GetConditions() []ListPortfoliosRebalancingStrategiesConditions {
 	if o == nil {
-		return []ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategyConditions{}
+		return []ListPortfoliosRebalancingStrategiesConditions{}
 	}
 	return o.Conditions
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy) GetCreatedAt() time.Time {
+func (o *PortfoliosRebalancingStrategy) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy) GetID() string {
+func (o *PortfoliosRebalancingStrategy) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy) GetName() string {
+func (o *PortfoliosRebalancingStrategy) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy) GetUpdatedAt() time.Time {
+func (o *PortfoliosRebalancingStrategy) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-// ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder - The ordering of the response.
+// ListPortfoliosRebalancingStrategiesOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder string
+type ListPortfoliosRebalancingStrategiesOrder string
 
 const (
-	ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrderAsc  ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder = "ASC"
-	ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrderDesc ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder = "DESC"
+	ListPortfoliosRebalancingStrategiesOrderAsc  ListPortfoliosRebalancingStrategiesOrder = "ASC"
+	ListPortfoliosRebalancingStrategiesOrderDesc ListPortfoliosRebalancingStrategiesOrder = "DESC"
 )
 
-func (e ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder) ToPointer() *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder {
+func (e ListPortfoliosRebalancingStrategiesOrder) ToPointer() *ListPortfoliosRebalancingStrategiesOrder {
 	return &e
 }
 
-func (e *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListPortfoliosRebalancingStrategiesOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -277,14 +277,14 @@ func (e *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListRes
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder(v)
+		*e = ListPortfoliosRebalancingStrategiesOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListPortfoliosRebalancingStrategiesOrder: %v", v)
 	}
 }
 
-type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta struct {
+type ListPortfoliosRebalancingStrategiesMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -294,49 +294,49 @@ type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListRespons
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListPortfoliosRebalancingStrategiesOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta) GetCount() int64 {
+func (o *ListPortfoliosRebalancingStrategiesMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta) GetLimit() int64 {
+func (o *ListPortfoliosRebalancingStrategiesMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta) GetOffset() int64 {
+func (o *ListPortfoliosRebalancingStrategiesMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta) GetOrder() *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMetaOrder {
+func (o *ListPortfoliosRebalancingStrategiesMeta) GetOrder() *ListPortfoliosRebalancingStrategiesOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta) GetSort() *string {
+func (o *ListPortfoliosRebalancingStrategiesMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta) GetTotalCount() int64 {
+func (o *ListPortfoliosRebalancingStrategiesMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -345,34 +345,41 @@ func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListRes
 
 // ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse - Portfolios
 type ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse struct {
-	Data []ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy `json:"data"`
-	Meta ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta                            `json:"meta"`
+	Data []PortfoliosRebalancingStrategy         `json:"data"`
+	Meta ListPortfoliosRebalancingStrategiesMeta `json:"meta"`
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse) GetData() []ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy {
+func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse) GetData() []PortfoliosRebalancingStrategy {
 	if o == nil {
-		return []ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponsePortfoliosRebalancingStrategy{}
+		return []PortfoliosRebalancingStrategy{}
 	}
 	return o.Data
 }
 
-func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse) GetMeta() ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta {
+func (o *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse) GetMeta() ListPortfoliosRebalancingStrategiesMeta {
 	if o == nil {
-		return ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponseMeta{}
+		return ListPortfoliosRebalancingStrategiesMeta{}
 	}
 	return o.Meta
 }
 
 type ListPortfoliosRebalancingStrategiesResponse struct {
+	// Portfolios
+	TwoHundredApplicationJSONPortfoliosRebalancingStrategyListResponse *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios
-	PortfoliosRebalancingStrategyListResponse *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListPortfoliosRebalancingStrategiesResponse) GetTwoHundredApplicationJSONPortfoliosRebalancingStrategyListResponse() *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosRebalancingStrategyListResponse
 }
 
 func (o *ListPortfoliosRebalancingStrategiesResponse) GetContentType() string {
@@ -387,13 +394,6 @@ func (o *ListPortfoliosRebalancingStrategiesResponse) GetHeaders() map[string][]
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListPortfoliosRebalancingStrategiesResponse) GetPortfoliosRebalancingStrategyListResponse() *ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosRebalancingStrategyListResponse
 }
 
 func (o *ListPortfoliosRebalancingStrategiesResponse) GetStatusCode() int {

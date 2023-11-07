@@ -7,6 +7,231 @@ import (
 	"net/http"
 )
 
+// ListAccountValuationHistoryValuationsResponse504Error - Gateway Timeout. The service gateway has reached its internal timeout.
+type ListAccountValuationHistoryValuationsResponse504Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponse504Error{}
+
+func (e *ListAccountValuationHistoryValuationsResponse504Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsResponse503Error - Service Unavailable. The service handling for this request cannot be reached at this time.
+type ListAccountValuationHistoryValuationsResponse503Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponse503Error{}
+
+func (e *ListAccountValuationHistoryValuationsResponse503Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsResponse500Error - Internal Server Error. The service encountered an unexpected error.
+type ListAccountValuationHistoryValuationsResponse500Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponse500Error{}
+
+func (e *ListAccountValuationHistoryValuationsResponse500Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsResponse429Error - Too Many Requests. The caller has exceeded their quota for the time period and has been throttled.
+type ListAccountValuationHistoryValuationsResponse429Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponse429Error{}
+
+func (e *ListAccountValuationHistoryValuationsResponse429Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsResponse406Error - Not Acceptable. The resource does not have a current representation that would be acceptable to the user agent. "Accept" header defined unsupported value.
+type ListAccountValuationHistoryValuationsResponse406Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponse406Error{}
+
+func (e *ListAccountValuationHistoryValuationsResponse406Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsResponse405Error - Method Not Allowed. The requested method is not allowed on the requested resource.
+type ListAccountValuationHistoryValuationsResponse405Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponse405Error{}
+
+func (e *ListAccountValuationHistoryValuationsResponse405Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsResponse404Error - Not Found. The requested resource could not be found.
+type ListAccountValuationHistoryValuationsResponse404Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponse404Error{}
+
+func (e *ListAccountValuationHistoryValuationsResponse404Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsResponseError - Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+type ListAccountValuationHistoryValuationsResponseError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsResponseError{}
+
+func (e *ListAccountValuationHistoryValuationsResponseError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListAccountValuationHistoryValuationsError - Unauthorized. The caller has not been authenticated.
+type ListAccountValuationHistoryValuationsError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListAccountValuationHistoryValuationsError{}
+
+func (e *ListAccountValuationHistoryValuationsError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
 // ListAccountValuationHistoryError - Bad Request. The incoming request had a malformed parameter/object.
 type ListAccountValuationHistoryError struct {
 	// Raw HTTP response; suitable for custom response parsing

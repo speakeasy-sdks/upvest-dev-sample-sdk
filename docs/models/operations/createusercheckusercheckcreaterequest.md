@@ -3,21 +3,21 @@
 
 ## Supported Types
 
-### CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
+### UserCheckKnowYourCustomerCreateRequest
 
 ```go
-createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest(operations.CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest{/* values here */})
+createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest(operations.UserCheckKnowYourCustomerCreateRequest{/* values here */})
 ```
 
-### CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
+### UserCheckProofOfResidencyCreateRequest
 
 ```go
-createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(operations.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest{/* values here */})
+createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(operations.UserCheckProofOfResidencyCreateRequest{/* values here */})
 ```
 
-### CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest
+### UserCheckInstrumentFitCreateRequest
 
 ```go
-createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest(operations.CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest{/* values here */})
+createUserCheckUserCheckCreateRequest := operations.CreateCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest(operations.UserCheckInstrumentFitCreateRequest{/* values here */})
 ```
 

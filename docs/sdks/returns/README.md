@@ -1,5 +1,5 @@
 # Returns
-(*Returns*)
+(*.Returns*)
 
 ## Overview
 
@@ -43,7 +43,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountReturnListResponse != nil {
+    if res.TwoHundredApplicationJSONAccountReturnListResponse != nil {
         // handle response
     }
 }

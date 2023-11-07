@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListInstrumentsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListInstrumentsOrder string
+// Order - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type Order string
 
 const (
-	ListInstrumentsOrderAsc  ListInstrumentsOrder = "ASC"
-	ListInstrumentsOrderDesc ListInstrumentsOrder = "DESC"
+	OrderAsc  Order = "ASC"
+	OrderDesc Order = "DESC"
 )
 
-func (e ListInstrumentsOrder) ToPointer() *ListInstrumentsOrder {
+func (e Order) ToPointer() *Order {
 	return &e
 }
 
-func (e *ListInstrumentsOrder) UnmarshalJSON(data []byte) error {
+func (e *Order) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,26 +32,26 @@ func (e *ListInstrumentsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListInstrumentsOrder(v)
+		*e = Order(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListInstrumentsOrder: %v", v)
+		return fmt.Errorf("invalid value for Order: %v", v)
 	}
 }
 
-// ListInstrumentsSort - Sort the result by `created_at` or `updated_at`.
-type ListInstrumentsSort string
+// ListInstrumentsQueryParamSort - Sort the result by `created_at` or `updated_at`.
+type ListInstrumentsQueryParamSort string
 
 const (
-	ListInstrumentsSortCreatedAt ListInstrumentsSort = "created_at"
-	ListInstrumentsSortUpdatedAt ListInstrumentsSort = "updated_at"
+	ListInstrumentsQueryParamSortCreatedAt ListInstrumentsQueryParamSort = "created_at"
+	ListInstrumentsQueryParamSortUpdatedAt ListInstrumentsQueryParamSort = "updated_at"
 )
 
-func (e ListInstrumentsSort) ToPointer() *ListInstrumentsSort {
+func (e ListInstrumentsQueryParamSort) ToPointer() *ListInstrumentsQueryParamSort {
 	return &e
 }
 
-func (e *ListInstrumentsSort) UnmarshalJSON(data []byte) error {
+func (e *ListInstrumentsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -60,28 +60,28 @@ func (e *ListInstrumentsSort) UnmarshalJSON(data []byte) error {
 	case "created_at":
 		fallthrough
 	case "updated_at":
-		*e = ListInstrumentsSort(v)
+		*e = ListInstrumentsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListInstrumentsSort: %v", v)
+		return fmt.Errorf("invalid value for ListInstrumentsQueryParamSort: %v", v)
 	}
 }
 
-// ListInstrumentsTradingStatusInstrumentTradingStatus - Instrument trading status
+// InstrumentTradingStatus - Instrument trading status
 // * ACTIVE - The instrument can currently be traded on the Upvest platform.
 // * INACTIVE - The instrument cannot currently be traded on the Upvest platform.
-type ListInstrumentsTradingStatusInstrumentTradingStatus string
+type InstrumentTradingStatus string
 
 const (
-	ListInstrumentsTradingStatusInstrumentTradingStatusActive   ListInstrumentsTradingStatusInstrumentTradingStatus = "ACTIVE"
-	ListInstrumentsTradingStatusInstrumentTradingStatusInactive ListInstrumentsTradingStatusInstrumentTradingStatus = "INACTIVE"
+	InstrumentTradingStatusActive   InstrumentTradingStatus = "ACTIVE"
+	InstrumentTradingStatusInactive InstrumentTradingStatus = "INACTIVE"
 )
 
-func (e ListInstrumentsTradingStatusInstrumentTradingStatus) ToPointer() *ListInstrumentsTradingStatusInstrumentTradingStatus {
+func (e InstrumentTradingStatus) ToPointer() *InstrumentTradingStatus {
 	return &e
 }
 
-func (e *ListInstrumentsTradingStatusInstrumentTradingStatus) UnmarshalJSON(data []byte) error {
+func (e *InstrumentTradingStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -90,10 +90,10 @@ func (e *ListInstrumentsTradingStatusInstrumentTradingStatus) UnmarshalJSON(data
 	case "ACTIVE":
 		fallthrough
 	case "INACTIVE":
-		*e = ListInstrumentsTradingStatusInstrumentTradingStatus(v)
+		*e = InstrumentTradingStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListInstrumentsTradingStatusInstrumentTradingStatus: %v", v)
+		return fmt.Errorf("invalid value for InstrumentTradingStatus: %v", v)
 	}
 }
 
@@ -103,15 +103,15 @@ type ListInstrumentsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListInstrumentsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *Order `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `created_at` or `updated_at`.
-	Sort *ListInstrumentsSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListInstrumentsQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Filters the list to only show instruments with a certain status (e.g. only instruments that can be currently traded).
-	TradingStatus *ListInstrumentsTradingStatusInstrumentTradingStatus `queryParam:"style=form,explode=true,name=trading_status"`
+	TradingStatus *InstrumentTradingStatus `queryParam:"style=form,explode=true,name=trading_status"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -143,7 +143,7 @@ func (o *ListInstrumentsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListInstrumentsRequest) GetOrder() *ListInstrumentsOrder {
+func (o *ListInstrumentsRequest) GetOrder() *Order {
 	if o == nil {
 		return nil
 	}
@@ -164,14 +164,14 @@ func (o *ListInstrumentsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListInstrumentsRequest) GetSort() *ListInstrumentsSort {
+func (o *ListInstrumentsRequest) GetSort() *ListInstrumentsQueryParamSort {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListInstrumentsRequest) GetTradingStatus() *ListInstrumentsTradingStatusInstrumentTradingStatus {
+func (o *ListInstrumentsRequest) GetTradingStatus() *InstrumentTradingStatus {
 	if o == nil {
 		return nil
 	}
@@ -192,21 +192,21 @@ func (o *ListInstrumentsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus - Instrument trading status
+// ListInstrumentsInstrumentTradingStatus - Instrument trading status
 // * ACTIVE - The instrument can currently be traded on the Upvest platform.
 // * INACTIVE - The instrument cannot currently be traded on the Upvest platform.
-type ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus string
+type ListInstrumentsInstrumentTradingStatus string
 
 const (
-	ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatusActive   ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus = "ACTIVE"
-	ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatusInactive ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus = "INACTIVE"
+	ListInstrumentsInstrumentTradingStatusActive   ListInstrumentsInstrumentTradingStatus = "ACTIVE"
+	ListInstrumentsInstrumentTradingStatusInactive ListInstrumentsInstrumentTradingStatus = "INACTIVE"
 )
 
-func (e ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus) ToPointer() *ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus {
+func (e ListInstrumentsInstrumentTradingStatus) ToPointer() *ListInstrumentsInstrumentTradingStatus {
 	return &e
 }
 
-func (e *ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus) UnmarshalJSON(data []byte) error {
+func (e *ListInstrumentsInstrumentTradingStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -215,14 +215,14 @@ func (e *ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus) Unma
 	case "ACTIVE":
 		fallthrough
 	case "INACTIVE":
-		*e = ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus(v)
+		*e = ListInstrumentsInstrumentTradingStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus: %v", v)
+		return fmt.Errorf("invalid value for ListInstrumentsInstrumentTradingStatus: %v", v)
 	}
 }
 
-type ListInstrumentsInstrumentsListResponseData struct {
+type Data struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Determines whether the platform can handle fractional investments within this instrument.
@@ -236,95 +236,95 @@ type ListInstrumentsInstrumentsListResponseData struct {
 	// Instrument trading status
 	// * ACTIVE - The instrument can currently be traded on the Upvest platform.
 	// * INACTIVE - The instrument cannot currently be traded on the Upvest platform.
-	TradingStatus ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus `json:"trading_status"`
+	TradingStatus ListInstrumentsInstrumentTradingStatus `json:"trading_status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// German securities identification code known as [Wertpapierkennnummer](https://en.wikipedia.org/wiki/Wertpapierkennnummer).
 	Wkn *string `json:"wkn,omitempty"`
 }
 
-func (l ListInstrumentsInstrumentsListResponseData) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (d Data) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
 }
 
-func (l *ListInstrumentsInstrumentsListResponseData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (d *Data) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetCreatedAt() time.Time {
+func (o *Data) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetFractionalTrading() bool {
+func (o *Data) GetFractionalTrading() bool {
 	if o == nil {
 		return false
 	}
 	return o.FractionalTrading
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetID() string {
+func (o *Data) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetIsin() *string {
+func (o *Data) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetName() string {
+func (o *Data) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetTradingStatus() ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus {
+func (o *Data) GetTradingStatus() ListInstrumentsInstrumentTradingStatus {
 	if o == nil {
-		return ListInstrumentsInstrumentsListResponseDataInstrumentTradingStatus("")
+		return ListInstrumentsInstrumentTradingStatus("")
 	}
 	return o.TradingStatus
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetUpdatedAt() time.Time {
+func (o *Data) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListInstrumentsInstrumentsListResponseData) GetWkn() *string {
+func (o *Data) GetWkn() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Wkn
 }
 
-// ListInstrumentsInstrumentsListResponseMetaOrder - The ordering of the response.
+// ListInstrumentsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListInstrumentsInstrumentsListResponseMetaOrder string
+type ListInstrumentsOrder string
 
 const (
-	ListInstrumentsInstrumentsListResponseMetaOrderAsc  ListInstrumentsInstrumentsListResponseMetaOrder = "ASC"
-	ListInstrumentsInstrumentsListResponseMetaOrderDesc ListInstrumentsInstrumentsListResponseMetaOrder = "DESC"
+	ListInstrumentsOrderAsc  ListInstrumentsOrder = "ASC"
+	ListInstrumentsOrderDesc ListInstrumentsOrder = "DESC"
 )
 
-func (e ListInstrumentsInstrumentsListResponseMetaOrder) ToPointer() *ListInstrumentsInstrumentsListResponseMetaOrder {
+func (e ListInstrumentsOrder) ToPointer() *ListInstrumentsOrder {
 	return &e
 }
 
-func (e *ListInstrumentsInstrumentsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListInstrumentsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -333,14 +333,14 @@ func (e *ListInstrumentsInstrumentsListResponseMetaOrder) UnmarshalJSON(data []b
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListInstrumentsInstrumentsListResponseMetaOrder(v)
+		*e = ListInstrumentsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListInstrumentsInstrumentsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListInstrumentsOrder: %v", v)
 	}
 }
 
-type ListInstrumentsInstrumentsListResponseMeta struct {
+type ListInstrumentsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -350,49 +350,49 @@ type ListInstrumentsInstrumentsListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListInstrumentsInstrumentsListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListInstrumentsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListInstrumentsInstrumentsListResponseMeta) GetCount() int64 {
+func (o *ListInstrumentsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListInstrumentsInstrumentsListResponseMeta) GetLimit() int64 {
+func (o *ListInstrumentsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListInstrumentsInstrumentsListResponseMeta) GetOffset() int64 {
+func (o *ListInstrumentsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListInstrumentsInstrumentsListResponseMeta) GetOrder() *ListInstrumentsInstrumentsListResponseMetaOrder {
+func (o *ListInstrumentsMeta) GetOrder() *ListInstrumentsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListInstrumentsInstrumentsListResponseMeta) GetSort() *string {
+func (o *ListInstrumentsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListInstrumentsInstrumentsListResponseMeta) GetTotalCount() int64 {
+func (o *ListInstrumentsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -401,34 +401,41 @@ func (o *ListInstrumentsInstrumentsListResponseMeta) GetTotalCount() int64 {
 
 // ListInstrumentsInstrumentsListResponse - Instruments list
 type ListInstrumentsInstrumentsListResponse struct {
-	Data []ListInstrumentsInstrumentsListResponseData `json:"data"`
-	Meta ListInstrumentsInstrumentsListResponseMeta   `json:"meta"`
+	Data []Data              `json:"data"`
+	Meta ListInstrumentsMeta `json:"meta"`
 }
 
-func (o *ListInstrumentsInstrumentsListResponse) GetData() []ListInstrumentsInstrumentsListResponseData {
+func (o *ListInstrumentsInstrumentsListResponse) GetData() []Data {
 	if o == nil {
-		return []ListInstrumentsInstrumentsListResponseData{}
+		return []Data{}
 	}
 	return o.Data
 }
 
-func (o *ListInstrumentsInstrumentsListResponse) GetMeta() ListInstrumentsInstrumentsListResponseMeta {
+func (o *ListInstrumentsInstrumentsListResponse) GetMeta() ListInstrumentsMeta {
 	if o == nil {
-		return ListInstrumentsInstrumentsListResponseMeta{}
+		return ListInstrumentsMeta{}
 	}
 	return o.Meta
 }
 
 type ListInstrumentsResponse struct {
+	// Instruments list
+	TwoHundredApplicationJSONInstrumentsListResponse *ListInstrumentsInstrumentsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Instruments list
-	InstrumentsListResponse *ListInstrumentsInstrumentsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListInstrumentsResponse) GetTwoHundredApplicationJSONInstrumentsListResponse() *ListInstrumentsInstrumentsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONInstrumentsListResponse
 }
 
 func (o *ListInstrumentsResponse) GetContentType() string {
@@ -443,13 +450,6 @@ func (o *ListInstrumentsResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListInstrumentsResponse) GetInstrumentsListResponse() *ListInstrumentsInstrumentsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.InstrumentsListResponse
 }
 
 func (o *ListInstrumentsResponse) GetStatusCode() int {

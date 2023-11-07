@@ -13,19 +13,19 @@ import (
 	"time"
 )
 
-// ListReportsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListReportsOrder string
+// ListReportsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListReportsQueryParamOrder string
 
 const (
-	ListReportsOrderAsc  ListReportsOrder = "ASC"
-	ListReportsOrderDesc ListReportsOrder = "DESC"
+	ListReportsQueryParamOrderAsc  ListReportsQueryParamOrder = "ASC"
+	ListReportsQueryParamOrderDesc ListReportsQueryParamOrder = "DESC"
 )
 
-func (e ListReportsOrder) ToPointer() *ListReportsOrder {
+func (e ListReportsQueryParamOrder) ToPointer() *ListReportsQueryParamOrder {
 	return &e
 }
 
-func (e *ListReportsOrder) UnmarshalJSON(data []byte) error {
+func (e *ListReportsQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,27 +34,27 @@ func (e *ListReportsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListReportsOrder(v)
+		*e = ListReportsQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReportsOrder: %v", v)
+		return fmt.Errorf("invalid value for ListReportsQueryParamOrder: %v", v)
 	}
 }
 
-// ListReportsSort - Field of resource to sort by
-type ListReportsSort string
+// ListReportsQueryParamSort - Field of resource to sort by
+type ListReportsQueryParamSort string
 
 const (
-	ListReportsSortID        ListReportsSort = "id"
-	ListReportsSortType      ListReportsSort = "type"
-	ListReportsSortCreatedAt ListReportsSort = "created_at"
+	ListReportsQueryParamSortID        ListReportsQueryParamSort = "id"
+	ListReportsQueryParamSortType      ListReportsQueryParamSort = "type"
+	ListReportsQueryParamSortCreatedAt ListReportsQueryParamSort = "created_at"
 )
 
-func (e ListReportsSort) ToPointer() *ListReportsSort {
+func (e ListReportsQueryParamSort) ToPointer() *ListReportsQueryParamSort {
 	return &e
 }
 
-func (e *ListReportsSort) UnmarshalJSON(data []byte) error {
+func (e *ListReportsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -65,14 +65,14 @@ func (e *ListReportsSort) UnmarshalJSON(data []byte) error {
 	case "type":
 		fallthrough
 	case "created_at":
-		*e = ListReportsSort(v)
+		*e = ListReportsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReportsSort: %v", v)
+		return fmt.Errorf("invalid value for ListReportsQueryParamSort: %v", v)
 	}
 }
 
-// ListReportsTypeReportType - Report type
+// ReportType - Report type
 // * BUY_ORDER - Buy order
 // * SELL_ORDER - Sell order
 // * INCOME_DISTRIBUTION - Income distribution report
@@ -93,36 +93,36 @@ func (e *ListReportsSort) UnmarshalJSON(data []byte) error {
 // * BANK_ACCOUNT_CONNECTED - Connect reference bank account
 // * AD_HOC_ACCOUNT_STATEMENT - Ad hoc account statement
 // * EX_POST_COST - Ex-post cost report
-type ListReportsTypeReportType string
+type ReportType string
 
 const (
-	ListReportsTypeReportTypeBuyOrder                   ListReportsTypeReportType = "BUY_ORDER"
-	ListReportsTypeReportTypeSellOrder                  ListReportsTypeReportType = "SELL_ORDER"
-	ListReportsTypeReportTypeIncomeDistribution         ListReportsTypeReportType = "INCOME_DISTRIBUTION"
-	ListReportsTypeReportTypeGeneralMeetingNotification ListReportsTypeReportType = "GENERAL_MEETING_NOTIFICATION"
-	ListReportsTypeReportTypeIncomeReinvestment         ListReportsTypeReportType = "INCOME_REINVESTMENT"
-	ListReportsTypeReportTypeFundCommunication          ListReportsTypeReportType = "FUND_COMMUNICATION"
-	ListReportsTypeReportTypeTaxRefund                  ListReportsTypeReportType = "TAX_REFUND"
-	ListReportsTypeReportTypeTaxExemptionCreation       ListReportsTypeReportType = "TAX_EXEMPTION_CREATION"
-	ListReportsTypeReportTypeCancelledOrder             ListReportsTypeReportType = "CANCELLED_ORDER"
-	ListReportsTypeReportTypeRevokedOrder               ListReportsTypeReportType = "REVOKED_ORDER"
-	ListReportsTypeReportTypeAccountOpening             ListReportsTypeReportType = "ACCOUNT_OPENING"
-	ListReportsTypeReportTypeAccountClosing             ListReportsTypeReportType = "ACCOUNT_CLOSING"
-	ListReportsTypeReportTypeDirectDebitMandate         ListReportsTypeReportType = "DIRECT_DEBIT_MANDATE"
-	ListReportsTypeReportTypeAnnualTaxStatement         ListReportsTypeReportType = "ANNUAL_TAX_STATEMENT"
-	ListReportsTypeReportTypeAnnualAccountStatement     ListReportsTypeReportType = "ANNUAL_ACCOUNT_STATEMENT"
-	ListReportsTypeReportTypeAnnualIncomeStatement      ListReportsTypeReportType = "ANNUAL_INCOME_STATEMENT"
-	ListReportsTypeReportTypeGenericCommunication       ListReportsTypeReportType = "GENERIC_COMMUNICATION"
-	ListReportsTypeReportTypeBankAccountConnected       ListReportsTypeReportType = "BANK_ACCOUNT_CONNECTED"
-	ListReportsTypeReportTypeAdHocAccountStatement      ListReportsTypeReportType = "AD_HOC_ACCOUNT_STATEMENT"
-	ListReportsTypeReportTypeExPostCost                 ListReportsTypeReportType = "EX_POST_COST"
+	ReportTypeBuyOrder                   ReportType = "BUY_ORDER"
+	ReportTypeSellOrder                  ReportType = "SELL_ORDER"
+	ReportTypeIncomeDistribution         ReportType = "INCOME_DISTRIBUTION"
+	ReportTypeGeneralMeetingNotification ReportType = "GENERAL_MEETING_NOTIFICATION"
+	ReportTypeIncomeReinvestment         ReportType = "INCOME_REINVESTMENT"
+	ReportTypeFundCommunication          ReportType = "FUND_COMMUNICATION"
+	ReportTypeTaxRefund                  ReportType = "TAX_REFUND"
+	ReportTypeTaxExemptionCreation       ReportType = "TAX_EXEMPTION_CREATION"
+	ReportTypeCancelledOrder             ReportType = "CANCELLED_ORDER"
+	ReportTypeRevokedOrder               ReportType = "REVOKED_ORDER"
+	ReportTypeAccountOpening             ReportType = "ACCOUNT_OPENING"
+	ReportTypeAccountClosing             ReportType = "ACCOUNT_CLOSING"
+	ReportTypeDirectDebitMandate         ReportType = "DIRECT_DEBIT_MANDATE"
+	ReportTypeAnnualTaxStatement         ReportType = "ANNUAL_TAX_STATEMENT"
+	ReportTypeAnnualAccountStatement     ReportType = "ANNUAL_ACCOUNT_STATEMENT"
+	ReportTypeAnnualIncomeStatement      ReportType = "ANNUAL_INCOME_STATEMENT"
+	ReportTypeGenericCommunication       ReportType = "GENERIC_COMMUNICATION"
+	ReportTypeBankAccountConnected       ReportType = "BANK_ACCOUNT_CONNECTED"
+	ReportTypeAdHocAccountStatement      ReportType = "AD_HOC_ACCOUNT_STATEMENT"
+	ReportTypeExPostCost                 ReportType = "EX_POST_COST"
 )
 
-func (e ListReportsTypeReportType) ToPointer() *ListReportsTypeReportType {
+func (e ReportType) ToPointer() *ReportType {
 	return &e
 }
 
-func (e *ListReportsTypeReportType) UnmarshalJSON(data []byte) error {
+func (e *ReportType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -167,10 +167,10 @@ func (e *ListReportsTypeReportType) UnmarshalJSON(data []byte) error {
 	case "AD_HOC_ACCOUNT_STATEMENT":
 		fallthrough
 	case "EX_POST_COST":
-		*e = ListReportsTypeReportType(v)
+		*e = ReportType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReportsTypeReportType: %v", v)
+		return fmt.Errorf("invalid value for ReportType: %v", v)
 	}
 }
 
@@ -183,16 +183,16 @@ type ListReportsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListReportsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListReportsQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Field of resource to sort by
-	Sort      *ListReportsSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
-	StartDate *types.Date      `queryParam:"style=form,explode=true,name=start_date"`
+	Sort      *ListReportsQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	StartDate *types.Date                `queryParam:"style=form,explode=true,name=start_date"`
 	// Filters the list to only show reports of a certain type (e.g. only buy order confirmations)
-	Type *ListReportsTypeReportType `queryParam:"style=form,explode=true,name=type"`
+	Type *ReportType `queryParam:"style=form,explode=true,name=type"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -239,7 +239,7 @@ func (o *ListReportsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListReportsRequest) GetOrder() *ListReportsOrder {
+func (o *ListReportsRequest) GetOrder() *ListReportsQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -260,7 +260,7 @@ func (o *ListReportsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListReportsRequest) GetSort() *ListReportsSort {
+func (o *ListReportsRequest) GetSort() *ListReportsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -274,7 +274,7 @@ func (o *ListReportsRequest) GetStartDate() *types.Date {
 	return o.StartDate
 }
 
-func (o *ListReportsRequest) GetType() *ListReportsTypeReportType {
+func (o *ListReportsRequest) GetType() *ReportType {
 	if o == nil {
 		return nil
 	}
@@ -302,33 +302,33 @@ func (o *ListReportsRequest) GetUserID() string {
 	return o.UserID
 }
 
-// ListReportsReportsListResponseReportReportReportDataAccount - Account information.
-type ListReportsReportsListResponseReportReportReportDataAccount struct {
+// ListReportsAccount - Account information.
+type ListReportsAccount struct {
 	// Account unique identifier.
 	ID *string `json:"id,omitempty"`
 }
 
-func (o *ListReportsReportsListResponseReportReportReportDataAccount) GetID() *string {
+func (o *ListReportsAccount) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-// ListReportsReportsListResponseReportReportReportData - Contents of the report.
-type ListReportsReportsListResponseReportReportReportData struct {
+// ListReportsReportData - Contents of the report.
+type ListReportsReportData struct {
 	// Account information.
-	Account *ListReportsReportsListResponseReportReportReportDataAccount `json:"account,omitempty"`
+	Account *ListReportsAccount `json:"account,omitempty"`
 }
 
-func (o *ListReportsReportsListResponseReportReportReportData) GetAccount() *ListReportsReportsListResponseReportReportReportDataAccount {
+func (o *ListReportsReportData) GetAccount() *ListReportsAccount {
 	if o == nil {
 		return nil
 	}
 	return o.Account
 }
 
-// ListReportsReportsListResponseReportReportReportType - Report type
+// ListReportsReportType - Report type
 // * BUY_ORDER - Buy order
 // * SELL_ORDER - Sell order
 // * INCOME_DISTRIBUTION - Income distribution report
@@ -349,36 +349,36 @@ func (o *ListReportsReportsListResponseReportReportReportData) GetAccount() *Lis
 // * BANK_ACCOUNT_CONNECTED - Connect reference bank account
 // * AD_HOC_ACCOUNT_STATEMENT - Ad hoc account statement
 // * EX_POST_COST - Ex-post cost report
-type ListReportsReportsListResponseReportReportReportType string
+type ListReportsReportType string
 
 const (
-	ListReportsReportsListResponseReportReportReportTypeBuyOrder                   ListReportsReportsListResponseReportReportReportType = "BUY_ORDER"
-	ListReportsReportsListResponseReportReportReportTypeSellOrder                  ListReportsReportsListResponseReportReportReportType = "SELL_ORDER"
-	ListReportsReportsListResponseReportReportReportTypeIncomeDistribution         ListReportsReportsListResponseReportReportReportType = "INCOME_DISTRIBUTION"
-	ListReportsReportsListResponseReportReportReportTypeGeneralMeetingNotification ListReportsReportsListResponseReportReportReportType = "GENERAL_MEETING_NOTIFICATION"
-	ListReportsReportsListResponseReportReportReportTypeIncomeReinvestment         ListReportsReportsListResponseReportReportReportType = "INCOME_REINVESTMENT"
-	ListReportsReportsListResponseReportReportReportTypeFundCommunication          ListReportsReportsListResponseReportReportReportType = "FUND_COMMUNICATION"
-	ListReportsReportsListResponseReportReportReportTypeTaxRefund                  ListReportsReportsListResponseReportReportReportType = "TAX_REFUND"
-	ListReportsReportsListResponseReportReportReportTypeTaxExemptionCreation       ListReportsReportsListResponseReportReportReportType = "TAX_EXEMPTION_CREATION"
-	ListReportsReportsListResponseReportReportReportTypeCancelledOrder             ListReportsReportsListResponseReportReportReportType = "CANCELLED_ORDER"
-	ListReportsReportsListResponseReportReportReportTypeRevokedOrder               ListReportsReportsListResponseReportReportReportType = "REVOKED_ORDER"
-	ListReportsReportsListResponseReportReportReportTypeAccountOpening             ListReportsReportsListResponseReportReportReportType = "ACCOUNT_OPENING"
-	ListReportsReportsListResponseReportReportReportTypeAccountClosing             ListReportsReportsListResponseReportReportReportType = "ACCOUNT_CLOSING"
-	ListReportsReportsListResponseReportReportReportTypeDirectDebitMandate         ListReportsReportsListResponseReportReportReportType = "DIRECT_DEBIT_MANDATE"
-	ListReportsReportsListResponseReportReportReportTypeAnnualTaxStatement         ListReportsReportsListResponseReportReportReportType = "ANNUAL_TAX_STATEMENT"
-	ListReportsReportsListResponseReportReportReportTypeAnnualAccountStatement     ListReportsReportsListResponseReportReportReportType = "ANNUAL_ACCOUNT_STATEMENT"
-	ListReportsReportsListResponseReportReportReportTypeAnnualIncomeStatement      ListReportsReportsListResponseReportReportReportType = "ANNUAL_INCOME_STATEMENT"
-	ListReportsReportsListResponseReportReportReportTypeGenericCommunication       ListReportsReportsListResponseReportReportReportType = "GENERIC_COMMUNICATION"
-	ListReportsReportsListResponseReportReportReportTypeBankAccountConnected       ListReportsReportsListResponseReportReportReportType = "BANK_ACCOUNT_CONNECTED"
-	ListReportsReportsListResponseReportReportReportTypeAdHocAccountStatement      ListReportsReportsListResponseReportReportReportType = "AD_HOC_ACCOUNT_STATEMENT"
-	ListReportsReportsListResponseReportReportReportTypeExPostCost                 ListReportsReportsListResponseReportReportReportType = "EX_POST_COST"
+	ListReportsReportTypeBuyOrder                   ListReportsReportType = "BUY_ORDER"
+	ListReportsReportTypeSellOrder                  ListReportsReportType = "SELL_ORDER"
+	ListReportsReportTypeIncomeDistribution         ListReportsReportType = "INCOME_DISTRIBUTION"
+	ListReportsReportTypeGeneralMeetingNotification ListReportsReportType = "GENERAL_MEETING_NOTIFICATION"
+	ListReportsReportTypeIncomeReinvestment         ListReportsReportType = "INCOME_REINVESTMENT"
+	ListReportsReportTypeFundCommunication          ListReportsReportType = "FUND_COMMUNICATION"
+	ListReportsReportTypeTaxRefund                  ListReportsReportType = "TAX_REFUND"
+	ListReportsReportTypeTaxExemptionCreation       ListReportsReportType = "TAX_EXEMPTION_CREATION"
+	ListReportsReportTypeCancelledOrder             ListReportsReportType = "CANCELLED_ORDER"
+	ListReportsReportTypeRevokedOrder               ListReportsReportType = "REVOKED_ORDER"
+	ListReportsReportTypeAccountOpening             ListReportsReportType = "ACCOUNT_OPENING"
+	ListReportsReportTypeAccountClosing             ListReportsReportType = "ACCOUNT_CLOSING"
+	ListReportsReportTypeDirectDebitMandate         ListReportsReportType = "DIRECT_DEBIT_MANDATE"
+	ListReportsReportTypeAnnualTaxStatement         ListReportsReportType = "ANNUAL_TAX_STATEMENT"
+	ListReportsReportTypeAnnualAccountStatement     ListReportsReportType = "ANNUAL_ACCOUNT_STATEMENT"
+	ListReportsReportTypeAnnualIncomeStatement      ListReportsReportType = "ANNUAL_INCOME_STATEMENT"
+	ListReportsReportTypeGenericCommunication       ListReportsReportType = "GENERIC_COMMUNICATION"
+	ListReportsReportTypeBankAccountConnected       ListReportsReportType = "BANK_ACCOUNT_CONNECTED"
+	ListReportsReportTypeAdHocAccountStatement      ListReportsReportType = "AD_HOC_ACCOUNT_STATEMENT"
+	ListReportsReportTypeExPostCost                 ListReportsReportType = "EX_POST_COST"
 )
 
-func (e ListReportsReportsListResponseReportReportReportType) ToPointer() *ListReportsReportsListResponseReportReportReportType {
+func (e ListReportsReportType) ToPointer() *ListReportsReportType {
 	return &e
 }
 
-func (e *ListReportsReportsListResponseReportReportReportType) UnmarshalJSON(data []byte) error {
+func (e *ListReportsReportType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -423,18 +423,18 @@ func (e *ListReportsReportsListResponseReportReportReportType) UnmarshalJSON(dat
 	case "AD_HOC_ACCOUNT_STATEMENT":
 		fallthrough
 	case "EX_POST_COST":
-		*e = ListReportsReportsListResponseReportReportReportType(v)
+		*e = ListReportsReportType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReportsReportsListResponseReportReportReportType: %v", v)
+		return fmt.Errorf("invalid value for ListReportsReportType: %v", v)
 	}
 }
 
-type ListReportsReportsListResponseReportReport struct {
+type ListReportsReport struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Contents of the report.
-	Data *ListReportsReportsListResponseReportReportReportData `json:"data,omitempty"`
+	Data *ListReportsReportData `json:"data,omitempty"`
 	// Report unique identifier.
 	ID                  string  `json:"id"`
 	SubstitutedReportID *string `json:"substituted_report_id"`
@@ -459,120 +459,120 @@ type ListReportsReportsListResponseReportReport struct {
 	// * BANK_ACCOUNT_CONNECTED - Connect reference bank account
 	// * AD_HOC_ACCOUNT_STATEMENT - Ad hoc account statement
 	// * EX_POST_COST - Ex-post cost report
-	Type ListReportsReportsListResponseReportReportReportType `json:"type"`
+	Type ListReportsReportType `json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListReportsReportsListResponseReportReport) MarshalJSON() ([]byte, error) {
+func (l ListReportsReport) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListReportsReportsListResponseReportReport) UnmarshalJSON(data []byte) error {
+func (l *ListReportsReport) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListReportsReportsListResponseReportReport) GetCreatedAt() time.Time {
+func (o *ListReportsReport) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListReportsReportsListResponseReportReport) GetData() *ListReportsReportsListResponseReportReportReportData {
+func (o *ListReportsReport) GetData() *ListReportsReportData {
 	if o == nil {
 		return nil
 	}
 	return o.Data
 }
 
-func (o *ListReportsReportsListResponseReportReport) GetID() string {
+func (o *ListReportsReport) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListReportsReportsListResponseReportReport) GetSubstitutedReportID() *string {
+func (o *ListReportsReport) GetSubstitutedReportID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SubstitutedReportID
 }
 
-func (o *ListReportsReportsListResponseReportReport) GetType() ListReportsReportsListResponseReportReportReportType {
+func (o *ListReportsReport) GetType() ListReportsReportType {
 	if o == nil {
-		return ListReportsReportsListResponseReportReportReportType("")
+		return ListReportsReportType("")
 	}
 	return o.Type
 }
 
-func (o *ListReportsReportsListResponseReportReport) GetUserID() string {
+func (o *ListReportsReport) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-type ListReportsReportsListResponseReportType string
+type ReportUnionType string
 
 const (
-	ListReportsReportsListResponseReportTypeListReportsReportsListResponseReportReport ListReportsReportsListResponseReportType = "list_reports_Reports - List - Response_Report_Report"
+	ReportUnionTypeListReportsReport ReportUnionType = "list_reports_Report"
 )
 
-type ListReportsReportsListResponseReport struct {
-	ListReportsReportsListResponseReportReport *ListReportsReportsListResponseReportReport
+type Report struct {
+	ListReportsReport *ListReportsReport
 
-	Type ListReportsReportsListResponseReportType
+	Type ReportUnionType
 }
 
-func CreateListReportsReportsListResponseReportListReportsReportsListResponseReportReport(listReportsReportsListResponseReportReport ListReportsReportsListResponseReportReport) ListReportsReportsListResponseReport {
-	typ := ListReportsReportsListResponseReportTypeListReportsReportsListResponseReportReport
+func CreateReportListReportsReport(listReportsReport ListReportsReport) Report {
+	typ := ReportUnionTypeListReportsReport
 
-	return ListReportsReportsListResponseReport{
-		ListReportsReportsListResponseReportReport: &listReportsReportsListResponseReportReport,
-		Type: typ,
+	return Report{
+		ListReportsReport: &listReportsReport,
+		Type:              typ,
 	}
 }
 
-func (u *ListReportsReportsListResponseReport) UnmarshalJSON(data []byte) error {
+func (u *Report) UnmarshalJSON(data []byte) error {
 
-	listReportsReportsListResponseReportReport := ListReportsReportsListResponseReportReport{}
-	if err := utils.UnmarshalJSON(data, &listReportsReportsListResponseReportReport, "", true, true); err == nil {
-		u.ListReportsReportsListResponseReportReport = &listReportsReportsListResponseReportReport
-		u.Type = ListReportsReportsListResponseReportTypeListReportsReportsListResponseReportReport
+	listReportsReport := ListReportsReport{}
+	if err := utils.UnmarshalJSON(data, &listReportsReport, "", true, true); err == nil {
+		u.ListReportsReport = &listReportsReport
+		u.Type = ReportUnionTypeListReportsReport
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u ListReportsReportsListResponseReport) MarshalJSON() ([]byte, error) {
-	if u.ListReportsReportsListResponseReportReport != nil {
-		return utils.MarshalJSON(u.ListReportsReportsListResponseReportReport, "", true)
+func (u Report) MarshalJSON() ([]byte, error) {
+	if u.ListReportsReport != nil {
+		return utils.MarshalJSON(u.ListReportsReport, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
-// ListReportsReportsListResponseMetaOrder - The ordering of the response.
+// ListReportsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListReportsReportsListResponseMetaOrder string
+type ListReportsOrder string
 
 const (
-	ListReportsReportsListResponseMetaOrderAsc  ListReportsReportsListResponseMetaOrder = "ASC"
-	ListReportsReportsListResponseMetaOrderDesc ListReportsReportsListResponseMetaOrder = "DESC"
+	ListReportsOrderAsc  ListReportsOrder = "ASC"
+	ListReportsOrderDesc ListReportsOrder = "DESC"
 )
 
-func (e ListReportsReportsListResponseMetaOrder) ToPointer() *ListReportsReportsListResponseMetaOrder {
+func (e ListReportsOrder) ToPointer() *ListReportsOrder {
 	return &e
 }
 
-func (e *ListReportsReportsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListReportsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -581,14 +581,14 @@ func (e *ListReportsReportsListResponseMetaOrder) UnmarshalJSON(data []byte) err
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListReportsReportsListResponseMetaOrder(v)
+		*e = ListReportsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReportsReportsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListReportsOrder: %v", v)
 	}
 }
 
-type ListReportsReportsListResponseMeta struct {
+type ListReportsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -598,49 +598,49 @@ type ListReportsReportsListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order ListReportsReportsListResponseMetaOrder `json:"order"`
+	Order ListReportsOrder `json:"order"`
 	// The field that the list is sorted by.
 	Sort string `json:"sort"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListReportsReportsListResponseMeta) GetCount() int64 {
+func (o *ListReportsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListReportsReportsListResponseMeta) GetLimit() int64 {
+func (o *ListReportsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListReportsReportsListResponseMeta) GetOffset() int64 {
+func (o *ListReportsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListReportsReportsListResponseMeta) GetOrder() ListReportsReportsListResponseMetaOrder {
+func (o *ListReportsMeta) GetOrder() ListReportsOrder {
 	if o == nil {
-		return ListReportsReportsListResponseMetaOrder("")
+		return ListReportsOrder("")
 	}
 	return o.Order
 }
 
-func (o *ListReportsReportsListResponseMeta) GetSort() string {
+func (o *ListReportsMeta) GetSort() string {
 	if o == nil {
 		return ""
 	}
 	return o.Sort
 }
 
-func (o *ListReportsReportsListResponseMeta) GetTotalCount() int64 {
+func (o *ListReportsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -649,34 +649,41 @@ func (o *ListReportsReportsListResponseMeta) GetTotalCount() int64 {
 
 // ListReportsReportsListResponse - Reports list
 type ListReportsReportsListResponse struct {
-	Data []ListReportsReportsListResponseReport `json:"data"`
-	Meta ListReportsReportsListResponseMeta     `json:"meta"`
+	Data []Report        `json:"data"`
+	Meta ListReportsMeta `json:"meta"`
 }
 
-func (o *ListReportsReportsListResponse) GetData() []ListReportsReportsListResponseReport {
+func (o *ListReportsReportsListResponse) GetData() []Report {
 	if o == nil {
-		return []ListReportsReportsListResponseReport{}
+		return []Report{}
 	}
 	return o.Data
 }
 
-func (o *ListReportsReportsListResponse) GetMeta() ListReportsReportsListResponseMeta {
+func (o *ListReportsReportsListResponse) GetMeta() ListReportsMeta {
 	if o == nil {
-		return ListReportsReportsListResponseMeta{}
+		return ListReportsMeta{}
 	}
 	return o.Meta
 }
 
 type ListReportsResponse struct {
+	// Reports list
+	TwoHundredApplicationJSONReportsListResponse *ListReportsReportsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Reports list
-	ReportsListResponse *ListReportsReportsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListReportsResponse) GetTwoHundredApplicationJSONReportsListResponse() *ListReportsReportsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONReportsListResponse
 }
 
 func (o *ListReportsResponse) GetContentType() string {
@@ -691,13 +698,6 @@ func (o *ListReportsResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListReportsResponse) GetReportsListResponse() *ListReportsReportsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.ReportsListResponse
 }
 
 func (o *ListReportsResponse) GetStatusCode() int {

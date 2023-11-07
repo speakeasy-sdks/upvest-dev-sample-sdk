@@ -11,46 +11,46 @@ import (
 	"time"
 )
 
-// PlaceOrderOrderPlaceRequestCurrency - The currency for the order.
-type PlaceOrderOrderPlaceRequestCurrency string
+// PlaceOrderCurrency - The currency for the order.
+type PlaceOrderCurrency string
 
 const (
-	PlaceOrderOrderPlaceRequestCurrencyEur PlaceOrderOrderPlaceRequestCurrency = "EUR"
+	PlaceOrderCurrencyEur PlaceOrderCurrency = "EUR"
 )
 
-func (e PlaceOrderOrderPlaceRequestCurrency) ToPointer() *PlaceOrderOrderPlaceRequestCurrency {
+func (e PlaceOrderCurrency) ToPointer() *PlaceOrderCurrency {
 	return &e
 }
 
-func (e *PlaceOrderOrderPlaceRequestCurrency) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = PlaceOrderOrderPlaceRequestCurrency(v)
+		*e = PlaceOrderCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderPlaceRequestCurrency: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderCurrency: %v", v)
 	}
 }
 
-// PlaceOrderOrderPlaceRequestExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
+// ExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 // * STRAIGHT_THROUGH -
 // * BLOCK -
-type PlaceOrderOrderPlaceRequestExecutionFlow string
+type ExecutionFlow string
 
 const (
-	PlaceOrderOrderPlaceRequestExecutionFlowStraightThrough PlaceOrderOrderPlaceRequestExecutionFlow = "STRAIGHT_THROUGH"
-	PlaceOrderOrderPlaceRequestExecutionFlowBlock           PlaceOrderOrderPlaceRequestExecutionFlow = "BLOCK"
+	ExecutionFlowStraightThrough ExecutionFlow = "STRAIGHT_THROUGH"
+	ExecutionFlowBlock           ExecutionFlow = "BLOCK"
 )
 
-func (e PlaceOrderOrderPlaceRequestExecutionFlow) ToPointer() *PlaceOrderOrderPlaceRequestExecutionFlow {
+func (e ExecutionFlow) ToPointer() *ExecutionFlow {
 	return &e
 }
 
-func (e *PlaceOrderOrderPlaceRequestExecutionFlow) UnmarshalJSON(data []byte) error {
+func (e *ExecutionFlow) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -59,56 +59,56 @@ func (e *PlaceOrderOrderPlaceRequestExecutionFlow) UnmarshalJSON(data []byte) er
 	case "STRAIGHT_THROUGH":
 		fallthrough
 	case "BLOCK":
-		*e = PlaceOrderOrderPlaceRequestExecutionFlow(v)
+		*e = ExecutionFlow(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderPlaceRequestExecutionFlow: %v", v)
+		return fmt.Errorf("invalid value for ExecutionFlow: %v", v)
 	}
 }
 
-// PlaceOrderOrderPlaceRequestInstrumentIDType - The type of the ID used in the request.
+// InstrumentIDType - The type of the ID used in the request.
 // * ISIN -
-type PlaceOrderOrderPlaceRequestInstrumentIDType string
+type InstrumentIDType string
 
 const (
-	PlaceOrderOrderPlaceRequestInstrumentIDTypeIsin PlaceOrderOrderPlaceRequestInstrumentIDType = "ISIN"
+	InstrumentIDTypeIsin InstrumentIDType = "ISIN"
 )
 
-func (e PlaceOrderOrderPlaceRequestInstrumentIDType) ToPointer() *PlaceOrderOrderPlaceRequestInstrumentIDType {
+func (e InstrumentIDType) ToPointer() *InstrumentIDType {
 	return &e
 }
 
-func (e *PlaceOrderOrderPlaceRequestInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *InstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "ISIN":
-		*e = PlaceOrderOrderPlaceRequestInstrumentIDType(v)
+		*e = InstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderPlaceRequestInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for InstrumentIDType: %v", v)
 	}
 }
 
-// PlaceOrderOrderPlaceRequestOrderType - Type of the order.
+// OrderType - Type of the order.
 // * MARKET -
 // * LIMIT -
 // * STOP -
-type PlaceOrderOrderPlaceRequestOrderType string
+type OrderType string
 
 const (
-	PlaceOrderOrderPlaceRequestOrderTypeMarket PlaceOrderOrderPlaceRequestOrderType = "MARKET"
-	PlaceOrderOrderPlaceRequestOrderTypeLimit  PlaceOrderOrderPlaceRequestOrderType = "LIMIT"
-	PlaceOrderOrderPlaceRequestOrderTypeStop   PlaceOrderOrderPlaceRequestOrderType = "STOP"
+	OrderTypeMarket OrderType = "MARKET"
+	OrderTypeLimit  OrderType = "LIMIT"
+	OrderTypeStop   OrderType = "STOP"
 )
 
-func (e PlaceOrderOrderPlaceRequestOrderType) ToPointer() *PlaceOrderOrderPlaceRequestOrderType {
+func (e OrderType) ToPointer() *OrderType {
 	return &e
 }
 
-func (e *PlaceOrderOrderPlaceRequestOrderType) UnmarshalJSON(data []byte) error {
+func (e *OrderType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -119,28 +119,28 @@ func (e *PlaceOrderOrderPlaceRequestOrderType) UnmarshalJSON(data []byte) error 
 	case "LIMIT":
 		fallthrough
 	case "STOP":
-		*e = PlaceOrderOrderPlaceRequestOrderType(v)
+		*e = OrderType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderPlaceRequestOrderType: %v", v)
+		return fmt.Errorf("invalid value for OrderType: %v", v)
 	}
 }
 
-// PlaceOrderOrderPlaceRequestSide - Side of the order.
+// Side of the order.
 // * BUY -
 // * SELL -
-type PlaceOrderOrderPlaceRequestSide string
+type Side string
 
 const (
-	PlaceOrderOrderPlaceRequestSideBuy  PlaceOrderOrderPlaceRequestSide = "BUY"
-	PlaceOrderOrderPlaceRequestSideSell PlaceOrderOrderPlaceRequestSide = "SELL"
+	SideBuy  Side = "BUY"
+	SideSell Side = "SELL"
 )
 
-func (e PlaceOrderOrderPlaceRequestSide) ToPointer() *PlaceOrderOrderPlaceRequestSide {
+func (e Side) ToPointer() *Side {
 	return &e
 }
 
-func (e *PlaceOrderOrderPlaceRequestSide) UnmarshalJSON(data []byte) error {
+func (e *Side) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -149,10 +149,10 @@ func (e *PlaceOrderOrderPlaceRequestSide) UnmarshalJSON(data []byte) error {
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = PlaceOrderOrderPlaceRequestSide(v)
+		*e = Side(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderPlaceRequestSide: %v", v)
+		return fmt.Errorf("invalid value for Side: %v", v)
 	}
 }
 
@@ -161,30 +161,30 @@ type PlaceOrderOrderPlaceRequest struct {
 	AccountID  string  `json:"account_id"`
 	CashAmount *string `json:"cash_amount,omitempty"`
 	// An ID provided by the client
-	ClientReference *string                              `json:"client_reference,omitempty"`
-	Currency        *PlaceOrderOrderPlaceRequestCurrency `default:"EUR" json:"currency"`
+	ClientReference *string             `json:"client_reference,omitempty"`
+	Currency        *PlaceOrderCurrency `default:"EUR" json:"currency"`
 	// Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 	// * STRAIGHT_THROUGH -
 	// * BLOCK -
-	ExecutionFlow *PlaceOrderOrderPlaceRequestExecutionFlow `json:"execution_flow,omitempty"`
-	ExpiryDate    *string                                   `json:"expiry_date,omitempty"`
+	ExecutionFlow *ExecutionFlow `json:"execution_flow,omitempty"`
+	ExpiryDate    *string        `json:"expiry_date,omitempty"`
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN -
-	InstrumentIDType *PlaceOrderOrderPlaceRequestInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
-	LimitPrice       *string                                      `json:"limit_price,omitempty"`
+	InstrumentIDType *InstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	LimitPrice       *string           `json:"limit_price,omitempty"`
 	// Type of the order.
 	// * MARKET -
 	// * LIMIT -
 	// * STOP -
-	OrderType *PlaceOrderOrderPlaceRequestOrderType `json:"order_type,omitempty"`
-	Quantity  *string                               `json:"quantity,omitempty"`
+	OrderType *OrderType `json:"order_type,omitempty"`
+	Quantity  *string    `json:"quantity,omitempty"`
 	// Side of the order.
 	// * BUY -
 	// * SELL -
-	Side      PlaceOrderOrderPlaceRequestSide `json:"side"`
-	StopPrice *string                         `json:"stop_price,omitempty"`
+	Side      Side    `json:"side"`
+	StopPrice *string `json:"stop_price,omitempty"`
 	// The ID of the user
 	UserID string `json:"user_id"`
 	// Only applicable if the user has failed the instrument fit check for the instrument type being ordered. True if the user has acknowledged their willingness to trade.
@@ -223,14 +223,14 @@ func (o *PlaceOrderOrderPlaceRequest) GetClientReference() *string {
 	return o.ClientReference
 }
 
-func (o *PlaceOrderOrderPlaceRequest) GetCurrency() *PlaceOrderOrderPlaceRequestCurrency {
+func (o *PlaceOrderOrderPlaceRequest) GetCurrency() *PlaceOrderCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *PlaceOrderOrderPlaceRequest) GetExecutionFlow() *PlaceOrderOrderPlaceRequestExecutionFlow {
+func (o *PlaceOrderOrderPlaceRequest) GetExecutionFlow() *ExecutionFlow {
 	if o == nil {
 		return nil
 	}
@@ -251,7 +251,7 @@ func (o *PlaceOrderOrderPlaceRequest) GetInstrumentID() string {
 	return o.InstrumentID
 }
 
-func (o *PlaceOrderOrderPlaceRequest) GetInstrumentIDType() *PlaceOrderOrderPlaceRequestInstrumentIDType {
+func (o *PlaceOrderOrderPlaceRequest) GetInstrumentIDType() *InstrumentIDType {
 	if o == nil {
 		return nil
 	}
@@ -265,7 +265,7 @@ func (o *PlaceOrderOrderPlaceRequest) GetLimitPrice() *string {
 	return o.LimitPrice
 }
 
-func (o *PlaceOrderOrderPlaceRequest) GetOrderType() *PlaceOrderOrderPlaceRequestOrderType {
+func (o *PlaceOrderOrderPlaceRequest) GetOrderType() *OrderType {
 	if o == nil {
 		return nil
 	}
@@ -279,9 +279,9 @@ func (o *PlaceOrderOrderPlaceRequest) GetQuantity() *string {
 	return o.Quantity
 }
 
-func (o *PlaceOrderOrderPlaceRequest) GetSide() PlaceOrderOrderPlaceRequestSide {
+func (o *PlaceOrderOrderPlaceRequest) GetSide() Side {
 	if o == nil {
-		return PlaceOrderOrderPlaceRequestSide("")
+		return Side("")
 	}
 	return o.Side
 }
@@ -376,25 +376,25 @@ func (o *PlaceOrderRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// PlaceOrderOrderCancellationReason - Reason for Order cancellation. The field is present in case the Order has a status of CANCELLED.
+// CancellationReason - Reason for Order cancellation. The field is present in case the Order has a status of CANCELLED.
 // * CANCELLED_BY_CLIENT -
 // * CANCELLED_BY_UPVEST_OPERATIONS -
 // * CANCELLED_BY_TRADING_PARTNER -
 // * CANCELLED_BY_UPVEST_PLATFORM -
-type PlaceOrderOrderCancellationReason string
+type CancellationReason string
 
 const (
-	PlaceOrderOrderCancellationReasonCancelledByClient           PlaceOrderOrderCancellationReason = "CANCELLED_BY_CLIENT"
-	PlaceOrderOrderCancellationReasonCancelledByUpvestOperations PlaceOrderOrderCancellationReason = "CANCELLED_BY_UPVEST_OPERATIONS"
-	PlaceOrderOrderCancellationReasonCancelledByTradingPartner   PlaceOrderOrderCancellationReason = "CANCELLED_BY_TRADING_PARTNER"
-	PlaceOrderOrderCancellationReasonCancelledByUpvestPlatform   PlaceOrderOrderCancellationReason = "CANCELLED_BY_UPVEST_PLATFORM"
+	CancellationReasonCancelledByClient           CancellationReason = "CANCELLED_BY_CLIENT"
+	CancellationReasonCancelledByUpvestOperations CancellationReason = "CANCELLED_BY_UPVEST_OPERATIONS"
+	CancellationReasonCancelledByTradingPartner   CancellationReason = "CANCELLED_BY_TRADING_PARTNER"
+	CancellationReasonCancelledByUpvestPlatform   CancellationReason = "CANCELLED_BY_UPVEST_PLATFORM"
 )
 
-func (e PlaceOrderOrderCancellationReason) ToPointer() *PlaceOrderOrderCancellationReason {
+func (e CancellationReason) ToPointer() *CancellationReason {
 	return &e
 }
 
-func (e *PlaceOrderOrderCancellationReason) UnmarshalJSON(data []byte) error {
+func (e *CancellationReason) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -407,53 +407,53 @@ func (e *PlaceOrderOrderCancellationReason) UnmarshalJSON(data []byte) error {
 	case "CANCELLED_BY_TRADING_PARTNER":
 		fallthrough
 	case "CANCELLED_BY_UPVEST_PLATFORM":
-		*e = PlaceOrderOrderCancellationReason(v)
+		*e = CancellationReason(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderCancellationReason: %v", v)
+		return fmt.Errorf("invalid value for CancellationReason: %v", v)
 	}
 }
 
-// PlaceOrderOrderCurrency - The currency for the order.
-type PlaceOrderOrderCurrency string
+// PlaceOrderOrdersCurrency - The currency for the order.
+type PlaceOrderOrdersCurrency string
 
 const (
-	PlaceOrderOrderCurrencyEur PlaceOrderOrderCurrency = "EUR"
+	PlaceOrderOrdersCurrencyEur PlaceOrderOrdersCurrency = "EUR"
 )
 
-func (e PlaceOrderOrderCurrency) ToPointer() *PlaceOrderOrderCurrency {
+func (e PlaceOrderOrdersCurrency) ToPointer() *PlaceOrderOrdersCurrency {
 	return &e
 }
 
-func (e *PlaceOrderOrderCurrency) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderOrdersCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = PlaceOrderOrderCurrency(v)
+		*e = PlaceOrderOrdersCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderCurrency: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderOrdersCurrency: %v", v)
 	}
 }
 
-// PlaceOrderOrderExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
+// PlaceOrderExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 // * STRAIGHT_THROUGH -
 // * BLOCK -
-type PlaceOrderOrderExecutionFlow string
+type PlaceOrderExecutionFlow string
 
 const (
-	PlaceOrderOrderExecutionFlowStraightThrough PlaceOrderOrderExecutionFlow = "STRAIGHT_THROUGH"
-	PlaceOrderOrderExecutionFlowBlock           PlaceOrderOrderExecutionFlow = "BLOCK"
+	PlaceOrderExecutionFlowStraightThrough PlaceOrderExecutionFlow = "STRAIGHT_THROUGH"
+	PlaceOrderExecutionFlowBlock           PlaceOrderExecutionFlow = "BLOCK"
 )
 
-func (e PlaceOrderOrderExecutionFlow) ToPointer() *PlaceOrderOrderExecutionFlow {
+func (e PlaceOrderExecutionFlow) ToPointer() *PlaceOrderExecutionFlow {
 	return &e
 }
 
-func (e *PlaceOrderOrderExecutionFlow) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderExecutionFlow) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -462,54 +462,54 @@ func (e *PlaceOrderOrderExecutionFlow) UnmarshalJSON(data []byte) error {
 	case "STRAIGHT_THROUGH":
 		fallthrough
 	case "BLOCK":
-		*e = PlaceOrderOrderExecutionFlow(v)
+		*e = PlaceOrderExecutionFlow(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderExecutionFlow: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderExecutionFlow: %v", v)
 	}
 }
 
-// PlaceOrderOrderOrderExecutionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// PlaceOrderOrdersResponseCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type PlaceOrderOrderOrderExecutionCurrency string
+type PlaceOrderOrdersResponseCurrency string
 
 const (
-	PlaceOrderOrderOrderExecutionCurrencyEur PlaceOrderOrderOrderExecutionCurrency = "EUR"
+	PlaceOrderOrdersResponseCurrencyEur PlaceOrderOrdersResponseCurrency = "EUR"
 )
 
-func (e PlaceOrderOrderOrderExecutionCurrency) ToPointer() *PlaceOrderOrderOrderExecutionCurrency {
+func (e PlaceOrderOrdersResponseCurrency) ToPointer() *PlaceOrderOrdersResponseCurrency {
 	return &e
 }
 
-func (e *PlaceOrderOrderOrderExecutionCurrency) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderOrdersResponseCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = PlaceOrderOrderOrderExecutionCurrency(v)
+		*e = PlaceOrderOrdersResponseCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderOrderExecutionCurrency: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderOrdersResponseCurrency: %v", v)
 	}
 }
 
-// PlaceOrderOrderOrderExecutionSide - Side of the execution.
+// PlaceOrderOrdersSide - Side of the execution.
 // * BUY -
 // * SELL -
-type PlaceOrderOrderOrderExecutionSide string
+type PlaceOrderOrdersSide string
 
 const (
-	PlaceOrderOrderOrderExecutionSideBuy  PlaceOrderOrderOrderExecutionSide = "BUY"
-	PlaceOrderOrderOrderExecutionSideSell PlaceOrderOrderOrderExecutionSide = "SELL"
+	PlaceOrderOrdersSideBuy  PlaceOrderOrdersSide = "BUY"
+	PlaceOrderOrdersSideSell PlaceOrderOrdersSide = "SELL"
 )
 
-func (e PlaceOrderOrderOrderExecutionSide) ToPointer() *PlaceOrderOrderOrderExecutionSide {
+func (e PlaceOrderOrdersSide) ToPointer() *PlaceOrderOrdersSide {
 	return &e
 }
 
-func (e *PlaceOrderOrderOrderExecutionSide) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderOrdersSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -518,30 +518,30 @@ func (e *PlaceOrderOrderOrderExecutionSide) UnmarshalJSON(data []byte) error {
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = PlaceOrderOrderOrderExecutionSide(v)
+		*e = PlaceOrderOrdersSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderOrderExecutionSide: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderOrdersSide: %v", v)
 	}
 }
 
-// PlaceOrderOrderOrderExecutionStatus - Execution status of the Execution.
+// PlaceOrderOrdersStatus - Execution status of the Execution.
 // * FILLED -
 // * SETTLED -
 // * CANCELLED -
-type PlaceOrderOrderOrderExecutionStatus string
+type PlaceOrderOrdersStatus string
 
 const (
-	PlaceOrderOrderOrderExecutionStatusFilled    PlaceOrderOrderOrderExecutionStatus = "FILLED"
-	PlaceOrderOrderOrderExecutionStatusSettled   PlaceOrderOrderOrderExecutionStatus = "SETTLED"
-	PlaceOrderOrderOrderExecutionStatusCancelled PlaceOrderOrderOrderExecutionStatus = "CANCELLED"
+	PlaceOrderOrdersStatusFilled    PlaceOrderOrdersStatus = "FILLED"
+	PlaceOrderOrdersStatusSettled   PlaceOrderOrdersStatus = "SETTLED"
+	PlaceOrderOrdersStatusCancelled PlaceOrderOrdersStatus = "CANCELLED"
 )
 
-func (e PlaceOrderOrderOrderExecutionStatus) ToPointer() *PlaceOrderOrderOrderExecutionStatus {
+func (e PlaceOrderOrdersStatus) ToPointer() *PlaceOrderOrdersStatus {
 	return &e
 }
 
-func (e *PlaceOrderOrderOrderExecutionStatus) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderOrdersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -552,183 +552,183 @@ func (e *PlaceOrderOrderOrderExecutionStatus) UnmarshalJSON(data []byte) error {
 	case "SETTLED":
 		fallthrough
 	case "CANCELLED":
-		*e = PlaceOrderOrderOrderExecutionStatus(v)
+		*e = PlaceOrderOrdersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderOrderExecutionStatus: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderOrdersStatus: %v", v)
 	}
 }
 
-// PlaceOrderOrderOrderExecutionTaxType - Tax type
+// PlaceOrderType - Tax type
 // * TOTAL -
-type PlaceOrderOrderOrderExecutionTaxType string
+type PlaceOrderType string
 
 const (
-	PlaceOrderOrderOrderExecutionTaxTypeTotal PlaceOrderOrderOrderExecutionTaxType = "TOTAL"
+	PlaceOrderTypeTotal PlaceOrderType = "TOTAL"
 )
 
-func (e PlaceOrderOrderOrderExecutionTaxType) ToPointer() *PlaceOrderOrderOrderExecutionTaxType {
+func (e PlaceOrderType) ToPointer() *PlaceOrderType {
 	return &e
 }
 
-func (e *PlaceOrderOrderOrderExecutionTaxType) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "TOTAL":
-		*e = PlaceOrderOrderOrderExecutionTaxType(v)
+		*e = PlaceOrderType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderOrderExecutionTaxType: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderType: %v", v)
 	}
 }
 
-type PlaceOrderOrderOrderExecutionTax struct {
+type PlaceOrderTax struct {
 	Amount string `json:"amount"`
 	// Tax type
 	// * TOTAL -
-	Type *PlaceOrderOrderOrderExecutionTaxType `default:"TOTAL" json:"type"`
+	Type *PlaceOrderType `default:"TOTAL" json:"type"`
 }
 
-func (p PlaceOrderOrderOrderExecutionTax) MarshalJSON() ([]byte, error) {
+func (p PlaceOrderTax) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(p, "", false)
 }
 
-func (p *PlaceOrderOrderOrderExecutionTax) UnmarshalJSON(data []byte) error {
+func (p *PlaceOrderTax) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *PlaceOrderOrderOrderExecutionTax) GetAmount() string {
+func (o *PlaceOrderTax) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *PlaceOrderOrderOrderExecutionTax) GetType() *PlaceOrderOrderOrderExecutionTaxType {
+func (o *PlaceOrderTax) GetType() *PlaceOrderType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-type PlaceOrderOrderOrderExecution struct {
+type OrderExecution struct {
 	CashAmount string `json:"cash_amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency       *PlaceOrderOrderOrderExecutionCurrency `default:"EUR" json:"currency"`
-	ID             string                                 `json:"id"`
-	OrderID        string                                 `json:"order_id"`
-	Price          string                                 `json:"price"`
-	SettlementDate *string                                `json:"settlement_date,omitempty"`
-	ShareQuantity  string                                 `json:"share_quantity"`
+	Currency       *PlaceOrderOrdersResponseCurrency `default:"EUR" json:"currency"`
+	ID             string                            `json:"id"`
+	OrderID        string                            `json:"order_id"`
+	Price          string                            `json:"price"`
+	SettlementDate *string                           `json:"settlement_date,omitempty"`
+	ShareQuantity  string                            `json:"share_quantity"`
 	// Side of the execution.
 	// * BUY -
 	// * SELL -
-	Side PlaceOrderOrderOrderExecutionSide `json:"side"`
+	Side PlaceOrderOrdersSide `json:"side"`
 	// Execution status of the Execution.
 	// * FILLED -
 	// * SETTLED -
 	// * CANCELLED -
-	Status          PlaceOrderOrderOrderExecutionStatus `json:"status"`
-	Taxes           []PlaceOrderOrderOrderExecutionTax  `json:"taxes"`
-	TransactionTime time.Time                           `json:"transaction_time"`
+	Status          PlaceOrderOrdersStatus `json:"status"`
+	Taxes           []PlaceOrderTax        `json:"taxes"`
+	TransactionTime time.Time              `json:"transaction_time"`
 }
 
-func (p PlaceOrderOrderOrderExecution) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(p, "", false)
+func (o OrderExecution) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(o, "", false)
 }
 
-func (p *PlaceOrderOrderOrderExecution) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+func (o *OrderExecution) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &o, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetCashAmount() string {
+func (o *OrderExecution) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetCurrency() *PlaceOrderOrderOrderExecutionCurrency {
+func (o *OrderExecution) GetCurrency() *PlaceOrderOrdersResponseCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetID() string {
+func (o *OrderExecution) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetOrderID() string {
+func (o *OrderExecution) GetOrderID() string {
 	if o == nil {
 		return ""
 	}
 	return o.OrderID
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetPrice() string {
+func (o *OrderExecution) GetPrice() string {
 	if o == nil {
 		return ""
 	}
 	return o.Price
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetSettlementDate() *string {
+func (o *OrderExecution) GetSettlementDate() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SettlementDate
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetShareQuantity() string {
+func (o *OrderExecution) GetShareQuantity() string {
 	if o == nil {
 		return ""
 	}
 	return o.ShareQuantity
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetSide() PlaceOrderOrderOrderExecutionSide {
+func (o *OrderExecution) GetSide() PlaceOrderOrdersSide {
 	if o == nil {
-		return PlaceOrderOrderOrderExecutionSide("")
+		return PlaceOrderOrdersSide("")
 	}
 	return o.Side
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetStatus() PlaceOrderOrderOrderExecutionStatus {
+func (o *OrderExecution) GetStatus() PlaceOrderOrdersStatus {
 	if o == nil {
-		return PlaceOrderOrderOrderExecutionStatus("")
+		return PlaceOrderOrdersStatus("")
 	}
 	return o.Status
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetTaxes() []PlaceOrderOrderOrderExecutionTax {
+func (o *OrderExecution) GetTaxes() []PlaceOrderTax {
 	if o == nil {
-		return []PlaceOrderOrderOrderExecutionTax{}
+		return []PlaceOrderTax{}
 	}
 	return o.Taxes
 }
 
-func (o *PlaceOrderOrderOrderExecution) GetTransactionTime() time.Time {
+func (o *OrderExecution) GetTransactionTime() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.TransactionTime
 }
 
-// PlaceOrderOrderInitiationFlow - Initiation flow used during order creation, i.e. what triggered the order.
+// InitiationFlow - Initiation flow used during order creation, i.e. what triggered the order.
 // * API -
 // * PORTFOLIO -
 // * CASH_DIVIDEND_REINVESTMENT -
@@ -737,24 +737,24 @@ func (o *PlaceOrderOrderOrderExecution) GetTransactionTime() time.Time {
 // * SELL_TO_COVER_TAXES -
 // * ACCOUNT_LIQUIDATION -
 // * UPVEST_OPERATIONS -
-type PlaceOrderOrderInitiationFlow string
+type InitiationFlow string
 
 const (
-	PlaceOrderOrderInitiationFlowAPI                      PlaceOrderOrderInitiationFlow = "API"
-	PlaceOrderOrderInitiationFlowPortfolio                PlaceOrderOrderInitiationFlow = "PORTFOLIO"
-	PlaceOrderOrderInitiationFlowCashDividendReinvestment PlaceOrderOrderInitiationFlow = "CASH_DIVIDEND_REINVESTMENT"
-	PlaceOrderOrderInitiationFlowPortfolioRebalancing     PlaceOrderOrderInitiationFlow = "PORTFOLIO_REBALANCING"
-	PlaceOrderOrderInitiationFlowSellToCoverFees          PlaceOrderOrderInitiationFlow = "SELL_TO_COVER_FEES"
-	PlaceOrderOrderInitiationFlowSellToCoverTaxes         PlaceOrderOrderInitiationFlow = "SELL_TO_COVER_TAXES"
-	PlaceOrderOrderInitiationFlowAccountLiquidation       PlaceOrderOrderInitiationFlow = "ACCOUNT_LIQUIDATION"
-	PlaceOrderOrderInitiationFlowUpvestOperations         PlaceOrderOrderInitiationFlow = "UPVEST_OPERATIONS"
+	InitiationFlowAPI                      InitiationFlow = "API"
+	InitiationFlowPortfolio                InitiationFlow = "PORTFOLIO"
+	InitiationFlowCashDividendReinvestment InitiationFlow = "CASH_DIVIDEND_REINVESTMENT"
+	InitiationFlowPortfolioRebalancing     InitiationFlow = "PORTFOLIO_REBALANCING"
+	InitiationFlowSellToCoverFees          InitiationFlow = "SELL_TO_COVER_FEES"
+	InitiationFlowSellToCoverTaxes         InitiationFlow = "SELL_TO_COVER_TAXES"
+	InitiationFlowAccountLiquidation       InitiationFlow = "ACCOUNT_LIQUIDATION"
+	InitiationFlowUpvestOperations         InitiationFlow = "UPVEST_OPERATIONS"
 )
 
-func (e PlaceOrderOrderInitiationFlow) ToPointer() *PlaceOrderOrderInitiationFlow {
+func (e InitiationFlow) ToPointer() *InitiationFlow {
 	return &e
 }
 
-func (e *PlaceOrderOrderInitiationFlow) UnmarshalJSON(data []byte) error {
+func (e *InitiationFlow) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -775,56 +775,56 @@ func (e *PlaceOrderOrderInitiationFlow) UnmarshalJSON(data []byte) error {
 	case "ACCOUNT_LIQUIDATION":
 		fallthrough
 	case "UPVEST_OPERATIONS":
-		*e = PlaceOrderOrderInitiationFlow(v)
+		*e = InitiationFlow(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderInitiationFlow: %v", v)
+		return fmt.Errorf("invalid value for InitiationFlow: %v", v)
 	}
 }
 
-// PlaceOrderOrderInstrumentIDType - The type of the ID used in the request.
+// PlaceOrderInstrumentIDType - The type of the ID used in the request.
 // * ISIN -
-type PlaceOrderOrderInstrumentIDType string
+type PlaceOrderInstrumentIDType string
 
 const (
-	PlaceOrderOrderInstrumentIDTypeIsin PlaceOrderOrderInstrumentIDType = "ISIN"
+	PlaceOrderInstrumentIDTypeIsin PlaceOrderInstrumentIDType = "ISIN"
 )
 
-func (e PlaceOrderOrderInstrumentIDType) ToPointer() *PlaceOrderOrderInstrumentIDType {
+func (e PlaceOrderInstrumentIDType) ToPointer() *PlaceOrderInstrumentIDType {
 	return &e
 }
 
-func (e *PlaceOrderOrderInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "ISIN":
-		*e = PlaceOrderOrderInstrumentIDType(v)
+		*e = PlaceOrderInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderInstrumentIDType: %v", v)
 	}
 }
 
-// PlaceOrderOrderOrderType - Type of the order.
+// PlaceOrderOrderType - Type of the order.
 // * MARKET -
 // * LIMIT -
 // * STOP -
-type PlaceOrderOrderOrderType string
+type PlaceOrderOrderType string
 
 const (
-	PlaceOrderOrderOrderTypeMarket PlaceOrderOrderOrderType = "MARKET"
-	PlaceOrderOrderOrderTypeLimit  PlaceOrderOrderOrderType = "LIMIT"
-	PlaceOrderOrderOrderTypeStop   PlaceOrderOrderOrderType = "STOP"
+	PlaceOrderOrderTypeMarket PlaceOrderOrderType = "MARKET"
+	PlaceOrderOrderTypeLimit  PlaceOrderOrderType = "LIMIT"
+	PlaceOrderOrderTypeStop   PlaceOrderOrderType = "STOP"
 )
 
-func (e PlaceOrderOrderOrderType) ToPointer() *PlaceOrderOrderOrderType {
+func (e PlaceOrderOrderType) ToPointer() *PlaceOrderOrderType {
 	return &e
 }
 
-func (e *PlaceOrderOrderOrderType) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderOrderType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -835,28 +835,28 @@ func (e *PlaceOrderOrderOrderType) UnmarshalJSON(data []byte) error {
 	case "LIMIT":
 		fallthrough
 	case "STOP":
-		*e = PlaceOrderOrderOrderType(v)
+		*e = PlaceOrderOrderType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderOrderType: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderOrderType: %v", v)
 	}
 }
 
-// PlaceOrderOrderSide - Side of the order.
+// PlaceOrderSide - Side of the order.
 // * BUY -
 // * SELL -
-type PlaceOrderOrderSide string
+type PlaceOrderSide string
 
 const (
-	PlaceOrderOrderSideBuy  PlaceOrderOrderSide = "BUY"
-	PlaceOrderOrderSideSell PlaceOrderOrderSide = "SELL"
+	PlaceOrderSideBuy  PlaceOrderSide = "BUY"
+	PlaceOrderSideSell PlaceOrderSide = "SELL"
 )
 
-func (e PlaceOrderOrderSide) ToPointer() *PlaceOrderOrderSide {
+func (e PlaceOrderSide) ToPointer() *PlaceOrderSide {
 	return &e
 }
 
-func (e *PlaceOrderOrderSide) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -865,32 +865,32 @@ func (e *PlaceOrderOrderSide) UnmarshalJSON(data []byte) error {
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = PlaceOrderOrderSide(v)
+		*e = PlaceOrderSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderSide: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderSide: %v", v)
 	}
 }
 
-// PlaceOrderOrderStatus - The execution status of the order.
+// PlaceOrderStatus - The execution status of the order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
-type PlaceOrderOrderStatus string
+type PlaceOrderStatus string
 
 const (
-	PlaceOrderOrderStatusNew        PlaceOrderOrderStatus = "NEW"
-	PlaceOrderOrderStatusProcessing PlaceOrderOrderStatus = "PROCESSING"
-	PlaceOrderOrderStatusFilled     PlaceOrderOrderStatus = "FILLED"
-	PlaceOrderOrderStatusCancelled  PlaceOrderOrderStatus = "CANCELLED"
+	PlaceOrderStatusNew        PlaceOrderStatus = "NEW"
+	PlaceOrderStatusProcessing PlaceOrderStatus = "PROCESSING"
+	PlaceOrderStatusFilled     PlaceOrderStatus = "FILLED"
+	PlaceOrderStatusCancelled  PlaceOrderStatus = "CANCELLED"
 )
 
-func (e PlaceOrderOrderStatus) ToPointer() *PlaceOrderOrderStatus {
+func (e PlaceOrderStatus) ToPointer() *PlaceOrderStatus {
 	return &e
 }
 
-func (e *PlaceOrderOrderStatus) UnmarshalJSON(data []byte) error {
+func (e *PlaceOrderStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -903,10 +903,10 @@ func (e *PlaceOrderOrderStatus) UnmarshalJSON(data []byte) error {
 	case "FILLED":
 		fallthrough
 	case "CANCELLED":
-		*e = PlaceOrderOrderStatus(v)
+		*e = PlaceOrderStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PlaceOrderOrderStatus: %v", v)
+		return fmt.Errorf("invalid value for PlaceOrderStatus: %v", v)
 	}
 }
 
@@ -919,22 +919,22 @@ type PlaceOrderOrder struct {
 	// * CANCELLED_BY_UPVEST_OPERATIONS -
 	// * CANCELLED_BY_TRADING_PARTNER -
 	// * CANCELLED_BY_UPVEST_PLATFORM -
-	CancellationReason *PlaceOrderOrderCancellationReason `json:"cancellation_reason,omitempty"`
-	CashAmount         string                             `json:"cash_amount"`
+	CancellationReason *CancellationReason `json:"cancellation_reason,omitempty"`
+	CashAmount         string              `json:"cash_amount"`
 	// An ID provided by the client
 	ClientReference string `json:"client_reference"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	CreatedAt time.Time                `json:"created_at"`
-	Currency  *PlaceOrderOrderCurrency `default:"EUR" json:"currency"`
+	CreatedAt time.Time                 `json:"created_at"`
+	Currency  *PlaceOrderOrdersCurrency `default:"EUR" json:"currency"`
 	// Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 	// * STRAIGHT_THROUGH -
 	// * BLOCK -
-	ExecutionFlow *PlaceOrderOrderExecutionFlow `json:"execution_flow,omitempty"`
+	ExecutionFlow *PlaceOrderExecutionFlow `json:"execution_flow,omitempty"`
 	// Order executions associated with this order
-	Executions []PlaceOrderOrderOrderExecution `json:"executions"`
-	ExpiryDate *string                         `json:"expiry_date,omitempty"`
-	Fee        string                          `json:"fee"`
-	ID         string                          `json:"id"`
+	Executions []OrderExecution `json:"executions"`
+	ExpiryDate *string          `json:"expiry_date,omitempty"`
+	Fee        string           `json:"fee"`
+	ID         string           `json:"id"`
 	// Initiation flow used during order creation, i.e. what triggered the order.
 	// * API -
 	// * PORTFOLIO -
@@ -944,30 +944,30 @@ type PlaceOrderOrder struct {
 	// * SELL_TO_COVER_TAXES -
 	// * ACCOUNT_LIQUIDATION -
 	// * UPVEST_OPERATIONS -
-	InitiationFlow PlaceOrderOrderInitiationFlow `json:"initiation_flow"`
+	InitiationFlow InitiationFlow `json:"initiation_flow"`
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN -
-	InstrumentIDType *PlaceOrderOrderInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
-	LimitPrice       *string                          `json:"limit_price,omitempty"`
+	InstrumentIDType *PlaceOrderInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	LimitPrice       *string                     `json:"limit_price,omitempty"`
 	// Type of the order.
 	// * MARKET -
 	// * LIMIT -
 	// * STOP -
-	OrderType PlaceOrderOrderOrderType `json:"order_type"`
-	Quantity  string                   `json:"quantity"`
+	OrderType PlaceOrderOrderType `json:"order_type"`
+	Quantity  string              `json:"quantity"`
 	// Side of the order.
 	// * BUY -
 	// * SELL -
-	Side PlaceOrderOrderSide `json:"side"`
+	Side PlaceOrderSide `json:"side"`
 	// The execution status of the order.
 	// * NEW -
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
-	Status    PlaceOrderOrderStatus `json:"status"`
-	StopPrice *string               `json:"stop_price,omitempty"`
+	Status    PlaceOrderStatus `json:"status"`
+	StopPrice *string          `json:"stop_price,omitempty"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// The ID of the user
@@ -994,7 +994,7 @@ func (o *PlaceOrderOrder) GetAccountID() string {
 	return o.AccountID
 }
 
-func (o *PlaceOrderOrder) GetCancellationReason() *PlaceOrderOrderCancellationReason {
+func (o *PlaceOrderOrder) GetCancellationReason() *CancellationReason {
 	if o == nil {
 		return nil
 	}
@@ -1022,23 +1022,23 @@ func (o *PlaceOrderOrder) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *PlaceOrderOrder) GetCurrency() *PlaceOrderOrderCurrency {
+func (o *PlaceOrderOrder) GetCurrency() *PlaceOrderOrdersCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *PlaceOrderOrder) GetExecutionFlow() *PlaceOrderOrderExecutionFlow {
+func (o *PlaceOrderOrder) GetExecutionFlow() *PlaceOrderExecutionFlow {
 	if o == nil {
 		return nil
 	}
 	return o.ExecutionFlow
 }
 
-func (o *PlaceOrderOrder) GetExecutions() []PlaceOrderOrderOrderExecution {
+func (o *PlaceOrderOrder) GetExecutions() []OrderExecution {
 	if o == nil {
-		return []PlaceOrderOrderOrderExecution{}
+		return []OrderExecution{}
 	}
 	return o.Executions
 }
@@ -1064,9 +1064,9 @@ func (o *PlaceOrderOrder) GetID() string {
 	return o.ID
 }
 
-func (o *PlaceOrderOrder) GetInitiationFlow() PlaceOrderOrderInitiationFlow {
+func (o *PlaceOrderOrder) GetInitiationFlow() InitiationFlow {
 	if o == nil {
-		return PlaceOrderOrderInitiationFlow("")
+		return InitiationFlow("")
 	}
 	return o.InitiationFlow
 }
@@ -1078,7 +1078,7 @@ func (o *PlaceOrderOrder) GetInstrumentID() string {
 	return o.InstrumentID
 }
 
-func (o *PlaceOrderOrder) GetInstrumentIDType() *PlaceOrderOrderInstrumentIDType {
+func (o *PlaceOrderOrder) GetInstrumentIDType() *PlaceOrderInstrumentIDType {
 	if o == nil {
 		return nil
 	}
@@ -1092,9 +1092,9 @@ func (o *PlaceOrderOrder) GetLimitPrice() *string {
 	return o.LimitPrice
 }
 
-func (o *PlaceOrderOrder) GetOrderType() PlaceOrderOrderOrderType {
+func (o *PlaceOrderOrder) GetOrderType() PlaceOrderOrderType {
 	if o == nil {
-		return PlaceOrderOrderOrderType("")
+		return PlaceOrderOrderType("")
 	}
 	return o.OrderType
 }
@@ -1106,16 +1106,16 @@ func (o *PlaceOrderOrder) GetQuantity() string {
 	return o.Quantity
 }
 
-func (o *PlaceOrderOrder) GetSide() PlaceOrderOrderSide {
+func (o *PlaceOrderOrder) GetSide() PlaceOrderSide {
 	if o == nil {
-		return PlaceOrderOrderSide("")
+		return PlaceOrderSide("")
 	}
 	return o.Side
 }
 
-func (o *PlaceOrderOrder) GetStatus() PlaceOrderOrderStatus {
+func (o *PlaceOrderOrder) GetStatus() PlaceOrderStatus {
 	if o == nil {
-		return PlaceOrderOrderStatus("")
+		return PlaceOrderStatus("")
 	}
 	return o.Status
 }
@@ -1149,15 +1149,22 @@ func (o *PlaceOrderOrder) GetUserInstrumentFitAcknowledgement() *bool {
 }
 
 type PlaceOrderResponse struct {
+	// The request for the order creation has been accepted for processing.
+	TwoHundredAndTwoApplicationJSONOrder *PlaceOrderOrder
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// The request for the order creation has been accepted for processing.
-	Order *PlaceOrderOrder
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *PlaceOrderResponse) GetTwoHundredAndTwoApplicationJSONOrder() *PlaceOrderOrder {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredAndTwoApplicationJSONOrder
 }
 
 func (o *PlaceOrderResponse) GetContentType() string {
@@ -1172,13 +1179,6 @@ func (o *PlaceOrderResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *PlaceOrderResponse) GetOrder() *PlaceOrderOrder {
-	if o == nil {
-		return nil
-	}
-	return o.Order
 }
 
 func (o *PlaceOrderResponse) GetStatusCode() int {

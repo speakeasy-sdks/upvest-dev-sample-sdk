@@ -69,51 +69,51 @@ func (o *RetrieveDirectDebitRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveDirectDebit200ApplicationJSONCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// RetrieveDirectDebitCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type RetrieveDirectDebit200ApplicationJSONCurrency string
+type RetrieveDirectDebitCurrency string
 
 const (
-	RetrieveDirectDebit200ApplicationJSONCurrencyEur RetrieveDirectDebit200ApplicationJSONCurrency = "EUR"
+	RetrieveDirectDebitCurrencyEur RetrieveDirectDebitCurrency = "EUR"
 )
 
-func (e RetrieveDirectDebit200ApplicationJSONCurrency) ToPointer() *RetrieveDirectDebit200ApplicationJSONCurrency {
+func (e RetrieveDirectDebitCurrency) ToPointer() *RetrieveDirectDebitCurrency {
 	return &e
 }
 
-func (e *RetrieveDirectDebit200ApplicationJSONCurrency) UnmarshalJSON(data []byte) error {
+func (e *RetrieveDirectDebitCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = RetrieveDirectDebit200ApplicationJSONCurrency(v)
+		*e = RetrieveDirectDebitCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveDirectDebit200ApplicationJSONCurrency: %v", v)
+		return fmt.Errorf("invalid value for RetrieveDirectDebitCurrency: %v", v)
 	}
 }
 
-// RetrieveDirectDebit200ApplicationJSONStatus - Status of the direct debit
+// RetrieveDirectDebitStatus - Status of the direct debit
 // * NEW - Direct debit is created but not started processing.
 // * PROCESSING - Direct debit is in processing.
 // * CONFIRMED - Direct debit was successfully processed.
 // * CANCELLED - Direct debit was cancelled.
-type RetrieveDirectDebit200ApplicationJSONStatus string
+type RetrieveDirectDebitStatus string
 
 const (
-	RetrieveDirectDebit200ApplicationJSONStatusNew        RetrieveDirectDebit200ApplicationJSONStatus = "NEW"
-	RetrieveDirectDebit200ApplicationJSONStatusProcessing RetrieveDirectDebit200ApplicationJSONStatus = "PROCESSING"
-	RetrieveDirectDebit200ApplicationJSONStatusConfirmed  RetrieveDirectDebit200ApplicationJSONStatus = "CONFIRMED"
-	RetrieveDirectDebit200ApplicationJSONStatusCancelled  RetrieveDirectDebit200ApplicationJSONStatus = "CANCELLED"
+	RetrieveDirectDebitStatusNew        RetrieveDirectDebitStatus = "NEW"
+	RetrieveDirectDebitStatusProcessing RetrieveDirectDebitStatus = "PROCESSING"
+	RetrieveDirectDebitStatusConfirmed  RetrieveDirectDebitStatus = "CONFIRMED"
+	RetrieveDirectDebitStatusCancelled  RetrieveDirectDebitStatus = "CANCELLED"
 )
 
-func (e RetrieveDirectDebit200ApplicationJSONStatus) ToPointer() *RetrieveDirectDebit200ApplicationJSONStatus {
+func (e RetrieveDirectDebitStatus) ToPointer() *RetrieveDirectDebitStatus {
 	return &e
 }
 
-func (e *RetrieveDirectDebit200ApplicationJSONStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveDirectDebitStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -126,15 +126,15 @@ func (e *RetrieveDirectDebit200ApplicationJSONStatus) UnmarshalJSON(data []byte)
 	case "CONFIRMED":
 		fallthrough
 	case "CANCELLED":
-		*e = RetrieveDirectDebit200ApplicationJSONStatus(v)
+		*e = RetrieveDirectDebitStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveDirectDebit200ApplicationJSONStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveDirectDebitStatus: %v", v)
 	}
 }
 
-// RetrieveDirectDebit200ApplicationJSON - Direct debit payment
-type RetrieveDirectDebit200ApplicationJSON struct {
+// RetrieveDirectDebitResponseBody - Direct debit payment
+type RetrieveDirectDebitResponseBody struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
 	CashAmount     string `json:"cash_amount"`
@@ -142,7 +142,7 @@ type RetrieveDirectDebit200ApplicationJSON struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *RetrieveDirectDebit200ApplicationJSONCurrency `default:"EUR" json:"currency"`
+	Currency *RetrieveDirectDebitCurrency `default:"EUR" json:"currency"`
 	// Direct debit funding request unique identifier
 	ID string `json:"id"`
 	// Direct Debit Mandate unique identifier.
@@ -154,79 +154,79 @@ type RetrieveDirectDebit200ApplicationJSON struct {
 	// * PROCESSING - Direct debit is in processing.
 	// * CONFIRMED - Direct debit was successfully processed.
 	// * CANCELLED - Direct debit was cancelled.
-	Status *RetrieveDirectDebit200ApplicationJSONStatus `json:"status,omitempty"`
+	Status *RetrieveDirectDebitStatus `json:"status,omitempty"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (r RetrieveDirectDebit200ApplicationJSON) MarshalJSON() ([]byte, error) {
+func (r RetrieveDirectDebitResponseBody) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveDirectDebit200ApplicationJSON) UnmarshalJSON(data []byte) error {
+func (r *RetrieveDirectDebitResponseBody) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetAccountGroupID() string {
+func (o *RetrieveDirectDebitResponseBody) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetCashAmount() string {
+func (o *RetrieveDirectDebitResponseBody) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetCreatedAt() time.Time {
+func (o *RetrieveDirectDebitResponseBody) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetCurrency() *RetrieveDirectDebit200ApplicationJSONCurrency {
+func (o *RetrieveDirectDebitResponseBody) GetCurrency() *RetrieveDirectDebitCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetID() string {
+func (o *RetrieveDirectDebitResponseBody) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetMandateID() string {
+func (o *RetrieveDirectDebitResponseBody) GetMandateID() string {
 	if o == nil {
 		return ""
 	}
 	return o.MandateID
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetRemittanceInformation() *string {
+func (o *RetrieveDirectDebitResponseBody) GetRemittanceInformation() *string {
 	if o == nil {
 		return nil
 	}
 	return o.RemittanceInformation
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetStatus() *RetrieveDirectDebit200ApplicationJSONStatus {
+func (o *RetrieveDirectDebitResponseBody) GetStatus() *RetrieveDirectDebitStatus {
 	if o == nil {
 		return nil
 	}
 	return o.Status
 }
 
-func (o *RetrieveDirectDebit200ApplicationJSON) GetUserID() string {
+func (o *RetrieveDirectDebitResponseBody) GetUserID() string {
 	if o == nil {
 		return ""
 	}
@@ -234,6 +234,8 @@ func (o *RetrieveDirectDebit200ApplicationJSON) GetUserID() string {
 }
 
 type RetrieveDirectDebitResponse struct {
+	// Direct debit payment
+	TwoHundredApplicationJSONObject *RetrieveDirectDebitResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -241,8 +243,13 @@ type RetrieveDirectDebitResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Direct debit payment
-	RetrieveDirectDebit200ApplicationJSONObject *RetrieveDirectDebit200ApplicationJSON
+}
+
+func (o *RetrieveDirectDebitResponse) GetTwoHundredApplicationJSONObject() *RetrieveDirectDebitResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONObject
 }
 
 func (o *RetrieveDirectDebitResponse) GetContentType() string {
@@ -271,11 +278,4 @@ func (o *RetrieveDirectDebitResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *RetrieveDirectDebitResponse) GetRetrieveDirectDebit200ApplicationJSONObject() *RetrieveDirectDebit200ApplicationJSON {
-	if o == nil {
-		return nil
-	}
-	return o.RetrieveDirectDebit200ApplicationJSONObject
 }

@@ -70,65 +70,65 @@ func (o *RetrieveWebhookRequest) GetWebhookID() string {
 	return o.WebhookID
 }
 
-// RetrieveWebhookWebhookConfig - Configuration of webhook packages collection.
-type RetrieveWebhookWebhookConfig struct {
+// RetrieveWebhookConfig - Configuration of webhook packages collection.
+type RetrieveWebhookConfig struct {
 	// Maximum time of package collection.
 	Delay *string `json:"delay,omitempty"`
 	// Maximum package size (bytes)
 	MaxPackageSize *int64 `json:"max_package_size,omitempty"`
 }
 
-func (o *RetrieveWebhookWebhookConfig) GetDelay() *string {
+func (o *RetrieveWebhookConfig) GetDelay() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Delay
 }
 
-func (o *RetrieveWebhookWebhookConfig) GetMaxPackageSize() *int64 {
+func (o *RetrieveWebhookConfig) GetMaxPackageSize() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MaxPackageSize
 }
 
-type RetrieveWebhookWebhookType string
+type RetrieveWebhookType string
 
 const (
-	RetrieveWebhookWebhookTypeAll                      RetrieveWebhookWebhookType = "ALL"
-	RetrieveWebhookWebhookTypeUser                     RetrieveWebhookWebhookType = "USER"
-	RetrieveWebhookWebhookTypeUserCheck                RetrieveWebhookWebhookType = "USER_CHECK"
-	RetrieveWebhookWebhookTypeOrder                    RetrieveWebhookWebhookType = "ORDER"
-	RetrieveWebhookWebhookTypeOrderCancellation        RetrieveWebhookWebhookType = "ORDER_CANCELLATION"
-	RetrieveWebhookWebhookTypeExecution                RetrieveWebhookWebhookType = "EXECUTION"
-	RetrieveWebhookWebhookTypePosition                 RetrieveWebhookWebhookType = "POSITION"
-	RetrieveWebhookWebhookTypeCashBalance              RetrieveWebhookWebhookType = "CASH_BALANCE"
-	RetrieveWebhookWebhookTypeAccount                  RetrieveWebhookWebhookType = "ACCOUNT"
-	RetrieveWebhookWebhookTypeAccountGroup             RetrieveWebhookWebhookType = "ACCOUNT_GROUP"
-	RetrieveWebhookWebhookTypeReport                   RetrieveWebhookWebhookType = "REPORT"
-	RetrieveWebhookWebhookTypeTreasuryReport           RetrieveWebhookWebhookType = "TREASURY_REPORT"
-	RetrieveWebhookWebhookTypeDirectDebit              RetrieveWebhookWebhookType = "DIRECT_DEBIT"
-	RetrieveWebhookWebhookTypeWithdrawal               RetrieveWebhookWebhookType = "WITHDRAWAL"
-	RetrieveWebhookWebhookTypePortfolio                RetrieveWebhookWebhookType = "PORTFOLIO"
-	RetrieveWebhookWebhookTypePortfolioAllocation      RetrieveWebhookWebhookType = "PORTFOLIO_ALLOCATION"
-	RetrieveWebhookWebhookTypePortfolioOrder           RetrieveWebhookWebhookType = "PORTFOLIO_ORDER"
-	RetrieveWebhookWebhookTypeCorporateAction          RetrieveWebhookWebhookType = "CORPORATE_ACTION"
-	RetrieveWebhookWebhookTypeAccountValuation         RetrieveWebhookWebhookType = "ACCOUNT_VALUATION"
-	RetrieveWebhookWebhookTypeIntradayAccountValuation RetrieveWebhookWebhookType = "INTRADAY_ACCOUNT_VALUATION"
-	RetrieveWebhookWebhookTypeCashTransaction          RetrieveWebhookWebhookType = "CASH_TRANSACTION"
-	RetrieveWebhookWebhookTypeSecurityTransaction      RetrieveWebhookWebhookType = "SECURITY_TRANSACTION"
-	RetrieveWebhookWebhookTypeAccountLiquidation       RetrieveWebhookWebhookType = "ACCOUNT_LIQUIDATION"
-	RetrieveWebhookWebhookTypeAccountReturns           RetrieveWebhookWebhookType = "ACCOUNT_RETURNS"
-	RetrieveWebhookWebhookTypeVirtualCashIncrease      RetrieveWebhookWebhookType = "VIRTUAL_CASH_INCREASE"
-	RetrieveWebhookWebhookTypeVirtualCashDecrease      RetrieveWebhookWebhookType = "VIRTUAL_CASH_DECREASE"
-	RetrieveWebhookWebhookTypeFeeCollection            RetrieveWebhookWebhookType = "FEE_COLLECTION"
+	RetrieveWebhookTypeAll                      RetrieveWebhookType = "ALL"
+	RetrieveWebhookTypeUser                     RetrieveWebhookType = "USER"
+	RetrieveWebhookTypeUserCheck                RetrieveWebhookType = "USER_CHECK"
+	RetrieveWebhookTypeOrder                    RetrieveWebhookType = "ORDER"
+	RetrieveWebhookTypeOrderCancellation        RetrieveWebhookType = "ORDER_CANCELLATION"
+	RetrieveWebhookTypeExecution                RetrieveWebhookType = "EXECUTION"
+	RetrieveWebhookTypePosition                 RetrieveWebhookType = "POSITION"
+	RetrieveWebhookTypeCashBalance              RetrieveWebhookType = "CASH_BALANCE"
+	RetrieveWebhookTypeAccount                  RetrieveWebhookType = "ACCOUNT"
+	RetrieveWebhookTypeAccountGroup             RetrieveWebhookType = "ACCOUNT_GROUP"
+	RetrieveWebhookTypeReport                   RetrieveWebhookType = "REPORT"
+	RetrieveWebhookTypeTreasuryReport           RetrieveWebhookType = "TREASURY_REPORT"
+	RetrieveWebhookTypeDirectDebit              RetrieveWebhookType = "DIRECT_DEBIT"
+	RetrieveWebhookTypeWithdrawal               RetrieveWebhookType = "WITHDRAWAL"
+	RetrieveWebhookTypePortfolio                RetrieveWebhookType = "PORTFOLIO"
+	RetrieveWebhookTypePortfolioAllocation      RetrieveWebhookType = "PORTFOLIO_ALLOCATION"
+	RetrieveWebhookTypePortfolioOrder           RetrieveWebhookType = "PORTFOLIO_ORDER"
+	RetrieveWebhookTypeCorporateAction          RetrieveWebhookType = "CORPORATE_ACTION"
+	RetrieveWebhookTypeAccountValuation         RetrieveWebhookType = "ACCOUNT_VALUATION"
+	RetrieveWebhookTypeIntradayAccountValuation RetrieveWebhookType = "INTRADAY_ACCOUNT_VALUATION"
+	RetrieveWebhookTypeCashTransaction          RetrieveWebhookType = "CASH_TRANSACTION"
+	RetrieveWebhookTypeSecurityTransaction      RetrieveWebhookType = "SECURITY_TRANSACTION"
+	RetrieveWebhookTypeAccountLiquidation       RetrieveWebhookType = "ACCOUNT_LIQUIDATION"
+	RetrieveWebhookTypeAccountReturns           RetrieveWebhookType = "ACCOUNT_RETURNS"
+	RetrieveWebhookTypeVirtualCashIncrease      RetrieveWebhookType = "VIRTUAL_CASH_INCREASE"
+	RetrieveWebhookTypeVirtualCashDecrease      RetrieveWebhookType = "VIRTUAL_CASH_DECREASE"
+	RetrieveWebhookTypeFeeCollection            RetrieveWebhookType = "FEE_COLLECTION"
 )
 
-func (e RetrieveWebhookWebhookType) ToPointer() *RetrieveWebhookWebhookType {
+func (e RetrieveWebhookType) ToPointer() *RetrieveWebhookType {
 	return &e
 }
 
-func (e *RetrieveWebhookWebhookType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveWebhookType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -187,17 +187,17 @@ func (e *RetrieveWebhookWebhookType) UnmarshalJSON(data []byte) error {
 	case "VIRTUAL_CASH_DECREASE":
 		fallthrough
 	case "FEE_COLLECTION":
-		*e = RetrieveWebhookWebhookType(v)
+		*e = RetrieveWebhookType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveWebhookWebhookType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveWebhookType: %v", v)
 	}
 }
 
 // RetrieveWebhookWebhook - Returns a webhook subscription object if a valid webhook subscription object ID was provided.
 type RetrieveWebhookWebhook struct {
 	// Configuration of webhook packages collection.
-	Config RetrieveWebhookWebhookConfig `json:"config"`
+	Config RetrieveWebhookConfig `json:"config"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Enable/disable webhook.
@@ -207,7 +207,7 @@ type RetrieveWebhookWebhook struct {
 	// Title of the webhook for use on tenant side.
 	Title string `json:"title"`
 	// What kind of events to be sent by the webhook.
-	Type []RetrieveWebhookWebhookType `json:"type"`
+	Type []RetrieveWebhookType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// The callback URL to be called by the webhook.
@@ -225,9 +225,9 @@ func (r *RetrieveWebhookWebhook) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *RetrieveWebhookWebhook) GetConfig() RetrieveWebhookWebhookConfig {
+func (o *RetrieveWebhookWebhook) GetConfig() RetrieveWebhookConfig {
 	if o == nil {
-		return RetrieveWebhookWebhookConfig{}
+		return RetrieveWebhookConfig{}
 	}
 	return o.Config
 }
@@ -260,9 +260,9 @@ func (o *RetrieveWebhookWebhook) GetTitle() string {
 	return o.Title
 }
 
-func (o *RetrieveWebhookWebhook) GetType() []RetrieveWebhookWebhookType {
+func (o *RetrieveWebhookWebhook) GetType() []RetrieveWebhookType {
 	if o == nil {
-		return []RetrieveWebhookWebhookType{}
+		return []RetrieveWebhookType{}
 	}
 	return o.Type
 }
@@ -282,6 +282,8 @@ func (o *RetrieveWebhookWebhook) GetURL() string {
 }
 
 type RetrieveWebhookResponse struct {
+	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
+	TwoHundredApplicationJSONWebhook *RetrieveWebhookWebhook
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -289,8 +291,13 @@ type RetrieveWebhookResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
-	Webhook *RetrieveWebhookWebhook
+}
+
+func (o *RetrieveWebhookResponse) GetTwoHundredApplicationJSONWebhook() *RetrieveWebhookWebhook {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONWebhook
 }
 
 func (o *RetrieveWebhookResponse) GetContentType() string {
@@ -319,11 +326,4 @@ func (o *RetrieveWebhookResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *RetrieveWebhookResponse) GetWebhook() *RetrieveWebhookWebhook {
-	if o == nil {
-		return nil
-	}
-	return o.Webhook
 }

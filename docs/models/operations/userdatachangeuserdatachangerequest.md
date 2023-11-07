@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest
+### UserBYOLDataChangeRequest
 
 ```go
-userDataChangeUserDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest{/* values here */})
+userDataChangeUserDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(operations.UserBYOLDataChangeRequest{/* values here */})
 ```
 
-### UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest
+### UserTOLDataChangeRequest
 
 ```go
-userDataChangeUserDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserDataChangeUserDataChangeRequestUserTOLDataChangeRequest(operations.UserDataChangeUserDataChangeRequestUserTOLDataChangeRequest{/* values here */})
+userDataChangeUserDataChangeRequest := operations.CreateUserDataChangeUserDataChangeRequestUserTOLDataChangeRequest(operations.UserTOLDataChangeRequest{/* values here */})
 ```
 

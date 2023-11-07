@@ -11,21 +11,21 @@ import (
 	"time"
 )
 
-// CreateAccountRequestBodyType - Account type.
+// Type - Account type.
 // * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 // * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-type CreateAccountRequestBodyType string
+type Type string
 
 const (
-	CreateAccountRequestBodyTypeTrading   CreateAccountRequestBodyType = "TRADING"
-	CreateAccountRequestBodyTypePortfolio CreateAccountRequestBodyType = "PORTFOLIO"
+	TypeTrading   Type = "TRADING"
+	TypePortfolio Type = "PORTFOLIO"
 )
 
-func (e CreateAccountRequestBodyType) ToPointer() *CreateAccountRequestBodyType {
+func (e Type) ToPointer() *Type {
 	return &e
 }
 
-func (e *CreateAccountRequestBodyType) UnmarshalJSON(data []byte) error {
+func (e *Type) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,10 +34,10 @@ func (e *CreateAccountRequestBodyType) UnmarshalJSON(data []byte) error {
 	case "TRADING":
 		fallthrough
 	case "PORTFOLIO":
-		*e = CreateAccountRequestBodyType(v)
+		*e = Type(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountRequestBodyType: %v", v)
+		return fmt.Errorf("invalid value for Type: %v", v)
 	}
 }
 
@@ -49,7 +49,7 @@ type CreateAccountRequestBody struct {
 	// Account type.
 	// * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 	// * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-	Type CreateAccountRequestBodyType `json:"type"`
+	Type Type `json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
@@ -68,9 +68,9 @@ func (o *CreateAccountRequestBody) GetName() *string {
 	return o.Name
 }
 
-func (o *CreateAccountRequestBody) GetType() CreateAccountRequestBodyType {
+func (o *CreateAccountRequestBody) GetType() Type {
 	if o == nil {
-		return CreateAccountRequestBodyType("")
+		return Type("")
 	}
 	return o.Type
 }
@@ -151,27 +151,27 @@ func (o *CreateAccountRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateAccountAccountStatus - The status of the account
+// Status - The status of the account
 // * PENDING_APPROVAL - Account approval is pending - the account is visible through our API but cannot be acted on.
 // * ACTIVE - Account is active - full functionality of the Investment API is accessible.
 // * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 // * CLOSED - Account is closed with zero balance successfully.
 // * LOCKED - Account is locked for all actions.
-type CreateAccountAccountStatus string
+type Status string
 
 const (
-	CreateAccountAccountStatusPendingApproval CreateAccountAccountStatus = "PENDING_APPROVAL"
-	CreateAccountAccountStatusActive          CreateAccountAccountStatus = "ACTIVE"
-	CreateAccountAccountStatusClosing         CreateAccountAccountStatus = "CLOSING"
-	CreateAccountAccountStatusClosed          CreateAccountAccountStatus = "CLOSED"
-	CreateAccountAccountStatusLocked          CreateAccountAccountStatus = "LOCKED"
+	StatusPendingApproval Status = "PENDING_APPROVAL"
+	StatusActive          Status = "ACTIVE"
+	StatusClosing         Status = "CLOSING"
+	StatusClosed          Status = "CLOSED"
+	StatusLocked          Status = "LOCKED"
 )
 
-func (e CreateAccountAccountStatus) ToPointer() *CreateAccountAccountStatus {
+func (e Status) ToPointer() *Status {
 	return &e
 }
 
-func (e *CreateAccountAccountStatus) UnmarshalJSON(data []byte) error {
+func (e *Status) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -186,28 +186,28 @@ func (e *CreateAccountAccountStatus) UnmarshalJSON(data []byte) error {
 	case "CLOSED":
 		fallthrough
 	case "LOCKED":
-		*e = CreateAccountAccountStatus(v)
+		*e = Status(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountAccountStatus: %v", v)
+		return fmt.Errorf("invalid value for Status: %v", v)
 	}
 }
 
-// CreateAccountAccountType - Account type.
+// CreateAccountType - Account type.
 // * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 // * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-type CreateAccountAccountType string
+type CreateAccountType string
 
 const (
-	CreateAccountAccountTypeTrading   CreateAccountAccountType = "TRADING"
-	CreateAccountAccountTypePortfolio CreateAccountAccountType = "PORTFOLIO"
+	CreateAccountTypeTrading   CreateAccountType = "TRADING"
+	CreateAccountTypePortfolio CreateAccountType = "PORTFOLIO"
 )
 
-func (e CreateAccountAccountType) ToPointer() *CreateAccountAccountType {
+func (e CreateAccountType) ToPointer() *CreateAccountType {
 	return &e
 }
 
-func (e *CreateAccountAccountType) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -216,66 +216,66 @@ func (e *CreateAccountAccountType) UnmarshalJSON(data []byte) error {
 	case "TRADING":
 		fallthrough
 	case "PORTFOLIO":
-		*e = CreateAccountAccountType(v)
+		*e = CreateAccountType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountAccountType: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountType: %v", v)
 	}
 }
 
-// CreateAccountAccountUsersType - Relation type
+// CreateAccountAccountsType - Relation type
 // * OWNER -
-type CreateAccountAccountUsersType string
+type CreateAccountAccountsType string
 
 const (
-	CreateAccountAccountUsersTypeOwner CreateAccountAccountUsersType = "OWNER"
+	CreateAccountAccountsTypeOwner CreateAccountAccountsType = "OWNER"
 )
 
-func (e CreateAccountAccountUsersType) ToPointer() *CreateAccountAccountUsersType {
+func (e CreateAccountAccountsType) ToPointer() *CreateAccountAccountsType {
 	return &e
 }
 
-func (e *CreateAccountAccountUsersType) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountAccountsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "OWNER":
-		*e = CreateAccountAccountUsersType(v)
+		*e = CreateAccountAccountsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountAccountUsersType: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountAccountsType: %v", v)
 	}
 }
 
-type CreateAccountAccountUsers struct {
+type Users struct {
 	// User unique identifier.
 	ID *string `json:"id,omitempty"`
 	// Relation type
 	// * OWNER -
-	Type *CreateAccountAccountUsersType `default:"OWNER" json:"type"`
+	Type *CreateAccountAccountsType `default:"OWNER" json:"type"`
 }
 
-func (c CreateAccountAccountUsers) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u Users) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateAccountAccountUsers) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+func (u *Users) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateAccountAccountUsers) GetID() *string {
+func (o *Users) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *CreateAccountAccountUsers) GetType() *CreateAccountAccountUsersType {
+func (o *Users) GetType() *CreateAccountAccountsType {
 	if o == nil {
 		return nil
 	}
@@ -300,14 +300,14 @@ type CreateAccountAccount struct {
 	// * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 	// * CLOSED - Account is closed with zero balance successfully.
 	// * LOCKED - Account is locked for all actions.
-	Status CreateAccountAccountStatus `json:"status"`
+	Status Status `json:"status"`
 	// Account type.
 	// * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 	// * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-	Type CreateAccountAccountType `json:"type"`
+	Type CreateAccountType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	UpdatedAt time.Time                   `json:"updated_at"`
-	Users     []CreateAccountAccountUsers `json:"users"`
+	UpdatedAt time.Time `json:"updated_at"`
+	Users     []Users   `json:"users"`
 }
 
 func (c CreateAccountAccount) MarshalJSON() ([]byte, error) {
@@ -356,16 +356,16 @@ func (o *CreateAccountAccount) GetName() string {
 	return o.Name
 }
 
-func (o *CreateAccountAccount) GetStatus() CreateAccountAccountStatus {
+func (o *CreateAccountAccount) GetStatus() Status {
 	if o == nil {
-		return CreateAccountAccountStatus("")
+		return Status("")
 	}
 	return o.Status
 }
 
-func (o *CreateAccountAccount) GetType() CreateAccountAccountType {
+func (o *CreateAccountAccount) GetType() CreateAccountType {
 	if o == nil {
-		return CreateAccountAccountType("")
+		return CreateAccountType("")
 	}
 	return o.Type
 }
@@ -377,16 +377,16 @@ func (o *CreateAccountAccount) GetUpdatedAt() time.Time {
 	return o.UpdatedAt
 }
 
-func (o *CreateAccountAccount) GetUsers() []CreateAccountAccountUsers {
+func (o *CreateAccountAccount) GetUsers() []Users {
 	if o == nil {
-		return []CreateAccountAccountUsers{}
+		return []Users{}
 	}
 	return o.Users
 }
 
 type CreateAccountResponse struct {
 	// Account created.
-	Account *CreateAccountAccount
+	TwoHundredApplicationJSONAccount *CreateAccountAccount
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -396,11 +396,11 @@ type CreateAccountResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *CreateAccountResponse) GetAccount() *CreateAccountAccount {
+func (o *CreateAccountResponse) GetTwoHundredApplicationJSONAccount() *CreateAccountAccount {
 	if o == nil {
 		return nil
 	}
-	return o.Account
+	return o.TwoHundredApplicationJSONAccount
 }
 
 func (o *CreateAccountResponse) GetContentType() string {

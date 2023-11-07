@@ -77,47 +77,47 @@ func (o *RetrieveOrderExecutionRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveOrderExecutionOrderExecutionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// RetrieveOrderExecutionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type RetrieveOrderExecutionOrderExecutionCurrency string
+type RetrieveOrderExecutionCurrency string
 
 const (
-	RetrieveOrderExecutionOrderExecutionCurrencyEur RetrieveOrderExecutionOrderExecutionCurrency = "EUR"
+	RetrieveOrderExecutionCurrencyEur RetrieveOrderExecutionCurrency = "EUR"
 )
 
-func (e RetrieveOrderExecutionOrderExecutionCurrency) ToPointer() *RetrieveOrderExecutionOrderExecutionCurrency {
+func (e RetrieveOrderExecutionCurrency) ToPointer() *RetrieveOrderExecutionCurrency {
 	return &e
 }
 
-func (e *RetrieveOrderExecutionOrderExecutionCurrency) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderExecutionCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = RetrieveOrderExecutionOrderExecutionCurrency(v)
+		*e = RetrieveOrderExecutionCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderExecutionOrderExecutionCurrency: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderExecutionCurrency: %v", v)
 	}
 }
 
-// RetrieveOrderExecutionOrderExecutionSide - Side of the execution.
+// RetrieveOrderExecutionSide - Side of the execution.
 // * BUY -
 // * SELL -
-type RetrieveOrderExecutionOrderExecutionSide string
+type RetrieveOrderExecutionSide string
 
 const (
-	RetrieveOrderExecutionOrderExecutionSideBuy  RetrieveOrderExecutionOrderExecutionSide = "BUY"
-	RetrieveOrderExecutionOrderExecutionSideSell RetrieveOrderExecutionOrderExecutionSide = "SELL"
+	RetrieveOrderExecutionSideBuy  RetrieveOrderExecutionSide = "BUY"
+	RetrieveOrderExecutionSideSell RetrieveOrderExecutionSide = "SELL"
 )
 
-func (e RetrieveOrderExecutionOrderExecutionSide) ToPointer() *RetrieveOrderExecutionOrderExecutionSide {
+func (e RetrieveOrderExecutionSide) ToPointer() *RetrieveOrderExecutionSide {
 	return &e
 }
 
-func (e *RetrieveOrderExecutionOrderExecutionSide) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderExecutionSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -126,30 +126,30 @@ func (e *RetrieveOrderExecutionOrderExecutionSide) UnmarshalJSON(data []byte) er
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = RetrieveOrderExecutionOrderExecutionSide(v)
+		*e = RetrieveOrderExecutionSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderExecutionOrderExecutionSide: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderExecutionSide: %v", v)
 	}
 }
 
-// RetrieveOrderExecutionOrderExecutionStatus - Execution status of the Execution.
+// RetrieveOrderExecutionStatus - Execution status of the Execution.
 // * FILLED -
 // * SETTLED -
 // * CANCELLED -
-type RetrieveOrderExecutionOrderExecutionStatus string
+type RetrieveOrderExecutionStatus string
 
 const (
-	RetrieveOrderExecutionOrderExecutionStatusFilled    RetrieveOrderExecutionOrderExecutionStatus = "FILLED"
-	RetrieveOrderExecutionOrderExecutionStatusSettled   RetrieveOrderExecutionOrderExecutionStatus = "SETTLED"
-	RetrieveOrderExecutionOrderExecutionStatusCancelled RetrieveOrderExecutionOrderExecutionStatus = "CANCELLED"
+	RetrieveOrderExecutionStatusFilled    RetrieveOrderExecutionStatus = "FILLED"
+	RetrieveOrderExecutionStatusSettled   RetrieveOrderExecutionStatus = "SETTLED"
+	RetrieveOrderExecutionStatusCancelled RetrieveOrderExecutionStatus = "CANCELLED"
 )
 
-func (e RetrieveOrderExecutionOrderExecutionStatus) ToPointer() *RetrieveOrderExecutionOrderExecutionStatus {
+func (e RetrieveOrderExecutionStatus) ToPointer() *RetrieveOrderExecutionStatus {
 	return &e
 }
 
-func (e *RetrieveOrderExecutionOrderExecutionStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderExecutionStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -160,65 +160,65 @@ func (e *RetrieveOrderExecutionOrderExecutionStatus) UnmarshalJSON(data []byte) 
 	case "SETTLED":
 		fallthrough
 	case "CANCELLED":
-		*e = RetrieveOrderExecutionOrderExecutionStatus(v)
+		*e = RetrieveOrderExecutionStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderExecutionOrderExecutionStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderExecutionStatus: %v", v)
 	}
 }
 
-// RetrieveOrderExecutionOrderExecutionTaxType - Tax type
+// RetrieveOrderExecutionType - Tax type
 // * TOTAL -
-type RetrieveOrderExecutionOrderExecutionTaxType string
+type RetrieveOrderExecutionType string
 
 const (
-	RetrieveOrderExecutionOrderExecutionTaxTypeTotal RetrieveOrderExecutionOrderExecutionTaxType = "TOTAL"
+	RetrieveOrderExecutionTypeTotal RetrieveOrderExecutionType = "TOTAL"
 )
 
-func (e RetrieveOrderExecutionOrderExecutionTaxType) ToPointer() *RetrieveOrderExecutionOrderExecutionTaxType {
+func (e RetrieveOrderExecutionType) ToPointer() *RetrieveOrderExecutionType {
 	return &e
 }
 
-func (e *RetrieveOrderExecutionOrderExecutionTaxType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveOrderExecutionType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "TOTAL":
-		*e = RetrieveOrderExecutionOrderExecutionTaxType(v)
+		*e = RetrieveOrderExecutionType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveOrderExecutionOrderExecutionTaxType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveOrderExecutionType: %v", v)
 	}
 }
 
-type RetrieveOrderExecutionOrderExecutionTax struct {
+type Tax struct {
 	Amount string `json:"amount"`
 	// Tax type
 	// * TOTAL -
-	Type *RetrieveOrderExecutionOrderExecutionTaxType `default:"TOTAL" json:"type"`
+	Type *RetrieveOrderExecutionType `default:"TOTAL" json:"type"`
 }
 
-func (r RetrieveOrderExecutionOrderExecutionTax) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(r, "", false)
+func (t Tax) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (r *RetrieveOrderExecutionOrderExecutionTax) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+func (t *Tax) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveOrderExecutionOrderExecutionTax) GetAmount() string {
+func (o *Tax) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *RetrieveOrderExecutionOrderExecutionTax) GetType() *RetrieveOrderExecutionOrderExecutionTaxType {
+func (o *Tax) GetType() *RetrieveOrderExecutionType {
 	if o == nil {
 		return nil
 	}
@@ -230,23 +230,23 @@ type RetrieveOrderExecutionOrderExecution struct {
 	CashAmount string `json:"cash_amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency       *RetrieveOrderExecutionOrderExecutionCurrency `default:"EUR" json:"currency"`
-	ID             string                                        `json:"id"`
-	OrderID        string                                        `json:"order_id"`
-	Price          string                                        `json:"price"`
-	SettlementDate *string                                       `json:"settlement_date,omitempty"`
-	ShareQuantity  string                                        `json:"share_quantity"`
+	Currency       *RetrieveOrderExecutionCurrency `default:"EUR" json:"currency"`
+	ID             string                          `json:"id"`
+	OrderID        string                          `json:"order_id"`
+	Price          string                          `json:"price"`
+	SettlementDate *string                         `json:"settlement_date,omitempty"`
+	ShareQuantity  string                          `json:"share_quantity"`
 	// Side of the execution.
 	// * BUY -
 	// * SELL -
-	Side RetrieveOrderExecutionOrderExecutionSide `json:"side"`
+	Side RetrieveOrderExecutionSide `json:"side"`
 	// Execution status of the Execution.
 	// * FILLED -
 	// * SETTLED -
 	// * CANCELLED -
-	Status          RetrieveOrderExecutionOrderExecutionStatus `json:"status"`
-	Taxes           []RetrieveOrderExecutionOrderExecutionTax  `json:"taxes"`
-	TransactionTime time.Time                                  `json:"transaction_time"`
+	Status          RetrieveOrderExecutionStatus `json:"status"`
+	Taxes           []Tax                        `json:"taxes"`
+	TransactionTime time.Time                    `json:"transaction_time"`
 }
 
 func (r RetrieveOrderExecutionOrderExecution) MarshalJSON() ([]byte, error) {
@@ -267,7 +267,7 @@ func (o *RetrieveOrderExecutionOrderExecution) GetCashAmount() string {
 	return o.CashAmount
 }
 
-func (o *RetrieveOrderExecutionOrderExecution) GetCurrency() *RetrieveOrderExecutionOrderExecutionCurrency {
+func (o *RetrieveOrderExecutionOrderExecution) GetCurrency() *RetrieveOrderExecutionCurrency {
 	if o == nil {
 		return nil
 	}
@@ -309,23 +309,23 @@ func (o *RetrieveOrderExecutionOrderExecution) GetShareQuantity() string {
 	return o.ShareQuantity
 }
 
-func (o *RetrieveOrderExecutionOrderExecution) GetSide() RetrieveOrderExecutionOrderExecutionSide {
+func (o *RetrieveOrderExecutionOrderExecution) GetSide() RetrieveOrderExecutionSide {
 	if o == nil {
-		return RetrieveOrderExecutionOrderExecutionSide("")
+		return RetrieveOrderExecutionSide("")
 	}
 	return o.Side
 }
 
-func (o *RetrieveOrderExecutionOrderExecution) GetStatus() RetrieveOrderExecutionOrderExecutionStatus {
+func (o *RetrieveOrderExecutionOrderExecution) GetStatus() RetrieveOrderExecutionStatus {
 	if o == nil {
-		return RetrieveOrderExecutionOrderExecutionStatus("")
+		return RetrieveOrderExecutionStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveOrderExecutionOrderExecution) GetTaxes() []RetrieveOrderExecutionOrderExecutionTax {
+func (o *RetrieveOrderExecutionOrderExecution) GetTaxes() []Tax {
 	if o == nil {
-		return []RetrieveOrderExecutionOrderExecutionTax{}
+		return []Tax{}
 	}
 	return o.Taxes
 }
@@ -338,15 +338,22 @@ func (o *RetrieveOrderExecutionOrderExecution) GetTransactionTime() time.Time {
 }
 
 type RetrieveOrderExecutionResponse struct {
+	// OK
+	TwoHundredApplicationJSONOrderExecution *RetrieveOrderExecutionOrderExecution
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// OK
-	OrderExecution *RetrieveOrderExecutionOrderExecution
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *RetrieveOrderExecutionResponse) GetTwoHundredApplicationJSONOrderExecution() *RetrieveOrderExecutionOrderExecution {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONOrderExecution
 }
 
 func (o *RetrieveOrderExecutionResponse) GetContentType() string {
@@ -361,13 +368,6 @@ func (o *RetrieveOrderExecutionResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *RetrieveOrderExecutionResponse) GetOrderExecution() *RetrieveOrderExecutionOrderExecution {
-	if o == nil {
-		return nil
-	}
-	return o.OrderExecution
 }
 
 func (o *RetrieveOrderExecutionResponse) GetStatusCode() int {

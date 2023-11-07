@@ -69,27 +69,27 @@ func (o *RetrieveAccountRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveAccountAccountStatus - The status of the account
+// RetrieveAccountStatus - The status of the account
 // * PENDING_APPROVAL - Account approval is pending - the account is visible through our API but cannot be acted on.
 // * ACTIVE - Account is active - full functionality of the Investment API is accessible.
 // * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 // * CLOSED - Account is closed with zero balance successfully.
 // * LOCKED - Account is locked for all actions.
-type RetrieveAccountAccountStatus string
+type RetrieveAccountStatus string
 
 const (
-	RetrieveAccountAccountStatusPendingApproval RetrieveAccountAccountStatus = "PENDING_APPROVAL"
-	RetrieveAccountAccountStatusActive          RetrieveAccountAccountStatus = "ACTIVE"
-	RetrieveAccountAccountStatusClosing         RetrieveAccountAccountStatus = "CLOSING"
-	RetrieveAccountAccountStatusClosed          RetrieveAccountAccountStatus = "CLOSED"
-	RetrieveAccountAccountStatusLocked          RetrieveAccountAccountStatus = "LOCKED"
+	RetrieveAccountStatusPendingApproval RetrieveAccountStatus = "PENDING_APPROVAL"
+	RetrieveAccountStatusActive          RetrieveAccountStatus = "ACTIVE"
+	RetrieveAccountStatusClosing         RetrieveAccountStatus = "CLOSING"
+	RetrieveAccountStatusClosed          RetrieveAccountStatus = "CLOSED"
+	RetrieveAccountStatusLocked          RetrieveAccountStatus = "LOCKED"
 )
 
-func (e RetrieveAccountAccountStatus) ToPointer() *RetrieveAccountAccountStatus {
+func (e RetrieveAccountStatus) ToPointer() *RetrieveAccountStatus {
 	return &e
 }
 
-func (e *RetrieveAccountAccountStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -104,28 +104,28 @@ func (e *RetrieveAccountAccountStatus) UnmarshalJSON(data []byte) error {
 	case "CLOSED":
 		fallthrough
 	case "LOCKED":
-		*e = RetrieveAccountAccountStatus(v)
+		*e = RetrieveAccountStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountAccountStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountStatus: %v", v)
 	}
 }
 
-// RetrieveAccountAccountType - Account type.
+// RetrieveAccountType - Account type.
 // * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 // * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-type RetrieveAccountAccountType string
+type RetrieveAccountType string
 
 const (
-	RetrieveAccountAccountTypeTrading   RetrieveAccountAccountType = "TRADING"
-	RetrieveAccountAccountTypePortfolio RetrieveAccountAccountType = "PORTFOLIO"
+	RetrieveAccountTypeTrading   RetrieveAccountType = "TRADING"
+	RetrieveAccountTypePortfolio RetrieveAccountType = "PORTFOLIO"
 )
 
-func (e RetrieveAccountAccountType) ToPointer() *RetrieveAccountAccountType {
+func (e RetrieveAccountType) ToPointer() *RetrieveAccountType {
 	return &e
 }
 
-func (e *RetrieveAccountAccountType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -134,66 +134,66 @@ func (e *RetrieveAccountAccountType) UnmarshalJSON(data []byte) error {
 	case "TRADING":
 		fallthrough
 	case "PORTFOLIO":
-		*e = RetrieveAccountAccountType(v)
+		*e = RetrieveAccountType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountAccountType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountType: %v", v)
 	}
 }
 
-// RetrieveAccountAccountUsersType - Relation type
+// RetrieveAccountAccountsType - Relation type
 // * OWNER -
-type RetrieveAccountAccountUsersType string
+type RetrieveAccountAccountsType string
 
 const (
-	RetrieveAccountAccountUsersTypeOwner RetrieveAccountAccountUsersType = "OWNER"
+	RetrieveAccountAccountsTypeOwner RetrieveAccountAccountsType = "OWNER"
 )
 
-func (e RetrieveAccountAccountUsersType) ToPointer() *RetrieveAccountAccountUsersType {
+func (e RetrieveAccountAccountsType) ToPointer() *RetrieveAccountAccountsType {
 	return &e
 }
 
-func (e *RetrieveAccountAccountUsersType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountAccountsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "OWNER":
-		*e = RetrieveAccountAccountUsersType(v)
+		*e = RetrieveAccountAccountsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountAccountUsersType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountAccountsType: %v", v)
 	}
 }
 
-type RetrieveAccountAccountUsers struct {
+type RetrieveAccountUsers struct {
 	// User unique identifier.
 	ID *string `json:"id,omitempty"`
 	// Relation type
 	// * OWNER -
-	Type *RetrieveAccountAccountUsersType `default:"OWNER" json:"type"`
+	Type *RetrieveAccountAccountsType `default:"OWNER" json:"type"`
 }
 
-func (r RetrieveAccountAccountUsers) MarshalJSON() ([]byte, error) {
+func (r RetrieveAccountUsers) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveAccountAccountUsers) UnmarshalJSON(data []byte) error {
+func (r *RetrieveAccountUsers) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveAccountAccountUsers) GetID() *string {
+func (o *RetrieveAccountUsers) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *RetrieveAccountAccountUsers) GetType() *RetrieveAccountAccountUsersType {
+func (o *RetrieveAccountUsers) GetType() *RetrieveAccountAccountsType {
 	if o == nil {
 		return nil
 	}
@@ -218,14 +218,14 @@ type RetrieveAccountAccount struct {
 	// * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 	// * CLOSED - Account is closed with zero balance successfully.
 	// * LOCKED - Account is locked for all actions.
-	Status RetrieveAccountAccountStatus `json:"status"`
+	Status RetrieveAccountStatus `json:"status"`
 	// Account type.
 	// * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 	// * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-	Type RetrieveAccountAccountType `json:"type"`
+	Type RetrieveAccountType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	UpdatedAt time.Time                     `json:"updated_at"`
-	Users     []RetrieveAccountAccountUsers `json:"users"`
+	UpdatedAt time.Time              `json:"updated_at"`
+	Users     []RetrieveAccountUsers `json:"users"`
 }
 
 func (r RetrieveAccountAccount) MarshalJSON() ([]byte, error) {
@@ -274,16 +274,16 @@ func (o *RetrieveAccountAccount) GetName() string {
 	return o.Name
 }
 
-func (o *RetrieveAccountAccount) GetStatus() RetrieveAccountAccountStatus {
+func (o *RetrieveAccountAccount) GetStatus() RetrieveAccountStatus {
 	if o == nil {
-		return RetrieveAccountAccountStatus("")
+		return RetrieveAccountStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveAccountAccount) GetType() RetrieveAccountAccountType {
+func (o *RetrieveAccountAccount) GetType() RetrieveAccountType {
 	if o == nil {
-		return RetrieveAccountAccountType("")
+		return RetrieveAccountType("")
 	}
 	return o.Type
 }
@@ -295,16 +295,16 @@ func (o *RetrieveAccountAccount) GetUpdatedAt() time.Time {
 	return o.UpdatedAt
 }
 
-func (o *RetrieveAccountAccount) GetUsers() []RetrieveAccountAccountUsers {
+func (o *RetrieveAccountAccount) GetUsers() []RetrieveAccountUsers {
 	if o == nil {
-		return []RetrieveAccountAccountUsers{}
+		return []RetrieveAccountUsers{}
 	}
 	return o.Users
 }
 
 type RetrieveAccountResponse struct {
 	// OK
-	Account *RetrieveAccountAccount
+	TwoHundredApplicationJSONAccount *RetrieveAccountAccount
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -314,11 +314,11 @@ type RetrieveAccountResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *RetrieveAccountResponse) GetAccount() *RetrieveAccountAccount {
+func (o *RetrieveAccountResponse) GetTwoHundredApplicationJSONAccount() *RetrieveAccountAccount {
 	if o == nil {
 		return nil
 	}
-	return o.Account
+	return o.TwoHundredApplicationJSONAccount
 }
 
 func (o *RetrieveAccountResponse) GetContentType() string {

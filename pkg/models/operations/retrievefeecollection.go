@@ -70,68 +70,68 @@ func (o *RetrieveFeeCollectionRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveFeeCollectionFeeCollectionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// RetrieveFeeCollectionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type RetrieveFeeCollectionFeeCollectionCurrency string
+type RetrieveFeeCollectionCurrency string
 
 const (
-	RetrieveFeeCollectionFeeCollectionCurrencyEur RetrieveFeeCollectionFeeCollectionCurrency = "EUR"
+	RetrieveFeeCollectionCurrencyEur RetrieveFeeCollectionCurrency = "EUR"
 )
 
-func (e RetrieveFeeCollectionFeeCollectionCurrency) ToPointer() *RetrieveFeeCollectionFeeCollectionCurrency {
+func (e RetrieveFeeCollectionCurrency) ToPointer() *RetrieveFeeCollectionCurrency {
 	return &e
 }
 
-func (e *RetrieveFeeCollectionFeeCollectionCurrency) UnmarshalJSON(data []byte) error {
+func (e *RetrieveFeeCollectionCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = RetrieveFeeCollectionFeeCollectionCurrency(v)
+		*e = RetrieveFeeCollectionCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveFeeCollectionFeeCollectionCurrency: %v", v)
+		return fmt.Errorf("invalid value for RetrieveFeeCollectionCurrency: %v", v)
 	}
 }
 
-type RetrieveFeeCollectionFeeCollectionProcessedAmount struct {
+type RetrieveFeeCollectionProcessedAmount struct {
 	CashBalance *string `json:"cash_balance,omitempty"`
 	SellToCover *string `json:"sell_to_cover,omitempty"`
 }
 
-func (o *RetrieveFeeCollectionFeeCollectionProcessedAmount) GetCashBalance() *string {
+func (o *RetrieveFeeCollectionProcessedAmount) GetCashBalance() *string {
 	if o == nil {
 		return nil
 	}
 	return o.CashBalance
 }
 
-func (o *RetrieveFeeCollectionFeeCollectionProcessedAmount) GetSellToCover() *string {
+func (o *RetrieveFeeCollectionProcessedAmount) GetSellToCover() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SellToCover
 }
 
-// RetrieveFeeCollectionFeeCollectionStatus - Status of the fee collection
+// RetrieveFeeCollectionStatus - Status of the fee collection
 // * PROCESSING - Fee collection is in progress.
 // * FINALISED - Fees have been collected from the account and the funds has been transferred to the client.
 // * CANCELLED - Fee collection has been cancelled.
-type RetrieveFeeCollectionFeeCollectionStatus string
+type RetrieveFeeCollectionStatus string
 
 const (
-	RetrieveFeeCollectionFeeCollectionStatusProcessing RetrieveFeeCollectionFeeCollectionStatus = "PROCESSING"
-	RetrieveFeeCollectionFeeCollectionStatusFinalised  RetrieveFeeCollectionFeeCollectionStatus = "FINALISED"
-	RetrieveFeeCollectionFeeCollectionStatusCancelled  RetrieveFeeCollectionFeeCollectionStatus = "CANCELLED"
+	RetrieveFeeCollectionStatusProcessing RetrieveFeeCollectionStatus = "PROCESSING"
+	RetrieveFeeCollectionStatusFinalised  RetrieveFeeCollectionStatus = "FINALISED"
+	RetrieveFeeCollectionStatusCancelled  RetrieveFeeCollectionStatus = "CANCELLED"
 )
 
-func (e RetrieveFeeCollectionFeeCollectionStatus) ToPointer() *RetrieveFeeCollectionFeeCollectionStatus {
+func (e RetrieveFeeCollectionStatus) ToPointer() *RetrieveFeeCollectionStatus {
 	return &e
 }
 
-func (e *RetrieveFeeCollectionFeeCollectionStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveFeeCollectionStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -142,28 +142,28 @@ func (e *RetrieveFeeCollectionFeeCollectionStatus) UnmarshalJSON(data []byte) er
 	case "FINALISED":
 		fallthrough
 	case "CANCELLED":
-		*e = RetrieveFeeCollectionFeeCollectionStatus(v)
+		*e = RetrieveFeeCollectionStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveFeeCollectionFeeCollectionStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveFeeCollectionStatus: %v", v)
 	}
 }
 
-// RetrieveFeeCollectionFeeCollectionType - Type of the fee collection
+// RetrieveFeeCollectionType - Type of the fee collection
 // * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 // * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-type RetrieveFeeCollectionFeeCollectionType string
+type RetrieveFeeCollectionType string
 
 const (
-	RetrieveFeeCollectionFeeCollectionTypeServiceFee            RetrieveFeeCollectionFeeCollectionType = "SERVICE_FEE"
-	RetrieveFeeCollectionFeeCollectionTypeServiceFeeLiquidation RetrieveFeeCollectionFeeCollectionType = "SERVICE_FEE_LIQUIDATION"
+	RetrieveFeeCollectionTypeServiceFee            RetrieveFeeCollectionType = "SERVICE_FEE"
+	RetrieveFeeCollectionTypeServiceFeeLiquidation RetrieveFeeCollectionType = "SERVICE_FEE_LIQUIDATION"
 )
 
-func (e RetrieveFeeCollectionFeeCollectionType) ToPointer() *RetrieveFeeCollectionFeeCollectionType {
+func (e RetrieveFeeCollectionType) ToPointer() *RetrieveFeeCollectionType {
 	return &e
 }
 
-func (e *RetrieveFeeCollectionFeeCollectionType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveFeeCollectionType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -172,10 +172,10 @@ func (e *RetrieveFeeCollectionFeeCollectionType) UnmarshalJSON(data []byte) erro
 	case "SERVICE_FEE":
 		fallthrough
 	case "SERVICE_FEE_LIQUIDATION":
-		*e = RetrieveFeeCollectionFeeCollectionType(v)
+		*e = RetrieveFeeCollectionType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveFeeCollectionFeeCollectionType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveFeeCollectionType: %v", v)
 	}
 }
 
@@ -190,23 +190,23 @@ type RetrieveFeeCollectionFeeCollection struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *RetrieveFeeCollectionFeeCollectionCurrency `default:"EUR" json:"currency"`
+	Currency *RetrieveFeeCollectionCurrency `default:"EUR" json:"currency"`
 	// Fee collection unique identifier.
 	ID string `json:"id"`
 	// End date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
 	PeriodEnd types.Date `json:"period_end"`
 	// Start date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
-	PeriodStart     types.Date                                        `json:"period_start"`
-	ProcessedAmount RetrieveFeeCollectionFeeCollectionProcessedAmount `json:"processed_amount"`
+	PeriodStart     types.Date                           `json:"period_start"`
+	ProcessedAmount RetrieveFeeCollectionProcessedAmount `json:"processed_amount"`
 	// Status of the fee collection
 	// * PROCESSING - Fee collection is in progress.
 	// * FINALISED - Fees have been collected from the account and the funds has been transferred to the client.
 	// * CANCELLED - Fee collection has been cancelled.
-	Status RetrieveFeeCollectionFeeCollectionStatus `json:"status"`
+	Status RetrieveFeeCollectionStatus `json:"status"`
 	// Type of the fee collection
 	// * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
 	// * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
-	Type RetrieveFeeCollectionFeeCollectionType `json:"type"`
+	Type RetrieveFeeCollectionType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
@@ -250,7 +250,7 @@ func (o *RetrieveFeeCollectionFeeCollection) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *RetrieveFeeCollectionFeeCollection) GetCurrency() *RetrieveFeeCollectionFeeCollectionCurrency {
+func (o *RetrieveFeeCollectionFeeCollection) GetCurrency() *RetrieveFeeCollectionCurrency {
 	if o == nil {
 		return nil
 	}
@@ -278,23 +278,23 @@ func (o *RetrieveFeeCollectionFeeCollection) GetPeriodStart() types.Date {
 	return o.PeriodStart
 }
 
-func (o *RetrieveFeeCollectionFeeCollection) GetProcessedAmount() RetrieveFeeCollectionFeeCollectionProcessedAmount {
+func (o *RetrieveFeeCollectionFeeCollection) GetProcessedAmount() RetrieveFeeCollectionProcessedAmount {
 	if o == nil {
-		return RetrieveFeeCollectionFeeCollectionProcessedAmount{}
+		return RetrieveFeeCollectionProcessedAmount{}
 	}
 	return o.ProcessedAmount
 }
 
-func (o *RetrieveFeeCollectionFeeCollection) GetStatus() RetrieveFeeCollectionFeeCollectionStatus {
+func (o *RetrieveFeeCollectionFeeCollection) GetStatus() RetrieveFeeCollectionStatus {
 	if o == nil {
-		return RetrieveFeeCollectionFeeCollectionStatus("")
+		return RetrieveFeeCollectionStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveFeeCollectionFeeCollection) GetType() RetrieveFeeCollectionFeeCollectionType {
+func (o *RetrieveFeeCollectionFeeCollection) GetType() RetrieveFeeCollectionType {
 	if o == nil {
-		return RetrieveFeeCollectionFeeCollectionType("")
+		return RetrieveFeeCollectionType("")
 	}
 	return o.Type
 }
@@ -307,15 +307,22 @@ func (o *RetrieveFeeCollectionFeeCollection) GetUpdatedAt() time.Time {
 }
 
 type RetrieveFeeCollectionResponse struct {
+	// OK
+	TwoHundredApplicationJSONFeeCollection *RetrieveFeeCollectionFeeCollection
 	// HTTP response content type for this operation
 	ContentType string
-	// OK
-	FeeCollection *RetrieveFeeCollectionFeeCollection
-	Headers       map[string][]string
+	Headers     map[string][]string
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *RetrieveFeeCollectionResponse) GetTwoHundredApplicationJSONFeeCollection() *RetrieveFeeCollectionFeeCollection {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONFeeCollection
 }
 
 func (o *RetrieveFeeCollectionResponse) GetContentType() string {
@@ -323,13 +330,6 @@ func (o *RetrieveFeeCollectionResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
-}
-
-func (o *RetrieveFeeCollectionResponse) GetFeeCollection() *RetrieveFeeCollectionFeeCollection {
-	if o == nil {
-		return nil
-	}
-	return o.FeeCollection
 }
 
 func (o *RetrieveFeeCollectionResponse) GetHeaders() map[string][]string {

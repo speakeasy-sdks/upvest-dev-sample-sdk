@@ -11,29 +11,29 @@ import (
 	"time"
 )
 
-// CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateVirtualCashIncreaseCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency string
+type CreateVirtualCashIncreaseCurrency string
 
 const (
-	CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrencyEur CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency = "EUR"
+	CreateVirtualCashIncreaseCurrencyEur CreateVirtualCashIncreaseCurrency = "EUR"
 )
 
-func (e CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency) ToPointer() *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency {
+func (e CreateVirtualCashIncreaseCurrency) ToPointer() *CreateVirtualCashIncreaseCurrency {
 	return &e
 }
 
-func (e *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateVirtualCashIncreaseCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency(v)
+		*e = CreateVirtualCashIncreaseCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateVirtualCashIncreaseCurrency: %v", v)
 	}
 }
 
@@ -43,7 +43,7 @@ type CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequest
 	Amount         string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency `default:"EUR" json:"currency"`
+	Currency *CreateVirtualCashIncreaseCurrency `default:"EUR" json:"currency"`
 }
 
 func (c CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequest) MarshalJSON() ([]byte, error) {
@@ -71,7 +71,7 @@ func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateReq
 	return o.Amount
 }
 
-func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequest) GetCurrency() *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequestCurrency {
+func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequest) GetCurrency() *CreateVirtualCashIncreaseCurrency {
 	if o == nil {
 		return nil
 	}
@@ -147,47 +147,47 @@ func (o *CreateVirtualCashIncreaseRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateVirtualCashIncreaseVirtualCashBalancesCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency string
+type CreateVirtualCashIncreaseVirtualCashBalancesCurrency string
 
 const (
-	CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrencyEur CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency = "EUR"
+	CreateVirtualCashIncreaseVirtualCashBalancesCurrencyEur CreateVirtualCashIncreaseVirtualCashBalancesCurrency = "EUR"
 )
 
-func (e CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency) ToPointer() *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency {
+func (e CreateVirtualCashIncreaseVirtualCashBalancesCurrency) ToPointer() *CreateVirtualCashIncreaseVirtualCashBalancesCurrency {
 	return &e
 }
 
-func (e *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateVirtualCashIncreaseVirtualCashBalancesCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency(v)
+		*e = CreateVirtualCashIncreaseVirtualCashBalancesCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateVirtualCashIncreaseVirtualCashBalancesCurrency: %v", v)
 	}
 }
 
-// CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus - Status of the virtual cash
+// CreateVirtualCashIncreaseStatus - Status of the virtual cash
 // * ISSUED - Virtual cash increase is created.
 // * CONFIRMED - Virtual cash increase was successfully processed.
-type CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus string
+type CreateVirtualCashIncreaseStatus string
 
 const (
-	CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatusIssued    CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus = "ISSUED"
-	CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatusConfirmed CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus = "CONFIRMED"
+	CreateVirtualCashIncreaseStatusIssued    CreateVirtualCashIncreaseStatus = "ISSUED"
+	CreateVirtualCashIncreaseStatusConfirmed CreateVirtualCashIncreaseStatus = "CONFIRMED"
 )
 
-func (e CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus) ToPointer() *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus {
+func (e CreateVirtualCashIncreaseStatus) ToPointer() *CreateVirtualCashIncreaseStatus {
 	return &e
 }
 
-func (e *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateVirtualCashIncreaseStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -196,10 +196,10 @@ func (e *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus) U
 	case "ISSUED":
 		fallthrough
 	case "CONFIRMED":
-		*e = CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus(v)
+		*e = CreateVirtualCashIncreaseStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateVirtualCashIncreaseStatus: %v", v)
 	}
 }
 
@@ -212,13 +212,13 @@ type CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency `default:"EUR" json:"currency"`
+	Currency *CreateVirtualCashIncreaseVirtualCashBalancesCurrency `default:"EUR" json:"currency"`
 	// Virtual cash unique identifier
 	ID string `json:"id"`
 	// Status of the virtual cash
 	// * ISSUED - Virtual cash increase is created.
 	// * CONFIRMED - Virtual cash increase was successfully processed.
-	Status CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus `json:"status"`
+	Status CreateVirtualCashIncreaseStatus `json:"status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
@@ -255,7 +255,7 @@ func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease) GetCrea
 	return o.CreatedAt
 }
 
-func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease) GetCurrency() *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCurrency {
+func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease) GetCurrency() *CreateVirtualCashIncreaseVirtualCashBalancesCurrency {
 	if o == nil {
 		return nil
 	}
@@ -269,9 +269,9 @@ func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease) GetID()
 	return o.ID
 }
 
-func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease) GetStatus() CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus {
+func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease) GetStatus() CreateVirtualCashIncreaseStatus {
 	if o == nil {
-		return CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseStatus("")
+		return CreateVirtualCashIncreaseStatus("")
 	}
 	return o.Status
 }
@@ -284,6 +284,8 @@ func (o *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease) GetUpda
 }
 
 type CreateVirtualCashIncreaseResponse struct {
+	// Virtual Cash Balances Increase
+	TwoHundredApplicationJSONVirtualCashBalanceVirtualCashIncrease *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -291,8 +293,13 @@ type CreateVirtualCashIncreaseResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Virtual Cash Balances Increase
-	VirtualCashBalanceVirtualCashIncrease *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease
+}
+
+func (o *CreateVirtualCashIncreaseResponse) GetTwoHundredApplicationJSONVirtualCashBalanceVirtualCashIncrease() *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashIncrease
 }
 
 func (o *CreateVirtualCashIncreaseResponse) GetContentType() string {
@@ -321,11 +328,4 @@ func (o *CreateVirtualCashIncreaseResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *CreateVirtualCashIncreaseResponse) GetVirtualCashBalanceVirtualCashIncrease() *CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncrease {
-	if o == nil {
-		return nil
-	}
-	return o.VirtualCashBalanceVirtualCashIncrease
 }

@@ -5,9 +5,9 @@ Report
 
 ## Supported Types
 
-### RetrieveReportReportReport
+### RetrieveReportReportsReport
 
 ```go
-retrieveReportReport := operations.CreateRetrieveReportReportRetrieveReportReportReport(operations.RetrieveReportReportReport{/* values here */})
+retrieveReportReport := operations.CreateRetrieveReportReportRetrieveReportReportsReport(operations.RetrieveReportReportsReport{/* values here */})
 ```
 

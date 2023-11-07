@@ -11,28 +11,28 @@ import (
 	"time"
 )
 
-// ListPortfolioRebalancingExecutionOrdersSort - Sort the result by `status`.
-type ListPortfolioRebalancingExecutionOrdersSort string
+// ListPortfolioRebalancingExecutionOrdersQueryParamSort - Sort the result by `status`.
+type ListPortfolioRebalancingExecutionOrdersQueryParamSort string
 
 const (
-	ListPortfolioRebalancingExecutionOrdersSortStatus ListPortfolioRebalancingExecutionOrdersSort = "status"
+	ListPortfolioRebalancingExecutionOrdersQueryParamSortStatus ListPortfolioRebalancingExecutionOrdersQueryParamSort = "status"
 )
 
-func (e ListPortfolioRebalancingExecutionOrdersSort) ToPointer() *ListPortfolioRebalancingExecutionOrdersSort {
+func (e ListPortfolioRebalancingExecutionOrdersQueryParamSort) ToPointer() *ListPortfolioRebalancingExecutionOrdersQueryParamSort {
 	return &e
 }
 
-func (e *ListPortfolioRebalancingExecutionOrdersSort) UnmarshalJSON(data []byte) error {
+func (e *ListPortfolioRebalancingExecutionOrdersQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "status":
-		*e = ListPortfolioRebalancingExecutionOrdersSort(v)
+		*e = ListPortfolioRebalancingExecutionOrdersQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfolioRebalancingExecutionOrdersSort: %v", v)
+		return fmt.Errorf("invalid value for ListPortfolioRebalancingExecutionOrdersQueryParamSort: %v", v)
 	}
 }
 
@@ -51,7 +51,7 @@ type ListPortfolioRebalancingExecutionOrdersRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `status`.
-	Sort *ListPortfolioRebalancingExecutionOrdersSort `default:"status" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListPortfolioRebalancingExecutionOrdersQueryParamSort `default:"status" queryParam:"style=form,explode=true,name=sort"`
 	// Returns rebalancing orders with dates starting from and including this date (UTC)
 	StartDate *string `queryParam:"style=form,explode=true,name=start_date"`
 	// Upvest API version (Note: Do not include quotation marks)
@@ -120,7 +120,7 @@ func (o *ListPortfolioRebalancingExecutionOrdersRequest) GetSignatureInput() str
 	return o.SignatureInput
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersRequest) GetSort() *ListPortfolioRebalancingExecutionOrdersSort {
+func (o *ListPortfolioRebalancingExecutionOrdersRequest) GetSort() *ListPortfolioRebalancingExecutionOrdersQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -148,27 +148,27 @@ func (o *ListPortfolioRebalancingExecutionOrdersRequest) GetUpvestClientID() str
 	return o.UpvestClientID
 }
 
-// ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus - Execution status of the Portfolio Order.
+// ListPortfolioRebalancingExecutionOrdersStatus - Execution status of the Portfolio Order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * SETTLED -
 // * CANCELLED -
-type ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus string
+type ListPortfolioRebalancingExecutionOrdersStatus string
 
 const (
-	ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatusNew        ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus = "NEW"
-	ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatusProcessing ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus = "PROCESSING"
-	ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatusFilled     ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus = "FILLED"
-	ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatusSettled    ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus = "SETTLED"
-	ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatusCancelled  ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus = "CANCELLED"
+	ListPortfolioRebalancingExecutionOrdersStatusNew        ListPortfolioRebalancingExecutionOrdersStatus = "NEW"
+	ListPortfolioRebalancingExecutionOrdersStatusProcessing ListPortfolioRebalancingExecutionOrdersStatus = "PROCESSING"
+	ListPortfolioRebalancingExecutionOrdersStatusFilled     ListPortfolioRebalancingExecutionOrdersStatus = "FILLED"
+	ListPortfolioRebalancingExecutionOrdersStatusSettled    ListPortfolioRebalancingExecutionOrdersStatus = "SETTLED"
+	ListPortfolioRebalancingExecutionOrdersStatusCancelled  ListPortfolioRebalancingExecutionOrdersStatus = "CANCELLED"
 )
 
-func (e ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus) ToPointer() *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus {
+func (e ListPortfolioRebalancingExecutionOrdersStatus) ToPointer() *ListPortfolioRebalancingExecutionOrdersStatus {
 	return &e
 }
 
-func (e *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus) UnmarshalJSON(data []byte) error {
+func (e *ListPortfolioRebalancingExecutionOrdersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -183,14 +183,14 @@ func (e *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOr
 	case "SETTLED":
 		fallthrough
 	case "CANCELLED":
-		*e = ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus(v)
+		*e = ListPortfolioRebalancingExecutionOrdersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus: %v", v)
+		return fmt.Errorf("invalid value for ListPortfolioRebalancingExecutionOrdersStatus: %v", v)
 	}
 }
 
-type ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder struct {
+type PortfoliosRebalancingExecutionOrder struct {
 	// Account unique identifier.
 	AccountID string `json:"account_id"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
@@ -202,72 +202,72 @@ type ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderL
 	// * FILLED -
 	// * SETTLED -
 	// * CANCELLED -
-	Status ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus `json:"status"`
+	Status ListPortfolioRebalancingExecutionOrdersStatus `json:"status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (l ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (p PortfoliosRebalancingExecutionOrder) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
 }
 
-func (l *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (p *PortfoliosRebalancingExecutionOrder) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder) GetAccountID() string {
+func (o *PortfoliosRebalancingExecutionOrder) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder) GetCreatedAt() time.Time {
+func (o *PortfoliosRebalancingExecutionOrder) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder) GetPortfolioOrderID() string {
+func (o *PortfoliosRebalancingExecutionOrder) GetPortfolioOrderID() string {
 	if o == nil {
 		return ""
 	}
 	return o.PortfolioOrderID
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder) GetStatus() ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus {
+func (o *PortfoliosRebalancingExecutionOrder) GetStatus() ListPortfolioRebalancingExecutionOrdersStatus {
 	if o == nil {
-		return ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrderStatus("")
+		return ListPortfolioRebalancingExecutionOrdersStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder) GetUpdatedAt() time.Time {
+func (o *PortfoliosRebalancingExecutionOrder) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-// ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder - The ordering of the response.
+// ListPortfolioRebalancingExecutionOrdersOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder string
+type ListPortfolioRebalancingExecutionOrdersOrder string
 
 const (
-	ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrderAsc  ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder = "ASC"
-	ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrderDesc ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder = "DESC"
+	ListPortfolioRebalancingExecutionOrdersOrderAsc  ListPortfolioRebalancingExecutionOrdersOrder = "ASC"
+	ListPortfolioRebalancingExecutionOrdersOrderDesc ListPortfolioRebalancingExecutionOrdersOrder = "DESC"
 )
 
-func (e ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder) ToPointer() *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder {
+func (e ListPortfolioRebalancingExecutionOrdersOrder) ToPointer() *ListPortfolioRebalancingExecutionOrdersOrder {
 	return &e
 }
 
-func (e *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListPortfolioRebalancingExecutionOrdersOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -276,14 +276,14 @@ func (e *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOr
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder(v)
+		*e = ListPortfolioRebalancingExecutionOrdersOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListPortfolioRebalancingExecutionOrdersOrder: %v", v)
 	}
 }
 
-type ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta struct {
+type ListPortfolioRebalancingExecutionOrdersMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -293,49 +293,49 @@ type ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderL
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListPortfolioRebalancingExecutionOrdersOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta) GetCount() int64 {
+func (o *ListPortfolioRebalancingExecutionOrdersMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta) GetLimit() int64 {
+func (o *ListPortfolioRebalancingExecutionOrdersMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta) GetOffset() int64 {
+func (o *ListPortfolioRebalancingExecutionOrdersMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta) GetOrder() *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMetaOrder {
+func (o *ListPortfolioRebalancingExecutionOrdersMeta) GetOrder() *ListPortfolioRebalancingExecutionOrdersOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta) GetSort() *string {
+func (o *ListPortfolioRebalancingExecutionOrdersMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta) GetTotalCount() int64 {
+func (o *ListPortfolioRebalancingExecutionOrdersMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -344,34 +344,41 @@ func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOr
 
 // ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse - Portfolios
 type ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse struct {
-	Data []ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder `json:"data"`
-	Meta ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta                                  `json:"meta"`
+	Data []PortfoliosRebalancingExecutionOrder       `json:"data"`
+	Meta ListPortfolioRebalancingExecutionOrdersMeta `json:"meta"`
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse) GetData() []ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder {
+func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse) GetData() []PortfoliosRebalancingExecutionOrder {
 	if o == nil {
-		return []ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponsePortfoliosRebalancingExecutionOrder{}
+		return []PortfoliosRebalancingExecutionOrder{}
 	}
 	return o.Data
 }
 
-func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse) GetMeta() ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta {
+func (o *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse) GetMeta() ListPortfolioRebalancingExecutionOrdersMeta {
 	if o == nil {
-		return ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponseMeta{}
+		return ListPortfolioRebalancingExecutionOrdersMeta{}
 	}
 	return o.Meta
 }
 
 type ListPortfolioRebalancingExecutionOrdersResponse struct {
+	// Portfolios
+	TwoHundredApplicationJSONPortfoliosRebalancingExecutionOrderListResponse *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios
-	PortfoliosRebalancingExecutionOrderListResponse *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListPortfolioRebalancingExecutionOrdersResponse) GetTwoHundredApplicationJSONPortfoliosRebalancingExecutionOrderListResponse() *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosRebalancingExecutionOrderListResponse
 }
 
 func (o *ListPortfolioRebalancingExecutionOrdersResponse) GetContentType() string {
@@ -386,13 +393,6 @@ func (o *ListPortfolioRebalancingExecutionOrdersResponse) GetHeaders() map[strin
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListPortfolioRebalancingExecutionOrdersResponse) GetPortfoliosRebalancingExecutionOrderListResponse() *ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosRebalancingExecutionOrderListResponse
 }
 
 func (o *ListPortfolioRebalancingExecutionOrdersResponse) GetStatusCode() int {

@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListReferenceAccountsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListReferenceAccountsOrder string
+// ListReferenceAccountsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListReferenceAccountsQueryParamOrder string
 
 const (
-	ListReferenceAccountsOrderAsc  ListReferenceAccountsOrder = "ASC"
-	ListReferenceAccountsOrderDesc ListReferenceAccountsOrder = "DESC"
+	ListReferenceAccountsQueryParamOrderAsc  ListReferenceAccountsQueryParamOrder = "ASC"
+	ListReferenceAccountsQueryParamOrderDesc ListReferenceAccountsQueryParamOrder = "DESC"
 )
 
-func (e ListReferenceAccountsOrder) ToPointer() *ListReferenceAccountsOrder {
+func (e ListReferenceAccountsQueryParamOrder) ToPointer() *ListReferenceAccountsQueryParamOrder {
 	return &e
 }
 
-func (e *ListReferenceAccountsOrder) UnmarshalJSON(data []byte) error {
+func (e *ListReferenceAccountsQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,26 +32,26 @@ func (e *ListReferenceAccountsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListReferenceAccountsOrder(v)
+		*e = ListReferenceAccountsQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReferenceAccountsOrder: %v", v)
+		return fmt.Errorf("invalid value for ListReferenceAccountsQueryParamOrder: %v", v)
 	}
 }
 
-// ListReferenceAccountsSort - Field of resource to sort by
-type ListReferenceAccountsSort string
+// ListReferenceAccountsQueryParamSort - Field of resource to sort by
+type ListReferenceAccountsQueryParamSort string
 
 const (
-	ListReferenceAccountsSortID        ListReferenceAccountsSort = "id"
-	ListReferenceAccountsSortCreatedAt ListReferenceAccountsSort = "created_at"
+	ListReferenceAccountsQueryParamSortID        ListReferenceAccountsQueryParamSort = "id"
+	ListReferenceAccountsQueryParamSortCreatedAt ListReferenceAccountsQueryParamSort = "created_at"
 )
 
-func (e ListReferenceAccountsSort) ToPointer() *ListReferenceAccountsSort {
+func (e ListReferenceAccountsQueryParamSort) ToPointer() *ListReferenceAccountsQueryParamSort {
 	return &e
 }
 
-func (e *ListReferenceAccountsSort) UnmarshalJSON(data []byte) error {
+func (e *ListReferenceAccountsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -60,10 +60,10 @@ func (e *ListReferenceAccountsSort) UnmarshalJSON(data []byte) error {
 	case "id":
 		fallthrough
 	case "created_at":
-		*e = ListReferenceAccountsSort(v)
+		*e = ListReferenceAccountsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReferenceAccountsSort: %v", v)
+		return fmt.Errorf("invalid value for ListReferenceAccountsQueryParamSort: %v", v)
 	}
 }
 
@@ -73,13 +73,13 @@ type ListReferenceAccountsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListReferenceAccountsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListReferenceAccountsQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Field of resource to sort by
-	Sort *ListReferenceAccountsSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListReferenceAccountsQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -112,7 +112,7 @@ func (o *ListReferenceAccountsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListReferenceAccountsRequest) GetOrder() *ListReferenceAccountsOrder {
+func (o *ListReferenceAccountsRequest) GetOrder() *ListReferenceAccountsQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -133,7 +133,7 @@ func (o *ListReferenceAccountsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListReferenceAccountsRequest) GetSort() *ListReferenceAccountsSort {
+func (o *ListReferenceAccountsRequest) GetSort() *ListReferenceAccountsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -161,7 +161,7 @@ func (o *ListReferenceAccountsRequest) GetUserID() string {
 	return o.UserID
 }
 
-type ListReferenceAccountsUsersListResponseReferenceAccount struct {
+type ReferenceAccount struct {
 	// First and last name of the reference account owner
 	AccountOwner string `json:"account_owner"`
 	// Business Identifier Code (also known as SWIFT-BIC, BIC, SWIFT ID or SWIFT code) [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362).
@@ -182,95 +182,95 @@ type ListReferenceAccountsUsersListResponseReferenceAccount struct {
 	UserID string `json:"user_id"`
 }
 
-func (l ListReferenceAccountsUsersListResponseReferenceAccount) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (r ReferenceAccount) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
 }
 
-func (l *ListReferenceAccountsUsersListResponseReferenceAccount) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (r *ReferenceAccount) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetAccountOwner() string {
+func (o *ReferenceAccount) GetAccountOwner() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountOwner
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetBic() string {
+func (o *ReferenceAccount) GetBic() string {
 	if o == nil {
 		return ""
 	}
 	return o.Bic
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetConfirmedAt() time.Time {
+func (o *ReferenceAccount) GetConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ConfirmedAt
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetCreatedAt() time.Time {
+func (o *ReferenceAccount) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetIban() string {
+func (o *ReferenceAccount) GetIban() string {
 	if o == nil {
 		return ""
 	}
 	return o.Iban
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetID() string {
+func (o *ReferenceAccount) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetName() string {
+func (o *ReferenceAccount) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetUpdatedAt() time.Time {
+func (o *ReferenceAccount) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListReferenceAccountsUsersListResponseReferenceAccount) GetUserID() string {
+func (o *ReferenceAccount) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// ListReferenceAccountsUsersListResponseMetaOrder - The ordering of the response.
+// ListReferenceAccountsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListReferenceAccountsUsersListResponseMetaOrder string
+type ListReferenceAccountsOrder string
 
 const (
-	ListReferenceAccountsUsersListResponseMetaOrderAsc  ListReferenceAccountsUsersListResponseMetaOrder = "ASC"
-	ListReferenceAccountsUsersListResponseMetaOrderDesc ListReferenceAccountsUsersListResponseMetaOrder = "DESC"
+	ListReferenceAccountsOrderAsc  ListReferenceAccountsOrder = "ASC"
+	ListReferenceAccountsOrderDesc ListReferenceAccountsOrder = "DESC"
 )
 
-func (e ListReferenceAccountsUsersListResponseMetaOrder) ToPointer() *ListReferenceAccountsUsersListResponseMetaOrder {
+func (e ListReferenceAccountsOrder) ToPointer() *ListReferenceAccountsOrder {
 	return &e
 }
 
-func (e *ListReferenceAccountsUsersListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListReferenceAccountsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -279,14 +279,14 @@ func (e *ListReferenceAccountsUsersListResponseMetaOrder) UnmarshalJSON(data []b
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListReferenceAccountsUsersListResponseMetaOrder(v)
+		*e = ListReferenceAccountsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListReferenceAccountsUsersListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListReferenceAccountsOrder: %v", v)
 	}
 }
 
-type ListReferenceAccountsUsersListResponseMeta struct {
+type ListReferenceAccountsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -296,49 +296,49 @@ type ListReferenceAccountsUsersListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListReferenceAccountsUsersListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListReferenceAccountsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListReferenceAccountsUsersListResponseMeta) GetCount() int64 {
+func (o *ListReferenceAccountsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListReferenceAccountsUsersListResponseMeta) GetLimit() int64 {
+func (o *ListReferenceAccountsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListReferenceAccountsUsersListResponseMeta) GetOffset() int64 {
+func (o *ListReferenceAccountsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListReferenceAccountsUsersListResponseMeta) GetOrder() *ListReferenceAccountsUsersListResponseMetaOrder {
+func (o *ListReferenceAccountsMeta) GetOrder() *ListReferenceAccountsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListReferenceAccountsUsersListResponseMeta) GetSort() *string {
+func (o *ListReferenceAccountsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListReferenceAccountsUsersListResponseMeta) GetTotalCount() int64 {
+func (o *ListReferenceAccountsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -347,25 +347,27 @@ func (o *ListReferenceAccountsUsersListResponseMeta) GetTotalCount() int64 {
 
 // ListReferenceAccountsUsersListResponse - OK
 type ListReferenceAccountsUsersListResponse struct {
-	Data []ListReferenceAccountsUsersListResponseReferenceAccount `json:"data"`
-	Meta ListReferenceAccountsUsersListResponseMeta               `json:"meta"`
+	Data []ReferenceAccount        `json:"data"`
+	Meta ListReferenceAccountsMeta `json:"meta"`
 }
 
-func (o *ListReferenceAccountsUsersListResponse) GetData() []ListReferenceAccountsUsersListResponseReferenceAccount {
+func (o *ListReferenceAccountsUsersListResponse) GetData() []ReferenceAccount {
 	if o == nil {
-		return []ListReferenceAccountsUsersListResponseReferenceAccount{}
+		return []ReferenceAccount{}
 	}
 	return o.Data
 }
 
-func (o *ListReferenceAccountsUsersListResponse) GetMeta() ListReferenceAccountsUsersListResponseMeta {
+func (o *ListReferenceAccountsUsersListResponse) GetMeta() ListReferenceAccountsMeta {
 	if o == nil {
-		return ListReferenceAccountsUsersListResponseMeta{}
+		return ListReferenceAccountsMeta{}
 	}
 	return o.Meta
 }
 
 type ListReferenceAccountsResponse struct {
+	// OK
+	TwoHundredApplicationJSONUsersListResponse *ListReferenceAccountsUsersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -373,8 +375,13 @@ type ListReferenceAccountsResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// OK
-	UsersListResponse *ListReferenceAccountsUsersListResponse
+}
+
+func (o *ListReferenceAccountsResponse) GetTwoHundredApplicationJSONUsersListResponse() *ListReferenceAccountsUsersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONUsersListResponse
 }
 
 func (o *ListReferenceAccountsResponse) GetContentType() string {
@@ -403,11 +410,4 @@ func (o *ListReferenceAccountsResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *ListReferenceAccountsResponse) GetUsersListResponse() *ListReferenceAccountsUsersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.UsersListResponse
 }

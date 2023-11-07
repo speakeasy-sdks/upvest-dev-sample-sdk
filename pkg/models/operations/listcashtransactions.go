@@ -12,19 +12,19 @@ import (
 	"time"
 )
 
-// ListCashTransactionsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListCashTransactionsOrder string
+// ListCashTransactionsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListCashTransactionsQueryParamOrder string
 
 const (
-	ListCashTransactionsOrderAsc  ListCashTransactionsOrder = "ASC"
-	ListCashTransactionsOrderDesc ListCashTransactionsOrder = "DESC"
+	ListCashTransactionsQueryParamOrderAsc  ListCashTransactionsQueryParamOrder = "ASC"
+	ListCashTransactionsQueryParamOrderDesc ListCashTransactionsQueryParamOrder = "DESC"
 )
 
-func (e ListCashTransactionsOrder) ToPointer() *ListCashTransactionsOrder {
+func (e ListCashTransactionsQueryParamOrder) ToPointer() *ListCashTransactionsQueryParamOrder {
 	return &e
 }
 
-func (e *ListCashTransactionsOrder) UnmarshalJSON(data []byte) error {
+func (e *ListCashTransactionsQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -33,35 +33,35 @@ func (e *ListCashTransactionsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListCashTransactionsOrder(v)
+		*e = ListCashTransactionsQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsOrder: %v", v)
+		return fmt.Errorf("invalid value for ListCashTransactionsQueryParamOrder: %v", v)
 	}
 }
 
-// ListCashTransactionsSort - Sort the result by `booking_date`.
-type ListCashTransactionsSort string
+// ListCashTransactionsQueryParamSort - Sort the result by `booking_date`.
+type ListCashTransactionsQueryParamSort string
 
 const (
-	ListCashTransactionsSortBookingDate ListCashTransactionsSort = "booking_date"
+	ListCashTransactionsQueryParamSortBookingDate ListCashTransactionsQueryParamSort = "booking_date"
 )
 
-func (e ListCashTransactionsSort) ToPointer() *ListCashTransactionsSort {
+func (e ListCashTransactionsQueryParamSort) ToPointer() *ListCashTransactionsQueryParamSort {
 	return &e
 }
 
-func (e *ListCashTransactionsSort) UnmarshalJSON(data []byte) error {
+func (e *ListCashTransactionsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "booking_date":
-		*e = ListCashTransactionsSort(v)
+		*e = ListCashTransactionsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsSort: %v", v)
+		return fmt.Errorf("invalid value for ListCashTransactionsQueryParamSort: %v", v)
 	}
 }
 
@@ -74,14 +74,14 @@ type ListCashTransactionsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListCashTransactionsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListCashTransactionsQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `booking_date`.
-	Sort      *ListCashTransactionsSort `default:"booking_date" queryParam:"style=form,explode=true,name=sort"`
-	StartDate *types.Date               `queryParam:"style=form,explode=true,name=start_date"`
+	Sort      *ListCashTransactionsQueryParamSort `default:"booking_date" queryParam:"style=form,explode=true,name=sort"`
+	StartDate *types.Date                         `queryParam:"style=form,explode=true,name=start_date"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -127,7 +127,7 @@ func (o *ListCashTransactionsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListCashTransactionsRequest) GetOrder() *ListCashTransactionsOrder {
+func (o *ListCashTransactionsRequest) GetOrder() *ListCashTransactionsQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -148,7 +148,7 @@ func (o *ListCashTransactionsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListCashTransactionsRequest) GetSort() *ListCashTransactionsSort {
+func (o *ListCashTransactionsRequest) GetSort() *ListCashTransactionsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -176,88 +176,88 @@ func (o *ListCashTransactionsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListCashTransactionsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency string
+type ListCashTransactionsCurrency string
 
 const (
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrencyEur ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency = "EUR"
+	ListCashTransactionsCurrencyEur ListCashTransactionsCurrency = "EUR"
 )
 
-func (e ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency) ToPointer() *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency {
+func (e ListCashTransactionsCurrency) ToPointer() *ListCashTransactionsCurrency {
 	return &e
 }
 
-func (e *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListCashTransactionsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency(v)
+		*e = ListCashTransactionsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListCashTransactionsCurrency: %v", v)
 	}
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta - Entity representing cash transaction delta.
-type ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta struct {
+// CashTransactionDelta - Entity representing cash transaction delta.
+type CashTransactionDelta struct {
 	Amount string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency `default:"EUR" json:"currency"`
+	Currency *ListCashTransactionsCurrency `default:"EUR" json:"currency"`
 }
 
-func (l ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (c CashTransactionDelta) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (l *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (c *CashTransactionDelta) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta) GetAmount() string {
+func (o *CashTransactionDelta) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta) GetCurrency() *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDeltaCurrency {
+func (o *CashTransactionDelta) GetCurrency() *ListCashTransactionsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionInstrument - Entity representing instrument
-type ListCashTransactionsCashTransactionListResponseCashTransactionInstrument struct {
+// ListCashTransactionsInstrument - Entity representing instrument
+type ListCashTransactionsInstrument struct {
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	Isin *string `json:"isin,omitempty"`
 	// Internal instrument identifier.
 	UUID string `json:"uuid"`
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionInstrument) GetIsin() *string {
+func (o *ListCashTransactionsInstrument) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionInstrument) GetUUID() string {
+func (o *ListCashTransactionsInstrument) GetUUID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UUID
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType - Type of the reference.
+// ListCashTransactionsType - Type of the reference.
 // * ORDER - Order
 // * ORDER_EXECUTION - Order execution
 // * WITHDRAWAL - Cash withdrawal
@@ -266,24 +266,24 @@ func (o *ListCashTransactionsCashTransactionListResponseCashTransactionInstrumen
 // * CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction ID
 // * TOPUP - Cash top up
 // * FEE_COLLECTION - Fee collection
-type ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType string
+type ListCashTransactionsType string
 
 const (
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeOrder                        ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "ORDER"
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeOrderExecution               ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "ORDER_EXECUTION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeWithdrawal                   ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "WITHDRAWAL"
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeDirectDebit                  ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "DIRECT_DEBIT"
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeCorporateAction              ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "CORPORATE_ACTION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeCorporateActionTransactionID ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "CORPORATE_ACTION_TRANSACTION_ID"
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeTopup                        ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "TOPUP"
-	ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceTypeFeeCollection                ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType = "FEE_COLLECTION"
+	ListCashTransactionsTypeOrder                        ListCashTransactionsType = "ORDER"
+	ListCashTransactionsTypeOrderExecution               ListCashTransactionsType = "ORDER_EXECUTION"
+	ListCashTransactionsTypeWithdrawal                   ListCashTransactionsType = "WITHDRAWAL"
+	ListCashTransactionsTypeDirectDebit                  ListCashTransactionsType = "DIRECT_DEBIT"
+	ListCashTransactionsTypeCorporateAction              ListCashTransactionsType = "CORPORATE_ACTION"
+	ListCashTransactionsTypeCorporateActionTransactionID ListCashTransactionsType = "CORPORATE_ACTION_TRANSACTION_ID"
+	ListCashTransactionsTypeTopup                        ListCashTransactionsType = "TOPUP"
+	ListCashTransactionsTypeFeeCollection                ListCashTransactionsType = "FEE_COLLECTION"
 )
 
-func (e ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType) ToPointer() *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType {
+func (e ListCashTransactionsType) ToPointer() *ListCashTransactionsType {
 	return &e
 }
 
-func (e *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType) UnmarshalJSON(data []byte) error {
+func (e *ListCashTransactionsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -304,15 +304,15 @@ func (e *ListCashTransactionsCashTransactionListResponseCashTransactionCashTrans
 	case "TOPUP":
 		fallthrough
 	case "FEE_COLLECTION":
-		*e = ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType(v)
+		*e = ListCashTransactionsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType: %v", v)
+		return fmt.Errorf("invalid value for ListCashTransactionsType: %v", v)
 	}
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReference - Entity representing cash transaction reference.
-type ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReference struct {
+// CashTransactionReference - Entity representing cash transaction reference.
+type CashTransactionReference struct {
 	// Unique identifier for a resource of given type.
 	ID string `json:"id"`
 	// Type of the reference.
@@ -324,119 +324,119 @@ type ListCashTransactionsCashTransactionListResponseCashTransactionCashTransacti
 	// * CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction ID
 	// * TOPUP - Cash top up
 	// * FEE_COLLECTION - Fee collection
-	Type ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType `json:"type"`
+	Type ListCashTransactionsType `json:"type"`
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReference) GetID() string {
+func (o *CashTransactionReference) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReference) GetType() ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType {
+func (o *CashTransactionReference) GetType() ListCashTransactionsType {
 	if o == nil {
-		return ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReferenceType("")
+		return ListCashTransactionsType("")
 	}
 	return o.Type
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListCashTransactionsTransactionsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency string
+type ListCashTransactionsTransactionsCurrency string
 
 const (
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrencyEur ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency = "EUR"
+	ListCashTransactionsTransactionsCurrencyEur ListCashTransactionsTransactionsCurrency = "EUR"
 )
 
-func (e ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency) ToPointer() *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency {
+func (e ListCashTransactionsTransactionsCurrency) ToPointer() *ListCashTransactionsTransactionsCurrency {
 	return &e
 }
 
-func (e *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListCashTransactionsTransactionsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency(v)
+		*e = ListCashTransactionsTransactionsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListCashTransactionsTransactionsCurrency: %v", v)
 	}
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType - Type of the tax.
+// ListCashTransactionsTransactionsType - Type of the tax.
 // * TOTAL - Total taxes
-type ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType string
+type ListCashTransactionsTransactionsType string
 
 const (
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxTypeTotal ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType = "TOTAL"
+	ListCashTransactionsTransactionsTypeTotal ListCashTransactionsTransactionsType = "TOTAL"
 )
 
-func (e ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType) ToPointer() *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType {
+func (e ListCashTransactionsTransactionsType) ToPointer() *ListCashTransactionsTransactionsType {
 	return &e
 }
 
-func (e *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType) UnmarshalJSON(data []byte) error {
+func (e *ListCashTransactionsTransactionsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "TOTAL":
-		*e = ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType(v)
+		*e = ListCashTransactionsTransactionsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType: %v", v)
+		return fmt.Errorf("invalid value for ListCashTransactionsTransactionsType: %v", v)
 	}
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax - Entity representing the transaction tax.
-type ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax struct {
+// TransactionTax - Entity representing the transaction tax.
+type TransactionTax struct {
 	Amount string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency `default:"EUR" json:"currency"`
+	Currency *ListCashTransactionsTransactionsCurrency `default:"EUR" json:"currency"`
 	// Type of the tax.
 	// * TOTAL - Total taxes
-	Type *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType `default:"TOTAL" json:"type"`
+	Type *ListCashTransactionsTransactionsType `default:"TOTAL" json:"type"`
 }
 
-func (l ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (t TransactionTax) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (l *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (t *TransactionTax) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax) GetAmount() string {
+func (o *TransactionTax) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax) GetCurrency() *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxCurrency {
+func (o *TransactionTax) GetCurrency() *ListCashTransactionsTransactionsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax) GetType() *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTaxType {
+func (o *TransactionTax) GetType() *ListCashTransactionsTransactionsType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-// ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType - Transaction type.
+// TransactionType - Transaction type.
 // * CALL_ON_INTERMEDIATE_SECURITIES - Call on Intermediate Securities
 // * CALL_ON_INTERMEDIATE_SECURITIES_CANCELLATION - Call on Intermediate Securities, Cancellation
 // * CASH_DIVIDEND - Cash dividend
@@ -484,63 +484,63 @@ func (o *ListCashTransactionsCashTransactionListResponseCashTransactionTransacti
 // * WITHDRAWAL_CANCELLATION - Withdrawal cancellation
 // * DD_REFUND_REJECT_FEE - DD refund reject fee
 // * DD_REFUND_REJECT_FEE_CANCELLATION - DD refund reject fee cancellation
-type ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType string
+type TransactionType string
 
 const (
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeCallOnIntermediateSecurities             ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "CALL_ON_INTERMEDIATE_SECURITIES"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeCallOnIntermediateSecuritiesCancellation ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "CALL_ON_INTERMEDIATE_SECURITIES_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeCashDividend                             ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "CASH_DIVIDEND"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeCashDividendCancellation                 ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "CASH_DIVIDEND_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDecreaseInValue                          ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DECREASE_IN_VALUE"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDecreaseInValueCancellation              ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DECREASE_IN_VALUE_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDividendOption                           ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DIVIDEND_OPTION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDividendOptionCancellation               ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DIVIDEND_OPTION_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDividendReinvestment                     ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DIVIDEND_REINVESTMENT"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDividendReinvestmentCancellation         ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DIVIDEND_REINVESTMENT_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDutchAuction                             ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DUTCH_AUCTION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDutchAuctionCancellation                 ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DUTCH_AUCTION_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeFeeCollection                            ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "FEE_COLLECTION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeFeeCollectionCancellation                ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "FEE_COLLECTION_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeIncreaseInValue                          ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "INCREASE_IN_VALUE"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeIncreaseInValueCancellation              ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "INCREASE_IN_VALUE_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeLiquidationPayment                       ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "LIQUIDATION_PAYMENT"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeLiquidationPaymentCancellation           ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "LIQUIDATION_PAYMENT_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeMerger                                   ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "MERGER"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeMergerCancellation                       ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "MERGER_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeNonOfficialOffer                         ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "NON_OFFICIAL_OFFER"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeNonOfficialOfferCancellation             ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "NON_OFFICIAL_OFFER_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeOddLotSale                               ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "ODD_LOT_SALE"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeOddLotSaleCancellation                   ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "ODD_LOT_SALE_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeOrderExecution                           ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "ORDER_EXECUTION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeOrderExecutionCancellation               ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "ORDER_EXECUTION_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeOtherEvent                               ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "OTHER_EVENT"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeOtherEventCancellation                   ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "OTHER_EVENT_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypePriorityIssue                            ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "PRIORITY_ISSUE"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypePriorityIssueCancellation                ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "PRIORITY_ISSUE_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeRepurchaseOffer                          ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "REPURCHASE_OFFER"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeRepurchaseOfferCancellation              ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "REPURCHASE_OFFER_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeReverseStockSplit                        ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "REVERSE_STOCK_SPLIT"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeReverseStockSplitCancellation            ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "REVERSE_STOCK_SPLIT_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeSepaDirectDebit                          ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "SEPA_DIRECT_DEBIT"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeSepaDirectDebitChargeBack                ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "SEPA_DIRECT_DEBIT_CHARGE_BACK"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeSpinOff                                  ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "SPIN_OFF"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeSpinOffCancellation                      ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "SPIN_OFF_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeStockSplit                               ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "STOCK_SPLIT"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeStockSplitCancellation                   ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "STOCK_SPLIT_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeTender                                   ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "TENDER"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeTenderCancellation                       ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "TENDER_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeTopup                                    ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "TOPUP"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeWithdrawal                               ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "WITHDRAWAL"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeWithdrawalCancellation                   ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "WITHDRAWAL_CANCELLATION"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDdRefundRejectFee                        ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DD_REFUND_REJECT_FEE"
-	ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTypeDdRefundRejectFeeCancellation            ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType = "DD_REFUND_REJECT_FEE_CANCELLATION"
+	TransactionTypeCallOnIntermediateSecurities             TransactionType = "CALL_ON_INTERMEDIATE_SECURITIES"
+	TransactionTypeCallOnIntermediateSecuritiesCancellation TransactionType = "CALL_ON_INTERMEDIATE_SECURITIES_CANCELLATION"
+	TransactionTypeCashDividend                             TransactionType = "CASH_DIVIDEND"
+	TransactionTypeCashDividendCancellation                 TransactionType = "CASH_DIVIDEND_CANCELLATION"
+	TransactionTypeDecreaseInValue                          TransactionType = "DECREASE_IN_VALUE"
+	TransactionTypeDecreaseInValueCancellation              TransactionType = "DECREASE_IN_VALUE_CANCELLATION"
+	TransactionTypeDividendOption                           TransactionType = "DIVIDEND_OPTION"
+	TransactionTypeDividendOptionCancellation               TransactionType = "DIVIDEND_OPTION_CANCELLATION"
+	TransactionTypeDividendReinvestment                     TransactionType = "DIVIDEND_REINVESTMENT"
+	TransactionTypeDividendReinvestmentCancellation         TransactionType = "DIVIDEND_REINVESTMENT_CANCELLATION"
+	TransactionTypeDutchAuction                             TransactionType = "DUTCH_AUCTION"
+	TransactionTypeDutchAuctionCancellation                 TransactionType = "DUTCH_AUCTION_CANCELLATION"
+	TransactionTypeFeeCollection                            TransactionType = "FEE_COLLECTION"
+	TransactionTypeFeeCollectionCancellation                TransactionType = "FEE_COLLECTION_CANCELLATION"
+	TransactionTypeIncreaseInValue                          TransactionType = "INCREASE_IN_VALUE"
+	TransactionTypeIncreaseInValueCancellation              TransactionType = "INCREASE_IN_VALUE_CANCELLATION"
+	TransactionTypeLiquidationPayment                       TransactionType = "LIQUIDATION_PAYMENT"
+	TransactionTypeLiquidationPaymentCancellation           TransactionType = "LIQUIDATION_PAYMENT_CANCELLATION"
+	TransactionTypeMerger                                   TransactionType = "MERGER"
+	TransactionTypeMergerCancellation                       TransactionType = "MERGER_CANCELLATION"
+	TransactionTypeNonOfficialOffer                         TransactionType = "NON_OFFICIAL_OFFER"
+	TransactionTypeNonOfficialOfferCancellation             TransactionType = "NON_OFFICIAL_OFFER_CANCELLATION"
+	TransactionTypeOddLotSale                               TransactionType = "ODD_LOT_SALE"
+	TransactionTypeOddLotSaleCancellation                   TransactionType = "ODD_LOT_SALE_CANCELLATION"
+	TransactionTypeOrderExecution                           TransactionType = "ORDER_EXECUTION"
+	TransactionTypeOrderExecutionCancellation               TransactionType = "ORDER_EXECUTION_CANCELLATION"
+	TransactionTypeOtherEvent                               TransactionType = "OTHER_EVENT"
+	TransactionTypeOtherEventCancellation                   TransactionType = "OTHER_EVENT_CANCELLATION"
+	TransactionTypePriorityIssue                            TransactionType = "PRIORITY_ISSUE"
+	TransactionTypePriorityIssueCancellation                TransactionType = "PRIORITY_ISSUE_CANCELLATION"
+	TransactionTypeRepurchaseOffer                          TransactionType = "REPURCHASE_OFFER"
+	TransactionTypeRepurchaseOfferCancellation              TransactionType = "REPURCHASE_OFFER_CANCELLATION"
+	TransactionTypeReverseStockSplit                        TransactionType = "REVERSE_STOCK_SPLIT"
+	TransactionTypeReverseStockSplitCancellation            TransactionType = "REVERSE_STOCK_SPLIT_CANCELLATION"
+	TransactionTypeSepaDirectDebit                          TransactionType = "SEPA_DIRECT_DEBIT"
+	TransactionTypeSepaDirectDebitChargeBack                TransactionType = "SEPA_DIRECT_DEBIT_CHARGE_BACK"
+	TransactionTypeSpinOff                                  TransactionType = "SPIN_OFF"
+	TransactionTypeSpinOffCancellation                      TransactionType = "SPIN_OFF_CANCELLATION"
+	TransactionTypeStockSplit                               TransactionType = "STOCK_SPLIT"
+	TransactionTypeStockSplitCancellation                   TransactionType = "STOCK_SPLIT_CANCELLATION"
+	TransactionTypeTender                                   TransactionType = "TENDER"
+	TransactionTypeTenderCancellation                       TransactionType = "TENDER_CANCELLATION"
+	TransactionTypeTopup                                    TransactionType = "TOPUP"
+	TransactionTypeWithdrawal                               TransactionType = "WITHDRAWAL"
+	TransactionTypeWithdrawalCancellation                   TransactionType = "WITHDRAWAL_CANCELLATION"
+	TransactionTypeDdRefundRejectFee                        TransactionType = "DD_REFUND_REJECT_FEE"
+	TransactionTypeDdRefundRejectFeeCancellation            TransactionType = "DD_REFUND_REJECT_FEE_CANCELLATION"
 )
 
-func (e ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType) ToPointer() *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType {
+func (e TransactionType) ToPointer() *TransactionType {
 	return &e
 }
 
-func (e *ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType) UnmarshalJSON(data []byte) error {
+func (e *TransactionType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -639,14 +639,14 @@ func (e *ListCashTransactionsCashTransactionListResponseCashTransactionTransacti
 	case "DD_REFUND_REJECT_FEE":
 		fallthrough
 	case "DD_REFUND_REJECT_FEE_CANCELLATION":
-		*e = ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType(v)
+		*e = TransactionType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType: %v", v)
+		return fmt.Errorf("invalid value for TransactionType: %v", v)
 	}
 }
 
-type ListCashTransactionsCashTransactionListResponseCashTransaction struct {
+type CashTransaction struct {
 	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
@@ -657,13 +657,13 @@ type ListCashTransactionsCashTransactionListResponseCashTransaction struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Entity representing cash transaction delta.
-	Delta ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta `json:"delta"`
+	Delta CashTransactionDelta `json:"delta"`
 	// Cash transaction unique identifier.
 	ID string `json:"id"`
 	// Entity representing instrument
-	Instrument *ListCashTransactionsCashTransactionListResponseCashTransactionInstrument                `json:"instrument,omitempty"`
-	References []ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReference `json:"references"`
-	Taxes      []ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax           `json:"taxes"`
+	Instrument *ListCashTransactionsInstrument `json:"instrument,omitempty"`
+	References []CashTransactionReference      `json:"references"`
+	Taxes      []TransactionTax                `json:"taxes"`
 	// Transaction type.
 	// * CALL_ON_INTERMEDIATE_SECURITIES - Call on Intermediate Securities
 	// * CALL_ON_INTERMEDIATE_SECURITIES_CANCELLATION - Call on Intermediate Securities, Cancellation
@@ -712,130 +712,130 @@ type ListCashTransactionsCashTransactionListResponseCashTransaction struct {
 	// * WITHDRAWAL_CANCELLATION - Withdrawal cancellation
 	// * DD_REFUND_REJECT_FEE - DD refund reject fee
 	// * DD_REFUND_REJECT_FEE_CANCELLATION - DD refund reject fee cancellation
-	Type ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType `json:"type"`
+	Type TransactionType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// Transaction value date and time. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ValueDate time.Time `json:"value_date"`
 }
 
-func (l ListCashTransactionsCashTransactionListResponseCashTransaction) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (c CashTransaction) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (l *ListCashTransactionsCashTransactionListResponseCashTransaction) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (c *CashTransaction) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetAdditionalProperties() map[string]interface{} {
+func (o *CashTransaction) GetAdditionalProperties() map[string]interface{} {
 	if o == nil {
 		return nil
 	}
 	return o.AdditionalProperties
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetAccountGroupID() string {
+func (o *CashTransaction) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetAccountID() *string {
+func (o *CashTransaction) GetAccountID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AccountID
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetBookingDate() time.Time {
+func (o *CashTransaction) GetBookingDate() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.BookingDate
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetCreatedAt() time.Time {
+func (o *CashTransaction) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetDelta() ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta {
+func (o *CashTransaction) GetDelta() CashTransactionDelta {
 	if o == nil {
-		return ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionDelta{}
+		return CashTransactionDelta{}
 	}
 	return o.Delta
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetID() string {
+func (o *CashTransaction) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetInstrument() *ListCashTransactionsCashTransactionListResponseCashTransactionInstrument {
+func (o *CashTransaction) GetInstrument() *ListCashTransactionsInstrument {
 	if o == nil {
 		return nil
 	}
 	return o.Instrument
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetReferences() []ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReference {
+func (o *CashTransaction) GetReferences() []CashTransactionReference {
 	if o == nil {
-		return []ListCashTransactionsCashTransactionListResponseCashTransactionCashTransactionReference{}
+		return []CashTransactionReference{}
 	}
 	return o.References
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetTaxes() []ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax {
+func (o *CashTransaction) GetTaxes() []TransactionTax {
 	if o == nil {
-		return []ListCashTransactionsCashTransactionListResponseCashTransactionTransactionTax{}
+		return []TransactionTax{}
 	}
 	return o.Taxes
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetType() ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType {
+func (o *CashTransaction) GetType() TransactionType {
 	if o == nil {
-		return ListCashTransactionsCashTransactionListResponseCashTransactionTransactionType("")
+		return TransactionType("")
 	}
 	return o.Type
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetUpdatedAt() time.Time {
+func (o *CashTransaction) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseCashTransaction) GetValueDate() time.Time {
+func (o *CashTransaction) GetValueDate() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ValueDate
 }
 
-// ListCashTransactionsCashTransactionListResponseMetaOrder - The ordering of the response.
+// ListCashTransactionsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListCashTransactionsCashTransactionListResponseMetaOrder string
+type ListCashTransactionsOrder string
 
 const (
-	ListCashTransactionsCashTransactionListResponseMetaOrderAsc  ListCashTransactionsCashTransactionListResponseMetaOrder = "ASC"
-	ListCashTransactionsCashTransactionListResponseMetaOrderDesc ListCashTransactionsCashTransactionListResponseMetaOrder = "DESC"
+	ListCashTransactionsOrderAsc  ListCashTransactionsOrder = "ASC"
+	ListCashTransactionsOrderDesc ListCashTransactionsOrder = "DESC"
 )
 
-func (e ListCashTransactionsCashTransactionListResponseMetaOrder) ToPointer() *ListCashTransactionsCashTransactionListResponseMetaOrder {
+func (e ListCashTransactionsOrder) ToPointer() *ListCashTransactionsOrder {
 	return &e
 }
 
-func (e *ListCashTransactionsCashTransactionListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListCashTransactionsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -844,14 +844,14 @@ func (e *ListCashTransactionsCashTransactionListResponseMetaOrder) UnmarshalJSON
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListCashTransactionsCashTransactionListResponseMetaOrder(v)
+		*e = ListCashTransactionsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListCashTransactionsCashTransactionListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListCashTransactionsOrder: %v", v)
 	}
 }
 
-type ListCashTransactionsCashTransactionListResponseMeta struct {
+type ListCashTransactionsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -861,49 +861,49 @@ type ListCashTransactionsCashTransactionListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListCashTransactionsCashTransactionListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListCashTransactionsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseMeta) GetCount() int64 {
+func (o *ListCashTransactionsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseMeta) GetLimit() int64 {
+func (o *ListCashTransactionsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseMeta) GetOffset() int64 {
+func (o *ListCashTransactionsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseMeta) GetOrder() *ListCashTransactionsCashTransactionListResponseMetaOrder {
+func (o *ListCashTransactionsMeta) GetOrder() *ListCashTransactionsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseMeta) GetSort() *string {
+func (o *ListCashTransactionsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListCashTransactionsCashTransactionListResponseMeta) GetTotalCount() int64 {
+func (o *ListCashTransactionsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -912,27 +912,27 @@ func (o *ListCashTransactionsCashTransactionListResponseMeta) GetTotalCount() in
 
 // ListCashTransactionsCashTransactionListResponse - Cash Transactions
 type ListCashTransactionsCashTransactionListResponse struct {
-	Data []ListCashTransactionsCashTransactionListResponseCashTransaction `json:"data"`
-	Meta ListCashTransactionsCashTransactionListResponseMeta              `json:"meta"`
+	Data []CashTransaction        `json:"data"`
+	Meta ListCashTransactionsMeta `json:"meta"`
 }
 
-func (o *ListCashTransactionsCashTransactionListResponse) GetData() []ListCashTransactionsCashTransactionListResponseCashTransaction {
+func (o *ListCashTransactionsCashTransactionListResponse) GetData() []CashTransaction {
 	if o == nil {
-		return []ListCashTransactionsCashTransactionListResponseCashTransaction{}
+		return []CashTransaction{}
 	}
 	return o.Data
 }
 
-func (o *ListCashTransactionsCashTransactionListResponse) GetMeta() ListCashTransactionsCashTransactionListResponseMeta {
+func (o *ListCashTransactionsCashTransactionListResponse) GetMeta() ListCashTransactionsMeta {
 	if o == nil {
-		return ListCashTransactionsCashTransactionListResponseMeta{}
+		return ListCashTransactionsMeta{}
 	}
 	return o.Meta
 }
 
 type ListCashTransactionsResponse struct {
 	// Cash Transactions
-	CashTransactionListResponse *ListCashTransactionsCashTransactionListResponse
+	TwoHundredApplicationJSONCashTransactionListResponse *ListCashTransactionsCashTransactionListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -942,11 +942,11 @@ type ListCashTransactionsResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListCashTransactionsResponse) GetCashTransactionListResponse() *ListCashTransactionsCashTransactionListResponse {
+func (o *ListCashTransactionsResponse) GetTwoHundredApplicationJSONCashTransactionListResponse() *ListCashTransactionsCashTransactionListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.CashTransactionListResponse
+	return o.TwoHundredApplicationJSONCashTransactionListResponse
 }
 
 func (o *ListCashTransactionsResponse) GetContentType() string {

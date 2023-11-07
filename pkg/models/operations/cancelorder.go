@@ -79,15 +79,22 @@ func (o *CancelOrderOrderCancelResponse) GetID() string {
 }
 
 type CancelOrderResponse struct {
+	// The order cancelling request is accepted.
+	TwoHundredAndTwoApplicationJSONOrderCancelResponse *CancelOrderOrderCancelResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// The order cancelling request is accepted.
-	OrderCancelResponse *CancelOrderOrderCancelResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CancelOrderResponse) GetTwoHundredAndTwoApplicationJSONOrderCancelResponse() *CancelOrderOrderCancelResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredAndTwoApplicationJSONOrderCancelResponse
 }
 
 func (o *CancelOrderResponse) GetContentType() string {
@@ -102,13 +109,6 @@ func (o *CancelOrderResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *CancelOrderResponse) GetOrderCancelResponse() *CancelOrderOrderCancelResponse {
-	if o == nil {
-		return nil
-	}
-	return o.OrderCancelResponse
 }
 
 func (o *CancelOrderResponse) GetStatusCode() int {

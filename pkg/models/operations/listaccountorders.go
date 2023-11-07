@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListAccountOrdersOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListAccountOrdersOrder string
+// ListAccountOrdersQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListAccountOrdersQueryParamOrder string
 
 const (
-	ListAccountOrdersOrderAsc  ListAccountOrdersOrder = "ASC"
-	ListAccountOrdersOrderDesc ListAccountOrdersOrder = "DESC"
+	ListAccountOrdersQueryParamOrderAsc  ListAccountOrdersQueryParamOrder = "ASC"
+	ListAccountOrdersQueryParamOrderDesc ListAccountOrdersQueryParamOrder = "DESC"
 )
 
-func (e ListAccountOrdersOrder) ToPointer() *ListAccountOrdersOrder {
+func (e ListAccountOrdersQueryParamOrder) ToPointer() *ListAccountOrdersQueryParamOrder {
 	return &e
 }
 
-func (e *ListAccountOrdersOrder) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,10 +32,10 @@ func (e *ListAccountOrdersOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListAccountOrdersOrder(v)
+		*e = ListAccountOrdersQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrder: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersQueryParamOrder: %v", v)
 	}
 }
 
@@ -46,7 +46,7 @@ type ListAccountOrdersRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListAccountOrdersOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListAccountOrdersQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
@@ -89,7 +89,7 @@ func (o *ListAccountOrdersRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListAccountOrdersRequest) GetOrder() *ListAccountOrdersOrder {
+func (o *ListAccountOrdersRequest) GetOrder() *ListAccountOrdersQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -124,25 +124,25 @@ func (o *ListAccountOrdersRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListAccountOrdersOrdersListResponseOrderCancellationReason - Reason for Order cancellation. The field is present in case the Order has a status of CANCELLED.
+// ListAccountOrdersCancellationReason - Reason for Order cancellation. The field is present in case the Order has a status of CANCELLED.
 // * CANCELLED_BY_CLIENT -
 // * CANCELLED_BY_UPVEST_OPERATIONS -
 // * CANCELLED_BY_TRADING_PARTNER -
 // * CANCELLED_BY_UPVEST_PLATFORM -
-type ListAccountOrdersOrdersListResponseOrderCancellationReason string
+type ListAccountOrdersCancellationReason string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderCancellationReasonCancelledByClient           ListAccountOrdersOrdersListResponseOrderCancellationReason = "CANCELLED_BY_CLIENT"
-	ListAccountOrdersOrdersListResponseOrderCancellationReasonCancelledByUpvestOperations ListAccountOrdersOrdersListResponseOrderCancellationReason = "CANCELLED_BY_UPVEST_OPERATIONS"
-	ListAccountOrdersOrdersListResponseOrderCancellationReasonCancelledByTradingPartner   ListAccountOrdersOrdersListResponseOrderCancellationReason = "CANCELLED_BY_TRADING_PARTNER"
-	ListAccountOrdersOrdersListResponseOrderCancellationReasonCancelledByUpvestPlatform   ListAccountOrdersOrdersListResponseOrderCancellationReason = "CANCELLED_BY_UPVEST_PLATFORM"
+	ListAccountOrdersCancellationReasonCancelledByClient           ListAccountOrdersCancellationReason = "CANCELLED_BY_CLIENT"
+	ListAccountOrdersCancellationReasonCancelledByUpvestOperations ListAccountOrdersCancellationReason = "CANCELLED_BY_UPVEST_OPERATIONS"
+	ListAccountOrdersCancellationReasonCancelledByTradingPartner   ListAccountOrdersCancellationReason = "CANCELLED_BY_TRADING_PARTNER"
+	ListAccountOrdersCancellationReasonCancelledByUpvestPlatform   ListAccountOrdersCancellationReason = "CANCELLED_BY_UPVEST_PLATFORM"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderCancellationReason) ToPointer() *ListAccountOrdersOrdersListResponseOrderCancellationReason {
+func (e ListAccountOrdersCancellationReason) ToPointer() *ListAccountOrdersCancellationReason {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderCancellationReason) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersCancellationReason) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -155,53 +155,53 @@ func (e *ListAccountOrdersOrdersListResponseOrderCancellationReason) UnmarshalJS
 	case "CANCELLED_BY_TRADING_PARTNER":
 		fallthrough
 	case "CANCELLED_BY_UPVEST_PLATFORM":
-		*e = ListAccountOrdersOrdersListResponseOrderCancellationReason(v)
+		*e = ListAccountOrdersCancellationReason(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderCancellationReason: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersCancellationReason: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderCurrency - The currency for the order.
-type ListAccountOrdersOrdersListResponseOrderCurrency string
+// ListAccountOrdersCurrency - The currency for the order.
+type ListAccountOrdersCurrency string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderCurrencyEur ListAccountOrdersOrdersListResponseOrderCurrency = "EUR"
+	ListAccountOrdersCurrencyEur ListAccountOrdersCurrency = "EUR"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderCurrency) ToPointer() *ListAccountOrdersOrdersListResponseOrderCurrency {
+func (e ListAccountOrdersCurrency) ToPointer() *ListAccountOrdersCurrency {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListAccountOrdersOrdersListResponseOrderCurrency(v)
+		*e = ListAccountOrdersCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersCurrency: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
+// ListAccountOrdersExecutionFlow - Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 // * STRAIGHT_THROUGH -
 // * BLOCK -
-type ListAccountOrdersOrdersListResponseOrderExecutionFlow string
+type ListAccountOrdersExecutionFlow string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderExecutionFlowStraightThrough ListAccountOrdersOrdersListResponseOrderExecutionFlow = "STRAIGHT_THROUGH"
-	ListAccountOrdersOrdersListResponseOrderExecutionFlowBlock           ListAccountOrdersOrdersListResponseOrderExecutionFlow = "BLOCK"
+	ListAccountOrdersExecutionFlowStraightThrough ListAccountOrdersExecutionFlow = "STRAIGHT_THROUGH"
+	ListAccountOrdersExecutionFlowBlock           ListAccountOrdersExecutionFlow = "BLOCK"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderExecutionFlow) ToPointer() *ListAccountOrdersOrdersListResponseOrderExecutionFlow {
+func (e ListAccountOrdersExecutionFlow) ToPointer() *ListAccountOrdersExecutionFlow {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderExecutionFlow) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersExecutionFlow) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -210,54 +210,54 @@ func (e *ListAccountOrdersOrdersListResponseOrderExecutionFlow) UnmarshalJSON(da
 	case "STRAIGHT_THROUGH":
 		fallthrough
 	case "BLOCK":
-		*e = ListAccountOrdersOrdersListResponseOrderExecutionFlow(v)
+		*e = ListAccountOrdersExecutionFlow(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderExecutionFlow: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersExecutionFlow: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListAccountOrdersOrdersCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency string
+type ListAccountOrdersOrdersCurrency string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrencyEur ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency = "EUR"
+	ListAccountOrdersOrdersCurrencyEur ListAccountOrdersOrdersCurrency = "EUR"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency) ToPointer() *ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency {
+func (e ListAccountOrdersOrdersCurrency) ToPointer() *ListAccountOrdersOrdersCurrency {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersOrdersCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency(v)
+		*e = ListAccountOrdersOrdersCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersOrdersCurrency: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderOrderExecutionSide - Side of the execution.
+// ListAccountOrdersOrdersSide - Side of the execution.
 // * BUY -
 // * SELL -
-type ListAccountOrdersOrdersListResponseOrderOrderExecutionSide string
+type ListAccountOrdersOrdersSide string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderOrderExecutionSideBuy  ListAccountOrdersOrdersListResponseOrderOrderExecutionSide = "BUY"
-	ListAccountOrdersOrdersListResponseOrderOrderExecutionSideSell ListAccountOrdersOrdersListResponseOrderOrderExecutionSide = "SELL"
+	ListAccountOrdersOrdersSideBuy  ListAccountOrdersOrdersSide = "BUY"
+	ListAccountOrdersOrdersSideSell ListAccountOrdersOrdersSide = "SELL"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderOrderExecutionSide) ToPointer() *ListAccountOrdersOrdersListResponseOrderOrderExecutionSide {
+func (e ListAccountOrdersOrdersSide) ToPointer() *ListAccountOrdersOrdersSide {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderOrderExecutionSide) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersOrdersSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -266,30 +266,30 @@ func (e *ListAccountOrdersOrdersListResponseOrderOrderExecutionSide) UnmarshalJS
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = ListAccountOrdersOrdersListResponseOrderOrderExecutionSide(v)
+		*e = ListAccountOrdersOrdersSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderOrderExecutionSide: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersOrdersSide: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus - Execution status of the Execution.
+// ListAccountOrdersOrdersStatus - Execution status of the Execution.
 // * FILLED -
 // * SETTLED -
 // * CANCELLED -
-type ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus string
+type ListAccountOrdersOrdersStatus string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderOrderExecutionStatusFilled    ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus = "FILLED"
-	ListAccountOrdersOrdersListResponseOrderOrderExecutionStatusSettled   ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus = "SETTLED"
-	ListAccountOrdersOrdersListResponseOrderOrderExecutionStatusCancelled ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus = "CANCELLED"
+	ListAccountOrdersOrdersStatusFilled    ListAccountOrdersOrdersStatus = "FILLED"
+	ListAccountOrdersOrdersStatusSettled   ListAccountOrdersOrdersStatus = "SETTLED"
+	ListAccountOrdersOrdersStatusCancelled ListAccountOrdersOrdersStatus = "CANCELLED"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus) ToPointer() *ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus {
+func (e ListAccountOrdersOrdersStatus) ToPointer() *ListAccountOrdersOrdersStatus {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersOrdersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -300,183 +300,183 @@ func (e *ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus) Unmarshal
 	case "SETTLED":
 		fallthrough
 	case "CANCELLED":
-		*e = ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus(v)
+		*e = ListAccountOrdersOrdersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersOrdersStatus: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType - Tax type
+// ListAccountOrdersType - Tax type
 // * TOTAL -
-type ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType string
+type ListAccountOrdersType string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxTypeTotal ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType = "TOTAL"
+	ListAccountOrdersTypeTotal ListAccountOrdersType = "TOTAL"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType) ToPointer() *ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType {
+func (e ListAccountOrdersType) ToPointer() *ListAccountOrdersType {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "TOTAL":
-		*e = ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType(v)
+		*e = ListAccountOrdersType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersType: %v", v)
 	}
 }
 
-type ListAccountOrdersOrdersListResponseOrderOrderExecutionTax struct {
+type ListAccountOrdersTax struct {
 	Amount string `json:"amount"`
 	// Tax type
 	// * TOTAL -
-	Type *ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType `default:"TOTAL" json:"type"`
+	Type *ListAccountOrdersType `default:"TOTAL" json:"type"`
 }
 
-func (l ListAccountOrdersOrdersListResponseOrderOrderExecutionTax) MarshalJSON() ([]byte, error) {
+func (l ListAccountOrdersTax) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListAccountOrdersOrdersListResponseOrderOrderExecutionTax) UnmarshalJSON(data []byte) error {
+func (l *ListAccountOrdersTax) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecutionTax) GetAmount() string {
+func (o *ListAccountOrdersTax) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecutionTax) GetType() *ListAccountOrdersOrdersListResponseOrderOrderExecutionTaxType {
+func (o *ListAccountOrdersTax) GetType() *ListAccountOrdersType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-type ListAccountOrdersOrdersListResponseOrderOrderExecution struct {
+type ListAccountOrdersOrderExecution struct {
 	CashAmount string `json:"cash_amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency       *ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency `default:"EUR" json:"currency"`
-	ID             string                                                          `json:"id"`
-	OrderID        string                                                          `json:"order_id"`
-	Price          string                                                          `json:"price"`
-	SettlementDate *string                                                         `json:"settlement_date,omitempty"`
-	ShareQuantity  string                                                          `json:"share_quantity"`
+	Currency       *ListAccountOrdersOrdersCurrency `default:"EUR" json:"currency"`
+	ID             string                           `json:"id"`
+	OrderID        string                           `json:"order_id"`
+	Price          string                           `json:"price"`
+	SettlementDate *string                          `json:"settlement_date,omitempty"`
+	ShareQuantity  string                           `json:"share_quantity"`
 	// Side of the execution.
 	// * BUY -
 	// * SELL -
-	Side ListAccountOrdersOrdersListResponseOrderOrderExecutionSide `json:"side"`
+	Side ListAccountOrdersOrdersSide `json:"side"`
 	// Execution status of the Execution.
 	// * FILLED -
 	// * SETTLED -
 	// * CANCELLED -
-	Status          ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus `json:"status"`
-	Taxes           []ListAccountOrdersOrdersListResponseOrderOrderExecutionTax  `json:"taxes"`
-	TransactionTime time.Time                                                    `json:"transaction_time"`
+	Status          ListAccountOrdersOrdersStatus `json:"status"`
+	Taxes           []ListAccountOrdersTax        `json:"taxes"`
+	TransactionTime time.Time                     `json:"transaction_time"`
 }
 
-func (l ListAccountOrdersOrdersListResponseOrderOrderExecution) MarshalJSON() ([]byte, error) {
+func (l ListAccountOrdersOrderExecution) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListAccountOrdersOrdersListResponseOrderOrderExecution) UnmarshalJSON(data []byte) error {
+func (l *ListAccountOrdersOrderExecution) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetCashAmount() string {
+func (o *ListAccountOrdersOrderExecution) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetCurrency() *ListAccountOrdersOrdersListResponseOrderOrderExecutionCurrency {
+func (o *ListAccountOrdersOrderExecution) GetCurrency() *ListAccountOrdersOrdersCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetID() string {
+func (o *ListAccountOrdersOrderExecution) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetOrderID() string {
+func (o *ListAccountOrdersOrderExecution) GetOrderID() string {
 	if o == nil {
 		return ""
 	}
 	return o.OrderID
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetPrice() string {
+func (o *ListAccountOrdersOrderExecution) GetPrice() string {
 	if o == nil {
 		return ""
 	}
 	return o.Price
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetSettlementDate() *string {
+func (o *ListAccountOrdersOrderExecution) GetSettlementDate() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SettlementDate
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetShareQuantity() string {
+func (o *ListAccountOrdersOrderExecution) GetShareQuantity() string {
 	if o == nil {
 		return ""
 	}
 	return o.ShareQuantity
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetSide() ListAccountOrdersOrdersListResponseOrderOrderExecutionSide {
+func (o *ListAccountOrdersOrderExecution) GetSide() ListAccountOrdersOrdersSide {
 	if o == nil {
-		return ListAccountOrdersOrdersListResponseOrderOrderExecutionSide("")
+		return ListAccountOrdersOrdersSide("")
 	}
 	return o.Side
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetStatus() ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus {
+func (o *ListAccountOrdersOrderExecution) GetStatus() ListAccountOrdersOrdersStatus {
 	if o == nil {
-		return ListAccountOrdersOrdersListResponseOrderOrderExecutionStatus("")
+		return ListAccountOrdersOrdersStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetTaxes() []ListAccountOrdersOrdersListResponseOrderOrderExecutionTax {
+func (o *ListAccountOrdersOrderExecution) GetTaxes() []ListAccountOrdersTax {
 	if o == nil {
-		return []ListAccountOrdersOrdersListResponseOrderOrderExecutionTax{}
+		return []ListAccountOrdersTax{}
 	}
 	return o.Taxes
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetTransactionTime() time.Time {
+func (o *ListAccountOrdersOrderExecution) GetTransactionTime() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.TransactionTime
 }
 
-// ListAccountOrdersOrdersListResponseOrderInitiationFlow - Initiation flow used during order creation, i.e. what triggered the order.
+// ListAccountOrdersInitiationFlow - Initiation flow used during order creation, i.e. what triggered the order.
 // * API -
 // * PORTFOLIO -
 // * CASH_DIVIDEND_REINVESTMENT -
@@ -485,24 +485,24 @@ func (o *ListAccountOrdersOrdersListResponseOrderOrderExecution) GetTransactionT
 // * SELL_TO_COVER_TAXES -
 // * ACCOUNT_LIQUIDATION -
 // * UPVEST_OPERATIONS -
-type ListAccountOrdersOrdersListResponseOrderInitiationFlow string
+type ListAccountOrdersInitiationFlow string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowAPI                      ListAccountOrdersOrdersListResponseOrderInitiationFlow = "API"
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowPortfolio                ListAccountOrdersOrdersListResponseOrderInitiationFlow = "PORTFOLIO"
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowCashDividendReinvestment ListAccountOrdersOrdersListResponseOrderInitiationFlow = "CASH_DIVIDEND_REINVESTMENT"
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowPortfolioRebalancing     ListAccountOrdersOrdersListResponseOrderInitiationFlow = "PORTFOLIO_REBALANCING"
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowSellToCoverFees          ListAccountOrdersOrdersListResponseOrderInitiationFlow = "SELL_TO_COVER_FEES"
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowSellToCoverTaxes         ListAccountOrdersOrdersListResponseOrderInitiationFlow = "SELL_TO_COVER_TAXES"
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowAccountLiquidation       ListAccountOrdersOrdersListResponseOrderInitiationFlow = "ACCOUNT_LIQUIDATION"
-	ListAccountOrdersOrdersListResponseOrderInitiationFlowUpvestOperations         ListAccountOrdersOrdersListResponseOrderInitiationFlow = "UPVEST_OPERATIONS"
+	ListAccountOrdersInitiationFlowAPI                      ListAccountOrdersInitiationFlow = "API"
+	ListAccountOrdersInitiationFlowPortfolio                ListAccountOrdersInitiationFlow = "PORTFOLIO"
+	ListAccountOrdersInitiationFlowCashDividendReinvestment ListAccountOrdersInitiationFlow = "CASH_DIVIDEND_REINVESTMENT"
+	ListAccountOrdersInitiationFlowPortfolioRebalancing     ListAccountOrdersInitiationFlow = "PORTFOLIO_REBALANCING"
+	ListAccountOrdersInitiationFlowSellToCoverFees          ListAccountOrdersInitiationFlow = "SELL_TO_COVER_FEES"
+	ListAccountOrdersInitiationFlowSellToCoverTaxes         ListAccountOrdersInitiationFlow = "SELL_TO_COVER_TAXES"
+	ListAccountOrdersInitiationFlowAccountLiquidation       ListAccountOrdersInitiationFlow = "ACCOUNT_LIQUIDATION"
+	ListAccountOrdersInitiationFlowUpvestOperations         ListAccountOrdersInitiationFlow = "UPVEST_OPERATIONS"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderInitiationFlow) ToPointer() *ListAccountOrdersOrdersListResponseOrderInitiationFlow {
+func (e ListAccountOrdersInitiationFlow) ToPointer() *ListAccountOrdersInitiationFlow {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderInitiationFlow) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersInitiationFlow) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -523,56 +523,56 @@ func (e *ListAccountOrdersOrdersListResponseOrderInitiationFlow) UnmarshalJSON(d
 	case "ACCOUNT_LIQUIDATION":
 		fallthrough
 	case "UPVEST_OPERATIONS":
-		*e = ListAccountOrdersOrdersListResponseOrderInitiationFlow(v)
+		*e = ListAccountOrdersInitiationFlow(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderInitiationFlow: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersInitiationFlow: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderInstrumentIDType - The type of the ID used in the request.
+// ListAccountOrdersInstrumentIDType - The type of the ID used in the request.
 // * ISIN -
-type ListAccountOrdersOrdersListResponseOrderInstrumentIDType string
+type ListAccountOrdersInstrumentIDType string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderInstrumentIDTypeIsin ListAccountOrdersOrdersListResponseOrderInstrumentIDType = "ISIN"
+	ListAccountOrdersInstrumentIDTypeIsin ListAccountOrdersInstrumentIDType = "ISIN"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderInstrumentIDType) ToPointer() *ListAccountOrdersOrdersListResponseOrderInstrumentIDType {
+func (e ListAccountOrdersInstrumentIDType) ToPointer() *ListAccountOrdersInstrumentIDType {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "ISIN":
-		*e = ListAccountOrdersOrdersListResponseOrderInstrumentIDType(v)
+		*e = ListAccountOrdersInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersInstrumentIDType: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderOrderType - Type of the order.
+// ListAccountOrdersOrderType - Type of the order.
 // * MARKET -
 // * LIMIT -
 // * STOP -
-type ListAccountOrdersOrdersListResponseOrderOrderType string
+type ListAccountOrdersOrderType string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderOrderTypeMarket ListAccountOrdersOrdersListResponseOrderOrderType = "MARKET"
-	ListAccountOrdersOrdersListResponseOrderOrderTypeLimit  ListAccountOrdersOrdersListResponseOrderOrderType = "LIMIT"
-	ListAccountOrdersOrdersListResponseOrderOrderTypeStop   ListAccountOrdersOrdersListResponseOrderOrderType = "STOP"
+	ListAccountOrdersOrderTypeMarket ListAccountOrdersOrderType = "MARKET"
+	ListAccountOrdersOrderTypeLimit  ListAccountOrdersOrderType = "LIMIT"
+	ListAccountOrdersOrderTypeStop   ListAccountOrdersOrderType = "STOP"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderOrderType) ToPointer() *ListAccountOrdersOrdersListResponseOrderOrderType {
+func (e ListAccountOrdersOrderType) ToPointer() *ListAccountOrdersOrderType {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderOrderType) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersOrderType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -583,28 +583,28 @@ func (e *ListAccountOrdersOrdersListResponseOrderOrderType) UnmarshalJSON(data [
 	case "LIMIT":
 		fallthrough
 	case "STOP":
-		*e = ListAccountOrdersOrdersListResponseOrderOrderType(v)
+		*e = ListAccountOrdersOrderType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderOrderType: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersOrderType: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderSide - Side of the order.
+// ListAccountOrdersSide - Side of the order.
 // * BUY -
 // * SELL -
-type ListAccountOrdersOrdersListResponseOrderSide string
+type ListAccountOrdersSide string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderSideBuy  ListAccountOrdersOrdersListResponseOrderSide = "BUY"
-	ListAccountOrdersOrdersListResponseOrderSideSell ListAccountOrdersOrdersListResponseOrderSide = "SELL"
+	ListAccountOrdersSideBuy  ListAccountOrdersSide = "BUY"
+	ListAccountOrdersSideSell ListAccountOrdersSide = "SELL"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderSide) ToPointer() *ListAccountOrdersOrdersListResponseOrderSide {
+func (e ListAccountOrdersSide) ToPointer() *ListAccountOrdersSide {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderSide) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersSide) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -613,32 +613,32 @@ func (e *ListAccountOrdersOrdersListResponseOrderSide) UnmarshalJSON(data []byte
 	case "BUY":
 		fallthrough
 	case "SELL":
-		*e = ListAccountOrdersOrdersListResponseOrderSide(v)
+		*e = ListAccountOrdersSide(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderSide: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersSide: %v", v)
 	}
 }
 
-// ListAccountOrdersOrdersListResponseOrderStatus - The execution status of the order.
+// ListAccountOrdersStatus - The execution status of the order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
-type ListAccountOrdersOrdersListResponseOrderStatus string
+type ListAccountOrdersStatus string
 
 const (
-	ListAccountOrdersOrdersListResponseOrderStatusNew        ListAccountOrdersOrdersListResponseOrderStatus = "NEW"
-	ListAccountOrdersOrdersListResponseOrderStatusProcessing ListAccountOrdersOrdersListResponseOrderStatus = "PROCESSING"
-	ListAccountOrdersOrdersListResponseOrderStatusFilled     ListAccountOrdersOrdersListResponseOrderStatus = "FILLED"
-	ListAccountOrdersOrdersListResponseOrderStatusCancelled  ListAccountOrdersOrdersListResponseOrderStatus = "CANCELLED"
+	ListAccountOrdersStatusNew        ListAccountOrdersStatus = "NEW"
+	ListAccountOrdersStatusProcessing ListAccountOrdersStatus = "PROCESSING"
+	ListAccountOrdersStatusFilled     ListAccountOrdersStatus = "FILLED"
+	ListAccountOrdersStatusCancelled  ListAccountOrdersStatus = "CANCELLED"
 )
 
-func (e ListAccountOrdersOrdersListResponseOrderStatus) ToPointer() *ListAccountOrdersOrdersListResponseOrderStatus {
+func (e ListAccountOrdersStatus) ToPointer() *ListAccountOrdersStatus {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseOrderStatus) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -651,14 +651,14 @@ func (e *ListAccountOrdersOrdersListResponseOrderStatus) UnmarshalJSON(data []by
 	case "FILLED":
 		fallthrough
 	case "CANCELLED":
-		*e = ListAccountOrdersOrdersListResponseOrderStatus(v)
+		*e = ListAccountOrdersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseOrderStatus: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersStatus: %v", v)
 	}
 }
 
-type ListAccountOrdersOrdersListResponseOrder struct {
+type ListAccountOrdersOrder struct {
 	// The ID of the account that owns the order
 	AccountID string `json:"account_id"`
 	// Reason for Order cancellation. The field is present in case the Order has a status of CANCELLED.
@@ -666,22 +666,22 @@ type ListAccountOrdersOrdersListResponseOrder struct {
 	// * CANCELLED_BY_UPVEST_OPERATIONS -
 	// * CANCELLED_BY_TRADING_PARTNER -
 	// * CANCELLED_BY_UPVEST_PLATFORM -
-	CancellationReason *ListAccountOrdersOrdersListResponseOrderCancellationReason `json:"cancellation_reason,omitempty"`
-	CashAmount         string                                                      `json:"cash_amount"`
+	CancellationReason *ListAccountOrdersCancellationReason `json:"cancellation_reason,omitempty"`
+	CashAmount         string                               `json:"cash_amount"`
 	// An ID provided by the client
 	ClientReference string `json:"client_reference"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	CreatedAt time.Time                                         `json:"created_at"`
-	Currency  *ListAccountOrdersOrdersListResponseOrderCurrency `default:"EUR" json:"currency"`
+	CreatedAt time.Time                  `json:"created_at"`
+	Currency  *ListAccountOrdersCurrency `default:"EUR" json:"currency"`
 	// Execution flow that the order processing goes through. If no value is specified, the default value is assumed - `STRAIGHT_THROUGH`.
 	// * STRAIGHT_THROUGH -
 	// * BLOCK -
-	ExecutionFlow *ListAccountOrdersOrdersListResponseOrderExecutionFlow `json:"execution_flow,omitempty"`
+	ExecutionFlow *ListAccountOrdersExecutionFlow `json:"execution_flow,omitempty"`
 	// Order executions associated with this order
-	Executions []ListAccountOrdersOrdersListResponseOrderOrderExecution `json:"executions"`
-	ExpiryDate *string                                                  `json:"expiry_date,omitempty"`
-	Fee        string                                                   `json:"fee"`
-	ID         string                                                   `json:"id"`
+	Executions []ListAccountOrdersOrderExecution `json:"executions"`
+	ExpiryDate *string                           `json:"expiry_date,omitempty"`
+	Fee        string                            `json:"fee"`
+	ID         string                            `json:"id"`
 	// Initiation flow used during order creation, i.e. what triggered the order.
 	// * API -
 	// * PORTFOLIO -
@@ -691,30 +691,30 @@ type ListAccountOrdersOrdersListResponseOrder struct {
 	// * SELL_TO_COVER_TAXES -
 	// * ACCOUNT_LIQUIDATION -
 	// * UPVEST_OPERATIONS -
-	InitiationFlow ListAccountOrdersOrdersListResponseOrderInitiationFlow `json:"initiation_flow"`
+	InitiationFlow ListAccountOrdersInitiationFlow `json:"initiation_flow"`
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN -
-	InstrumentIDType *ListAccountOrdersOrdersListResponseOrderInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
-	LimitPrice       *string                                                   `json:"limit_price,omitempty"`
+	InstrumentIDType *ListAccountOrdersInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	LimitPrice       *string                            `json:"limit_price,omitempty"`
 	// Type of the order.
 	// * MARKET -
 	// * LIMIT -
 	// * STOP -
-	OrderType ListAccountOrdersOrdersListResponseOrderOrderType `json:"order_type"`
-	Quantity  string                                            `json:"quantity"`
+	OrderType ListAccountOrdersOrderType `json:"order_type"`
+	Quantity  string                     `json:"quantity"`
 	// Side of the order.
 	// * BUY -
 	// * SELL -
-	Side ListAccountOrdersOrdersListResponseOrderSide `json:"side"`
+	Side ListAccountOrdersSide `json:"side"`
 	// The execution status of the order.
 	// * NEW -
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
-	Status    ListAccountOrdersOrdersListResponseOrderStatus `json:"status"`
-	StopPrice *string                                        `json:"stop_price,omitempty"`
+	Status    ListAccountOrdersStatus `json:"status"`
+	StopPrice *string                 `json:"stop_price,omitempty"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// The ID of the user
@@ -723,193 +723,193 @@ type ListAccountOrdersOrdersListResponseOrder struct {
 	UserInstrumentFitAcknowledgement *bool `json:"user_instrument_fit_acknowledgement,omitempty"`
 }
 
-func (l ListAccountOrdersOrdersListResponseOrder) MarshalJSON() ([]byte, error) {
+func (l ListAccountOrdersOrder) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListAccountOrdersOrdersListResponseOrder) UnmarshalJSON(data []byte) error {
+func (l *ListAccountOrdersOrder) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetAccountID() string {
+func (o *ListAccountOrdersOrder) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetCancellationReason() *ListAccountOrdersOrdersListResponseOrderCancellationReason {
+func (o *ListAccountOrdersOrder) GetCancellationReason() *ListAccountOrdersCancellationReason {
 	if o == nil {
 		return nil
 	}
 	return o.CancellationReason
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetCashAmount() string {
+func (o *ListAccountOrdersOrder) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetClientReference() string {
+func (o *ListAccountOrdersOrder) GetClientReference() string {
 	if o == nil {
 		return ""
 	}
 	return o.ClientReference
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetCreatedAt() time.Time {
+func (o *ListAccountOrdersOrder) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetCurrency() *ListAccountOrdersOrdersListResponseOrderCurrency {
+func (o *ListAccountOrdersOrder) GetCurrency() *ListAccountOrdersCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetExecutionFlow() *ListAccountOrdersOrdersListResponseOrderExecutionFlow {
+func (o *ListAccountOrdersOrder) GetExecutionFlow() *ListAccountOrdersExecutionFlow {
 	if o == nil {
 		return nil
 	}
 	return o.ExecutionFlow
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetExecutions() []ListAccountOrdersOrdersListResponseOrderOrderExecution {
+func (o *ListAccountOrdersOrder) GetExecutions() []ListAccountOrdersOrderExecution {
 	if o == nil {
-		return []ListAccountOrdersOrdersListResponseOrderOrderExecution{}
+		return []ListAccountOrdersOrderExecution{}
 	}
 	return o.Executions
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetExpiryDate() *string {
+func (o *ListAccountOrdersOrder) GetExpiryDate() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ExpiryDate
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetFee() string {
+func (o *ListAccountOrdersOrder) GetFee() string {
 	if o == nil {
 		return ""
 	}
 	return o.Fee
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetID() string {
+func (o *ListAccountOrdersOrder) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetInitiationFlow() ListAccountOrdersOrdersListResponseOrderInitiationFlow {
+func (o *ListAccountOrdersOrder) GetInitiationFlow() ListAccountOrdersInitiationFlow {
 	if o == nil {
-		return ListAccountOrdersOrdersListResponseOrderInitiationFlow("")
+		return ListAccountOrdersInitiationFlow("")
 	}
 	return o.InitiationFlow
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetInstrumentID() string {
+func (o *ListAccountOrdersOrder) GetInstrumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.InstrumentID
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetInstrumentIDType() *ListAccountOrdersOrdersListResponseOrderInstrumentIDType {
+func (o *ListAccountOrdersOrder) GetInstrumentIDType() *ListAccountOrdersInstrumentIDType {
 	if o == nil {
 		return nil
 	}
 	return o.InstrumentIDType
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetLimitPrice() *string {
+func (o *ListAccountOrdersOrder) GetLimitPrice() *string {
 	if o == nil {
 		return nil
 	}
 	return o.LimitPrice
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetOrderType() ListAccountOrdersOrdersListResponseOrderOrderType {
+func (o *ListAccountOrdersOrder) GetOrderType() ListAccountOrdersOrderType {
 	if o == nil {
-		return ListAccountOrdersOrdersListResponseOrderOrderType("")
+		return ListAccountOrdersOrderType("")
 	}
 	return o.OrderType
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetQuantity() string {
+func (o *ListAccountOrdersOrder) GetQuantity() string {
 	if o == nil {
 		return ""
 	}
 	return o.Quantity
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetSide() ListAccountOrdersOrdersListResponseOrderSide {
+func (o *ListAccountOrdersOrder) GetSide() ListAccountOrdersSide {
 	if o == nil {
-		return ListAccountOrdersOrdersListResponseOrderSide("")
+		return ListAccountOrdersSide("")
 	}
 	return o.Side
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetStatus() ListAccountOrdersOrdersListResponseOrderStatus {
+func (o *ListAccountOrdersOrder) GetStatus() ListAccountOrdersStatus {
 	if o == nil {
-		return ListAccountOrdersOrdersListResponseOrderStatus("")
+		return ListAccountOrdersStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetStopPrice() *string {
+func (o *ListAccountOrdersOrder) GetStopPrice() *string {
 	if o == nil {
 		return nil
 	}
 	return o.StopPrice
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetUpdatedAt() time.Time {
+func (o *ListAccountOrdersOrder) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetUserID() string {
+func (o *ListAccountOrdersOrder) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-func (o *ListAccountOrdersOrdersListResponseOrder) GetUserInstrumentFitAcknowledgement() *bool {
+func (o *ListAccountOrdersOrder) GetUserInstrumentFitAcknowledgement() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.UserInstrumentFitAcknowledgement
 }
 
-// ListAccountOrdersOrdersListResponseMetaOrder - The ordering of the response.
+// ListAccountOrdersOrdersOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListAccountOrdersOrdersListResponseMetaOrder string
+type ListAccountOrdersOrdersOrder string
 
 const (
-	ListAccountOrdersOrdersListResponseMetaOrderAsc  ListAccountOrdersOrdersListResponseMetaOrder = "ASC"
-	ListAccountOrdersOrdersListResponseMetaOrderDesc ListAccountOrdersOrdersListResponseMetaOrder = "DESC"
+	ListAccountOrdersOrdersOrderAsc  ListAccountOrdersOrdersOrder = "ASC"
+	ListAccountOrdersOrdersOrderDesc ListAccountOrdersOrdersOrder = "DESC"
 )
 
-func (e ListAccountOrdersOrdersListResponseMetaOrder) ToPointer() *ListAccountOrdersOrdersListResponseMetaOrder {
+func (e ListAccountOrdersOrdersOrder) ToPointer() *ListAccountOrdersOrdersOrder {
 	return &e
 }
 
-func (e *ListAccountOrdersOrdersListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListAccountOrdersOrdersOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -918,14 +918,14 @@ func (e *ListAccountOrdersOrdersListResponseMetaOrder) UnmarshalJSON(data []byte
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListAccountOrdersOrdersListResponseMetaOrder(v)
+		*e = ListAccountOrdersOrdersOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountOrdersOrdersListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListAccountOrdersOrdersOrder: %v", v)
 	}
 }
 
-type ListAccountOrdersOrdersListResponseMeta struct {
+type ListAccountOrdersMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -935,49 +935,49 @@ type ListAccountOrdersOrdersListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListAccountOrdersOrdersListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListAccountOrdersOrdersOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListAccountOrdersOrdersListResponseMeta) GetCount() int64 {
+func (o *ListAccountOrdersMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListAccountOrdersOrdersListResponseMeta) GetLimit() int64 {
+func (o *ListAccountOrdersMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListAccountOrdersOrdersListResponseMeta) GetOffset() int64 {
+func (o *ListAccountOrdersMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListAccountOrdersOrdersListResponseMeta) GetOrder() *ListAccountOrdersOrdersListResponseMetaOrder {
+func (o *ListAccountOrdersMeta) GetOrder() *ListAccountOrdersOrdersOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListAccountOrdersOrdersListResponseMeta) GetSort() *string {
+func (o *ListAccountOrdersMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListAccountOrdersOrdersListResponseMeta) GetTotalCount() int64 {
+func (o *ListAccountOrdersMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -986,34 +986,41 @@ func (o *ListAccountOrdersOrdersListResponseMeta) GetTotalCount() int64 {
 
 // ListAccountOrdersOrdersListResponse - OK
 type ListAccountOrdersOrdersListResponse struct {
-	Data []ListAccountOrdersOrdersListResponseOrder `json:"data"`
-	Meta ListAccountOrdersOrdersListResponseMeta    `json:"meta"`
+	Data []ListAccountOrdersOrder `json:"data"`
+	Meta ListAccountOrdersMeta    `json:"meta"`
 }
 
-func (o *ListAccountOrdersOrdersListResponse) GetData() []ListAccountOrdersOrdersListResponseOrder {
+func (o *ListAccountOrdersOrdersListResponse) GetData() []ListAccountOrdersOrder {
 	if o == nil {
-		return []ListAccountOrdersOrdersListResponseOrder{}
+		return []ListAccountOrdersOrder{}
 	}
 	return o.Data
 }
 
-func (o *ListAccountOrdersOrdersListResponse) GetMeta() ListAccountOrdersOrdersListResponseMeta {
+func (o *ListAccountOrdersOrdersListResponse) GetMeta() ListAccountOrdersMeta {
 	if o == nil {
-		return ListAccountOrdersOrdersListResponseMeta{}
+		return ListAccountOrdersMeta{}
 	}
 	return o.Meta
 }
 
 type ListAccountOrdersResponse struct {
+	// OK
+	TwoHundredApplicationJSONOrdersListResponse *ListAccountOrdersOrdersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// OK
-	OrdersListResponse *ListAccountOrdersOrdersListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListAccountOrdersResponse) GetTwoHundredApplicationJSONOrdersListResponse() *ListAccountOrdersOrdersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONOrdersListResponse
 }
 
 func (o *ListAccountOrdersResponse) GetContentType() string {
@@ -1028,13 +1035,6 @@ func (o *ListAccountOrdersResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListAccountOrdersResponse) GetOrdersListResponse() *ListAccountOrdersOrdersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.OrdersListResponse
 }
 
 func (o *ListAccountOrdersResponse) GetStatusCode() int {

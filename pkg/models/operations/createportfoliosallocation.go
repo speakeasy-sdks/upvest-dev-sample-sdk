@@ -11,21 +11,21 @@ import (
 	"time"
 )
 
-// CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType - The type of the ID used in the request.
+// CreatePortfoliosAllocationInstrumentIDType - The type of the ID used in the request.
 // * ISIN - International Securities Identification Number
 // * UPVEST - UPVEST's unique instrument identifier
-type CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType string
+type CreatePortfoliosAllocationInstrumentIDType string
 
 const (
-	CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDTypeIsin   CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType = "ISIN"
-	CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDTypeUpvest CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType = "UPVEST"
+	CreatePortfoliosAllocationInstrumentIDTypeIsin   CreatePortfoliosAllocationInstrumentIDType = "ISIN"
+	CreatePortfoliosAllocationInstrumentIDTypeUpvest CreatePortfoliosAllocationInstrumentIDType = "UPVEST"
 )
 
-func (e CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType) ToPointer() *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType {
+func (e CreatePortfoliosAllocationInstrumentIDType) ToPointer() *CreatePortfoliosAllocationInstrumentIDType {
 	return &e
 }
 
-func (e *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,49 +34,49 @@ func (e *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationIn
 	case "ISIN":
 		fallthrough
 	case "UPVEST":
-		*e = CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType(v)
+		*e = CreatePortfoliosAllocationInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosAllocationInstrumentIDType: %v", v)
 	}
 }
 
-type CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation struct {
+type Allocation struct {
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
 	// * UPVEST - UPVEST's unique instrument identifier
-	InstrumentIDType *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	InstrumentIDType *CreatePortfoliosAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
 	// Instrument allocation weight
 	Weight string `json:"weight"`
 }
 
-func (c CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (a Allocation) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
 }
 
-func (c *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+func (a *Allocation) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation) GetInstrumentID() string {
+func (o *Allocation) GetInstrumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.InstrumentID
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation) GetInstrumentIDType() *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocationInstrumentIDType {
+func (o *Allocation) GetInstrumentIDType() *CreatePortfoliosAllocationInstrumentIDType {
 	if o == nil {
 		return nil
 	}
 	return o.InstrumentIDType
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation) GetWeight() string {
+func (o *Allocation) GetWeight() string {
 	if o == nil {
 		return ""
 	}
@@ -85,14 +85,14 @@ func (o *CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation) 
 
 type CreatePortfoliosAllocationPortfoliosAllocationCreateRequest struct {
 	// List of portfolios allocations
-	Allocation []CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation `json:"allocation"`
+	Allocation []Allocation `json:"allocation"`
 	// Allocation name
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocationCreateRequest) GetAllocation() []CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation {
+func (o *CreatePortfoliosAllocationPortfoliosAllocationCreateRequest) GetAllocation() []Allocation {
 	if o == nil {
-		return []CreatePortfoliosAllocationPortfoliosAllocationCreateRequestAllocation{}
+		return []Allocation{}
 	}
 	return o.Allocation
 }
@@ -173,21 +173,21 @@ func (o *CreatePortfoliosAllocationRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType - The type of the ID used in the request.
+// CreatePortfoliosAllocationPortfoliosInstrumentIDType - The type of the ID used in the request.
 // * ISIN - International Securities Identification Number
 // * UPVEST - UPVEST's unique instrument identifier
-type CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType string
+type CreatePortfoliosAllocationPortfoliosInstrumentIDType string
 
 const (
-	CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTypeIsin   CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType = "ISIN"
-	CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTypeUpvest CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType = "UPVEST"
+	CreatePortfoliosAllocationPortfoliosInstrumentIDTypeIsin   CreatePortfoliosAllocationPortfoliosInstrumentIDType = "ISIN"
+	CreatePortfoliosAllocationPortfoliosInstrumentIDTypeUpvest CreatePortfoliosAllocationPortfoliosInstrumentIDType = "UPVEST"
 )
 
-func (e CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType) ToPointer() *CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType {
+func (e CreatePortfoliosAllocationPortfoliosInstrumentIDType) ToPointer() *CreatePortfoliosAllocationPortfoliosInstrumentIDType {
 	return &e
 }
 
-func (e *CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType) UnmarshalJSON(data []byte) error {
+func (e *CreatePortfoliosAllocationPortfoliosInstrumentIDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -196,49 +196,49 @@ func (e *CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDTyp
 	case "ISIN":
 		fallthrough
 	case "UPVEST":
-		*e = CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType(v)
+		*e = CreatePortfoliosAllocationPortfoliosInstrumentIDType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType: %v", v)
+		return fmt.Errorf("invalid value for CreatePortfoliosAllocationPortfoliosInstrumentIDType: %v", v)
 	}
 }
 
-type CreatePortfoliosAllocationPortfoliosAllocationAllocation struct {
+type CreatePortfoliosAllocationAllocation struct {
 	InstrumentID string `json:"instrument_id"`
 	// The type of the ID used in the request.
 	// * ISIN - International Securities Identification Number
 	// * UPVEST - UPVEST's unique instrument identifier
-	InstrumentIDType *CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
+	InstrumentIDType *CreatePortfoliosAllocationPortfoliosInstrumentIDType `default:"ISIN" json:"instrument_id_type"`
 	// Instrument allocation weight
 	Weight string `json:"weight"`
 }
 
-func (c CreatePortfoliosAllocationPortfoliosAllocationAllocation) MarshalJSON() ([]byte, error) {
+func (c CreatePortfoliosAllocationAllocation) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreatePortfoliosAllocationPortfoliosAllocationAllocation) UnmarshalJSON(data []byte) error {
+func (c *CreatePortfoliosAllocationAllocation) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocationAllocation) GetInstrumentID() string {
+func (o *CreatePortfoliosAllocationAllocation) GetInstrumentID() string {
 	if o == nil {
 		return ""
 	}
 	return o.InstrumentID
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocationAllocation) GetInstrumentIDType() *CreatePortfoliosAllocationPortfoliosAllocationAllocationInstrumentIDType {
+func (o *CreatePortfoliosAllocationAllocation) GetInstrumentIDType() *CreatePortfoliosAllocationPortfoliosInstrumentIDType {
 	if o == nil {
 		return nil
 	}
 	return o.InstrumentIDType
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocationAllocation) GetWeight() string {
+func (o *CreatePortfoliosAllocationAllocation) GetWeight() string {
 	if o == nil {
 		return ""
 	}
@@ -248,7 +248,7 @@ func (o *CreatePortfoliosAllocationPortfoliosAllocationAllocation) GetWeight() s
 // CreatePortfoliosAllocationPortfoliosAllocation - Portfolios allocation
 type CreatePortfoliosAllocationPortfoliosAllocation struct {
 	// List of portfolios allocations
-	Allocation []CreatePortfoliosAllocationPortfoliosAllocationAllocation `json:"allocation"`
+	Allocation []CreatePortfoliosAllocationAllocation `json:"allocation"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	ID        string    `json:"id"`
@@ -269,9 +269,9 @@ func (c *CreatePortfoliosAllocationPortfoliosAllocation) UnmarshalJSON(data []by
 	return nil
 }
 
-func (o *CreatePortfoliosAllocationPortfoliosAllocation) GetAllocation() []CreatePortfoliosAllocationPortfoliosAllocationAllocation {
+func (o *CreatePortfoliosAllocationPortfoliosAllocation) GetAllocation() []CreatePortfoliosAllocationAllocation {
 	if o == nil {
-		return []CreatePortfoliosAllocationPortfoliosAllocationAllocation{}
+		return []CreatePortfoliosAllocationAllocation{}
 	}
 	return o.Allocation
 }
@@ -305,15 +305,22 @@ func (o *CreatePortfoliosAllocationPortfoliosAllocation) GetUpdatedAt() time.Tim
 }
 
 type CreatePortfoliosAllocationResponse struct {
+	// Portfolios allocation
+	TwoHundredApplicationJSONPortfoliosAllocation *CreatePortfoliosAllocationPortfoliosAllocation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Portfolios allocation
-	PortfoliosAllocation *CreatePortfoliosAllocationPortfoliosAllocation
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CreatePortfoliosAllocationResponse) GetTwoHundredApplicationJSONPortfoliosAllocation() *CreatePortfoliosAllocationPortfoliosAllocation {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosAllocation
 }
 
 func (o *CreatePortfoliosAllocationResponse) GetContentType() string {
@@ -328,13 +335,6 @@ func (o *CreatePortfoliosAllocationResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *CreatePortfoliosAllocationResponse) GetPortfoliosAllocation() *CreatePortfoliosAllocationPortfoliosAllocation {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosAllocation
 }
 
 func (o *CreatePortfoliosAllocationResponse) GetStatusCode() int {

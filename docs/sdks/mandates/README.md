@@ -1,5 +1,5 @@
 # Mandates
-(*Mandates*)
+(*.Mandates*)
 
 ## Overview
 
@@ -52,7 +52,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.DirectDebitMandate != nil {
+    if res.TwoHundredApplicationJSONDirectDebitMandate != nil {
         // handle response
     }
 }
@@ -158,7 +158,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.MandatesListResponse != nil {
+    if res.TwoHundredApplicationJSONMandatesListResponse != nil {
         // handle response
     }
 }
@@ -211,7 +211,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.DirectDebitMandate != nil {
+    if res.TwoHundredApplicationJSONDirectDebitMandate != nil {
         // handle response
     }
 }

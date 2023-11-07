@@ -12,19 +12,19 @@ import (
 	"time"
 )
 
-// ListSecuritiesTransactionsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListSecuritiesTransactionsOrder string
+// ListSecuritiesTransactionsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListSecuritiesTransactionsQueryParamOrder string
 
 const (
-	ListSecuritiesTransactionsOrderAsc  ListSecuritiesTransactionsOrder = "ASC"
-	ListSecuritiesTransactionsOrderDesc ListSecuritiesTransactionsOrder = "DESC"
+	ListSecuritiesTransactionsQueryParamOrderAsc  ListSecuritiesTransactionsQueryParamOrder = "ASC"
+	ListSecuritiesTransactionsQueryParamOrderDesc ListSecuritiesTransactionsQueryParamOrder = "DESC"
 )
 
-func (e ListSecuritiesTransactionsOrder) ToPointer() *ListSecuritiesTransactionsOrder {
+func (e ListSecuritiesTransactionsQueryParamOrder) ToPointer() *ListSecuritiesTransactionsQueryParamOrder {
 	return &e
 }
 
-func (e *ListSecuritiesTransactionsOrder) UnmarshalJSON(data []byte) error {
+func (e *ListSecuritiesTransactionsQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -33,35 +33,35 @@ func (e *ListSecuritiesTransactionsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListSecuritiesTransactionsOrder(v)
+		*e = ListSecuritiesTransactionsQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListSecuritiesTransactionsOrder: %v", v)
+		return fmt.Errorf("invalid value for ListSecuritiesTransactionsQueryParamOrder: %v", v)
 	}
 }
 
-// ListSecuritiesTransactionsSort - Sort the result by `booking_date`.
-type ListSecuritiesTransactionsSort string
+// ListSecuritiesTransactionsQueryParamSort - Sort the result by `booking_date`.
+type ListSecuritiesTransactionsQueryParamSort string
 
 const (
-	ListSecuritiesTransactionsSortBookingDate ListSecuritiesTransactionsSort = "booking_date"
+	ListSecuritiesTransactionsQueryParamSortBookingDate ListSecuritiesTransactionsQueryParamSort = "booking_date"
 )
 
-func (e ListSecuritiesTransactionsSort) ToPointer() *ListSecuritiesTransactionsSort {
+func (e ListSecuritiesTransactionsQueryParamSort) ToPointer() *ListSecuritiesTransactionsQueryParamSort {
 	return &e
 }
 
-func (e *ListSecuritiesTransactionsSort) UnmarshalJSON(data []byte) error {
+func (e *ListSecuritiesTransactionsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "booking_date":
-		*e = ListSecuritiesTransactionsSort(v)
+		*e = ListSecuritiesTransactionsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListSecuritiesTransactionsSort: %v", v)
+		return fmt.Errorf("invalid value for ListSecuritiesTransactionsQueryParamSort: %v", v)
 	}
 }
 
@@ -76,14 +76,14 @@ type ListSecuritiesTransactionsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListSecuritiesTransactionsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListSecuritiesTransactionsQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `booking_date`.
-	Sort      *ListSecuritiesTransactionsSort `default:"booking_date" queryParam:"style=form,explode=true,name=sort"`
-	StartDate *types.Date                     `queryParam:"style=form,explode=true,name=start_date"`
+	Sort      *ListSecuritiesTransactionsQueryParamSort `default:"booking_date" queryParam:"style=form,explode=true,name=sort"`
+	StartDate *types.Date                               `queryParam:"style=form,explode=true,name=start_date"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -136,7 +136,7 @@ func (o *ListSecuritiesTransactionsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListSecuritiesTransactionsRequest) GetOrder() *ListSecuritiesTransactionsOrder {
+func (o *ListSecuritiesTransactionsRequest) GetOrder() *ListSecuritiesTransactionsQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -157,7 +157,7 @@ func (o *ListSecuritiesTransactionsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListSecuritiesTransactionsRequest) GetSort() *ListSecuritiesTransactionsSort {
+func (o *ListSecuritiesTransactionsRequest) GetSort() *ListSecuritiesTransactionsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -185,78 +185,78 @@ func (o *ListSecuritiesTransactionsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta - Entity representing the security transaction delta.
-type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta struct {
+// SecurityTransactionDelta - Entity representing the security transaction delta.
+type SecurityTransactionDelta struct {
 	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	Amount               string                 `json:"amount"`
 }
 
-func (l ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (s SecurityTransactionDelta) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (l *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (s *SecurityTransactionDelta) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta) GetAdditionalProperties() map[string]interface{} {
+func (o *SecurityTransactionDelta) GetAdditionalProperties() map[string]interface{} {
 	if o == nil {
 		return nil
 	}
 	return o.AdditionalProperties
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta) GetAmount() string {
+func (o *SecurityTransactionDelta) GetAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.Amount
 }
 
-// ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionInstrument - Entity representing instrument
-type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionInstrument struct {
+// ListSecuritiesTransactionsInstrument - Entity representing instrument
+type ListSecuritiesTransactionsInstrument struct {
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	Isin *string `json:"isin,omitempty"`
 	// Internal instrument identifier.
 	UUID string `json:"uuid"`
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionInstrument) GetIsin() *string {
+func (o *ListSecuritiesTransactionsInstrument) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionInstrument) GetUUID() string {
+func (o *ListSecuritiesTransactionsInstrument) GetUUID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UUID
 }
 
-// ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType - Type of the reference.
+// ListSecuritiesTransactionsType - Type of the reference.
 // * ORDER - Order
 // * ORDER_EXECUTION - Order execution
 // * CORPORATE_ACTION - Corporate action
 // * CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction ID
-type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType string
+type ListSecuritiesTransactionsType string
 
 const (
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceTypeOrder                        ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType = "ORDER"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceTypeOrderExecution               ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType = "ORDER_EXECUTION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceTypeCorporateAction              ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType = "CORPORATE_ACTION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceTypeCorporateActionTransactionID ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType = "CORPORATE_ACTION_TRANSACTION_ID"
+	ListSecuritiesTransactionsTypeOrder                        ListSecuritiesTransactionsType = "ORDER"
+	ListSecuritiesTransactionsTypeOrderExecution               ListSecuritiesTransactionsType = "ORDER_EXECUTION"
+	ListSecuritiesTransactionsTypeCorporateAction              ListSecuritiesTransactionsType = "CORPORATE_ACTION"
+	ListSecuritiesTransactionsTypeCorporateActionTransactionID ListSecuritiesTransactionsType = "CORPORATE_ACTION_TRANSACTION_ID"
 )
 
-func (e ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType) ToPointer() *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType {
+func (e ListSecuritiesTransactionsType) ToPointer() *ListSecuritiesTransactionsType {
 	return &e
 }
 
-func (e *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType) UnmarshalJSON(data []byte) error {
+func (e *ListSecuritiesTransactionsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -269,15 +269,15 @@ func (e *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransa
 	case "CORPORATE_ACTION":
 		fallthrough
 	case "CORPORATE_ACTION_TRANSACTION_ID":
-		*e = ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType(v)
+		*e = ListSecuritiesTransactionsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType: %v", v)
+		return fmt.Errorf("invalid value for ListSecuritiesTransactionsType: %v", v)
 	}
 }
 
-// ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReference - Entity representing security transaction reference
-type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReference struct {
+// SecurityTransactionReference - Entity representing security transaction reference
+type SecurityTransactionReference struct {
 	// Unique identifier for a resource of given type.
 	ID string `json:"id"`
 	// Type of the reference.
@@ -285,24 +285,24 @@ type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactio
 	// * ORDER_EXECUTION - Order execution
 	// * CORPORATE_ACTION - Corporate action
 	// * CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction ID
-	Type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType `json:"type"`
+	Type ListSecuritiesTransactionsType `json:"type"`
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReference) GetID() string {
+func (o *SecurityTransactionReference) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReference) GetType() ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType {
+func (o *SecurityTransactionReference) GetType() ListSecuritiesTransactionsType {
 	if o == nil {
-		return ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReferenceType("")
+		return ListSecuritiesTransactionsType("")
 	}
 	return o.Type
 }
 
-// ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType - Transaction type
+// ListSecuritiesTransactionsTransactionType - Transaction type
 // * BONUS_ISSUE - Bonus Issue/Capitalisation Issue
 // * BONUS_ISSUE_CANCELLATION - Bonus Issue/Capitalisation Issue, Cancellation
 // * CALL_ON_INTERMEDIATE_SECURITIES - Call on Intermediate Securities
@@ -346,59 +346,59 @@ func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransa
 // * TENDER_CANCELLATION - Tender/Acquisition/Takeover/Purchase Offer, Cancellation
 // * WORTHLESS - Worthless
 // * WORTHLESS_CANCELLATION - Worthless, Cancellation
-type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType string
+type ListSecuritiesTransactionsTransactionType string
 
 const (
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeBonusIssue                                     ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "BONUS_ISSUE"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeBonusIssueCancellation                         ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "BONUS_ISSUE_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeCallOnIntermediateSecurities                   ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "CALL_ON_INTERMEDIATE_SECURITIES"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeCallOnIntermediateSecuritiesCancellation       ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "CALL_ON_INTERMEDIATE_SECURITIES_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeChange                                         ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "CHANGE"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeChangeCancellation                             ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "CHANGE_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeDividendOption                                 ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "DIVIDEND_OPTION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeDividendOptionCancellation                     ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "DIVIDEND_OPTION_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeDividendReinvestment                           ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "DIVIDEND_REINVESTMENT"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeDividendReinvestmentCancellation               ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "DIVIDEND_REINVESTMENT_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeDustCleanup                                    ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "DUST_CLEANUP"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeDutchAuction                                   ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "DUTCH_AUCTION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeDutchAuctionCancellation                       ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "DUTCH_AUCTION_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeIntermediateSecuritiesDistribution             ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "INTERMEDIATE_SECURITIES_DISTRIBUTION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeIntermediateSecuritiesDistributionCancellation ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "INTERMEDIATE_SECURITIES_DISTRIBUTION_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeMerger                                         ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "MERGER"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeMergerCancellation                             ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "MERGER_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeNonOfficialOffer                               ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "NON_OFFICIAL_OFFER"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeNonOfficialOfferCancellation                   ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "NON_OFFICIAL_OFFER_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeOddLotSale                                     ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "ODD_LOT_SALE"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeOddLotSaleCancellation                         ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "ODD_LOT_SALE_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeOrderExecution                                 ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "ORDER_EXECUTION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeOrderExecutionCancellation                     ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "ORDER_EXECUTION_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeOtherEvent                                     ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "OTHER_EVENT"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeOtherEventCancellation                         ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "OTHER_EVENT_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypePriorityIssue                                  ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "PRIORITY_ISSUE"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypePriorityIssueCancellation                      ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "PRIORITY_ISSUE_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeRepurchaseOffer                                ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "REPURCHASE_OFFER"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeRepurchaseOfferCancellation                    ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "REPURCHASE_OFFER_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeReverseStockSplit                              ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "REVERSE_STOCK_SPLIT"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeReverseStockSplitCancellation                  ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "REVERSE_STOCK_SPLIT_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeRightsIssue                                    ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "RIGHTS_ISSUE"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeRightsIssueCancellation                        ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "RIGHTS_ISSUE_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeSpinOff                                        ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "SPIN_OFF"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeSpinOffCancellation                            ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "SPIN_OFF_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeStockDividend                                  ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "STOCK_DIVIDEND"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeStockDividendCancellation                      ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "STOCK_DIVIDEND_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeStockSplit                                     ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "STOCK_SPLIT"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeStockSplitCancellation                         ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "STOCK_SPLIT_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeTender                                         ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "TENDER"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeTenderCancellation                             ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "TENDER_CANCELLATION"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeWorthless                                      ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "WORTHLESS"
-	ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionTypeWorthlessCancellation                          ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType = "WORTHLESS_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeBonusIssue                                     ListSecuritiesTransactionsTransactionType = "BONUS_ISSUE"
+	ListSecuritiesTransactionsTransactionTypeBonusIssueCancellation                         ListSecuritiesTransactionsTransactionType = "BONUS_ISSUE_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeCallOnIntermediateSecurities                   ListSecuritiesTransactionsTransactionType = "CALL_ON_INTERMEDIATE_SECURITIES"
+	ListSecuritiesTransactionsTransactionTypeCallOnIntermediateSecuritiesCancellation       ListSecuritiesTransactionsTransactionType = "CALL_ON_INTERMEDIATE_SECURITIES_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeChange                                         ListSecuritiesTransactionsTransactionType = "CHANGE"
+	ListSecuritiesTransactionsTransactionTypeChangeCancellation                             ListSecuritiesTransactionsTransactionType = "CHANGE_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeDividendOption                                 ListSecuritiesTransactionsTransactionType = "DIVIDEND_OPTION"
+	ListSecuritiesTransactionsTransactionTypeDividendOptionCancellation                     ListSecuritiesTransactionsTransactionType = "DIVIDEND_OPTION_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeDividendReinvestment                           ListSecuritiesTransactionsTransactionType = "DIVIDEND_REINVESTMENT"
+	ListSecuritiesTransactionsTransactionTypeDividendReinvestmentCancellation               ListSecuritiesTransactionsTransactionType = "DIVIDEND_REINVESTMENT_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeDustCleanup                                    ListSecuritiesTransactionsTransactionType = "DUST_CLEANUP"
+	ListSecuritiesTransactionsTransactionTypeDutchAuction                                   ListSecuritiesTransactionsTransactionType = "DUTCH_AUCTION"
+	ListSecuritiesTransactionsTransactionTypeDutchAuctionCancellation                       ListSecuritiesTransactionsTransactionType = "DUTCH_AUCTION_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeIntermediateSecuritiesDistribution             ListSecuritiesTransactionsTransactionType = "INTERMEDIATE_SECURITIES_DISTRIBUTION"
+	ListSecuritiesTransactionsTransactionTypeIntermediateSecuritiesDistributionCancellation ListSecuritiesTransactionsTransactionType = "INTERMEDIATE_SECURITIES_DISTRIBUTION_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeMerger                                         ListSecuritiesTransactionsTransactionType = "MERGER"
+	ListSecuritiesTransactionsTransactionTypeMergerCancellation                             ListSecuritiesTransactionsTransactionType = "MERGER_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeNonOfficialOffer                               ListSecuritiesTransactionsTransactionType = "NON_OFFICIAL_OFFER"
+	ListSecuritiesTransactionsTransactionTypeNonOfficialOfferCancellation                   ListSecuritiesTransactionsTransactionType = "NON_OFFICIAL_OFFER_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeOddLotSale                                     ListSecuritiesTransactionsTransactionType = "ODD_LOT_SALE"
+	ListSecuritiesTransactionsTransactionTypeOddLotSaleCancellation                         ListSecuritiesTransactionsTransactionType = "ODD_LOT_SALE_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeOrderExecution                                 ListSecuritiesTransactionsTransactionType = "ORDER_EXECUTION"
+	ListSecuritiesTransactionsTransactionTypeOrderExecutionCancellation                     ListSecuritiesTransactionsTransactionType = "ORDER_EXECUTION_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeOtherEvent                                     ListSecuritiesTransactionsTransactionType = "OTHER_EVENT"
+	ListSecuritiesTransactionsTransactionTypeOtherEventCancellation                         ListSecuritiesTransactionsTransactionType = "OTHER_EVENT_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypePriorityIssue                                  ListSecuritiesTransactionsTransactionType = "PRIORITY_ISSUE"
+	ListSecuritiesTransactionsTransactionTypePriorityIssueCancellation                      ListSecuritiesTransactionsTransactionType = "PRIORITY_ISSUE_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeRepurchaseOffer                                ListSecuritiesTransactionsTransactionType = "REPURCHASE_OFFER"
+	ListSecuritiesTransactionsTransactionTypeRepurchaseOfferCancellation                    ListSecuritiesTransactionsTransactionType = "REPURCHASE_OFFER_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeReverseStockSplit                              ListSecuritiesTransactionsTransactionType = "REVERSE_STOCK_SPLIT"
+	ListSecuritiesTransactionsTransactionTypeReverseStockSplitCancellation                  ListSecuritiesTransactionsTransactionType = "REVERSE_STOCK_SPLIT_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeRightsIssue                                    ListSecuritiesTransactionsTransactionType = "RIGHTS_ISSUE"
+	ListSecuritiesTransactionsTransactionTypeRightsIssueCancellation                        ListSecuritiesTransactionsTransactionType = "RIGHTS_ISSUE_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeSpinOff                                        ListSecuritiesTransactionsTransactionType = "SPIN_OFF"
+	ListSecuritiesTransactionsTransactionTypeSpinOffCancellation                            ListSecuritiesTransactionsTransactionType = "SPIN_OFF_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeStockDividend                                  ListSecuritiesTransactionsTransactionType = "STOCK_DIVIDEND"
+	ListSecuritiesTransactionsTransactionTypeStockDividendCancellation                      ListSecuritiesTransactionsTransactionType = "STOCK_DIVIDEND_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeStockSplit                                     ListSecuritiesTransactionsTransactionType = "STOCK_SPLIT"
+	ListSecuritiesTransactionsTransactionTypeStockSplitCancellation                         ListSecuritiesTransactionsTransactionType = "STOCK_SPLIT_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeTender                                         ListSecuritiesTransactionsTransactionType = "TENDER"
+	ListSecuritiesTransactionsTransactionTypeTenderCancellation                             ListSecuritiesTransactionsTransactionType = "TENDER_CANCELLATION"
+	ListSecuritiesTransactionsTransactionTypeWorthless                                      ListSecuritiesTransactionsTransactionType = "WORTHLESS"
+	ListSecuritiesTransactionsTransactionTypeWorthlessCancellation                          ListSecuritiesTransactionsTransactionType = "WORTHLESS_CANCELLATION"
 )
 
-func (e ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType) ToPointer() *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType {
+func (e ListSecuritiesTransactionsTransactionType) ToPointer() *ListSecuritiesTransactionsTransactionType {
 	return &e
 }
 
-func (e *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType) UnmarshalJSON(data []byte) error {
+func (e *ListSecuritiesTransactionsTransactionType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -489,14 +489,14 @@ func (e *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransa
 	case "WORTHLESS":
 		fallthrough
 	case "WORTHLESS_CANCELLATION":
-		*e = ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType(v)
+		*e = ListSecuritiesTransactionsTransactionType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType: %v", v)
+		return fmt.Errorf("invalid value for ListSecuritiesTransactionsTransactionType: %v", v)
 	}
 }
 
-type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction struct {
+type SecurityTransaction struct {
 	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
@@ -507,12 +507,12 @@ type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactio
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Entity representing the security transaction delta.
-	Delta ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta `json:"delta"`
+	Delta SecurityTransactionDelta `json:"delta"`
 	// Security transaction unique identifier.
 	ID string `json:"id"`
 	// Entity representing instrument
-	Instrument ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionInstrument                     `json:"instrument"`
-	References []ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReference `json:"references"`
+	Instrument ListSecuritiesTransactionsInstrument `json:"instrument"`
+	References []SecurityTransactionReference       `json:"references"`
 	// Transaction type
 	// * BONUS_ISSUE - Bonus Issue/Capitalisation Issue
 	// * BONUS_ISSUE_CANCELLATION - Bonus Issue/Capitalisation Issue, Cancellation
@@ -557,123 +557,123 @@ type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactio
 	// * TENDER_CANCELLATION - Tender/Acquisition/Takeover/Purchase Offer, Cancellation
 	// * WORTHLESS - Worthless
 	// * WORTHLESS_CANCELLATION - Worthless, Cancellation
-	Type ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType `json:"type"`
+	Type ListSecuritiesTransactionsTransactionType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// Transaction value date and time. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	ValueDate time.Time `json:"value_date"`
 }
 
-func (l ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(l, "", false)
+func (s SecurityTransaction) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (l *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+func (s *SecurityTransaction) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetAdditionalProperties() map[string]interface{} {
+func (o *SecurityTransaction) GetAdditionalProperties() map[string]interface{} {
 	if o == nil {
 		return nil
 	}
 	return o.AdditionalProperties
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetAccountGroupID() string {
+func (o *SecurityTransaction) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetAccountID() string {
+func (o *SecurityTransaction) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetBookingDate() time.Time {
+func (o *SecurityTransaction) GetBookingDate() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.BookingDate
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetCreatedAt() time.Time {
+func (o *SecurityTransaction) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetDelta() ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta {
+func (o *SecurityTransaction) GetDelta() SecurityTransactionDelta {
 	if o == nil {
-		return ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionDelta{}
+		return SecurityTransactionDelta{}
 	}
 	return o.Delta
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetID() string {
+func (o *SecurityTransaction) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetInstrument() ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionInstrument {
+func (o *SecurityTransaction) GetInstrument() ListSecuritiesTransactionsInstrument {
 	if o == nil {
-		return ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionInstrument{}
+		return ListSecuritiesTransactionsInstrument{}
 	}
 	return o.Instrument
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetReferences() []ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReference {
+func (o *SecurityTransaction) GetReferences() []SecurityTransactionReference {
 	if o == nil {
-		return []ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionSecurityTransactionReference{}
+		return []SecurityTransactionReference{}
 	}
 	return o.References
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetType() ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType {
+func (o *SecurityTransaction) GetType() ListSecuritiesTransactionsTransactionType {
 	if o == nil {
-		return ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransactionTransactionType("")
+		return ListSecuritiesTransactionsTransactionType("")
 	}
 	return o.Type
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetUpdatedAt() time.Time {
+func (o *SecurityTransaction) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction) GetValueDate() time.Time {
+func (o *SecurityTransaction) GetValueDate() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.ValueDate
 }
 
-// ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder - The ordering of the response.
+// ListSecuritiesTransactionsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder string
+type ListSecuritiesTransactionsOrder string
 
 const (
-	ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrderAsc  ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder = "ASC"
-	ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrderDesc ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder = "DESC"
+	ListSecuritiesTransactionsOrderAsc  ListSecuritiesTransactionsOrder = "ASC"
+	ListSecuritiesTransactionsOrderDesc ListSecuritiesTransactionsOrder = "DESC"
 )
 
-func (e ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder) ToPointer() *ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder {
+func (e ListSecuritiesTransactionsOrder) ToPointer() *ListSecuritiesTransactionsOrder {
 	return &e
 }
 
-func (e *ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListSecuritiesTransactionsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -682,14 +682,14 @@ func (e *ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder) Unm
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder(v)
+		*e = ListSecuritiesTransactionsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListSecuritiesTransactionsOrder: %v", v)
 	}
 }
 
-type ListSecuritiesTransactionsSecurityTransactionListResponseMeta struct {
+type ListSecuritiesTransactionsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -699,49 +699,49 @@ type ListSecuritiesTransactionsSecurityTransactionListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListSecuritiesTransactionsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseMeta) GetCount() int64 {
+func (o *ListSecuritiesTransactionsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseMeta) GetLimit() int64 {
+func (o *ListSecuritiesTransactionsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseMeta) GetOffset() int64 {
+func (o *ListSecuritiesTransactionsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseMeta) GetOrder() *ListSecuritiesTransactionsSecurityTransactionListResponseMetaOrder {
+func (o *ListSecuritiesTransactionsMeta) GetOrder() *ListSecuritiesTransactionsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseMeta) GetSort() *string {
+func (o *ListSecuritiesTransactionsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponseMeta) GetTotalCount() int64 {
+func (o *ListSecuritiesTransactionsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -750,34 +750,41 @@ func (o *ListSecuritiesTransactionsSecurityTransactionListResponseMeta) GetTotal
 
 // ListSecuritiesTransactionsSecurityTransactionListResponse - Securities Transactions
 type ListSecuritiesTransactionsSecurityTransactionListResponse struct {
-	Data []ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction `json:"data"`
-	Meta ListSecuritiesTransactionsSecurityTransactionListResponseMeta                  `json:"meta"`
+	Data []SecurityTransaction          `json:"data"`
+	Meta ListSecuritiesTransactionsMeta `json:"meta"`
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponse) GetData() []ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction {
+func (o *ListSecuritiesTransactionsSecurityTransactionListResponse) GetData() []SecurityTransaction {
 	if o == nil {
-		return []ListSecuritiesTransactionsSecurityTransactionListResponseSecurityTransaction{}
+		return []SecurityTransaction{}
 	}
 	return o.Data
 }
 
-func (o *ListSecuritiesTransactionsSecurityTransactionListResponse) GetMeta() ListSecuritiesTransactionsSecurityTransactionListResponseMeta {
+func (o *ListSecuritiesTransactionsSecurityTransactionListResponse) GetMeta() ListSecuritiesTransactionsMeta {
 	if o == nil {
-		return ListSecuritiesTransactionsSecurityTransactionListResponseMeta{}
+		return ListSecuritiesTransactionsMeta{}
 	}
 	return o.Meta
 }
 
 type ListSecuritiesTransactionsResponse struct {
+	// Securities Transactions
+	TwoHundredApplicationJSONSecurityTransactionListResponse *ListSecuritiesTransactionsSecurityTransactionListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Securities Transactions
-	SecurityTransactionListResponse *ListSecuritiesTransactionsSecurityTransactionListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListSecuritiesTransactionsResponse) GetTwoHundredApplicationJSONSecurityTransactionListResponse() *ListSecuritiesTransactionsSecurityTransactionListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONSecurityTransactionListResponse
 }
 
 func (o *ListSecuritiesTransactionsResponse) GetContentType() string {
@@ -792,13 +799,6 @@ func (o *ListSecuritiesTransactionsResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListSecuritiesTransactionsResponse) GetSecurityTransactionListResponse() *ListSecuritiesTransactionsSecurityTransactionListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.SecurityTransactionListResponse
 }
 
 func (o *ListSecuritiesTransactionsResponse) GetStatusCode() int {

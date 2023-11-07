@@ -1,5 +1,5 @@
 # VirtualCashBalances
-(*VirtualCashBalances*)
+(*.VirtualCashBalances*)
 
 ## Overview
 
@@ -102,7 +102,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.VirtualCashBalanceVirtualCashDecrease != nil {
+    if res.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease != nil {
         // handle response
     }
 }
@@ -159,7 +159,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.VirtualCashBalanceVirtualCashIncrease != nil {
+    if res.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashIncrease != nil {
         // handle response
     }
 }

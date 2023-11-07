@@ -74,74 +74,74 @@ func (o *RetrievePositionRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-type RetrievePosition200ApplicationJSONInstrument struct {
+type Instrument struct {
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	Isin *string `json:"isin,omitempty"`
 	// Instrument unique identifier.
 	UUID string `json:"uuid"`
 }
 
-func (o *RetrievePosition200ApplicationJSONInstrument) GetIsin() *string {
+func (o *Instrument) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *RetrievePosition200ApplicationJSONInstrument) GetUUID() string {
+func (o *Instrument) GetUUID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UUID
 }
 
-// RetrievePosition200ApplicationJSON - Response
-type RetrievePosition200ApplicationJSON struct {
+// RetrievePositionResponseBody - Response
+type RetrievePositionResponseBody struct {
 	// Account unique identifier.
-	AccountID           string                                       `json:"account_id"`
-	AvailableForTrading string                                       `json:"available_for_trading"`
-	Instrument          RetrievePosition200ApplicationJSONInstrument `json:"instrument"`
-	LockedForTrading    string                                       `json:"locked_for_trading"`
-	PendingSettlement   string                                       `json:"pending_settlement"`
-	Quantity            string                                       `json:"quantity"`
+	AccountID           string     `json:"account_id"`
+	AvailableForTrading string     `json:"available_for_trading"`
+	Instrument          Instrument `json:"instrument"`
+	LockedForTrading    string     `json:"locked_for_trading"`
+	PendingSettlement   string     `json:"pending_settlement"`
+	Quantity            string     `json:"quantity"`
 }
 
-func (o *RetrievePosition200ApplicationJSON) GetAccountID() string {
+func (o *RetrievePositionResponseBody) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *RetrievePosition200ApplicationJSON) GetAvailableForTrading() string {
+func (o *RetrievePositionResponseBody) GetAvailableForTrading() string {
 	if o == nil {
 		return ""
 	}
 	return o.AvailableForTrading
 }
 
-func (o *RetrievePosition200ApplicationJSON) GetInstrument() RetrievePosition200ApplicationJSONInstrument {
+func (o *RetrievePositionResponseBody) GetInstrument() Instrument {
 	if o == nil {
-		return RetrievePosition200ApplicationJSONInstrument{}
+		return Instrument{}
 	}
 	return o.Instrument
 }
 
-func (o *RetrievePosition200ApplicationJSON) GetLockedForTrading() string {
+func (o *RetrievePositionResponseBody) GetLockedForTrading() string {
 	if o == nil {
 		return ""
 	}
 	return o.LockedForTrading
 }
 
-func (o *RetrievePosition200ApplicationJSON) GetPendingSettlement() string {
+func (o *RetrievePositionResponseBody) GetPendingSettlement() string {
 	if o == nil {
 		return ""
 	}
 	return o.PendingSettlement
 }
 
-func (o *RetrievePosition200ApplicationJSON) GetQuantity() string {
+func (o *RetrievePositionResponseBody) GetQuantity() string {
 	if o == nil {
 		return ""
 	}
@@ -149,6 +149,8 @@ func (o *RetrievePosition200ApplicationJSON) GetQuantity() string {
 }
 
 type RetrievePositionResponse struct {
+	// Response
+	TwoHundredApplicationJSONObject *RetrievePositionResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -156,8 +158,13 @@ type RetrievePositionResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Response
-	RetrievePosition200ApplicationJSONObject *RetrievePosition200ApplicationJSON
+}
+
+func (o *RetrievePositionResponse) GetTwoHundredApplicationJSONObject() *RetrievePositionResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONObject
 }
 
 func (o *RetrievePositionResponse) GetContentType() string {
@@ -186,11 +193,4 @@ func (o *RetrievePositionResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *RetrievePositionResponse) GetRetrievePosition200ApplicationJSONObject() *RetrievePosition200ApplicationJSON {
-	if o == nil {
-		return nil
-	}
-	return o.RetrievePosition200ApplicationJSONObject
 }

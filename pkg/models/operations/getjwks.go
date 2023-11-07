@@ -60,113 +60,113 @@ func (o *GetJwksRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// GetJwksAuthVerificationKeysKeysCrv - Elliptic curve family.
+// Crv - Elliptic curve family.
 // * P-521 -
-type GetJwksAuthVerificationKeysKeysCrv string
+type Crv string
 
 const (
-	GetJwksAuthVerificationKeysKeysCrvP521 GetJwksAuthVerificationKeysKeysCrv = "P-521"
+	CrvP521 Crv = "P-521"
 )
 
-func (e GetJwksAuthVerificationKeysKeysCrv) ToPointer() *GetJwksAuthVerificationKeysKeysCrv {
+func (e Crv) ToPointer() *Crv {
 	return &e
 }
 
-func (e *GetJwksAuthVerificationKeysKeysCrv) UnmarshalJSON(data []byte) error {
+func (e *Crv) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "P-521":
-		*e = GetJwksAuthVerificationKeysKeysCrv(v)
+		*e = Crv(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for GetJwksAuthVerificationKeysKeysCrv: %v", v)
+		return fmt.Errorf("invalid value for Crv: %v", v)
 	}
 }
 
-// GetJwksAuthVerificationKeysKeysKty - Cryptographic algorithm family used with the key.
+// Kty - Cryptographic algorithm family used with the key.
 // * EC -
-type GetJwksAuthVerificationKeysKeysKty string
+type Kty string
 
 const (
-	GetJwksAuthVerificationKeysKeysKtyEc GetJwksAuthVerificationKeysKeysKty = "EC"
+	KtyEc Kty = "EC"
 )
 
-func (e GetJwksAuthVerificationKeysKeysKty) ToPointer() *GetJwksAuthVerificationKeysKeysKty {
+func (e Kty) ToPointer() *Kty {
 	return &e
 }
 
-func (e *GetJwksAuthVerificationKeysKeysKty) UnmarshalJSON(data []byte) error {
+func (e *Kty) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EC":
-		*e = GetJwksAuthVerificationKeysKeysKty(v)
+		*e = Kty(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for GetJwksAuthVerificationKeysKeysKty: %v", v)
+		return fmt.Errorf("invalid value for Kty: %v", v)
 	}
 }
 
-type GetJwksAuthVerificationKeysKeys struct {
+type Keys struct {
 	// Elliptic curve family.
 	// * P-521 -
-	Crv *GetJwksAuthVerificationKeysKeysCrv `default:"P-521" json:"crv"`
+	Crv *Crv `default:"P-521" json:"crv"`
 	// Key ID
 	Kid *string `json:"kid,omitempty"`
 	// Cryptographic algorithm family used with the key.
 	// * EC -
-	Kty *GetJwksAuthVerificationKeysKeysKty `default:"EC" json:"kty"`
+	Kty *Kty `default:"EC" json:"kty"`
 	// Curve parameter
 	X *string `json:"x,omitempty"`
 	// Curve parameter
 	Y *string `json:"y,omitempty"`
 }
 
-func (g GetJwksAuthVerificationKeysKeys) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(g, "", false)
+func (k Keys) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(k, "", false)
 }
 
-func (g *GetJwksAuthVerificationKeysKeys) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+func (k *Keys) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &k, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *GetJwksAuthVerificationKeysKeys) GetCrv() *GetJwksAuthVerificationKeysKeysCrv {
+func (o *Keys) GetCrv() *Crv {
 	if o == nil {
 		return nil
 	}
 	return o.Crv
 }
 
-func (o *GetJwksAuthVerificationKeysKeys) GetKid() *string {
+func (o *Keys) GetKid() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Kid
 }
 
-func (o *GetJwksAuthVerificationKeysKeys) GetKty() *GetJwksAuthVerificationKeysKeysKty {
+func (o *Keys) GetKty() *Kty {
 	if o == nil {
 		return nil
 	}
 	return o.Kty
 }
 
-func (o *GetJwksAuthVerificationKeysKeys) GetX() *string {
+func (o *Keys) GetX() *string {
 	if o == nil {
 		return nil
 	}
 	return o.X
 }
 
-func (o *GetJwksAuthVerificationKeysKeys) GetY() *string {
+func (o *Keys) GetY() *string {
 	if o == nil {
 		return nil
 	}
@@ -176,19 +176,19 @@ func (o *GetJwksAuthVerificationKeysKeys) GetY() *string {
 // GetJwksAuthVerificationKeys - Webhooks verification keys.
 type GetJwksAuthVerificationKeys struct {
 	// List of verification keys
-	Keys []GetJwksAuthVerificationKeysKeys `json:"keys"`
+	Keys []Keys `json:"keys"`
 }
 
-func (o *GetJwksAuthVerificationKeys) GetKeys() []GetJwksAuthVerificationKeysKeys {
+func (o *GetJwksAuthVerificationKeys) GetKeys() []Keys {
 	if o == nil {
-		return []GetJwksAuthVerificationKeysKeys{}
+		return []Keys{}
 	}
 	return o.Keys
 }
 
 type GetJwksResponse struct {
 	// JWKS signing public keys
-	AuthVerificationKeys *GetJwksAuthVerificationKeys
+	TwoHundredApplicationJSONAuthVerificationKeys *GetJwksAuthVerificationKeys
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -198,11 +198,11 @@ type GetJwksResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *GetJwksResponse) GetAuthVerificationKeys() *GetJwksAuthVerificationKeys {
+func (o *GetJwksResponse) GetTwoHundredApplicationJSONAuthVerificationKeys() *GetJwksAuthVerificationKeys {
 	if o == nil {
 		return nil
 	}
-	return o.AuthVerificationKeys
+	return o.TwoHundredApplicationJSONAuthVerificationKeys
 }
 
 func (o *GetJwksResponse) GetContentType() string {

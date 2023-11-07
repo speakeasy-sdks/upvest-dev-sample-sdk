@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts
+### Accounts
 
 ```go
-triggerPortfolioRebalancingTriggerPortfolioRebalancingRequest := operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(operations.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts{/* values here */})
+triggerPortfolioRebalancingTriggerPortfolioRebalancingRequest := operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(operations.Accounts{/* values here */})
 ```
 
-### TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations
+### Allocations
 
 ```go
-triggerPortfolioRebalancingTriggerPortfolioRebalancingRequest := operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations(operations.TriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations{/* values here */})
+triggerPortfolioRebalancingTriggerPortfolioRebalancingRequest := operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAllocations(operations.Allocations{/* values here */})
 ```
 

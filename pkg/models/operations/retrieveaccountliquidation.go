@@ -77,51 +77,51 @@ func (o *RetrieveAccountLiquidationRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveAccountLiquidationAccountLiquidationCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// RetrieveAccountLiquidationCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type RetrieveAccountLiquidationAccountLiquidationCurrency string
+type RetrieveAccountLiquidationCurrency string
 
 const (
-	RetrieveAccountLiquidationAccountLiquidationCurrencyEur RetrieveAccountLiquidationAccountLiquidationCurrency = "EUR"
+	RetrieveAccountLiquidationCurrencyEur RetrieveAccountLiquidationCurrency = "EUR"
 )
 
-func (e RetrieveAccountLiquidationAccountLiquidationCurrency) ToPointer() *RetrieveAccountLiquidationAccountLiquidationCurrency {
+func (e RetrieveAccountLiquidationCurrency) ToPointer() *RetrieveAccountLiquidationCurrency {
 	return &e
 }
 
-func (e *RetrieveAccountLiquidationAccountLiquidationCurrency) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountLiquidationCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = RetrieveAccountLiquidationAccountLiquidationCurrency(v)
+		*e = RetrieveAccountLiquidationCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountLiquidationAccountLiquidationCurrency: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountLiquidationCurrency: %v", v)
 	}
 }
 
-// RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus - Execution status of the Account liquidation order.
+// RetrieveAccountLiquidationLiquidationsStatus - Execution status of the Account liquidation order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
-type RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus string
+type RetrieveAccountLiquidationLiquidationsStatus string
 
 const (
-	RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatusNew        RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus = "NEW"
-	RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatusProcessing RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus = "PROCESSING"
-	RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatusFilled     RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus = "FILLED"
-	RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatusCancelled  RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus = "CANCELLED"
+	RetrieveAccountLiquidationLiquidationsStatusNew        RetrieveAccountLiquidationLiquidationsStatus = "NEW"
+	RetrieveAccountLiquidationLiquidationsStatusProcessing RetrieveAccountLiquidationLiquidationsStatus = "PROCESSING"
+	RetrieveAccountLiquidationLiquidationsStatusFilled     RetrieveAccountLiquidationLiquidationsStatus = "FILLED"
+	RetrieveAccountLiquidationLiquidationsStatusCancelled  RetrieveAccountLiquidationLiquidationsStatus = "CANCELLED"
 )
 
-func (e RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus) ToPointer() *RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus {
+func (e RetrieveAccountLiquidationLiquidationsStatus) ToPointer() *RetrieveAccountLiquidationLiquidationsStatus {
 	return &e
 }
 
-func (e *RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountLiquidationLiquidationsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -134,14 +134,14 @@ func (e *RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus) U
 	case "FILLED":
 		fallthrough
 	case "CANCELLED":
-		*e = RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus(v)
+		*e = RetrieveAccountLiquidationLiquidationsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountLiquidationLiquidationsStatus: %v", v)
 	}
 }
 
-type RetrieveAccountLiquidationAccountLiquidationAccountLiquidation struct {
+type RetrieveAccountLiquidationLiquidationsAccountLiquidation struct {
 	ID string `json:"id"`
 	// Side of the order.
 	// * SELL -
@@ -151,62 +151,62 @@ type RetrieveAccountLiquidationAccountLiquidationAccountLiquidation struct {
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
-	Status RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus `json:"status"`
+	Status RetrieveAccountLiquidationLiquidationsStatus `json:"status"`
 }
 
-func (r RetrieveAccountLiquidationAccountLiquidationAccountLiquidation) MarshalJSON() ([]byte, error) {
+func (r RetrieveAccountLiquidationLiquidationsAccountLiquidation) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveAccountLiquidationAccountLiquidationAccountLiquidation) UnmarshalJSON(data []byte) error {
+func (r *RetrieveAccountLiquidationLiquidationsAccountLiquidation) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveAccountLiquidationAccountLiquidationAccountLiquidation) GetID() string {
+func (o *RetrieveAccountLiquidationLiquidationsAccountLiquidation) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveAccountLiquidationAccountLiquidationAccountLiquidation) GetSide() *string {
+func (o *RetrieveAccountLiquidationLiquidationsAccountLiquidation) GetSide() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Side
 }
 
-func (o *RetrieveAccountLiquidationAccountLiquidationAccountLiquidation) GetStatus() RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus {
+func (o *RetrieveAccountLiquidationLiquidationsAccountLiquidation) GetStatus() RetrieveAccountLiquidationLiquidationsStatus {
 	if o == nil {
-		return RetrieveAccountLiquidationAccountLiquidationAccountLiquidationStatus("")
+		return RetrieveAccountLiquidationLiquidationsStatus("")
 	}
 	return o.Status
 }
 
-// RetrieveAccountLiquidationAccountLiquidationStatus - Execution status of the Account liquidation.
+// RetrieveAccountLiquidationStatus - Execution status of the Account liquidation.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
 // * SETTLED -
-type RetrieveAccountLiquidationAccountLiquidationStatus string
+type RetrieveAccountLiquidationStatus string
 
 const (
-	RetrieveAccountLiquidationAccountLiquidationStatusNew        RetrieveAccountLiquidationAccountLiquidationStatus = "NEW"
-	RetrieveAccountLiquidationAccountLiquidationStatusProcessing RetrieveAccountLiquidationAccountLiquidationStatus = "PROCESSING"
-	RetrieveAccountLiquidationAccountLiquidationStatusFilled     RetrieveAccountLiquidationAccountLiquidationStatus = "FILLED"
-	RetrieveAccountLiquidationAccountLiquidationStatusCancelled  RetrieveAccountLiquidationAccountLiquidationStatus = "CANCELLED"
-	RetrieveAccountLiquidationAccountLiquidationStatusSettled    RetrieveAccountLiquidationAccountLiquidationStatus = "SETTLED"
+	RetrieveAccountLiquidationStatusNew        RetrieveAccountLiquidationStatus = "NEW"
+	RetrieveAccountLiquidationStatusProcessing RetrieveAccountLiquidationStatus = "PROCESSING"
+	RetrieveAccountLiquidationStatusFilled     RetrieveAccountLiquidationStatus = "FILLED"
+	RetrieveAccountLiquidationStatusCancelled  RetrieveAccountLiquidationStatus = "CANCELLED"
+	RetrieveAccountLiquidationStatusSettled    RetrieveAccountLiquidationStatus = "SETTLED"
 )
 
-func (e RetrieveAccountLiquidationAccountLiquidationStatus) ToPointer() *RetrieveAccountLiquidationAccountLiquidationStatus {
+func (e RetrieveAccountLiquidationStatus) ToPointer() *RetrieveAccountLiquidationStatus {
 	return &e
 }
 
-func (e *RetrieveAccountLiquidationAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -221,10 +221,10 @@ func (e *RetrieveAccountLiquidationAccountLiquidationStatus) UnmarshalJSON(data 
 	case "CANCELLED":
 		fallthrough
 	case "SETTLED":
-		*e = RetrieveAccountLiquidationAccountLiquidationStatus(v)
+		*e = RetrieveAccountLiquidationStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveAccountLiquidationAccountLiquidationStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveAccountLiquidationStatus: %v", v)
 	}
 }
 
@@ -237,17 +237,17 @@ type RetrieveAccountLiquidationAccountLiquidation struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *RetrieveAccountLiquidationAccountLiquidationCurrency `default:"EUR" json:"currency"`
-	ID       string                                                `json:"id"`
+	Currency *RetrieveAccountLiquidationCurrency `default:"EUR" json:"currency"`
+	ID       string                              `json:"id"`
 	// Position liquidation orders associated with this account liquidation
-	Orders []RetrieveAccountLiquidationAccountLiquidationAccountLiquidation `json:"orders"`
+	Orders []RetrieveAccountLiquidationLiquidationsAccountLiquidation `json:"orders"`
 	// Execution status of the Account liquidation.
 	// * NEW -
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
 	// * SETTLED -
-	Status RetrieveAccountLiquidationAccountLiquidationStatus `json:"status"`
+	Status RetrieveAccountLiquidationStatus `json:"status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// User unique identifier.
@@ -286,7 +286,7 @@ func (o *RetrieveAccountLiquidationAccountLiquidation) GetCreatedAt() time.Time 
 	return o.CreatedAt
 }
 
-func (o *RetrieveAccountLiquidationAccountLiquidation) GetCurrency() *RetrieveAccountLiquidationAccountLiquidationCurrency {
+func (o *RetrieveAccountLiquidationAccountLiquidation) GetCurrency() *RetrieveAccountLiquidationCurrency {
 	if o == nil {
 		return nil
 	}
@@ -300,16 +300,16 @@ func (o *RetrieveAccountLiquidationAccountLiquidation) GetID() string {
 	return o.ID
 }
 
-func (o *RetrieveAccountLiquidationAccountLiquidation) GetOrders() []RetrieveAccountLiquidationAccountLiquidationAccountLiquidation {
+func (o *RetrieveAccountLiquidationAccountLiquidation) GetOrders() []RetrieveAccountLiquidationLiquidationsAccountLiquidation {
 	if o == nil {
-		return []RetrieveAccountLiquidationAccountLiquidationAccountLiquidation{}
+		return []RetrieveAccountLiquidationLiquidationsAccountLiquidation{}
 	}
 	return o.Orders
 }
 
-func (o *RetrieveAccountLiquidationAccountLiquidation) GetStatus() RetrieveAccountLiquidationAccountLiquidationStatus {
+func (o *RetrieveAccountLiquidationAccountLiquidation) GetStatus() RetrieveAccountLiquidationStatus {
 	if o == nil {
-		return RetrieveAccountLiquidationAccountLiquidationStatus("")
+		return RetrieveAccountLiquidationStatus("")
 	}
 	return o.Status
 }
@@ -330,7 +330,7 @@ func (o *RetrieveAccountLiquidationAccountLiquidation) GetUserID() *string {
 
 type RetrieveAccountLiquidationResponse struct {
 	// Account liquidation object
-	AccountLiquidation *RetrieveAccountLiquidationAccountLiquidation
+	TwoHundredApplicationJSONAccountLiquidation *RetrieveAccountLiquidationAccountLiquidation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -340,11 +340,11 @@ type RetrieveAccountLiquidationResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *RetrieveAccountLiquidationResponse) GetAccountLiquidation() *RetrieveAccountLiquidationAccountLiquidation {
+func (o *RetrieveAccountLiquidationResponse) GetTwoHundredApplicationJSONAccountLiquidation() *RetrieveAccountLiquidationAccountLiquidation {
 	if o == nil {
 		return nil
 	}
-	return o.AccountLiquidation
+	return o.TwoHundredApplicationJSONAccountLiquidation
 }
 
 func (o *RetrieveAccountLiquidationResponse) GetContentType() string {

@@ -71,23 +71,23 @@ func (o *ListUserChecksRequest) GetUserID() string {
 	return o.UserID
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus - Final status of the COMPLIANCE check.
+// ListUserChecksUsersResponse200Status - Final status of the COMPLIANCE check.
 // * IN_PROGRESS - Compliance check is in progress
 // * PASSED - Compliance check passed
 // * FAILED - Compliance check failed
-type ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus string
+type ListUserChecksUsersResponse200Status string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatusInProgress ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus = "IN_PROGRESS"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatusPassed     ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus = "PASSED"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatusFailed     ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus = "FAILED"
+	ListUserChecksUsersResponse200StatusInProgress ListUserChecksUsersResponse200Status = "IN_PROGRESS"
+	ListUserChecksUsersResponse200StatusPassed     ListUserChecksUsersResponse200Status = "PASSED"
+	ListUserChecksUsersResponse200StatusFailed     ListUserChecksUsersResponse200Status = "FAILED"
 )
 
-func (e ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus) ToPointer() *ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus {
+func (e ListUserChecksUsersResponse200Status) ToPointer() *ListUserChecksUsersResponse200Status {
 	return &e
 }
 
-func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus) UnmarshalJSON(data []byte) error {
+func (e *ListUserChecksUsersResponse200Status) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -98,15 +98,15 @@ func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus) 
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus(v)
+		*e = ListUserChecksUsersResponse200Status(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus: %v", v)
+		return fmt.Errorf("invalid value for ListUserChecksUsersResponse200Status: %v", v)
 	}
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance - Compliance check
-type ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance struct {
+// ListUserChecksUserCheckCompliance - Compliance check
+type ListUserChecksUserCheckCompliance struct {
 	// Completion date and time of the COMPLIANCE check.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// User Check unique identifier.
@@ -115,88 +115,88 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance struct {
 	// * IN_PROGRESS - Compliance check is in progress
 	// * PASSED - Compliance check passed
 	// * FAILED - Compliance check failed
-	Status *ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus `json:"status,omitempty"`
+	Status *ListUserChecksUsersResponse200Status `json:"status,omitempty"`
 	// The type of check must be COMPLIANCE.
 	Type *string `default:"COMPLIANCE" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) MarshalJSON() ([]byte, error) {
+func (l ListUserChecksUserCheckCompliance) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) UnmarshalJSON(data []byte) error {
+func (l *ListUserChecksUserCheckCompliance) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) GetCheckConfirmedAt() time.Time {
+func (o *ListUserChecksUserCheckCompliance) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) GetID() string {
+func (o *ListUserChecksUserCheckCompliance) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) GetStatus() *ListUserChecksUserCheckListResponseUserCheckUserCheckComplianceStatus {
+func (o *ListUserChecksUserCheckCompliance) GetStatus() *ListUserChecksUsersResponse200Status {
 	if o == nil {
 		return nil
 	}
 	return o.Status
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) GetType() *string {
+func (o *ListUserChecksUserCheckCompliance) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) GetUserID() string {
+func (o *ListUserChecksUserCheckCompliance) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-type ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitInstrumentSuitability struct {
+type ListUserChecksInstrumentSuitability struct {
 	// Did the user go through a suitability assessment and the outcome indicated suitability.
 	Suitability bool `json:"suitability"`
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitInstrumentSuitability) GetSuitability() bool {
+func (o *ListUserChecksInstrumentSuitability) GetSuitability() bool {
 	if o == nil {
 		return false
 	}
 	return o.Suitability
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus - Final status of the instrument fit check.
+// ListUserChecksUsersResponseStatus - Final status of the instrument fit check.
 // * IN_PROGRESS - Instrument fit check is in progress
 // * PASSED - Instrument fit check passed
 // * FAILED - Instrument fit check failed
-type ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus string
+type ListUserChecksUsersResponseStatus string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatusInProgress ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus = "IN_PROGRESS"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatusPassed     ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus = "PASSED"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatusFailed     ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus = "FAILED"
+	ListUserChecksUsersResponseStatusInProgress ListUserChecksUsersResponseStatus = "IN_PROGRESS"
+	ListUserChecksUsersResponseStatusPassed     ListUserChecksUsersResponseStatus = "PASSED"
+	ListUserChecksUsersResponseStatusFailed     ListUserChecksUsersResponseStatus = "FAILED"
 )
 
-func (e ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus) ToPointer() *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus {
+func (e ListUserChecksUsersResponseStatus) ToPointer() *ListUserChecksUsersResponseStatus {
 	return &e
 }
 
-func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus) UnmarshalJSON(data []byte) error {
+func (e *ListUserChecksUsersResponseStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -207,86 +207,86 @@ func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatu
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus(v)
+		*e = ListUserChecksUsersResponseStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus: %v", v)
+		return fmt.Errorf("invalid value for ListUserChecksUsersResponseStatus: %v", v)
 	}
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit - Instrument fit check is completed by the client providing the user's answers to the instrument appropriateness or suitability questionnaire.
-type ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit struct {
+// ListUserChecksUserCheckInstrumentFit - Instrument fit check is completed by the client providing the user's answers to the instrument appropriateness or suitability questionnaire.
+type ListUserChecksUserCheckInstrumentFit struct {
 	// Completion date and time of the instrument fit check.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// User Check unique identifier.
-	ID                    string                                                                                  `json:"id"`
-	InstrumentSuitability ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitInstrumentSuitability `json:"instrument_suitability"`
+	ID                    string                              `json:"id"`
+	InstrumentSuitability ListUserChecksInstrumentSuitability `json:"instrument_suitability"`
 	// Final status of the instrument fit check.
 	// * IN_PROGRESS - Instrument fit check is in progress
 	// * PASSED - Instrument fit check passed
 	// * FAILED - Instrument fit check failed
-	Status ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus `json:"status"`
+	Status ListUserChecksUsersResponseStatus `json:"status"`
 	// The type of check must be INSTRUMENT_FIT.
 	Type *string `default:"INSTRUMENT_FIT" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) MarshalJSON() ([]byte, error) {
+func (l ListUserChecksUserCheckInstrumentFit) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) UnmarshalJSON(data []byte) error {
+func (l *ListUserChecksUserCheckInstrumentFit) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) GetCheckConfirmedAt() time.Time {
+func (o *ListUserChecksUserCheckInstrumentFit) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) GetID() string {
+func (o *ListUserChecksUserCheckInstrumentFit) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) GetInstrumentSuitability() ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitInstrumentSuitability {
+func (o *ListUserChecksUserCheckInstrumentFit) GetInstrumentSuitability() ListUserChecksInstrumentSuitability {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitInstrumentSuitability{}
+		return ListUserChecksInstrumentSuitability{}
 	}
 	return o.InstrumentSuitability
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) GetStatus() ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus {
+func (o *ListUserChecksUserCheckInstrumentFit) GetStatus() ListUserChecksUsersResponseStatus {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFitStatus("")
+		return ListUserChecksUsersResponseStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) GetType() *string {
+func (o *ListUserChecksUserCheckInstrumentFit) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) GetUserID() string {
+func (o *ListUserChecksUserCheckInstrumentFit) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress - Address. Must not be a P.O. box or c/o address.
-type ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress struct {
+// ListUserChecksUsersAddress - Address. Must not be a P.O. box or c/o address.
+type ListUserChecksUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -300,49 +300,49 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddres
 	State *string `json:"state,omitempty"`
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress) GetAddressLine1() string {
+func (o *ListUserChecksUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress) GetAddressLine2() *string {
+func (o *ListUserChecksUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress) GetCity() string {
+func (o *ListUserChecksUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress) GetCountry() string {
+func (o *ListUserChecksUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress) GetPostcode() string {
+func (o *ListUserChecksUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress) GetState() *string {
+func (o *ListUserChecksUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType - The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
+// ListUserChecksUsersDocumentType - The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
 // * UTILITY_BILL -
 // * TELEPHONE_BILL -
 // * INTERNET_BILL -
@@ -350,23 +350,23 @@ func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAd
 // * REGISTRATION_CERT -
 // * RESIDENCE_PERMIT -
 // * ID_CARD -
-type ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType string
+type ListUserChecksUsersDocumentType string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentTypeUtilityBill      ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType = "UTILITY_BILL"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentTypeTelephoneBill    ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType = "TELEPHONE_BILL"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentTypeInternetBill     ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType = "INTERNET_BILL"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentTypeBankStatement    ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType = "BANK_STATEMENT"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentTypeRegistrationCert ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType = "REGISTRATION_CERT"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentTypeResidencePermit  ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType = "RESIDENCE_PERMIT"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentTypeIDCard           ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType = "ID_CARD"
+	ListUserChecksUsersDocumentTypeUtilityBill      ListUserChecksUsersDocumentType = "UTILITY_BILL"
+	ListUserChecksUsersDocumentTypeTelephoneBill    ListUserChecksUsersDocumentType = "TELEPHONE_BILL"
+	ListUserChecksUsersDocumentTypeInternetBill     ListUserChecksUsersDocumentType = "INTERNET_BILL"
+	ListUserChecksUsersDocumentTypeBankStatement    ListUserChecksUsersDocumentType = "BANK_STATEMENT"
+	ListUserChecksUsersDocumentTypeRegistrationCert ListUserChecksUsersDocumentType = "REGISTRATION_CERT"
+	ListUserChecksUsersDocumentTypeResidencePermit  ListUserChecksUsersDocumentType = "RESIDENCE_PERMIT"
+	ListUserChecksUsersDocumentTypeIDCard           ListUserChecksUsersDocumentType = "ID_CARD"
 )
 
-func (e ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType) ToPointer() *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType {
+func (e ListUserChecksUsersDocumentType) ToPointer() *ListUserChecksUsersDocumentType {
 	return &e
 }
 
-func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType) UnmarshalJSON(data []byte) error {
+func (e *ListUserChecksUsersDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -385,30 +385,30 @@ func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDo
 	case "RESIDENCE_PERMIT":
 		fallthrough
 	case "ID_CARD":
-		*e = ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType(v)
+		*e = ListUserChecksUsersDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType: %v", v)
+		return fmt.Errorf("invalid value for ListUserChecksUsersDocumentType: %v", v)
 	}
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus - Final status of the PoR check.
+// ListUserChecksUsersStatus - Final status of the PoR check.
 // * IN_PROGRESS -
 // * PASSED -
 // * FAILED -
-type ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus string
+type ListUserChecksUsersStatus string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatusInProgress ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus = "IN_PROGRESS"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatusPassed     ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus = "PASSED"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatusFailed     ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus = "FAILED"
+	ListUserChecksUsersStatusInProgress ListUserChecksUsersStatus = "IN_PROGRESS"
+	ListUserChecksUsersStatusPassed     ListUserChecksUsersStatus = "PASSED"
+	ListUserChecksUsersStatusFailed     ListUserChecksUsersStatus = "FAILED"
 )
 
-func (e ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus) ToPointer() *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus {
+func (e ListUserChecksUsersStatus) ToPointer() *ListUserChecksUsersStatus {
 	return &e
 }
 
-func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus) UnmarshalJSON(data []byte) error {
+func (e *ListUserChecksUsersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -419,19 +419,19 @@ func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencySt
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus(v)
+		*e = ListUserChecksUsersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus: %v", v)
+		return fmt.Errorf("invalid value for ListUserChecksUsersStatus: %v", v)
 	}
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency - The PoR (Proof of residency) check is completed by the client sharing a valid PoR document, if not fulfilled by the KYC check.
-type ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency struct {
+// ListUserChecksUserCheckProofOfResidency - The PoR (Proof of residency) check is completed by the client sharing a valid PoR document, if not fulfilled by the KYC check.
+type ListUserChecksUserCheckProofOfResidency struct {
 	// Completion date and time of the PoR check.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	ConfirmedAddress ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress `json:"confirmed_address"`
+	ConfirmedAddress ListUserChecksUsersAddress `json:"confirmed_address"`
 	// Download link for the PoR evidence file. Should be a valid URL.
 	DataDownloadLink string `json:"data_download_link"`
 	// The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
@@ -442,7 +442,7 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency struc
 	// * REGISTRATION_CERT -
 	// * RESIDENCE_PERMIT -
 	// * ID_CARD -
-	DocumentType ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType `json:"document_type"`
+	DocumentType ListUserChecksUsersDocumentType `json:"document_type"`
 	// User Check unique identifier.
 	ID string `json:"id"`
 	// Issuance date in YYYY-MM-DD format.
@@ -451,89 +451,89 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency struc
 	// * IN_PROGRESS -
 	// * PASSED -
 	// * FAILED -
-	Status ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus `json:"status"`
+	Status ListUserChecksUsersStatus `json:"status"`
 	// The type of check must be POR.
 	Type *string `default:"POR" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) MarshalJSON() ([]byte, error) {
+func (l ListUserChecksUserCheckProofOfResidency) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) UnmarshalJSON(data []byte) error {
+func (l *ListUserChecksUserCheckProofOfResidency) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetCheckConfirmedAt() time.Time {
+func (o *ListUserChecksUserCheckProofOfResidency) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetConfirmedAddress() ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress {
+func (o *ListUserChecksUserCheckProofOfResidency) GetConfirmedAddress() ListUserChecksUsersAddress {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyAddress{}
+		return ListUserChecksUsersAddress{}
 	}
 	return o.ConfirmedAddress
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetDataDownloadLink() string {
+func (o *ListUserChecksUserCheckProofOfResidency) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetDocumentType() ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType {
+func (o *ListUserChecksUserCheckProofOfResidency) GetDocumentType() ListUserChecksUsersDocumentType {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyDocumentType("")
+		return ListUserChecksUsersDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetID() string {
+func (o *ListUserChecksUserCheckProofOfResidency) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetIssuanceDate() types.Date {
+func (o *ListUserChecksUserCheckProofOfResidency) GetIssuanceDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.IssuanceDate
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetStatus() ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus {
+func (o *ListUserChecksUserCheckProofOfResidency) GetStatus() ListUserChecksUsersStatus {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidencyStatus("")
+		return ListUserChecksUsersStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetType() *string {
+func (o *ListUserChecksUserCheckProofOfResidency) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) GetUserID() string {
+func (o *ListUserChecksUserCheckProofOfResidency) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress - Address. Must not be a P.O. box or c/o address.
-type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress struct {
+// ListUserChecksAddress - Address. Must not be a P.O. box or c/o address.
+type ListUserChecksAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -547,65 +547,65 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddres
 	State *string `json:"state,omitempty"`
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress) GetAddressLine1() string {
+func (o *ListUserChecksAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress) GetAddressLine2() *string {
+func (o *ListUserChecksAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress) GetCity() string {
+func (o *ListUserChecksAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress) GetCountry() string {
+func (o *ListUserChecksAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress) GetPostcode() string {
+func (o *ListUserChecksAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress) GetState() *string {
+func (o *ListUserChecksAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType - The type of document used in the KYC process.
+// ListUserChecksDocumentType - The type of document used in the KYC process.
 // * PASSPORT - Passport
 // * ID_CARD - National Identification document
 // * RESIDENCE_PERMIT - Residence Permit
-type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType string
+type ListUserChecksDocumentType string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentTypePassport        ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType = "PASSPORT"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentTypeIDCard          ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType = "ID_CARD"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentTypeResidencePermit ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType = "RESIDENCE_PERMIT"
+	ListUserChecksDocumentTypePassport        ListUserChecksDocumentType = "PASSPORT"
+	ListUserChecksDocumentTypeIDCard          ListUserChecksDocumentType = "ID_CARD"
+	ListUserChecksDocumentTypeResidencePermit ListUserChecksDocumentType = "RESIDENCE_PERMIT"
 )
 
-func (e ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType) ToPointer() *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType {
+func (e ListUserChecksDocumentType) ToPointer() *ListUserChecksDocumentType {
 	return &e
 }
 
-func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType) UnmarshalJSON(data []byte) error {
+func (e *ListUserChecksDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -616,30 +616,30 @@ func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDo
 	case "ID_CARD":
 		fallthrough
 	case "RESIDENCE_PERMIT":
-		*e = ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType(v)
+		*e = ListUserChecksDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType: %v", v)
+		return fmt.Errorf("invalid value for ListUserChecksDocumentType: %v", v)
 	}
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod - Method used for AML compliant KYC process
+// ListUserChecksMethod - Method used for AML compliant KYC process
 // * VIDEO_ID - Video identification
 // * IN_PERSON_ID - In person identification at the post office or the client’s outlet
 // * ELECTRONIC_ID - Advanced electronic identification methods (namely German eID)
-type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod string
+type ListUserChecksMethod string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethodVideoID      ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod = "VIDEO_ID"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethodInPersonID   ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod = "IN_PERSON_ID"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethodElectronicID ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod = "ELECTRONIC_ID"
+	ListUserChecksMethodVideoID      ListUserChecksMethod = "VIDEO_ID"
+	ListUserChecksMethodInPersonID   ListUserChecksMethod = "IN_PERSON_ID"
+	ListUserChecksMethodElectronicID ListUserChecksMethod = "ELECTRONIC_ID"
 )
 
-func (e ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod) ToPointer() *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod {
+func (e ListUserChecksMethod) ToPointer() *ListUserChecksMethod {
 	return &e
 }
 
-func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod) UnmarshalJSON(data []byte) error {
+func (e *ListUserChecksMethod) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -650,30 +650,30 @@ func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMe
 	case "IN_PERSON_ID":
 		fallthrough
 	case "ELECTRONIC_ID":
-		*e = ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod(v)
+		*e = ListUserChecksMethod(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod: %v", v)
+		return fmt.Errorf("invalid value for ListUserChecksMethod: %v", v)
 	}
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus - Final status of the KYC check.
+// ListUserChecksStatus - Final status of the KYC check.
 // * IN_PROGRESS - KYC check is in progress
 // * PASSED - KYC check passed
 // * FAILED - KYC check failed
-type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus string
+type ListUserChecksStatus string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatusInProgress ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus = "IN_PROGRESS"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatusPassed     ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus = "PASSED"
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatusFailed     ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus = "FAILED"
+	ListUserChecksStatusInProgress ListUserChecksStatus = "IN_PROGRESS"
+	ListUserChecksStatusPassed     ListUserChecksStatus = "PASSED"
+	ListUserChecksStatusFailed     ListUserChecksStatus = "FAILED"
 )
 
-func (e ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus) ToPointer() *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus {
+func (e ListUserChecksStatus) ToPointer() *ListUserChecksStatus {
 	return &e
 }
 
-func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus) UnmarshalJSON(data []byte) error {
+func (e *ListUserChecksStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -684,19 +684,19 @@ func (e *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerSt
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus(v)
+		*e = ListUserChecksStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus: %v", v)
+		return fmt.Errorf("invalid value for ListUserChecksStatus: %v", v)
 	}
 }
 
-// ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer - The KYC (Know your customer) check is completed by the client sharing the valid and relevant KYC data for the user.
-type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer struct {
+// ListUserChecksUserCheckKnowYourCustomer - The KYC (Know your customer) check is completed by the client sharing the valid and relevant KYC data for the user.
+type ListUserChecksUserCheckKnowYourCustomer struct {
 	// Completion date and time of the KYC check. Must not be older than 24 months.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	ConfirmedAddress *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress `json:"confirmed_address,omitempty"`
+	ConfirmedAddress *ListUserChecksAddress `json:"confirmed_address,omitempty"`
 	// Download link for the KYC evidence file. Should be a valid URL.
 	DataDownloadLink string `json:"data_download_link"`
 	// Expiration date of the document used in KYC process in YYYY-MM-DD format.
@@ -705,7 +705,7 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer struc
 	// * PASSPORT - Passport
 	// * ID_CARD - National Identification document
 	// * RESIDENCE_PERMIT - Residence Permit
-	DocumentType ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType `json:"document_type"`
+	DocumentType ListUserChecksDocumentType `json:"document_type"`
 	// User Check unique identifier.
 	ID string `json:"id"`
 	// Marks this check as a KYC refresh/update as opposed to an initial record.
@@ -714,7 +714,7 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer struc
 	// * VIDEO_ID - Video identification
 	// * IN_PERSON_ID - In person identification at the post office or the client’s outlet
 	// * ELECTRONIC_ID - Advanced electronic identification methods (namely German eID)
-	Method ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod `json:"method"`
+	Method ListUserChecksMethod `json:"method"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationality string `json:"nationality"`
 	// Provider that was used to perform the KYC check.
@@ -723,217 +723,217 @@ type ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer struc
 	// * IN_PROGRESS - KYC check is in progress
 	// * PASSED - KYC check passed
 	// * FAILED - KYC check failed
-	Status ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus `json:"status"`
+	Status ListUserChecksStatus `json:"status"`
 	// The type of check must be “KYC”.
 	Type *string `default:"KYC" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) MarshalJSON() ([]byte, error) {
+func (l ListUserChecksUserCheckKnowYourCustomer) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) UnmarshalJSON(data []byte) error {
+func (l *ListUserChecksUserCheckKnowYourCustomer) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetCheckConfirmedAt() time.Time {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetConfirmedAddress() *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerAddress {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetConfirmedAddress() *ListUserChecksAddress {
 	if o == nil {
 		return nil
 	}
 	return o.ConfirmedAddress
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetDataDownloadLink() string {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetDocumentExpirationDate() types.Date {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetDocumentExpirationDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.DocumentExpirationDate
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetDocumentType() ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetDocumentType() ListUserChecksDocumentType {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerDocumentType("")
+		return ListUserChecksDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetID() string {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetKycUpdate() *bool {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetKycUpdate() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.KycUpdate
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetMethod() ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetMethod() ListUserChecksMethod {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerMethod("")
+		return ListUserChecksMethod("")
 	}
 	return o.Method
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetNationality() string {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetNationality() string {
 	if o == nil {
 		return ""
 	}
 	return o.Nationality
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetProvider() string {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetProvider() string {
 	if o == nil {
 		return ""
 	}
 	return o.Provider
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetStatus() ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetStatus() ListUserChecksStatus {
 	if o == nil {
-		return ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomerStatus("")
+		return ListUserChecksStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetType() *string {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) GetUserID() string {
+func (o *ListUserChecksUserCheckKnowYourCustomer) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-type ListUserChecksUserCheckListResponseUserCheckType string
+type UserCheckType string
 
 const (
-	ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer ListUserChecksUserCheckListResponseUserCheckType = "list_user_checks_User Check - List - Response_User Check_User Check - Know your customer"
-	ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency ListUserChecksUserCheckListResponseUserCheckType = "list_user_checks_User Check - List - Response_User Check_User Check - Proof of Residency"
-	ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit    ListUserChecksUserCheckListResponseUserCheckType = "list_user_checks_User Check - List - Response_User Check_User Check - Instrument fit"
-	ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckCompliance       ListUserChecksUserCheckListResponseUserCheckType = "list_user_checks_User Check - List - Response_User Check_User Check - Compliance"
+	UserCheckTypeListUserChecksUserCheckKnowYourCustomer UserCheckType = "list_user_checks_User Check - Know your customer"
+	UserCheckTypeListUserChecksUserCheckProofOfResidency UserCheckType = "list_user_checks_User Check - Proof of Residency"
+	UserCheckTypeListUserChecksUserCheckInstrumentFit    UserCheckType = "list_user_checks_User Check - Instrument fit"
+	UserCheckTypeListUserChecksUserCheckCompliance       UserCheckType = "list_user_checks_User Check - Compliance"
 )
 
-type ListUserChecksUserCheckListResponseUserCheck struct {
-	ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer *ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer
-	ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency *ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency
-	ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit    *ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit
-	ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance       *ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance
+type UserCheck struct {
+	ListUserChecksUserCheckKnowYourCustomer *ListUserChecksUserCheckKnowYourCustomer
+	ListUserChecksUserCheckProofOfResidency *ListUserChecksUserCheckProofOfResidency
+	ListUserChecksUserCheckInstrumentFit    *ListUserChecksUserCheckInstrumentFit
+	ListUserChecksUserCheckCompliance       *ListUserChecksUserCheckCompliance
 
-	Type ListUserChecksUserCheckListResponseUserCheckType
+	Type UserCheckType
 }
 
-func CreateListUserChecksUserCheckListResponseUserCheckListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer(listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer) ListUserChecksUserCheckListResponseUserCheck {
-	typ := ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer
+func CreateUserCheckListUserChecksUserCheckKnowYourCustomer(listUserChecksUserCheckKnowYourCustomer ListUserChecksUserCheckKnowYourCustomer) UserCheck {
+	typ := UserCheckTypeListUserChecksUserCheckKnowYourCustomer
 
-	return ListUserChecksUserCheckListResponseUserCheck{
-		ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer: &listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer,
-		Type: typ,
+	return UserCheck{
+		ListUserChecksUserCheckKnowYourCustomer: &listUserChecksUserCheckKnowYourCustomer,
+		Type:                                    typ,
 	}
 }
 
-func CreateListUserChecksUserCheckListResponseUserCheckListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency(listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency) ListUserChecksUserCheckListResponseUserCheck {
-	typ := ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency
+func CreateUserCheckListUserChecksUserCheckProofOfResidency(listUserChecksUserCheckProofOfResidency ListUserChecksUserCheckProofOfResidency) UserCheck {
+	typ := UserCheckTypeListUserChecksUserCheckProofOfResidency
 
-	return ListUserChecksUserCheckListResponseUserCheck{
-		ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency: &listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency,
-		Type: typ,
+	return UserCheck{
+		ListUserChecksUserCheckProofOfResidency: &listUserChecksUserCheckProofOfResidency,
+		Type:                                    typ,
 	}
 }
 
-func CreateListUserChecksUserCheckListResponseUserCheckListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit(listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit) ListUserChecksUserCheckListResponseUserCheck {
-	typ := ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit
+func CreateUserCheckListUserChecksUserCheckInstrumentFit(listUserChecksUserCheckInstrumentFit ListUserChecksUserCheckInstrumentFit) UserCheck {
+	typ := UserCheckTypeListUserChecksUserCheckInstrumentFit
 
-	return ListUserChecksUserCheckListResponseUserCheck{
-		ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit: &listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit,
-		Type: typ,
+	return UserCheck{
+		ListUserChecksUserCheckInstrumentFit: &listUserChecksUserCheckInstrumentFit,
+		Type:                                 typ,
 	}
 }
 
-func CreateListUserChecksUserCheckListResponseUserCheckListUserChecksUserCheckListResponseUserCheckUserCheckCompliance(listUserChecksUserCheckListResponseUserCheckUserCheckCompliance ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance) ListUserChecksUserCheckListResponseUserCheck {
-	typ := ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckCompliance
+func CreateUserCheckListUserChecksUserCheckCompliance(listUserChecksUserCheckCompliance ListUserChecksUserCheckCompliance) UserCheck {
+	typ := UserCheckTypeListUserChecksUserCheckCompliance
 
-	return ListUserChecksUserCheckListResponseUserCheck{
-		ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance: &listUserChecksUserCheckListResponseUserCheckUserCheckCompliance,
-		Type: typ,
+	return UserCheck{
+		ListUserChecksUserCheckCompliance: &listUserChecksUserCheckCompliance,
+		Type:                              typ,
 	}
 }
 
-func (u *ListUserChecksUserCheckListResponseUserCheck) UnmarshalJSON(data []byte) error {
+func (u *UserCheck) UnmarshalJSON(data []byte) error {
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckCompliance := ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance{}
-	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckCompliance, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance = &listUserChecksUserCheckListResponseUserCheckUserCheckCompliance
-		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckCompliance
+	listUserChecksUserCheckCompliance := ListUserChecksUserCheckCompliance{}
+	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckCompliance, "", true, true); err == nil {
+		u.ListUserChecksUserCheckCompliance = &listUserChecksUserCheckCompliance
+		u.Type = UserCheckTypeListUserChecksUserCheckCompliance
 		return nil
 	}
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit := ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit{}
-	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit = &listUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit
-		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit
+	listUserChecksUserCheckInstrumentFit := ListUserChecksUserCheckInstrumentFit{}
+	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckInstrumentFit, "", true, true); err == nil {
+		u.ListUserChecksUserCheckInstrumentFit = &listUserChecksUserCheckInstrumentFit
+		u.Type = UserCheckTypeListUserChecksUserCheckInstrumentFit
 		return nil
 	}
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency := ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency{}
-	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency = &listUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency
-		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency
+	listUserChecksUserCheckProofOfResidency := ListUserChecksUserCheckProofOfResidency{}
+	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckProofOfResidency, "", true, true); err == nil {
+		u.ListUserChecksUserCheckProofOfResidency = &listUserChecksUserCheckProofOfResidency
+		u.Type = UserCheckTypeListUserChecksUserCheckProofOfResidency
 		return nil
 	}
 
-	listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer := ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer{}
-	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer, "", true, true); err == nil {
-		u.ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer = &listUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer
-		u.Type = ListUserChecksUserCheckListResponseUserCheckTypeListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer
+	listUserChecksUserCheckKnowYourCustomer := ListUserChecksUserCheckKnowYourCustomer{}
+	if err := utils.UnmarshalJSON(data, &listUserChecksUserCheckKnowYourCustomer, "", true, true); err == nil {
+		u.ListUserChecksUserCheckKnowYourCustomer = &listUserChecksUserCheckKnowYourCustomer
+		u.Type = UserCheckTypeListUserChecksUserCheckKnowYourCustomer
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u ListUserChecksUserCheckListResponseUserCheck) MarshalJSON() ([]byte, error) {
-	if u.ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer != nil {
-		return utils.MarshalJSON(u.ListUserChecksUserCheckListResponseUserCheckUserCheckKnowYourCustomer, "", true)
+func (u UserCheck) MarshalJSON() ([]byte, error) {
+	if u.ListUserChecksUserCheckKnowYourCustomer != nil {
+		return utils.MarshalJSON(u.ListUserChecksUserCheckKnowYourCustomer, "", true)
 	}
 
-	if u.ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency != nil {
-		return utils.MarshalJSON(u.ListUserChecksUserCheckListResponseUserCheckUserCheckProofOfResidency, "", true)
+	if u.ListUserChecksUserCheckProofOfResidency != nil {
+		return utils.MarshalJSON(u.ListUserChecksUserCheckProofOfResidency, "", true)
 	}
 
-	if u.ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit != nil {
-		return utils.MarshalJSON(u.ListUserChecksUserCheckListResponseUserCheckUserCheckInstrumentFit, "", true)
+	if u.ListUserChecksUserCheckInstrumentFit != nil {
+		return utils.MarshalJSON(u.ListUserChecksUserCheckInstrumentFit, "", true)
 	}
 
-	if u.ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance != nil {
-		return utils.MarshalJSON(u.ListUserChecksUserCheckListResponseUserCheckUserCheckCompliance, "", true)
+	if u.ListUserChecksUserCheckCompliance != nil {
+		return utils.MarshalJSON(u.ListUserChecksUserCheckCompliance, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -941,17 +941,19 @@ func (u ListUserChecksUserCheckListResponseUserCheck) MarshalJSON() ([]byte, err
 
 // ListUserChecksUserCheckListResponse - OK
 type ListUserChecksUserCheckListResponse struct {
-	Data []ListUserChecksUserCheckListResponseUserCheck `json:"data"`
+	Data []UserCheck `json:"data"`
 }
 
-func (o *ListUserChecksUserCheckListResponse) GetData() []ListUserChecksUserCheckListResponseUserCheck {
+func (o *ListUserChecksUserCheckListResponse) GetData() []UserCheck {
 	if o == nil {
-		return []ListUserChecksUserCheckListResponseUserCheck{}
+		return []UserCheck{}
 	}
 	return o.Data
 }
 
 type ListUserChecksResponse struct {
+	// OK
+	TwoHundredApplicationJSONUserCheckListResponse *ListUserChecksUserCheckListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -959,8 +961,13 @@ type ListUserChecksResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// OK
-	UserCheckListResponse *ListUserChecksUserCheckListResponse
+}
+
+func (o *ListUserChecksResponse) GetTwoHundredApplicationJSONUserCheckListResponse() *ListUserChecksUserCheckListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONUserCheckListResponse
 }
 
 func (o *ListUserChecksResponse) GetContentType() string {
@@ -989,11 +996,4 @@ func (o *ListUserChecksResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *ListUserChecksResponse) GetUserCheckListResponse() *ListUserChecksUserCheckListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.UserCheckListResponse
 }

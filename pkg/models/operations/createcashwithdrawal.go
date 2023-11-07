@@ -127,51 +127,51 @@ func (o *CreateCashWithdrawalRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateCashWithdrawalPaymentsWithdrawalCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateCashWithdrawalCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateCashWithdrawalPaymentsWithdrawalCurrency string
+type CreateCashWithdrawalCurrency string
 
 const (
-	CreateCashWithdrawalPaymentsWithdrawalCurrencyEur CreateCashWithdrawalPaymentsWithdrawalCurrency = "EUR"
+	CreateCashWithdrawalCurrencyEur CreateCashWithdrawalCurrency = "EUR"
 )
 
-func (e CreateCashWithdrawalPaymentsWithdrawalCurrency) ToPointer() *CreateCashWithdrawalPaymentsWithdrawalCurrency {
+func (e CreateCashWithdrawalCurrency) ToPointer() *CreateCashWithdrawalCurrency {
 	return &e
 }
 
-func (e *CreateCashWithdrawalPaymentsWithdrawalCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateCashWithdrawalCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateCashWithdrawalPaymentsWithdrawalCurrency(v)
+		*e = CreateCashWithdrawalCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateCashWithdrawalPaymentsWithdrawalCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateCashWithdrawalCurrency: %v", v)
 	}
 }
 
-// CreateCashWithdrawalPaymentsWithdrawalStatus - Status of the withdrawal
+// CreateCashWithdrawalStatus - Status of the withdrawal
 // * NEW - Withdrawal is created but not started processing.
 // * PROCESSING - Withdrawal is in processing.
 // * CONFIRMED - Withdrawal was successfully processed.
 // * CANCELLED - Withdrawal was cancelled.
-type CreateCashWithdrawalPaymentsWithdrawalStatus string
+type CreateCashWithdrawalStatus string
 
 const (
-	CreateCashWithdrawalPaymentsWithdrawalStatusNew        CreateCashWithdrawalPaymentsWithdrawalStatus = "NEW"
-	CreateCashWithdrawalPaymentsWithdrawalStatusProcessing CreateCashWithdrawalPaymentsWithdrawalStatus = "PROCESSING"
-	CreateCashWithdrawalPaymentsWithdrawalStatusConfirmed  CreateCashWithdrawalPaymentsWithdrawalStatus = "CONFIRMED"
-	CreateCashWithdrawalPaymentsWithdrawalStatusCancelled  CreateCashWithdrawalPaymentsWithdrawalStatus = "CANCELLED"
+	CreateCashWithdrawalStatusNew        CreateCashWithdrawalStatus = "NEW"
+	CreateCashWithdrawalStatusProcessing CreateCashWithdrawalStatus = "PROCESSING"
+	CreateCashWithdrawalStatusConfirmed  CreateCashWithdrawalStatus = "CONFIRMED"
+	CreateCashWithdrawalStatusCancelled  CreateCashWithdrawalStatus = "CANCELLED"
 )
 
-func (e CreateCashWithdrawalPaymentsWithdrawalStatus) ToPointer() *CreateCashWithdrawalPaymentsWithdrawalStatus {
+func (e CreateCashWithdrawalStatus) ToPointer() *CreateCashWithdrawalStatus {
 	return &e
 }
 
-func (e *CreateCashWithdrawalPaymentsWithdrawalStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateCashWithdrawalStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -184,10 +184,10 @@ func (e *CreateCashWithdrawalPaymentsWithdrawalStatus) UnmarshalJSON(data []byte
 	case "CONFIRMED":
 		fallthrough
 	case "CANCELLED":
-		*e = CreateCashWithdrawalPaymentsWithdrawalStatus(v)
+		*e = CreateCashWithdrawalStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateCashWithdrawalPaymentsWithdrawalStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateCashWithdrawalStatus: %v", v)
 	}
 }
 
@@ -200,7 +200,7 @@ type CreateCashWithdrawalPaymentsWithdrawal struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateCashWithdrawalPaymentsWithdrawalCurrency `default:"EUR" json:"currency"`
+	Currency *CreateCashWithdrawalCurrency `default:"EUR" json:"currency"`
 	// Cash withdrawal unique identifier
 	ID string `json:"id"`
 	// Reference account unique identifier.
@@ -212,7 +212,7 @@ type CreateCashWithdrawalPaymentsWithdrawal struct {
 	// * PROCESSING - Withdrawal is in processing.
 	// * CONFIRMED - Withdrawal was successfully processed.
 	// * CANCELLED - Withdrawal was cancelled.
-	Status *CreateCashWithdrawalPaymentsWithdrawalStatus `json:"status,omitempty"`
+	Status *CreateCashWithdrawalStatus `json:"status,omitempty"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// User unique identifier.
@@ -251,7 +251,7 @@ func (o *CreateCashWithdrawalPaymentsWithdrawal) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *CreateCashWithdrawalPaymentsWithdrawal) GetCurrency() *CreateCashWithdrawalPaymentsWithdrawalCurrency {
+func (o *CreateCashWithdrawalPaymentsWithdrawal) GetCurrency() *CreateCashWithdrawalCurrency {
 	if o == nil {
 		return nil
 	}
@@ -279,7 +279,7 @@ func (o *CreateCashWithdrawalPaymentsWithdrawal) GetRemittanceInformation() stri
 	return o.RemittanceInformation
 }
 
-func (o *CreateCashWithdrawalPaymentsWithdrawal) GetStatus() *CreateCashWithdrawalPaymentsWithdrawalStatus {
+func (o *CreateCashWithdrawalPaymentsWithdrawal) GetStatus() *CreateCashWithdrawalStatus {
 	if o == nil {
 		return nil
 	}
@@ -301,15 +301,22 @@ func (o *CreateCashWithdrawalPaymentsWithdrawal) GetUserID() string {
 }
 
 type CreateCashWithdrawalResponse struct {
+	// Withdrawal
+	TwoHundredApplicationJSONPaymentsWithdrawal *CreateCashWithdrawalPaymentsWithdrawal
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Withdrawal
-	PaymentsWithdrawal *CreateCashWithdrawalPaymentsWithdrawal
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CreateCashWithdrawalResponse) GetTwoHundredApplicationJSONPaymentsWithdrawal() *CreateCashWithdrawalPaymentsWithdrawal {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPaymentsWithdrawal
 }
 
 func (o *CreateCashWithdrawalResponse) GetContentType() string {
@@ -324,13 +331,6 @@ func (o *CreateCashWithdrawalResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *CreateCashWithdrawalResponse) GetPaymentsWithdrawal() *CreateCashWithdrawalPaymentsWithdrawal {
-	if o == nil {
-		return nil
-	}
-	return o.PaymentsWithdrawal
 }
 
 func (o *CreateCashWithdrawalResponse) GetStatusCode() int {

@@ -18,8 +18,8 @@ const (
 type AcceptHeaderEnum string
 
 const (
-	AcceptHeaderEnumApplicationJson            AcceptHeaderEnum = "application/json"
 	AcceptHeaderEnumApplicationProblemPlusJson AcceptHeaderEnum = "application/problem+json"
+	AcceptHeaderEnumApplicationJson            AcceptHeaderEnum = "application/json"
 	AcceptHeaderEnumApplicationPdf             AcceptHeaderEnum = "application/pdf"
 )
 

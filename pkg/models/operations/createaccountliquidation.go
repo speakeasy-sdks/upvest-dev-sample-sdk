@@ -100,51 +100,51 @@ func (o *CreateAccountLiquidationRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateAccountLiquidationAccountLiquidationCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateAccountLiquidationCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateAccountLiquidationAccountLiquidationCurrency string
+type CreateAccountLiquidationCurrency string
 
 const (
-	CreateAccountLiquidationAccountLiquidationCurrencyEur CreateAccountLiquidationAccountLiquidationCurrency = "EUR"
+	CreateAccountLiquidationCurrencyEur CreateAccountLiquidationCurrency = "EUR"
 )
 
-func (e CreateAccountLiquidationAccountLiquidationCurrency) ToPointer() *CreateAccountLiquidationAccountLiquidationCurrency {
+func (e CreateAccountLiquidationCurrency) ToPointer() *CreateAccountLiquidationCurrency {
 	return &e
 }
 
-func (e *CreateAccountLiquidationAccountLiquidationCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountLiquidationCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateAccountLiquidationAccountLiquidationCurrency(v)
+		*e = CreateAccountLiquidationCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountLiquidationAccountLiquidationCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountLiquidationCurrency: %v", v)
 	}
 }
 
-// CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus - Execution status of the Account liquidation order.
+// CreateAccountLiquidationLiquidationsStatus - Execution status of the Account liquidation order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
-type CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus string
+type CreateAccountLiquidationLiquidationsStatus string
 
 const (
-	CreateAccountLiquidationAccountLiquidationAccountLiquidationStatusNew        CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus = "NEW"
-	CreateAccountLiquidationAccountLiquidationAccountLiquidationStatusProcessing CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus = "PROCESSING"
-	CreateAccountLiquidationAccountLiquidationAccountLiquidationStatusFilled     CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus = "FILLED"
-	CreateAccountLiquidationAccountLiquidationAccountLiquidationStatusCancelled  CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus = "CANCELLED"
+	CreateAccountLiquidationLiquidationsStatusNew        CreateAccountLiquidationLiquidationsStatus = "NEW"
+	CreateAccountLiquidationLiquidationsStatusProcessing CreateAccountLiquidationLiquidationsStatus = "PROCESSING"
+	CreateAccountLiquidationLiquidationsStatusFilled     CreateAccountLiquidationLiquidationsStatus = "FILLED"
+	CreateAccountLiquidationLiquidationsStatusCancelled  CreateAccountLiquidationLiquidationsStatus = "CANCELLED"
 )
 
-func (e CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus) ToPointer() *CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus {
+func (e CreateAccountLiquidationLiquidationsStatus) ToPointer() *CreateAccountLiquidationLiquidationsStatus {
 	return &e
 }
 
-func (e *CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountLiquidationLiquidationsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -157,14 +157,14 @@ func (e *CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus) Unm
 	case "FILLED":
 		fallthrough
 	case "CANCELLED":
-		*e = CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus(v)
+		*e = CreateAccountLiquidationLiquidationsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountLiquidationLiquidationsStatus: %v", v)
 	}
 }
 
-type CreateAccountLiquidationAccountLiquidationAccountLiquidation struct {
+type AccountLiquidation struct {
 	ID string `json:"id"`
 	// Side of the order.
 	// * SELL -
@@ -174,62 +174,62 @@ type CreateAccountLiquidationAccountLiquidationAccountLiquidation struct {
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
-	Status CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus `json:"status"`
+	Status CreateAccountLiquidationLiquidationsStatus `json:"status"`
 }
 
-func (c CreateAccountLiquidationAccountLiquidationAccountLiquidation) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (a AccountLiquidation) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
 }
 
-func (c *CreateAccountLiquidationAccountLiquidationAccountLiquidation) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+func (a *AccountLiquidation) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateAccountLiquidationAccountLiquidationAccountLiquidation) GetID() string {
+func (o *AccountLiquidation) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *CreateAccountLiquidationAccountLiquidationAccountLiquidation) GetSide() *string {
+func (o *AccountLiquidation) GetSide() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Side
 }
 
-func (o *CreateAccountLiquidationAccountLiquidationAccountLiquidation) GetStatus() CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus {
+func (o *AccountLiquidation) GetStatus() CreateAccountLiquidationLiquidationsStatus {
 	if o == nil {
-		return CreateAccountLiquidationAccountLiquidationAccountLiquidationStatus("")
+		return CreateAccountLiquidationLiquidationsStatus("")
 	}
 	return o.Status
 }
 
-// CreateAccountLiquidationAccountLiquidationStatus - Execution status of the Account liquidation.
+// CreateAccountLiquidationStatus - Execution status of the Account liquidation.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
 // * SETTLED -
-type CreateAccountLiquidationAccountLiquidationStatus string
+type CreateAccountLiquidationStatus string
 
 const (
-	CreateAccountLiquidationAccountLiquidationStatusNew        CreateAccountLiquidationAccountLiquidationStatus = "NEW"
-	CreateAccountLiquidationAccountLiquidationStatusProcessing CreateAccountLiquidationAccountLiquidationStatus = "PROCESSING"
-	CreateAccountLiquidationAccountLiquidationStatusFilled     CreateAccountLiquidationAccountLiquidationStatus = "FILLED"
-	CreateAccountLiquidationAccountLiquidationStatusCancelled  CreateAccountLiquidationAccountLiquidationStatus = "CANCELLED"
-	CreateAccountLiquidationAccountLiquidationStatusSettled    CreateAccountLiquidationAccountLiquidationStatus = "SETTLED"
+	CreateAccountLiquidationStatusNew        CreateAccountLiquidationStatus = "NEW"
+	CreateAccountLiquidationStatusProcessing CreateAccountLiquidationStatus = "PROCESSING"
+	CreateAccountLiquidationStatusFilled     CreateAccountLiquidationStatus = "FILLED"
+	CreateAccountLiquidationStatusCancelled  CreateAccountLiquidationStatus = "CANCELLED"
+	CreateAccountLiquidationStatusSettled    CreateAccountLiquidationStatus = "SETTLED"
 )
 
-func (e CreateAccountLiquidationAccountLiquidationStatus) ToPointer() *CreateAccountLiquidationAccountLiquidationStatus {
+func (e CreateAccountLiquidationStatus) ToPointer() *CreateAccountLiquidationStatus {
 	return &e
 }
 
-func (e *CreateAccountLiquidationAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -244,10 +244,10 @@ func (e *CreateAccountLiquidationAccountLiquidationStatus) UnmarshalJSON(data []
 	case "CANCELLED":
 		fallthrough
 	case "SETTLED":
-		*e = CreateAccountLiquidationAccountLiquidationStatus(v)
+		*e = CreateAccountLiquidationStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateAccountLiquidationAccountLiquidationStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateAccountLiquidationStatus: %v", v)
 	}
 }
 
@@ -260,17 +260,17 @@ type CreateAccountLiquidationAccountLiquidation struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateAccountLiquidationAccountLiquidationCurrency `default:"EUR" json:"currency"`
-	ID       string                                              `json:"id"`
+	Currency *CreateAccountLiquidationCurrency `default:"EUR" json:"currency"`
+	ID       string                            `json:"id"`
 	// Position liquidation orders associated with this account liquidation
-	Orders []CreateAccountLiquidationAccountLiquidationAccountLiquidation `json:"orders"`
+	Orders []AccountLiquidation `json:"orders"`
 	// Execution status of the Account liquidation.
 	// * NEW -
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
 	// * SETTLED -
-	Status CreateAccountLiquidationAccountLiquidationStatus `json:"status"`
+	Status CreateAccountLiquidationStatus `json:"status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// User unique identifier.
@@ -309,7 +309,7 @@ func (o *CreateAccountLiquidationAccountLiquidation) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *CreateAccountLiquidationAccountLiquidation) GetCurrency() *CreateAccountLiquidationAccountLiquidationCurrency {
+func (o *CreateAccountLiquidationAccountLiquidation) GetCurrency() *CreateAccountLiquidationCurrency {
 	if o == nil {
 		return nil
 	}
@@ -323,16 +323,16 @@ func (o *CreateAccountLiquidationAccountLiquidation) GetID() string {
 	return o.ID
 }
 
-func (o *CreateAccountLiquidationAccountLiquidation) GetOrders() []CreateAccountLiquidationAccountLiquidationAccountLiquidation {
+func (o *CreateAccountLiquidationAccountLiquidation) GetOrders() []AccountLiquidation {
 	if o == nil {
-		return []CreateAccountLiquidationAccountLiquidationAccountLiquidation{}
+		return []AccountLiquidation{}
 	}
 	return o.Orders
 }
 
-func (o *CreateAccountLiquidationAccountLiquidation) GetStatus() CreateAccountLiquidationAccountLiquidationStatus {
+func (o *CreateAccountLiquidationAccountLiquidation) GetStatus() CreateAccountLiquidationStatus {
 	if o == nil {
-		return CreateAccountLiquidationAccountLiquidationStatus("")
+		return CreateAccountLiquidationStatus("")
 	}
 	return o.Status
 }
@@ -353,7 +353,7 @@ func (o *CreateAccountLiquidationAccountLiquidation) GetUserID() *string {
 
 type CreateAccountLiquidationResponse struct {
 	// Account liquidation object
-	AccountLiquidation *CreateAccountLiquidationAccountLiquidation
+	TwoHundredAndTwoApplicationJSONAccountLiquidation *CreateAccountLiquidationAccountLiquidation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -363,11 +363,11 @@ type CreateAccountLiquidationResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *CreateAccountLiquidationResponse) GetAccountLiquidation() *CreateAccountLiquidationAccountLiquidation {
+func (o *CreateAccountLiquidationResponse) GetTwoHundredAndTwoApplicationJSONAccountLiquidation() *CreateAccountLiquidationAccountLiquidation {
 	if o == nil {
 		return nil
 	}
-	return o.AccountLiquidation
+	return o.TwoHundredAndTwoApplicationJSONAccountLiquidation
 }
 
 func (o *CreateAccountLiquidationResponse) GetContentType() string {

@@ -1,5 +1,5 @@
 # Liquidations
-(*Liquidations*)
+(*.Liquidations*)
 
 ## Overview
 
@@ -104,7 +104,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountLiquidation != nil {
+    if res.TwoHundredAndTwoApplicationJSONAccountLiquidation != nil {
         // handle response
     }
 }
@@ -157,7 +157,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PortfoliosOrdersListResponse != nil {
+    if res.TwoHundredApplicationJSONPortfoliosOrdersListResponse != nil {
         // handle response
     }
 }
@@ -211,7 +211,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountLiquidation != nil {
+    if res.TwoHundredApplicationJSONAccountLiquidation != nil {
         // handle response
     }
 }

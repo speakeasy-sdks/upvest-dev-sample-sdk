@@ -1,5 +1,5 @@
 # Instruments
-(*Instruments*)
+(*.Instruments*)
 
 ## Overview
 
@@ -43,7 +43,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.InstrumentsListResponse != nil {
+    if res.TwoHundredApplicationJSONInstrumentsListResponse != nil {
         // handle response
     }
 }
@@ -96,7 +96,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.RetrieveInstrument200ApplicationJSONObject != nil {
+    if res.TwoHundredApplicationJSONObject != nil {
         // handle response
     }
 }

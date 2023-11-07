@@ -1,5 +1,5 @@
 # Webhooks
-(*Webhooks*)
+(*.Webhooks*)
 
 ## Overview
 
@@ -40,10 +40,10 @@ func main() {
     ctx := context.Background()
     res, err := s.Webhooks.CreateWebhook(ctx, operations.CreateWebhookRequest{
         RequestBody: &operations.CreateWebhookWebhookCreateRequest{
-            Config: &operations.CreateWebhookWebhookCreateRequestConfig{},
+            Config: &operations.Config{},
             Title: "string",
-            Type: []operations.CreateWebhookWebhookCreateRequestType{
-                operations.CreateWebhookWebhookCreateRequestTypeUser,
+            Type: []operations.CreateWebhookType{
+                operations.CreateWebhookTypeUser,
             },
             URL: "https://pointless-banner.org",
         },
@@ -56,7 +56,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Webhook != nil {
+    if res.TwoHundredAndOneApplicationJSONWebhook != nil {
         // handle response
     }
 }
@@ -161,7 +161,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AuthVerificationKeys != nil {
+    if res.TwoHundredApplicationJSONAuthVerificationKeys != nil {
         // handle response
     }
 }
@@ -213,7 +213,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.WebhooksListResponse != nil {
+    if res.TwoHundredApplicationJSONWebhooksListResponse != nil {
         // handle response
     }
 }
@@ -266,7 +266,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Webhook != nil {
+    if res.TwoHundredApplicationJSONWebhook != nil {
         // handle response
     }
 }
@@ -363,9 +363,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Webhooks.UpdateWebhook(ctx, operations.UpdateWebhookRequest{
         RequestBody: &operations.UpdateWebhookWebhookUpdateRequest{
-            Config: &operations.UpdateWebhookWebhookUpdateRequestConfig{},
-            Type: []operations.UpdateWebhookWebhookUpdateRequestType{
-                operations.UpdateWebhookWebhookUpdateRequestTypeIntradayAccountValuation,
+            Config: &operations.UpdateWebhookConfig{},
+            Type: []operations.UpdateWebhookType{
+                operations.UpdateWebhookTypeIntradayAccountValuation,
             },
         },
         Signature: "string",
@@ -378,7 +378,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Webhook != nil {
+    if res.TwoHundredApplicationJSONWebhook != nil {
         // handle response
     }
 }

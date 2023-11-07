@@ -89,27 +89,27 @@ func (o *UpdateAccountRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// UpdateAccountAccountStatus - The status of the account
+// UpdateAccountStatus - The status of the account
 // * PENDING_APPROVAL - Account approval is pending - the account is visible through our API but cannot be acted on.
 // * ACTIVE - Account is active - full functionality of the Investment API is accessible.
 // * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 // * CLOSED - Account is closed with zero balance successfully.
 // * LOCKED - Account is locked for all actions.
-type UpdateAccountAccountStatus string
+type UpdateAccountStatus string
 
 const (
-	UpdateAccountAccountStatusPendingApproval UpdateAccountAccountStatus = "PENDING_APPROVAL"
-	UpdateAccountAccountStatusActive          UpdateAccountAccountStatus = "ACTIVE"
-	UpdateAccountAccountStatusClosing         UpdateAccountAccountStatus = "CLOSING"
-	UpdateAccountAccountStatusClosed          UpdateAccountAccountStatus = "CLOSED"
-	UpdateAccountAccountStatusLocked          UpdateAccountAccountStatus = "LOCKED"
+	UpdateAccountStatusPendingApproval UpdateAccountStatus = "PENDING_APPROVAL"
+	UpdateAccountStatusActive          UpdateAccountStatus = "ACTIVE"
+	UpdateAccountStatusClosing         UpdateAccountStatus = "CLOSING"
+	UpdateAccountStatusClosed          UpdateAccountStatus = "CLOSED"
+	UpdateAccountStatusLocked          UpdateAccountStatus = "LOCKED"
 )
 
-func (e UpdateAccountAccountStatus) ToPointer() *UpdateAccountAccountStatus {
+func (e UpdateAccountStatus) ToPointer() *UpdateAccountStatus {
 	return &e
 }
 
-func (e *UpdateAccountAccountStatus) UnmarshalJSON(data []byte) error {
+func (e *UpdateAccountStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -124,28 +124,28 @@ func (e *UpdateAccountAccountStatus) UnmarshalJSON(data []byte) error {
 	case "CLOSED":
 		fallthrough
 	case "LOCKED":
-		*e = UpdateAccountAccountStatus(v)
+		*e = UpdateAccountStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdateAccountAccountStatus: %v", v)
+		return fmt.Errorf("invalid value for UpdateAccountStatus: %v", v)
 	}
 }
 
-// UpdateAccountAccountType - Account type.
+// UpdateAccountType - Account type.
 // * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 // * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-type UpdateAccountAccountType string
+type UpdateAccountType string
 
 const (
-	UpdateAccountAccountTypeTrading   UpdateAccountAccountType = "TRADING"
-	UpdateAccountAccountTypePortfolio UpdateAccountAccountType = "PORTFOLIO"
+	UpdateAccountTypeTrading   UpdateAccountType = "TRADING"
+	UpdateAccountTypePortfolio UpdateAccountType = "PORTFOLIO"
 )
 
-func (e UpdateAccountAccountType) ToPointer() *UpdateAccountAccountType {
+func (e UpdateAccountType) ToPointer() *UpdateAccountType {
 	return &e
 }
 
-func (e *UpdateAccountAccountType) UnmarshalJSON(data []byte) error {
+func (e *UpdateAccountType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -154,66 +154,66 @@ func (e *UpdateAccountAccountType) UnmarshalJSON(data []byte) error {
 	case "TRADING":
 		fallthrough
 	case "PORTFOLIO":
-		*e = UpdateAccountAccountType(v)
+		*e = UpdateAccountType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdateAccountAccountType: %v", v)
+		return fmt.Errorf("invalid value for UpdateAccountType: %v", v)
 	}
 }
 
-// UpdateAccountAccountUsersType - Relation type
+// UpdateAccountAccountsType - Relation type
 // * OWNER -
-type UpdateAccountAccountUsersType string
+type UpdateAccountAccountsType string
 
 const (
-	UpdateAccountAccountUsersTypeOwner UpdateAccountAccountUsersType = "OWNER"
+	UpdateAccountAccountsTypeOwner UpdateAccountAccountsType = "OWNER"
 )
 
-func (e UpdateAccountAccountUsersType) ToPointer() *UpdateAccountAccountUsersType {
+func (e UpdateAccountAccountsType) ToPointer() *UpdateAccountAccountsType {
 	return &e
 }
 
-func (e *UpdateAccountAccountUsersType) UnmarshalJSON(data []byte) error {
+func (e *UpdateAccountAccountsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "OWNER":
-		*e = UpdateAccountAccountUsersType(v)
+		*e = UpdateAccountAccountsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdateAccountAccountUsersType: %v", v)
+		return fmt.Errorf("invalid value for UpdateAccountAccountsType: %v", v)
 	}
 }
 
-type UpdateAccountAccountUsers struct {
+type UpdateAccountUsers struct {
 	// User unique identifier.
 	ID *string `json:"id,omitempty"`
 	// Relation type
 	// * OWNER -
-	Type *UpdateAccountAccountUsersType `default:"OWNER" json:"type"`
+	Type *UpdateAccountAccountsType `default:"OWNER" json:"type"`
 }
 
-func (u UpdateAccountAccountUsers) MarshalJSON() ([]byte, error) {
+func (u UpdateAccountUsers) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(u, "", false)
 }
 
-func (u *UpdateAccountAccountUsers) UnmarshalJSON(data []byte) error {
+func (u *UpdateAccountUsers) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UpdateAccountAccountUsers) GetID() *string {
+func (o *UpdateAccountUsers) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *UpdateAccountAccountUsers) GetType() *UpdateAccountAccountUsersType {
+func (o *UpdateAccountUsers) GetType() *UpdateAccountAccountsType {
 	if o == nil {
 		return nil
 	}
@@ -238,14 +238,14 @@ type UpdateAccountAccount struct {
 	// * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
 	// * CLOSED - Account is closed with zero balance successfully.
 	// * LOCKED - Account is locked for all actions.
-	Status UpdateAccountAccountStatus `json:"status"`
+	Status UpdateAccountStatus `json:"status"`
 	// Account type.
 	// * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 	// * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.
-	Type UpdateAccountAccountType `json:"type"`
+	Type UpdateAccountType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
-	UpdatedAt time.Time                   `json:"updated_at"`
-	Users     []UpdateAccountAccountUsers `json:"users"`
+	UpdatedAt time.Time            `json:"updated_at"`
+	Users     []UpdateAccountUsers `json:"users"`
 }
 
 func (u UpdateAccountAccount) MarshalJSON() ([]byte, error) {
@@ -294,16 +294,16 @@ func (o *UpdateAccountAccount) GetName() string {
 	return o.Name
 }
 
-func (o *UpdateAccountAccount) GetStatus() UpdateAccountAccountStatus {
+func (o *UpdateAccountAccount) GetStatus() UpdateAccountStatus {
 	if o == nil {
-		return UpdateAccountAccountStatus("")
+		return UpdateAccountStatus("")
 	}
 	return o.Status
 }
 
-func (o *UpdateAccountAccount) GetType() UpdateAccountAccountType {
+func (o *UpdateAccountAccount) GetType() UpdateAccountType {
 	if o == nil {
-		return UpdateAccountAccountType("")
+		return UpdateAccountType("")
 	}
 	return o.Type
 }
@@ -315,16 +315,16 @@ func (o *UpdateAccountAccount) GetUpdatedAt() time.Time {
 	return o.UpdatedAt
 }
 
-func (o *UpdateAccountAccount) GetUsers() []UpdateAccountAccountUsers {
+func (o *UpdateAccountAccount) GetUsers() []UpdateAccountUsers {
 	if o == nil {
-		return []UpdateAccountAccountUsers{}
+		return []UpdateAccountUsers{}
 	}
 	return o.Users
 }
 
 type UpdateAccountResponse struct {
 	// Account updated.
-	Account *UpdateAccountAccount
+	TwoHundredApplicationJSONAccount *UpdateAccountAccount
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -334,11 +334,11 @@ type UpdateAccountResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *UpdateAccountResponse) GetAccount() *UpdateAccountAccount {
+func (o *UpdateAccountResponse) GetTwoHundredApplicationJSONAccount() *UpdateAccountAccount {
 	if o == nil {
 		return nil
 	}
-	return o.Account
+	return o.TwoHundredApplicationJSONAccount
 }
 
 func (o *UpdateAccountResponse) GetContentType() string {

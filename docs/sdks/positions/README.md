@@ -1,5 +1,5 @@
 # Positions
-(*Positions*)
+(*.Positions*)
 
 ## Overview
 
@@ -44,7 +44,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.PositionsListResponse != nil {
+    if res.TwoHundredApplicationJSONPositionsListResponse != nil {
         // handle response
     }
 }
@@ -98,7 +98,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.RetrievePosition200ApplicationJSONObject != nil {
+    if res.TwoHundredApplicationJSONObject != nil {
         // handle response
     }
 }

@@ -68,34 +68,34 @@ func (o *RetrieveCashBalanceRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveCashBalance200ApplicationJSONCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// RetrieveCashBalanceCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type RetrieveCashBalance200ApplicationJSONCurrency string
+type RetrieveCashBalanceCurrency string
 
 const (
-	RetrieveCashBalance200ApplicationJSONCurrencyEur RetrieveCashBalance200ApplicationJSONCurrency = "EUR"
+	RetrieveCashBalanceCurrencyEur RetrieveCashBalanceCurrency = "EUR"
 )
 
-func (e RetrieveCashBalance200ApplicationJSONCurrency) ToPointer() *RetrieveCashBalance200ApplicationJSONCurrency {
+func (e RetrieveCashBalanceCurrency) ToPointer() *RetrieveCashBalanceCurrency {
 	return &e
 }
 
-func (e *RetrieveCashBalance200ApplicationJSONCurrency) UnmarshalJSON(data []byte) error {
+func (e *RetrieveCashBalanceCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = RetrieveCashBalance200ApplicationJSONCurrency(v)
+		*e = RetrieveCashBalanceCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveCashBalance200ApplicationJSONCurrency: %v", v)
+		return fmt.Errorf("invalid value for RetrieveCashBalanceCurrency: %v", v)
 	}
 }
 
-// RetrieveCashBalance200ApplicationJSON - Response
-type RetrieveCashBalance200ApplicationJSON struct {
+// RetrieveCashBalanceResponseBody - Response
+type RetrieveCashBalanceResponseBody struct {
 	// Account group unique identifier.
 	AccountGroupID         string `json:"account_group_id"`
 	AvailableForTrading    string `json:"available_for_trading"`
@@ -103,65 +103,65 @@ type RetrieveCashBalance200ApplicationJSON struct {
 	Balance                string `json:"balance"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency          *RetrieveCashBalance200ApplicationJSONCurrency `default:"EUR" json:"currency"`
-	LockedForTrading  string                                         `json:"locked_for_trading"`
-	PendingSettlement string                                         `json:"pending_settlement"`
+	Currency          *RetrieveCashBalanceCurrency `default:"EUR" json:"currency"`
+	LockedForTrading  string                       `json:"locked_for_trading"`
+	PendingSettlement string                       `json:"pending_settlement"`
 }
 
-func (r RetrieveCashBalance200ApplicationJSON) MarshalJSON() ([]byte, error) {
+func (r RetrieveCashBalanceResponseBody) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveCashBalance200ApplicationJSON) UnmarshalJSON(data []byte) error {
+func (r *RetrieveCashBalanceResponseBody) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveCashBalance200ApplicationJSON) GetAccountGroupID() string {
+func (o *RetrieveCashBalanceResponseBody) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *RetrieveCashBalance200ApplicationJSON) GetAvailableForTrading() string {
+func (o *RetrieveCashBalanceResponseBody) GetAvailableForTrading() string {
 	if o == nil {
 		return ""
 	}
 	return o.AvailableForTrading
 }
 
-func (o *RetrieveCashBalance200ApplicationJSON) GetAvailableForWithdrawal() string {
+func (o *RetrieveCashBalanceResponseBody) GetAvailableForWithdrawal() string {
 	if o == nil {
 		return ""
 	}
 	return o.AvailableForWithdrawal
 }
 
-func (o *RetrieveCashBalance200ApplicationJSON) GetBalance() string {
+func (o *RetrieveCashBalanceResponseBody) GetBalance() string {
 	if o == nil {
 		return ""
 	}
 	return o.Balance
 }
 
-func (o *RetrieveCashBalance200ApplicationJSON) GetCurrency() *RetrieveCashBalance200ApplicationJSONCurrency {
+func (o *RetrieveCashBalanceResponseBody) GetCurrency() *RetrieveCashBalanceCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *RetrieveCashBalance200ApplicationJSON) GetLockedForTrading() string {
+func (o *RetrieveCashBalanceResponseBody) GetLockedForTrading() string {
 	if o == nil {
 		return ""
 	}
 	return o.LockedForTrading
 }
 
-func (o *RetrieveCashBalance200ApplicationJSON) GetPendingSettlement() string {
+func (o *RetrieveCashBalanceResponseBody) GetPendingSettlement() string {
 	if o == nil {
 		return ""
 	}
@@ -169,6 +169,8 @@ func (o *RetrieveCashBalance200ApplicationJSON) GetPendingSettlement() string {
 }
 
 type RetrieveCashBalanceResponse struct {
+	// Response
+	TwoHundredApplicationJSONObject *RetrieveCashBalanceResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -176,8 +178,13 @@ type RetrieveCashBalanceResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Response
-	RetrieveCashBalance200ApplicationJSONObject *RetrieveCashBalance200ApplicationJSON
+}
+
+func (o *RetrieveCashBalanceResponse) GetTwoHundredApplicationJSONObject() *RetrieveCashBalanceResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONObject
 }
 
 func (o *RetrieveCashBalanceResponse) GetContentType() string {
@@ -206,11 +213,4 @@ func (o *RetrieveCashBalanceResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *RetrieveCashBalanceResponse) GetRetrieveCashBalance200ApplicationJSONObject() *RetrieveCashBalance200ApplicationJSON {
-	if o == nil {
-		return nil
-	}
-	return o.RetrieveCashBalance200ApplicationJSONObject
 }

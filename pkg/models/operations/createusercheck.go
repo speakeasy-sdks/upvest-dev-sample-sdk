@@ -13,61 +13,61 @@ import (
 	"time"
 )
 
-type CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequestInstrumentSuitability struct {
+type InstrumentSuitability struct {
 	// Did the user go through a suitability assessment and the outcome indicated suitability.
 	Suitability bool `json:"suitability"`
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequestInstrumentSuitability) GetSuitability() bool {
+func (o *InstrumentSuitability) GetSuitability() bool {
 	if o == nil {
 		return false
 	}
 	return o.Suitability
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest - Instrument fit check is completed by the client providing the user's answers to the instrument appropriateness or suitability questionnaire.
-type CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest struct {
+// UserCheckInstrumentFitCreateRequest - Instrument fit check is completed by the client providing the user's answers to the instrument appropriateness or suitability questionnaire.
+type UserCheckInstrumentFitCreateRequest struct {
 	// Completion date and time of the instrument fit check.
-	CheckConfirmedAt      time.Time                                                                                     `json:"check_confirmed_at"`
-	InstrumentSuitability CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequestInstrumentSuitability `json:"instrument_suitability"`
+	CheckConfirmedAt      time.Time             `json:"check_confirmed_at"`
+	InstrumentSuitability InstrumentSuitability `json:"instrument_suitability"`
 	// The type of check must be INSTRUMENT_FIT.
 	Type *string `default:"INSTRUMENT_FIT" json:"type"`
 }
 
-func (c CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u UserCheckInstrumentFitCreateRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, true); err != nil {
+func (u *UserCheckInstrumentFitCreateRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest) GetCheckConfirmedAt() time.Time {
+func (o *UserCheckInstrumentFitCreateRequest) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest) GetInstrumentSuitability() CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequestInstrumentSuitability {
+func (o *UserCheckInstrumentFitCreateRequest) GetInstrumentSuitability() InstrumentSuitability {
 	if o == nil {
-		return CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequestInstrumentSuitability{}
+		return InstrumentSuitability{}
 	}
 	return o.InstrumentSuitability
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest) GetType() *string {
+func (o *UserCheckInstrumentFitCreateRequest) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress struct {
+// CreateUserCheckUsersAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserCheckUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -81,49 +81,49 @@ type CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress) GetAddressLine1() string {
+func (o *CreateUserCheckUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress) GetAddressLine2() *string {
+func (o *CreateUserCheckUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress) GetCity() string {
+func (o *CreateUserCheckUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress) GetCountry() string {
+func (o *CreateUserCheckUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress) GetPostcode() string {
+func (o *CreateUserCheckUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress) GetState() *string {
+func (o *CreateUserCheckUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType - The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
+// CreateUserCheckDocumentType - The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
 // * UTILITY_BILL -
 // * TELEPHONE_BILL -
 // * INTERNET_BILL -
@@ -131,23 +131,23 @@ func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateReq
 // * REGISTRATION_CERT -
 // * RESIDENCE_PERMIT -
 // * ID_CARD -
-type CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType string
+type CreateUserCheckDocumentType string
 
 const (
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeUtilityBill      CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType = "UTILITY_BILL"
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeTelephoneBill    CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType = "TELEPHONE_BILL"
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeInternetBill     CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType = "INTERNET_BILL"
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeBankStatement    CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType = "BANK_STATEMENT"
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeRegistrationCert CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType = "REGISTRATION_CERT"
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeResidencePermit  CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType = "RESIDENCE_PERMIT"
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeIDCard           CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType = "ID_CARD"
+	CreateUserCheckDocumentTypeUtilityBill      CreateUserCheckDocumentType = "UTILITY_BILL"
+	CreateUserCheckDocumentTypeTelephoneBill    CreateUserCheckDocumentType = "TELEPHONE_BILL"
+	CreateUserCheckDocumentTypeInternetBill     CreateUserCheckDocumentType = "INTERNET_BILL"
+	CreateUserCheckDocumentTypeBankStatement    CreateUserCheckDocumentType = "BANK_STATEMENT"
+	CreateUserCheckDocumentTypeRegistrationCert CreateUserCheckDocumentType = "REGISTRATION_CERT"
+	CreateUserCheckDocumentTypeResidencePermit  CreateUserCheckDocumentType = "RESIDENCE_PERMIT"
+	CreateUserCheckDocumentTypeIDCard           CreateUserCheckDocumentType = "ID_CARD"
 )
 
-func (e CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType) ToPointer() *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType {
+func (e CreateUserCheckDocumentType) ToPointer() *CreateUserCheckDocumentType {
 	return &e
 }
 
-func (e *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType) UnmarshalJSON(data []byte) error {
+func (e *CreateUserCheckDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -166,19 +166,19 @@ func (e *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateReq
 	case "RESIDENCE_PERMIT":
 		fallthrough
 	case "ID_CARD":
-		*e = CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType(v)
+		*e = CreateUserCheckDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType: %v", v)
+		return fmt.Errorf("invalid value for CreateUserCheckDocumentType: %v", v)
 	}
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest - The PoR (Proof of residency) check is completed by the client sharing a valid PoR document, if not fulfilled by the KYC check.
-type CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest struct {
+// UserCheckProofOfResidencyCreateRequest - The PoR (Proof of residency) check is completed by the client sharing a valid PoR document, if not fulfilled by the KYC check.
+type UserCheckProofOfResidencyCreateRequest struct {
 	// Completion date and time of the PoR check.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	ConfirmedAddress CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress `json:"confirmed_address"`
+	ConfirmedAddress CreateUserCheckUsersAddress `json:"confirmed_address"`
 	// Download link for the PoR evidence file. Should be a valid URL.
 	DataDownloadLink string `json:"data_download_link"`
 	// The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
@@ -189,68 +189,68 @@ type CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
 	// * REGISTRATION_CERT -
 	// * RESIDENCE_PERMIT -
 	// * ID_CARD -
-	DocumentType CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType `json:"document_type"`
+	DocumentType CreateUserCheckDocumentType `json:"document_type"`
 	// Issuance date in YYYY-MM-DD format.
 	IssuanceDate types.Date `json:"issuance_date"`
 	// The type of check must be POR.
 	Type *string `default:"POR" json:"type"`
 }
 
-func (c CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u UserCheckProofOfResidencyCreateRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, true); err != nil {
+func (u *UserCheckProofOfResidencyCreateRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) GetCheckConfirmedAt() time.Time {
+func (o *UserCheckProofOfResidencyCreateRequest) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) GetConfirmedAddress() CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress {
+func (o *UserCheckProofOfResidencyCreateRequest) GetConfirmedAddress() CreateUserCheckUsersAddress {
 	if o == nil {
-		return CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress{}
+		return CreateUserCheckUsersAddress{}
 	}
 	return o.ConfirmedAddress
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) GetDataDownloadLink() string {
+func (o *UserCheckProofOfResidencyCreateRequest) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) GetDocumentType() CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType {
+func (o *UserCheckProofOfResidencyCreateRequest) GetDocumentType() CreateUserCheckDocumentType {
 	if o == nil {
-		return CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentType("")
+		return CreateUserCheckDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) GetIssuanceDate() types.Date {
+func (o *UserCheckProofOfResidencyCreateRequest) GetIssuanceDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.IssuanceDate
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) GetType() *string {
+func (o *UserCheckProofOfResidencyCreateRequest) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress - Address. Must not be a P.O. box or c/o address.
-type CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress struct {
+// CreateUserCheckAddress - Address. Must not be a P.O. box or c/o address.
+type CreateUserCheckAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -264,65 +264,65 @@ type CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress) GetAddressLine1() string {
+func (o *CreateUserCheckAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress) GetAddressLine2() *string {
+func (o *CreateUserCheckAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress) GetCity() string {
+func (o *CreateUserCheckAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress) GetCountry() string {
+func (o *CreateUserCheckAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress) GetPostcode() string {
+func (o *CreateUserCheckAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress) GetState() *string {
+func (o *CreateUserCheckAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType - The type of document used in the KYC process.
+// DocumentType - The type of document used in the KYC process.
 // * PASSPORT - Passport
 // * ID_CARD - National Identification document
 // * RESIDENCE_PERMIT - Residence Permit
-type CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType string
+type DocumentType string
 
 const (
-	CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentTypePassport        CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType = "PASSPORT"
-	CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentTypeIDCard          CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType = "ID_CARD"
-	CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentTypeResidencePermit CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType = "RESIDENCE_PERMIT"
+	DocumentTypePassport        DocumentType = "PASSPORT"
+	DocumentTypeIDCard          DocumentType = "ID_CARD"
+	DocumentTypeResidencePermit DocumentType = "RESIDENCE_PERMIT"
 )
 
-func (e CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType) ToPointer() *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType {
+func (e DocumentType) ToPointer() *DocumentType {
 	return &e
 }
 
-func (e *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType) UnmarshalJSON(data []byte) error {
+func (e *DocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -333,30 +333,30 @@ func (e *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateReq
 	case "ID_CARD":
 		fallthrough
 	case "RESIDENCE_PERMIT":
-		*e = CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType(v)
+		*e = DocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType: %v", v)
+		return fmt.Errorf("invalid value for DocumentType: %v", v)
 	}
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod - Method used for AML compliant KYC process
+// Method used for AML compliant KYC process
 // * VIDEO_ID - Video identification
 // * IN_PERSON_ID - In person identification at the post office or the client’s outlet
 // * ELECTRONIC_ID - Advanced electronic identification methods (namely German eID)
-type CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod string
+type Method string
 
 const (
-	CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethodVideoID      CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod = "VIDEO_ID"
-	CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethodInPersonID   CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod = "IN_PERSON_ID"
-	CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethodElectronicID CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod = "ELECTRONIC_ID"
+	MethodVideoID      Method = "VIDEO_ID"
+	MethodInPersonID   Method = "IN_PERSON_ID"
+	MethodElectronicID Method = "ELECTRONIC_ID"
 )
 
-func (e CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod) ToPointer() *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod {
+func (e Method) ToPointer() *Method {
 	return &e
 }
 
-func (e *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod) UnmarshalJSON(data []byte) error {
+func (e *Method) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -367,19 +367,19 @@ func (e *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateReq
 	case "IN_PERSON_ID":
 		fallthrough
 	case "ELECTRONIC_ID":
-		*e = CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod(v)
+		*e = Method(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod: %v", v)
+		return fmt.Errorf("invalid value for Method: %v", v)
 	}
 }
 
-// CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest - The KYC (Know your customer) check is completed by the client sharing the valid and relevant KYC data for the user.
-type CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest struct {
+// UserCheckKnowYourCustomerCreateRequest - The KYC (Know your customer) check is completed by the client sharing the valid and relevant KYC data for the user.
+type UserCheckKnowYourCustomerCreateRequest struct {
 	// Completion date and time of the KYC check. Must not be older than 24 months.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	ConfirmedAddress *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress `json:"confirmed_address,omitempty"`
+	ConfirmedAddress *CreateUserCheckAddress `json:"confirmed_address,omitempty"`
 	// Download link for the KYC evidence file. Should be a valid URL.
 	DataDownloadLink string `json:"data_download_link"`
 	// Expiration date of the document used in KYC process in YYYY-MM-DD format.
@@ -388,14 +388,14 @@ type CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
 	// * PASSPORT - Passport
 	// * ID_CARD - National Identification document
 	// * RESIDENCE_PERMIT - Residence Permit
-	DocumentType CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType `json:"document_type"`
+	DocumentType DocumentType `json:"document_type"`
 	// Marks this check as a KYC refresh/update as opposed to an initial record.
 	KycUpdate *bool `json:"kyc_update,omitempty"`
 	// Method used for AML compliant KYC process
 	// * VIDEO_ID - Video identification
 	// * IN_PERSON_ID - In person identification at the post office or the client’s outlet
 	// * ELECTRONIC_ID - Advanced electronic identification methods (namely German eID)
-	Method CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod `json:"method"`
+	Method Method `json:"method"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationality string `json:"nationality"`
 	// Provider that was used to perform the KYC check.
@@ -404,81 +404,81 @@ type CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
 	Type *string `default:"KYC" json:"type"`
 }
 
-func (c CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
+func (u UserCheckKnowYourCustomerCreateRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (c *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, true); err != nil {
+func (u *UserCheckKnowYourCustomerCreateRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetCheckConfirmedAt() time.Time {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetConfirmedAddress() *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestAddress {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetConfirmedAddress() *CreateUserCheckAddress {
 	if o == nil {
 		return nil
 	}
 	return o.ConfirmedAddress
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetDataDownloadLink() string {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetDocumentExpirationDate() types.Date {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetDocumentExpirationDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.DocumentExpirationDate
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetDocumentType() CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetDocumentType() DocumentType {
 	if o == nil {
-		return CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestDocumentType("")
+		return DocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetKycUpdate() *bool {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetKycUpdate() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.KycUpdate
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetMethod() CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetMethod() Method {
 	if o == nil {
-		return CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequestMethod("")
+		return Method("")
 	}
 	return o.Method
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetNationality() string {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetNationality() string {
 	if o == nil {
 		return ""
 	}
 	return o.Nationality
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetProvider() string {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetProvider() string {
 	if o == nil {
 		return ""
 	}
 	return o.Provider
 }
 
-func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) GetType() *string {
+func (o *UserCheckKnowYourCustomerCreateRequest) GetType() *string {
 	if o == nil {
 		return nil
 	}
@@ -488,66 +488,66 @@ func (o *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateReq
 type CreateUserCheckUserCheckCreateRequestType string
 
 const (
-	CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest CreateUserCheckUserCheckCreateRequestType = "create_user_check_User Check - Create - Request_User Check - Know your customer - Create - Request"
-	CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest CreateUserCheckUserCheckCreateRequestType = "create_user_check_User Check - Create - Request_User Check - Proof of Residency - Create - Request"
-	CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest    CreateUserCheckUserCheckCreateRequestType = "create_user_check_User Check - Create - Request_User Check - Instrument fit - Create - Request"
+	CreateUserCheckUserCheckCreateRequestTypeUserCheckKnowYourCustomerCreateRequest CreateUserCheckUserCheckCreateRequestType = "User Check - Know your customer - Create - Request"
+	CreateUserCheckUserCheckCreateRequestTypeUserCheckProofOfResidencyCreateRequest CreateUserCheckUserCheckCreateRequestType = "User Check - Proof of Residency - Create - Request"
+	CreateUserCheckUserCheckCreateRequestTypeUserCheckInstrumentFitCreateRequest    CreateUserCheckUserCheckCreateRequestType = "User Check - Instrument fit - Create - Request"
 )
 
 type CreateUserCheckUserCheckCreateRequest struct {
-	CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest *CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
-	CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest *CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
-	CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest    *CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest
+	UserCheckKnowYourCustomerCreateRequest *UserCheckKnowYourCustomerCreateRequest
+	UserCheckProofOfResidencyCreateRequest *UserCheckProofOfResidencyCreateRequest
+	UserCheckInstrumentFitCreateRequest    *UserCheckInstrumentFitCreateRequest
 
 	Type CreateUserCheckUserCheckCreateRequestType
 }
 
-func CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest(createUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest) CreateUserCheckUserCheckCreateRequest {
-	typ := CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
+func CreateCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest(userCheckKnowYourCustomerCreateRequest UserCheckKnowYourCustomerCreateRequest) CreateUserCheckUserCheckCreateRequest {
+	typ := CreateUserCheckUserCheckCreateRequestTypeUserCheckKnowYourCustomerCreateRequest
 
 	return CreateUserCheckUserCheckCreateRequest{
-		CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest: &createUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest,
-		Type: typ,
+		UserCheckKnowYourCustomerCreateRequest: &userCheckKnowYourCustomerCreateRequest,
+		Type:                                   typ,
 	}
 }
 
-func CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(createUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest) CreateUserCheckUserCheckCreateRequest {
-	typ := CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
+func CreateCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(userCheckProofOfResidencyCreateRequest UserCheckProofOfResidencyCreateRequest) CreateUserCheckUserCheckCreateRequest {
+	typ := CreateUserCheckUserCheckCreateRequestTypeUserCheckProofOfResidencyCreateRequest
 
 	return CreateUserCheckUserCheckCreateRequest{
-		CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest: &createUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest,
-		Type: typ,
+		UserCheckProofOfResidencyCreateRequest: &userCheckProofOfResidencyCreateRequest,
+		Type:                                   typ,
 	}
 }
 
-func CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest(createUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest) CreateUserCheckUserCheckCreateRequest {
-	typ := CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest
+func CreateCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest(userCheckInstrumentFitCreateRequest UserCheckInstrumentFitCreateRequest) CreateUserCheckUserCheckCreateRequest {
+	typ := CreateUserCheckUserCheckCreateRequestTypeUserCheckInstrumentFitCreateRequest
 
 	return CreateUserCheckUserCheckCreateRequest{
-		CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest: &createUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest,
-		Type: typ,
+		UserCheckInstrumentFitCreateRequest: &userCheckInstrumentFitCreateRequest,
+		Type:                                typ,
 	}
 }
 
 func (u *CreateUserCheckUserCheckCreateRequest) UnmarshalJSON(data []byte) error {
 
-	createUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest := CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest{}
-	if err := utils.UnmarshalJSON(data, &createUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest, "", true, true); err == nil {
-		u.CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest = &createUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest
-		u.Type = CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest
+	userCheckInstrumentFitCreateRequest := UserCheckInstrumentFitCreateRequest{}
+	if err := utils.UnmarshalJSON(data, &userCheckInstrumentFitCreateRequest, "", true, true); err == nil {
+		u.UserCheckInstrumentFitCreateRequest = &userCheckInstrumentFitCreateRequest
+		u.Type = CreateUserCheckUserCheckCreateRequestTypeUserCheckInstrumentFitCreateRequest
 		return nil
 	}
 
-	createUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest := CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest{}
-	if err := utils.UnmarshalJSON(data, &createUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest, "", true, true); err == nil {
-		u.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest = &createUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
-		u.Type = CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest
+	userCheckProofOfResidencyCreateRequest := UserCheckProofOfResidencyCreateRequest{}
+	if err := utils.UnmarshalJSON(data, &userCheckProofOfResidencyCreateRequest, "", true, true); err == nil {
+		u.UserCheckProofOfResidencyCreateRequest = &userCheckProofOfResidencyCreateRequest
+		u.Type = CreateUserCheckUserCheckCreateRequestTypeUserCheckProofOfResidencyCreateRequest
 		return nil
 	}
 
-	createUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest := CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest{}
-	if err := utils.UnmarshalJSON(data, &createUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest, "", true, true); err == nil {
-		u.CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest = &createUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
-		u.Type = CreateUserCheckUserCheckCreateRequestTypeCreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest
+	userCheckKnowYourCustomerCreateRequest := UserCheckKnowYourCustomerCreateRequest{}
+	if err := utils.UnmarshalJSON(data, &userCheckKnowYourCustomerCreateRequest, "", true, true); err == nil {
+		u.UserCheckKnowYourCustomerCreateRequest = &userCheckKnowYourCustomerCreateRequest
+		u.Type = CreateUserCheckUserCheckCreateRequestTypeUserCheckKnowYourCustomerCreateRequest
 		return nil
 	}
 
@@ -555,16 +555,16 @@ func (u *CreateUserCheckUserCheckCreateRequest) UnmarshalJSON(data []byte) error
 }
 
 func (u CreateUserCheckUserCheckCreateRequest) MarshalJSON() ([]byte, error) {
-	if u.CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest != nil {
-		return utils.MarshalJSON(u.CreateUserCheckUserCheckCreateRequestUserCheckKnowYourCustomerCreateRequest, "", true)
+	if u.UserCheckKnowYourCustomerCreateRequest != nil {
+		return utils.MarshalJSON(u.UserCheckKnowYourCustomerCreateRequest, "", true)
 	}
 
-	if u.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest != nil {
-		return utils.MarshalJSON(u.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest, "", true)
+	if u.UserCheckProofOfResidencyCreateRequest != nil {
+		return utils.MarshalJSON(u.UserCheckProofOfResidencyCreateRequest, "", true)
 	}
 
-	if u.CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest != nil {
-		return utils.MarshalJSON(u.CreateUserCheckUserCheckCreateRequestUserCheckInstrumentFitCreateRequest, "", true)
+	if u.UserCheckInstrumentFitCreateRequest != nil {
+		return utils.MarshalJSON(u.UserCheckInstrumentFitCreateRequest, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -650,6 +650,8 @@ func (o *CreateUserCheckUserCheckCreateResponse) GetID() string {
 }
 
 type CreateUserCheckResponse struct {
+	// The request has been successfully accepted.
+	TwoHundredAndTwoApplicationJSONUserCheckCreateResponse *CreateUserCheckUserCheckCreateResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -657,8 +659,13 @@ type CreateUserCheckResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// The request has been successfully accepted.
-	UserCheckCreateResponse *CreateUserCheckUserCheckCreateResponse
+}
+
+func (o *CreateUserCheckResponse) GetTwoHundredAndTwoApplicationJSONUserCheckCreateResponse() *CreateUserCheckUserCheckCreateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredAndTwoApplicationJSONUserCheckCreateResponse
 }
 
 func (o *CreateUserCheckResponse) GetContentType() string {
@@ -687,11 +694,4 @@ func (o *CreateUserCheckResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *CreateUserCheckResponse) GetUserCheckCreateResponse() *CreateUserCheckUserCheckCreateResponse {
-	if o == nil {
-		return nil
-	}
-	return o.UserCheckCreateResponse
 }

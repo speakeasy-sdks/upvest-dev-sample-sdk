@@ -1,6 +1,7 @@
 # GetAccountValuationPriceQuality
 
-Defines the quality of the price used in the valuation.
+Price quality used for the calculation of the account valuation.
+* EOD - end of day price
 
 
 ## Values

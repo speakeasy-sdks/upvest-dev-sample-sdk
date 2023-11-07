@@ -130,8 +130,8 @@ func (o *CreateMandateRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateMandateDirectDebitMandateAddress - Address. Must not be a P.O. box or c/o address.
-type CreateMandateDirectDebitMandateAddress struct {
+// CreateMandateAddress - Address. Must not be a P.O. box or c/o address.
+type CreateMandateAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -145,71 +145,71 @@ type CreateMandateDirectDebitMandateAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *CreateMandateDirectDebitMandateAddress) GetAddressLine1() string {
+func (o *CreateMandateAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *CreateMandateDirectDebitMandateAddress) GetAddressLine2() *string {
+func (o *CreateMandateAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *CreateMandateDirectDebitMandateAddress) GetCity() string {
+func (o *CreateMandateAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *CreateMandateDirectDebitMandateAddress) GetCountry() string {
+func (o *CreateMandateAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *CreateMandateDirectDebitMandateAddress) GetPostcode() string {
+func (o *CreateMandateAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *CreateMandateDirectDebitMandateAddress) GetState() *string {
+func (o *CreateMandateAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// CreateMandateDirectDebitMandateType - Type of mandate.
+// CreateMandateType - Type of mandate.
 // * RECURRENT -
-type CreateMandateDirectDebitMandateType string
+type CreateMandateType string
 
 const (
-	CreateMandateDirectDebitMandateTypeRecurrent CreateMandateDirectDebitMandateType = "RECURRENT"
+	CreateMandateTypeRecurrent CreateMandateType = "RECURRENT"
 )
 
-func (e CreateMandateDirectDebitMandateType) ToPointer() *CreateMandateDirectDebitMandateType {
+func (e CreateMandateType) ToPointer() *CreateMandateType {
 	return &e
 }
 
-func (e *CreateMandateDirectDebitMandateType) UnmarshalJSON(data []byte) error {
+func (e *CreateMandateType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "RECURRENT":
-		*e = CreateMandateDirectDebitMandateType(v)
+		*e = CreateMandateType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateMandateDirectDebitMandateType: %v", v)
+		return fmt.Errorf("invalid value for CreateMandateType: %v", v)
 	}
 }
 
@@ -222,7 +222,7 @@ type CreateMandateDirectDebitMandate struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	CreditorAddress CreateMandateDirectDebitMandateAddress `json:"creditor_address"`
+	CreditorAddress CreateMandateAddress `json:"creditor_address"`
 	// Banking identifier of the creditor.
 	CreditorID string `json:"creditor_id"`
 	// Name of the creditor on the mandate.
@@ -233,7 +233,7 @@ type CreateMandateDirectDebitMandate struct {
 	ID string `json:"id"`
 	// Type of mandate.
 	// * RECURRENT -
-	Type *CreateMandateDirectDebitMandateType `default:"RECURRENT" json:"type"`
+	Type *CreateMandateType `default:"RECURRENT" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
@@ -270,9 +270,9 @@ func (o *CreateMandateDirectDebitMandate) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *CreateMandateDirectDebitMandate) GetCreditorAddress() CreateMandateDirectDebitMandateAddress {
+func (o *CreateMandateDirectDebitMandate) GetCreditorAddress() CreateMandateAddress {
 	if o == nil {
-		return CreateMandateDirectDebitMandateAddress{}
+		return CreateMandateAddress{}
 	}
 	return o.CreditorAddress
 }
@@ -305,7 +305,7 @@ func (o *CreateMandateDirectDebitMandate) GetID() string {
 	return o.ID
 }
 
-func (o *CreateMandateDirectDebitMandate) GetType() *CreateMandateDirectDebitMandateType {
+func (o *CreateMandateDirectDebitMandate) GetType() *CreateMandateType {
 	if o == nil {
 		return nil
 	}
@@ -320,15 +320,22 @@ func (o *CreateMandateDirectDebitMandate) GetUserID() string {
 }
 
 type CreateMandateResponse struct {
+	// Mandate
+	TwoHundredApplicationJSONDirectDebitMandate *CreateMandateDirectDebitMandate
 	// HTTP response content type for this operation
 	ContentType string
-	// Mandate
-	DirectDebitMandate *CreateMandateDirectDebitMandate
-	Headers            map[string][]string
+	Headers     map[string][]string
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CreateMandateResponse) GetTwoHundredApplicationJSONDirectDebitMandate() *CreateMandateDirectDebitMandate {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONDirectDebitMandate
 }
 
 func (o *CreateMandateResponse) GetContentType() string {
@@ -336,13 +343,6 @@ func (o *CreateMandateResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
-}
-
-func (o *CreateMandateResponse) GetDirectDebitMandate() *CreateMandateDirectDebitMandate {
-	if o == nil {
-		return nil
-	}
-	return o.DirectDebitMandate
 }
 
 func (o *CreateMandateResponse) GetHeaders() map[string][]string {

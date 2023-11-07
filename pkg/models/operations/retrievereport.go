@@ -70,33 +70,33 @@ func (o *RetrieveReportRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveReportReportReportReportDataAccount - Account information.
-type RetrieveReportReportReportReportDataAccount struct {
+// RetrieveReportAccount - Account information.
+type RetrieveReportAccount struct {
 	// Account unique identifier.
 	ID *string `json:"id,omitempty"`
 }
 
-func (o *RetrieveReportReportReportReportDataAccount) GetID() *string {
+func (o *RetrieveReportAccount) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-// RetrieveReportReportReportReportData - Contents of the report.
-type RetrieveReportReportReportReportData struct {
+// ReportData - Contents of the report.
+type ReportData struct {
 	// Account information.
-	Account *RetrieveReportReportReportReportDataAccount `json:"account,omitempty"`
+	Account *RetrieveReportAccount `json:"account,omitempty"`
 }
 
-func (o *RetrieveReportReportReportReportData) GetAccount() *RetrieveReportReportReportReportDataAccount {
+func (o *ReportData) GetAccount() *RetrieveReportAccount {
 	if o == nil {
 		return nil
 	}
 	return o.Account
 }
 
-// RetrieveReportReportReportReportType - Report type
+// RetrieveReportReportType - Report type
 // * BUY_ORDER - Buy order
 // * SELL_ORDER - Sell order
 // * INCOME_DISTRIBUTION - Income distribution report
@@ -117,36 +117,36 @@ func (o *RetrieveReportReportReportReportData) GetAccount() *RetrieveReportRepor
 // * BANK_ACCOUNT_CONNECTED - Connect reference bank account
 // * AD_HOC_ACCOUNT_STATEMENT - Ad hoc account statement
 // * EX_POST_COST - Ex-post cost report
-type RetrieveReportReportReportReportType string
+type RetrieveReportReportType string
 
 const (
-	RetrieveReportReportReportReportTypeBuyOrder                   RetrieveReportReportReportReportType = "BUY_ORDER"
-	RetrieveReportReportReportReportTypeSellOrder                  RetrieveReportReportReportReportType = "SELL_ORDER"
-	RetrieveReportReportReportReportTypeIncomeDistribution         RetrieveReportReportReportReportType = "INCOME_DISTRIBUTION"
-	RetrieveReportReportReportReportTypeGeneralMeetingNotification RetrieveReportReportReportReportType = "GENERAL_MEETING_NOTIFICATION"
-	RetrieveReportReportReportReportTypeIncomeReinvestment         RetrieveReportReportReportReportType = "INCOME_REINVESTMENT"
-	RetrieveReportReportReportReportTypeFundCommunication          RetrieveReportReportReportReportType = "FUND_COMMUNICATION"
-	RetrieveReportReportReportReportTypeTaxRefund                  RetrieveReportReportReportReportType = "TAX_REFUND"
-	RetrieveReportReportReportReportTypeTaxExemptionCreation       RetrieveReportReportReportReportType = "TAX_EXEMPTION_CREATION"
-	RetrieveReportReportReportReportTypeCancelledOrder             RetrieveReportReportReportReportType = "CANCELLED_ORDER"
-	RetrieveReportReportReportReportTypeRevokedOrder               RetrieveReportReportReportReportType = "REVOKED_ORDER"
-	RetrieveReportReportReportReportTypeAccountOpening             RetrieveReportReportReportReportType = "ACCOUNT_OPENING"
-	RetrieveReportReportReportReportTypeAccountClosing             RetrieveReportReportReportReportType = "ACCOUNT_CLOSING"
-	RetrieveReportReportReportReportTypeDirectDebitMandate         RetrieveReportReportReportReportType = "DIRECT_DEBIT_MANDATE"
-	RetrieveReportReportReportReportTypeAnnualTaxStatement         RetrieveReportReportReportReportType = "ANNUAL_TAX_STATEMENT"
-	RetrieveReportReportReportReportTypeAnnualAccountStatement     RetrieveReportReportReportReportType = "ANNUAL_ACCOUNT_STATEMENT"
-	RetrieveReportReportReportReportTypeAnnualIncomeStatement      RetrieveReportReportReportReportType = "ANNUAL_INCOME_STATEMENT"
-	RetrieveReportReportReportReportTypeGenericCommunication       RetrieveReportReportReportReportType = "GENERIC_COMMUNICATION"
-	RetrieveReportReportReportReportTypeBankAccountConnected       RetrieveReportReportReportReportType = "BANK_ACCOUNT_CONNECTED"
-	RetrieveReportReportReportReportTypeAdHocAccountStatement      RetrieveReportReportReportReportType = "AD_HOC_ACCOUNT_STATEMENT"
-	RetrieveReportReportReportReportTypeExPostCost                 RetrieveReportReportReportReportType = "EX_POST_COST"
+	RetrieveReportReportTypeBuyOrder                   RetrieveReportReportType = "BUY_ORDER"
+	RetrieveReportReportTypeSellOrder                  RetrieveReportReportType = "SELL_ORDER"
+	RetrieveReportReportTypeIncomeDistribution         RetrieveReportReportType = "INCOME_DISTRIBUTION"
+	RetrieveReportReportTypeGeneralMeetingNotification RetrieveReportReportType = "GENERAL_MEETING_NOTIFICATION"
+	RetrieveReportReportTypeIncomeReinvestment         RetrieveReportReportType = "INCOME_REINVESTMENT"
+	RetrieveReportReportTypeFundCommunication          RetrieveReportReportType = "FUND_COMMUNICATION"
+	RetrieveReportReportTypeTaxRefund                  RetrieveReportReportType = "TAX_REFUND"
+	RetrieveReportReportTypeTaxExemptionCreation       RetrieveReportReportType = "TAX_EXEMPTION_CREATION"
+	RetrieveReportReportTypeCancelledOrder             RetrieveReportReportType = "CANCELLED_ORDER"
+	RetrieveReportReportTypeRevokedOrder               RetrieveReportReportType = "REVOKED_ORDER"
+	RetrieveReportReportTypeAccountOpening             RetrieveReportReportType = "ACCOUNT_OPENING"
+	RetrieveReportReportTypeAccountClosing             RetrieveReportReportType = "ACCOUNT_CLOSING"
+	RetrieveReportReportTypeDirectDebitMandate         RetrieveReportReportType = "DIRECT_DEBIT_MANDATE"
+	RetrieveReportReportTypeAnnualTaxStatement         RetrieveReportReportType = "ANNUAL_TAX_STATEMENT"
+	RetrieveReportReportTypeAnnualAccountStatement     RetrieveReportReportType = "ANNUAL_ACCOUNT_STATEMENT"
+	RetrieveReportReportTypeAnnualIncomeStatement      RetrieveReportReportType = "ANNUAL_INCOME_STATEMENT"
+	RetrieveReportReportTypeGenericCommunication       RetrieveReportReportType = "GENERIC_COMMUNICATION"
+	RetrieveReportReportTypeBankAccountConnected       RetrieveReportReportType = "BANK_ACCOUNT_CONNECTED"
+	RetrieveReportReportTypeAdHocAccountStatement      RetrieveReportReportType = "AD_HOC_ACCOUNT_STATEMENT"
+	RetrieveReportReportTypeExPostCost                 RetrieveReportReportType = "EX_POST_COST"
 )
 
-func (e RetrieveReportReportReportReportType) ToPointer() *RetrieveReportReportReportReportType {
+func (e RetrieveReportReportType) ToPointer() *RetrieveReportReportType {
 	return &e
 }
 
-func (e *RetrieveReportReportReportReportType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveReportReportType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -191,18 +191,18 @@ func (e *RetrieveReportReportReportReportType) UnmarshalJSON(data []byte) error 
 	case "AD_HOC_ACCOUNT_STATEMENT":
 		fallthrough
 	case "EX_POST_COST":
-		*e = RetrieveReportReportReportReportType(v)
+		*e = RetrieveReportReportType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveReportReportReportReportType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveReportReportType: %v", v)
 	}
 }
 
-type RetrieveReportReportReport struct {
+type RetrieveReportReportsReport struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Contents of the report.
-	Data *RetrieveReportReportReportReportData `json:"data,omitempty"`
+	Data *ReportData `json:"data,omitempty"`
 	// Report unique identifier.
 	ID                  string  `json:"id"`
 	SubstitutedReportID *string `json:"substituted_report_id"`
@@ -227,91 +227,91 @@ type RetrieveReportReportReport struct {
 	// * BANK_ACCOUNT_CONNECTED - Connect reference bank account
 	// * AD_HOC_ACCOUNT_STATEMENT - Ad hoc account statement
 	// * EX_POST_COST - Ex-post cost report
-	Type RetrieveReportReportReportReportType `json:"type"`
+	Type RetrieveReportReportType `json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (r RetrieveReportReportReport) MarshalJSON() ([]byte, error) {
+func (r RetrieveReportReportsReport) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveReportReportReport) UnmarshalJSON(data []byte) error {
+func (r *RetrieveReportReportsReport) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveReportReportReport) GetCreatedAt() time.Time {
+func (o *RetrieveReportReportsReport) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *RetrieveReportReportReport) GetData() *RetrieveReportReportReportReportData {
+func (o *RetrieveReportReportsReport) GetData() *ReportData {
 	if o == nil {
 		return nil
 	}
 	return o.Data
 }
 
-func (o *RetrieveReportReportReport) GetID() string {
+func (o *RetrieveReportReportsReport) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveReportReportReport) GetSubstitutedReportID() *string {
+func (o *RetrieveReportReportsReport) GetSubstitutedReportID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.SubstitutedReportID
 }
 
-func (o *RetrieveReportReportReport) GetType() RetrieveReportReportReportReportType {
+func (o *RetrieveReportReportsReport) GetType() RetrieveReportReportType {
 	if o == nil {
-		return RetrieveReportReportReportReportType("")
+		return RetrieveReportReportType("")
 	}
 	return o.Type
 }
 
-func (o *RetrieveReportReportReport) GetUserID() string {
+func (o *RetrieveReportReportsReport) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-type RetrieveReportReportType string
+type RetrieveReportReportUnionType string
 
 const (
-	RetrieveReportReportTypeRetrieveReportReportReport RetrieveReportReportType = "retrieve_report_Report_Report"
+	RetrieveReportReportUnionTypeRetrieveReportReportsReport RetrieveReportReportUnionType = "retrieve_report_Reports_Report"
 )
 
 type RetrieveReportReport struct {
-	RetrieveReportReportReport *RetrieveReportReportReport
+	RetrieveReportReportsReport *RetrieveReportReportsReport
 
-	Type RetrieveReportReportType
+	Type RetrieveReportReportUnionType
 }
 
-func CreateRetrieveReportReportRetrieveReportReportReport(retrieveReportReportReport RetrieveReportReportReport) RetrieveReportReport {
-	typ := RetrieveReportReportTypeRetrieveReportReportReport
+func CreateRetrieveReportReportRetrieveReportReportsReport(retrieveReportReportsReport RetrieveReportReportsReport) RetrieveReportReport {
+	typ := RetrieveReportReportUnionTypeRetrieveReportReportsReport
 
 	return RetrieveReportReport{
-		RetrieveReportReportReport: &retrieveReportReportReport,
-		Type:                       typ,
+		RetrieveReportReportsReport: &retrieveReportReportsReport,
+		Type:                        typ,
 	}
 }
 
 func (u *RetrieveReportReport) UnmarshalJSON(data []byte) error {
 
-	retrieveReportReportReport := RetrieveReportReportReport{}
-	if err := utils.UnmarshalJSON(data, &retrieveReportReportReport, "", true, true); err == nil {
-		u.RetrieveReportReportReport = &retrieveReportReportReport
-		u.Type = RetrieveReportReportTypeRetrieveReportReportReport
+	retrieveReportReportsReport := RetrieveReportReportsReport{}
+	if err := utils.UnmarshalJSON(data, &retrieveReportReportsReport, "", true, true); err == nil {
+		u.RetrieveReportReportsReport = &retrieveReportReportsReport
+		u.Type = RetrieveReportReportUnionTypeRetrieveReportReportsReport
 		return nil
 	}
 
@@ -319,24 +319,31 @@ func (u *RetrieveReportReport) UnmarshalJSON(data []byte) error {
 }
 
 func (u RetrieveReportReport) MarshalJSON() ([]byte, error) {
-	if u.RetrieveReportReportReport != nil {
-		return utils.MarshalJSON(u.RetrieveReportReportReport, "", true)
+	if u.RetrieveReportReportsReport != nil {
+		return utils.MarshalJSON(u.RetrieveReportReportsReport, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 type RetrieveReportResponse struct {
-	Body []byte
+	// Report
+	TwoHundredApplicationJSONReport *RetrieveReportReport
+	Body                            []byte
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Report
-	Report *RetrieveReportReport
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *RetrieveReportResponse) GetTwoHundredApplicationJSONReport() *RetrieveReportReport {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONReport
 }
 
 func (o *RetrieveReportResponse) GetBody() []byte {
@@ -358,13 +365,6 @@ func (o *RetrieveReportResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *RetrieveReportResponse) GetReport() *RetrieveReportReport {
-	if o == nil {
-		return nil
-	}
-	return o.Report
 }
 
 func (o *RetrieveReportResponse) GetStatusCode() int {

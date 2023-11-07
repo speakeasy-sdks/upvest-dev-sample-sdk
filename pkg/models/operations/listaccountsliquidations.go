@@ -11,28 +11,28 @@ import (
 	"time"
 )
 
-// ListAccountsLiquidationsSort - Sort the result by `id`.
-type ListAccountsLiquidationsSort string
+// ListAccountsLiquidationsQueryParamSort - Sort the result by `id`.
+type ListAccountsLiquidationsQueryParamSort string
 
 const (
-	ListAccountsLiquidationsSortID ListAccountsLiquidationsSort = "id"
+	ListAccountsLiquidationsQueryParamSortID ListAccountsLiquidationsQueryParamSort = "id"
 )
 
-func (e ListAccountsLiquidationsSort) ToPointer() *ListAccountsLiquidationsSort {
+func (e ListAccountsLiquidationsQueryParamSort) ToPointer() *ListAccountsLiquidationsQueryParamSort {
 	return &e
 }
 
-func (e *ListAccountsLiquidationsSort) UnmarshalJSON(data []byte) error {
+func (e *ListAccountsLiquidationsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "id":
-		*e = ListAccountsLiquidationsSort(v)
+		*e = ListAccountsLiquidationsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsLiquidationsSort: %v", v)
+		return fmt.Errorf("invalid value for ListAccountsLiquidationsQueryParamSort: %v", v)
 	}
 }
 
@@ -51,7 +51,7 @@ type ListAccountsLiquidationsRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Sort the result by `id`.
-	Sort *ListAccountsLiquidationsSort `default:"id" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListAccountsLiquidationsQueryParamSort `default:"id" queryParam:"style=form,explode=true,name=sort"`
 	// Returns accounts liquidations created starting from and including this date (UTC)
 	StartDate *string `queryParam:"style=form,explode=true,name=start_date"`
 	// Upvest API version (Note: Do not include quotation marks)
@@ -120,7 +120,7 @@ func (o *ListAccountsLiquidationsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListAccountsLiquidationsRequest) GetSort() *ListAccountsLiquidationsSort {
+func (o *ListAccountsLiquidationsRequest) GetSort() *ListAccountsLiquidationsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -148,51 +148,51 @@ func (o *ListAccountsLiquidationsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListAccountsLiquidationsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency string
+type ListAccountsLiquidationsCurrency string
 
 const (
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrencyEur ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency = "EUR"
+	ListAccountsLiquidationsCurrencyEur ListAccountsLiquidationsCurrency = "EUR"
 )
 
-func (e ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency) ToPointer() *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency {
+func (e ListAccountsLiquidationsCurrency) ToPointer() *ListAccountsLiquidationsCurrency {
 	return &e
 }
 
-func (e *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListAccountsLiquidationsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency(v)
+		*e = ListAccountsLiquidationsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListAccountsLiquidationsCurrency: %v", v)
 	}
 }
 
-// ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus - Execution status of the Account liquidation order.
+// ListAccountsLiquidationsLiquidationsStatus - Execution status of the Account liquidation order.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
-type ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus string
+type ListAccountsLiquidationsLiquidationsStatus string
 
 const (
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatusNew        ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus = "NEW"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatusProcessing ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus = "PROCESSING"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatusFilled     ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus = "FILLED"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatusCancelled  ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus = "CANCELLED"
+	ListAccountsLiquidationsLiquidationsStatusNew        ListAccountsLiquidationsLiquidationsStatus = "NEW"
+	ListAccountsLiquidationsLiquidationsStatusProcessing ListAccountsLiquidationsLiquidationsStatus = "PROCESSING"
+	ListAccountsLiquidationsLiquidationsStatusFilled     ListAccountsLiquidationsLiquidationsStatus = "FILLED"
+	ListAccountsLiquidationsLiquidationsStatusCancelled  ListAccountsLiquidationsLiquidationsStatus = "CANCELLED"
 )
 
-func (e ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus) ToPointer() *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus {
+func (e ListAccountsLiquidationsLiquidationsStatus) ToPointer() *ListAccountsLiquidationsLiquidationsStatus {
 	return &e
 }
 
-func (e *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
+func (e *ListAccountsLiquidationsLiquidationsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -205,14 +205,14 @@ func (e *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationA
 	case "FILLED":
 		fallthrough
 	case "CANCELLED":
-		*e = ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus(v)
+		*e = ListAccountsLiquidationsLiquidationsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus: %v", v)
+		return fmt.Errorf("invalid value for ListAccountsLiquidationsLiquidationsStatus: %v", v)
 	}
 }
 
-type ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation struct {
+type ListAccountsLiquidationsLiquidationsAccountLiquidation struct {
 	ID string `json:"id"`
 	// Side of the order.
 	// * SELL -
@@ -222,62 +222,62 @@ type ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccou
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
-	Status ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus `json:"status"`
+	Status ListAccountsLiquidationsLiquidationsStatus `json:"status"`
 }
 
-func (l ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation) MarshalJSON() ([]byte, error) {
+func (l ListAccountsLiquidationsLiquidationsAccountLiquidation) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation) UnmarshalJSON(data []byte) error {
+func (l *ListAccountsLiquidationsLiquidationsAccountLiquidation) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation) GetID() string {
+func (o *ListAccountsLiquidationsLiquidationsAccountLiquidation) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation) GetSide() *string {
+func (o *ListAccountsLiquidationsLiquidationsAccountLiquidation) GetSide() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Side
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation) GetStatus() ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus {
+func (o *ListAccountsLiquidationsLiquidationsAccountLiquidation) GetStatus() ListAccountsLiquidationsLiquidationsStatus {
 	if o == nil {
-		return ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidationStatus("")
+		return ListAccountsLiquidationsLiquidationsStatus("")
 	}
 	return o.Status
 }
 
-// ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus - Execution status of the Account liquidation.
+// ListAccountsLiquidationsStatus - Execution status of the Account liquidation.
 // * NEW -
 // * PROCESSING -
 // * FILLED -
 // * CANCELLED -
 // * SETTLED -
-type ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus string
+type ListAccountsLiquidationsStatus string
 
 const (
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatusNew        ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus = "NEW"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatusProcessing ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus = "PROCESSING"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatusFilled     ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus = "FILLED"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatusCancelled  ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus = "CANCELLED"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatusSettled    ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus = "SETTLED"
+	ListAccountsLiquidationsStatusNew        ListAccountsLiquidationsStatus = "NEW"
+	ListAccountsLiquidationsStatusProcessing ListAccountsLiquidationsStatus = "PROCESSING"
+	ListAccountsLiquidationsStatusFilled     ListAccountsLiquidationsStatus = "FILLED"
+	ListAccountsLiquidationsStatusCancelled  ListAccountsLiquidationsStatus = "CANCELLED"
+	ListAccountsLiquidationsStatusSettled    ListAccountsLiquidationsStatus = "SETTLED"
 )
 
-func (e ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus) ToPointer() *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus {
+func (e ListAccountsLiquidationsStatus) ToPointer() *ListAccountsLiquidationsStatus {
 	return &e
 }
 
-func (e *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus) UnmarshalJSON(data []byte) error {
+func (e *ListAccountsLiquidationsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -292,14 +292,14 @@ func (e *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationS
 	case "CANCELLED":
 		fallthrough
 	case "SETTLED":
-		*e = ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus(v)
+		*e = ListAccountsLiquidationsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus: %v", v)
+		return fmt.Errorf("invalid value for ListAccountsLiquidationsStatus: %v", v)
 	}
 }
 
-type ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation struct {
+type ListAccountsLiquidationsAccountLiquidation struct {
 	// Account unique identifier.
 	AccountID  string `json:"account_id"`
 	CashAmount string `json:"cash_amount"`
@@ -307,112 +307,112 @@ type ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation stru
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency `default:"EUR" json:"currency"`
-	ID       string                                                                          `json:"id"`
+	Currency *ListAccountsLiquidationsCurrency `default:"EUR" json:"currency"`
+	ID       string                            `json:"id"`
 	// Position liquidation orders associated with this account liquidation
-	Orders []ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation `json:"orders"`
+	Orders []ListAccountsLiquidationsLiquidationsAccountLiquidation `json:"orders"`
 	// Execution status of the Account liquidation.
 	// * NEW -
 	// * PROCESSING -
 	// * FILLED -
 	// * CANCELLED -
 	// * SETTLED -
-	Status ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus `json:"status"`
+	Status ListAccountsLiquidationsStatus `json:"status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// User unique identifier.
 	UserID *string `json:"user_id,omitempty"`
 }
 
-func (l ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) MarshalJSON() ([]byte, error) {
+func (l ListAccountsLiquidationsAccountLiquidation) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) UnmarshalJSON(data []byte) error {
+func (l *ListAccountsLiquidationsAccountLiquidation) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetAccountID() string {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetCashAmount() string {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetCreatedAt() time.Time {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetCurrency() *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationCurrency {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetCurrency() *ListAccountsLiquidationsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetID() string {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetOrders() []ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetOrders() []ListAccountsLiquidationsLiquidationsAccountLiquidation {
 	if o == nil {
-		return []ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationAccountLiquidation{}
+		return []ListAccountsLiquidationsLiquidationsAccountLiquidation{}
 	}
 	return o.Orders
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetStatus() ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetStatus() ListAccountsLiquidationsStatus {
 	if o == nil {
-		return ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidationStatus("")
+		return ListAccountsLiquidationsStatus("")
 	}
 	return o.Status
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetUpdatedAt() time.Time {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation) GetUserID() *string {
+func (o *ListAccountsLiquidationsAccountLiquidation) GetUserID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.UserID
 }
 
-// ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder - The ordering of the response.
+// ListAccountsLiquidationsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder string
+type ListAccountsLiquidationsOrder string
 
 const (
-	ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrderAsc  ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder = "ASC"
-	ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrderDesc ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder = "DESC"
+	ListAccountsLiquidationsOrderAsc  ListAccountsLiquidationsOrder = "ASC"
+	ListAccountsLiquidationsOrderDesc ListAccountsLiquidationsOrder = "DESC"
 )
 
-func (e ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder) ToPointer() *ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder {
+func (e ListAccountsLiquidationsOrder) ToPointer() *ListAccountsLiquidationsOrder {
 	return &e
 }
 
-func (e *ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListAccountsLiquidationsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -421,14 +421,14 @@ func (e *ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder) Unmarsha
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder(v)
+		*e = ListAccountsLiquidationsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListAccountsLiquidationsOrder: %v", v)
 	}
 }
 
-type ListAccountsLiquidationsPortfoliosOrdersListResponseMeta struct {
+type ListAccountsLiquidationsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -438,49 +438,49 @@ type ListAccountsLiquidationsPortfoliosOrdersListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListAccountsLiquidationsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseMeta) GetCount() int64 {
+func (o *ListAccountsLiquidationsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseMeta) GetLimit() int64 {
+func (o *ListAccountsLiquidationsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseMeta) GetOffset() int64 {
+func (o *ListAccountsLiquidationsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseMeta) GetOrder() *ListAccountsLiquidationsPortfoliosOrdersListResponseMetaOrder {
+func (o *ListAccountsLiquidationsMeta) GetOrder() *ListAccountsLiquidationsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseMeta) GetSort() *string {
+func (o *ListAccountsLiquidationsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseMeta) GetTotalCount() int64 {
+func (o *ListAccountsLiquidationsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -489,34 +489,41 @@ func (o *ListAccountsLiquidationsPortfoliosOrdersListResponseMeta) GetTotalCount
 
 // ListAccountsLiquidationsPortfoliosOrdersListResponse - Accounts liquidations
 type ListAccountsLiquidationsPortfoliosOrdersListResponse struct {
-	Data []ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation `json:"data"`
-	Meta ListAccountsLiquidationsPortfoliosOrdersListResponseMeta                 `json:"meta"`
+	Data []ListAccountsLiquidationsAccountLiquidation `json:"data"`
+	Meta ListAccountsLiquidationsMeta                 `json:"meta"`
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponse) GetData() []ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation {
+func (o *ListAccountsLiquidationsPortfoliosOrdersListResponse) GetData() []ListAccountsLiquidationsAccountLiquidation {
 	if o == nil {
-		return []ListAccountsLiquidationsPortfoliosOrdersListResponseAccountLiquidation{}
+		return []ListAccountsLiquidationsAccountLiquidation{}
 	}
 	return o.Data
 }
 
-func (o *ListAccountsLiquidationsPortfoliosOrdersListResponse) GetMeta() ListAccountsLiquidationsPortfoliosOrdersListResponseMeta {
+func (o *ListAccountsLiquidationsPortfoliosOrdersListResponse) GetMeta() ListAccountsLiquidationsMeta {
 	if o == nil {
-		return ListAccountsLiquidationsPortfoliosOrdersListResponseMeta{}
+		return ListAccountsLiquidationsMeta{}
 	}
 	return o.Meta
 }
 
 type ListAccountsLiquidationsResponse struct {
+	// Accounts liquidations
+	TwoHundredApplicationJSONPortfoliosOrdersListResponse *ListAccountsLiquidationsPortfoliosOrdersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Accounts liquidations
-	PortfoliosOrdersListResponse *ListAccountsLiquidationsPortfoliosOrdersListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListAccountsLiquidationsResponse) GetTwoHundredApplicationJSONPortfoliosOrdersListResponse() *ListAccountsLiquidationsPortfoliosOrdersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPortfoliosOrdersListResponse
 }
 
 func (o *ListAccountsLiquidationsResponse) GetContentType() string {
@@ -531,13 +538,6 @@ func (o *ListAccountsLiquidationsResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListAccountsLiquidationsResponse) GetPortfoliosOrdersListResponse() *ListAccountsLiquidationsPortfoliosOrdersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.PortfoliosOrdersListResponse
 }
 
 func (o *ListAccountsLiquidationsResponse) GetStatusCode() int {

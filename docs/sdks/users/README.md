@@ -1,5 +1,5 @@
 # Users
-(*Users*)
+(*.Users*)
 
 ## Overview
 
@@ -60,7 +60,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Identifier != nil {
+    if res.TwoHundredApplicationJSONIdentifier != nil {
         // handle response
     }
 }
@@ -104,9 +104,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.CreateUser(ctx, operations.CreateUserRequest{
-        RequestBody: operations.CreateCreateUserUserCreateRequestCreateUserUserCreateRequestUserBYOLCreateRequest(
-                operations.CreateUserUserCreateRequestUserBYOLCreateRequest{
-                    Address: operations.CreateUserUserCreateRequestUserBYOLCreateRequestAddress{
+        RequestBody: operations.CreateCreateUserUserCreateRequestUserBYOLCreateRequest(
+                operations.UserBYOLCreateRequest{
+                    Address: operations.CreateUserAddress{
                         AddressLine1: "string",
                         City: "Bettiechester",
                         Country: "Saint Vincent and the Grenadines",
@@ -118,8 +118,8 @@ func main() {
                     Nationalities: []string{
                         "string",
                     },
-                    PostalAddress: operations.CreateCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressCreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress(
-                            operations.CreateUserUserCreateRequestUserBYOLCreateRequestPostalAddressAddress{
+                    PostalAddress: operations.CreatePostalAddressAddress(
+                            operations.Address{
                                 AddressLine1: "string",
                                 City: "Zackeryfurt",
                                 Country: "Mozambique",
@@ -138,7 +138,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.UserCreateRequest != nil {
+    if res.TwoHundredApplicationJSONUserCreateRequest != nil {
         // handle response
     }
 }
@@ -182,17 +182,17 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.CreateUserCheck(ctx, operations.CreateUserCheckRequest{
-        RequestBody: operations.CreateCreateUserCheckUserCheckCreateRequestCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(
-                operations.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest{
+        RequestBody: operations.CreateCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(
+                operations.UserCheckProofOfResidencyCreateRequest{
                     CheckConfirmedAt: types.MustTimeFromString("2023-02-24T14:05:33.909Z"),
-                    ConfirmedAddress: operations.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestAddress{
+                    ConfirmedAddress: operations.CreateUserCheckUsersAddress{
                         AddressLine1: "string",
                         City: "New Sheahaven",
                         Country: "Virgin Islands, British",
                         Postcode: "78236-1673",
                     },
                     DataDownloadLink: "http://overcooked-job.org",
-                    DocumentType: operations.CreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequestDocumentTypeTelephoneBill,
+                    DocumentType: operations.CreateUserCheckDocumentTypeTelephoneBill,
                     IssuanceDate: types.MustDateFromString("2023-01-16"),
                 },
         ),
@@ -206,7 +206,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.UserCheckCreateResponse != nil {
+    if res.TwoHundredAndTwoApplicationJSONUserCheckCreateResponse != nil {
         // handle response
     }
 }
@@ -259,7 +259,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountGroupsListResponse != nil {
+    if res.TwoHundredApplicationJSONAccountGroupsListResponse != nil {
         // handle response
     }
 }
@@ -312,7 +312,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AccountsListResponse != nil {
+    if res.TwoHundredApplicationJSONAccountsListResponse != nil {
         // handle response
     }
 }
@@ -365,7 +365,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.UserCheckListResponse != nil {
+    if res.TwoHundredApplicationJSONUserCheckListResponse != nil {
         // handle response
     }
 }
@@ -418,7 +418,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.IdentifiersListResponse != nil {
+    if res.TwoHundredApplicationJSONIdentifiersListResponse != nil {
         // handle response
     }
 }
@@ -470,7 +470,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.UsersListResponse != nil {
+    if res.TwoHundredApplicationJSONUsersListResponse != nil {
         // handle response
     }
 }
@@ -577,7 +577,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Identifier != nil {
+    if res.TwoHundredApplicationJSONIdentifier != nil {
         // handle response
     }
 }
@@ -630,7 +630,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.UserGetResponse != nil {
+    if res.TwoHundredApplicationJSONUserGetResponse != nil {
         // handle response
     }
 }
@@ -684,7 +684,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.UserCheck != nil {
+    if res.TwoHundredApplicationJSONUserCheck != nil {
         // handle response
     }
 }
@@ -741,7 +741,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Identifier != nil {
+    if res.TwoHundredApplicationJSONIdentifier != nil {
         // handle response
     }
 }
@@ -785,9 +785,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.UserDataChange(ctx, operations.UserDataChangeRequest{
-        RequestBody: operations.CreateUserDataChangeUserDataChangeRequestUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(
-                operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest{
-                    Address: &operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestAddress{
+        RequestBody: operations.CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(
+                operations.UserBYOLDataChangeRequest{
+                    Address: &operations.UserDataChangeUsersAddress{
                         AddressLine1: "string",
                         City: "Schinnerfurt",
                         Country: "Syrian Arab Republic",
@@ -796,8 +796,8 @@ func main() {
                     Nationalities: []string{
                         "string",
                     },
-                    PostalAddress: operations.CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress(
-                            operations.UserDataChangeUserDataChangeRequestUserBYOLDataChangeRequestPostalAddressAddress{
+                    PostalAddress: operations.CreateUserDataChangePostalAddressUserDataChangeAddress(
+                            operations.UserDataChangeAddress{
                                 AddressLine1: "string",
                                 City: "Fort Johathan",
                                 Country: "Wallis and Futuna",

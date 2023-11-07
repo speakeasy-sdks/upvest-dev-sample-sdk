@@ -1,5 +1,5 @@
 # AccessTokens
-(*AccessTokens*)
+(*.AccessTokens*)
 
 ## Overview
 
@@ -49,7 +49,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.AuthAccessToken != nil {
+    if res.TwoHundredApplicationJSONAuthAccessToken != nil {
         // handle response
     }
 }

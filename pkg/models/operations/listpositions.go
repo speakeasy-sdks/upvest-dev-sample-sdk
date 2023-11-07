@@ -86,94 +86,94 @@ func (o *ListPositionsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-type ListPositionsPositionsListResponseDataInstrument struct {
+type ListPositionsInstrument struct {
 	// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
 	Isin *string `json:"isin,omitempty"`
 	// Instrument unique identifier.
 	UUID string `json:"uuid"`
 }
 
-func (o *ListPositionsPositionsListResponseDataInstrument) GetIsin() *string {
+func (o *ListPositionsInstrument) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *ListPositionsPositionsListResponseDataInstrument) GetUUID() string {
+func (o *ListPositionsInstrument) GetUUID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UUID
 }
 
-type ListPositionsPositionsListResponseData struct {
+type ListPositionsData struct {
 	// Account unique identifier.
-	AccountID           string                                           `json:"account_id"`
-	AvailableForTrading string                                           `json:"available_for_trading"`
-	Instrument          ListPositionsPositionsListResponseDataInstrument `json:"instrument"`
-	LockedForTrading    string                                           `json:"locked_for_trading"`
-	PendingSettlement   string                                           `json:"pending_settlement"`
-	Quantity            string                                           `json:"quantity"`
+	AccountID           string                  `json:"account_id"`
+	AvailableForTrading string                  `json:"available_for_trading"`
+	Instrument          ListPositionsInstrument `json:"instrument"`
+	LockedForTrading    string                  `json:"locked_for_trading"`
+	PendingSettlement   string                  `json:"pending_settlement"`
+	Quantity            string                  `json:"quantity"`
 }
 
-func (o *ListPositionsPositionsListResponseData) GetAccountID() string {
+func (o *ListPositionsData) GetAccountID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountID
 }
 
-func (o *ListPositionsPositionsListResponseData) GetAvailableForTrading() string {
+func (o *ListPositionsData) GetAvailableForTrading() string {
 	if o == nil {
 		return ""
 	}
 	return o.AvailableForTrading
 }
 
-func (o *ListPositionsPositionsListResponseData) GetInstrument() ListPositionsPositionsListResponseDataInstrument {
+func (o *ListPositionsData) GetInstrument() ListPositionsInstrument {
 	if o == nil {
-		return ListPositionsPositionsListResponseDataInstrument{}
+		return ListPositionsInstrument{}
 	}
 	return o.Instrument
 }
 
-func (o *ListPositionsPositionsListResponseData) GetLockedForTrading() string {
+func (o *ListPositionsData) GetLockedForTrading() string {
 	if o == nil {
 		return ""
 	}
 	return o.LockedForTrading
 }
 
-func (o *ListPositionsPositionsListResponseData) GetPendingSettlement() string {
+func (o *ListPositionsData) GetPendingSettlement() string {
 	if o == nil {
 		return ""
 	}
 	return o.PendingSettlement
 }
 
-func (o *ListPositionsPositionsListResponseData) GetQuantity() string {
+func (o *ListPositionsData) GetQuantity() string {
 	if o == nil {
 		return ""
 	}
 	return o.Quantity
 }
 
-// ListPositionsPositionsListResponseMetaOrder - The ordering of the response.
+// ListPositionsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListPositionsPositionsListResponseMetaOrder string
+type ListPositionsOrder string
 
 const (
-	ListPositionsPositionsListResponseMetaOrderAsc  ListPositionsPositionsListResponseMetaOrder = "ASC"
-	ListPositionsPositionsListResponseMetaOrderDesc ListPositionsPositionsListResponseMetaOrder = "DESC"
+	ListPositionsOrderAsc  ListPositionsOrder = "ASC"
+	ListPositionsOrderDesc ListPositionsOrder = "DESC"
 )
 
-func (e ListPositionsPositionsListResponseMetaOrder) ToPointer() *ListPositionsPositionsListResponseMetaOrder {
+func (e ListPositionsOrder) ToPointer() *ListPositionsOrder {
 	return &e
 }
 
-func (e *ListPositionsPositionsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListPositionsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -182,14 +182,14 @@ func (e *ListPositionsPositionsListResponseMetaOrder) UnmarshalJSON(data []byte)
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListPositionsPositionsListResponseMetaOrder(v)
+		*e = ListPositionsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPositionsPositionsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListPositionsOrder: %v", v)
 	}
 }
 
-type ListPositionsPositionsListResponseMeta struct {
+type ListPositionsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -199,49 +199,49 @@ type ListPositionsPositionsListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListPositionsPositionsListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListPositionsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListPositionsPositionsListResponseMeta) GetCount() int64 {
+func (o *ListPositionsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListPositionsPositionsListResponseMeta) GetLimit() int64 {
+func (o *ListPositionsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListPositionsPositionsListResponseMeta) GetOffset() int64 {
+func (o *ListPositionsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListPositionsPositionsListResponseMeta) GetOrder() *ListPositionsPositionsListResponseMetaOrder {
+func (o *ListPositionsMeta) GetOrder() *ListPositionsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListPositionsPositionsListResponseMeta) GetSort() *string {
+func (o *ListPositionsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListPositionsPositionsListResponseMeta) GetTotalCount() int64 {
+func (o *ListPositionsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -250,34 +250,41 @@ func (o *ListPositionsPositionsListResponseMeta) GetTotalCount() int64 {
 
 // ListPositionsPositionsListResponse - Response
 type ListPositionsPositionsListResponse struct {
-	Data []ListPositionsPositionsListResponseData `json:"data"`
-	Meta ListPositionsPositionsListResponseMeta   `json:"meta"`
+	Data []ListPositionsData `json:"data"`
+	Meta ListPositionsMeta   `json:"meta"`
 }
 
-func (o *ListPositionsPositionsListResponse) GetData() []ListPositionsPositionsListResponseData {
+func (o *ListPositionsPositionsListResponse) GetData() []ListPositionsData {
 	if o == nil {
-		return []ListPositionsPositionsListResponseData{}
+		return []ListPositionsData{}
 	}
 	return o.Data
 }
 
-func (o *ListPositionsPositionsListResponse) GetMeta() ListPositionsPositionsListResponseMeta {
+func (o *ListPositionsPositionsListResponse) GetMeta() ListPositionsMeta {
 	if o == nil {
-		return ListPositionsPositionsListResponseMeta{}
+		return ListPositionsMeta{}
 	}
 	return o.Meta
 }
 
 type ListPositionsResponse struct {
+	// Response
+	TwoHundredApplicationJSONPositionsListResponse *ListPositionsPositionsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Response
-	PositionsListResponse *ListPositionsPositionsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListPositionsResponse) GetTwoHundredApplicationJSONPositionsListResponse() *ListPositionsPositionsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPositionsListResponse
 }
 
 func (o *ListPositionsResponse) GetContentType() string {
@@ -292,13 +299,6 @@ func (o *ListPositionsResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListPositionsResponse) GetPositionsListResponse() *ListPositionsPositionsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.PositionsListResponse
 }
 
 func (o *ListPositionsResponse) GetStatusCode() int {

@@ -5,27 +5,27 @@ OK
 
 ## Supported Types
 
-### RetrieveUserCheckUserCheckUserCheckKnowYourCustomer
+### UserCheckKnowYourCustomer
 
 ```go
-retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckKnowYourCustomer(operations.RetrieveUserCheckUserCheckUserCheckKnowYourCustomer{/* values here */})
+retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckUserCheckKnowYourCustomer(operations.UserCheckKnowYourCustomer{/* values here */})
 ```
 
-### RetrieveUserCheckUserCheckUserCheckProofOfResidency
+### UserCheckProofOfResidency
 
 ```go
-retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckProofOfResidency(operations.RetrieveUserCheckUserCheckUserCheckProofOfResidency{/* values here */})
+retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckUserCheckProofOfResidency(operations.UserCheckProofOfResidency{/* values here */})
 ```
 
-### RetrieveUserCheckUserCheckUserCheckInstrumentFit
+### UserCheckInstrumentFit
 
 ```go
-retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckInstrumentFit(operations.RetrieveUserCheckUserCheckUserCheckInstrumentFit{/* values here */})
+retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckUserCheckInstrumentFit(operations.UserCheckInstrumentFit{/* values here */})
 ```
 
-### RetrieveUserCheckUserCheckUserCheckCompliance
+### UserCheckCompliance
 
 ```go
-retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckCompliance(operations.RetrieveUserCheckUserCheckUserCheckCompliance{/* values here */})
+retrieveUserCheckUserCheck := operations.CreateRetrieveUserCheckUserCheckUserCheckCompliance(operations.UserCheckCompliance{/* values here */})
 ```
 

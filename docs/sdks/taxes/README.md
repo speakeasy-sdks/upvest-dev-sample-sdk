@@ -1,5 +1,5 @@
 # Taxes
-(*Taxes*)
+(*.Taxes*)
 
 ## Overview
 
@@ -44,7 +44,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TaxResidencyRecord != nil {
+    if res.TwoHundredApplicationJSONTaxResidencyRecord != nil {
         // handle response
     }
 }
@@ -88,9 +88,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Taxes.SetTaxResidencies(ctx, operations.SetTaxResidenciesRequest{
         RequestBody: &operations.SetTaxResidenciesTaxResidenciesSetRequest{
-            TaxResidencies: []operations.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest{
-                operations.CreateSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber(
-                    operations.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber{
+            TaxResidencies: []operations.TaxResidencyForCreateRequest{
+                operations.CreateTaxResidencyForCreateRequestWithTaxIdentifierNumber(
+                    operations.WithTaxIdentifierNumber{
                         Country: "Portugal",
                         TaxIdentifierNumber: "string",
                     },
@@ -108,7 +108,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TaxResidencyRecord != nil {
+    if res.TwoHundredApplicationJSONTaxResidencyRecord != nil {
         // handle response
     }
 }

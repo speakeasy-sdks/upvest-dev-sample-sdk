@@ -127,51 +127,51 @@ func (o *CreateDirectDebitRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateDirectDebit200ApplicationJSONCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateDirectDebitCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateDirectDebit200ApplicationJSONCurrency string
+type CreateDirectDebitCurrency string
 
 const (
-	CreateDirectDebit200ApplicationJSONCurrencyEur CreateDirectDebit200ApplicationJSONCurrency = "EUR"
+	CreateDirectDebitCurrencyEur CreateDirectDebitCurrency = "EUR"
 )
 
-func (e CreateDirectDebit200ApplicationJSONCurrency) ToPointer() *CreateDirectDebit200ApplicationJSONCurrency {
+func (e CreateDirectDebitCurrency) ToPointer() *CreateDirectDebitCurrency {
 	return &e
 }
 
-func (e *CreateDirectDebit200ApplicationJSONCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateDirectDebitCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateDirectDebit200ApplicationJSONCurrency(v)
+		*e = CreateDirectDebitCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateDirectDebit200ApplicationJSONCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateDirectDebitCurrency: %v", v)
 	}
 }
 
-// CreateDirectDebit200ApplicationJSONStatus - Status of the direct debit
+// CreateDirectDebitStatus - Status of the direct debit
 // * NEW - Direct debit is created but not started processing.
 // * PROCESSING - Direct debit is in processing.
 // * CONFIRMED - Direct debit was successfully processed.
 // * CANCELLED - Direct debit was cancelled.
-type CreateDirectDebit200ApplicationJSONStatus string
+type CreateDirectDebitStatus string
 
 const (
-	CreateDirectDebit200ApplicationJSONStatusNew        CreateDirectDebit200ApplicationJSONStatus = "NEW"
-	CreateDirectDebit200ApplicationJSONStatusProcessing CreateDirectDebit200ApplicationJSONStatus = "PROCESSING"
-	CreateDirectDebit200ApplicationJSONStatusConfirmed  CreateDirectDebit200ApplicationJSONStatus = "CONFIRMED"
-	CreateDirectDebit200ApplicationJSONStatusCancelled  CreateDirectDebit200ApplicationJSONStatus = "CANCELLED"
+	CreateDirectDebitStatusNew        CreateDirectDebitStatus = "NEW"
+	CreateDirectDebitStatusProcessing CreateDirectDebitStatus = "PROCESSING"
+	CreateDirectDebitStatusConfirmed  CreateDirectDebitStatus = "CONFIRMED"
+	CreateDirectDebitStatusCancelled  CreateDirectDebitStatus = "CANCELLED"
 )
 
-func (e CreateDirectDebit200ApplicationJSONStatus) ToPointer() *CreateDirectDebit200ApplicationJSONStatus {
+func (e CreateDirectDebitStatus) ToPointer() *CreateDirectDebitStatus {
 	return &e
 }
 
-func (e *CreateDirectDebit200ApplicationJSONStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateDirectDebitStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -184,15 +184,15 @@ func (e *CreateDirectDebit200ApplicationJSONStatus) UnmarshalJSON(data []byte) e
 	case "CONFIRMED":
 		fallthrough
 	case "CANCELLED":
-		*e = CreateDirectDebit200ApplicationJSONStatus(v)
+		*e = CreateDirectDebitStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateDirectDebit200ApplicationJSONStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateDirectDebitStatus: %v", v)
 	}
 }
 
-// CreateDirectDebit200ApplicationJSON - Direct debit
-type CreateDirectDebit200ApplicationJSON struct {
+// CreateDirectDebitResponseBody - Direct debit
+type CreateDirectDebitResponseBody struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
 	CashAmount     string `json:"cash_amount"`
@@ -200,7 +200,7 @@ type CreateDirectDebit200ApplicationJSON struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateDirectDebit200ApplicationJSONCurrency `default:"EUR" json:"currency"`
+	Currency *CreateDirectDebitCurrency `default:"EUR" json:"currency"`
 	// Direct debit funding request unique identifier
 	ID string `json:"id"`
 	// Direct Debit Mandate unique identifier.
@@ -212,79 +212,79 @@ type CreateDirectDebit200ApplicationJSON struct {
 	// * PROCESSING - Direct debit is in processing.
 	// * CONFIRMED - Direct debit was successfully processed.
 	// * CANCELLED - Direct debit was cancelled.
-	Status *CreateDirectDebit200ApplicationJSONStatus `json:"status,omitempty"`
+	Status *CreateDirectDebitStatus `json:"status,omitempty"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (c CreateDirectDebit200ApplicationJSON) MarshalJSON() ([]byte, error) {
+func (c CreateDirectDebitResponseBody) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(c, "", false)
 }
 
-func (c *CreateDirectDebit200ApplicationJSON) UnmarshalJSON(data []byte) error {
+func (c *CreateDirectDebitResponseBody) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetAccountGroupID() string {
+func (o *CreateDirectDebitResponseBody) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetCashAmount() string {
+func (o *CreateDirectDebitResponseBody) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetCreatedAt() time.Time {
+func (o *CreateDirectDebitResponseBody) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetCurrency() *CreateDirectDebit200ApplicationJSONCurrency {
+func (o *CreateDirectDebitResponseBody) GetCurrency() *CreateDirectDebitCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetID() string {
+func (o *CreateDirectDebitResponseBody) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetMandateID() string {
+func (o *CreateDirectDebitResponseBody) GetMandateID() string {
 	if o == nil {
 		return ""
 	}
 	return o.MandateID
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetRemittanceInformation() *string {
+func (o *CreateDirectDebitResponseBody) GetRemittanceInformation() *string {
 	if o == nil {
 		return nil
 	}
 	return o.RemittanceInformation
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetStatus() *CreateDirectDebit200ApplicationJSONStatus {
+func (o *CreateDirectDebitResponseBody) GetStatus() *CreateDirectDebitStatus {
 	if o == nil {
 		return nil
 	}
 	return o.Status
 }
 
-func (o *CreateDirectDebit200ApplicationJSON) GetUserID() string {
+func (o *CreateDirectDebitResponseBody) GetUserID() string {
 	if o == nil {
 		return ""
 	}
@@ -292,6 +292,8 @@ func (o *CreateDirectDebit200ApplicationJSON) GetUserID() string {
 }
 
 type CreateDirectDebitResponse struct {
+	// Direct debit
+	TwoHundredApplicationJSONObject *CreateDirectDebitResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -299,8 +301,13 @@ type CreateDirectDebitResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Direct debit
-	CreateDirectDebit200ApplicationJSONObject *CreateDirectDebit200ApplicationJSON
+}
+
+func (o *CreateDirectDebitResponse) GetTwoHundredApplicationJSONObject() *CreateDirectDebitResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONObject
 }
 
 func (o *CreateDirectDebitResponse) GetContentType() string {
@@ -329,11 +336,4 @@ func (o *CreateDirectDebitResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *CreateDirectDebitResponse) GetCreateDirectDebit200ApplicationJSONObject() *CreateDirectDebit200ApplicationJSON {
-	if o == nil {
-		return nil
-	}
-	return o.CreateDirectDebit200ApplicationJSONObject
 }

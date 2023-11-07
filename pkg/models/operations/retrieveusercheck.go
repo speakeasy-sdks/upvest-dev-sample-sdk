@@ -79,23 +79,23 @@ func (o *RetrieveUserCheckRequest) GetUserID() string {
 	return o.UserID
 }
 
-// RetrieveUserCheckUserCheckUserCheckComplianceStatus - Final status of the COMPLIANCE check.
+// RetrieveUserCheckUsersResponse200Status - Final status of the COMPLIANCE check.
 // * IN_PROGRESS - Compliance check is in progress
 // * PASSED - Compliance check passed
 // * FAILED - Compliance check failed
-type RetrieveUserCheckUserCheckUserCheckComplianceStatus string
+type RetrieveUserCheckUsersResponse200Status string
 
 const (
-	RetrieveUserCheckUserCheckUserCheckComplianceStatusInProgress RetrieveUserCheckUserCheckUserCheckComplianceStatus = "IN_PROGRESS"
-	RetrieveUserCheckUserCheckUserCheckComplianceStatusPassed     RetrieveUserCheckUserCheckUserCheckComplianceStatus = "PASSED"
-	RetrieveUserCheckUserCheckUserCheckComplianceStatusFailed     RetrieveUserCheckUserCheckUserCheckComplianceStatus = "FAILED"
+	RetrieveUserCheckUsersResponse200StatusInProgress RetrieveUserCheckUsersResponse200Status = "IN_PROGRESS"
+	RetrieveUserCheckUsersResponse200StatusPassed     RetrieveUserCheckUsersResponse200Status = "PASSED"
+	RetrieveUserCheckUsersResponse200StatusFailed     RetrieveUserCheckUsersResponse200Status = "FAILED"
 )
 
-func (e RetrieveUserCheckUserCheckUserCheckComplianceStatus) ToPointer() *RetrieveUserCheckUserCheckUserCheckComplianceStatus {
+func (e RetrieveUserCheckUsersResponse200Status) ToPointer() *RetrieveUserCheckUsersResponse200Status {
 	return &e
 }
 
-func (e *RetrieveUserCheckUserCheckUserCheckComplianceStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserCheckUsersResponse200Status) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -106,15 +106,15 @@ func (e *RetrieveUserCheckUserCheckUserCheckComplianceStatus) UnmarshalJSON(data
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = RetrieveUserCheckUserCheckUserCheckComplianceStatus(v)
+		*e = RetrieveUserCheckUsersResponse200Status(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserCheckUserCheckUserCheckComplianceStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserCheckUsersResponse200Status: %v", v)
 	}
 }
 
-// RetrieveUserCheckUserCheckUserCheckCompliance - Compliance check
-type RetrieveUserCheckUserCheckUserCheckCompliance struct {
+// UserCheckCompliance - Compliance check
+type UserCheckCompliance struct {
 	// Completion date and time of the COMPLIANCE check.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// User Check unique identifier.
@@ -123,88 +123,88 @@ type RetrieveUserCheckUserCheckUserCheckCompliance struct {
 	// * IN_PROGRESS - Compliance check is in progress
 	// * PASSED - Compliance check passed
 	// * FAILED - Compliance check failed
-	Status *RetrieveUserCheckUserCheckUserCheckComplianceStatus `json:"status,omitempty"`
+	Status *RetrieveUserCheckUsersResponse200Status `json:"status,omitempty"`
 	// The type of check must be COMPLIANCE.
 	Type *string `default:"COMPLIANCE" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (r RetrieveUserCheckUserCheckUserCheckCompliance) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(r, "", false)
+func (u UserCheckCompliance) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (r *RetrieveUserCheckUserCheckUserCheckCompliance) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, true); err != nil {
+func (u *UserCheckCompliance) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckCompliance) GetCheckConfirmedAt() time.Time {
+func (o *UserCheckCompliance) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckCompliance) GetID() string {
+func (o *UserCheckCompliance) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckCompliance) GetStatus() *RetrieveUserCheckUserCheckUserCheckComplianceStatus {
+func (o *UserCheckCompliance) GetStatus() *RetrieveUserCheckUsersResponse200Status {
 	if o == nil {
 		return nil
 	}
 	return o.Status
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckCompliance) GetType() *string {
+func (o *UserCheckCompliance) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckCompliance) GetUserID() string {
+func (o *UserCheckCompliance) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-type RetrieveUserCheckUserCheckUserCheckInstrumentFitInstrumentSuitability struct {
+type RetrieveUserCheckInstrumentSuitability struct {
 	// Did the user go through a suitability assessment and the outcome indicated suitability.
 	Suitability bool `json:"suitability"`
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckInstrumentFitInstrumentSuitability) GetSuitability() bool {
+func (o *RetrieveUserCheckInstrumentSuitability) GetSuitability() bool {
 	if o == nil {
 		return false
 	}
 	return o.Suitability
 }
 
-// RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus - Final status of the instrument fit check.
+// RetrieveUserCheckUsersResponseStatus - Final status of the instrument fit check.
 // * IN_PROGRESS - Instrument fit check is in progress
 // * PASSED - Instrument fit check passed
 // * FAILED - Instrument fit check failed
-type RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus string
+type RetrieveUserCheckUsersResponseStatus string
 
 const (
-	RetrieveUserCheckUserCheckUserCheckInstrumentFitStatusInProgress RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus = "IN_PROGRESS"
-	RetrieveUserCheckUserCheckUserCheckInstrumentFitStatusPassed     RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus = "PASSED"
-	RetrieveUserCheckUserCheckUserCheckInstrumentFitStatusFailed     RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus = "FAILED"
+	RetrieveUserCheckUsersResponseStatusInProgress RetrieveUserCheckUsersResponseStatus = "IN_PROGRESS"
+	RetrieveUserCheckUsersResponseStatusPassed     RetrieveUserCheckUsersResponseStatus = "PASSED"
+	RetrieveUserCheckUsersResponseStatusFailed     RetrieveUserCheckUsersResponseStatus = "FAILED"
 )
 
-func (e RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus) ToPointer() *RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus {
+func (e RetrieveUserCheckUsersResponseStatus) ToPointer() *RetrieveUserCheckUsersResponseStatus {
 	return &e
 }
 
-func (e *RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserCheckUsersResponseStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -215,86 +215,86 @@ func (e *RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus) UnmarshalJSON(d
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus(v)
+		*e = RetrieveUserCheckUsersResponseStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserCheckUsersResponseStatus: %v", v)
 	}
 }
 
-// RetrieveUserCheckUserCheckUserCheckInstrumentFit - Instrument fit check is completed by the client providing the user's answers to the instrument appropriateness or suitability questionnaire.
-type RetrieveUserCheckUserCheckUserCheckInstrumentFit struct {
+// UserCheckInstrumentFit - Instrument fit check is completed by the client providing the user's answers to the instrument appropriateness or suitability questionnaire.
+type UserCheckInstrumentFit struct {
 	// Completion date and time of the instrument fit check.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// User Check unique identifier.
-	ID                    string                                                                `json:"id"`
-	InstrumentSuitability RetrieveUserCheckUserCheckUserCheckInstrumentFitInstrumentSuitability `json:"instrument_suitability"`
+	ID                    string                                 `json:"id"`
+	InstrumentSuitability RetrieveUserCheckInstrumentSuitability `json:"instrument_suitability"`
 	// Final status of the instrument fit check.
 	// * IN_PROGRESS - Instrument fit check is in progress
 	// * PASSED - Instrument fit check passed
 	// * FAILED - Instrument fit check failed
-	Status RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus `json:"status"`
+	Status RetrieveUserCheckUsersResponseStatus `json:"status"`
 	// The type of check must be INSTRUMENT_FIT.
 	Type *string `default:"INSTRUMENT_FIT" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (r RetrieveUserCheckUserCheckUserCheckInstrumentFit) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(r, "", false)
+func (u UserCheckInstrumentFit) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (r *RetrieveUserCheckUserCheckUserCheckInstrumentFit) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, true); err != nil {
+func (u *UserCheckInstrumentFit) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckInstrumentFit) GetCheckConfirmedAt() time.Time {
+func (o *UserCheckInstrumentFit) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckInstrumentFit) GetID() string {
+func (o *UserCheckInstrumentFit) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckInstrumentFit) GetInstrumentSuitability() RetrieveUserCheckUserCheckUserCheckInstrumentFitInstrumentSuitability {
+func (o *UserCheckInstrumentFit) GetInstrumentSuitability() RetrieveUserCheckInstrumentSuitability {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckInstrumentFitInstrumentSuitability{}
+		return RetrieveUserCheckInstrumentSuitability{}
 	}
 	return o.InstrumentSuitability
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckInstrumentFit) GetStatus() RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus {
+func (o *UserCheckInstrumentFit) GetStatus() RetrieveUserCheckUsersResponseStatus {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckInstrumentFitStatus("")
+		return RetrieveUserCheckUsersResponseStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckInstrumentFit) GetType() *string {
+func (o *UserCheckInstrumentFit) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckInstrumentFit) GetUserID() string {
+func (o *UserCheckInstrumentFit) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress - Address. Must not be a P.O. box or c/o address.
-type RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress struct {
+// RetrieveUserCheckUsersAddress - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserCheckUsersAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -308,49 +308,49 @@ type RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress) GetAddressLine1() string {
+func (o *RetrieveUserCheckUsersAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress) GetAddressLine2() *string {
+func (o *RetrieveUserCheckUsersAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress) GetCity() string {
+func (o *RetrieveUserCheckUsersAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress) GetCountry() string {
+func (o *RetrieveUserCheckUsersAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress) GetPostcode() string {
+func (o *RetrieveUserCheckUsersAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress) GetState() *string {
+func (o *RetrieveUserCheckUsersAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType - The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
+// RetrieveUserCheckUsersDocumentType - The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
 // * UTILITY_BILL -
 // * TELEPHONE_BILL -
 // * INTERNET_BILL -
@@ -358,23 +358,23 @@ func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress) GetState() 
 // * REGISTRATION_CERT -
 // * RESIDENCE_PERMIT -
 // * ID_CARD -
-type RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType string
+type RetrieveUserCheckUsersDocumentType string
 
 const (
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentTypeUtilityBill      RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType = "UTILITY_BILL"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentTypeTelephoneBill    RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType = "TELEPHONE_BILL"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentTypeInternetBill     RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType = "INTERNET_BILL"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentTypeBankStatement    RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType = "BANK_STATEMENT"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentTypeRegistrationCert RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType = "REGISTRATION_CERT"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentTypeResidencePermit  RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType = "RESIDENCE_PERMIT"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentTypeIDCard           RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType = "ID_CARD"
+	RetrieveUserCheckUsersDocumentTypeUtilityBill      RetrieveUserCheckUsersDocumentType = "UTILITY_BILL"
+	RetrieveUserCheckUsersDocumentTypeTelephoneBill    RetrieveUserCheckUsersDocumentType = "TELEPHONE_BILL"
+	RetrieveUserCheckUsersDocumentTypeInternetBill     RetrieveUserCheckUsersDocumentType = "INTERNET_BILL"
+	RetrieveUserCheckUsersDocumentTypeBankStatement    RetrieveUserCheckUsersDocumentType = "BANK_STATEMENT"
+	RetrieveUserCheckUsersDocumentTypeRegistrationCert RetrieveUserCheckUsersDocumentType = "REGISTRATION_CERT"
+	RetrieveUserCheckUsersDocumentTypeResidencePermit  RetrieveUserCheckUsersDocumentType = "RESIDENCE_PERMIT"
+	RetrieveUserCheckUsersDocumentTypeIDCard           RetrieveUserCheckUsersDocumentType = "ID_CARD"
 )
 
-func (e RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType) ToPointer() *RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType {
+func (e RetrieveUserCheckUsersDocumentType) ToPointer() *RetrieveUserCheckUsersDocumentType {
 	return &e
 }
 
-func (e *RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserCheckUsersDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -393,30 +393,30 @@ func (e *RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType) Unmars
 	case "RESIDENCE_PERMIT":
 		fallthrough
 	case "ID_CARD":
-		*e = RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType(v)
+		*e = RetrieveUserCheckUsersDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserCheckUsersDocumentType: %v", v)
 	}
 }
 
-// RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus - Final status of the PoR check.
+// RetrieveUserCheckUsersStatus - Final status of the PoR check.
 // * IN_PROGRESS -
 // * PASSED -
 // * FAILED -
-type RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus string
+type RetrieveUserCheckUsersStatus string
 
 const (
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatusInProgress RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus = "IN_PROGRESS"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatusPassed     RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus = "PASSED"
-	RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatusFailed     RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus = "FAILED"
+	RetrieveUserCheckUsersStatusInProgress RetrieveUserCheckUsersStatus = "IN_PROGRESS"
+	RetrieveUserCheckUsersStatusPassed     RetrieveUserCheckUsersStatus = "PASSED"
+	RetrieveUserCheckUsersStatusFailed     RetrieveUserCheckUsersStatus = "FAILED"
 )
 
-func (e RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus) ToPointer() *RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus {
+func (e RetrieveUserCheckUsersStatus) ToPointer() *RetrieveUserCheckUsersStatus {
 	return &e
 }
 
-func (e *RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserCheckUsersStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -427,19 +427,19 @@ func (e *RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus) UnmarshalJSO
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus(v)
+		*e = RetrieveUserCheckUsersStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserCheckUsersStatus: %v", v)
 	}
 }
 
-// RetrieveUserCheckUserCheckUserCheckProofOfResidency - The PoR (Proof of residency) check is completed by the client sharing a valid PoR document, if not fulfilled by the KYC check.
-type RetrieveUserCheckUserCheckUserCheckProofOfResidency struct {
+// UserCheckProofOfResidency - The PoR (Proof of residency) check is completed by the client sharing a valid PoR document, if not fulfilled by the KYC check.
+type UserCheckProofOfResidency struct {
 	// Completion date and time of the PoR check.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	ConfirmedAddress RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress `json:"confirmed_address"`
+	ConfirmedAddress RetrieveUserCheckUsersAddress `json:"confirmed_address"`
 	// Download link for the PoR evidence file. Should be a valid URL.
 	DataDownloadLink string `json:"data_download_link"`
 	// The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid), ID Card that contains the registration address.
@@ -450,7 +450,7 @@ type RetrieveUserCheckUserCheckUserCheckProofOfResidency struct {
 	// * REGISTRATION_CERT -
 	// * RESIDENCE_PERMIT -
 	// * ID_CARD -
-	DocumentType RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType `json:"document_type"`
+	DocumentType RetrieveUserCheckUsersDocumentType `json:"document_type"`
 	// User Check unique identifier.
 	ID string `json:"id"`
 	// Issuance date in YYYY-MM-DD format.
@@ -459,89 +459,89 @@ type RetrieveUserCheckUserCheckUserCheckProofOfResidency struct {
 	// * IN_PROGRESS -
 	// * PASSED -
 	// * FAILED -
-	Status RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus `json:"status"`
+	Status RetrieveUserCheckUsersStatus `json:"status"`
 	// The type of check must be POR.
 	Type *string `default:"POR" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (r RetrieveUserCheckUserCheckUserCheckProofOfResidency) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(r, "", false)
+func (u UserCheckProofOfResidency) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (r *RetrieveUserCheckUserCheckUserCheckProofOfResidency) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, true); err != nil {
+func (u *UserCheckProofOfResidency) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetCheckConfirmedAt() time.Time {
+func (o *UserCheckProofOfResidency) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetConfirmedAddress() RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress {
+func (o *UserCheckProofOfResidency) GetConfirmedAddress() RetrieveUserCheckUsersAddress {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckProofOfResidencyAddress{}
+		return RetrieveUserCheckUsersAddress{}
 	}
 	return o.ConfirmedAddress
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetDataDownloadLink() string {
+func (o *UserCheckProofOfResidency) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetDocumentType() RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType {
+func (o *UserCheckProofOfResidency) GetDocumentType() RetrieveUserCheckUsersDocumentType {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckProofOfResidencyDocumentType("")
+		return RetrieveUserCheckUsersDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetID() string {
+func (o *UserCheckProofOfResidency) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetIssuanceDate() types.Date {
+func (o *UserCheckProofOfResidency) GetIssuanceDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.IssuanceDate
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetStatus() RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus {
+func (o *UserCheckProofOfResidency) GetStatus() RetrieveUserCheckUsersStatus {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckProofOfResidencyStatus("")
+		return RetrieveUserCheckUsersStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetType() *string {
+func (o *UserCheckProofOfResidency) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckProofOfResidency) GetUserID() string {
+func (o *UserCheckProofOfResidency) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress - Address. Must not be a P.O. box or c/o address.
-type RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress struct {
+// RetrieveUserCheckAddress - Address. Must not be a P.O. box or c/o address.
+type RetrieveUserCheckAddress struct {
 	// First address line of the address.
 	AddressLine1 string `json:"address_line1"`
 	// Second address line of the address.
@@ -555,65 +555,65 @@ type RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress struct {
 	State *string `json:"state,omitempty"`
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress) GetAddressLine1() string {
+func (o *RetrieveUserCheckAddress) GetAddressLine1() string {
 	if o == nil {
 		return ""
 	}
 	return o.AddressLine1
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress) GetAddressLine2() *string {
+func (o *RetrieveUserCheckAddress) GetAddressLine2() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AddressLine2
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress) GetCity() string {
+func (o *RetrieveUserCheckAddress) GetCity() string {
 	if o == nil {
 		return ""
 	}
 	return o.City
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress) GetCountry() string {
+func (o *RetrieveUserCheckAddress) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress) GetPostcode() string {
+func (o *RetrieveUserCheckAddress) GetPostcode() string {
 	if o == nil {
 		return ""
 	}
 	return o.Postcode
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress) GetState() *string {
+func (o *RetrieveUserCheckAddress) GetState() *string {
 	if o == nil {
 		return nil
 	}
 	return o.State
 }
 
-// RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType - The type of document used in the KYC process.
+// RetrieveUserCheckDocumentType - The type of document used in the KYC process.
 // * PASSPORT - Passport
 // * ID_CARD - National Identification document
 // * RESIDENCE_PERMIT - Residence Permit
-type RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType string
+type RetrieveUserCheckDocumentType string
 
 const (
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentTypePassport        RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType = "PASSPORT"
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentTypeIDCard          RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType = "ID_CARD"
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentTypeResidencePermit RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType = "RESIDENCE_PERMIT"
+	RetrieveUserCheckDocumentTypePassport        RetrieveUserCheckDocumentType = "PASSPORT"
+	RetrieveUserCheckDocumentTypeIDCard          RetrieveUserCheckDocumentType = "ID_CARD"
+	RetrieveUserCheckDocumentTypeResidencePermit RetrieveUserCheckDocumentType = "RESIDENCE_PERMIT"
 )
 
-func (e RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType) ToPointer() *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType {
+func (e RetrieveUserCheckDocumentType) ToPointer() *RetrieveUserCheckDocumentType {
 	return &e
 }
 
-func (e *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserCheckDocumentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -624,30 +624,30 @@ func (e *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType) Unmars
 	case "ID_CARD":
 		fallthrough
 	case "RESIDENCE_PERMIT":
-		*e = RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType(v)
+		*e = RetrieveUserCheckDocumentType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserCheckDocumentType: %v", v)
 	}
 }
 
-// RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod - Method used for AML compliant KYC process
+// RetrieveUserCheckMethod - Method used for AML compliant KYC process
 // * VIDEO_ID - Video identification
 // * IN_PERSON_ID - In person identification at the post office or the client’s outlet
 // * ELECTRONIC_ID - Advanced electronic identification methods (namely German eID)
-type RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod string
+type RetrieveUserCheckMethod string
 
 const (
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethodVideoID      RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod = "VIDEO_ID"
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethodInPersonID   RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod = "IN_PERSON_ID"
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethodElectronicID RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod = "ELECTRONIC_ID"
+	RetrieveUserCheckMethodVideoID      RetrieveUserCheckMethod = "VIDEO_ID"
+	RetrieveUserCheckMethodInPersonID   RetrieveUserCheckMethod = "IN_PERSON_ID"
+	RetrieveUserCheckMethodElectronicID RetrieveUserCheckMethod = "ELECTRONIC_ID"
 )
 
-func (e RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod) ToPointer() *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod {
+func (e RetrieveUserCheckMethod) ToPointer() *RetrieveUserCheckMethod {
 	return &e
 }
 
-func (e *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserCheckMethod) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -658,30 +658,30 @@ func (e *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod) UnmarshalJSO
 	case "IN_PERSON_ID":
 		fallthrough
 	case "ELECTRONIC_ID":
-		*e = RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod(v)
+		*e = RetrieveUserCheckMethod(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserCheckMethod: %v", v)
 	}
 }
 
-// RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus - Final status of the KYC check.
+// RetrieveUserCheckStatus - Final status of the KYC check.
 // * IN_PROGRESS - KYC check is in progress
 // * PASSED - KYC check passed
 // * FAILED - KYC check failed
-type RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus string
+type RetrieveUserCheckStatus string
 
 const (
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatusInProgress RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus = "IN_PROGRESS"
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatusPassed     RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus = "PASSED"
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatusFailed     RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus = "FAILED"
+	RetrieveUserCheckStatusInProgress RetrieveUserCheckStatus = "IN_PROGRESS"
+	RetrieveUserCheckStatusPassed     RetrieveUserCheckStatus = "PASSED"
+	RetrieveUserCheckStatusFailed     RetrieveUserCheckStatus = "FAILED"
 )
 
-func (e RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus) ToPointer() *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus {
+func (e RetrieveUserCheckStatus) ToPointer() *RetrieveUserCheckStatus {
 	return &e
 }
 
-func (e *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveUserCheckStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -692,19 +692,19 @@ func (e *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus) UnmarshalJSO
 	case "PASSED":
 		fallthrough
 	case "FAILED":
-		*e = RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus(v)
+		*e = RetrieveUserCheckStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveUserCheckStatus: %v", v)
 	}
 }
 
-// RetrieveUserCheckUserCheckUserCheckKnowYourCustomer - The KYC (Know your customer) check is completed by the client sharing the valid and relevant KYC data for the user.
-type RetrieveUserCheckUserCheckUserCheckKnowYourCustomer struct {
+// UserCheckKnowYourCustomer - The KYC (Know your customer) check is completed by the client sharing the valid and relevant KYC data for the user.
+type UserCheckKnowYourCustomer struct {
 	// Completion date and time of the KYC check. Must not be older than 24 months.
 	CheckConfirmedAt time.Time `json:"check_confirmed_at"`
 	// Address. Must not be a P.O. box or c/o address.
-	ConfirmedAddress *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress `json:"confirmed_address,omitempty"`
+	ConfirmedAddress *RetrieveUserCheckAddress `json:"confirmed_address,omitempty"`
 	// Download link for the KYC evidence file. Should be a valid URL.
 	DataDownloadLink string `json:"data_download_link"`
 	// Expiration date of the document used in KYC process in YYYY-MM-DD format.
@@ -713,7 +713,7 @@ type RetrieveUserCheckUserCheckUserCheckKnowYourCustomer struct {
 	// * PASSPORT - Passport
 	// * ID_CARD - National Identification document
 	// * RESIDENCE_PERMIT - Residence Permit
-	DocumentType RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType `json:"document_type"`
+	DocumentType RetrieveUserCheckDocumentType `json:"document_type"`
 	// User Check unique identifier.
 	ID string `json:"id"`
 	// Marks this check as a KYC refresh/update as opposed to an initial record.
@@ -722,7 +722,7 @@ type RetrieveUserCheckUserCheckUserCheckKnowYourCustomer struct {
 	// * VIDEO_ID - Video identification
 	// * IN_PERSON_ID - In person identification at the post office or the client’s outlet
 	// * ELECTRONIC_ID - Advanced electronic identification methods (namely German eID)
-	Method RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod `json:"method"`
+	Method RetrieveUserCheckMethod `json:"method"`
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Nationality string `json:"nationality"`
 	// Provider that was used to perform the KYC check.
@@ -731,109 +731,109 @@ type RetrieveUserCheckUserCheckUserCheckKnowYourCustomer struct {
 	// * IN_PROGRESS - KYC check is in progress
 	// * PASSED - KYC check passed
 	// * FAILED - KYC check failed
-	Status RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus `json:"status"`
+	Status RetrieveUserCheckStatus `json:"status"`
 	// The type of check must be “KYC”.
 	Type *string `default:"KYC" json:"type"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (r RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(r, "", false)
+func (u UserCheckKnowYourCustomer) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (r *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, true); err != nil {
+func (u *UserCheckKnowYourCustomer) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetCheckConfirmedAt() time.Time {
+func (o *UserCheckKnowYourCustomer) GetCheckConfirmedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CheckConfirmedAt
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetConfirmedAddress() *RetrieveUserCheckUserCheckUserCheckKnowYourCustomerAddress {
+func (o *UserCheckKnowYourCustomer) GetConfirmedAddress() *RetrieveUserCheckAddress {
 	if o == nil {
 		return nil
 	}
 	return o.ConfirmedAddress
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetDataDownloadLink() string {
+func (o *UserCheckKnowYourCustomer) GetDataDownloadLink() string {
 	if o == nil {
 		return ""
 	}
 	return o.DataDownloadLink
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetDocumentExpirationDate() types.Date {
+func (o *UserCheckKnowYourCustomer) GetDocumentExpirationDate() types.Date {
 	if o == nil {
 		return types.Date{}
 	}
 	return o.DocumentExpirationDate
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetDocumentType() RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType {
+func (o *UserCheckKnowYourCustomer) GetDocumentType() RetrieveUserCheckDocumentType {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckKnowYourCustomerDocumentType("")
+		return RetrieveUserCheckDocumentType("")
 	}
 	return o.DocumentType
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetID() string {
+func (o *UserCheckKnowYourCustomer) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetKycUpdate() *bool {
+func (o *UserCheckKnowYourCustomer) GetKycUpdate() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.KycUpdate
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetMethod() RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod {
+func (o *UserCheckKnowYourCustomer) GetMethod() RetrieveUserCheckMethod {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckKnowYourCustomerMethod("")
+		return RetrieveUserCheckMethod("")
 	}
 	return o.Method
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetNationality() string {
+func (o *UserCheckKnowYourCustomer) GetNationality() string {
 	if o == nil {
 		return ""
 	}
 	return o.Nationality
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetProvider() string {
+func (o *UserCheckKnowYourCustomer) GetProvider() string {
 	if o == nil {
 		return ""
 	}
 	return o.Provider
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetStatus() RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus {
+func (o *UserCheckKnowYourCustomer) GetStatus() RetrieveUserCheckStatus {
 	if o == nil {
-		return RetrieveUserCheckUserCheckUserCheckKnowYourCustomerStatus("")
+		return RetrieveUserCheckStatus("")
 	}
 	return o.Status
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetType() *string {
+func (o *UserCheckKnowYourCustomer) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetUserID() string {
+func (o *UserCheckKnowYourCustomer) GetUserID() string {
 	if o == nil {
 		return ""
 	}
@@ -843,84 +843,84 @@ func (o *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) GetUserID() string
 type RetrieveUserCheckUserCheckType string
 
 const (
-	RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckKnowYourCustomer RetrieveUserCheckUserCheckType = "retrieve_user_check_User Check_User Check - Know your customer"
-	RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckProofOfResidency RetrieveUserCheckUserCheckType = "retrieve_user_check_User Check_User Check - Proof of Residency"
-	RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckInstrumentFit    RetrieveUserCheckUserCheckType = "retrieve_user_check_User Check_User Check - Instrument fit"
-	RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckCompliance       RetrieveUserCheckUserCheckType = "retrieve_user_check_User Check_User Check - Compliance"
+	RetrieveUserCheckUserCheckTypeUserCheckKnowYourCustomer RetrieveUserCheckUserCheckType = "User Check - Know your customer"
+	RetrieveUserCheckUserCheckTypeUserCheckProofOfResidency RetrieveUserCheckUserCheckType = "User Check - Proof of Residency"
+	RetrieveUserCheckUserCheckTypeUserCheckInstrumentFit    RetrieveUserCheckUserCheckType = "User Check - Instrument fit"
+	RetrieveUserCheckUserCheckTypeUserCheckCompliance       RetrieveUserCheckUserCheckType = "User Check - Compliance"
 )
 
 type RetrieveUserCheckUserCheck struct {
-	RetrieveUserCheckUserCheckUserCheckKnowYourCustomer *RetrieveUserCheckUserCheckUserCheckKnowYourCustomer
-	RetrieveUserCheckUserCheckUserCheckProofOfResidency *RetrieveUserCheckUserCheckUserCheckProofOfResidency
-	RetrieveUserCheckUserCheckUserCheckInstrumentFit    *RetrieveUserCheckUserCheckUserCheckInstrumentFit
-	RetrieveUserCheckUserCheckUserCheckCompliance       *RetrieveUserCheckUserCheckUserCheckCompliance
+	UserCheckKnowYourCustomer *UserCheckKnowYourCustomer
+	UserCheckProofOfResidency *UserCheckProofOfResidency
+	UserCheckInstrumentFit    *UserCheckInstrumentFit
+	UserCheckCompliance       *UserCheckCompliance
 
 	Type RetrieveUserCheckUserCheckType
 }
 
-func CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckKnowYourCustomer(retrieveUserCheckUserCheckUserCheckKnowYourCustomer RetrieveUserCheckUserCheckUserCheckKnowYourCustomer) RetrieveUserCheckUserCheck {
-	typ := RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckKnowYourCustomer
+func CreateRetrieveUserCheckUserCheckUserCheckKnowYourCustomer(userCheckKnowYourCustomer UserCheckKnowYourCustomer) RetrieveUserCheckUserCheck {
+	typ := RetrieveUserCheckUserCheckTypeUserCheckKnowYourCustomer
 
 	return RetrieveUserCheckUserCheck{
-		RetrieveUserCheckUserCheckUserCheckKnowYourCustomer: &retrieveUserCheckUserCheckUserCheckKnowYourCustomer,
-		Type: typ,
+		UserCheckKnowYourCustomer: &userCheckKnowYourCustomer,
+		Type:                      typ,
 	}
 }
 
-func CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckProofOfResidency(retrieveUserCheckUserCheckUserCheckProofOfResidency RetrieveUserCheckUserCheckUserCheckProofOfResidency) RetrieveUserCheckUserCheck {
-	typ := RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckProofOfResidency
+func CreateRetrieveUserCheckUserCheckUserCheckProofOfResidency(userCheckProofOfResidency UserCheckProofOfResidency) RetrieveUserCheckUserCheck {
+	typ := RetrieveUserCheckUserCheckTypeUserCheckProofOfResidency
 
 	return RetrieveUserCheckUserCheck{
-		RetrieveUserCheckUserCheckUserCheckProofOfResidency: &retrieveUserCheckUserCheckUserCheckProofOfResidency,
-		Type: typ,
+		UserCheckProofOfResidency: &userCheckProofOfResidency,
+		Type:                      typ,
 	}
 }
 
-func CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckInstrumentFit(retrieveUserCheckUserCheckUserCheckInstrumentFit RetrieveUserCheckUserCheckUserCheckInstrumentFit) RetrieveUserCheckUserCheck {
-	typ := RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckInstrumentFit
+func CreateRetrieveUserCheckUserCheckUserCheckInstrumentFit(userCheckInstrumentFit UserCheckInstrumentFit) RetrieveUserCheckUserCheck {
+	typ := RetrieveUserCheckUserCheckTypeUserCheckInstrumentFit
 
 	return RetrieveUserCheckUserCheck{
-		RetrieveUserCheckUserCheckUserCheckInstrumentFit: &retrieveUserCheckUserCheckUserCheckInstrumentFit,
-		Type: typ,
+		UserCheckInstrumentFit: &userCheckInstrumentFit,
+		Type:                   typ,
 	}
 }
 
-func CreateRetrieveUserCheckUserCheckRetrieveUserCheckUserCheckUserCheckCompliance(retrieveUserCheckUserCheckUserCheckCompliance RetrieveUserCheckUserCheckUserCheckCompliance) RetrieveUserCheckUserCheck {
-	typ := RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckCompliance
+func CreateRetrieveUserCheckUserCheckUserCheckCompliance(userCheckCompliance UserCheckCompliance) RetrieveUserCheckUserCheck {
+	typ := RetrieveUserCheckUserCheckTypeUserCheckCompliance
 
 	return RetrieveUserCheckUserCheck{
-		RetrieveUserCheckUserCheckUserCheckCompliance: &retrieveUserCheckUserCheckUserCheckCompliance,
-		Type: typ,
+		UserCheckCompliance: &userCheckCompliance,
+		Type:                typ,
 	}
 }
 
 func (u *RetrieveUserCheckUserCheck) UnmarshalJSON(data []byte) error {
 
-	retrieveUserCheckUserCheckUserCheckCompliance := RetrieveUserCheckUserCheckUserCheckCompliance{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckCompliance, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckCompliance = &retrieveUserCheckUserCheckUserCheckCompliance
-		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckCompliance
+	userCheckCompliance := UserCheckCompliance{}
+	if err := utils.UnmarshalJSON(data, &userCheckCompliance, "", true, true); err == nil {
+		u.UserCheckCompliance = &userCheckCompliance
+		u.Type = RetrieveUserCheckUserCheckTypeUserCheckCompliance
 		return nil
 	}
 
-	retrieveUserCheckUserCheckUserCheckInstrumentFit := RetrieveUserCheckUserCheckUserCheckInstrumentFit{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckInstrumentFit, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckInstrumentFit = &retrieveUserCheckUserCheckUserCheckInstrumentFit
-		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckInstrumentFit
+	userCheckInstrumentFit := UserCheckInstrumentFit{}
+	if err := utils.UnmarshalJSON(data, &userCheckInstrumentFit, "", true, true); err == nil {
+		u.UserCheckInstrumentFit = &userCheckInstrumentFit
+		u.Type = RetrieveUserCheckUserCheckTypeUserCheckInstrumentFit
 		return nil
 	}
 
-	retrieveUserCheckUserCheckUserCheckProofOfResidency := RetrieveUserCheckUserCheckUserCheckProofOfResidency{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckProofOfResidency, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckProofOfResidency = &retrieveUserCheckUserCheckUserCheckProofOfResidency
-		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckProofOfResidency
+	userCheckProofOfResidency := UserCheckProofOfResidency{}
+	if err := utils.UnmarshalJSON(data, &userCheckProofOfResidency, "", true, true); err == nil {
+		u.UserCheckProofOfResidency = &userCheckProofOfResidency
+		u.Type = RetrieveUserCheckUserCheckTypeUserCheckProofOfResidency
 		return nil
 	}
 
-	retrieveUserCheckUserCheckUserCheckKnowYourCustomer := RetrieveUserCheckUserCheckUserCheckKnowYourCustomer{}
-	if err := utils.UnmarshalJSON(data, &retrieveUserCheckUserCheckUserCheckKnowYourCustomer, "", true, true); err == nil {
-		u.RetrieveUserCheckUserCheckUserCheckKnowYourCustomer = &retrieveUserCheckUserCheckUserCheckKnowYourCustomer
-		u.Type = RetrieveUserCheckUserCheckTypeRetrieveUserCheckUserCheckUserCheckKnowYourCustomer
+	userCheckKnowYourCustomer := UserCheckKnowYourCustomer{}
+	if err := utils.UnmarshalJSON(data, &userCheckKnowYourCustomer, "", true, true); err == nil {
+		u.UserCheckKnowYourCustomer = &userCheckKnowYourCustomer
+		u.Type = RetrieveUserCheckUserCheckTypeUserCheckKnowYourCustomer
 		return nil
 	}
 
@@ -928,26 +928,28 @@ func (u *RetrieveUserCheckUserCheck) UnmarshalJSON(data []byte) error {
 }
 
 func (u RetrieveUserCheckUserCheck) MarshalJSON() ([]byte, error) {
-	if u.RetrieveUserCheckUserCheckUserCheckKnowYourCustomer != nil {
-		return utils.MarshalJSON(u.RetrieveUserCheckUserCheckUserCheckKnowYourCustomer, "", true)
+	if u.UserCheckKnowYourCustomer != nil {
+		return utils.MarshalJSON(u.UserCheckKnowYourCustomer, "", true)
 	}
 
-	if u.RetrieveUserCheckUserCheckUserCheckProofOfResidency != nil {
-		return utils.MarshalJSON(u.RetrieveUserCheckUserCheckUserCheckProofOfResidency, "", true)
+	if u.UserCheckProofOfResidency != nil {
+		return utils.MarshalJSON(u.UserCheckProofOfResidency, "", true)
 	}
 
-	if u.RetrieveUserCheckUserCheckUserCheckInstrumentFit != nil {
-		return utils.MarshalJSON(u.RetrieveUserCheckUserCheckUserCheckInstrumentFit, "", true)
+	if u.UserCheckInstrumentFit != nil {
+		return utils.MarshalJSON(u.UserCheckInstrumentFit, "", true)
 	}
 
-	if u.RetrieveUserCheckUserCheckUserCheckCompliance != nil {
-		return utils.MarshalJSON(u.RetrieveUserCheckUserCheckUserCheckCompliance, "", true)
+	if u.UserCheckCompliance != nil {
+		return utils.MarshalJSON(u.UserCheckCompliance, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 type RetrieveUserCheckResponse struct {
+	// OK
+	TwoHundredApplicationJSONUserCheck *RetrieveUserCheckUserCheck
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -955,8 +957,13 @@ type RetrieveUserCheckResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// OK
-	UserCheck *RetrieveUserCheckUserCheck
+}
+
+func (o *RetrieveUserCheckResponse) GetTwoHundredApplicationJSONUserCheck() *RetrieveUserCheckUserCheck {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONUserCheck
 }
 
 func (o *RetrieveUserCheckResponse) GetContentType() string {
@@ -985,11 +992,4 @@ func (o *RetrieveUserCheckResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *RetrieveUserCheckResponse) GetUserCheck() *RetrieveUserCheckUserCheck {
-	if o == nil {
-		return nil
-	}
-	return o.UserCheck
 }

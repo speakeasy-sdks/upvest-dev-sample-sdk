@@ -184,15 +184,22 @@ func (o *UpdateIdentifierIdentifier) GetUserID() string {
 }
 
 type UpdateIdentifierResponse struct {
+	// The user identifier is updated.
+	TwoHundredApplicationJSONIdentifier *UpdateIdentifierIdentifier
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// The user identifier is updated.
-	Identifier *UpdateIdentifierIdentifier
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *UpdateIdentifierResponse) GetTwoHundredApplicationJSONIdentifier() *UpdateIdentifierIdentifier {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONIdentifier
 }
 
 func (o *UpdateIdentifierResponse) GetContentType() string {
@@ -207,13 +214,6 @@ func (o *UpdateIdentifierResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *UpdateIdentifierResponse) GetIdentifier() *UpdateIdentifierIdentifier {
-	if o == nil {
-		return nil
-	}
-	return o.Identifier
 }
 
 func (o *UpdateIdentifierResponse) GetStatusCode() int {

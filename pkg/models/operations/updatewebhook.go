@@ -11,65 +11,65 @@ import (
 	"time"
 )
 
-// UpdateWebhookWebhookUpdateRequestConfig - Configuration of webhook packages collection.
-type UpdateWebhookWebhookUpdateRequestConfig struct {
+// UpdateWebhookConfig - Configuration of webhook packages collection.
+type UpdateWebhookConfig struct {
 	// Maximum time of package collection.
 	Delay *string `json:"delay,omitempty"`
 	// Maximum package size (bytes)
 	MaxPackageSize *int64 `json:"max_package_size,omitempty"`
 }
 
-func (o *UpdateWebhookWebhookUpdateRequestConfig) GetDelay() *string {
+func (o *UpdateWebhookConfig) GetDelay() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Delay
 }
 
-func (o *UpdateWebhookWebhookUpdateRequestConfig) GetMaxPackageSize() *int64 {
+func (o *UpdateWebhookConfig) GetMaxPackageSize() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MaxPackageSize
 }
 
-type UpdateWebhookWebhookUpdateRequestType string
+type UpdateWebhookType string
 
 const (
-	UpdateWebhookWebhookUpdateRequestTypeAll                      UpdateWebhookWebhookUpdateRequestType = "ALL"
-	UpdateWebhookWebhookUpdateRequestTypeUser                     UpdateWebhookWebhookUpdateRequestType = "USER"
-	UpdateWebhookWebhookUpdateRequestTypeUserCheck                UpdateWebhookWebhookUpdateRequestType = "USER_CHECK"
-	UpdateWebhookWebhookUpdateRequestTypeOrder                    UpdateWebhookWebhookUpdateRequestType = "ORDER"
-	UpdateWebhookWebhookUpdateRequestTypeOrderCancellation        UpdateWebhookWebhookUpdateRequestType = "ORDER_CANCELLATION"
-	UpdateWebhookWebhookUpdateRequestTypeExecution                UpdateWebhookWebhookUpdateRequestType = "EXECUTION"
-	UpdateWebhookWebhookUpdateRequestTypePosition                 UpdateWebhookWebhookUpdateRequestType = "POSITION"
-	UpdateWebhookWebhookUpdateRequestTypeCashBalance              UpdateWebhookWebhookUpdateRequestType = "CASH_BALANCE"
-	UpdateWebhookWebhookUpdateRequestTypeAccount                  UpdateWebhookWebhookUpdateRequestType = "ACCOUNT"
-	UpdateWebhookWebhookUpdateRequestTypeAccountGroup             UpdateWebhookWebhookUpdateRequestType = "ACCOUNT_GROUP"
-	UpdateWebhookWebhookUpdateRequestTypeReport                   UpdateWebhookWebhookUpdateRequestType = "REPORT"
-	UpdateWebhookWebhookUpdateRequestTypeTreasuryReport           UpdateWebhookWebhookUpdateRequestType = "TREASURY_REPORT"
-	UpdateWebhookWebhookUpdateRequestTypeDirectDebit              UpdateWebhookWebhookUpdateRequestType = "DIRECT_DEBIT"
-	UpdateWebhookWebhookUpdateRequestTypeWithdrawal               UpdateWebhookWebhookUpdateRequestType = "WITHDRAWAL"
-	UpdateWebhookWebhookUpdateRequestTypePortfolio                UpdateWebhookWebhookUpdateRequestType = "PORTFOLIO"
-	UpdateWebhookWebhookUpdateRequestTypePortfolioAllocation      UpdateWebhookWebhookUpdateRequestType = "PORTFOLIO_ALLOCATION"
-	UpdateWebhookWebhookUpdateRequestTypePortfolioOrder           UpdateWebhookWebhookUpdateRequestType = "PORTFOLIO_ORDER"
-	UpdateWebhookWebhookUpdateRequestTypeCorporateAction          UpdateWebhookWebhookUpdateRequestType = "CORPORATE_ACTION"
-	UpdateWebhookWebhookUpdateRequestTypeAccountValuation         UpdateWebhookWebhookUpdateRequestType = "ACCOUNT_VALUATION"
-	UpdateWebhookWebhookUpdateRequestTypeIntradayAccountValuation UpdateWebhookWebhookUpdateRequestType = "INTRADAY_ACCOUNT_VALUATION"
-	UpdateWebhookWebhookUpdateRequestTypeCashTransaction          UpdateWebhookWebhookUpdateRequestType = "CASH_TRANSACTION"
-	UpdateWebhookWebhookUpdateRequestTypeSecurityTransaction      UpdateWebhookWebhookUpdateRequestType = "SECURITY_TRANSACTION"
-	UpdateWebhookWebhookUpdateRequestTypeAccountLiquidation       UpdateWebhookWebhookUpdateRequestType = "ACCOUNT_LIQUIDATION"
-	UpdateWebhookWebhookUpdateRequestTypeAccountReturns           UpdateWebhookWebhookUpdateRequestType = "ACCOUNT_RETURNS"
-	UpdateWebhookWebhookUpdateRequestTypeVirtualCashIncrease      UpdateWebhookWebhookUpdateRequestType = "VIRTUAL_CASH_INCREASE"
-	UpdateWebhookWebhookUpdateRequestTypeVirtualCashDecrease      UpdateWebhookWebhookUpdateRequestType = "VIRTUAL_CASH_DECREASE"
-	UpdateWebhookWebhookUpdateRequestTypeFeeCollection            UpdateWebhookWebhookUpdateRequestType = "FEE_COLLECTION"
+	UpdateWebhookTypeAll                      UpdateWebhookType = "ALL"
+	UpdateWebhookTypeUser                     UpdateWebhookType = "USER"
+	UpdateWebhookTypeUserCheck                UpdateWebhookType = "USER_CHECK"
+	UpdateWebhookTypeOrder                    UpdateWebhookType = "ORDER"
+	UpdateWebhookTypeOrderCancellation        UpdateWebhookType = "ORDER_CANCELLATION"
+	UpdateWebhookTypeExecution                UpdateWebhookType = "EXECUTION"
+	UpdateWebhookTypePosition                 UpdateWebhookType = "POSITION"
+	UpdateWebhookTypeCashBalance              UpdateWebhookType = "CASH_BALANCE"
+	UpdateWebhookTypeAccount                  UpdateWebhookType = "ACCOUNT"
+	UpdateWebhookTypeAccountGroup             UpdateWebhookType = "ACCOUNT_GROUP"
+	UpdateWebhookTypeReport                   UpdateWebhookType = "REPORT"
+	UpdateWebhookTypeTreasuryReport           UpdateWebhookType = "TREASURY_REPORT"
+	UpdateWebhookTypeDirectDebit              UpdateWebhookType = "DIRECT_DEBIT"
+	UpdateWebhookTypeWithdrawal               UpdateWebhookType = "WITHDRAWAL"
+	UpdateWebhookTypePortfolio                UpdateWebhookType = "PORTFOLIO"
+	UpdateWebhookTypePortfolioAllocation      UpdateWebhookType = "PORTFOLIO_ALLOCATION"
+	UpdateWebhookTypePortfolioOrder           UpdateWebhookType = "PORTFOLIO_ORDER"
+	UpdateWebhookTypeCorporateAction          UpdateWebhookType = "CORPORATE_ACTION"
+	UpdateWebhookTypeAccountValuation         UpdateWebhookType = "ACCOUNT_VALUATION"
+	UpdateWebhookTypeIntradayAccountValuation UpdateWebhookType = "INTRADAY_ACCOUNT_VALUATION"
+	UpdateWebhookTypeCashTransaction          UpdateWebhookType = "CASH_TRANSACTION"
+	UpdateWebhookTypeSecurityTransaction      UpdateWebhookType = "SECURITY_TRANSACTION"
+	UpdateWebhookTypeAccountLiquidation       UpdateWebhookType = "ACCOUNT_LIQUIDATION"
+	UpdateWebhookTypeAccountReturns           UpdateWebhookType = "ACCOUNT_RETURNS"
+	UpdateWebhookTypeVirtualCashIncrease      UpdateWebhookType = "VIRTUAL_CASH_INCREASE"
+	UpdateWebhookTypeVirtualCashDecrease      UpdateWebhookType = "VIRTUAL_CASH_DECREASE"
+	UpdateWebhookTypeFeeCollection            UpdateWebhookType = "FEE_COLLECTION"
 )
 
-func (e UpdateWebhookWebhookUpdateRequestType) ToPointer() *UpdateWebhookWebhookUpdateRequestType {
+func (e UpdateWebhookType) ToPointer() *UpdateWebhookType {
 	return &e
 }
 
-func (e *UpdateWebhookWebhookUpdateRequestType) UnmarshalJSON(data []byte) error {
+func (e *UpdateWebhookType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -128,27 +128,27 @@ func (e *UpdateWebhookWebhookUpdateRequestType) UnmarshalJSON(data []byte) error
 	case "VIRTUAL_CASH_DECREASE":
 		fallthrough
 	case "FEE_COLLECTION":
-		*e = UpdateWebhookWebhookUpdateRequestType(v)
+		*e = UpdateWebhookType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdateWebhookWebhookUpdateRequestType: %v", v)
+		return fmt.Errorf("invalid value for UpdateWebhookType: %v", v)
 	}
 }
 
 type UpdateWebhookWebhookUpdateRequest struct {
 	// Configuration of webhook packages collection.
-	Config *UpdateWebhookWebhookUpdateRequestConfig `json:"config,omitempty"`
+	Config *UpdateWebhookConfig `json:"config,omitempty"`
 	// Enable/disable webhook.
 	Enabled *bool `json:"enabled,omitempty"`
 	// Title of the webhook for use on tenant side.
 	Title *string `json:"title,omitempty"`
 	// What kind of events to be sent by the webhook.
-	Type []UpdateWebhookWebhookUpdateRequestType `json:"type,omitempty"`
+	Type []UpdateWebhookType `json:"type,omitempty"`
 	// The callback URL to be called by the webhook.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *UpdateWebhookWebhookUpdateRequest) GetConfig() *UpdateWebhookWebhookUpdateRequestConfig {
+func (o *UpdateWebhookWebhookUpdateRequest) GetConfig() *UpdateWebhookConfig {
 	if o == nil {
 		return nil
 	}
@@ -169,7 +169,7 @@ func (o *UpdateWebhookWebhookUpdateRequest) GetTitle() *string {
 	return o.Title
 }
 
-func (o *UpdateWebhookWebhookUpdateRequest) GetType() []UpdateWebhookWebhookUpdateRequestType {
+func (o *UpdateWebhookWebhookUpdateRequest) GetType() []UpdateWebhookType {
 	if o == nil {
 		return nil
 	}
@@ -250,65 +250,65 @@ func (o *UpdateWebhookRequest) GetWebhookID() string {
 	return o.WebhookID
 }
 
-// UpdateWebhookWebhookConfig - Configuration of webhook packages collection.
-type UpdateWebhookWebhookConfig struct {
+// UpdateWebhookWebhooksConfig - Configuration of webhook packages collection.
+type UpdateWebhookWebhooksConfig struct {
 	// Maximum time of package collection.
 	Delay *string `json:"delay,omitempty"`
 	// Maximum package size (bytes)
 	MaxPackageSize *int64 `json:"max_package_size,omitempty"`
 }
 
-func (o *UpdateWebhookWebhookConfig) GetDelay() *string {
+func (o *UpdateWebhookWebhooksConfig) GetDelay() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Delay
 }
 
-func (o *UpdateWebhookWebhookConfig) GetMaxPackageSize() *int64 {
+func (o *UpdateWebhookWebhooksConfig) GetMaxPackageSize() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MaxPackageSize
 }
 
-type UpdateWebhookWebhookType string
+type UpdateWebhookWebhooksType string
 
 const (
-	UpdateWebhookWebhookTypeAll                      UpdateWebhookWebhookType = "ALL"
-	UpdateWebhookWebhookTypeUser                     UpdateWebhookWebhookType = "USER"
-	UpdateWebhookWebhookTypeUserCheck                UpdateWebhookWebhookType = "USER_CHECK"
-	UpdateWebhookWebhookTypeOrder                    UpdateWebhookWebhookType = "ORDER"
-	UpdateWebhookWebhookTypeOrderCancellation        UpdateWebhookWebhookType = "ORDER_CANCELLATION"
-	UpdateWebhookWebhookTypeExecution                UpdateWebhookWebhookType = "EXECUTION"
-	UpdateWebhookWebhookTypePosition                 UpdateWebhookWebhookType = "POSITION"
-	UpdateWebhookWebhookTypeCashBalance              UpdateWebhookWebhookType = "CASH_BALANCE"
-	UpdateWebhookWebhookTypeAccount                  UpdateWebhookWebhookType = "ACCOUNT"
-	UpdateWebhookWebhookTypeAccountGroup             UpdateWebhookWebhookType = "ACCOUNT_GROUP"
-	UpdateWebhookWebhookTypeReport                   UpdateWebhookWebhookType = "REPORT"
-	UpdateWebhookWebhookTypeTreasuryReport           UpdateWebhookWebhookType = "TREASURY_REPORT"
-	UpdateWebhookWebhookTypeDirectDebit              UpdateWebhookWebhookType = "DIRECT_DEBIT"
-	UpdateWebhookWebhookTypeWithdrawal               UpdateWebhookWebhookType = "WITHDRAWAL"
-	UpdateWebhookWebhookTypePortfolio                UpdateWebhookWebhookType = "PORTFOLIO"
-	UpdateWebhookWebhookTypePortfolioAllocation      UpdateWebhookWebhookType = "PORTFOLIO_ALLOCATION"
-	UpdateWebhookWebhookTypePortfolioOrder           UpdateWebhookWebhookType = "PORTFOLIO_ORDER"
-	UpdateWebhookWebhookTypeCorporateAction          UpdateWebhookWebhookType = "CORPORATE_ACTION"
-	UpdateWebhookWebhookTypeAccountValuation         UpdateWebhookWebhookType = "ACCOUNT_VALUATION"
-	UpdateWebhookWebhookTypeIntradayAccountValuation UpdateWebhookWebhookType = "INTRADAY_ACCOUNT_VALUATION"
-	UpdateWebhookWebhookTypeCashTransaction          UpdateWebhookWebhookType = "CASH_TRANSACTION"
-	UpdateWebhookWebhookTypeSecurityTransaction      UpdateWebhookWebhookType = "SECURITY_TRANSACTION"
-	UpdateWebhookWebhookTypeAccountLiquidation       UpdateWebhookWebhookType = "ACCOUNT_LIQUIDATION"
-	UpdateWebhookWebhookTypeAccountReturns           UpdateWebhookWebhookType = "ACCOUNT_RETURNS"
-	UpdateWebhookWebhookTypeVirtualCashIncrease      UpdateWebhookWebhookType = "VIRTUAL_CASH_INCREASE"
-	UpdateWebhookWebhookTypeVirtualCashDecrease      UpdateWebhookWebhookType = "VIRTUAL_CASH_DECREASE"
-	UpdateWebhookWebhookTypeFeeCollection            UpdateWebhookWebhookType = "FEE_COLLECTION"
+	UpdateWebhookWebhooksTypeAll                      UpdateWebhookWebhooksType = "ALL"
+	UpdateWebhookWebhooksTypeUser                     UpdateWebhookWebhooksType = "USER"
+	UpdateWebhookWebhooksTypeUserCheck                UpdateWebhookWebhooksType = "USER_CHECK"
+	UpdateWebhookWebhooksTypeOrder                    UpdateWebhookWebhooksType = "ORDER"
+	UpdateWebhookWebhooksTypeOrderCancellation        UpdateWebhookWebhooksType = "ORDER_CANCELLATION"
+	UpdateWebhookWebhooksTypeExecution                UpdateWebhookWebhooksType = "EXECUTION"
+	UpdateWebhookWebhooksTypePosition                 UpdateWebhookWebhooksType = "POSITION"
+	UpdateWebhookWebhooksTypeCashBalance              UpdateWebhookWebhooksType = "CASH_BALANCE"
+	UpdateWebhookWebhooksTypeAccount                  UpdateWebhookWebhooksType = "ACCOUNT"
+	UpdateWebhookWebhooksTypeAccountGroup             UpdateWebhookWebhooksType = "ACCOUNT_GROUP"
+	UpdateWebhookWebhooksTypeReport                   UpdateWebhookWebhooksType = "REPORT"
+	UpdateWebhookWebhooksTypeTreasuryReport           UpdateWebhookWebhooksType = "TREASURY_REPORT"
+	UpdateWebhookWebhooksTypeDirectDebit              UpdateWebhookWebhooksType = "DIRECT_DEBIT"
+	UpdateWebhookWebhooksTypeWithdrawal               UpdateWebhookWebhooksType = "WITHDRAWAL"
+	UpdateWebhookWebhooksTypePortfolio                UpdateWebhookWebhooksType = "PORTFOLIO"
+	UpdateWebhookWebhooksTypePortfolioAllocation      UpdateWebhookWebhooksType = "PORTFOLIO_ALLOCATION"
+	UpdateWebhookWebhooksTypePortfolioOrder           UpdateWebhookWebhooksType = "PORTFOLIO_ORDER"
+	UpdateWebhookWebhooksTypeCorporateAction          UpdateWebhookWebhooksType = "CORPORATE_ACTION"
+	UpdateWebhookWebhooksTypeAccountValuation         UpdateWebhookWebhooksType = "ACCOUNT_VALUATION"
+	UpdateWebhookWebhooksTypeIntradayAccountValuation UpdateWebhookWebhooksType = "INTRADAY_ACCOUNT_VALUATION"
+	UpdateWebhookWebhooksTypeCashTransaction          UpdateWebhookWebhooksType = "CASH_TRANSACTION"
+	UpdateWebhookWebhooksTypeSecurityTransaction      UpdateWebhookWebhooksType = "SECURITY_TRANSACTION"
+	UpdateWebhookWebhooksTypeAccountLiquidation       UpdateWebhookWebhooksType = "ACCOUNT_LIQUIDATION"
+	UpdateWebhookWebhooksTypeAccountReturns           UpdateWebhookWebhooksType = "ACCOUNT_RETURNS"
+	UpdateWebhookWebhooksTypeVirtualCashIncrease      UpdateWebhookWebhooksType = "VIRTUAL_CASH_INCREASE"
+	UpdateWebhookWebhooksTypeVirtualCashDecrease      UpdateWebhookWebhooksType = "VIRTUAL_CASH_DECREASE"
+	UpdateWebhookWebhooksTypeFeeCollection            UpdateWebhookWebhooksType = "FEE_COLLECTION"
 )
 
-func (e UpdateWebhookWebhookType) ToPointer() *UpdateWebhookWebhookType {
+func (e UpdateWebhookWebhooksType) ToPointer() *UpdateWebhookWebhooksType {
 	return &e
 }
 
-func (e *UpdateWebhookWebhookType) UnmarshalJSON(data []byte) error {
+func (e *UpdateWebhookWebhooksType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -367,17 +367,17 @@ func (e *UpdateWebhookWebhookType) UnmarshalJSON(data []byte) error {
 	case "VIRTUAL_CASH_DECREASE":
 		fallthrough
 	case "FEE_COLLECTION":
-		*e = UpdateWebhookWebhookType(v)
+		*e = UpdateWebhookWebhooksType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdateWebhookWebhookType: %v", v)
+		return fmt.Errorf("invalid value for UpdateWebhookWebhooksType: %v", v)
 	}
 }
 
 // UpdateWebhookWebhook - Returns a webhook subscription object if a valid webhook subscription object ID was provided.
 type UpdateWebhookWebhook struct {
 	// Configuration of webhook packages collection.
-	Config UpdateWebhookWebhookConfig `json:"config"`
+	Config UpdateWebhookWebhooksConfig `json:"config"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Enable/disable webhook.
@@ -387,7 +387,7 @@ type UpdateWebhookWebhook struct {
 	// Title of the webhook for use on tenant side.
 	Title string `json:"title"`
 	// What kind of events to be sent by the webhook.
-	Type []UpdateWebhookWebhookType `json:"type"`
+	Type []UpdateWebhookWebhooksType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// The callback URL to be called by the webhook.
@@ -405,9 +405,9 @@ func (u *UpdateWebhookWebhook) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UpdateWebhookWebhook) GetConfig() UpdateWebhookWebhookConfig {
+func (o *UpdateWebhookWebhook) GetConfig() UpdateWebhookWebhooksConfig {
 	if o == nil {
-		return UpdateWebhookWebhookConfig{}
+		return UpdateWebhookWebhooksConfig{}
 	}
 	return o.Config
 }
@@ -440,9 +440,9 @@ func (o *UpdateWebhookWebhook) GetTitle() string {
 	return o.Title
 }
 
-func (o *UpdateWebhookWebhook) GetType() []UpdateWebhookWebhookType {
+func (o *UpdateWebhookWebhook) GetType() []UpdateWebhookWebhooksType {
 	if o == nil {
-		return []UpdateWebhookWebhookType{}
+		return []UpdateWebhookWebhooksType{}
 	}
 	return o.Type
 }
@@ -462,6 +462,8 @@ func (o *UpdateWebhookWebhook) GetURL() string {
 }
 
 type UpdateWebhookResponse struct {
+	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
+	TwoHundredApplicationJSONWebhook *UpdateWebhookWebhook
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -469,8 +471,13 @@ type UpdateWebhookResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
-	Webhook *UpdateWebhookWebhook
+}
+
+func (o *UpdateWebhookResponse) GetTwoHundredApplicationJSONWebhook() *UpdateWebhookWebhook {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONWebhook
 }
 
 func (o *UpdateWebhookResponse) GetContentType() string {
@@ -499,11 +506,4 @@ func (o *UpdateWebhookResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *UpdateWebhookResponse) GetWebhook() *UpdateWebhookWebhook {
-	if o == nil {
-		return nil
-	}
-	return o.Webhook
 }

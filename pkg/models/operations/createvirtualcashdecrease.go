@@ -11,29 +11,29 @@ import (
 	"time"
 )
 
-// CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateVirtualCashDecreaseCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency string
+type CreateVirtualCashDecreaseCurrency string
 
 const (
-	CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrencyEur CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency = "EUR"
+	CreateVirtualCashDecreaseCurrencyEur CreateVirtualCashDecreaseCurrency = "EUR"
 )
 
-func (e CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency) ToPointer() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency {
+func (e CreateVirtualCashDecreaseCurrency) ToPointer() *CreateVirtualCashDecreaseCurrency {
 	return &e
 }
 
-func (e *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateVirtualCashDecreaseCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency(v)
+		*e = CreateVirtualCashDecreaseCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateVirtualCashDecreaseCurrency: %v", v)
 	}
 }
 
@@ -43,7 +43,7 @@ type CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequest
 	Amount         string `json:"amount"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency `default:"EUR" json:"currency"`
+	Currency *CreateVirtualCashDecreaseCurrency `default:"EUR" json:"currency"`
 }
 
 func (c CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequest) MarshalJSON() ([]byte, error) {
@@ -71,7 +71,7 @@ func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateReq
 	return o.Amount
 }
 
-func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequest) GetCurrency() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequestCurrency {
+func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequest) GetCurrency() *CreateVirtualCashDecreaseCurrency {
 	if o == nil {
 		return nil
 	}
@@ -147,51 +147,51 @@ func (o *CreateVirtualCashDecreaseRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// CreateVirtualCashDecreaseVirtualCashBalancesCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency string
+type CreateVirtualCashDecreaseVirtualCashBalancesCurrency string
 
 const (
-	CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrencyEur CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency = "EUR"
+	CreateVirtualCashDecreaseVirtualCashBalancesCurrencyEur CreateVirtualCashDecreaseVirtualCashBalancesCurrency = "EUR"
 )
 
-func (e CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency) ToPointer() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency {
+func (e CreateVirtualCashDecreaseVirtualCashBalancesCurrency) ToPointer() *CreateVirtualCashDecreaseVirtualCashBalancesCurrency {
 	return &e
 }
 
-func (e *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency) UnmarshalJSON(data []byte) error {
+func (e *CreateVirtualCashDecreaseVirtualCashBalancesCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency(v)
+		*e = CreateVirtualCashDecreaseVirtualCashBalancesCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency: %v", v)
+		return fmt.Errorf("invalid value for CreateVirtualCashDecreaseVirtualCashBalancesCurrency: %v", v)
 	}
 }
 
-// CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus - Status of the virtual cash
+// CreateVirtualCashDecreaseStatus - Status of the virtual cash
 // * ISSUED - Virtual cash decrease is created.
 // * CONFIRMED - Virtual cash decrease was successfully processed.
 // * QUEUED - Virtual cash decrease was queued.
 // * CANCELLED - Virtual cash decrease was cancelled.
-type CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus string
+type CreateVirtualCashDecreaseStatus string
 
 const (
-	CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatusIssued    CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus = "ISSUED"
-	CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatusConfirmed CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus = "CONFIRMED"
-	CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatusQueued    CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus = "QUEUED"
-	CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatusCancelled CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus = "CANCELLED"
+	CreateVirtualCashDecreaseStatusIssued    CreateVirtualCashDecreaseStatus = "ISSUED"
+	CreateVirtualCashDecreaseStatusConfirmed CreateVirtualCashDecreaseStatus = "CONFIRMED"
+	CreateVirtualCashDecreaseStatusQueued    CreateVirtualCashDecreaseStatus = "QUEUED"
+	CreateVirtualCashDecreaseStatusCancelled CreateVirtualCashDecreaseStatus = "CANCELLED"
 )
 
-func (e CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus) ToPointer() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus {
+func (e CreateVirtualCashDecreaseStatus) ToPointer() *CreateVirtualCashDecreaseStatus {
 	return &e
 }
 
-func (e *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus) UnmarshalJSON(data []byte) error {
+func (e *CreateVirtualCashDecreaseStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -204,10 +204,10 @@ func (e *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus) U
 	case "QUEUED":
 		fallthrough
 	case "CANCELLED":
-		*e = CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus(v)
+		*e = CreateVirtualCashDecreaseStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus: %v", v)
+		return fmt.Errorf("invalid value for CreateVirtualCashDecreaseStatus: %v", v)
 	}
 }
 
@@ -220,7 +220,7 @@ type CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency `default:"EUR" json:"currency"`
+	Currency *CreateVirtualCashDecreaseVirtualCashBalancesCurrency `default:"EUR" json:"currency"`
 	// Virtual cash unique identifier
 	ID string `json:"id"`
 	// Status of the virtual cash
@@ -228,7 +228,7 @@ type CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease struct {
 	// * CONFIRMED - Virtual cash decrease was successfully processed.
 	// * QUEUED - Virtual cash decrease was queued.
 	// * CANCELLED - Virtual cash decrease was cancelled.
-	Status CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus `json:"status"`
+	Status CreateVirtualCashDecreaseStatus `json:"status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
@@ -265,7 +265,7 @@ func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetCrea
 	return o.CreatedAt
 }
 
-func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetCurrency() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCurrency {
+func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetCurrency() *CreateVirtualCashDecreaseVirtualCashBalancesCurrency {
 	if o == nil {
 		return nil
 	}
@@ -279,9 +279,9 @@ func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetID()
 	return o.ID
 }
 
-func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetStatus() CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus {
+func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetStatus() CreateVirtualCashDecreaseStatus {
 	if o == nil {
-		return CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseStatus("")
+		return CreateVirtualCashDecreaseStatus("")
 	}
 	return o.Status
 }
@@ -294,6 +294,8 @@ func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetUpda
 }
 
 type CreateVirtualCashDecreaseResponse struct {
+	// Virtual Cash Balances Decrease
+	TwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -301,8 +303,13 @@ type CreateVirtualCashDecreaseResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Virtual Cash Balances Decrease
-	VirtualCashBalanceVirtualCashDecrease *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease
+}
+
+func (o *CreateVirtualCashDecreaseResponse) GetTwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease
 }
 
 func (o *CreateVirtualCashDecreaseResponse) GetContentType() string {
@@ -331,11 +338,4 @@ func (o *CreateVirtualCashDecreaseResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *CreateVirtualCashDecreaseResponse) GetVirtualCashBalanceVirtualCashDecrease() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease {
-	if o == nil {
-		return nil
-	}
-	return o.VirtualCashBalanceVirtualCashDecrease
 }

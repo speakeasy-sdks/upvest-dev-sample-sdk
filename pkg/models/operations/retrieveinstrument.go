@@ -69,21 +69,21 @@ func (o *RetrieveInstrumentRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// RetrieveInstrument200ApplicationJSONInstrumentTradingStatus - Instrument trading status
+// RetrieveInstrumentInstrumentTradingStatus - Instrument trading status
 // * ACTIVE - The instrument can currently be traded on the Upvest platform.
 // * INACTIVE - The instrument cannot currently be traded on the Upvest platform.
-type RetrieveInstrument200ApplicationJSONInstrumentTradingStatus string
+type RetrieveInstrumentInstrumentTradingStatus string
 
 const (
-	RetrieveInstrument200ApplicationJSONInstrumentTradingStatusActive   RetrieveInstrument200ApplicationJSONInstrumentTradingStatus = "ACTIVE"
-	RetrieveInstrument200ApplicationJSONInstrumentTradingStatusInactive RetrieveInstrument200ApplicationJSONInstrumentTradingStatus = "INACTIVE"
+	RetrieveInstrumentInstrumentTradingStatusActive   RetrieveInstrumentInstrumentTradingStatus = "ACTIVE"
+	RetrieveInstrumentInstrumentTradingStatusInactive RetrieveInstrumentInstrumentTradingStatus = "INACTIVE"
 )
 
-func (e RetrieveInstrument200ApplicationJSONInstrumentTradingStatus) ToPointer() *RetrieveInstrument200ApplicationJSONInstrumentTradingStatus {
+func (e RetrieveInstrumentInstrumentTradingStatus) ToPointer() *RetrieveInstrumentInstrumentTradingStatus {
 	return &e
 }
 
-func (e *RetrieveInstrument200ApplicationJSONInstrumentTradingStatus) UnmarshalJSON(data []byte) error {
+func (e *RetrieveInstrumentInstrumentTradingStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -92,15 +92,15 @@ func (e *RetrieveInstrument200ApplicationJSONInstrumentTradingStatus) UnmarshalJ
 	case "ACTIVE":
 		fallthrough
 	case "INACTIVE":
-		*e = RetrieveInstrument200ApplicationJSONInstrumentTradingStatus(v)
+		*e = RetrieveInstrumentInstrumentTradingStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RetrieveInstrument200ApplicationJSONInstrumentTradingStatus: %v", v)
+		return fmt.Errorf("invalid value for RetrieveInstrumentInstrumentTradingStatus: %v", v)
 	}
 }
 
-// RetrieveInstrument200ApplicationJSON - Instrument
-type RetrieveInstrument200ApplicationJSON struct {
+// RetrieveInstrumentResponseBody - Instrument
+type RetrieveInstrumentResponseBody struct {
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Determines whether the platform can handle fractional investments within this instrument.
@@ -114,74 +114,74 @@ type RetrieveInstrument200ApplicationJSON struct {
 	// Instrument trading status
 	// * ACTIVE - The instrument can currently be traded on the Upvest platform.
 	// * INACTIVE - The instrument cannot currently be traded on the Upvest platform.
-	TradingStatus RetrieveInstrument200ApplicationJSONInstrumentTradingStatus `json:"trading_status"`
+	TradingStatus RetrieveInstrumentInstrumentTradingStatus `json:"trading_status"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// German securities identification code known as [Wertpapierkennnummer](https://en.wikipedia.org/wiki/Wertpapierkennnummer).
 	Wkn *string `json:"wkn,omitempty"`
 }
 
-func (r RetrieveInstrument200ApplicationJSON) MarshalJSON() ([]byte, error) {
+func (r RetrieveInstrumentResponseBody) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(r, "", false)
 }
 
-func (r *RetrieveInstrument200ApplicationJSON) UnmarshalJSON(data []byte) error {
+func (r *RetrieveInstrumentResponseBody) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetCreatedAt() time.Time {
+func (o *RetrieveInstrumentResponseBody) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetFractionalTrading() bool {
+func (o *RetrieveInstrumentResponseBody) GetFractionalTrading() bool {
 	if o == nil {
 		return false
 	}
 	return o.FractionalTrading
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetID() string {
+func (o *RetrieveInstrumentResponseBody) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetIsin() *string {
+func (o *RetrieveInstrumentResponseBody) GetIsin() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Isin
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetName() string {
+func (o *RetrieveInstrumentResponseBody) GetName() string {
 	if o == nil {
 		return ""
 	}
 	return o.Name
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetTradingStatus() RetrieveInstrument200ApplicationJSONInstrumentTradingStatus {
+func (o *RetrieveInstrumentResponseBody) GetTradingStatus() RetrieveInstrumentInstrumentTradingStatus {
 	if o == nil {
-		return RetrieveInstrument200ApplicationJSONInstrumentTradingStatus("")
+		return RetrieveInstrumentInstrumentTradingStatus("")
 	}
 	return o.TradingStatus
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetUpdatedAt() time.Time {
+func (o *RetrieveInstrumentResponseBody) GetUpdatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.UpdatedAt
 }
 
-func (o *RetrieveInstrument200ApplicationJSON) GetWkn() *string {
+func (o *RetrieveInstrumentResponseBody) GetWkn() *string {
 	if o == nil {
 		return nil
 	}
@@ -189,6 +189,8 @@ func (o *RetrieveInstrument200ApplicationJSON) GetWkn() *string {
 }
 
 type RetrieveInstrumentResponse struct {
+	// Instrument
+	TwoHundredApplicationJSONObject *RetrieveInstrumentResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -196,8 +198,13 @@ type RetrieveInstrumentResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Instrument
-	RetrieveInstrument200ApplicationJSONObject *RetrieveInstrument200ApplicationJSON
+}
+
+func (o *RetrieveInstrumentResponse) GetTwoHundredApplicationJSONObject() *RetrieveInstrumentResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONObject
 }
 
 func (o *RetrieveInstrumentResponse) GetContentType() string {
@@ -226,11 +233,4 @@ func (o *RetrieveInstrumentResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *RetrieveInstrumentResponse) GetRetrieveInstrument200ApplicationJSONObject() *RetrieveInstrument200ApplicationJSON {
-	if o == nil {
-		return nil
-	}
-	return o.RetrieveInstrument200ApplicationJSONObject
 }

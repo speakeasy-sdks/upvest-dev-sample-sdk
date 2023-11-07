@@ -11,19 +11,19 @@ import (
 	"time"
 )
 
-// ListDirectDebitsOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-type ListDirectDebitsOrder string
+// ListDirectDebitsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+type ListDirectDebitsQueryParamOrder string
 
 const (
-	ListDirectDebitsOrderAsc  ListDirectDebitsOrder = "ASC"
-	ListDirectDebitsOrderDesc ListDirectDebitsOrder = "DESC"
+	ListDirectDebitsQueryParamOrderAsc  ListDirectDebitsQueryParamOrder = "ASC"
+	ListDirectDebitsQueryParamOrderDesc ListDirectDebitsQueryParamOrder = "DESC"
 )
 
-func (e ListDirectDebitsOrder) ToPointer() *ListDirectDebitsOrder {
+func (e ListDirectDebitsQueryParamOrder) ToPointer() *ListDirectDebitsQueryParamOrder {
 	return &e
 }
 
-func (e *ListDirectDebitsOrder) UnmarshalJSON(data []byte) error {
+func (e *ListDirectDebitsQueryParamOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -32,26 +32,26 @@ func (e *ListDirectDebitsOrder) UnmarshalJSON(data []byte) error {
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListDirectDebitsOrder(v)
+		*e = ListDirectDebitsQueryParamOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListDirectDebitsOrder: %v", v)
+		return fmt.Errorf("invalid value for ListDirectDebitsQueryParamOrder: %v", v)
 	}
 }
 
-// ListDirectDebitsSort - Field of resource to sort by
-type ListDirectDebitsSort string
+// ListDirectDebitsQueryParamSort - Field of resource to sort by
+type ListDirectDebitsQueryParamSort string
 
 const (
-	ListDirectDebitsSortID        ListDirectDebitsSort = "id"
-	ListDirectDebitsSortCreatedAt ListDirectDebitsSort = "created_at"
+	ListDirectDebitsQueryParamSortID        ListDirectDebitsQueryParamSort = "id"
+	ListDirectDebitsQueryParamSortCreatedAt ListDirectDebitsQueryParamSort = "created_at"
 )
 
-func (e ListDirectDebitsSort) ToPointer() *ListDirectDebitsSort {
+func (e ListDirectDebitsQueryParamSort) ToPointer() *ListDirectDebitsQueryParamSort {
 	return &e
 }
 
-func (e *ListDirectDebitsSort) UnmarshalJSON(data []byte) error {
+func (e *ListDirectDebitsQueryParamSort) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -60,10 +60,10 @@ func (e *ListDirectDebitsSort) UnmarshalJSON(data []byte) error {
 	case "id":
 		fallthrough
 	case "created_at":
-		*e = ListDirectDebitsSort(v)
+		*e = ListDirectDebitsQueryParamSort(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListDirectDebitsSort: %v", v)
+		return fmt.Errorf("invalid value for ListDirectDebitsQueryParamSort: %v", v)
 	}
 }
 
@@ -74,13 +74,13 @@ type ListDirectDebitsRequest struct {
 	// Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.
 	Offset *int `queryParam:"style=form,explode=true,name=offset"`
 	// Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
-	Order *ListDirectDebitsOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
+	Order *ListDirectDebitsQueryParamOrder `default:"ASC" queryParam:"style=form,explode=true,name=order"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he
 	SignatureInput string `header:"style=simple,explode=false,name=signature-input"`
 	// Field of resource to sort by
-	Sort *ListDirectDebitsSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+	Sort *ListDirectDebitsQueryParamSort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
 	// Upvest API version (Note: Do not include quotation marks)
 	UpvestAPIVersion *shared.APIVersion `default:"1" header:"style=simple,explode=false,name=upvest-api-version"`
 	// Tenant Client ID
@@ -119,7 +119,7 @@ func (o *ListDirectDebitsRequest) GetOffset() *int {
 	return o.Offset
 }
 
-func (o *ListDirectDebitsRequest) GetOrder() *ListDirectDebitsOrder {
+func (o *ListDirectDebitsRequest) GetOrder() *ListDirectDebitsQueryParamOrder {
 	if o == nil {
 		return nil
 	}
@@ -140,7 +140,7 @@ func (o *ListDirectDebitsRequest) GetSignatureInput() string {
 	return o.SignatureInput
 }
 
-func (o *ListDirectDebitsRequest) GetSort() *ListDirectDebitsSort {
+func (o *ListDirectDebitsRequest) GetSort() *ListDirectDebitsQueryParamSort {
 	if o == nil {
 		return nil
 	}
@@ -161,51 +161,51 @@ func (o *ListDirectDebitsRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+// ListDirectDebitsCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
-type ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency string
+type ListDirectDebitsCurrency string
 
 const (
-	ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrencyEur ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency = "EUR"
+	ListDirectDebitsCurrencyEur ListDirectDebitsCurrency = "EUR"
 )
 
-func (e ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency) ToPointer() *ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency {
+func (e ListDirectDebitsCurrency) ToPointer() *ListDirectDebitsCurrency {
 	return &e
 }
 
-func (e *ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency) UnmarshalJSON(data []byte) error {
+func (e *ListDirectDebitsCurrency) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "EUR":
-		*e = ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency(v)
+		*e = ListDirectDebitsCurrency(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency: %v", v)
+		return fmt.Errorf("invalid value for ListDirectDebitsCurrency: %v", v)
 	}
 }
 
-// ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus - Status of the direct debit
+// ListDirectDebitsStatus - Status of the direct debit
 // * NEW - Direct debit is created but not started processing.
 // * PROCESSING - Direct debit is in processing.
 // * CONFIRMED - Direct debit was successfully processed.
 // * CANCELLED - Direct debit was cancelled.
-type ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus string
+type ListDirectDebitsStatus string
 
 const (
-	ListDirectDebitsPaymentsDirectDebitsListResponseDataStatusNew        ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus = "NEW"
-	ListDirectDebitsPaymentsDirectDebitsListResponseDataStatusProcessing ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus = "PROCESSING"
-	ListDirectDebitsPaymentsDirectDebitsListResponseDataStatusConfirmed  ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus = "CONFIRMED"
-	ListDirectDebitsPaymentsDirectDebitsListResponseDataStatusCancelled  ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus = "CANCELLED"
+	ListDirectDebitsStatusNew        ListDirectDebitsStatus = "NEW"
+	ListDirectDebitsStatusProcessing ListDirectDebitsStatus = "PROCESSING"
+	ListDirectDebitsStatusConfirmed  ListDirectDebitsStatus = "CONFIRMED"
+	ListDirectDebitsStatusCancelled  ListDirectDebitsStatus = "CANCELLED"
 )
 
-func (e ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus) ToPointer() *ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus {
+func (e ListDirectDebitsStatus) ToPointer() *ListDirectDebitsStatus {
 	return &e
 }
 
-func (e *ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus) UnmarshalJSON(data []byte) error {
+func (e *ListDirectDebitsStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -218,14 +218,14 @@ func (e *ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus) UnmarshalJS
 	case "CONFIRMED":
 		fallthrough
 	case "CANCELLED":
-		*e = ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus(v)
+		*e = ListDirectDebitsStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus: %v", v)
+		return fmt.Errorf("invalid value for ListDirectDebitsStatus: %v", v)
 	}
 }
 
-type ListDirectDebitsPaymentsDirectDebitsListResponseData struct {
+type ListDirectDebitsData struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`
 	CashAmount     string `json:"cash_amount"`
@@ -233,7 +233,7 @@ type ListDirectDebitsPaymentsDirectDebitsListResponseData struct {
 	CreatedAt time.Time `json:"created_at"`
 	// Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 	// * EUR - Euro
-	Currency *ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency `default:"EUR" json:"currency"`
+	Currency *ListDirectDebitsCurrency `default:"EUR" json:"currency"`
 	// Direct debit funding request unique identifier
 	ID string `json:"id"`
 	// Direct Debit Mandate unique identifier.
@@ -245,100 +245,100 @@ type ListDirectDebitsPaymentsDirectDebitsListResponseData struct {
 	// * PROCESSING - Direct debit is in processing.
 	// * CONFIRMED - Direct debit was successfully processed.
 	// * CANCELLED - Direct debit was cancelled.
-	Status *ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus `json:"status,omitempty"`
+	Status *ListDirectDebitsStatus `json:"status,omitempty"`
 	// User unique identifier.
 	UserID string `json:"user_id"`
 }
 
-func (l ListDirectDebitsPaymentsDirectDebitsListResponseData) MarshalJSON() ([]byte, error) {
+func (l ListDirectDebitsData) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(l, "", false)
 }
 
-func (l *ListDirectDebitsPaymentsDirectDebitsListResponseData) UnmarshalJSON(data []byte) error {
+func (l *ListDirectDebitsData) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetAccountGroupID() string {
+func (o *ListDirectDebitsData) GetAccountGroupID() string {
 	if o == nil {
 		return ""
 	}
 	return o.AccountGroupID
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetCashAmount() string {
+func (o *ListDirectDebitsData) GetCashAmount() string {
 	if o == nil {
 		return ""
 	}
 	return o.CashAmount
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetCreatedAt() time.Time {
+func (o *ListDirectDebitsData) GetCreatedAt() time.Time {
 	if o == nil {
 		return time.Time{}
 	}
 	return o.CreatedAt
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetCurrency() *ListDirectDebitsPaymentsDirectDebitsListResponseDataCurrency {
+func (o *ListDirectDebitsData) GetCurrency() *ListDirectDebitsCurrency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetID() string {
+func (o *ListDirectDebitsData) GetID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ID
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetMandateID() string {
+func (o *ListDirectDebitsData) GetMandateID() string {
 	if o == nil {
 		return ""
 	}
 	return o.MandateID
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetRemittanceInformation() *string {
+func (o *ListDirectDebitsData) GetRemittanceInformation() *string {
 	if o == nil {
 		return nil
 	}
 	return o.RemittanceInformation
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetStatus() *ListDirectDebitsPaymentsDirectDebitsListResponseDataStatus {
+func (o *ListDirectDebitsData) GetStatus() *ListDirectDebitsStatus {
 	if o == nil {
 		return nil
 	}
 	return o.Status
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseData) GetUserID() string {
+func (o *ListDirectDebitsData) GetUserID() string {
 	if o == nil {
 		return ""
 	}
 	return o.UserID
 }
 
-// ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder - The ordering of the response.
+// ListDirectDebitsOrder - The ordering of the response.
 // * ASC - Ascending order
 // * DESC - Descending order
-type ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder string
+type ListDirectDebitsOrder string
 
 const (
-	ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrderAsc  ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder = "ASC"
-	ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrderDesc ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder = "DESC"
+	ListDirectDebitsOrderAsc  ListDirectDebitsOrder = "ASC"
+	ListDirectDebitsOrderDesc ListDirectDebitsOrder = "DESC"
 )
 
-func (e ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder) ToPointer() *ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder {
+func (e ListDirectDebitsOrder) ToPointer() *ListDirectDebitsOrder {
 	return &e
 }
 
-func (e *ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder) UnmarshalJSON(data []byte) error {
+func (e *ListDirectDebitsOrder) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -347,14 +347,14 @@ func (e *ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder) UnmarshalJSO
 	case "ASC":
 		fallthrough
 	case "DESC":
-		*e = ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder(v)
+		*e = ListDirectDebitsOrder(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder: %v", v)
+		return fmt.Errorf("invalid value for ListDirectDebitsOrder: %v", v)
 	}
 }
 
-type ListDirectDebitsPaymentsDirectDebitsListResponseMeta struct {
+type ListDirectDebitsMeta struct {
 	// Count of the resources returned in the response.
 	Count int64 `json:"count"`
 	// Total limit of the response.
@@ -364,49 +364,49 @@ type ListDirectDebitsPaymentsDirectDebitsListResponseMeta struct {
 	// The ordering of the response.
 	// * ASC - Ascending order
 	// * DESC - Descending order
-	Order *ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder `json:"order,omitempty"`
+	Order *ListDirectDebitsOrder `json:"order,omitempty"`
 	// The field that the list is sorted by.
 	Sort *string `json:"sort,omitempty"`
 	// Total count of all the resources.
 	TotalCount int64 `json:"total_count"`
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseMeta) GetCount() int64 {
+func (o *ListDirectDebitsMeta) GetCount() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Count
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseMeta) GetLimit() int64 {
+func (o *ListDirectDebitsMeta) GetLimit() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Limit
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseMeta) GetOffset() int64 {
+func (o *ListDirectDebitsMeta) GetOffset() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.Offset
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseMeta) GetOrder() *ListDirectDebitsPaymentsDirectDebitsListResponseMetaOrder {
+func (o *ListDirectDebitsMeta) GetOrder() *ListDirectDebitsOrder {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseMeta) GetSort() *string {
+func (o *ListDirectDebitsMeta) GetSort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Sort
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponseMeta) GetTotalCount() int64 {
+func (o *ListDirectDebitsMeta) GetTotalCount() int64 {
 	if o == nil {
 		return 0
 	}
@@ -415,34 +415,41 @@ func (o *ListDirectDebitsPaymentsDirectDebitsListResponseMeta) GetTotalCount() i
 
 // ListDirectDebitsPaymentsDirectDebitsListResponse - Direct debits list
 type ListDirectDebitsPaymentsDirectDebitsListResponse struct {
-	Data []ListDirectDebitsPaymentsDirectDebitsListResponseData `json:"data"`
-	Meta ListDirectDebitsPaymentsDirectDebitsListResponseMeta   `json:"meta"`
+	Data []ListDirectDebitsData `json:"data"`
+	Meta ListDirectDebitsMeta   `json:"meta"`
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponse) GetData() []ListDirectDebitsPaymentsDirectDebitsListResponseData {
+func (o *ListDirectDebitsPaymentsDirectDebitsListResponse) GetData() []ListDirectDebitsData {
 	if o == nil {
-		return []ListDirectDebitsPaymentsDirectDebitsListResponseData{}
+		return []ListDirectDebitsData{}
 	}
 	return o.Data
 }
 
-func (o *ListDirectDebitsPaymentsDirectDebitsListResponse) GetMeta() ListDirectDebitsPaymentsDirectDebitsListResponseMeta {
+func (o *ListDirectDebitsPaymentsDirectDebitsListResponse) GetMeta() ListDirectDebitsMeta {
 	if o == nil {
-		return ListDirectDebitsPaymentsDirectDebitsListResponseMeta{}
+		return ListDirectDebitsMeta{}
 	}
 	return o.Meta
 }
 
 type ListDirectDebitsResponse struct {
+	// Direct debits list
+	TwoHundredApplicationJSONPaymentsDirectDebitsListResponse *ListDirectDebitsPaymentsDirectDebitsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	// Direct debits list
-	PaymentsDirectDebitsListResponse *ListDirectDebitsPaymentsDirectDebitsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *ListDirectDebitsResponse) GetTwoHundredApplicationJSONPaymentsDirectDebitsListResponse() *ListDirectDebitsPaymentsDirectDebitsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONPaymentsDirectDebitsListResponse
 }
 
 func (o *ListDirectDebitsResponse) GetContentType() string {
@@ -457,13 +464,6 @@ func (o *ListDirectDebitsResponse) GetHeaders() map[string][]string {
 		return nil
 	}
 	return o.Headers
-}
-
-func (o *ListDirectDebitsResponse) GetPaymentsDirectDebitsListResponse() *ListDirectDebitsPaymentsDirectDebitsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.PaymentsDirectDebitsListResponse
 }
 
 func (o *ListDirectDebitsResponse) GetStatusCode() int {

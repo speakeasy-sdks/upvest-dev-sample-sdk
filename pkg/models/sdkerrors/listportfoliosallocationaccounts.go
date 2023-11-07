@@ -7,6 +7,231 @@ import (
 	"net/http"
 )
 
+// ListPortfoliosAllocationAccountsPortfoliosResponse504Error - Gateway Timeout. The service gateway has reached its internal timeout.
+type ListPortfoliosAllocationAccountsPortfoliosResponse504Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponse504Error{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponse504Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosResponse503Error - Service Unavailable. The service handling for this request cannot be reached at this time.
+type ListPortfoliosAllocationAccountsPortfoliosResponse503Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponse503Error{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponse503Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosResponse500Error - Internal Server Error. The service encountered an unexpected error.
+type ListPortfoliosAllocationAccountsPortfoliosResponse500Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponse500Error{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponse500Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosResponse429Error - Too Many Requests. The caller has exceeded their quota for the time period and has been throttled.
+type ListPortfoliosAllocationAccountsPortfoliosResponse429Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponse429Error{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponse429Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosResponse406Error - Not Acceptable. The resource does not have a current representation that would be acceptable to the user agent. "Accept" header defined unsupported value.
+type ListPortfoliosAllocationAccountsPortfoliosResponse406Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponse406Error{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponse406Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosResponse405Error - Method Not Allowed. The requested method is not allowed on the requested resource.
+type ListPortfoliosAllocationAccountsPortfoliosResponse405Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponse405Error{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponse405Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosResponse404Error - Not Found. The requested resource could not be found.
+type ListPortfoliosAllocationAccountsPortfoliosResponse404Error struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponse404Error{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponse404Error) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosResponseError - Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+type ListPortfoliosAllocationAccountsPortfoliosResponseError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosResponseError{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosResponseError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+// ListPortfoliosAllocationAccountsPortfoliosError - Unauthorized. The caller has not been authenticated.
+type ListPortfoliosAllocationAccountsPortfoliosError struct {
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response `json:"-"`
+	// A human-readable description of the specific error.
+	Detail *string `json:"detail,omitempty"`
+	// This optional key may be present, with a unique URI for the specific error; this will often point to an error log for that specific response.
+	Instance *string `json:"instance,omitempty"`
+	// Correlation ID for the original request.
+	RequestID *string `json:"request_id,omitempty"`
+	// Transmission of the HTTP status code so that all information can be found in one place, but also to correct changes in the status code due to the use of proxy servers.
+	Status int64 `json:"status"`
+	// A short, human-readable title for the general error type; the title should not change for given types.
+	Title *string `json:"title,omitempty"`
+	// URL to a document describing the error condition.
+	Type string `json:"type"`
+}
+
+var _ error = &ListPortfoliosAllocationAccountsPortfoliosError{}
+
+func (e *ListPortfoliosAllocationAccountsPortfoliosError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
 // ListPortfoliosAllocationAccountsError - Bad Request. The incoming request had a malformed parameter/object.
 type ListPortfoliosAllocationAccountsError struct {
 	// Raw HTTP response; suitable for custom response parsing

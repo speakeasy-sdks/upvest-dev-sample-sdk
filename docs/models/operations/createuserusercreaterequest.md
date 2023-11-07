@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### CreateUserUserCreateRequestUserBYOLCreateRequest
+### UserBYOLCreateRequest
 
 ```go
-createUserUserCreateRequest := operations.CreateCreateUserUserCreateRequestCreateUserUserCreateRequestUserBYOLCreateRequest(operations.CreateUserUserCreateRequestUserBYOLCreateRequest{/* values here */})
+createUserUserCreateRequest := operations.CreateCreateUserUserCreateRequestUserBYOLCreateRequest(operations.UserBYOLCreateRequest{/* values here */})
 ```
 
-### CreateUserUserCreateRequestUserTOLCreateRequest
+### UserTOLCreateRequest
 
 ```go
-createUserUserCreateRequest := operations.CreateCreateUserUserCreateRequestCreateUserUserCreateRequestUserTOLCreateRequest(operations.CreateUserUserCreateRequestUserTOLCreateRequest{/* values here */})
+createUserUserCreateRequest := operations.CreateCreateUserUserCreateRequestUserTOLCreateRequest(operations.UserTOLCreateRequest{/* values here */})
 ```
 

@@ -66,46 +66,46 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 
 // UpvestInvestmentAPI - Upvest Investment API: Upvest Investment API.
 type UpvestInvestmentAPI struct {
-	// All authentication related paths.
-	AccessTokens *accessTokens
 	// All accounts related paths
-	Accounts *accounts
+	Accounts *Accounts
 	// All cash balance related paths
-	CashBalances *cashBalances
-	// All fees related paths.
-	Fees *fees
-	// All instrument related paths.
-	Instruments *instruments
-	// All accounts liquidations related paths.
-	Liquidations *liquidations
-	// All direct debit mandates related paths
-	Mandates *mandates
-	// All order related paths.
-	Orders *orders
+	CashBalances *CashBalances
 	// All payments related paths
-	Payments *payments
-	// All portfolios related paths.
-	Portfolios *portfolios
+	Payments *Payments
+	// All accounts liquidations related paths.
+	Liquidations *Liquidations
+	// All order related paths.
+	Orders *Orders
 	// All positions related paths.
-	Positions *positions
-	// All reference account related paths
-	ReferenceAccounts *referenceAccounts
-	// All reports related paths.
-	Reports *reports
+	Positions *Positions
 	// All accounts returns related paths.
-	Returns *returns
-	// All taxes related paths.
-	Taxes *taxes
-	// All transactions related paths.
-	Transactions *transactions
-	// All user related paths.
-	Users *users
+	Returns *Returns
 	// All valuations related paths.
-	Valuations *valuations
-	// All virtual cash balances related paths
-	VirtualCashBalances *virtualCashBalances
+	Valuations *Valuations
+	// All authentication related paths.
+	AccessTokens *AccessTokens
 	// All webhook related paths.
-	Webhooks *webhooks
+	Webhooks *Webhooks
+	// All fees related paths.
+	Fees *Fees
+	// All instrument related paths.
+	Instruments *Instruments
+	// All direct debit mandates related paths
+	Mandates *Mandates
+	// All reference account related paths
+	ReferenceAccounts *ReferenceAccounts
+	// All portfolios related paths.
+	Portfolios *Portfolios
+	// All reports related paths.
+	Reports *Reports
+	// All transactions related paths.
+	Transactions *Transactions
+	// All user related paths.
+	Users *Users
+	// All taxes related paths.
+	Taxes *Taxes
+	// All virtual cash balances related paths
+	VirtualCashBalances *VirtualCashBalances
 
 	sdkConfiguration sdkConfiguration
 }
@@ -175,9 +175,9 @@ func New(opts ...SDKOption) *UpvestInvestmentAPI {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.9.0",
-			SDKVersion:        "0.4.1",
-			GenVersion:        "2.173.0",
-			UserAgent:         "speakeasy-sdk/go 0.4.1 2.173.0 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
+			SDKVersion:        "0.5.0",
+			GenVersion:        "2.181.1",
+			UserAgent:         "speakeasy-sdk/go 0.5.0 2.181.1 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
 		},
 	}
 	for _, opt := range opts {
@@ -196,45 +196,45 @@ func New(opts ...SDKOption) *UpvestInvestmentAPI {
 		}
 	}
 
-	sdk.AccessTokens = newAccessTokens(sdk.sdkConfiguration)
-
 	sdk.Accounts = newAccounts(sdk.sdkConfiguration)
 
 	sdk.CashBalances = newCashBalances(sdk.sdkConfiguration)
+
+	sdk.Payments = newPayments(sdk.sdkConfiguration)
+
+	sdk.Liquidations = newLiquidations(sdk.sdkConfiguration)
+
+	sdk.Orders = newOrders(sdk.sdkConfiguration)
+
+	sdk.Positions = newPositions(sdk.sdkConfiguration)
+
+	sdk.Returns = newReturns(sdk.sdkConfiguration)
+
+	sdk.Valuations = newValuations(sdk.sdkConfiguration)
+
+	sdk.AccessTokens = newAccessTokens(sdk.sdkConfiguration)
+
+	sdk.Webhooks = newWebhooks(sdk.sdkConfiguration)
 
 	sdk.Fees = newFees(sdk.sdkConfiguration)
 
 	sdk.Instruments = newInstruments(sdk.sdkConfiguration)
 
-	sdk.Liquidations = newLiquidations(sdk.sdkConfiguration)
-
 	sdk.Mandates = newMandates(sdk.sdkConfiguration)
-
-	sdk.Orders = newOrders(sdk.sdkConfiguration)
-
-	sdk.Payments = newPayments(sdk.sdkConfiguration)
-
-	sdk.Portfolios = newPortfolios(sdk.sdkConfiguration)
-
-	sdk.Positions = newPositions(sdk.sdkConfiguration)
 
 	sdk.ReferenceAccounts = newReferenceAccounts(sdk.sdkConfiguration)
 
+	sdk.Portfolios = newPortfolios(sdk.sdkConfiguration)
+
 	sdk.Reports = newReports(sdk.sdkConfiguration)
-
-	sdk.Returns = newReturns(sdk.sdkConfiguration)
-
-	sdk.Taxes = newTaxes(sdk.sdkConfiguration)
 
 	sdk.Transactions = newTransactions(sdk.sdkConfiguration)
 
 	sdk.Users = newUsers(sdk.sdkConfiguration)
 
-	sdk.Valuations = newValuations(sdk.sdkConfiguration)
+	sdk.Taxes = newTaxes(sdk.sdkConfiguration)
 
 	sdk.VirtualCashBalances = newVirtualCashBalances(sdk.sdkConfiguration)
-
-	sdk.Webhooks = newWebhooks(sdk.sdkConfiguration)
 
 	return sdk
 }

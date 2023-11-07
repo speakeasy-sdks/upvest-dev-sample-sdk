@@ -1,6 +1,8 @@
 # ListMandatesOrder
 
-Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
+The ordering of the response.
+* ASC - Ascending order
+* DESC - Descending order
 
 
 ## Values

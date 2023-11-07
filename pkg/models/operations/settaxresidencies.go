@@ -12,23 +12,23 @@ import (
 	"time"
 )
 
-// SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason - Reason why TIN is missing
+// MissingTinReason - Reason why TIN is missing
 // * TIN_NOT_YET_ASSIGNED - Indicates that the tax identification number has not yet been assigned by the tax authorities. A common example is, that a user has moved to a country and thus became taxable, but that the tax authorities have not yet assigned the TIN to this user.
 // * COUNTRY_HAS_NO_TIN - Indicates that the specific country does not provide a TIN.
 // * OTHER_REASONS - Applies in case of other reasons - i.e. when a user does not have the TIN at hand. Note this may cause additional inquiries by our customer service team.
-type SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason string
+type MissingTinReason string
 
 const (
-	SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReasonTinNotYetAssigned SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason = "TIN_NOT_YET_ASSIGNED"
-	SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReasonCountryHasNoTin   SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason = "COUNTRY_HAS_NO_TIN"
-	SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReasonOtherReasons      SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason = "OTHER_REASONS"
+	MissingTinReasonTinNotYetAssigned MissingTinReason = "TIN_NOT_YET_ASSIGNED"
+	MissingTinReasonCountryHasNoTin   MissingTinReason = "COUNTRY_HAS_NO_TIN"
+	MissingTinReasonOtherReasons      MissingTinReason = "OTHER_REASONS"
 )
 
-func (e SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason) ToPointer() *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason {
+func (e MissingTinReason) ToPointer() *MissingTinReason {
 	return &e
 }
 
-func (e *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason) UnmarshalJSON(data []byte) error {
+func (e *MissingTinReason) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -39,128 +39,128 @@ func (e *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWi
 	case "COUNTRY_HAS_NO_TIN":
 		fallthrough
 	case "OTHER_REASONS":
-		*e = SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason(v)
+		*e = MissingTinReason(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason: %v", v)
+		return fmt.Errorf("invalid value for MissingTinReason: %v", v)
 	}
 }
 
-type SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber struct {
+type WithoutTaxIdentifierNumber struct {
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Country string `json:"country"`
 	// Reason why TIN is missing
 	// * TIN_NOT_YET_ASSIGNED - Indicates that the tax identification number has not yet been assigned by the tax authorities. A common example is, that a user has moved to a country and thus became taxable, but that the tax authorities have not yet assigned the TIN to this user.
 	// * COUNTRY_HAS_NO_TIN - Indicates that the specific country does not provide a TIN.
 	// * OTHER_REASONS - Applies in case of other reasons - i.e. when a user does not have the TIN at hand. Note this may cause additional inquiries by our customer service team.
-	MissingTinReason SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason `json:"missing_tin_reason"`
+	MissingTinReason MissingTinReason `json:"missing_tin_reason"`
 }
 
-func (o *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber) GetCountry() string {
+func (o *WithoutTaxIdentifierNumber) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber) GetMissingTinReason() SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason {
+func (o *WithoutTaxIdentifierNumber) GetMissingTinReason() MissingTinReason {
 	if o == nil {
-		return SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumberMissingTinReason("")
+		return MissingTinReason("")
 	}
 	return o.MissingTinReason
 }
 
-type SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber struct {
+type WithTaxIdentifierNumber struct {
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Country string `json:"country"`
 	// Tax identifier number
 	TaxIdentifierNumber string `json:"tax_identifier_number"`
 }
 
-func (o *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber) GetCountry() string {
+func (o *WithTaxIdentifierNumber) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber) GetTaxIdentifierNumber() string {
+func (o *WithTaxIdentifierNumber) GetTaxIdentifierNumber() string {
 	if o == nil {
 		return ""
 	}
 	return o.TaxIdentifierNumber
 }
 
-type SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestType string
+type TaxResidencyForCreateRequestType string
 
 const (
-	SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestTypeSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber    SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestType = "set_tax_residencies_Tax Residencies - Set - Request_Tax residency for Create Request_With tax identifier number"
-	SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestTypeSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestType = "set_tax_residencies_Tax Residencies - Set - Request_Tax residency for Create Request_Without tax identifier number"
+	TaxResidencyForCreateRequestTypeWithTaxIdentifierNumber    TaxResidencyForCreateRequestType = "With tax identifier number"
+	TaxResidencyForCreateRequestTypeWithoutTaxIdentifierNumber TaxResidencyForCreateRequestType = "Without tax identifier number"
 )
 
-type SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest struct {
-	SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber    *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber
-	SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber
+type TaxResidencyForCreateRequest struct {
+	WithTaxIdentifierNumber    *WithTaxIdentifierNumber
+	WithoutTaxIdentifierNumber *WithoutTaxIdentifierNumber
 
-	Type SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestType
+	Type TaxResidencyForCreateRequestType
 }
 
-func CreateSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber(setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber) SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest {
-	typ := SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestTypeSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber
+func CreateTaxResidencyForCreateRequestWithTaxIdentifierNumber(withTaxIdentifierNumber WithTaxIdentifierNumber) TaxResidencyForCreateRequest {
+	typ := TaxResidencyForCreateRequestTypeWithTaxIdentifierNumber
 
-	return SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest{
-		SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber: &setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber,
-		Type: typ,
+	return TaxResidencyForCreateRequest{
+		WithTaxIdentifierNumber: &withTaxIdentifierNumber,
+		Type:                    typ,
 	}
 }
 
-func CreateSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber(setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber) SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest {
-	typ := SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestTypeSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber
+func CreateTaxResidencyForCreateRequestWithoutTaxIdentifierNumber(withoutTaxIdentifierNumber WithoutTaxIdentifierNumber) TaxResidencyForCreateRequest {
+	typ := TaxResidencyForCreateRequestTypeWithoutTaxIdentifierNumber
 
-	return SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest{
-		SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber: &setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber,
-		Type: typ,
+	return TaxResidencyForCreateRequest{
+		WithoutTaxIdentifierNumber: &withoutTaxIdentifierNumber,
+		Type:                       typ,
 	}
 }
 
-func (u *SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest) UnmarshalJSON(data []byte) error {
+func (u *TaxResidencyForCreateRequest) UnmarshalJSON(data []byte) error {
 
-	setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber := SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber{}
-	if err := utils.UnmarshalJSON(data, &setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber, "", true, true); err == nil {
-		u.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber = &setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber
-		u.Type = SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestTypeSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber
+	withTaxIdentifierNumber := WithTaxIdentifierNumber{}
+	if err := utils.UnmarshalJSON(data, &withTaxIdentifierNumber, "", true, true); err == nil {
+		u.WithTaxIdentifierNumber = &withTaxIdentifierNumber
+		u.Type = TaxResidencyForCreateRequestTypeWithTaxIdentifierNumber
 		return nil
 	}
 
-	setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber := SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber{}
-	if err := utils.UnmarshalJSON(data, &setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber, "", true, true); err == nil {
-		u.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber = &setTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber
-		u.Type = SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestTypeSetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber
+	withoutTaxIdentifierNumber := WithoutTaxIdentifierNumber{}
+	if err := utils.UnmarshalJSON(data, &withoutTaxIdentifierNumber, "", true, true); err == nil {
+		u.WithoutTaxIdentifierNumber = &withoutTaxIdentifierNumber
+		u.Type = TaxResidencyForCreateRequestTypeWithoutTaxIdentifierNumber
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest) MarshalJSON() ([]byte, error) {
-	if u.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber != nil {
-		return utils.MarshalJSON(u.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithTaxIdentifierNumber, "", true)
+func (u TaxResidencyForCreateRequest) MarshalJSON() ([]byte, error) {
+	if u.WithTaxIdentifierNumber != nil {
+		return utils.MarshalJSON(u.WithTaxIdentifierNumber, "", true)
 	}
 
-	if u.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber != nil {
-		return utils.MarshalJSON(u.SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequestWithoutTaxIdentifierNumber, "", true)
+	if u.WithoutTaxIdentifierNumber != nil {
+		return utils.MarshalJSON(u.WithoutTaxIdentifierNumber, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
 type SetTaxResidenciesTaxResidenciesSetRequest struct {
-	TaxResidencies []SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest `json:"tax_residencies"`
+	TaxResidencies []TaxResidencyForCreateRequest `json:"tax_residencies"`
 }
 
-func (o *SetTaxResidenciesTaxResidenciesSetRequest) GetTaxResidencies() []SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest {
+func (o *SetTaxResidenciesTaxResidenciesSetRequest) GetTaxResidencies() []TaxResidencyForCreateRequest {
 	if o == nil {
-		return []SetTaxResidenciesTaxResidenciesSetRequestTaxResidencyForCreateRequest{}
+		return []TaxResidencyForCreateRequest{}
 	}
 	return o.TaxResidencies
 }
@@ -242,21 +242,21 @@ func (o *SetTaxResidenciesRequest) GetUserID() string {
 	return o.UserID
 }
 
-// SetTaxResidenciesTaxResidencyRecordStatus - Tax residency status
+// SetTaxResidenciesStatus - Tax residency status
 // * PENDING - It indicates that the tax residency records are not yet processed by Upvest.
 // * ACTIVE - It indicates that tax residency records are processed, and the tax residency record is the one in use.
-type SetTaxResidenciesTaxResidencyRecordStatus string
+type SetTaxResidenciesStatus string
 
 const (
-	SetTaxResidenciesTaxResidencyRecordStatusPending SetTaxResidenciesTaxResidencyRecordStatus = "PENDING"
-	SetTaxResidenciesTaxResidencyRecordStatusActive  SetTaxResidenciesTaxResidencyRecordStatus = "ACTIVE"
+	SetTaxResidenciesStatusPending SetTaxResidenciesStatus = "PENDING"
+	SetTaxResidenciesStatusActive  SetTaxResidenciesStatus = "ACTIVE"
 )
 
-func (e SetTaxResidenciesTaxResidencyRecordStatus) ToPointer() *SetTaxResidenciesTaxResidencyRecordStatus {
+func (e SetTaxResidenciesStatus) ToPointer() *SetTaxResidenciesStatus {
 	return &e
 }
 
-func (e *SetTaxResidenciesTaxResidencyRecordStatus) UnmarshalJSON(data []byte) error {
+func (e *SetTaxResidenciesStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -265,30 +265,30 @@ func (e *SetTaxResidenciesTaxResidencyRecordStatus) UnmarshalJSON(data []byte) e
 	case "PENDING":
 		fallthrough
 	case "ACTIVE":
-		*e = SetTaxResidenciesTaxResidencyRecordStatus(v)
+		*e = SetTaxResidenciesStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for SetTaxResidenciesTaxResidencyRecordStatus: %v", v)
+		return fmt.Errorf("invalid value for SetTaxResidenciesStatus: %v", v)
 	}
 }
 
-// SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason - Reason why TIN is missing
+// SetTaxResidenciesMissingTinReason - Reason why TIN is missing
 // * TIN_NOT_YET_ASSIGNED - Indicates that the tax identification number has not yet been assigned by the tax authorities. A common example is, that a user has moved to a country and thus became taxable, but that the tax authorities have not yet assigned the TIN to this user.
 // * COUNTRY_HAS_NO_TIN - Indicates that the specific country does not provide a TIN.
 // * OTHER_REASONS - Applies in case of other reasons - i.e. when a user does not have the TIN at hand. Note this may cause additional inquiries by our customer service team.
-type SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason string
+type SetTaxResidenciesMissingTinReason string
 
 const (
-	SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReasonTinNotYetAssigned SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason = "TIN_NOT_YET_ASSIGNED"
-	SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReasonCountryHasNoTin   SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason = "COUNTRY_HAS_NO_TIN"
-	SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReasonOtherReasons      SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason = "OTHER_REASONS"
+	SetTaxResidenciesMissingTinReasonTinNotYetAssigned SetTaxResidenciesMissingTinReason = "TIN_NOT_YET_ASSIGNED"
+	SetTaxResidenciesMissingTinReasonCountryHasNoTin   SetTaxResidenciesMissingTinReason = "COUNTRY_HAS_NO_TIN"
+	SetTaxResidenciesMissingTinReasonOtherReasons      SetTaxResidenciesMissingTinReason = "OTHER_REASONS"
 )
 
-func (e SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason) ToPointer() *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason {
+func (e SetTaxResidenciesMissingTinReason) ToPointer() *SetTaxResidenciesMissingTinReason {
 	return &e
 }
 
-func (e *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason) UnmarshalJSON(data []byte) error {
+func (e *SetTaxResidenciesMissingTinReason) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -299,116 +299,116 @@ func (e *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumb
 	case "COUNTRY_HAS_NO_TIN":
 		fallthrough
 	case "OTHER_REASONS":
-		*e = SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason(v)
+		*e = SetTaxResidenciesMissingTinReason(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason: %v", v)
+		return fmt.Errorf("invalid value for SetTaxResidenciesMissingTinReason: %v", v)
 	}
 }
 
-type SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber struct {
+type SetTaxResidenciesWithoutTaxIdentifierNumber struct {
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Country string `json:"country"`
 	// Reason why TIN is missing
 	// * TIN_NOT_YET_ASSIGNED - Indicates that the tax identification number has not yet been assigned by the tax authorities. A common example is, that a user has moved to a country and thus became taxable, but that the tax authorities have not yet assigned the TIN to this user.
 	// * COUNTRY_HAS_NO_TIN - Indicates that the specific country does not provide a TIN.
 	// * OTHER_REASONS - Applies in case of other reasons - i.e. when a user does not have the TIN at hand. Note this may cause additional inquiries by our customer service team.
-	MissingTinReason SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason `json:"missing_tin_reason"`
+	MissingTinReason SetTaxResidenciesMissingTinReason `json:"missing_tin_reason"`
 }
 
-func (o *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber) GetCountry() string {
+func (o *SetTaxResidenciesWithoutTaxIdentifierNumber) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber) GetMissingTinReason() SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason {
+func (o *SetTaxResidenciesWithoutTaxIdentifierNumber) GetMissingTinReason() SetTaxResidenciesMissingTinReason {
 	if o == nil {
-		return SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumberMissingTinReason("")
+		return SetTaxResidenciesMissingTinReason("")
 	}
 	return o.MissingTinReason
 }
 
-type SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber struct {
+type SetTaxResidenciesWithTaxIdentifierNumber struct {
 	// Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	Country string `json:"country"`
 	// Tax identifier number
 	TaxIdentifierNumber string `json:"tax_identifier_number"`
 }
 
-func (o *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber) GetCountry() string {
+func (o *SetTaxResidenciesWithTaxIdentifierNumber) GetCountry() string {
 	if o == nil {
 		return ""
 	}
 	return o.Country
 }
 
-func (o *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber) GetTaxIdentifierNumber() string {
+func (o *SetTaxResidenciesWithTaxIdentifierNumber) GetTaxIdentifierNumber() string {
 	if o == nil {
 		return ""
 	}
 	return o.TaxIdentifierNumber
 }
 
-type SetTaxResidenciesTaxResidencyRecordTaxResidencyType string
+type SetTaxResidenciesTaxResidencyType string
 
 const (
-	SetTaxResidenciesTaxResidencyRecordTaxResidencyTypeSetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber    SetTaxResidenciesTaxResidencyRecordTaxResidencyType = "set_tax_residencies_Tax residency Record_Tax residency_With tax identifier number"
-	SetTaxResidenciesTaxResidencyRecordTaxResidencyTypeSetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber SetTaxResidenciesTaxResidencyRecordTaxResidencyType = "set_tax_residencies_Tax residency Record_Tax residency_Without tax identifier number"
+	SetTaxResidenciesTaxResidencyTypeSetTaxResidenciesWithTaxIdentifierNumber    SetTaxResidenciesTaxResidencyType = "set_tax_residencies_With tax identifier number"
+	SetTaxResidenciesTaxResidencyTypeSetTaxResidenciesWithoutTaxIdentifierNumber SetTaxResidenciesTaxResidencyType = "set_tax_residencies_Without tax identifier number"
 )
 
-type SetTaxResidenciesTaxResidencyRecordTaxResidency struct {
-	SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber    *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber
-	SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber *SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber
+type SetTaxResidenciesTaxResidency struct {
+	SetTaxResidenciesWithTaxIdentifierNumber    *SetTaxResidenciesWithTaxIdentifierNumber
+	SetTaxResidenciesWithoutTaxIdentifierNumber *SetTaxResidenciesWithoutTaxIdentifierNumber
 
-	Type SetTaxResidenciesTaxResidencyRecordTaxResidencyType
+	Type SetTaxResidenciesTaxResidencyType
 }
 
-func CreateSetTaxResidenciesTaxResidencyRecordTaxResidencySetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber(setTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber) SetTaxResidenciesTaxResidencyRecordTaxResidency {
-	typ := SetTaxResidenciesTaxResidencyRecordTaxResidencyTypeSetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber
+func CreateSetTaxResidenciesTaxResidencySetTaxResidenciesWithTaxIdentifierNumber(setTaxResidenciesWithTaxIdentifierNumber SetTaxResidenciesWithTaxIdentifierNumber) SetTaxResidenciesTaxResidency {
+	typ := SetTaxResidenciesTaxResidencyTypeSetTaxResidenciesWithTaxIdentifierNumber
 
-	return SetTaxResidenciesTaxResidencyRecordTaxResidency{
-		SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber: &setTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber,
+	return SetTaxResidenciesTaxResidency{
+		SetTaxResidenciesWithTaxIdentifierNumber: &setTaxResidenciesWithTaxIdentifierNumber,
+		Type:                                     typ,
+	}
+}
+
+func CreateSetTaxResidenciesTaxResidencySetTaxResidenciesWithoutTaxIdentifierNumber(setTaxResidenciesWithoutTaxIdentifierNumber SetTaxResidenciesWithoutTaxIdentifierNumber) SetTaxResidenciesTaxResidency {
+	typ := SetTaxResidenciesTaxResidencyTypeSetTaxResidenciesWithoutTaxIdentifierNumber
+
+	return SetTaxResidenciesTaxResidency{
+		SetTaxResidenciesWithoutTaxIdentifierNumber: &setTaxResidenciesWithoutTaxIdentifierNumber,
 		Type: typ,
 	}
 }
 
-func CreateSetTaxResidenciesTaxResidencyRecordTaxResidencySetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber(setTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber) SetTaxResidenciesTaxResidencyRecordTaxResidency {
-	typ := SetTaxResidenciesTaxResidencyRecordTaxResidencyTypeSetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber
+func (u *SetTaxResidenciesTaxResidency) UnmarshalJSON(data []byte) error {
 
-	return SetTaxResidenciesTaxResidencyRecordTaxResidency{
-		SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber: &setTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber,
-		Type: typ,
-	}
-}
-
-func (u *SetTaxResidenciesTaxResidencyRecordTaxResidency) UnmarshalJSON(data []byte) error {
-
-	setTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber := SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber{}
-	if err := utils.UnmarshalJSON(data, &setTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber, "", true, true); err == nil {
-		u.SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber = &setTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber
-		u.Type = SetTaxResidenciesTaxResidencyRecordTaxResidencyTypeSetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber
+	setTaxResidenciesWithTaxIdentifierNumber := SetTaxResidenciesWithTaxIdentifierNumber{}
+	if err := utils.UnmarshalJSON(data, &setTaxResidenciesWithTaxIdentifierNumber, "", true, true); err == nil {
+		u.SetTaxResidenciesWithTaxIdentifierNumber = &setTaxResidenciesWithTaxIdentifierNumber
+		u.Type = SetTaxResidenciesTaxResidencyTypeSetTaxResidenciesWithTaxIdentifierNumber
 		return nil
 	}
 
-	setTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber := SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber{}
-	if err := utils.UnmarshalJSON(data, &setTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber, "", true, true); err == nil {
-		u.SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber = &setTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber
-		u.Type = SetTaxResidenciesTaxResidencyRecordTaxResidencyTypeSetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber
+	setTaxResidenciesWithoutTaxIdentifierNumber := SetTaxResidenciesWithoutTaxIdentifierNumber{}
+	if err := utils.UnmarshalJSON(data, &setTaxResidenciesWithoutTaxIdentifierNumber, "", true, true); err == nil {
+		u.SetTaxResidenciesWithoutTaxIdentifierNumber = &setTaxResidenciesWithoutTaxIdentifierNumber
+		u.Type = SetTaxResidenciesTaxResidencyTypeSetTaxResidenciesWithoutTaxIdentifierNumber
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u SetTaxResidenciesTaxResidencyRecordTaxResidency) MarshalJSON() ([]byte, error) {
-	if u.SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber != nil {
-		return utils.MarshalJSON(u.SetTaxResidenciesTaxResidencyRecordTaxResidencyWithTaxIdentifierNumber, "", true)
+func (u SetTaxResidenciesTaxResidency) MarshalJSON() ([]byte, error) {
+	if u.SetTaxResidenciesWithTaxIdentifierNumber != nil {
+		return utils.MarshalJSON(u.SetTaxResidenciesWithTaxIdentifierNumber, "", true)
 	}
 
-	if u.SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber != nil {
-		return utils.MarshalJSON(u.SetTaxResidenciesTaxResidencyRecordTaxResidencyWithoutTaxIdentifierNumber, "", true)
+	if u.SetTaxResidenciesWithoutTaxIdentifierNumber != nil {
+		return utils.MarshalJSON(u.SetTaxResidenciesWithoutTaxIdentifierNumber, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -421,8 +421,8 @@ type SetTaxResidenciesTaxResidencyRecord struct {
 	// Tax residency status
 	// * PENDING - It indicates that the tax residency records are not yet processed by Upvest.
 	// * ACTIVE - It indicates that tax residency records are processed, and the tax residency record is the one in use.
-	Status         SetTaxResidenciesTaxResidencyRecordStatus         `json:"status"`
-	TaxResidencies []SetTaxResidenciesTaxResidencyRecordTaxResidency `json:"tax_residencies"`
+	Status         SetTaxResidenciesStatus         `json:"status"`
+	TaxResidencies []SetTaxResidenciesTaxResidency `json:"tax_residencies"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 }
@@ -445,16 +445,16 @@ func (o *SetTaxResidenciesTaxResidencyRecord) GetCreatedAt() time.Time {
 	return o.CreatedAt
 }
 
-func (o *SetTaxResidenciesTaxResidencyRecord) GetStatus() SetTaxResidenciesTaxResidencyRecordStatus {
+func (o *SetTaxResidenciesTaxResidencyRecord) GetStatus() SetTaxResidenciesStatus {
 	if o == nil {
-		return SetTaxResidenciesTaxResidencyRecordStatus("")
+		return SetTaxResidenciesStatus("")
 	}
 	return o.Status
 }
 
-func (o *SetTaxResidenciesTaxResidencyRecord) GetTaxResidencies() []SetTaxResidenciesTaxResidencyRecordTaxResidency {
+func (o *SetTaxResidenciesTaxResidencyRecord) GetTaxResidencies() []SetTaxResidenciesTaxResidency {
 	if o == nil {
-		return []SetTaxResidenciesTaxResidencyRecordTaxResidency{}
+		return []SetTaxResidenciesTaxResidency{}
 	}
 	return o.TaxResidencies
 }
@@ -467,6 +467,8 @@ func (o *SetTaxResidenciesTaxResidencyRecord) GetUpdatedAt() time.Time {
 }
 
 type SetTaxResidenciesResponse struct {
+	// User tax residencies
+	TwoHundredApplicationJSONTaxResidencyRecord *SetTaxResidenciesTaxResidencyRecord
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -474,8 +476,13 @@ type SetTaxResidenciesResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// User tax residencies
-	TaxResidencyRecord *SetTaxResidenciesTaxResidencyRecord
+}
+
+func (o *SetTaxResidenciesResponse) GetTwoHundredApplicationJSONTaxResidencyRecord() *SetTaxResidenciesTaxResidencyRecord {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredApplicationJSONTaxResidencyRecord
 }
 
 func (o *SetTaxResidenciesResponse) GetContentType() string {
@@ -504,11 +511,4 @@ func (o *SetTaxResidenciesResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *SetTaxResidenciesResponse) GetTaxResidencyRecord() *SetTaxResidenciesTaxResidencyRecord {
-	if o == nil {
-		return nil
-	}
-	return o.TaxResidencyRecord
 }

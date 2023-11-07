@@ -1,5 +1,5 @@
 # Orders
-(*Orders*)
+(*.Orders*)
 
 ## Overview
 
@@ -47,7 +47,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.OrderCancelResponse != nil {
+    if res.TwoHundredAndTwoApplicationJSONOrderCancelResponse != nil {
         // handle response
     }
 }
@@ -100,7 +100,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.OrdersListResponse != nil {
+    if res.TwoHundredApplicationJSONOrdersListResponse != nil {
         // handle response
     }
 }
@@ -146,7 +146,7 @@ func main() {
         RequestBody: &operations.PlaceOrderOrderPlaceRequest{
             AccountID: "b95bd99c-2bac-4393-b09f-a0cc26cb9bc2",
             InstrumentID: "string",
-            Side: operations.PlaceOrderOrderPlaceRequestSideBuy,
+            Side: operations.SideBuy,
             UserID: "69a1c9be-906c-4213-b0cb-fa43f8d73fd7",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -159,7 +159,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Order != nil {
+    if res.TwoHundredAndTwoApplicationJSONOrder != nil {
         // handle response
     }
 }
@@ -212,7 +212,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.Order != nil {
+    if res.TwoHundredApplicationJSONOrder != nil {
         // handle response
     }
 }
@@ -266,7 +266,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.OrderExecution != nil {
+    if res.TwoHundredApplicationJSONOrderExecution != nil {
         // handle response
     }
 }

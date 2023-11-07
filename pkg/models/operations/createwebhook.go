@@ -11,65 +11,65 @@ import (
 	"time"
 )
 
-// CreateWebhookWebhookCreateRequestConfig - Configuration of webhook packages collection.
-type CreateWebhookWebhookCreateRequestConfig struct {
+// Config - Configuration of webhook packages collection.
+type Config struct {
 	// Maximum time of package collection.
 	Delay *string `json:"delay,omitempty"`
 	// Maximum package size (bytes)
 	MaxPackageSize *int64 `json:"max_package_size,omitempty"`
 }
 
-func (o *CreateWebhookWebhookCreateRequestConfig) GetDelay() *string {
+func (o *Config) GetDelay() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Delay
 }
 
-func (o *CreateWebhookWebhookCreateRequestConfig) GetMaxPackageSize() *int64 {
+func (o *Config) GetMaxPackageSize() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MaxPackageSize
 }
 
-type CreateWebhookWebhookCreateRequestType string
+type CreateWebhookType string
 
 const (
-	CreateWebhookWebhookCreateRequestTypeAll                      CreateWebhookWebhookCreateRequestType = "ALL"
-	CreateWebhookWebhookCreateRequestTypeUser                     CreateWebhookWebhookCreateRequestType = "USER"
-	CreateWebhookWebhookCreateRequestTypeUserCheck                CreateWebhookWebhookCreateRequestType = "USER_CHECK"
-	CreateWebhookWebhookCreateRequestTypeOrder                    CreateWebhookWebhookCreateRequestType = "ORDER"
-	CreateWebhookWebhookCreateRequestTypeOrderCancellation        CreateWebhookWebhookCreateRequestType = "ORDER_CANCELLATION"
-	CreateWebhookWebhookCreateRequestTypeExecution                CreateWebhookWebhookCreateRequestType = "EXECUTION"
-	CreateWebhookWebhookCreateRequestTypePosition                 CreateWebhookWebhookCreateRequestType = "POSITION"
-	CreateWebhookWebhookCreateRequestTypeCashBalance              CreateWebhookWebhookCreateRequestType = "CASH_BALANCE"
-	CreateWebhookWebhookCreateRequestTypeAccount                  CreateWebhookWebhookCreateRequestType = "ACCOUNT"
-	CreateWebhookWebhookCreateRequestTypeAccountGroup             CreateWebhookWebhookCreateRequestType = "ACCOUNT_GROUP"
-	CreateWebhookWebhookCreateRequestTypeReport                   CreateWebhookWebhookCreateRequestType = "REPORT"
-	CreateWebhookWebhookCreateRequestTypeTreasuryReport           CreateWebhookWebhookCreateRequestType = "TREASURY_REPORT"
-	CreateWebhookWebhookCreateRequestTypeDirectDebit              CreateWebhookWebhookCreateRequestType = "DIRECT_DEBIT"
-	CreateWebhookWebhookCreateRequestTypeWithdrawal               CreateWebhookWebhookCreateRequestType = "WITHDRAWAL"
-	CreateWebhookWebhookCreateRequestTypePortfolio                CreateWebhookWebhookCreateRequestType = "PORTFOLIO"
-	CreateWebhookWebhookCreateRequestTypePortfolioAllocation      CreateWebhookWebhookCreateRequestType = "PORTFOLIO_ALLOCATION"
-	CreateWebhookWebhookCreateRequestTypePortfolioOrder           CreateWebhookWebhookCreateRequestType = "PORTFOLIO_ORDER"
-	CreateWebhookWebhookCreateRequestTypeCorporateAction          CreateWebhookWebhookCreateRequestType = "CORPORATE_ACTION"
-	CreateWebhookWebhookCreateRequestTypeAccountValuation         CreateWebhookWebhookCreateRequestType = "ACCOUNT_VALUATION"
-	CreateWebhookWebhookCreateRequestTypeIntradayAccountValuation CreateWebhookWebhookCreateRequestType = "INTRADAY_ACCOUNT_VALUATION"
-	CreateWebhookWebhookCreateRequestTypeCashTransaction          CreateWebhookWebhookCreateRequestType = "CASH_TRANSACTION"
-	CreateWebhookWebhookCreateRequestTypeSecurityTransaction      CreateWebhookWebhookCreateRequestType = "SECURITY_TRANSACTION"
-	CreateWebhookWebhookCreateRequestTypeAccountLiquidation       CreateWebhookWebhookCreateRequestType = "ACCOUNT_LIQUIDATION"
-	CreateWebhookWebhookCreateRequestTypeAccountReturns           CreateWebhookWebhookCreateRequestType = "ACCOUNT_RETURNS"
-	CreateWebhookWebhookCreateRequestTypeVirtualCashIncrease      CreateWebhookWebhookCreateRequestType = "VIRTUAL_CASH_INCREASE"
-	CreateWebhookWebhookCreateRequestTypeVirtualCashDecrease      CreateWebhookWebhookCreateRequestType = "VIRTUAL_CASH_DECREASE"
-	CreateWebhookWebhookCreateRequestTypeFeeCollection            CreateWebhookWebhookCreateRequestType = "FEE_COLLECTION"
+	CreateWebhookTypeAll                      CreateWebhookType = "ALL"
+	CreateWebhookTypeUser                     CreateWebhookType = "USER"
+	CreateWebhookTypeUserCheck                CreateWebhookType = "USER_CHECK"
+	CreateWebhookTypeOrder                    CreateWebhookType = "ORDER"
+	CreateWebhookTypeOrderCancellation        CreateWebhookType = "ORDER_CANCELLATION"
+	CreateWebhookTypeExecution                CreateWebhookType = "EXECUTION"
+	CreateWebhookTypePosition                 CreateWebhookType = "POSITION"
+	CreateWebhookTypeCashBalance              CreateWebhookType = "CASH_BALANCE"
+	CreateWebhookTypeAccount                  CreateWebhookType = "ACCOUNT"
+	CreateWebhookTypeAccountGroup             CreateWebhookType = "ACCOUNT_GROUP"
+	CreateWebhookTypeReport                   CreateWebhookType = "REPORT"
+	CreateWebhookTypeTreasuryReport           CreateWebhookType = "TREASURY_REPORT"
+	CreateWebhookTypeDirectDebit              CreateWebhookType = "DIRECT_DEBIT"
+	CreateWebhookTypeWithdrawal               CreateWebhookType = "WITHDRAWAL"
+	CreateWebhookTypePortfolio                CreateWebhookType = "PORTFOLIO"
+	CreateWebhookTypePortfolioAllocation      CreateWebhookType = "PORTFOLIO_ALLOCATION"
+	CreateWebhookTypePortfolioOrder           CreateWebhookType = "PORTFOLIO_ORDER"
+	CreateWebhookTypeCorporateAction          CreateWebhookType = "CORPORATE_ACTION"
+	CreateWebhookTypeAccountValuation         CreateWebhookType = "ACCOUNT_VALUATION"
+	CreateWebhookTypeIntradayAccountValuation CreateWebhookType = "INTRADAY_ACCOUNT_VALUATION"
+	CreateWebhookTypeCashTransaction          CreateWebhookType = "CASH_TRANSACTION"
+	CreateWebhookTypeSecurityTransaction      CreateWebhookType = "SECURITY_TRANSACTION"
+	CreateWebhookTypeAccountLiquidation       CreateWebhookType = "ACCOUNT_LIQUIDATION"
+	CreateWebhookTypeAccountReturns           CreateWebhookType = "ACCOUNT_RETURNS"
+	CreateWebhookTypeVirtualCashIncrease      CreateWebhookType = "VIRTUAL_CASH_INCREASE"
+	CreateWebhookTypeVirtualCashDecrease      CreateWebhookType = "VIRTUAL_CASH_DECREASE"
+	CreateWebhookTypeFeeCollection            CreateWebhookType = "FEE_COLLECTION"
 )
 
-func (e CreateWebhookWebhookCreateRequestType) ToPointer() *CreateWebhookWebhookCreateRequestType {
+func (e CreateWebhookType) ToPointer() *CreateWebhookType {
 	return &e
 }
 
-func (e *CreateWebhookWebhookCreateRequestType) UnmarshalJSON(data []byte) error {
+func (e *CreateWebhookType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -128,25 +128,25 @@ func (e *CreateWebhookWebhookCreateRequestType) UnmarshalJSON(data []byte) error
 	case "VIRTUAL_CASH_DECREASE":
 		fallthrough
 	case "FEE_COLLECTION":
-		*e = CreateWebhookWebhookCreateRequestType(v)
+		*e = CreateWebhookType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateWebhookWebhookCreateRequestType: %v", v)
+		return fmt.Errorf("invalid value for CreateWebhookType: %v", v)
 	}
 }
 
 type CreateWebhookWebhookCreateRequest struct {
 	// Configuration of webhook packages collection.
-	Config *CreateWebhookWebhookCreateRequestConfig `json:"config,omitempty"`
+	Config *Config `json:"config,omitempty"`
 	// Title of the webhook for use on tenant side.
 	Title string `json:"title"`
 	// What kind of events to be sent by the webhook.
-	Type []CreateWebhookWebhookCreateRequestType `json:"type,omitempty"`
+	Type []CreateWebhookType `json:"type,omitempty"`
 	// The callback URL to be called by the webhook.
 	URL string `json:"url"`
 }
 
-func (o *CreateWebhookWebhookCreateRequest) GetConfig() *CreateWebhookWebhookCreateRequestConfig {
+func (o *CreateWebhookWebhookCreateRequest) GetConfig() *Config {
 	if o == nil {
 		return nil
 	}
@@ -160,7 +160,7 @@ func (o *CreateWebhookWebhookCreateRequest) GetTitle() string {
 	return o.Title
 }
 
-func (o *CreateWebhookWebhookCreateRequest) GetType() []CreateWebhookWebhookCreateRequestType {
+func (o *CreateWebhookWebhookCreateRequest) GetType() []CreateWebhookType {
 	if o == nil {
 		return nil
 	}
@@ -232,65 +232,65 @@ func (o *CreateWebhookRequest) GetUpvestClientID() string {
 	return o.UpvestClientID
 }
 
-// CreateWebhookWebhookConfig - Configuration of webhook packages collection.
-type CreateWebhookWebhookConfig struct {
+// CreateWebhookConfig - Configuration of webhook packages collection.
+type CreateWebhookConfig struct {
 	// Maximum time of package collection.
 	Delay *string `json:"delay,omitempty"`
 	// Maximum package size (bytes)
 	MaxPackageSize *int64 `json:"max_package_size,omitempty"`
 }
 
-func (o *CreateWebhookWebhookConfig) GetDelay() *string {
+func (o *CreateWebhookConfig) GetDelay() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Delay
 }
 
-func (o *CreateWebhookWebhookConfig) GetMaxPackageSize() *int64 {
+func (o *CreateWebhookConfig) GetMaxPackageSize() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MaxPackageSize
 }
 
-type CreateWebhookWebhookType string
+type CreateWebhookWebhooksType string
 
 const (
-	CreateWebhookWebhookTypeAll                      CreateWebhookWebhookType = "ALL"
-	CreateWebhookWebhookTypeUser                     CreateWebhookWebhookType = "USER"
-	CreateWebhookWebhookTypeUserCheck                CreateWebhookWebhookType = "USER_CHECK"
-	CreateWebhookWebhookTypeOrder                    CreateWebhookWebhookType = "ORDER"
-	CreateWebhookWebhookTypeOrderCancellation        CreateWebhookWebhookType = "ORDER_CANCELLATION"
-	CreateWebhookWebhookTypeExecution                CreateWebhookWebhookType = "EXECUTION"
-	CreateWebhookWebhookTypePosition                 CreateWebhookWebhookType = "POSITION"
-	CreateWebhookWebhookTypeCashBalance              CreateWebhookWebhookType = "CASH_BALANCE"
-	CreateWebhookWebhookTypeAccount                  CreateWebhookWebhookType = "ACCOUNT"
-	CreateWebhookWebhookTypeAccountGroup             CreateWebhookWebhookType = "ACCOUNT_GROUP"
-	CreateWebhookWebhookTypeReport                   CreateWebhookWebhookType = "REPORT"
-	CreateWebhookWebhookTypeTreasuryReport           CreateWebhookWebhookType = "TREASURY_REPORT"
-	CreateWebhookWebhookTypeDirectDebit              CreateWebhookWebhookType = "DIRECT_DEBIT"
-	CreateWebhookWebhookTypeWithdrawal               CreateWebhookWebhookType = "WITHDRAWAL"
-	CreateWebhookWebhookTypePortfolio                CreateWebhookWebhookType = "PORTFOLIO"
-	CreateWebhookWebhookTypePortfolioAllocation      CreateWebhookWebhookType = "PORTFOLIO_ALLOCATION"
-	CreateWebhookWebhookTypePortfolioOrder           CreateWebhookWebhookType = "PORTFOLIO_ORDER"
-	CreateWebhookWebhookTypeCorporateAction          CreateWebhookWebhookType = "CORPORATE_ACTION"
-	CreateWebhookWebhookTypeAccountValuation         CreateWebhookWebhookType = "ACCOUNT_VALUATION"
-	CreateWebhookWebhookTypeIntradayAccountValuation CreateWebhookWebhookType = "INTRADAY_ACCOUNT_VALUATION"
-	CreateWebhookWebhookTypeCashTransaction          CreateWebhookWebhookType = "CASH_TRANSACTION"
-	CreateWebhookWebhookTypeSecurityTransaction      CreateWebhookWebhookType = "SECURITY_TRANSACTION"
-	CreateWebhookWebhookTypeAccountLiquidation       CreateWebhookWebhookType = "ACCOUNT_LIQUIDATION"
-	CreateWebhookWebhookTypeAccountReturns           CreateWebhookWebhookType = "ACCOUNT_RETURNS"
-	CreateWebhookWebhookTypeVirtualCashIncrease      CreateWebhookWebhookType = "VIRTUAL_CASH_INCREASE"
-	CreateWebhookWebhookTypeVirtualCashDecrease      CreateWebhookWebhookType = "VIRTUAL_CASH_DECREASE"
-	CreateWebhookWebhookTypeFeeCollection            CreateWebhookWebhookType = "FEE_COLLECTION"
+	CreateWebhookWebhooksTypeAll                      CreateWebhookWebhooksType = "ALL"
+	CreateWebhookWebhooksTypeUser                     CreateWebhookWebhooksType = "USER"
+	CreateWebhookWebhooksTypeUserCheck                CreateWebhookWebhooksType = "USER_CHECK"
+	CreateWebhookWebhooksTypeOrder                    CreateWebhookWebhooksType = "ORDER"
+	CreateWebhookWebhooksTypeOrderCancellation        CreateWebhookWebhooksType = "ORDER_CANCELLATION"
+	CreateWebhookWebhooksTypeExecution                CreateWebhookWebhooksType = "EXECUTION"
+	CreateWebhookWebhooksTypePosition                 CreateWebhookWebhooksType = "POSITION"
+	CreateWebhookWebhooksTypeCashBalance              CreateWebhookWebhooksType = "CASH_BALANCE"
+	CreateWebhookWebhooksTypeAccount                  CreateWebhookWebhooksType = "ACCOUNT"
+	CreateWebhookWebhooksTypeAccountGroup             CreateWebhookWebhooksType = "ACCOUNT_GROUP"
+	CreateWebhookWebhooksTypeReport                   CreateWebhookWebhooksType = "REPORT"
+	CreateWebhookWebhooksTypeTreasuryReport           CreateWebhookWebhooksType = "TREASURY_REPORT"
+	CreateWebhookWebhooksTypeDirectDebit              CreateWebhookWebhooksType = "DIRECT_DEBIT"
+	CreateWebhookWebhooksTypeWithdrawal               CreateWebhookWebhooksType = "WITHDRAWAL"
+	CreateWebhookWebhooksTypePortfolio                CreateWebhookWebhooksType = "PORTFOLIO"
+	CreateWebhookWebhooksTypePortfolioAllocation      CreateWebhookWebhooksType = "PORTFOLIO_ALLOCATION"
+	CreateWebhookWebhooksTypePortfolioOrder           CreateWebhookWebhooksType = "PORTFOLIO_ORDER"
+	CreateWebhookWebhooksTypeCorporateAction          CreateWebhookWebhooksType = "CORPORATE_ACTION"
+	CreateWebhookWebhooksTypeAccountValuation         CreateWebhookWebhooksType = "ACCOUNT_VALUATION"
+	CreateWebhookWebhooksTypeIntradayAccountValuation CreateWebhookWebhooksType = "INTRADAY_ACCOUNT_VALUATION"
+	CreateWebhookWebhooksTypeCashTransaction          CreateWebhookWebhooksType = "CASH_TRANSACTION"
+	CreateWebhookWebhooksTypeSecurityTransaction      CreateWebhookWebhooksType = "SECURITY_TRANSACTION"
+	CreateWebhookWebhooksTypeAccountLiquidation       CreateWebhookWebhooksType = "ACCOUNT_LIQUIDATION"
+	CreateWebhookWebhooksTypeAccountReturns           CreateWebhookWebhooksType = "ACCOUNT_RETURNS"
+	CreateWebhookWebhooksTypeVirtualCashIncrease      CreateWebhookWebhooksType = "VIRTUAL_CASH_INCREASE"
+	CreateWebhookWebhooksTypeVirtualCashDecrease      CreateWebhookWebhooksType = "VIRTUAL_CASH_DECREASE"
+	CreateWebhookWebhooksTypeFeeCollection            CreateWebhookWebhooksType = "FEE_COLLECTION"
 )
 
-func (e CreateWebhookWebhookType) ToPointer() *CreateWebhookWebhookType {
+func (e CreateWebhookWebhooksType) ToPointer() *CreateWebhookWebhooksType {
 	return &e
 }
 
-func (e *CreateWebhookWebhookType) UnmarshalJSON(data []byte) error {
+func (e *CreateWebhookWebhooksType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -349,17 +349,17 @@ func (e *CreateWebhookWebhookType) UnmarshalJSON(data []byte) error {
 	case "VIRTUAL_CASH_DECREASE":
 		fallthrough
 	case "FEE_COLLECTION":
-		*e = CreateWebhookWebhookType(v)
+		*e = CreateWebhookWebhooksType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateWebhookWebhookType: %v", v)
+		return fmt.Errorf("invalid value for CreateWebhookWebhooksType: %v", v)
 	}
 }
 
 // CreateWebhookWebhook - Returns a webhook subscription object if a valid webhook subscription object ID was provided.
 type CreateWebhookWebhook struct {
 	// Configuration of webhook packages collection.
-	Config CreateWebhookWebhookConfig `json:"config"`
+	Config CreateWebhookConfig `json:"config"`
 	// Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	CreatedAt time.Time `json:"created_at"`
 	// Enable/disable webhook.
@@ -369,7 +369,7 @@ type CreateWebhookWebhook struct {
 	// Title of the webhook for use on tenant side.
 	Title string `json:"title"`
 	// What kind of events to be sent by the webhook.
-	Type []CreateWebhookWebhookType `json:"type"`
+	Type []CreateWebhookWebhooksType `json:"type"`
 	// Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)
 	UpdatedAt time.Time `json:"updated_at"`
 	// The callback URL to be called by the webhook.
@@ -387,9 +387,9 @@ func (c *CreateWebhookWebhook) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *CreateWebhookWebhook) GetConfig() CreateWebhookWebhookConfig {
+func (o *CreateWebhookWebhook) GetConfig() CreateWebhookConfig {
 	if o == nil {
-		return CreateWebhookWebhookConfig{}
+		return CreateWebhookConfig{}
 	}
 	return o.Config
 }
@@ -422,9 +422,9 @@ func (o *CreateWebhookWebhook) GetTitle() string {
 	return o.Title
 }
 
-func (o *CreateWebhookWebhook) GetType() []CreateWebhookWebhookType {
+func (o *CreateWebhookWebhook) GetType() []CreateWebhookWebhooksType {
 	if o == nil {
-		return []CreateWebhookWebhookType{}
+		return []CreateWebhookWebhooksType{}
 	}
 	return o.Type
 }
@@ -444,6 +444,8 @@ func (o *CreateWebhookWebhook) GetURL() string {
 }
 
 type CreateWebhookResponse struct {
+	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
+	TwoHundredAndOneApplicationJSONWebhook *CreateWebhookWebhook
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -451,8 +453,13 @@ type CreateWebhookResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
-	Webhook *CreateWebhookWebhook
+}
+
+func (o *CreateWebhookResponse) GetTwoHundredAndOneApplicationJSONWebhook() *CreateWebhookWebhook {
+	if o == nil {
+		return nil
+	}
+	return o.TwoHundredAndOneApplicationJSONWebhook
 }
 
 func (o *CreateWebhookResponse) GetContentType() string {
@@ -481,11 +488,4 @@ func (o *CreateWebhookResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
-}
-
-func (o *CreateWebhookResponse) GetWebhook() *CreateWebhookWebhook {
-	if o == nil {
-		return nil
-	}
-	return o.Webhook
 }
