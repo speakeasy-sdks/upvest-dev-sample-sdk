@@ -1,5 +1,5 @@
 # Reports
-(*.Reports*)
+(*Reports*)
 
 ## Overview
 
@@ -52,16 +52,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.ListReportsRequest](../../models/operations/listreportsrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.ListReportsRequest](../../pkg/models/operations/listreportsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
-**[*operations.ListReportsResponse](../../models/operations/listreportsresponse.md), error**
-
+**[*operations.ListReportsResponse](../../pkg/models/operations/listreportsresponse.md), error**
+| Error Object                                 | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| sdkerrors.ListReportsError                   | 400                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsError            | 401                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsResponseError    | 403                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsResponse404Error | 404                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsResponse406Error | 406                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsResponse429Error | 429                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsResponse500Error | 500                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsResponse503Error | 503                                          | application/problem+json                     |
+| sdkerrors.ListReportsReportsResponse504Error | 504                                          | application/problem+json                     |
+| sdkerrors.SDKError                           | 400-600                                      | */*                                          |
 
 ## RetrieveReport
 
@@ -105,13 +116,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.RetrieveReportRequest](../../models/operations/retrievereportrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.RetrieveReportRequest](../../pkg/models/operations/retrievereportrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
-**[*operations.RetrieveReportResponse](../../models/operations/retrievereportresponse.md), error**
-
+**[*operations.RetrieveReportResponse](../../pkg/models/operations/retrievereportresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.RetrieveReportError                   | 401                                             | application/problem+json                        |
+| sdkerrors.RetrieveReportReportsError            | 403                                             | application/problem+json                        |
+| sdkerrors.RetrieveReportReportsResponseError    | 404                                             | application/problem+json                        |
+| sdkerrors.RetrieveReportReportsResponse406Error | 406                                             | application/problem+json                        |
+| sdkerrors.RetrieveReportReportsResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.RetrieveReportReportsResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.RetrieveReportReportsResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.RetrieveReportReportsResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |

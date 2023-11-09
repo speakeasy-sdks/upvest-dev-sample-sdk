@@ -1,5 +1,5 @@
 # ReferenceAccounts
-(*.ReferenceAccounts*)
+(*ReferenceAccounts*)
 
 ## Overview
 
@@ -61,16 +61,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.CreateReferenceAccountRequest](../../models/operations/createreferenceaccountrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.CreateReferenceAccountRequest](../../pkg/models/operations/createreferenceaccountrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
 
-**[*operations.CreateReferenceAccountResponse](../../models/operations/createreferenceaccountresponse.md), error**
-
+**[*operations.CreateReferenceAccountResponse](../../pkg/models/operations/createreferenceaccountresponse.md), error**
+| Error Object                                                      | Status Code                                                       | Content Type                                                      |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| sdkerrors.CreateReferenceAccountError                             | 400                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsError            | 401                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsResponseError    | 403                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsResponse404Error | 404                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsResponse406Error | 406                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsResponse429Error | 429                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsResponse500Error | 500                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsResponse503Error | 503                                                               | application/problem+json                                          |
+| sdkerrors.CreateReferenceAccountReferenceAccountsResponse504Error | 504                                                               | application/problem+json                                          |
+| sdkerrors.SDKError                                                | 400-600                                                           | */*                                                               |
 
 ## DeleteReferenceAccount
 
@@ -114,16 +125,25 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.DeleteReferenceAccountRequest](../../models/operations/deletereferenceaccountrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.DeleteReferenceAccountRequest](../../pkg/models/operations/deletereferenceaccountrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
 
-**[*operations.DeleteReferenceAccountResponse](../../models/operations/deletereferenceaccountresponse.md), error**
-
+**[*operations.DeleteReferenceAccountResponse](../../pkg/models/operations/deletereferenceaccountresponse.md), error**
+| Error Object                                                      | Status Code                                                       | Content Type                                                      |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| sdkerrors.DeleteReferenceAccountError                             | 401                                                               | application/problem+json                                          |
+| sdkerrors.DeleteReferenceAccountReferenceAccountsError            | 403                                                               | application/problem+json                                          |
+| sdkerrors.DeleteReferenceAccountReferenceAccountsResponseError    | 404                                                               | application/problem+json                                          |
+| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse429Error | 429                                                               | application/problem+json                                          |
+| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse500Error | 500                                                               | application/problem+json                                          |
+| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse503Error | 503                                                               | application/problem+json                                          |
+| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse504Error | 504                                                               | application/problem+json                                          |
+| sdkerrors.SDKError                                                | 400-600                                                           | */*                                                               |
 
 ## ListReferenceAccounts
 
@@ -167,16 +187,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.ListReferenceAccountsRequest](../../models/operations/listreferenceaccountsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
+| `request`                                                                                              | [operations.ListReferenceAccountsRequest](../../pkg/models/operations/listreferenceaccountsrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 
 ### Response
 
-**[*operations.ListReferenceAccountsResponse](../../models/operations/listreferenceaccountsresponse.md), error**
-
+**[*operations.ListReferenceAccountsResponse](../../pkg/models/operations/listreferenceaccountsresponse.md), error**
+| Error Object                                                     | Status Code                                                      | Content Type                                                     |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| sdkerrors.ListReferenceAccountsError                             | 400                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsError            | 401                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsResponseError    | 403                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsResponse404Error | 404                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsResponse406Error | 406                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsResponse429Error | 429                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsResponse500Error | 500                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsResponse503Error | 503                                                              | application/problem+json                                         |
+| sdkerrors.ListReferenceAccountsReferenceAccountsResponse504Error | 504                                                              | application/problem+json                                         |
+| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |
 
 ## RetrieveReferenceAccount
 
@@ -220,13 +251,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.RetrieveReferenceAccountRequest](../../models/operations/retrievereferenceaccountrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.RetrieveReferenceAccountRequest](../../pkg/models/operations/retrievereferenceaccountrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
 
-**[*operations.RetrieveReferenceAccountResponse](../../models/operations/retrievereferenceaccountresponse.md), error**
-
+**[*operations.RetrieveReferenceAccountResponse](../../pkg/models/operations/retrievereferenceaccountresponse.md), error**
+| Error Object                                                        | Status Code                                                         | Content Type                                                        |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| sdkerrors.RetrieveReferenceAccountError                             | 401                                                                 | application/problem+json                                            |
+| sdkerrors.RetrieveReferenceAccountReferenceAccountsError            | 403                                                                 | application/problem+json                                            |
+| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponseError    | 404                                                                 | application/problem+json                                            |
+| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse406Error | 406                                                                 | application/problem+json                                            |
+| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse429Error | 429                                                                 | application/problem+json                                            |
+| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse500Error | 500                                                                 | application/problem+json                                            |
+| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse503Error | 503                                                                 | application/problem+json                                            |
+| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse504Error | 504                                                                 | application/problem+json                                            |
+| sdkerrors.SDKError                                                  | 400-600                                                             | */*                                                                 |

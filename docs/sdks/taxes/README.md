@@ -1,5 +1,5 @@
 # Taxes
-(*.Taxes*)
+(*Taxes*)
 
 ## Overview
 
@@ -52,16 +52,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.RetrieveTaxResidenciesRequest](../../models/operations/retrievetaxresidenciesrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.RetrieveTaxResidenciesRequest](../../pkg/models/operations/retrievetaxresidenciesrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
 
-**[*operations.RetrieveTaxResidenciesResponse](../../models/operations/retrievetaxresidenciesresponse.md), error**
-
+**[*operations.RetrieveTaxResidenciesResponse](../../pkg/models/operations/retrievetaxresidenciesresponse.md), error**
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| sdkerrors.RetrieveTaxResidenciesError                 | 401                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesError            | 403                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesResponseError    | 404                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesResponse405Error | 405                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesResponse406Error | 406                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesResponse429Error | 429                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesResponse500Error | 500                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesResponse503Error | 503                                                   | application/problem+json                              |
+| sdkerrors.RetrieveTaxResidenciesTaxesResponse504Error | 504                                                   | application/problem+json                              |
+| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |
 
 ## SetTaxResidencies
 
@@ -116,13 +127,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.SetTaxResidenciesRequest](../../models/operations/settaxresidenciesrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.SetTaxResidenciesRequest](../../pkg/models/operations/settaxresidenciesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
-**[*operations.SetTaxResidenciesResponse](../../models/operations/settaxresidenciesresponse.md), error**
-
+**[*operations.SetTaxResidenciesResponse](../../pkg/models/operations/settaxresidenciesresponse.md), error**
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| sdkerrors.SetTaxResidenciesError                 | 400                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesError            | 401                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesResponseError    | 403                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesResponse404Error | 404                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesResponse406Error | 406                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesResponse429Error | 429                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesResponse500Error | 500                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesResponse503Error | 503                                              | application/problem+json                         |
+| sdkerrors.SetTaxResidenciesTaxesResponse504Error | 504                                              | application/problem+json                         |
+| sdkerrors.SDKError                               | 400-600                                          | */*                                              |

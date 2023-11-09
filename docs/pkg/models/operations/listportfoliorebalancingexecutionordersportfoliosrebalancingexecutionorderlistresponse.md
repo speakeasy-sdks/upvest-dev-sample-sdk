@@ -1,0 +1,11 @@
+# ListPortfolioRebalancingExecutionOrdersPortfoliosRebalancingExecutionOrderListResponse
+
+Portfolios
+
+
+## Fields
+
+| Field                                                                                                                                   | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                                  | [][operations.PortfoliosRebalancingExecutionOrder](../../../pkg/models/operations/portfoliosrebalancingexecutionorder.md)               | :heavy_check_mark:                                                                                                                      | N/A                                                                                                                                     |
+| `Meta`                                                                                                                                  | [operations.ListPortfolioRebalancingExecutionOrdersMeta](../../../pkg/models/operations/listportfoliorebalancingexecutionordersmeta.md) | :heavy_check_mark:                                                                                                                      | N/A                                                                                                                                     |

@@ -1,5 +1,5 @@
 # CashBalances
-(*.CashBalances*)
+(*CashBalances*)
 
 ## Overview
 
@@ -51,13 +51,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.RetrieveCashBalanceRequest](../../models/operations/retrievecashbalancerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.RetrieveCashBalanceRequest](../../pkg/models/operations/retrievecashbalancerequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
-**[*operations.RetrieveCashBalanceResponse](../../models/operations/retrievecashbalanceresponse.md), error**
-
+**[*operations.RetrieveCashBalanceResponse](../../pkg/models/operations/retrievecashbalanceresponse.md), error**
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| sdkerrors.RetrieveCashBalanceError                        | 401                                                       | application/problem+json                                  |
+| sdkerrors.RetrieveCashBalanceCashBalancesError            | 403                                                       | application/problem+json                                  |
+| sdkerrors.RetrieveCashBalanceCashBalancesResponseError    | 404                                                       | application/problem+json                                  |
+| sdkerrors.RetrieveCashBalanceCashBalancesResponse406Error | 406                                                       | application/problem+json                                  |
+| sdkerrors.RetrieveCashBalanceCashBalancesResponse429Error | 429                                                       | application/problem+json                                  |
+| sdkerrors.RetrieveCashBalanceCashBalancesResponse500Error | 500                                                       | application/problem+json                                  |
+| sdkerrors.RetrieveCashBalanceCashBalancesResponse503Error | 503                                                       | application/problem+json                                  |
+| sdkerrors.RetrieveCashBalanceCashBalancesResponse504Error | 504                                                       | application/problem+json                                  |
+| sdkerrors.SDKError                                        | 400-600                                                   | */*                                                       |

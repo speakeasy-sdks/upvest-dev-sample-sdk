@@ -1,5 +1,5 @@
 # Users
-(*.Users*)
+(*Users*)
 
 ## Overview
 
@@ -68,16 +68,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.CreateIdentifierRequest](../../models/operations/createidentifierrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.CreateIdentifierRequest](../../pkg/models/operations/createidentifierrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.CreateIdentifierResponse](../../models/operations/createidentifierresponse.md), error**
-
+**[*operations.CreateIdentifierResponse](../../pkg/models/operations/createidentifierresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.CreateIdentifierError                 | 400                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersError            | 401                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersResponseError    | 403                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersResponse404Error | 404                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersResponse406Error | 406                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.CreateIdentifierUsersResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
 
 ## CreateUser
 
@@ -146,16 +157,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
-| `request`                                                                    | [operations.CreateUserRequest](../../models/operations/createuserrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.CreateUserRequest](../../pkg/models/operations/createuserrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
 
-**[*operations.CreateUserResponse](../../models/operations/createuserresponse.md), error**
-
+**[*operations.CreateUserResponse](../../pkg/models/operations/createuserresponse.md), error**
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| sdkerrors.CreateUserError                 | 400                                       | application/problem+json                  |
+| sdkerrors.CreateUserUsersError            | 401                                       | application/problem+json                  |
+| sdkerrors.CreateUserUsersResponseError    | 403                                       | application/problem+json                  |
+| sdkerrors.CreateUserUsersResponse406Error | 406                                       | application/problem+json                  |
+| sdkerrors.CreateUserUsersResponse429Error | 429                                       | application/problem+json                  |
+| sdkerrors.CreateUserUsersResponse500Error | 500                                       | application/problem+json                  |
+| sdkerrors.CreateUserUsersResponse503Error | 503                                       | application/problem+json                  |
+| sdkerrors.CreateUserUsersResponse504Error | 504                                       | application/problem+json                  |
+| sdkerrors.SDKError                        | 400-600                                   | */*                                       |
 
 ## CreateUserCheck
 
@@ -214,16 +235,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.CreateUserCheckRequest](../../models/operations/createusercheckrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.CreateUserCheckRequest](../../pkg/models/operations/createusercheckrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[*operations.CreateUserCheckResponse](../../models/operations/createusercheckresponse.md), error**
-
+**[*operations.CreateUserCheckResponse](../../pkg/models/operations/createusercheckresponse.md), error**
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| sdkerrors.CreateUserCheckError                 | 400                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersError            | 401                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersResponseError    | 403                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersResponse404Error | 404                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersResponse406Error | 406                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersResponse429Error | 429                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersResponse500Error | 500                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersResponse503Error | 503                                            | application/problem+json                       |
+| sdkerrors.CreateUserCheckUsersResponse504Error | 504                                            | application/problem+json                       |
+| sdkerrors.SDKError                             | 400-600                                        | */*                                            |
 
 ## ListUserAccountGroups
 
@@ -267,16 +299,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.ListUserAccountGroupsRequest](../../models/operations/listuseraccountgroupsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
+| `request`                                                                                              | [operations.ListUserAccountGroupsRequest](../../pkg/models/operations/listuseraccountgroupsrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 
 ### Response
 
-**[*operations.ListUserAccountGroupsResponse](../../models/operations/listuseraccountgroupsresponse.md), error**
-
+**[*operations.ListUserAccountGroupsResponse](../../pkg/models/operations/listuseraccountgroupsresponse.md), error**
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| sdkerrors.ListUserAccountGroupsError                 | 400                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersError            | 401                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersResponseError    | 403                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersResponse404Error | 404                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersResponse406Error | 406                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersResponse429Error | 429                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersResponse500Error | 500                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersResponse503Error | 503                                                  | application/problem+json                             |
+| sdkerrors.ListUserAccountGroupsUsersResponse504Error | 504                                                  | application/problem+json                             |
+| sdkerrors.SDKError                                   | 400-600                                              | */*                                                  |
 
 ## ListUserAccounts
 
@@ -320,16 +363,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListUserAccountsRequest](../../models/operations/listuseraccountsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ListUserAccountsRequest](../../pkg/models/operations/listuseraccountsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.ListUserAccountsResponse](../../models/operations/listuseraccountsresponse.md), error**
-
+**[*operations.ListUserAccountsResponse](../../pkg/models/operations/listuseraccountsresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.ListUserAccountsError                 | 400                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersError            | 401                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersResponseError    | 403                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersResponse404Error | 404                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersResponse406Error | 406                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.ListUserAccountsUsersResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
 
 ## ListUserChecks
 
@@ -373,16 +427,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.ListUserChecksRequest](../../models/operations/listuserchecksrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.ListUserChecksRequest](../../pkg/models/operations/listuserchecksrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
-**[*operations.ListUserChecksResponse](../../models/operations/listuserchecksresponse.md), error**
-
+**[*operations.ListUserChecksResponse](../../pkg/models/operations/listuserchecksresponse.md), error**
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| sdkerrors.ListUserChecksError                 | 401                                           | application/problem+json                      |
+| sdkerrors.ListUserChecksUsersError            | 403                                           | application/problem+json                      |
+| sdkerrors.ListUserChecksUsersResponseError    | 404                                           | application/problem+json                      |
+| sdkerrors.ListUserChecksUsersResponse406Error | 406                                           | application/problem+json                      |
+| sdkerrors.ListUserChecksUsersResponse429Error | 429                                           | application/problem+json                      |
+| sdkerrors.ListUserChecksUsersResponse500Error | 500                                           | application/problem+json                      |
+| sdkerrors.ListUserChecksUsersResponse503Error | 503                                           | application/problem+json                      |
+| sdkerrors.ListUserChecksUsersResponse504Error | 504                                           | application/problem+json                      |
+| sdkerrors.SDKError                            | 400-600                                       | */*                                           |
 
 ## ListUserIdentifiers
 
@@ -426,16 +490,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ListUserIdentifiersRequest](../../models/operations/listuseridentifiersrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.ListUserIdentifiersRequest](../../pkg/models/operations/listuseridentifiersrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
-**[*operations.ListUserIdentifiersResponse](../../models/operations/listuseridentifiersresponse.md), error**
-
+**[*operations.ListUserIdentifiersResponse](../../pkg/models/operations/listuseridentifiersresponse.md), error**
+| Error Object                                       | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| sdkerrors.ListUserIdentifiersError                 | 401                                                | application/problem+json                           |
+| sdkerrors.ListUserIdentifiersUsersError            | 403                                                | application/problem+json                           |
+| sdkerrors.ListUserIdentifiersUsersResponseError    | 404                                                | application/problem+json                           |
+| sdkerrors.ListUserIdentifiersUsersResponse406Error | 406                                                | application/problem+json                           |
+| sdkerrors.ListUserIdentifiersUsersResponse429Error | 429                                                | application/problem+json                           |
+| sdkerrors.ListUserIdentifiersUsersResponse500Error | 500                                                | application/problem+json                           |
+| sdkerrors.ListUserIdentifiersUsersResponse503Error | 503                                                | application/problem+json                           |
+| sdkerrors.ListUserIdentifiersUsersResponse504Error | 504                                                | application/problem+json                           |
+| sdkerrors.SDKError                                 | 400-600                                            | */*                                                |
 
 ## ListUsers
 
@@ -478,16 +552,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
-| `request`                                                                  | [operations.ListUsersRequest](../../models/operations/listusersrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `request`                                                                      | [operations.ListUsersRequest](../../pkg/models/operations/listusersrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
 
 ### Response
 
-**[*operations.ListUsersResponse](../../models/operations/listusersresponse.md), error**
-
+**[*operations.ListUsersResponse](../../pkg/models/operations/listusersresponse.md), error**
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| sdkerrors.ListUsersError                 | 400                                      | application/problem+json                 |
+| sdkerrors.ListUsersUsersError            | 401                                      | application/problem+json                 |
+| sdkerrors.ListUsersUsersResponseError    | 403                                      | application/problem+json                 |
+| sdkerrors.ListUsersUsersResponse406Error | 406                                      | application/problem+json                 |
+| sdkerrors.ListUsersUsersResponse429Error | 429                                      | application/problem+json                 |
+| sdkerrors.ListUsersUsersResponse500Error | 500                                      | application/problem+json                 |
+| sdkerrors.ListUsersUsersResponse503Error | 503                                      | application/problem+json                 |
+| sdkerrors.ListUsersUsersResponse504Error | 504                                      | application/problem+json                 |
+| sdkerrors.SDKError                       | 400-600                                  | */*                                      |
 
 ## OffboardUser
 
@@ -531,16 +615,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.OffboardUserRequest](../../models/operations/offboarduserrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.OffboardUserRequest](../../pkg/models/operations/offboarduserrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[*operations.OffboardUserResponse](../../models/operations/offboarduserresponse.md), error**
-
+**[*operations.OffboardUserResponse](../../pkg/models/operations/offboarduserresponse.md), error**
+| Error Object                                | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| sdkerrors.OffboardUserError                 | 401                                         | application/problem+json                    |
+| sdkerrors.OffboardUserUsersError            | 403                                         | application/problem+json                    |
+| sdkerrors.OffboardUserUsersResponseError    | 404                                         | application/problem+json                    |
+| sdkerrors.OffboardUserUsersResponse406Error | 406                                         | application/problem+json                    |
+| sdkerrors.OffboardUserUsersResponse429Error | 429                                         | application/problem+json                    |
+| sdkerrors.OffboardUserUsersResponse500Error | 500                                         | application/problem+json                    |
+| sdkerrors.OffboardUserUsersResponse503Error | 503                                         | application/problem+json                    |
+| sdkerrors.OffboardUserUsersResponse504Error | 504                                         | application/problem+json                    |
+| sdkerrors.SDKError                          | 400-600                                     | */*                                         |
 
 ## RetrieveIdentifier
 
@@ -585,16 +679,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.RetrieveIdentifierRequest](../../models/operations/retrieveidentifierrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.RetrieveIdentifierRequest](../../pkg/models/operations/retrieveidentifierrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
 
-**[*operations.RetrieveIdentifierResponse](../../models/operations/retrieveidentifierresponse.md), error**
-
+**[*operations.RetrieveIdentifierResponse](../../pkg/models/operations/retrieveidentifierresponse.md), error**
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| sdkerrors.RetrieveIdentifierError                 | 401                                               | application/problem+json                          |
+| sdkerrors.RetrieveIdentifierUsersError            | 403                                               | application/problem+json                          |
+| sdkerrors.RetrieveIdentifierUsersResponseError    | 404                                               | application/problem+json                          |
+| sdkerrors.RetrieveIdentifierUsersResponse406Error | 406                                               | application/problem+json                          |
+| sdkerrors.RetrieveIdentifierUsersResponse429Error | 429                                               | application/problem+json                          |
+| sdkerrors.RetrieveIdentifierUsersResponse500Error | 500                                               | application/problem+json                          |
+| sdkerrors.RetrieveIdentifierUsersResponse503Error | 503                                               | application/problem+json                          |
+| sdkerrors.RetrieveIdentifierUsersResponse504Error | 504                                               | application/problem+json                          |
+| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
 
 ## RetrieveUser
 
@@ -638,16 +742,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.RetrieveUserRequest](../../models/operations/retrieveuserrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.RetrieveUserRequest](../../pkg/models/operations/retrieveuserrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[*operations.RetrieveUserResponse](../../models/operations/retrieveuserresponse.md), error**
-
+**[*operations.RetrieveUserResponse](../../pkg/models/operations/retrieveuserresponse.md), error**
+| Error Object                                | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| sdkerrors.RetrieveUserError                 | 401                                         | application/problem+json                    |
+| sdkerrors.RetrieveUserUsersError            | 403                                         | application/problem+json                    |
+| sdkerrors.RetrieveUserUsersResponseError    | 404                                         | application/problem+json                    |
+| sdkerrors.RetrieveUserUsersResponse406Error | 406                                         | application/problem+json                    |
+| sdkerrors.RetrieveUserUsersResponse429Error | 429                                         | application/problem+json                    |
+| sdkerrors.RetrieveUserUsersResponse500Error | 500                                         | application/problem+json                    |
+| sdkerrors.RetrieveUserUsersResponse503Error | 503                                         | application/problem+json                    |
+| sdkerrors.RetrieveUserUsersResponse504Error | 504                                         | application/problem+json                    |
+| sdkerrors.SDKError                          | 400-600                                     | */*                                         |
 
 ## RetrieveUserCheck
 
@@ -692,16 +806,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.RetrieveUserCheckRequest](../../models/operations/retrieveusercheckrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.RetrieveUserCheckRequest](../../pkg/models/operations/retrieveusercheckrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
-**[*operations.RetrieveUserCheckResponse](../../models/operations/retrieveusercheckresponse.md), error**
-
+**[*operations.RetrieveUserCheckResponse](../../pkg/models/operations/retrieveusercheckresponse.md), error**
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| sdkerrors.RetrieveUserCheckError                 | 401                                              | application/problem+json                         |
+| sdkerrors.RetrieveUserCheckUsersError            | 403                                              | application/problem+json                         |
+| sdkerrors.RetrieveUserCheckUsersResponseError    | 404                                              | application/problem+json                         |
+| sdkerrors.RetrieveUserCheckUsersResponse406Error | 406                                              | application/problem+json                         |
+| sdkerrors.RetrieveUserCheckUsersResponse429Error | 429                                              | application/problem+json                         |
+| sdkerrors.RetrieveUserCheckUsersResponse500Error | 500                                              | application/problem+json                         |
+| sdkerrors.RetrieveUserCheckUsersResponse503Error | 503                                              | application/problem+json                         |
+| sdkerrors.RetrieveUserCheckUsersResponse504Error | 504                                              | application/problem+json                         |
+| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
 
 ## UpdateIdentifier
 
@@ -749,16 +873,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.UpdateIdentifierRequest](../../models/operations/updateidentifierrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.UpdateIdentifierRequest](../../pkg/models/operations/updateidentifierrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.UpdateIdentifierResponse](../../models/operations/updateidentifierresponse.md), error**
-
+**[*operations.UpdateIdentifierResponse](../../pkg/models/operations/updateidentifierresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.UpdateIdentifierError                 | 400                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersError            | 401                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersResponseError    | 403                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersResponse404Error | 404                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersResponse406Error | 406                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.UpdateIdentifierUsersResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
 
 ## UserDataChange
 
@@ -824,13 +959,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.UserDataChangeRequest](../../models/operations/userdatachangerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.UserDataChangeRequest](../../pkg/models/operations/userdatachangerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
-**[*operations.UserDataChangeResponse](../../models/operations/userdatachangeresponse.md), error**
-
+**[*operations.UserDataChangeResponse](../../pkg/models/operations/userdatachangeresponse.md), error**
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| sdkerrors.UserDataChangeError                 | 400                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersError            | 401                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersResponseError    | 403                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersResponse404Error | 404                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersResponse406Error | 406                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersResponse429Error | 429                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersResponse500Error | 500                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersResponse503Error | 503                                           | application/problem+json                      |
+| sdkerrors.UserDataChangeUsersResponse504Error | 504                                           | application/problem+json                      |
+| sdkerrors.SDKError                            | 400-600                                       | */*                                           |

@@ -1,0 +1,11 @@
+# ListPortfoliosRebalancingStrategiesPortfoliosRebalancingStrategyListResponse
+
+Portfolios
+
+
+## Fields
+
+| Field                                                                                                                           | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                          | [][operations.PortfoliosRebalancingStrategy](../../../pkg/models/operations/portfoliosrebalancingstrategy.md)                   | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `Meta`                                                                                                                          | [operations.ListPortfoliosRebalancingStrategiesMeta](../../../pkg/models/operations/listportfoliosrebalancingstrategiesmeta.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |

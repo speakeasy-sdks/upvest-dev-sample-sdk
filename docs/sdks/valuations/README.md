@@ -1,5 +1,5 @@
 # Valuations
-(*.Valuations*)
+(*Valuations*)
 
 ## Overview
 
@@ -53,16 +53,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.GetAccountValuationRequest](../../models/operations/getaccountvaluationrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.GetAccountValuationRequest](../../pkg/models/operations/getaccountvaluationrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
-**[*operations.GetAccountValuationResponse](../../models/operations/getaccountvaluationresponse.md), error**
-
+**[*operations.GetAccountValuationResponse](../../pkg/models/operations/getaccountvaluationresponse.md), error**
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| sdkerrors.GetAccountValuationError                      | 400                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsError            | 401                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsResponseError    | 403                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsResponse404Error | 404                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsResponse406Error | 406                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsResponse429Error | 429                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsResponse500Error | 500                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsResponse503Error | 503                                                     | application/problem+json                                |
+| sdkerrors.GetAccountValuationValuationsResponse504Error | 504                                                     | application/problem+json                                |
+| sdkerrors.SDKError                                      | 400-600                                                 | */*                                                     |
 
 ## ListAccountValuationHistory
 
@@ -106,13 +117,25 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.ListAccountValuationHistoryRequest](../../models/operations/listaccountvaluationhistoryrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                                              | :heavy_check_mark:                                                                                                 | The context to use for the request.                                                                                |
+| `request`                                                                                                          | [operations.ListAccountValuationHistoryRequest](../../pkg/models/operations/listaccountvaluationhistoryrequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
 
 
 ### Response
 
-**[*operations.ListAccountValuationHistoryResponse](../../models/operations/listaccountvaluationhistoryresponse.md), error**
-
+**[*operations.ListAccountValuationHistoryResponse](../../pkg/models/operations/listaccountvaluationhistoryresponse.md), error**
+| Error Object                                                    | Status Code                                                     | Content Type                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| sdkerrors.ListAccountValuationHistoryError                      | 400                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsError            | 401                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponseError    | 403                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponse404Error | 404                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponse405Error | 405                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponse406Error | 406                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponse429Error | 429                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponse500Error | 500                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponse503Error | 503                                                             | application/problem+json                                        |
+| sdkerrors.ListAccountValuationHistoryValuationsResponse504Error | 504                                                             | application/problem+json                                        |
+| sdkerrors.SDKError                                              | 400-600                                                         | */*                                                             |

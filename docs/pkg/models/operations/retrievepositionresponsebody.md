@@ -1,0 +1,15 @@
+# RetrievePositionResponseBody
+
+Response
+
+
+## Fields
+
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `AccountID`                                                           | *string*                                                              | :heavy_check_mark:                                                    | Account unique identifier.                                            |
+| `AvailableForTrading`                                                 | *string*                                                              | :heavy_check_mark:                                                    | N/A                                                                   |
+| `Instrument`                                                          | [operations.Instrument](../../../pkg/models/operations/instrument.md) | :heavy_check_mark:                                                    | N/A                                                                   |
+| `LockedForTrading`                                                    | *string*                                                              | :heavy_check_mark:                                                    | N/A                                                                   |
+| `PendingSettlement`                                                   | *string*                                                              | :heavy_check_mark:                                                    | N/A                                                                   |
+| `Quantity`                                                            | *string*                                                              | :heavy_check_mark:                                                    | N/A                                                                   |

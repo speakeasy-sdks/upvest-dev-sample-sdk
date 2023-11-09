@@ -1,5 +1,5 @@
 # Payments
-(*.Payments*)
+(*Payments*)
 
 ## Overview
 
@@ -57,16 +57,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.CancelCashWithdrawalRequest](../../models/operations/cancelcashwithdrawalrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.CancelCashWithdrawalRequest](../../pkg/models/operations/cancelcashwithdrawalrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
 
-**[*operations.CancelCashWithdrawalResponse](../../models/operations/cancelcashwithdrawalresponse.md), error**
-
+**[*operations.CancelCashWithdrawalResponse](../../pkg/models/operations/cancelcashwithdrawalresponse.md), error**
+| Error Object                                           | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| sdkerrors.CancelCashWithdrawalError                    | 401                                                    | application/problem+json                               |
+| sdkerrors.CancelCashWithdrawalPaymentsError            | 403                                                    | application/problem+json                               |
+| sdkerrors.CancelCashWithdrawalPaymentsResponseError    | 404                                                    | application/problem+json                               |
+| sdkerrors.CancelCashWithdrawalPaymentsResponse422Error | 422                                                    | application/problem+json                               |
+| sdkerrors.CancelCashWithdrawalPaymentsResponse429Error | 429                                                    | application/problem+json                               |
+| sdkerrors.CancelCashWithdrawalPaymentsResponse500Error | 500                                                    | application/problem+json                               |
+| sdkerrors.CancelCashWithdrawalPaymentsResponse503Error | 503                                                    | application/problem+json                               |
+| sdkerrors.CancelCashWithdrawalPaymentsResponse504Error | 504                                                    | application/problem+json                               |
+| sdkerrors.SDKError                                     | 400-600                                                | */*                                                    |
 
 ## CreateCashWithdrawal
 
@@ -116,16 +126,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.CreateCashWithdrawalRequest](../../models/operations/createcashwithdrawalrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.CreateCashWithdrawalRequest](../../pkg/models/operations/createcashwithdrawalrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
 
-**[*operations.CreateCashWithdrawalResponse](../../models/operations/createcashwithdrawalresponse.md), error**
-
+**[*operations.CreateCashWithdrawalResponse](../../pkg/models/operations/createcashwithdrawalresponse.md), error**
+| Error Object                                           | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| sdkerrors.CreateCashWithdrawalError                    | 400                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsError            | 401                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsResponseError    | 403                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsResponse404Error | 404                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsResponse406Error | 406                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsResponse429Error | 429                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsResponse500Error | 500                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsResponse503Error | 503                                                    | application/problem+json                               |
+| sdkerrors.CreateCashWithdrawalPaymentsResponse504Error | 504                                                    | application/problem+json                               |
+| sdkerrors.SDKError                                     | 400-600                                                | */*                                                    |
 
 ## CreateDirectDebit
 
@@ -175,16 +196,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.CreateDirectDebitRequest](../../models/operations/createdirectdebitrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CreateDirectDebitRequest](../../pkg/models/operations/createdirectdebitrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
-**[*operations.CreateDirectDebitResponse](../../models/operations/createdirectdebitresponse.md), error**
-
+**[*operations.CreateDirectDebitResponse](../../pkg/models/operations/createdirectdebitresponse.md), error**
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| sdkerrors.CreateDirectDebitError                    | 400                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsError            | 401                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsResponseError    | 403                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsResponse404Error | 404                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsResponse406Error | 406                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsResponse429Error | 429                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsResponse500Error | 500                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsResponse503Error | 503                                                 | application/problem+json                            |
+| sdkerrors.CreateDirectDebitPaymentsResponse504Error | 504                                                 | application/problem+json                            |
+| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
 
 ## ListCashWithdrawals
 
@@ -228,16 +260,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ListCashWithdrawalsRequest](../../models/operations/listcashwithdrawalsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.ListCashWithdrawalsRequest](../../pkg/models/operations/listcashwithdrawalsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
-**[*operations.ListCashWithdrawalsResponse](../../models/operations/listcashwithdrawalsresponse.md), error**
-
+**[*operations.ListCashWithdrawalsResponse](../../pkg/models/operations/listcashwithdrawalsresponse.md), error**
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| sdkerrors.ListCashWithdrawalsError                    | 400                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsError            | 401                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsResponseError    | 403                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsResponse404Error | 404                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsResponse406Error | 406                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsResponse429Error | 429                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsResponse500Error | 500                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsResponse503Error | 503                                                   | application/problem+json                              |
+| sdkerrors.ListCashWithdrawalsPaymentsResponse504Error | 504                                                   | application/problem+json                              |
+| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |
 
 ## ListDirectDebits
 
@@ -281,16 +324,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListDirectDebitsRequest](../../models/operations/listdirectdebitsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ListDirectDebitsRequest](../../pkg/models/operations/listdirectdebitsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.ListDirectDebitsResponse](../../models/operations/listdirectdebitsresponse.md), error**
-
+**[*operations.ListDirectDebitsResponse](../../pkg/models/operations/listdirectdebitsresponse.md), error**
+| Error Object                                       | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| sdkerrors.ListDirectDebitsError                    | 400                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsError            | 401                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsResponseError    | 403                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsResponse404Error | 404                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsResponse406Error | 406                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsResponse429Error | 429                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsResponse500Error | 500                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsResponse503Error | 503                                                | application/problem+json                           |
+| sdkerrors.ListDirectDebitsPaymentsResponse504Error | 504                                                | application/problem+json                           |
+| sdkerrors.SDKError                                 | 400-600                                            | */*                                                |
 
 ## RetrieveCashWithdrawal
 
@@ -334,16 +388,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.RetrieveCashWithdrawalRequest](../../models/operations/retrievecashwithdrawalrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.RetrieveCashWithdrawalRequest](../../pkg/models/operations/retrievecashwithdrawalrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
 
-**[*operations.RetrieveCashWithdrawalResponse](../../models/operations/retrievecashwithdrawalresponse.md), error**
-
+**[*operations.RetrieveCashWithdrawalResponse](../../pkg/models/operations/retrievecashwithdrawalresponse.md), error**
+| Error Object                                             | Status Code                                              | Content Type                                             |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| sdkerrors.RetrieveCashWithdrawalError                    | 401                                                      | application/problem+json                                 |
+| sdkerrors.RetrieveCashWithdrawalPaymentsError            | 403                                                      | application/problem+json                                 |
+| sdkerrors.RetrieveCashWithdrawalPaymentsResponseError    | 404                                                      | application/problem+json                                 |
+| sdkerrors.RetrieveCashWithdrawalPaymentsResponse406Error | 406                                                      | application/problem+json                                 |
+| sdkerrors.RetrieveCashWithdrawalPaymentsResponse429Error | 429                                                      | application/problem+json                                 |
+| sdkerrors.RetrieveCashWithdrawalPaymentsResponse500Error | 500                                                      | application/problem+json                                 |
+| sdkerrors.RetrieveCashWithdrawalPaymentsResponse503Error | 503                                                      | application/problem+json                                 |
+| sdkerrors.RetrieveCashWithdrawalPaymentsResponse504Error | 504                                                      | application/problem+json                                 |
+| sdkerrors.SDKError                                       | 400-600                                                  | */*                                                      |
 
 ## RetrieveDirectDebit
 
@@ -387,13 +451,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.RetrieveDirectDebitRequest](../../models/operations/retrievedirectdebitrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.RetrieveDirectDebitRequest](../../pkg/models/operations/retrievedirectdebitrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
-**[*operations.RetrieveDirectDebitResponse](../../models/operations/retrievedirectdebitresponse.md), error**
-
+**[*operations.RetrieveDirectDebitResponse](../../pkg/models/operations/retrievedirectdebitresponse.md), error**
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| sdkerrors.RetrieveDirectDebitError                    | 401                                                   | application/problem+json                              |
+| sdkerrors.RetrieveDirectDebitPaymentsError            | 403                                                   | application/problem+json                              |
+| sdkerrors.RetrieveDirectDebitPaymentsResponseError    | 404                                                   | application/problem+json                              |
+| sdkerrors.RetrieveDirectDebitPaymentsResponse406Error | 406                                                   | application/problem+json                              |
+| sdkerrors.RetrieveDirectDebitPaymentsResponse429Error | 429                                                   | application/problem+json                              |
+| sdkerrors.RetrieveDirectDebitPaymentsResponse500Error | 500                                                   | application/problem+json                              |
+| sdkerrors.RetrieveDirectDebitPaymentsResponse503Error | 503                                                   | application/problem+json                              |
+| sdkerrors.RetrieveDirectDebitPaymentsResponse504Error | 504                                                   | application/problem+json                              |
+| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |

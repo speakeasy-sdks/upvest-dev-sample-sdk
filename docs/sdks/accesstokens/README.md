@@ -1,5 +1,5 @@
 # AccessTokens
-(*.AccessTokens*)
+(*AccessTokens*)
 
 ## Overview
 
@@ -57,13 +57,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
-| `request`                                                                    | [operations.IssueTokenRequest](../../models/operations/issuetokenrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.IssueTokenRequest](../../pkg/models/operations/issuetokenrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
 
-**[*operations.IssueTokenResponse](../../models/operations/issuetokenresponse.md), error**
-
+**[*operations.IssueTokenResponse](../../pkg/models/operations/issuetokenresponse.md), error**
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| sdkerrors.IssueTokenError                        | 400                                              | application/problem+json                         |
+| sdkerrors.IssueTokenAccessTokensError            | 401                                              | application/problem+json                         |
+| sdkerrors.IssueTokenAccessTokensResponseError    | 403                                              | application/problem+json                         |
+| sdkerrors.IssueTokenAccessTokensResponse406Error | 406                                              | application/problem+json                         |
+| sdkerrors.IssueTokenAccessTokensResponse429Error | 429                                              | application/problem+json                         |
+| sdkerrors.IssueTokenAccessTokensResponse500Error | 500                                              | application/problem+json                         |
+| sdkerrors.IssueTokenAccessTokensResponse503Error | 503                                              | application/problem+json                         |
+| sdkerrors.IssueTokenAccessTokensResponse504Error | 504                                              | application/problem+json                         |
+| sdkerrors.SDKError                               | 400-600                                          | */*                                              |

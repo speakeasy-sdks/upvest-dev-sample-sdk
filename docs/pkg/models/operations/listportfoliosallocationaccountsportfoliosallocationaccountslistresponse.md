@@ -1,0 +1,11 @@
+# ListPortfoliosAllocationAccountsPortfoliosAllocationAccountsListResponse
+
+Portfolios allocation accounts
+
+
+## Fields
+
+| Field                                                                                                                     | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                    | [][operations.PortfoliosAllocationAccount](../../../pkg/models/operations/portfoliosallocationaccount.md)                 | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
+| `Meta`                                                                                                                    | [operations.ListPortfoliosAllocationAccountsMeta](../../../pkg/models/operations/listportfoliosallocationaccountsmeta.md) | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |

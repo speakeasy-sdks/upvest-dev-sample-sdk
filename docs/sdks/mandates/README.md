@@ -1,5 +1,5 @@
 # Mandates
-(*.Mandates*)
+(*Mandates*)
 
 ## Overview
 
@@ -60,16 +60,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.CreateMandateRequest](../../models/operations/createmandaterequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.CreateMandateRequest](../../pkg/models/operations/createmandaterequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
-**[*operations.CreateMandateResponse](../../models/operations/createmandateresponse.md), error**
-
+**[*operations.CreateMandateResponse](../../pkg/models/operations/createmandateresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.CreateMandateError                    | 400                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesError            | 401                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesResponseError    | 403                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesResponse404Error | 404                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesResponse406Error | 406                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.CreateMandateMandatesResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
 
 ## DeleteMandate
 
@@ -113,16 +124,25 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.DeleteMandateRequest](../../models/operations/deletemandaterequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.DeleteMandateRequest](../../pkg/models/operations/deletemandaterequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
-**[*operations.DeleteMandateResponse](../../models/operations/deletemandateresponse.md), error**
-
+**[*operations.DeleteMandateResponse](../../pkg/models/operations/deletemandateresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.DeleteMandateError                    | 401                                             | application/problem+json                        |
+| sdkerrors.DeleteMandateMandatesError            | 403                                             | application/problem+json                        |
+| sdkerrors.DeleteMandateMandatesResponseError    | 404                                             | application/problem+json                        |
+| sdkerrors.DeleteMandateMandatesResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.DeleteMandateMandatesResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.DeleteMandateMandatesResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.DeleteMandateMandatesResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
 
 ## ListMandates
 
@@ -166,16 +186,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.ListMandatesRequest](../../models/operations/listmandatesrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.ListMandatesRequest](../../pkg/models/operations/listmandatesrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[*operations.ListMandatesResponse](../../models/operations/listmandatesresponse.md), error**
-
+**[*operations.ListMandatesResponse](../../pkg/models/operations/listmandatesresponse.md), error**
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| sdkerrors.ListMandatesError                    | 400                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesError            | 401                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesResponseError    | 403                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesResponse404Error | 404                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesResponse406Error | 406                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesResponse429Error | 429                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesResponse500Error | 500                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesResponse503Error | 503                                            | application/problem+json                       |
+| sdkerrors.ListMandatesMandatesResponse504Error | 504                                            | application/problem+json                       |
+| sdkerrors.SDKError                             | 400-600                                        | */*                                            |
 
 ## RetrieveMandate
 
@@ -219,13 +250,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.RetrieveMandateRequest](../../models/operations/retrievemandaterequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.RetrieveMandateRequest](../../pkg/models/operations/retrievemandaterequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[*operations.RetrieveMandateResponse](../../models/operations/retrievemandateresponse.md), error**
-
+**[*operations.RetrieveMandateResponse](../../pkg/models/operations/retrievemandateresponse.md), error**
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| sdkerrors.RetrieveMandateError                    | 401                                               | application/problem+json                          |
+| sdkerrors.RetrieveMandateMandatesError            | 403                                               | application/problem+json                          |
+| sdkerrors.RetrieveMandateMandatesResponseError    | 404                                               | application/problem+json                          |
+| sdkerrors.RetrieveMandateMandatesResponse406Error | 406                                               | application/problem+json                          |
+| sdkerrors.RetrieveMandateMandatesResponse429Error | 429                                               | application/problem+json                          |
+| sdkerrors.RetrieveMandateMandatesResponse500Error | 500                                               | application/problem+json                          |
+| sdkerrors.RetrieveMandateMandatesResponse503Error | 503                                               | application/problem+json                          |
+| sdkerrors.RetrieveMandateMandatesResponse504Error | 504                                               | application/problem+json                          |
+| sdkerrors.SDKError                                | 400-600                                           | */*                                               |

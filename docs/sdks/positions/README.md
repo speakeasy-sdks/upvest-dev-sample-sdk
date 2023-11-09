@@ -1,5 +1,5 @@
 # Positions
-(*.Positions*)
+(*Positions*)
 
 ## Overview
 
@@ -52,16 +52,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.ListPositionsRequest](../../models/operations/listpositionsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.ListPositionsRequest](../../pkg/models/operations/listpositionsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
-**[*operations.ListPositionsResponse](../../models/operations/listpositionsresponse.md), error**
-
+**[*operations.ListPositionsResponse](../../pkg/models/operations/listpositionsresponse.md), error**
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| sdkerrors.ListPositionsError                     | 400                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsError            | 401                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsResponseError    | 403                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsResponse404Error | 404                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsResponse406Error | 406                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsResponse429Error | 429                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsResponse500Error | 500                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsResponse503Error | 503                                              | application/problem+json                         |
+| sdkerrors.ListPositionsPositionsResponse504Error | 504                                              | application/problem+json                         |
+| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
 
 ## RetrievePosition
 
@@ -106,13 +117,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.RetrievePositionRequest](../../models/operations/retrievepositionrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.RetrievePositionRequest](../../pkg/models/operations/retrievepositionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.RetrievePositionResponse](../../models/operations/retrievepositionresponse.md), error**
-
+**[*operations.RetrievePositionResponse](../../pkg/models/operations/retrievepositionresponse.md), error**
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| sdkerrors.RetrievePositionError                     | 401                                                 | application/problem+json                            |
+| sdkerrors.RetrievePositionPositionsError            | 403                                                 | application/problem+json                            |
+| sdkerrors.RetrievePositionPositionsResponseError    | 404                                                 | application/problem+json                            |
+| sdkerrors.RetrievePositionPositionsResponse406Error | 406                                                 | application/problem+json                            |
+| sdkerrors.RetrievePositionPositionsResponse429Error | 429                                                 | application/problem+json                            |
+| sdkerrors.RetrievePositionPositionsResponse500Error | 500                                                 | application/problem+json                            |
+| sdkerrors.RetrievePositionPositionsResponse503Error | 503                                                 | application/problem+json                            |
+| sdkerrors.RetrievePositionPositionsResponse504Error | 504                                                 | application/problem+json                            |
+| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |

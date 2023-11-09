@@ -1,0 +1,11 @@
+# ListAccountsLiquidationsPortfoliosOrdersListResponse
+
+Accounts liquidations
+
+
+## Fields
+
+| Field                                                                                                                                   | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                                                  | [][operations.ListAccountsLiquidationsAccountLiquidation](../../../pkg/models/operations/listaccountsliquidationsaccountliquidation.md) | :heavy_check_mark:                                                                                                                      | N/A                                                                                                                                     |
+| `Meta`                                                                                                                                  | [operations.ListAccountsLiquidationsMeta](../../../pkg/models/operations/listaccountsliquidationsmeta.md)                               | :heavy_check_mark:                                                                                                                      | N/A                                                                                                                                     |

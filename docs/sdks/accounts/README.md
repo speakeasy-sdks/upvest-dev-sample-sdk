@@ -1,5 +1,5 @@
 # Accounts
-(*.Accounts*)
+(*Accounts*)
 
 ## Overview
 
@@ -59,16 +59,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.AccountClosureRequest](../../models/operations/accountclosurerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.AccountClosureRequest](../../pkg/models/operations/accountclosurerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
-**[*operations.AccountClosureResponse](../../models/operations/accountclosureresponse.md), error**
-
+**[*operations.AccountClosureResponse](../../pkg/models/operations/accountclosureresponse.md), error**
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| sdkerrors.AccountClosureError                    | 401                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsError            | 403                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsResponseError    | 404                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsResponse406Error | 406                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsResponse409Error | 409                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsResponse429Error | 429                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsResponse500Error | 500                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsResponse503Error | 503                                              | application/problem+json                         |
+| sdkerrors.AccountClosureAccountsResponse504Error | 504                                              | application/problem+json                         |
+| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
 
 ## AccountGroupClosure
 
@@ -112,16 +123,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.AccountGroupClosureRequest](../../models/operations/accountgroupclosurerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.AccountGroupClosureRequest](../../pkg/models/operations/accountgroupclosurerequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
-**[*operations.AccountGroupClosureResponse](../../models/operations/accountgroupclosureresponse.md), error**
-
+**[*operations.AccountGroupClosureResponse](../../pkg/models/operations/accountgroupclosureresponse.md), error**
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| sdkerrors.AccountGroupClosureError                    | 401                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsError            | 403                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsResponseError    | 404                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsResponse406Error | 406                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsResponse409Error | 409                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsResponse429Error | 429                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsResponse500Error | 500                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsResponse503Error | 503                                                   | application/problem+json                              |
+| sdkerrors.AccountGroupClosureAccountsResponse504Error | 504                                                   | application/problem+json                              |
+| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |
 
 ## CreateAccount
 
@@ -170,16 +192,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.CreateAccountRequest](../../models/operations/createaccountrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.CreateAccountRequest](../../pkg/models/operations/createaccountrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
-**[*operations.CreateAccountResponse](../../models/operations/createaccountresponse.md), error**
-
+**[*operations.CreateAccountResponse](../../pkg/models/operations/createaccountresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.CreateAccountError                    | 400                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsError            | 401                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsResponseError    | 403                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsResponse404Error | 404                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsResponse406Error | 406                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.CreateAccountAccountsResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
 
 ## CreateAccountGroup
 
@@ -227,16 +260,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.CreateAccountGroupRequest](../../models/operations/createaccountgrouprequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.CreateAccountGroupRequest](../../pkg/models/operations/createaccountgrouprequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
 
-**[*operations.CreateAccountGroupResponse](../../models/operations/createaccountgroupresponse.md), error**
-
+**[*operations.CreateAccountGroupResponse](../../pkg/models/operations/createaccountgroupresponse.md), error**
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| sdkerrors.CreateAccountGroupError                    | 400                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsError            | 401                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsResponseError    | 403                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsResponse404Error | 404                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsResponse406Error | 406                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsResponse429Error | 429                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsResponse500Error | 500                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsResponse503Error | 503                                                  | application/problem+json                             |
+| sdkerrors.CreateAccountGroupAccountsResponse504Error | 504                                                  | application/problem+json                             |
+| sdkerrors.SDKError                                   | 400-600                                              | */*                                                  |
 
 ## ListAccountGroups
 
@@ -279,16 +323,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.ListAccountGroupsRequest](../../models/operations/listaccountgroupsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.ListAccountGroupsRequest](../../pkg/models/operations/listaccountgroupsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
-**[*operations.ListAccountGroupsResponse](../../models/operations/listaccountgroupsresponse.md), error**
-
+**[*operations.ListAccountGroupsResponse](../../pkg/models/operations/listaccountgroupsresponse.md), error**
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| sdkerrors.ListAccountGroupsError                    | 400                                                 | application/problem+json                            |
+| sdkerrors.ListAccountGroupsAccountsError            | 401                                                 | application/problem+json                            |
+| sdkerrors.ListAccountGroupsAccountsResponseError    | 403                                                 | application/problem+json                            |
+| sdkerrors.ListAccountGroupsAccountsResponse406Error | 406                                                 | application/problem+json                            |
+| sdkerrors.ListAccountGroupsAccountsResponse429Error | 429                                                 | application/problem+json                            |
+| sdkerrors.ListAccountGroupsAccountsResponse500Error | 500                                                 | application/problem+json                            |
+| sdkerrors.ListAccountGroupsAccountsResponse503Error | 503                                                 | application/problem+json                            |
+| sdkerrors.ListAccountGroupsAccountsResponse504Error | 504                                                 | application/problem+json                            |
+| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
 
 ## ListAccounts
 
@@ -331,16 +385,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.ListAccountsRequest](../../models/operations/listaccountsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.ListAccountsRequest](../../pkg/models/operations/listaccountsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[*operations.ListAccountsResponse](../../models/operations/listaccountsresponse.md), error**
-
+**[*operations.ListAccountsResponse](../../pkg/models/operations/listaccountsresponse.md), error**
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| sdkerrors.ListAccountsError                    | 400                                            | application/problem+json                       |
+| sdkerrors.ListAccountsAccountsError            | 401                                            | application/problem+json                       |
+| sdkerrors.ListAccountsAccountsResponseError    | 403                                            | application/problem+json                       |
+| sdkerrors.ListAccountsAccountsResponse406Error | 406                                            | application/problem+json                       |
+| sdkerrors.ListAccountsAccountsResponse429Error | 429                                            | application/problem+json                       |
+| sdkerrors.ListAccountsAccountsResponse500Error | 500                                            | application/problem+json                       |
+| sdkerrors.ListAccountsAccountsResponse503Error | 503                                            | application/problem+json                       |
+| sdkerrors.ListAccountsAccountsResponse504Error | 504                                            | application/problem+json                       |
+| sdkerrors.SDKError                             | 400-600                                        | */*                                            |
 
 ## RetrieveAccount
 
@@ -384,16 +448,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.RetrieveAccountRequest](../../models/operations/retrieveaccountrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.RetrieveAccountRequest](../../pkg/models/operations/retrieveaccountrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[*operations.RetrieveAccountResponse](../../models/operations/retrieveaccountresponse.md), error**
-
+**[*operations.RetrieveAccountResponse](../../pkg/models/operations/retrieveaccountresponse.md), error**
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| sdkerrors.RetrieveAccountError                    | 401                                               | application/problem+json                          |
+| sdkerrors.RetrieveAccountAccountsError            | 403                                               | application/problem+json                          |
+| sdkerrors.RetrieveAccountAccountsResponseError    | 404                                               | application/problem+json                          |
+| sdkerrors.RetrieveAccountAccountsResponse406Error | 406                                               | application/problem+json                          |
+| sdkerrors.RetrieveAccountAccountsResponse429Error | 429                                               | application/problem+json                          |
+| sdkerrors.RetrieveAccountAccountsResponse500Error | 500                                               | application/problem+json                          |
+| sdkerrors.RetrieveAccountAccountsResponse503Error | 503                                               | application/problem+json                          |
+| sdkerrors.RetrieveAccountAccountsResponse504Error | 504                                               | application/problem+json                          |
+| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
 
 ## RetrieveAccountGroup
 
@@ -437,16 +511,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.RetrieveAccountGroupRequest](../../models/operations/retrieveaccountgrouprequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.RetrieveAccountGroupRequest](../../pkg/models/operations/retrieveaccountgrouprequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
 
-**[*operations.RetrieveAccountGroupResponse](../../models/operations/retrieveaccountgroupresponse.md), error**
-
+**[*operations.RetrieveAccountGroupResponse](../../pkg/models/operations/retrieveaccountgroupresponse.md), error**
+| Error Object                                           | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| sdkerrors.RetrieveAccountGroupError                    | 401                                                    | application/problem+json                               |
+| sdkerrors.RetrieveAccountGroupAccountsError            | 403                                                    | application/problem+json                               |
+| sdkerrors.RetrieveAccountGroupAccountsResponseError    | 404                                                    | application/problem+json                               |
+| sdkerrors.RetrieveAccountGroupAccountsResponse406Error | 406                                                    | application/problem+json                               |
+| sdkerrors.RetrieveAccountGroupAccountsResponse429Error | 429                                                    | application/problem+json                               |
+| sdkerrors.RetrieveAccountGroupAccountsResponse500Error | 500                                                    | application/problem+json                               |
+| sdkerrors.RetrieveAccountGroupAccountsResponse503Error | 503                                                    | application/problem+json                               |
+| sdkerrors.RetrieveAccountGroupAccountsResponse504Error | 504                                                    | application/problem+json                               |
+| sdkerrors.SDKError                                     | 400-600                                                | */*                                                    |
 
 ## UpdateAccount
 
@@ -491,13 +575,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.UpdateAccountRequest](../../models/operations/updateaccountrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.UpdateAccountRequest](../../pkg/models/operations/updateaccountrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
-**[*operations.UpdateAccountResponse](../../models/operations/updateaccountresponse.md), error**
-
+**[*operations.UpdateAccountResponse](../../pkg/models/operations/updateaccountresponse.md), error**
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.UpdateAccountError                    | 400                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsError            | 401                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsResponseError    | 403                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsResponse404Error | 404                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsResponse406Error | 406                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsResponse429Error | 429                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsResponse500Error | 500                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsResponse503Error | 503                                             | application/problem+json                        |
+| sdkerrors.UpdateAccountAccountsResponse504Error | 504                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 400-600                                         | */*                                             |

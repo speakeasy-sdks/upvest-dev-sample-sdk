@@ -1,5 +1,5 @@
 # Returns
-(*.Returns*)
+(*Returns*)
 
 ## Overview
 
@@ -51,13 +51,25 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListAccountReturnsRequest](../../models/operations/listaccountreturnsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.ListAccountReturnsRequest](../../pkg/models/operations/listaccountreturnsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
 
-**[*operations.ListAccountReturnsResponse](../../models/operations/listaccountreturnsresponse.md), error**
-
+**[*operations.ListAccountReturnsResponse](../../pkg/models/operations/listaccountreturnsresponse.md), error**
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| sdkerrors.ListAccountReturnsError                   | 400                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsError            | 401                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponseError    | 403                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponse404Error | 404                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponse405Error | 405                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponse406Error | 406                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponse429Error | 429                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponse500Error | 500                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponse503Error | 503                                                 | application/problem+json                            |
+| sdkerrors.ListAccountReturnsReturnsResponse504Error | 504                                                 | application/problem+json                            |
+| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |

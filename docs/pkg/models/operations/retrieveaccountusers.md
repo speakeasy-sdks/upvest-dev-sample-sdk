@@ -1,0 +1,9 @@
+# RetrieveAccountUsers
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                     | **string*                                                                                                | :heavy_minus_sign:                                                                                       | User unique identifier.                                                                                  |
+| `Type`                                                                                                   | [*operations.RetrieveAccountAccountsType](../../../pkg/models/operations/retrieveaccountaccountstype.md) | :heavy_minus_sign:                                                                                       | Relation type<br/>* OWNER -                                                                              |

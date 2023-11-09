@@ -1,5 +1,5 @@
 # Instruments
-(*.Instruments*)
+(*Instruments*)
 
 ## Overview
 
@@ -51,16 +51,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.ListInstrumentsRequest](../../models/operations/listinstrumentsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ListInstrumentsRequest](../../pkg/models/operations/listinstrumentsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[*operations.ListInstrumentsResponse](../../models/operations/listinstrumentsresponse.md), error**
-
+**[*operations.ListInstrumentsResponse](../../pkg/models/operations/listinstrumentsresponse.md), error**
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| sdkerrors.ListInstrumentsError                       | 400                                                  | application/problem+json                             |
+| sdkerrors.ListInstrumentsInstrumentsError            | 401                                                  | application/problem+json                             |
+| sdkerrors.ListInstrumentsInstrumentsResponseError    | 403                                                  | application/problem+json                             |
+| sdkerrors.ListInstrumentsInstrumentsResponse406Error | 406                                                  | application/problem+json                             |
+| sdkerrors.ListInstrumentsInstrumentsResponse429Error | 429                                                  | application/problem+json                             |
+| sdkerrors.ListInstrumentsInstrumentsResponse500Error | 500                                                  | application/problem+json                             |
+| sdkerrors.ListInstrumentsInstrumentsResponse503Error | 503                                                  | application/problem+json                             |
+| sdkerrors.ListInstrumentsInstrumentsResponse504Error | 504                                                  | application/problem+json                             |
+| sdkerrors.SDKError                                   | 400-600                                              | */*                                                  |
 
 ## RetrieveInstrument
 
@@ -104,13 +114,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.RetrieveInstrumentRequest](../../models/operations/retrieveinstrumentrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.RetrieveInstrumentRequest](../../pkg/models/operations/retrieveinstrumentrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
 
-**[*operations.RetrieveInstrumentResponse](../../models/operations/retrieveinstrumentresponse.md), error**
-
+**[*operations.RetrieveInstrumentResponse](../../pkg/models/operations/retrieveinstrumentresponse.md), error**
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| sdkerrors.RetrieveInstrumentError                       | 401                                                     | application/problem+json                                |
+| sdkerrors.RetrieveInstrumentInstrumentsError            | 403                                                     | application/problem+json                                |
+| sdkerrors.RetrieveInstrumentInstrumentsResponseError    | 404                                                     | application/problem+json                                |
+| sdkerrors.RetrieveInstrumentInstrumentsResponse406Error | 406                                                     | application/problem+json                                |
+| sdkerrors.RetrieveInstrumentInstrumentsResponse429Error | 429                                                     | application/problem+json                                |
+| sdkerrors.RetrieveInstrumentInstrumentsResponse500Error | 500                                                     | application/problem+json                                |
+| sdkerrors.RetrieveInstrumentInstrumentsResponse503Error | 503                                                     | application/problem+json                                |
+| sdkerrors.RetrieveInstrumentInstrumentsResponse504Error | 504                                                     | application/problem+json                                |
+| sdkerrors.SDKError                                      | 400-600                                                 | */*                                                     |

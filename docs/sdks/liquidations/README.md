@@ -1,5 +1,5 @@
 # Liquidations
-(*.Liquidations*)
+(*Liquidations*)
 
 ## Overview
 
@@ -55,16 +55,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.CancelAccountLiquidationRequest](../../models/operations/cancelaccountliquidationrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.CancelAccountLiquidationRequest](../../pkg/models/operations/cancelaccountliquidationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
 
-**[*operations.CancelAccountLiquidationResponse](../../models/operations/cancelaccountliquidationresponse.md), error**
-
+**[*operations.CancelAccountLiquidationResponse](../../pkg/models/operations/cancelaccountliquidationresponse.md), error**
+| Error Object                                                   | Status Code                                                    | Content Type                                                   |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| sdkerrors.CancelAccountLiquidationError                        | 401                                                            | application/problem+json                                       |
+| sdkerrors.CancelAccountLiquidationLiquidationsError            | 403                                                            | application/problem+json                                       |
+| sdkerrors.CancelAccountLiquidationLiquidationsResponseError    | 404                                                            | application/problem+json                                       |
+| sdkerrors.CancelAccountLiquidationLiquidationsResponse406Error | 406                                                            | application/problem+json                                       |
+| sdkerrors.CancelAccountLiquidationLiquidationsResponse429Error | 429                                                            | application/problem+json                                       |
+| sdkerrors.CancelAccountLiquidationLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
+| sdkerrors.CancelAccountLiquidationLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
+| sdkerrors.CancelAccountLiquidationLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
+| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
 
 ## CreateAccountLiquidation
 
@@ -112,16 +122,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.CreateAccountLiquidationRequest](../../models/operations/createaccountliquidationrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.CreateAccountLiquidationRequest](../../pkg/models/operations/createaccountliquidationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
 
-**[*operations.CreateAccountLiquidationResponse](../../models/operations/createaccountliquidationresponse.md), error**
-
+**[*operations.CreateAccountLiquidationResponse](../../pkg/models/operations/createaccountliquidationresponse.md), error**
+| Error Object                                                   | Status Code                                                    | Content Type                                                   |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| sdkerrors.CreateAccountLiquidationError                        | 400                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsError            | 401                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsResponseError    | 403                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsResponse404Error | 404                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsResponse406Error | 406                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsResponse429Error | 429                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
+| sdkerrors.CreateAccountLiquidationLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
+| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
 
 ## ListAccountsLiquidations
 
@@ -165,16 +186,28 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.ListAccountsLiquidationsRequest](../../models/operations/listaccountsliquidationsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.ListAccountsLiquidationsRequest](../../pkg/models/operations/listaccountsliquidationsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
 
-**[*operations.ListAccountsLiquidationsResponse](../../models/operations/listaccountsliquidationsresponse.md), error**
-
+**[*operations.ListAccountsLiquidationsResponse](../../pkg/models/operations/listaccountsliquidationsresponse.md), error**
+| Error Object                                                   | Status Code                                                    | Content Type                                                   |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| sdkerrors.ListAccountsLiquidationsError                        | 400                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsError            | 401                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponseError    | 403                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponse404Error | 404                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponse405Error | 405                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponse406Error | 406                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponse429Error | 429                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
+| sdkerrors.ListAccountsLiquidationsLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
+| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
 
 ## RetrieveAccountLiquidation
 
@@ -219,13 +252,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
-| `request`                                                                                                    | [operations.RetrieveAccountLiquidationRequest](../../models/operations/retrieveaccountliquidationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
+| `request`                                                                                                        | [operations.RetrieveAccountLiquidationRequest](../../pkg/models/operations/retrieveaccountliquidationrequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
 
 
 ### Response
 
-**[*operations.RetrieveAccountLiquidationResponse](../../models/operations/retrieveaccountliquidationresponse.md), error**
-
+**[*operations.RetrieveAccountLiquidationResponse](../../pkg/models/operations/retrieveaccountliquidationresponse.md), error**
+| Error Object                                                     | Status Code                                                      | Content Type                                                     |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| sdkerrors.RetrieveAccountLiquidationError                        | 401                                                              | application/problem+json                                         |
+| sdkerrors.RetrieveAccountLiquidationLiquidationsError            | 403                                                              | application/problem+json                                         |
+| sdkerrors.RetrieveAccountLiquidationLiquidationsResponseError    | 404                                                              | application/problem+json                                         |
+| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse406Error | 406                                                              | application/problem+json                                         |
+| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse429Error | 429                                                              | application/problem+json                                         |
+| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse500Error | 500                                                              | application/problem+json                                         |
+| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse503Error | 503                                                              | application/problem+json                                         |
+| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse504Error | 504                                                              | application/problem+json                                         |
+| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |

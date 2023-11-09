@@ -1,5 +1,5 @@
 # Transactions
-(*.Transactions*)
+(*Transactions*)
 
 ## Overview
 
@@ -54,16 +54,28 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.ListCashTransactionsRequest](../../models/operations/listcashtransactionsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.ListCashTransactionsRequest](../../pkg/models/operations/listcashtransactionsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
 
-**[*operations.ListCashTransactionsResponse](../../models/operations/listcashtransactionsresponse.md), error**
-
+**[*operations.ListCashTransactionsResponse](../../pkg/models/operations/listcashtransactionsresponse.md), error**
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| sdkerrors.ListCashTransactionsError                        | 400                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsError            | 401                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponseError    | 403                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponse404Error | 404                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponse405Error | 405                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponse406Error | 406                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponse429Error | 429                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponse500Error | 500                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponse503Error | 503                                                        | application/problem+json                                   |
+| sdkerrors.ListCashTransactionsTransactionsResponse504Error | 504                                                        | application/problem+json                                   |
+| sdkerrors.SDKError                                         | 400-600                                                    | */*                                                        |
 
 ## ListSecuritiesTransactions
 
@@ -108,13 +120,25 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
-| `request`                                                                                                    | [operations.ListSecuritiesTransactionsRequest](../../models/operations/listsecuritiestransactionsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
+| `request`                                                                                                        | [operations.ListSecuritiesTransactionsRequest](../../pkg/models/operations/listsecuritiestransactionsrequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
 
 
 ### Response
 
-**[*operations.ListSecuritiesTransactionsResponse](../../models/operations/listsecuritiestransactionsresponse.md), error**
-
+**[*operations.ListSecuritiesTransactionsResponse](../../pkg/models/operations/listsecuritiestransactionsresponse.md), error**
+| Error Object                                                     | Status Code                                                      | Content Type                                                     |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| sdkerrors.ListSecuritiesTransactionsError                        | 400                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsError            | 401                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponseError    | 403                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponse404Error | 404                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponse405Error | 405                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponse406Error | 406                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponse429Error | 429                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponse500Error | 500                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponse503Error | 503                                                              | application/problem+json                                         |
+| sdkerrors.ListSecuritiesTransactionsTransactionsResponse504Error | 504                                                              | application/problem+json                                         |
+| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |

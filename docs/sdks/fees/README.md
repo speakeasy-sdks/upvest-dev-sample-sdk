@@ -1,5 +1,5 @@
 # Fees
-(*.Fees*)
+(*Fees*)
 
 ## Overview
 
@@ -61,16 +61,27 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.CreateFeeCollectionRequest](../../models/operations/createfeecollectionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.CreateFeeCollectionRequest](../../pkg/models/operations/createfeecollectionrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
-**[*operations.CreateFeeCollectionResponse](../../models/operations/createfeecollectionresponse.md), error**
-
+**[*operations.CreateFeeCollectionResponse](../../pkg/models/operations/createfeecollectionresponse.md), error**
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| sdkerrors.CreateFeeCollectionError                | 400                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesError            | 401                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesResponseError    | 403                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesResponse404Error | 404                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesResponse406Error | 406                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesResponse429Error | 429                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesResponse500Error | 500                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesResponse503Error | 503                                               | application/problem+json                          |
+| sdkerrors.CreateFeeCollectionFeesResponse504Error | 504                                               | application/problem+json                          |
+| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
 
 ## ListFeeCollections
 
@@ -115,16 +126,26 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListFeeCollectionsRequest](../../models/operations/listfeecollectionsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.ListFeeCollectionsRequest](../../pkg/models/operations/listfeecollectionsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
 
-**[*operations.ListFeeCollectionsResponse](../../models/operations/listfeecollectionsresponse.md), error**
-
+**[*operations.ListFeeCollectionsResponse](../../pkg/models/operations/listfeecollectionsresponse.md), error**
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| sdkerrors.ListFeeCollectionsError                | 400                                              | application/problem+json                         |
+| sdkerrors.ListFeeCollectionsFeesError            | 401                                              | application/problem+json                         |
+| sdkerrors.ListFeeCollectionsFeesResponseError    | 403                                              | application/problem+json                         |
+| sdkerrors.ListFeeCollectionsFeesResponse406Error | 406                                              | application/problem+json                         |
+| sdkerrors.ListFeeCollectionsFeesResponse429Error | 429                                              | application/problem+json                         |
+| sdkerrors.ListFeeCollectionsFeesResponse500Error | 500                                              | application/problem+json                         |
+| sdkerrors.ListFeeCollectionsFeesResponse503Error | 503                                              | application/problem+json                         |
+| sdkerrors.ListFeeCollectionsFeesResponse504Error | 504                                              | application/problem+json                         |
+| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
 
 ## RetrieveFeeCollection
 
@@ -168,13 +189,23 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.RetrieveFeeCollectionRequest](../../models/operations/retrievefeecollectionrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
+| `request`                                                                                              | [operations.RetrieveFeeCollectionRequest](../../pkg/models/operations/retrievefeecollectionrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 
 ### Response
 
-**[*operations.RetrieveFeeCollectionResponse](../../models/operations/retrievefeecollectionresponse.md), error**
-
+**[*operations.RetrieveFeeCollectionResponse](../../pkg/models/operations/retrievefeecollectionresponse.md), error**
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| sdkerrors.RetrieveFeeCollectionError                | 401                                                 | application/problem+json                            |
+| sdkerrors.RetrieveFeeCollectionFeesError            | 403                                                 | application/problem+json                            |
+| sdkerrors.RetrieveFeeCollectionFeesResponseError    | 404                                                 | application/problem+json                            |
+| sdkerrors.RetrieveFeeCollectionFeesResponse406Error | 406                                                 | application/problem+json                            |
+| sdkerrors.RetrieveFeeCollectionFeesResponse429Error | 429                                                 | application/problem+json                            |
+| sdkerrors.RetrieveFeeCollectionFeesResponse500Error | 500                                                 | application/problem+json                            |
+| sdkerrors.RetrieveFeeCollectionFeesResponse503Error | 503                                                 | application/problem+json                            |
+| sdkerrors.RetrieveFeeCollectionFeesResponse504Error | 504                                                 | application/problem+json                            |
+| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
