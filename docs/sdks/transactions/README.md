@@ -29,9 +29,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.Transactions.ListCashTransactions(ctx, operations.ListCashTransactionsRequest{
@@ -96,9 +94,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.Transactions.ListSecuritiesTransactions(ctx, operations.ListSecuritiesTransactionsRequest{

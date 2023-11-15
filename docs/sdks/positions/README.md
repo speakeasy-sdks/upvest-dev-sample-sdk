@@ -28,9 +28,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.Positions.ListPositions(ctx, operations.ListPositionsRequest{
@@ -92,9 +90,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.Positions.RetrievePosition(ctx, operations.RetrievePositionRequest{

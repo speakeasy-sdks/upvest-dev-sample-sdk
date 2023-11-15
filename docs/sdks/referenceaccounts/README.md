@@ -31,9 +31,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.CreateReferenceAccount(ctx, operations.CreateReferenceAccountRequest{
@@ -101,9 +99,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.DeleteReferenceAccount(ctx, operations.DeleteReferenceAccountRequest{
@@ -163,9 +159,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.ListReferenceAccounts(ctx, operations.ListReferenceAccountsRequest{
@@ -227,9 +221,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.RetrieveReferenceAccount(ctx, operations.RetrieveReferenceAccountRequest{

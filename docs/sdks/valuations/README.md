@@ -28,9 +28,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.Valuations.GetAccountValuation(ctx, operations.GetAccountValuationRequest{
@@ -93,9 +91,7 @@ import(
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
-    )
+    s := upvestdevsamplesdk.New()
 
     ctx := context.Background()
     res, err := s.Valuations.ListAccountValuationHistory(ctx, operations.ListAccountValuationHistoryRequest{

@@ -43,7 +43,7 @@ func (s *VirtualCashBalances) CancelVirtualCashDecrease(ctx context.Context, req
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -237,7 +237,7 @@ func (s *VirtualCashBalances) CreateVirtualCashDecrease(ctx context.Context, req
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -457,7 +457,7 @@ func (s *VirtualCashBalances) CreateVirtualCashIncrease(ctx context.Context, req
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {

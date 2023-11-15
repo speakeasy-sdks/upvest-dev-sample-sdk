@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```go
 package main
 
@@ -13,9 +11,7 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New(
-		upvestdevsamplesdk.WithSecurity(""),
-	)
+	s := upvestdevsamplesdk.New()
 
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{

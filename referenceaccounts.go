@@ -62,7 +62,7 @@ func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -263,7 +263,7 @@ func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -442,7 +442,7 @@ func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request o
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -658,7 +658,7 @@ func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, reques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {

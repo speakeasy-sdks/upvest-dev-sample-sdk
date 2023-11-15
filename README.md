@@ -16,6 +16,8 @@ go get github.com/speakeasy-sdks/upvest-dev-sample-sdk
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+### Example
+
 ```go
 package main
 
@@ -28,9 +30,7 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New(
-		upvestdevsamplesdk.WithSecurity(""),
-	)
+	s := upvestdevsamplesdk.New()
 
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
@@ -249,7 +249,7 @@ d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on
 
 
 <!-- Start Error Handling -->
-# Error Handling
+## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
@@ -266,8 +266,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | sdkerrors.AccountClosureAccountsResponse504Error | 504                                              | application/problem+json                         |
 | sdkerrors.SDKError                               | 400-600                                          | */*                                              |
 
-
-## Example
+### Example
 
 ```go
 package main
@@ -281,9 +280,7 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New(
-		upvestdevsamplesdk.WithSecurity(""),
-	)
+	s := upvestdevsamplesdk.New()
 
 	ctx := context.Background()
 	res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
@@ -363,9 +360,9 @@ func main() {
 
 
 <!-- Start Server Selection -->
-# Server Selection
+## Server Selection
 
-## Select Server by Index
+### Select Server by Index
 
 You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
@@ -374,7 +371,7 @@ You can override the default server globally using the `WithServerIndex` option 
 | 0 | `https://sandbox.upvest.co` | None |
 | 1 | `https://api.upvest.co` | None |
 
-For example:
+#### Example
 
 ```go
 package main
@@ -390,7 +387,6 @@ import (
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerIndex(1),
-		upvestdevsamplesdk.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -413,10 +409,9 @@ func main() {
 ```
 
 
-## Override Server URL Per-Client
+### Override Server URL Per-Client
 
 The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
-
 ```go
 package main
 
@@ -431,7 +426,6 @@ import (
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerURL("https://sandbox.upvest.co"),
-		upvestdevsamplesdk.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -457,7 +451,7 @@ func main() {
 
 
 <!-- Start Custom HTTP Client -->
-# Custom HTTP Client
+## Custom HTTP Client
 
 The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
 
@@ -488,9 +482,9 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 
 <!-- Start Authentication -->
-# Authentication
+## Authentication
 
-## Per-Client Security Schemes
+### Per-Client Security Schemes
 
 This SDK supports the following security scheme globally:
 
@@ -499,7 +493,6 @@ This SDK supports the following security scheme globally:
 | `OauthClientCredentials` | oauth2                   | OAuth2 token             |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
-
 ```go
 package main
 

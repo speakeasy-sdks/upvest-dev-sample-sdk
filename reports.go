@@ -61,7 +61,7 @@ func (s *Reports) ListReports(ctx context.Context, request operations.ListReport
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -277,7 +277,7 @@ func (s *Reports) RetrieveReport(ctx context.Context, request operations.Retriev
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {

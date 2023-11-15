@@ -57,7 +57,7 @@ func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.R
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -280,7 +280,7 @@ func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTax
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {

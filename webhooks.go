@@ -62,7 +62,7 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -248,7 +248,7 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -420,7 +420,7 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -607,7 +607,7 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -808,7 +808,7 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -994,7 +994,7 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -1191,7 +1191,7 @@ func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.SecurityClient
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
