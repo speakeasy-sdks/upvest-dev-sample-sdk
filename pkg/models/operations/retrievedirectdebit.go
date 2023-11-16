@@ -261,7 +261,7 @@ func (o *RetrieveDirectDebitResponse) GetContentType() string {
 
 func (o *RetrieveDirectDebitResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -334,7 +334,7 @@ func (o *RetrieveFeeCollectionResponse) GetContentType() string {
 
 func (o *RetrieveFeeCollectionResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

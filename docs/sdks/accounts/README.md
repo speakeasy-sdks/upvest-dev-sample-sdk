@@ -27,15 +27,18 @@ Initiates the closure request for an account specified by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
@@ -89,15 +92,18 @@ Initiates the closure request for an account group specified by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.AccountGroupClosure(ctx, operations.AccountGroupClosureRequest{
@@ -151,15 +157,17 @@ Creates an account.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
@@ -218,15 +226,17 @@ Creates an account group.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.CreateAccountGroup(ctx, operations.CreateAccountGroupRequest{
@@ -284,15 +294,17 @@ Returns a list of all account groups.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.ListAccountGroups(ctx, operations.ListAccountGroupsRequest{
@@ -344,15 +356,17 @@ Returns a list of all accounts.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.ListAccounts(ctx, operations.ListAccountsRequest{
@@ -404,15 +418,17 @@ Returns the user account specified by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.RetrieveAccount(ctx, operations.RetrieveAccountRequest{
@@ -465,15 +481,17 @@ Returns the account group specified bu its ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.RetrieveAccountGroup(ctx, operations.RetrieveAccountGroupRequest{
@@ -526,15 +544,17 @@ Updates the user account specified by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Accounts.UpdateAccount(ctx, operations.UpdateAccountRequest{

@@ -270,7 +270,7 @@ func (o *RetrieveCashWithdrawalResponse) GetContentType() string {
 
 func (o *RetrieveCashWithdrawalResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

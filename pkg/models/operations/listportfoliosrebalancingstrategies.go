@@ -391,7 +391,7 @@ func (o *ListPortfoliosRebalancingStrategiesResponse) GetContentType() string {
 
 func (o *ListPortfoliosRebalancingStrategiesResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

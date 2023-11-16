@@ -312,7 +312,7 @@ func (o *RetrieveAccountGroupResponse) GetContentType() string {
 
 func (o *RetrieveAccountGroupResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

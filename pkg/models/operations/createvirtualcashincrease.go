@@ -311,7 +311,7 @@ func (o *CreateVirtualCashIncreaseResponse) GetContentType() string {
 
 func (o *CreateVirtualCashIncreaseResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

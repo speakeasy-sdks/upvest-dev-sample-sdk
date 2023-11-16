@@ -85,7 +85,7 @@ func (o *AccountClosureResponse) GetContentType() string {
 
 func (o *AccountClosureResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

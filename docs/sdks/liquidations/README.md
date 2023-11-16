@@ -22,15 +22,18 @@ Cancel account liquidation
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.CancelAccountLiquidation(ctx, operations.CancelAccountLiquidationRequest{
@@ -84,15 +87,17 @@ Create account liquidation request
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.CreateAccountLiquidation(ctx, operations.CreateAccountLiquidationRequest{
@@ -150,15 +155,17 @@ List accounts liquidations
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.ListAccountsLiquidations(ctx, operations.ListAccountsLiquidationsRequest{
@@ -213,15 +220,17 @@ Retrieve account liquidation
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.RetrieveAccountLiquidation(ctx, operations.RetrieveAccountLiquidationRequest{

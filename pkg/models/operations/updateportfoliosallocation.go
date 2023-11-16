@@ -329,7 +329,7 @@ func (o *UpdatePortfoliosAllocationResponse) GetContentType() string {
 
 func (o *UpdatePortfoliosAllocationResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

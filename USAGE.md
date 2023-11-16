@@ -11,7 +11,9 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New()
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity(""),
+	)
 
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{

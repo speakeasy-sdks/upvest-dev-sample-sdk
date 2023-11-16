@@ -447,7 +447,7 @@ func (o *ListInstrumentsResponse) GetContentType() string {
 
 func (o *ListInstrumentsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

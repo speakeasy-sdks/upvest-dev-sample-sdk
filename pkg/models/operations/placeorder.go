@@ -1176,7 +1176,7 @@ func (o *PlaceOrderResponse) GetContentType() string {
 
 func (o *PlaceOrderResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

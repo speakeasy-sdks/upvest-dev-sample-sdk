@@ -85,7 +85,7 @@ func (o *CancelVirtualCashDecreaseResponse) GetContentType() string {
 
 func (o *CancelVirtualCashDecreaseResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -365,7 +365,7 @@ func (o *RetrieveOrderExecutionResponse) GetContentType() string {
 
 func (o *RetrieveOrderExecutionResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

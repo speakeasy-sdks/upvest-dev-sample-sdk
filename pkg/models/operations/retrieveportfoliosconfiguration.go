@@ -154,7 +154,7 @@ func (o *RetrievePortfoliosConfigurationResponse) GetContentType() string {
 
 func (o *RetrievePortfoliosConfigurationResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

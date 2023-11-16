@@ -958,7 +958,7 @@ func (o *ListCashTransactionsResponse) GetContentType() string {
 
 func (o *ListCashTransactionsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

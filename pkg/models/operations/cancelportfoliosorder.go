@@ -85,7 +85,7 @@ func (o *CancelPortfoliosOrderResponse) GetContentType() string {
 
 func (o *CancelPortfoliosOrderResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -191,7 +191,7 @@ func (o *RetrieveReferenceAccountResponse) GetContentType() string {
 
 func (o *RetrieveReferenceAccountResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -319,7 +319,7 @@ func (o *CreateDirectDebitResponse) GetContentType() string {
 
 func (o *CreateDirectDebitResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

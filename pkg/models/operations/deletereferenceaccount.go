@@ -85,7 +85,7 @@ func (o *DeleteReferenceAccountResponse) GetContentType() string {
 
 func (o *DeleteReferenceAccountResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

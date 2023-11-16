@@ -494,7 +494,7 @@ func (o *SetTaxResidenciesResponse) GetContentType() string {
 
 func (o *SetTaxResidenciesResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

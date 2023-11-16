@@ -22,16 +22,18 @@ Creates a new reference account for a user specified by ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/types"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.CreateReferenceAccount(ctx, operations.CreateReferenceAccountRequest{
@@ -91,15 +93,18 @@ Deletes the reference account specified by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.DeleteReferenceAccount(ctx, operations.DeleteReferenceAccountRequest{
@@ -151,15 +156,17 @@ Returns the list of reference accounts of a user specified by ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.ListReferenceAccounts(ctx, operations.ListReferenceAccountsRequest{
@@ -213,15 +220,17 @@ Retrieves the reference account specified by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.RetrieveReferenceAccount(ctx, operations.RetrieveReferenceAccountRequest{

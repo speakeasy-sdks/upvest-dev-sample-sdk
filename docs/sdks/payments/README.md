@@ -25,15 +25,18 @@ Cancels a withdrawal specified by its ID. It is only possible to cancel a withdr
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.CancelCashWithdrawal(ctx, operations.CancelCashWithdrawalRequest{
@@ -86,15 +89,17 @@ Trigger a withdrawal
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.CreateCashWithdrawal(ctx, operations.CreateCashWithdrawalRequest{
@@ -154,15 +159,17 @@ Trigger a direct debit
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.CreateDirectDebit(ctx, operations.CreateDirectDebitRequest{
@@ -222,15 +229,17 @@ List withdrawals
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.ListCashWithdrawals(ctx, operations.ListCashWithdrawalsRequest{
@@ -284,15 +293,17 @@ List direct debits
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.ListDirectDebits(ctx, operations.ListDirectDebitsRequest{
@@ -346,15 +357,17 @@ Retrieve withdrawal
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.RetrieveCashWithdrawal(ctx, operations.RetrieveCashWithdrawalRequest{
@@ -407,15 +420,17 @@ Retrieve a direct debit
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.RetrieveDirectDebit(ctx, operations.RetrieveDirectDebitRequest{

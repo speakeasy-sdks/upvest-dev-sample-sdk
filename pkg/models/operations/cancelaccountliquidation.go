@@ -93,7 +93,7 @@ func (o *CancelAccountLiquidationResponse) GetContentType() string {
 
 func (o *CancelAccountLiquidationResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

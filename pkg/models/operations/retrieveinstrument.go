@@ -216,7 +216,7 @@ func (o *RetrieveInstrumentResponse) GetContentType() string {
 
 func (o *RetrieveInstrumentResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

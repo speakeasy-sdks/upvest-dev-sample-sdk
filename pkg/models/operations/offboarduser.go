@@ -85,7 +85,7 @@ func (o *OffboardUserResponse) GetContentType() string {
 
 func (o *OffboardUserResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

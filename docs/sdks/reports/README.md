@@ -20,15 +20,17 @@ List user reports
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Reports.ListReports(ctx, operations.ListReportsRequest{
@@ -82,15 +84,17 @@ Retrieve a user report
 package main
 
 import(
-	"context"
-	"log"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Reports.RetrieveReport(ctx, operations.RetrieveReportRequest{

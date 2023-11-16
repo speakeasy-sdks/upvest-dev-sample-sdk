@@ -106,7 +106,7 @@ func (o *CancelOrderResponse) GetContentType() string {
 
 func (o *CancelOrderResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

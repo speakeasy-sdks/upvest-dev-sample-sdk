@@ -347,7 +347,7 @@ func (o *CreateMandateResponse) GetContentType() string {
 
 func (o *CreateMandateResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

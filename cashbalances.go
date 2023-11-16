@@ -57,7 +57,7 @@ func (s *CashBalances) RetrieveCashBalance(ctx context.Context, request operatio
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.DefaultClient
+	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {

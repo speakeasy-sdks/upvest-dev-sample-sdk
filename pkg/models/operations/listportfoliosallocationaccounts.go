@@ -278,7 +278,7 @@ func (o *ListPortfoliosAllocationAccountsResponse) GetContentType() string {
 
 func (o *ListPortfoliosAllocationAccountsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

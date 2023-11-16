@@ -328,7 +328,7 @@ func (o *CreateCashWithdrawalResponse) GetContentType() string {
 
 func (o *CreateCashWithdrawalResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -350,7 +350,7 @@ func (o *UpdateAccountResponse) GetContentType() string {
 
 func (o *UpdateAccountResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

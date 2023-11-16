@@ -477,7 +477,7 @@ func (o *ListFeeCollectionsResponse) GetContentType() string {
 
 func (o *ListFeeCollectionsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

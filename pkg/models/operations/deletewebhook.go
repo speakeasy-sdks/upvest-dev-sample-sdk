@@ -86,7 +86,7 @@ func (o *DeleteWebhookResponse) GetContentType() string {
 
 func (o *DeleteWebhookResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

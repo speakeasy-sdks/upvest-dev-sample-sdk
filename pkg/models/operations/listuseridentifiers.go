@@ -194,7 +194,7 @@ func (o *ListUserIdentifiersResponse) GetContentType() string {
 
 func (o *ListUserIdentifiersResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

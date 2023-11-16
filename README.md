@@ -30,7 +30,9 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New()
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity(""),
+	)
 
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
@@ -273,14 +275,18 @@ package main
 
 import (
 	"context"
+	"errors"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-	s := upvestdevsamplesdk.New()
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity(""),
+	)
 
 	ctx := context.Background()
 	res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
@@ -382,11 +388,13 @@ import (
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
+	"net/http"
 )
 
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerIndex(1),
+		upvestdevsamplesdk.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -421,11 +429,13 @@ import (
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
+	"net/http"
 )
 
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerURL("https://sandbox.upvest.co"),
+		upvestdevsamplesdk.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -502,6 +512,7 @@ import (
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
+	"net/http"
 )
 
 func main() {

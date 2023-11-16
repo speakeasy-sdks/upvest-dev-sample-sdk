@@ -979,7 +979,7 @@ func (o *ListUserChecksResponse) GetContentType() string {
 
 func (o *ListUserChecksResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

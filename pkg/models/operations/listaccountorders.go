@@ -1032,7 +1032,7 @@ func (o *ListAccountOrdersResponse) GetContentType() string {
 
 func (o *ListAccountOrdersResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

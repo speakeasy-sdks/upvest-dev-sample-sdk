@@ -85,7 +85,7 @@ func (o *DeleteMandateResponse) GetContentType() string {
 
 func (o *DeleteMandateResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -196,7 +196,7 @@ func (o *IssueTokenResponse) GetContentType() string {
 
 func (o *IssueTokenResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

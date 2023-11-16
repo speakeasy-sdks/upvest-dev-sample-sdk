@@ -416,7 +416,7 @@ func (o *ListPortfoliosAllocationsResponse) GetContentType() string {
 
 func (o *ListPortfoliosAllocationsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

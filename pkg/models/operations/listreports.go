@@ -695,7 +695,7 @@ func (o *ListReportsResponse) GetContentType() string {
 
 func (o *ListReportsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

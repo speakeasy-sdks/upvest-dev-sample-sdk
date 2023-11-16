@@ -473,7 +473,7 @@ func (o *ListAccountGroupsResponse) GetContentType() string {
 
 func (o *ListAccountGroupsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

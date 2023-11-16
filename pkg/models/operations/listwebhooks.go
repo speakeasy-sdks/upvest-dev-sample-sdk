@@ -509,7 +509,7 @@ func (o *ListWebhooksResponse) GetContentType() string {
 
 func (o *ListWebhooksResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

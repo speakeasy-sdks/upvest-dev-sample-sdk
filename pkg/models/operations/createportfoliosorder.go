@@ -568,7 +568,7 @@ func (o *CreatePortfoliosOrderResponse) GetContentType() string {
 
 func (o *CreatePortfoliosOrderResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

@@ -353,7 +353,7 @@ func (o *ListPortfoliosConfigurationsResponse) GetContentType() string {
 
 func (o *ListPortfoliosConfigurationsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

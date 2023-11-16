@@ -430,7 +430,7 @@ func (o *GetAccountValuationResponse) GetContentType() string {
 
 func (o *GetAccountValuationResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

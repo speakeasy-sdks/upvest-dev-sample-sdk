@@ -376,7 +376,7 @@ func (o *CreateAccountGroupResponse) GetContentType() string {
 
 func (o *CreateAccountGroupResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }
