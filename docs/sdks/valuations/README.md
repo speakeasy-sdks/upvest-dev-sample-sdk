@@ -45,7 +45,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountValuation != nil {
+    if res.AccountValuation != nil {
         // handle response
     }
 }
@@ -109,7 +109,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountValuationListResponse != nil {
+    if res.AccountValuationListResponse != nil {
         // handle response
     }
 }

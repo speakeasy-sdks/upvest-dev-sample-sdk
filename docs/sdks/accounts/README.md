@@ -186,7 +186,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccount != nil {
+    if res.Account != nil {
         // handle response
     }
 }
@@ -254,7 +254,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountGroup != nil {
+    if res.AccountGroup != nil {
         // handle response
     }
 }
@@ -317,7 +317,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountGroupsListResponse != nil {
+    if res.AccountGroupsListResponse != nil {
         // handle response
     }
 }
@@ -379,7 +379,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountsListResponse != nil {
+    if res.AccountsListResponse != nil {
         // handle response
     }
 }
@@ -442,7 +442,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccount != nil {
+    if res.Account != nil {
         // handle response
     }
 }
@@ -505,7 +505,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountGroup != nil {
+    if res.AccountGroup != nil {
         // handle response
     }
 }
@@ -569,7 +569,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccount != nil {
+    if res.Account != nil {
         // handle response
     }
 }

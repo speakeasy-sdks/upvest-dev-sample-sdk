@@ -44,7 +44,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONTaxResidencyRecord != nil {
+    if res.TaxResidencyRecord != nil {
         // handle response
     }
 }
@@ -119,7 +119,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONTaxResidencyRecord != nil {
+    if res.TaxResidencyRecord != nil {
         // handle response
     }
 }

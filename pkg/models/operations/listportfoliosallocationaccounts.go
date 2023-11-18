@@ -251,22 +251,15 @@ func (o *ListPortfoliosAllocationAccountsPortfoliosAllocationAccountsListRespons
 }
 
 type ListPortfoliosAllocationAccountsResponse struct {
-	// Portfolios allocation accounts
-	TwoHundredApplicationJSONPortfoliosAllocationAccountsListResponse *ListPortfoliosAllocationAccountsPortfoliosAllocationAccountsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Portfolios allocation accounts
+	PortfoliosAllocationAccountsListResponse *ListPortfoliosAllocationAccountsPortfoliosAllocationAccountsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListPortfoliosAllocationAccountsResponse) GetTwoHundredApplicationJSONPortfoliosAllocationAccountsListResponse() *ListPortfoliosAllocationAccountsPortfoliosAllocationAccountsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPortfoliosAllocationAccountsListResponse
 }
 
 func (o *ListPortfoliosAllocationAccountsResponse) GetContentType() string {
@@ -281,6 +274,13 @@ func (o *ListPortfoliosAllocationAccountsResponse) GetHeaders() map[string][]str
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListPortfoliosAllocationAccountsResponse) GetPortfoliosAllocationAccountsListResponse() *ListPortfoliosAllocationAccountsPortfoliosAllocationAccountsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.PortfoliosAllocationAccountsListResponse
 }
 
 func (o *ListPortfoliosAllocationAccountsResponse) GetStatusCode() int {

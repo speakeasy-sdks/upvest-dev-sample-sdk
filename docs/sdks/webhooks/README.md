@@ -56,7 +56,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredAndOneApplicationJSONWebhook != nil {
+    if res.Webhook != nil {
         // handle response
     }
 }
@@ -181,7 +181,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAuthVerificationKeys != nil {
+    if res.AuthVerificationKeys != nil {
         // handle response
     }
 }
@@ -242,7 +242,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONWebhooksListResponse != nil {
+    if res.WebhooksListResponse != nil {
         // handle response
     }
 }
@@ -305,7 +305,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONWebhook != nil {
+    if res.Webhook != nil {
         // handle response
     }
 }
@@ -438,7 +438,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONWebhook != nil {
+    if res.Webhook != nil {
         // handle response
     }
 }

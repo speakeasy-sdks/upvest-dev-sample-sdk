@@ -53,7 +53,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONFeeCollection != nil {
+    if res.FeeCollection != nil {
         // handle response
     }
 }
@@ -118,7 +118,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONFeeCollectionListResponse != nil {
+    if res.FeeCollectionListResponse != nil {
         // handle response
     }
 }
@@ -181,7 +181,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONFeeCollection != nil {
+    if res.FeeCollection != nil {
         // handle response
     }
 }

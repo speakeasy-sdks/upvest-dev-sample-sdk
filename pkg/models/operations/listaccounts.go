@@ -465,7 +465,7 @@ func (o *ListAccountsAccountsListResponse) GetMeta() ListAccountsMeta {
 
 type ListAccountsResponse struct {
 	// OK
-	TwoHundredApplicationJSONAccountsListResponse *ListAccountsAccountsListResponse
+	AccountsListResponse *ListAccountsAccountsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -475,11 +475,11 @@ type ListAccountsResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListAccountsResponse) GetTwoHundredApplicationJSONAccountsListResponse() *ListAccountsAccountsListResponse {
+func (o *ListAccountsResponse) GetAccountsListResponse() *ListAccountsAccountsListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccountsListResponse
+	return o.AccountsListResponse
 }
 
 func (o *ListAccountsResponse) GetContentType() string {

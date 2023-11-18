@@ -167,22 +167,15 @@ func (o *CreatePortfoliosConfigurationPortfoliosConfiguration) GetUpdatedAt() ti
 }
 
 type CreatePortfoliosConfigurationResponse struct {
-	// Portfolios configuration
-	TwoHundredApplicationJSONPortfoliosConfiguration *CreatePortfoliosConfigurationPortfoliosConfiguration
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Portfolios configuration
+	PortfoliosConfiguration *CreatePortfoliosConfigurationPortfoliosConfiguration
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreatePortfoliosConfigurationResponse) GetTwoHundredApplicationJSONPortfoliosConfiguration() *CreatePortfoliosConfigurationPortfoliosConfiguration {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPortfoliosConfiguration
 }
 
 func (o *CreatePortfoliosConfigurationResponse) GetContentType() string {
@@ -197,6 +190,13 @@ func (o *CreatePortfoliosConfigurationResponse) GetHeaders() map[string][]string
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *CreatePortfoliosConfigurationResponse) GetPortfoliosConfiguration() *CreatePortfoliosConfigurationPortfoliosConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.PortfoliosConfiguration
 }
 
 func (o *CreatePortfoliosConfigurationResponse) GetStatusCode() int {

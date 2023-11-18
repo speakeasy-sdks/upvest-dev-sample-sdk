@@ -295,8 +295,6 @@ func (o *RetrieveTaxResidenciesTaxResidencyRecord) GetUpdatedAt() time.Time {
 }
 
 type RetrieveTaxResidenciesResponse struct {
-	// User tax residencies
-	TwoHundredApplicationJSONTaxResidencyRecord *RetrieveTaxResidenciesTaxResidencyRecord
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -304,13 +302,8 @@ type RetrieveTaxResidenciesResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveTaxResidenciesResponse) GetTwoHundredApplicationJSONTaxResidencyRecord() *RetrieveTaxResidenciesTaxResidencyRecord {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONTaxResidencyRecord
+	// User tax residencies
+	TaxResidencyRecord *RetrieveTaxResidenciesTaxResidencyRecord
 }
 
 func (o *RetrieveTaxResidenciesResponse) GetContentType() string {
@@ -339,4 +332,11 @@ func (o *RetrieveTaxResidenciesResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *RetrieveTaxResidenciesResponse) GetTaxResidencyRecord() *RetrieveTaxResidenciesTaxResidencyRecord {
+	if o == nil {
+		return nil
+	}
+	return o.TaxResidencyRecord
 }

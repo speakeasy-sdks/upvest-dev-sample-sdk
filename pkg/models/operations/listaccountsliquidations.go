@@ -508,22 +508,15 @@ func (o *ListAccountsLiquidationsPortfoliosOrdersListResponse) GetMeta() ListAcc
 }
 
 type ListAccountsLiquidationsResponse struct {
-	// Accounts liquidations
-	TwoHundredApplicationJSONPortfoliosOrdersListResponse *ListAccountsLiquidationsPortfoliosOrdersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Accounts liquidations
+	PortfoliosOrdersListResponse *ListAccountsLiquidationsPortfoliosOrdersListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListAccountsLiquidationsResponse) GetTwoHundredApplicationJSONPortfoliosOrdersListResponse() *ListAccountsLiquidationsPortfoliosOrdersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPortfoliosOrdersListResponse
 }
 
 func (o *ListAccountsLiquidationsResponse) GetContentType() string {
@@ -538,6 +531,13 @@ func (o *ListAccountsLiquidationsResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListAccountsLiquidationsResponse) GetPortfoliosOrdersListResponse() *ListAccountsLiquidationsPortfoliosOrdersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.PortfoliosOrdersListResponse
 }
 
 func (o *ListAccountsLiquidationsResponse) GetStatusCode() int {

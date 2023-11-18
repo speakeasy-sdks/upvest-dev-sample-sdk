@@ -338,22 +338,15 @@ func (o *RetrieveOrderExecutionOrderExecution) GetTransactionTime() time.Time {
 }
 
 type RetrieveOrderExecutionResponse struct {
-	// OK
-	TwoHundredApplicationJSONOrderExecution *RetrieveOrderExecutionOrderExecution
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// OK
+	OrderExecution *RetrieveOrderExecutionOrderExecution
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveOrderExecutionResponse) GetTwoHundredApplicationJSONOrderExecution() *RetrieveOrderExecutionOrderExecution {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONOrderExecution
 }
 
 func (o *RetrieveOrderExecutionResponse) GetContentType() string {
@@ -368,6 +361,13 @@ func (o *RetrieveOrderExecutionResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *RetrieveOrderExecutionResponse) GetOrderExecution() *RetrieveOrderExecutionOrderExecution {
+	if o == nil {
+		return nil
+	}
+	return o.OrderExecution
 }
 
 func (o *RetrieveOrderExecutionResponse) GetStatusCode() int {

@@ -60,7 +60,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONIdentifier != nil {
+    if res.Identifier != nil {
         // handle response
     }
 }
@@ -149,7 +149,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONUserCreateRequest != nil {
+    if res.UserCreateRequest != nil {
         // handle response
     }
 }
@@ -227,7 +227,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredAndTwoApplicationJSONUserCheckCreateResponse != nil {
+    if res.UserCheckCreateResponse != nil {
         // handle response
     }
 }
@@ -291,7 +291,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountGroupsListResponse != nil {
+    if res.AccountGroupsListResponse != nil {
         // handle response
     }
 }
@@ -355,7 +355,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountsListResponse != nil {
+    if res.AccountsListResponse != nil {
         // handle response
     }
 }
@@ -419,7 +419,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONUserCheckListResponse != nil {
+    if res.UserCheckListResponse != nil {
         // handle response
     }
 }
@@ -482,7 +482,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONIdentifiersListResponse != nil {
+    if res.IdentifiersListResponse != nil {
         // handle response
     }
 }
@@ -544,7 +544,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONUsersListResponse != nil {
+    if res.UsersListResponse != nil {
         // handle response
     }
 }
@@ -672,7 +672,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONIdentifier != nil {
+    if res.Identifier != nil {
         // handle response
     }
 }
@@ -735,7 +735,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONUserGetResponse != nil {
+    if res.UserGetResponse != nil {
         // handle response
     }
 }
@@ -799,7 +799,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONUserCheck != nil {
+    if res.UserCheck != nil {
         // handle response
     }
 }
@@ -866,7 +866,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONIdentifier != nil {
+    if res.Identifier != nil {
         // handle response
     }
 }

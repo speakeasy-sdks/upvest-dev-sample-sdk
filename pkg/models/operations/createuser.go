@@ -2105,8 +2105,6 @@ func (u CreateUserUsersUserCreateRequest) MarshalJSON() ([]byte, error) {
 }
 
 type CreateUserResponse struct {
-	// User created.
-	TwoHundredApplicationJSONUserCreateRequest *CreateUserUsersUserCreateRequest
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -2114,13 +2112,8 @@ type CreateUserResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreateUserResponse) GetTwoHundredApplicationJSONUserCreateRequest() *CreateUserUsersUserCreateRequest {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONUserCreateRequest
+	// User created.
+	UserCreateRequest *CreateUserUsersUserCreateRequest
 }
 
 func (o *CreateUserResponse) GetContentType() string {
@@ -2149,4 +2142,11 @@ func (o *CreateUserResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *CreateUserResponse) GetUserCreateRequest() *CreateUserUsersUserCreateRequest {
+	if o == nil {
+		return nil
+	}
+	return o.UserCreateRequest
 }

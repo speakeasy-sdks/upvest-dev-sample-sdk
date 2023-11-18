@@ -189,8 +189,6 @@ func (o *RetrieveInstrumentResponseBody) GetWkn() *string {
 }
 
 type RetrieveInstrumentResponse struct {
-	// Instrument
-	TwoHundredApplicationJSONObject *RetrieveInstrumentResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -198,13 +196,8 @@ type RetrieveInstrumentResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveInstrumentResponse) GetTwoHundredApplicationJSONObject() *RetrieveInstrumentResponseBody {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONObject
+	// Instrument
+	Object *RetrieveInstrumentResponseBody
 }
 
 func (o *RetrieveInstrumentResponse) GetContentType() string {
@@ -233,4 +226,11 @@ func (o *RetrieveInstrumentResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *RetrieveInstrumentResponse) GetObject() *RetrieveInstrumentResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.Object
 }

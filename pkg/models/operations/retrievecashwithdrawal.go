@@ -243,22 +243,15 @@ func (o *RetrieveCashWithdrawalPaymentsWithdrawal) GetUserID() string {
 }
 
 type RetrieveCashWithdrawalResponse struct {
-	// Withdrawal
-	TwoHundredApplicationJSONPaymentsWithdrawal *RetrieveCashWithdrawalPaymentsWithdrawal
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Withdrawal
+	PaymentsWithdrawal *RetrieveCashWithdrawalPaymentsWithdrawal
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveCashWithdrawalResponse) GetTwoHundredApplicationJSONPaymentsWithdrawal() *RetrieveCashWithdrawalPaymentsWithdrawal {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPaymentsWithdrawal
 }
 
 func (o *RetrieveCashWithdrawalResponse) GetContentType() string {
@@ -273,6 +266,13 @@ func (o *RetrieveCashWithdrawalResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *RetrieveCashWithdrawalResponse) GetPaymentsWithdrawal() *RetrieveCashWithdrawalPaymentsWithdrawal {
+	if o == nil {
+		return nil
+	}
+	return o.PaymentsWithdrawal
 }
 
 func (o *RetrieveCashWithdrawalResponse) GetStatusCode() int {

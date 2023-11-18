@@ -169,8 +169,6 @@ func (o *RetrieveCashBalanceResponseBody) GetPendingSettlement() string {
 }
 
 type RetrieveCashBalanceResponse struct {
-	// Response
-	TwoHundredApplicationJSONObject *RetrieveCashBalanceResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -178,13 +176,8 @@ type RetrieveCashBalanceResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveCashBalanceResponse) GetTwoHundredApplicationJSONObject() *RetrieveCashBalanceResponseBody {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONObject
+	// Response
+	Object *RetrieveCashBalanceResponseBody
 }
 
 func (o *RetrieveCashBalanceResponse) GetContentType() string {
@@ -213,4 +206,11 @@ func (o *RetrieveCashBalanceResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *RetrieveCashBalanceResponse) GetObject() *RetrieveCashBalanceResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.Object
 }

@@ -350,7 +350,7 @@ func (o *CreateAccountGroupAccountGroup) GetUsers() []CreateAccountGroupUsers {
 
 type CreateAccountGroupResponse struct {
 	// Account group created.
-	TwoHundredApplicationJSONAccountGroup *CreateAccountGroupAccountGroup
+	AccountGroup *CreateAccountGroupAccountGroup
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -360,11 +360,11 @@ type CreateAccountGroupResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *CreateAccountGroupResponse) GetTwoHundredApplicationJSONAccountGroup() *CreateAccountGroupAccountGroup {
+func (o *CreateAccountGroupResponse) GetAccountGroup() *CreateAccountGroupAccountGroup {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccountGroup
+	return o.AccountGroup
 }
 
 func (o *CreateAccountGroupResponse) GetContentType() string {

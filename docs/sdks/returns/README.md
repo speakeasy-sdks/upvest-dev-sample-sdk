@@ -43,7 +43,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountReturnListResponse != nil {
+    if res.AccountReturnListResponse != nil {
         // handle response
     }
 }

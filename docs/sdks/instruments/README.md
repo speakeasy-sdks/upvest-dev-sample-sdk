@@ -43,7 +43,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONInstrumentsListResponse != nil {
+    if res.InstrumentsListResponse != nil {
         // handle response
     }
 }
@@ -106,7 +106,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }

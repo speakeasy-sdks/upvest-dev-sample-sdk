@@ -650,8 +650,6 @@ func (o *CreateUserCheckUserCheckCreateResponse) GetID() string {
 }
 
 type CreateUserCheckResponse struct {
-	// The request has been successfully accepted.
-	TwoHundredAndTwoApplicationJSONUserCheckCreateResponse *CreateUserCheckUserCheckCreateResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -659,13 +657,8 @@ type CreateUserCheckResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreateUserCheckResponse) GetTwoHundredAndTwoApplicationJSONUserCheckCreateResponse() *CreateUserCheckUserCheckCreateResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredAndTwoApplicationJSONUserCheckCreateResponse
+	// The request has been successfully accepted.
+	UserCheckCreateResponse *CreateUserCheckUserCheckCreateResponse
 }
 
 func (o *CreateUserCheckResponse) GetContentType() string {
@@ -694,4 +687,11 @@ func (o *CreateUserCheckResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *CreateUserCheckResponse) GetUserCheckCreateResponse() *CreateUserCheckUserCheckCreateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UserCheckCreateResponse
 }

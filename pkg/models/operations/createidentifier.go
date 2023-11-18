@@ -206,22 +206,15 @@ func (o *CreateIdentifierIdentifier) GetUserID() string {
 }
 
 type CreateIdentifierResponse struct {
-	// The user identifier is created.
-	TwoHundredApplicationJSONIdentifier *CreateIdentifierIdentifier
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// The user identifier is created.
+	Identifier *CreateIdentifierIdentifier
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreateIdentifierResponse) GetTwoHundredApplicationJSONIdentifier() *CreateIdentifierIdentifier {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONIdentifier
 }
 
 func (o *CreateIdentifierResponse) GetContentType() string {
@@ -236,6 +229,13 @@ func (o *CreateIdentifierResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *CreateIdentifierResponse) GetIdentifier() *CreateIdentifierIdentifier {
+	if o == nil {
+		return nil
+	}
+	return o.Identifier
 }
 
 func (o *CreateIdentifierResponse) GetStatusCode() int {

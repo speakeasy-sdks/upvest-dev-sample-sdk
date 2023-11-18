@@ -97,7 +97,7 @@ func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request 
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONReferenceAccount = &out
+			res.ReferenceAccount = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -477,7 +477,7 @@ func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request o
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONUsersListResponse = &out
+			res.UsersListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -693,7 +693,7 @@ func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, reques
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONReferenceAccount = &out
+			res.ReferenceAccount = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

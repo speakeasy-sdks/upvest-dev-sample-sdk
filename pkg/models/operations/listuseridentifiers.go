@@ -167,22 +167,15 @@ func (o *ListUserIdentifiersIdentifiersListResponse) GetData() []Identifier {
 }
 
 type ListUserIdentifiersResponse struct {
-	// OK
-	TwoHundredApplicationJSONIdentifiersListResponse *ListUserIdentifiersIdentifiersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// OK
+	IdentifiersListResponse *ListUserIdentifiersIdentifiersListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListUserIdentifiersResponse) GetTwoHundredApplicationJSONIdentifiersListResponse() *ListUserIdentifiersIdentifiersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONIdentifiersListResponse
 }
 
 func (o *ListUserIdentifiersResponse) GetContentType() string {
@@ -197,6 +190,13 @@ func (o *ListUserIdentifiersResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListUserIdentifiersResponse) GetIdentifiersListResponse() *ListUserIdentifiersIdentifiersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.IdentifiersListResponse
 }
 
 func (o *ListUserIdentifiersResponse) GetStatusCode() int {

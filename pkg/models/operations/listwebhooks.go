@@ -482,8 +482,6 @@ func (o *ListWebhooksWebhooksListResponse) GetMeta() ListWebhooksMeta {
 }
 
 type ListWebhooksResponse struct {
-	// An object with a data property that contains an array of webhook subscription objects.
-	TwoHundredApplicationJSONWebhooksListResponse *ListWebhooksWebhooksListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -491,13 +489,8 @@ type ListWebhooksResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListWebhooksResponse) GetTwoHundredApplicationJSONWebhooksListResponse() *ListWebhooksWebhooksListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONWebhooksListResponse
+	// An object with a data property that contains an array of webhook subscription objects.
+	WebhooksListResponse *ListWebhooksWebhooksListResponse
 }
 
 func (o *ListWebhooksResponse) GetContentType() string {
@@ -526,4 +519,11 @@ func (o *ListWebhooksResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *ListWebhooksResponse) GetWebhooksListResponse() *ListWebhooksWebhooksListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WebhooksListResponse
 }

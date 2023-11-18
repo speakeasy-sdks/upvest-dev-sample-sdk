@@ -96,7 +96,7 @@ func (s *Valuations) GetAccountValuation(ctx context.Context, request operations
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountValuation = &out
+			res.AccountValuation = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -316,7 +316,7 @@ func (s *Valuations) ListAccountValuationHistory(ctx context.Context, request op
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountValuationListResponse = &out
+			res.AccountValuationListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

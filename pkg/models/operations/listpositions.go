@@ -269,22 +269,15 @@ func (o *ListPositionsPositionsListResponse) GetMeta() ListPositionsMeta {
 }
 
 type ListPositionsResponse struct {
-	// Response
-	TwoHundredApplicationJSONPositionsListResponse *ListPositionsPositionsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Response
+	PositionsListResponse *ListPositionsPositionsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListPositionsResponse) GetTwoHundredApplicationJSONPositionsListResponse() *ListPositionsPositionsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPositionsListResponse
 }
 
 func (o *ListPositionsResponse) GetContentType() string {
@@ -299,6 +292,13 @@ func (o *ListPositionsResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListPositionsResponse) GetPositionsListResponse() *ListPositionsPositionsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.PositionsListResponse
 }
 
 func (o *ListPositionsResponse) GetStatusCode() int {

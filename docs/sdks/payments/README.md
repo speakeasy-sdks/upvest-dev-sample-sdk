@@ -119,7 +119,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPaymentsWithdrawal != nil {
+    if res.PaymentsWithdrawal != nil {
         // handle response
     }
 }
@@ -189,7 +189,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -253,7 +253,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONWithdrawalsListResponse != nil {
+    if res.WithdrawalsListResponse != nil {
         // handle response
     }
 }
@@ -317,7 +317,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPaymentsDirectDebitsListResponse != nil {
+    if res.PaymentsDirectDebitsListResponse != nil {
         // handle response
     }
 }
@@ -381,7 +381,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPaymentsWithdrawal != nil {
+    if res.PaymentsWithdrawal != nil {
         // handle response
     }
 }
@@ -444,7 +444,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }

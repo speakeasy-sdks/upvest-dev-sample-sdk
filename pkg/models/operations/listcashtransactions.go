@@ -932,7 +932,7 @@ func (o *ListCashTransactionsCashTransactionListResponse) GetMeta() ListCashTran
 
 type ListCashTransactionsResponse struct {
 	// Cash Transactions
-	TwoHundredApplicationJSONCashTransactionListResponse *ListCashTransactionsCashTransactionListResponse
+	CashTransactionListResponse *ListCashTransactionsCashTransactionListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -942,11 +942,11 @@ type ListCashTransactionsResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListCashTransactionsResponse) GetTwoHundredApplicationJSONCashTransactionListResponse() *ListCashTransactionsCashTransactionListResponse {
+func (o *ListCashTransactionsResponse) GetCashTransactionListResponse() *ListCashTransactionsCashTransactionListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONCashTransactionListResponse
+	return o.CashTransactionListResponse
 }
 
 func (o *ListCashTransactionsResponse) GetContentType() string {

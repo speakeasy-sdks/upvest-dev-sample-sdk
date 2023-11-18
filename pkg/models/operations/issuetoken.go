@@ -170,7 +170,7 @@ func (o *IssueTokenAuthAccessToken) GetTokenType() *string {
 
 type IssueTokenResponse struct {
 	// Access token successfully generated.
-	TwoHundredApplicationJSONAuthAccessToken *IssueTokenAuthAccessToken
+	AuthAccessToken *IssueTokenAuthAccessToken
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -180,11 +180,11 @@ type IssueTokenResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *IssueTokenResponse) GetTwoHundredApplicationJSONAuthAccessToken() *IssueTokenAuthAccessToken {
+func (o *IssueTokenResponse) GetAuthAccessToken() *IssueTokenAuthAccessToken {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAuthAccessToken
+	return o.AuthAccessToken
 }
 
 func (o *IssueTokenResponse) GetContentType() string {

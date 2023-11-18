@@ -164,22 +164,15 @@ func (o *RetrieveReferenceAccountReferenceAccount) GetUserID() string {
 }
 
 type RetrieveReferenceAccountResponse struct {
-	// OK
-	TwoHundredApplicationJSONReferenceAccount *RetrieveReferenceAccountReferenceAccount
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// OK
+	ReferenceAccount *RetrieveReferenceAccountReferenceAccount
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveReferenceAccountResponse) GetTwoHundredApplicationJSONReferenceAccount() *RetrieveReferenceAccountReferenceAccount {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONReferenceAccount
 }
 
 func (o *RetrieveReferenceAccountResponse) GetContentType() string {
@@ -194,6 +187,13 @@ func (o *RetrieveReferenceAccountResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *RetrieveReferenceAccountResponse) GetReferenceAccount() *RetrieveReferenceAccountReferenceAccount {
+	if o == nil {
+		return nil
+	}
+	return o.ReferenceAccount
 }
 
 func (o *RetrieveReferenceAccountResponse) GetStatusCode() int {

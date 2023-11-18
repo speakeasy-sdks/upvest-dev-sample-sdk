@@ -366,8 +366,6 @@ func (o *ListReferenceAccountsUsersListResponse) GetMeta() ListReferenceAccounts
 }
 
 type ListReferenceAccountsResponse struct {
-	// OK
-	TwoHundredApplicationJSONUsersListResponse *ListReferenceAccountsUsersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -375,13 +373,8 @@ type ListReferenceAccountsResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListReferenceAccountsResponse) GetTwoHundredApplicationJSONUsersListResponse() *ListReferenceAccountsUsersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONUsersListResponse
+	// OK
+	UsersListResponse *ListReferenceAccountsUsersListResponse
 }
 
 func (o *ListReferenceAccountsResponse) GetContentType() string {
@@ -410,4 +403,11 @@ func (o *ListReferenceAccountsResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *ListReferenceAccountsResponse) GetUsersListResponse() *ListReferenceAccountsUsersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UsersListResponse
 }

@@ -32,7 +32,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if res.TwoHundredApplicationJSONAccount != nil {
+	if res.Account != nil {
 		// handle response
 	}
 }

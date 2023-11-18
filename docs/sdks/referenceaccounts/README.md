@@ -53,7 +53,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONReferenceAccount != nil {
+    if res.ReferenceAccount != nil {
         // handle response
     }
 }
@@ -180,7 +180,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONUsersListResponse != nil {
+    if res.UsersListResponse != nil {
         // handle response
     }
 }
@@ -244,7 +244,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONReferenceAccount != nil {
+    if res.ReferenceAccount != nil {
         // handle response
     }
 }

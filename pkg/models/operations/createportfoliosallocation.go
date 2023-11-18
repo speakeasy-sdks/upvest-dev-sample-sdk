@@ -305,22 +305,15 @@ func (o *CreatePortfoliosAllocationPortfoliosAllocation) GetUpdatedAt() time.Tim
 }
 
 type CreatePortfoliosAllocationResponse struct {
-	// Portfolios allocation
-	TwoHundredApplicationJSONPortfoliosAllocation *CreatePortfoliosAllocationPortfoliosAllocation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Portfolios allocation
+	PortfoliosAllocation *CreatePortfoliosAllocationPortfoliosAllocation
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreatePortfoliosAllocationResponse) GetTwoHundredApplicationJSONPortfoliosAllocation() *CreatePortfoliosAllocationPortfoliosAllocation {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPortfoliosAllocation
 }
 
 func (o *CreatePortfoliosAllocationResponse) GetContentType() string {
@@ -335,6 +328,13 @@ func (o *CreatePortfoliosAllocationResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *CreatePortfoliosAllocationResponse) GetPortfoliosAllocation() *CreatePortfoliosAllocationPortfoliosAllocation {
+	if o == nil {
+		return nil
+	}
+	return o.PortfoliosAllocation
 }
 
 func (o *CreatePortfoliosAllocationResponse) GetStatusCode() int {

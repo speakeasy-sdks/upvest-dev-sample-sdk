@@ -948,8 +948,6 @@ func (u RetrieveUserCheckUserCheck) MarshalJSON() ([]byte, error) {
 }
 
 type RetrieveUserCheckResponse struct {
-	// OK
-	TwoHundredApplicationJSONUserCheck *RetrieveUserCheckUserCheck
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -957,13 +955,8 @@ type RetrieveUserCheckResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveUserCheckResponse) GetTwoHundredApplicationJSONUserCheck() *RetrieveUserCheckUserCheck {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONUserCheck
+	// OK
+	UserCheck *RetrieveUserCheckUserCheck
 }
 
 func (o *RetrieveUserCheckResponse) GetContentType() string {
@@ -992,4 +985,11 @@ func (o *RetrieveUserCheckResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *RetrieveUserCheckResponse) GetUserCheck() *RetrieveUserCheckUserCheck {
+	if o == nil {
+		return nil
+	}
+	return o.UserCheck
 }

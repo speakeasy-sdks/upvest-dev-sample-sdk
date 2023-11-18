@@ -272,7 +272,7 @@ func (s *Portfolios) CreatePortfoliosAllocation(ctx context.Context, request ope
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosAllocation = &out
+			res.PortfoliosAllocation = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -492,7 +492,7 @@ func (s *Portfolios) CreatePortfoliosConfiguration(ctx context.Context, request 
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosConfiguration = &out
+			res.PortfoliosConfiguration = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -712,7 +712,7 @@ func (s *Portfolios) CreatePortfoliosOrder(ctx context.Context, request operatio
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosOrder = &out
+			res.PortfoliosOrder = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -932,7 +932,7 @@ func (s *Portfolios) CreatePortfoliosRebalancingStrategy(ctx context.Context, re
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosRebalancingStrategy = &out
+			res.PortfoliosRebalancingStrategy = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1152,7 +1152,7 @@ func (s *Portfolios) ListPortfolioRebalancingExecutionOrders(ctx context.Context
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosRebalancingExecutionOrderListResponse = &out
+			res.PortfoliosRebalancingExecutionOrderListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1387,7 +1387,7 @@ func (s *Portfolios) ListPortfoliosAllocationAccounts(ctx context.Context, reque
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosAllocationAccountsListResponse = &out
+			res.PortfoliosAllocationAccountsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1619,7 +1619,7 @@ func (s *Portfolios) ListPortfoliosAllocations(ctx context.Context, request oper
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosAllocationsListResponse = &out
+			res.PortfoliosAllocationsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1851,7 +1851,7 @@ func (s *Portfolios) ListPortfoliosConfigurations(ctx context.Context, request o
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosConfigurationsListResponse = &out
+			res.PortfoliosConfigurationsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2083,7 +2083,7 @@ func (s *Portfolios) ListPortfoliosOrders(ctx context.Context, request operation
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosOrdersListResponse = &out
+			res.PortfoliosOrdersListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2315,7 +2315,7 @@ func (s *Portfolios) ListPortfoliosRebalancingStrategies(ctx context.Context, re
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosRebalancingStrategyListResponse = &out
+			res.PortfoliosRebalancingStrategyListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2546,7 +2546,7 @@ func (s *Portfolios) RetrievePortfoliosAllocation(ctx context.Context, request o
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosAllocation = &out
+			res.PortfoliosAllocation = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2747,7 +2747,7 @@ func (s *Portfolios) RetrievePortfoliosConfiguration(ctx context.Context, reques
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosConfiguration = &out
+			res.PortfoliosConfiguration = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2963,7 +2963,7 @@ func (s *Portfolios) RetrievePortfoliosOrder(ctx context.Context, request operat
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosOrder = &out
+			res.PortfoliosOrder = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -3164,7 +3164,7 @@ func (s *Portfolios) RetrievePortfoliosRebalancingExecution(ctx context.Context,
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosRebalancingExecution = &out
+			res.PortfoliosRebalancingExecution = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -3380,7 +3380,7 @@ func (s *Portfolios) RetrievePortfoliosRebalancingStrategy(ctx context.Context, 
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosRebalancingStrategy = &out
+			res.PortfoliosRebalancingStrategy = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -3600,7 +3600,7 @@ func (s *Portfolios) TriggerPortfolioRebalancing(ctx context.Context, request op
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONTriggerPortfolioRebalancingResponse = &out
+			res.TriggerPortfolioRebalancingResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -3823,7 +3823,7 @@ func (s *Portfolios) UpdatePortfoliosAllocation(ctx context.Context, request ope
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosAllocation = &out
+			res.PortfoliosAllocation = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -4046,7 +4046,7 @@ func (s *Portfolios) UpdatePortfoliosConfiguration(ctx context.Context, request 
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosConfiguration = &out
+			res.PortfoliosConfiguration = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

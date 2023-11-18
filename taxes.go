@@ -92,7 +92,7 @@ func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.R
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONTaxResidencyRecord = &out
+			res.TaxResidencyRecord = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -315,7 +315,7 @@ func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTax
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONTaxResidencyRecord = &out
+			res.TaxResidencyRecord = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

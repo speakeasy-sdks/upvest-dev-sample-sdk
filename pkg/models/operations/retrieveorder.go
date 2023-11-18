@@ -842,22 +842,15 @@ func (o *RetrieveOrderOrder) GetUserInstrumentFitAcknowledgement() *bool {
 }
 
 type RetrieveOrderResponse struct {
-	// OK
-	TwoHundredApplicationJSONOrder *RetrieveOrderOrder
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// OK
+	Order *RetrieveOrderOrder
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveOrderResponse) GetTwoHundredApplicationJSONOrder() *RetrieveOrderOrder {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONOrder
 }
 
 func (o *RetrieveOrderResponse) GetContentType() string {
@@ -872,6 +865,13 @@ func (o *RetrieveOrderResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *RetrieveOrderResponse) GetOrder() *RetrieveOrderOrder {
+	if o == nil {
+		return nil
+	}
+	return o.Order
 }
 
 func (o *RetrieveOrderResponse) GetStatusCode() int {

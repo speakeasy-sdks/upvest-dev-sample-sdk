@@ -1005,22 +1005,15 @@ func (o *ListAccountOrdersOrdersListResponse) GetMeta() ListAccountOrdersMeta {
 }
 
 type ListAccountOrdersResponse struct {
-	// OK
-	TwoHundredApplicationJSONOrdersListResponse *ListAccountOrdersOrdersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// OK
+	OrdersListResponse *ListAccountOrdersOrdersListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListAccountOrdersResponse) GetTwoHundredApplicationJSONOrdersListResponse() *ListAccountOrdersOrdersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONOrdersListResponse
 }
 
 func (o *ListAccountOrdersResponse) GetContentType() string {
@@ -1035,6 +1028,13 @@ func (o *ListAccountOrdersResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListAccountOrdersResponse) GetOrdersListResponse() *ListAccountOrdersOrdersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.OrdersListResponse
 }
 
 func (o *ListAccountOrdersResponse) GetStatusCode() int {

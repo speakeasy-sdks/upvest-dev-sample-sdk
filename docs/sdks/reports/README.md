@@ -44,7 +44,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONReportsListResponse != nil {
+    if res.ReportsListResponse != nil {
         // handle response
     }
 }

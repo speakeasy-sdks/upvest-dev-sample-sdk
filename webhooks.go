@@ -97,7 +97,7 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 				return nil, err
 			}
 
-			res.TwoHundredAndOneApplicationJSONWebhook = &out
+			res.Webhook = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -455,7 +455,7 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAuthVerificationKeys = &out
+			res.AuthVerificationKeys = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -642,7 +642,7 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONWebhooksListResponse = &out
+			res.WebhooksListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -843,7 +843,7 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONWebhook = &out
+			res.Webhook = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1226,7 +1226,7 @@ func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateW
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONWebhook = &out
+			res.Webhook = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

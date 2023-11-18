@@ -96,7 +96,7 @@ func (s *Positions) ListPositions(ctx context.Context, request operations.ListPo
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPositionsListResponse = &out
+			res.PositionsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -312,7 +312,7 @@ func (s *Positions) RetrievePosition(ctx context.Context, request operations.Ret
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONObject = &out
+			res.Object = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

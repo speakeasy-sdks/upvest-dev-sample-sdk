@@ -178,8 +178,6 @@ func (o *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse) GetID()
 }
 
 type TriggerPortfolioRebalancingResponse struct {
-	// Portfolio
-	TwoHundredApplicationJSONTriggerPortfolioRebalancingResponse *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -187,13 +185,8 @@ type TriggerPortfolioRebalancingResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *TriggerPortfolioRebalancingResponse) GetTwoHundredApplicationJSONTriggerPortfolioRebalancingResponse() *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONTriggerPortfolioRebalancingResponse
+	// Portfolio
+	TriggerPortfolioRebalancingResponse *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse
 }
 
 func (o *TriggerPortfolioRebalancingResponse) GetContentType() string {
@@ -222,4 +215,11 @@ func (o *TriggerPortfolioRebalancingResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *TriggerPortfolioRebalancingResponse) GetTriggerPortfolioRebalancingResponse() *TriggerPortfolioRebalancingTriggerPortfolioRebalancingResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TriggerPortfolioRebalancingResponse
 }

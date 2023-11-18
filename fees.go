@@ -97,7 +97,7 @@ func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.Creat
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONFeeCollection = &out
+			res.FeeCollection = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -314,7 +314,7 @@ func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFe
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONFeeCollectionListResponse = &out
+			res.FeeCollectionListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -515,7 +515,7 @@ func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.Ret
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONFeeCollection = &out
+			res.FeeCollection = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

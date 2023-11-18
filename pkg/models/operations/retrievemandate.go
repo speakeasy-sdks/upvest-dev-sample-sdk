@@ -259,22 +259,15 @@ func (o *RetrieveMandateDirectDebitMandate) GetUserID() string {
 }
 
 type RetrieveMandateResponse struct {
-	// Mandate
-	TwoHundredApplicationJSONDirectDebitMandate *RetrieveMandateDirectDebitMandate
 	// HTTP response content type for this operation
 	ContentType string
-	Headers     map[string][]string
+	// Mandate
+	DirectDebitMandate *RetrieveMandateDirectDebitMandate
+	Headers            map[string][]string
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveMandateResponse) GetTwoHundredApplicationJSONDirectDebitMandate() *RetrieveMandateDirectDebitMandate {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONDirectDebitMandate
 }
 
 func (o *RetrieveMandateResponse) GetContentType() string {
@@ -282,6 +275,13 @@ func (o *RetrieveMandateResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
+}
+
+func (o *RetrieveMandateResponse) GetDirectDebitMandate() *RetrieveMandateDirectDebitMandate {
+	if o == nil {
+		return nil
+	}
+	return o.DirectDebitMandate
 }
 
 func (o *RetrieveMandateResponse) GetHeaders() map[string][]string {

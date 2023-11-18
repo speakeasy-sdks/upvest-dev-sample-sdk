@@ -769,22 +769,15 @@ func (o *ListSecuritiesTransactionsSecurityTransactionListResponse) GetMeta() Li
 }
 
 type ListSecuritiesTransactionsResponse struct {
-	// Securities Transactions
-	TwoHundredApplicationJSONSecurityTransactionListResponse *ListSecuritiesTransactionsSecurityTransactionListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Securities Transactions
+	SecurityTransactionListResponse *ListSecuritiesTransactionsSecurityTransactionListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListSecuritiesTransactionsResponse) GetTwoHundredApplicationJSONSecurityTransactionListResponse() *ListSecuritiesTransactionsSecurityTransactionListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONSecurityTransactionListResponse
 }
 
 func (o *ListSecuritiesTransactionsResponse) GetContentType() string {
@@ -799,6 +792,13 @@ func (o *ListSecuritiesTransactionsResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListSecuritiesTransactionsResponse) GetSecurityTransactionListResponse() *ListSecuritiesTransactionsSecurityTransactionListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.SecurityTransactionListResponse
 }
 
 func (o *ListSecuritiesTransactionsResponse) GetStatusCode() int {

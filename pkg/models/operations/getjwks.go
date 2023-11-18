@@ -188,7 +188,7 @@ func (o *GetJwksAuthVerificationKeys) GetKeys() []Keys {
 
 type GetJwksResponse struct {
 	// JWKS signing public keys
-	TwoHundredApplicationJSONAuthVerificationKeys *GetJwksAuthVerificationKeys
+	AuthVerificationKeys *GetJwksAuthVerificationKeys
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -198,11 +198,11 @@ type GetJwksResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *GetJwksResponse) GetTwoHundredApplicationJSONAuthVerificationKeys() *GetJwksAuthVerificationKeys {
+func (o *GetJwksResponse) GetAuthVerificationKeys() *GetJwksAuthVerificationKeys {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAuthVerificationKeys
+	return o.AuthVerificationKeys
 }
 
 func (o *GetJwksResponse) GetContentType() string {

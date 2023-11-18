@@ -96,7 +96,7 @@ func (s *Returns) ListAccountReturns(ctx context.Context, request operations.Lis
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountReturnListResponse = &out
+			res.AccountReturnListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

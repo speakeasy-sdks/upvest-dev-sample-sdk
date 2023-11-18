@@ -450,22 +450,15 @@ func (o *ListFeeCollectionsFeeCollectionListResponse) GetMeta() ListFeeCollectio
 }
 
 type ListFeeCollectionsResponse struct {
-	// OK
-	TwoHundredApplicationJSONFeeCollectionListResponse *ListFeeCollectionsFeeCollectionListResponse
 	// HTTP response content type for this operation
 	ContentType string
-	Headers     map[string][]string
+	// OK
+	FeeCollectionListResponse *ListFeeCollectionsFeeCollectionListResponse
+	Headers                   map[string][]string
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListFeeCollectionsResponse) GetTwoHundredApplicationJSONFeeCollectionListResponse() *ListFeeCollectionsFeeCollectionListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONFeeCollectionListResponse
 }
 
 func (o *ListFeeCollectionsResponse) GetContentType() string {
@@ -473,6 +466,13 @@ func (o *ListFeeCollectionsResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
+}
+
+func (o *ListFeeCollectionsResponse) GetFeeCollectionListResponse() *ListFeeCollectionsFeeCollectionListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.FeeCollectionListResponse
 }
 
 func (o *ListFeeCollectionsResponse) GetHeaders() map[string][]string {

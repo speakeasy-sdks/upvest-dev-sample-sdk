@@ -386,7 +386,7 @@ func (o *CreateAccountAccount) GetUsers() []Users {
 
 type CreateAccountResponse struct {
 	// Account created.
-	TwoHundredApplicationJSONAccount *CreateAccountAccount
+	Account *CreateAccountAccount
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -396,11 +396,11 @@ type CreateAccountResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *CreateAccountResponse) GetTwoHundredApplicationJSONAccount() *CreateAccountAccount {
+func (o *CreateAccountResponse) GetAccount() *CreateAccountAccount {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccount
+	return o.Account
 }
 
 func (o *CreateAccountResponse) GetContentType() string {

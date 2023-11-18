@@ -447,7 +447,7 @@ func (o *ListAccountGroupsAccountGroupsListResponse) GetMeta() Meta {
 
 type ListAccountGroupsResponse struct {
 	// OK
-	TwoHundredApplicationJSONAccountGroupsListResponse *ListAccountGroupsAccountGroupsListResponse
+	AccountGroupsListResponse *ListAccountGroupsAccountGroupsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -457,11 +457,11 @@ type ListAccountGroupsResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListAccountGroupsResponse) GetTwoHundredApplicationJSONAccountGroupsListResponse() *ListAccountGroupsAccountGroupsListResponse {
+func (o *ListAccountGroupsResponse) GetAccountGroupsListResponse() *ListAccountGroupsAccountGroupsListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccountGroupsListResponse
+	return o.AccountGroupsListResponse
 }
 
 func (o *ListAccountGroupsResponse) GetContentType() string {

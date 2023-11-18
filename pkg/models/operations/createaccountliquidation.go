@@ -353,7 +353,7 @@ func (o *CreateAccountLiquidationAccountLiquidation) GetUserID() *string {
 
 type CreateAccountLiquidationResponse struct {
 	// Account liquidation object
-	TwoHundredAndTwoApplicationJSONAccountLiquidation *CreateAccountLiquidationAccountLiquidation
+	AccountLiquidation *CreateAccountLiquidationAccountLiquidation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -363,11 +363,11 @@ type CreateAccountLiquidationResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *CreateAccountLiquidationResponse) GetTwoHundredAndTwoApplicationJSONAccountLiquidation() *CreateAccountLiquidationAccountLiquidation {
+func (o *CreateAccountLiquidationResponse) GetAccountLiquidation() *CreateAccountLiquidationAccountLiquidation {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredAndTwoApplicationJSONAccountLiquidation
+	return o.AccountLiquidation
 }
 
 func (o *CreateAccountLiquidationResponse) GetContentType() string {

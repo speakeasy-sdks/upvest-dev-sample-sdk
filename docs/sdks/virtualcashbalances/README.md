@@ -113,7 +113,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease != nil {
+    if res.VirtualCashBalanceVirtualCashDecrease != nil {
         // handle response
     }
 }
@@ -181,7 +181,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashIncrease != nil {
+    if res.VirtualCashBalanceVirtualCashIncrease != nil {
         // handle response
     }
 }

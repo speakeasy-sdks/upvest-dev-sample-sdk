@@ -952,8 +952,6 @@ func (o *ListUserChecksUserCheckListResponse) GetData() []UserCheck {
 }
 
 type ListUserChecksResponse struct {
-	// OK
-	TwoHundredApplicationJSONUserCheckListResponse *ListUserChecksUserCheckListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -961,13 +959,8 @@ type ListUserChecksResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListUserChecksResponse) GetTwoHundredApplicationJSONUserCheckListResponse() *ListUserChecksUserCheckListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONUserCheckListResponse
+	// OK
+	UserCheckListResponse *ListUserChecksUserCheckListResponse
 }
 
 func (o *ListUserChecksResponse) GetContentType() string {
@@ -996,4 +989,11 @@ func (o *ListUserChecksResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *ListUserChecksResponse) GetUserCheckListResponse() *ListUserChecksUserCheckListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UserCheckListResponse
 }

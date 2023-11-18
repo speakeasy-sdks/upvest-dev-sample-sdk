@@ -115,7 +115,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredAndTwoApplicationJSONAccountLiquidation != nil {
+    if res.AccountLiquidation != nil {
         // handle response
     }
 }
@@ -179,7 +179,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosOrdersListResponse != nil {
+    if res.PortfoliosOrdersListResponse != nil {
         // handle response
     }
 }
@@ -245,7 +245,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAccountLiquidation != nil {
+    if res.AccountLiquidation != nil {
         // handle response
     }
 }

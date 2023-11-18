@@ -404,7 +404,7 @@ func (o *GetAccountValuationAccountValuation) GetValuationTime() time.Time {
 
 type GetAccountValuationResponse struct {
 	// Valuations
-	TwoHundredApplicationJSONAccountValuation *GetAccountValuationAccountValuation
+	AccountValuation *GetAccountValuationAccountValuation
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -414,11 +414,11 @@ type GetAccountValuationResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *GetAccountValuationResponse) GetTwoHundredApplicationJSONAccountValuation() *GetAccountValuationAccountValuation {
+func (o *GetAccountValuationResponse) GetAccountValuation() *GetAccountValuationAccountValuation {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccountValuation
+	return o.AccountValuation
 }
 
 func (o *GetAccountValuationResponse) GetContentType() string {

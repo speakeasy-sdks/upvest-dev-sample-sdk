@@ -459,22 +459,15 @@ func (o *ListMandatesMandatesListResponse) GetMeta() ListMandatesMeta {
 }
 
 type ListMandatesResponse struct {
-	// Mandates list
-	TwoHundredApplicationJSONMandatesListResponse *ListMandatesMandatesListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Mandates list
+	MandatesListResponse *ListMandatesMandatesListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListMandatesResponse) GetTwoHundredApplicationJSONMandatesListResponse() *ListMandatesMandatesListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONMandatesListResponse
 }
 
 func (o *ListMandatesResponse) GetContentType() string {
@@ -489,6 +482,13 @@ func (o *ListMandatesResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListMandatesResponse) GetMandatesListResponse() *ListMandatesMandatesListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.MandatesListResponse
 }
 
 func (o *ListMandatesResponse) GetStatusCode() int {

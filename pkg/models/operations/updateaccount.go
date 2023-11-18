@@ -324,7 +324,7 @@ func (o *UpdateAccountAccount) GetUsers() []UpdateAccountUsers {
 
 type UpdateAccountResponse struct {
 	// Account updated.
-	TwoHundredApplicationJSONAccount *UpdateAccountAccount
+	Account *UpdateAccountAccount
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -334,11 +334,11 @@ type UpdateAccountResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *UpdateAccountResponse) GetTwoHundredApplicationJSONAccount() *UpdateAccountAccount {
+func (o *UpdateAccountResponse) GetAccount() *UpdateAccountAccount {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccount
+	return o.Account
 }
 
 func (o *UpdateAccountResponse) GetContentType() string {

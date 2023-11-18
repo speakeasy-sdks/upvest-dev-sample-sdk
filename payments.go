@@ -272,7 +272,7 @@ func (s *Payments) CreateCashWithdrawal(ctx context.Context, request operations.
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPaymentsWithdrawal = &out
+			res.PaymentsWithdrawal = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -492,7 +492,7 @@ func (s *Payments) CreateDirectDebit(ctx context.Context, request operations.Cre
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONObject = &out
+			res.Object = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -712,7 +712,7 @@ func (s *Payments) ListCashWithdrawals(ctx context.Context, request operations.L
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONWithdrawalsListResponse = &out
+			res.WithdrawalsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -932,7 +932,7 @@ func (s *Payments) ListDirectDebits(ctx context.Context, request operations.List
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPaymentsDirectDebitsListResponse = &out
+			res.PaymentsDirectDebitsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1148,7 +1148,7 @@ func (s *Payments) RetrieveCashWithdrawal(ctx context.Context, request operation
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPaymentsWithdrawal = &out
+			res.PaymentsWithdrawal = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1349,7 +1349,7 @@ func (s *Payments) RetrieveDirectDebit(ctx context.Context, request operations.R
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONObject = &out
+			res.Object = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

@@ -584,7 +584,7 @@ func (o *ListAccountValuationHistoryAccountValuationListResponse) GetMeta() List
 
 type ListAccountValuationHistoryResponse struct {
 	// Valuations
-	TwoHundredApplicationJSONAccountValuationListResponse *ListAccountValuationHistoryAccountValuationListResponse
+	AccountValuationListResponse *ListAccountValuationHistoryAccountValuationListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -594,11 +594,11 @@ type ListAccountValuationHistoryResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *ListAccountValuationHistoryResponse) GetTwoHundredApplicationJSONAccountValuationListResponse() *ListAccountValuationHistoryAccountValuationListResponse {
+func (o *ListAccountValuationHistoryResponse) GetAccountValuationListResponse() *ListAccountValuationHistoryAccountValuationListResponse {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccountValuationListResponse
+	return o.AccountValuationListResponse
 }
 
 func (o *ListAccountValuationHistoryResponse) GetContentType() string {

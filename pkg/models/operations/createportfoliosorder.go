@@ -541,22 +541,15 @@ func (o *CreatePortfoliosOrderPortfoliosOrder) GetUserID() *string {
 }
 
 type CreatePortfoliosOrderResponse struct {
-	// Portfolios order
-	TwoHundredApplicationJSONPortfoliosOrder *CreatePortfoliosOrderPortfoliosOrder
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Portfolios order
+	PortfoliosOrder *CreatePortfoliosOrderPortfoliosOrder
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreatePortfoliosOrderResponse) GetTwoHundredApplicationJSONPortfoliosOrder() *CreatePortfoliosOrderPortfoliosOrder {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPortfoliosOrder
 }
 
 func (o *CreatePortfoliosOrderResponse) GetContentType() string {
@@ -571,6 +564,13 @@ func (o *CreatePortfoliosOrderResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *CreatePortfoliosOrderResponse) GetPortfoliosOrder() *CreatePortfoliosOrderPortfoliosOrder {
+	if o == nil {
+		return nil
+	}
+	return o.PortfoliosOrder
 }
 
 func (o *CreatePortfoliosOrderResponse) GetStatusCode() int {

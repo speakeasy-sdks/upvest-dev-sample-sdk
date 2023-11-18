@@ -292,8 +292,6 @@ func (o *CreateDirectDebitResponseBody) GetUserID() string {
 }
 
 type CreateDirectDebitResponse struct {
-	// Direct debit
-	TwoHundredApplicationJSONObject *CreateDirectDebitResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -301,13 +299,8 @@ type CreateDirectDebitResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreateDirectDebitResponse) GetTwoHundredApplicationJSONObject() *CreateDirectDebitResponseBody {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONObject
+	// Direct debit
+	Object *CreateDirectDebitResponseBody
 }
 
 func (o *CreateDirectDebitResponse) GetContentType() string {
@@ -336,4 +329,11 @@ func (o *CreateDirectDebitResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *CreateDirectDebitResponse) GetObject() *CreateDirectDebitResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.Object
 }

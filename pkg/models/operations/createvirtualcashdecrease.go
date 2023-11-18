@@ -294,8 +294,6 @@ func (o *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease) GetUpda
 }
 
 type CreateVirtualCashDecreaseResponse struct {
-	// Virtual Cash Balances Decrease
-	TwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -303,13 +301,8 @@ type CreateVirtualCashDecreaseResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreateVirtualCashDecreaseResponse) GetTwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease
+	// Virtual Cash Balances Decrease
+	VirtualCashBalanceVirtualCashDecrease *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease
 }
 
 func (o *CreateVirtualCashDecreaseResponse) GetContentType() string {
@@ -338,4 +331,11 @@ func (o *CreateVirtualCashDecreaseResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *CreateVirtualCashDecreaseResponse) GetVirtualCashBalanceVirtualCashDecrease() *CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecrease {
+	if o == nil {
+		return nil
+	}
+	return o.VirtualCashBalanceVirtualCashDecrease
 }

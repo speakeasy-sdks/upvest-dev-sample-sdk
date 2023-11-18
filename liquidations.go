@@ -274,7 +274,7 @@ func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request ope
 				return nil, err
 			}
 
-			res.TwoHundredAndTwoApplicationJSONAccountLiquidation = &out
+			res.AccountLiquidation = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -494,7 +494,7 @@ func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request ope
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONPortfoliosOrdersListResponse = &out
+			res.PortfoliosOrdersListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -725,7 +725,7 @@ func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request o
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountLiquidation = &out
+			res.AccountLiquidation = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

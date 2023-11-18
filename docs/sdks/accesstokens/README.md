@@ -49,7 +49,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONAuthAccessToken != nil {
+    if res.AuthAccessToken != nil {
         // handle response
     }
 }

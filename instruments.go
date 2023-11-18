@@ -94,7 +94,7 @@ func (s *Instruments) ListInstruments(ctx context.Context, request operations.Li
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONInstrumentsListResponse = &out
+			res.InstrumentsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -295,7 +295,7 @@ func (s *Instruments) RetrieveInstrument(ctx context.Context, request operations
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONObject = &out
+			res.Object = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

@@ -99,7 +99,7 @@ func (s *AccessTokens) IssueToken(ctx context.Context, request operations.IssueT
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAuthAccessToken = &out
+			res.AuthAccessToken = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

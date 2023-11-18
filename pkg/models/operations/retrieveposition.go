@@ -149,8 +149,6 @@ func (o *RetrievePositionResponseBody) GetQuantity() string {
 }
 
 type RetrievePositionResponse struct {
-	// Response
-	TwoHundredApplicationJSONObject *RetrievePositionResponseBody
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -158,13 +156,8 @@ type RetrievePositionResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrievePositionResponse) GetTwoHundredApplicationJSONObject() *RetrievePositionResponseBody {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONObject
+	// Response
+	Object *RetrievePositionResponseBody
 }
 
 func (o *RetrievePositionResponse) GetContentType() string {
@@ -193,4 +186,11 @@ func (o *RetrievePositionResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *RetrievePositionResponse) GetObject() *RetrievePositionResponseBody {
+	if o == nil {
+		return nil
+	}
+	return o.Object
 }

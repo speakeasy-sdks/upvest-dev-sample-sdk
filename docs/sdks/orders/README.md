@@ -47,7 +47,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredAndTwoApplicationJSONOrderCancelResponse != nil {
+    if res.OrderCancelResponse != nil {
         // handle response
     }
 }
@@ -110,7 +110,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONOrdersListResponse != nil {
+    if res.OrdersListResponse != nil {
         // handle response
     }
 }
@@ -180,7 +180,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredAndTwoApplicationJSONOrder != nil {
+    if res.Order != nil {
         // handle response
     }
 }
@@ -244,7 +244,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONOrder != nil {
+    if res.Order != nil {
         // handle response
     }
 }
@@ -308,7 +308,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONOrderExecution != nil {
+    if res.OrderExecution != nil {
         // handle response
     }
 }

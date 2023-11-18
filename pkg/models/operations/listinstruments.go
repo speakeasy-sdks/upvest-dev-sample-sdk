@@ -420,22 +420,15 @@ func (o *ListInstrumentsInstrumentsListResponse) GetMeta() ListInstrumentsMeta {
 }
 
 type ListInstrumentsResponse struct {
-	// Instruments list
-	TwoHundredApplicationJSONInstrumentsListResponse *ListInstrumentsInstrumentsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Instruments list
+	InstrumentsListResponse *ListInstrumentsInstrumentsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListInstrumentsResponse) GetTwoHundredApplicationJSONInstrumentsListResponse() *ListInstrumentsInstrumentsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONInstrumentsListResponse
 }
 
 func (o *ListInstrumentsResponse) GetContentType() string {
@@ -450,6 +443,13 @@ func (o *ListInstrumentsResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListInstrumentsResponse) GetInstrumentsListResponse() *ListInstrumentsInstrumentsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.InstrumentsListResponse
 }
 
 func (o *ListInstrumentsResponse) GetStatusCode() int {

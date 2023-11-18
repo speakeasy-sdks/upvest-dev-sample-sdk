@@ -745,8 +745,6 @@ func (o *ListUsersUsersListResponse) GetMeta() ListUsersMeta {
 }
 
 type ListUsersResponse struct {
-	// OK
-	TwoHundredApplicationJSONUsersListResponse *ListUsersUsersListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -754,13 +752,8 @@ type ListUsersResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListUsersResponse) GetTwoHundredApplicationJSONUsersListResponse() *ListUsersUsersListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONUsersListResponse
+	// OK
+	UsersListResponse *ListUsersUsersListResponse
 }
 
 func (o *ListUsersResponse) GetContentType() string {
@@ -789,4 +782,11 @@ func (o *ListUsersResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *ListUsersResponse) GetUsersListResponse() *ListUsersUsersListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UsersListResponse
 }

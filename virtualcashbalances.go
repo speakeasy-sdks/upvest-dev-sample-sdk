@@ -272,7 +272,7 @@ func (s *VirtualCashBalances) CreateVirtualCashDecrease(ctx context.Context, req
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashDecrease = &out
+			res.VirtualCashBalanceVirtualCashDecrease = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -492,7 +492,7 @@ func (s *VirtualCashBalances) CreateVirtualCashIncrease(ctx context.Context, req
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONVirtualCashBalanceVirtualCashIncrease = &out
+			res.VirtualCashBalanceVirtualCashIncrease = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

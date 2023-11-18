@@ -443,8 +443,6 @@ func (o *ListCashWithdrawalsWithdrawalsListResponse) GetMeta() ListCashWithdrawa
 }
 
 type ListCashWithdrawalsResponse struct {
-	// Withdrawals list
-	TwoHundredApplicationJSONWithdrawalsListResponse *ListCashWithdrawalsWithdrawalsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -452,13 +450,8 @@ type ListCashWithdrawalsResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListCashWithdrawalsResponse) GetTwoHundredApplicationJSONWithdrawalsListResponse() *ListCashWithdrawalsWithdrawalsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONWithdrawalsListResponse
+	// Withdrawals list
+	WithdrawalsListResponse *ListCashWithdrawalsWithdrawalsListResponse
 }
 
 func (o *ListCashWithdrawalsResponse) GetContentType() string {
@@ -487,4 +480,11 @@ func (o *ListCashWithdrawalsResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *ListCashWithdrawalsResponse) GetWithdrawalsListResponse() *ListCashWithdrawalsWithdrawalsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WithdrawalsListResponse
 }

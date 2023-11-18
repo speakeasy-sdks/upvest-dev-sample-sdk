@@ -462,8 +462,6 @@ func (o *UpdateWebhookWebhook) GetURL() string {
 }
 
 type UpdateWebhookResponse struct {
-	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
-	TwoHundredApplicationJSONWebhook *UpdateWebhookWebhook
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -471,13 +469,8 @@ type UpdateWebhookResponse struct {
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *UpdateWebhookResponse) GetTwoHundredApplicationJSONWebhook() *UpdateWebhookWebhook {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONWebhook
+	// Returns a webhook subscription object if a valid webhook subscription object ID was provided.
+	Webhook *UpdateWebhookWebhook
 }
 
 func (o *UpdateWebhookResponse) GetContentType() string {
@@ -506,4 +499,11 @@ func (o *UpdateWebhookResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *UpdateWebhookResponse) GetWebhook() *UpdateWebhookWebhook {
+	if o == nil {
+		return nil
+	}
+	return o.Webhook
 }

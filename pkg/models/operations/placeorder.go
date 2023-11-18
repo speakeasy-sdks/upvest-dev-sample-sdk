@@ -1149,22 +1149,15 @@ func (o *PlaceOrderOrder) GetUserInstrumentFitAcknowledgement() *bool {
 }
 
 type PlaceOrderResponse struct {
-	// The request for the order creation has been accepted for processing.
-	TwoHundredAndTwoApplicationJSONOrder *PlaceOrderOrder
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// The request for the order creation has been accepted for processing.
+	Order *PlaceOrderOrder
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *PlaceOrderResponse) GetTwoHundredAndTwoApplicationJSONOrder() *PlaceOrderOrder {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredAndTwoApplicationJSONOrder
 }
 
 func (o *PlaceOrderResponse) GetContentType() string {
@@ -1179,6 +1172,13 @@ func (o *PlaceOrderResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *PlaceOrderResponse) GetOrder() *PlaceOrderOrder {
+	if o == nil {
+		return nil
+	}
+	return o.Order
 }
 
 func (o *PlaceOrderResponse) GetStatusCode() int {

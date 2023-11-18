@@ -668,22 +668,15 @@ func (o *ListReportsReportsListResponse) GetMeta() ListReportsMeta {
 }
 
 type ListReportsResponse struct {
-	// Reports list
-	TwoHundredApplicationJSONReportsListResponse *ListReportsReportsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Reports list
+	ReportsListResponse *ListReportsReportsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListReportsResponse) GetTwoHundredApplicationJSONReportsListResponse() *ListReportsReportsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONReportsListResponse
 }
 
 func (o *ListReportsResponse) GetContentType() string {
@@ -698,6 +691,13 @@ func (o *ListReportsResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListReportsResponse) GetReportsListResponse() *ListReportsReportsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ReportsListResponse
 }
 
 func (o *ListReportsResponse) GetStatusCode() int {

@@ -307,22 +307,15 @@ func (o *RetrieveFeeCollectionFeeCollection) GetUpdatedAt() time.Time {
 }
 
 type RetrieveFeeCollectionResponse struct {
-	// OK
-	TwoHundredApplicationJSONFeeCollection *RetrieveFeeCollectionFeeCollection
 	// HTTP response content type for this operation
 	ContentType string
-	Headers     map[string][]string
+	// OK
+	FeeCollection *RetrieveFeeCollectionFeeCollection
+	Headers       map[string][]string
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrieveFeeCollectionResponse) GetTwoHundredApplicationJSONFeeCollection() *RetrieveFeeCollectionFeeCollection {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONFeeCollection
 }
 
 func (o *RetrieveFeeCollectionResponse) GetContentType() string {
@@ -330,6 +323,13 @@ func (o *RetrieveFeeCollectionResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
+}
+
+func (o *RetrieveFeeCollectionResponse) GetFeeCollection() *RetrieveFeeCollectionFeeCollection {
+	if o == nil {
+		return nil
+	}
+	return o.FeeCollection
 }
 
 func (o *RetrieveFeeCollectionResponse) GetHeaders() map[string][]string {

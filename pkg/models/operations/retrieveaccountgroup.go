@@ -286,7 +286,7 @@ func (o *RetrieveAccountGroupAccountGroup) GetUsers() []RetrieveAccountGroupUser
 
 type RetrieveAccountGroupResponse struct {
 	// OK
-	TwoHundredApplicationJSONAccountGroup *RetrieveAccountGroupAccountGroup
+	AccountGroup *RetrieveAccountGroupAccountGroup
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
@@ -296,11 +296,11 @@ type RetrieveAccountGroupResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *RetrieveAccountGroupResponse) GetTwoHundredApplicationJSONAccountGroup() *RetrieveAccountGroupAccountGroup {
+func (o *RetrieveAccountGroupResponse) GetAccountGroup() *RetrieveAccountGroupAccountGroup {
 	if o == nil {
 		return nil
 	}
-	return o.TwoHundredApplicationJSONAccountGroup
+	return o.AccountGroup
 }
 
 func (o *RetrieveAccountGroupResponse) GetContentType() string {

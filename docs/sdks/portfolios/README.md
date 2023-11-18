@@ -133,7 +133,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosAllocation != nil {
+    if res.PortfoliosAllocation != nil {
         // handle response
     }
 }
@@ -204,7 +204,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosConfiguration != nil {
+    if res.PortfoliosConfiguration != nil {
         // handle response
     }
 }
@@ -274,7 +274,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosOrder != nil {
+    if res.PortfoliosOrder != nil {
         // handle response
     }
 }
@@ -350,7 +350,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosRebalancingStrategy != nil {
+    if res.PortfoliosRebalancingStrategy != nil {
         // handle response
     }
 }
@@ -414,7 +414,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosRebalancingExecutionOrderListResponse != nil {
+    if res.PortfoliosRebalancingExecutionOrderListResponse != nil {
         // handle response
     }
 }
@@ -479,7 +479,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosAllocationAccountsListResponse != nil {
+    if res.PortfoliosAllocationAccountsListResponse != nil {
         // handle response
     }
 }
@@ -543,7 +543,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosAllocationsListResponse != nil {
+    if res.PortfoliosAllocationsListResponse != nil {
         // handle response
     }
 }
@@ -607,7 +607,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosConfigurationsListResponse != nil {
+    if res.PortfoliosConfigurationsListResponse != nil {
         // handle response
     }
 }
@@ -671,7 +671,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosOrdersListResponse != nil {
+    if res.PortfoliosOrdersListResponse != nil {
         // handle response
     }
 }
@@ -735,7 +735,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosRebalancingStrategyListResponse != nil {
+    if res.PortfoliosRebalancingStrategyListResponse != nil {
         // handle response
     }
 }
@@ -800,7 +800,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosAllocation != nil {
+    if res.PortfoliosAllocation != nil {
         // handle response
     }
 }
@@ -863,7 +863,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosConfiguration != nil {
+    if res.PortfoliosConfiguration != nil {
         // handle response
     }
 }
@@ -927,7 +927,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosOrder != nil {
+    if res.PortfoliosOrder != nil {
         // handle response
     }
 }
@@ -990,7 +990,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosRebalancingExecution != nil {
+    if res.PortfoliosRebalancingExecution != nil {
         // handle response
     }
 }
@@ -1054,7 +1054,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosRebalancingStrategy != nil {
+    if res.PortfoliosRebalancingStrategy != nil {
         // handle response
     }
 }
@@ -1125,7 +1125,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONTriggerPortfolioRebalancingResponse != nil {
+    if res.TriggerPortfolioRebalancingResponse != nil {
         // handle response
     }
 }
@@ -1197,7 +1197,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosAllocation != nil {
+    if res.PortfoliosAllocation != nil {
         // handle response
     }
 }
@@ -1267,7 +1267,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONPortfoliosConfiguration != nil {
+    if res.PortfoliosConfiguration != nil {
         // handle response
     }
 }

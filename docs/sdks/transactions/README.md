@@ -46,7 +46,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONCashTransactionListResponse != nil {
+    if res.CashTransactionListResponse != nil {
         // handle response
     }
 }
@@ -112,7 +112,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONSecurityTransactionListResponse != nil {
+    if res.SecurityTransactionListResponse != nil {
         // handle response
     }
 }

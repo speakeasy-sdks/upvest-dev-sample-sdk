@@ -97,7 +97,7 @@ func (s *Mandates) CreateMandate(ctx context.Context, request operations.CreateM
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONDirectDebitMandate = &out
+			res.DirectDebitMandate = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -477,7 +477,7 @@ func (s *Mandates) ListMandates(ctx context.Context, request operations.ListMand
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONMandatesListResponse = &out
+			res.MandatesListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -693,7 +693,7 @@ func (s *Mandates) RetrieveMandate(ctx context.Context, request operations.Retri
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONDirectDebitMandate = &out
+			res.DirectDebitMandate = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

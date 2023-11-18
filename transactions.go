@@ -94,7 +94,7 @@ func (s *Transactions) ListCashTransactions(ctx context.Context, request operati
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONCashTransactionListResponse = &out
+			res.CashTransactionListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -326,7 +326,7 @@ func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request o
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONSecurityTransactionListResponse = &out
+			res.SecurityTransactionListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

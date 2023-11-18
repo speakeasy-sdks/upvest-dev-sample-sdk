@@ -434,22 +434,15 @@ func (o *ListDirectDebitsPaymentsDirectDebitsListResponse) GetMeta() ListDirectD
 }
 
 type ListDirectDebitsResponse struct {
-	// Direct debits list
-	TwoHundredApplicationJSONPaymentsDirectDebitsListResponse *ListDirectDebitsPaymentsDirectDebitsListResponse
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Direct debits list
+	PaymentsDirectDebitsListResponse *ListDirectDebitsPaymentsDirectDebitsListResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *ListDirectDebitsResponse) GetTwoHundredApplicationJSONPaymentsDirectDebitsListResponse() *ListDirectDebitsPaymentsDirectDebitsListResponse {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPaymentsDirectDebitsListResponse
 }
 
 func (o *ListDirectDebitsResponse) GetContentType() string {
@@ -464,6 +457,13 @@ func (o *ListDirectDebitsResponse) GetHeaders() map[string][]string {
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *ListDirectDebitsResponse) GetPaymentsDirectDebitsListResponse() *ListDirectDebitsPaymentsDirectDebitsListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.PaymentsDirectDebitsListResponse
 }
 
 func (o *ListDirectDebitsResponse) GetStatusCode() int {

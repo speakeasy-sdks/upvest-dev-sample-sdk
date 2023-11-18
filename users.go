@@ -100,7 +100,7 @@ func (s *Users) CreateIdentifier(ctx context.Context, request operations.CreateI
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONIdentifier = &out
+			res.Identifier = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -320,7 +320,7 @@ func (s *Users) CreateUser(ctx context.Context, request operations.CreateUserReq
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONUserCreateRequest = &out
+			res.UserCreateRequest = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -528,7 +528,7 @@ func (s *Users) CreateUserCheck(ctx context.Context, request operations.CreateUs
 				return nil, err
 			}
 
-			res.TwoHundredAndTwoApplicationJSONUserCheckCreateResponse = &out
+			res.UserCheckCreateResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -748,7 +748,7 @@ func (s *Users) ListUserAccountGroups(ctx context.Context, request operations.Li
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountGroupsListResponse = &out
+			res.AccountGroupsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -968,7 +968,7 @@ func (s *Users) ListUserAccounts(ctx context.Context, request operations.ListUse
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountsListResponse = &out
+			res.AccountsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1184,7 +1184,7 @@ func (s *Users) ListUserChecks(ctx context.Context, request operations.ListUserC
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONUserCheckListResponse = &out
+			res.UserCheckListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1385,7 +1385,7 @@ func (s *Users) ListUserIdentifiers(ctx context.Context, request operations.List
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONIdentifiersListResponse = &out
+			res.IdentifiersListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1587,7 +1587,7 @@ func (s *Users) ListUsers(ctx context.Context, request operations.ListUsersReque
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONUsersListResponse = &out
+			res.UsersListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1963,7 +1963,7 @@ func (s *Users) RetrieveIdentifier(ctx context.Context, request operations.Retri
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONIdentifier = &out
+			res.Identifier = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2164,7 +2164,7 @@ func (s *Users) RetrieveUser(ctx context.Context, request operations.RetrieveUse
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONUserGetResponse = &out
+			res.UserGetResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2365,7 +2365,7 @@ func (s *Users) RetrieveUserCheck(ctx context.Context, request operations.Retrie
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONUserCheck = &out
+			res.UserCheck = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -2573,7 +2573,7 @@ func (s *Users) UpdateIdentifier(ctx context.Context, request operations.UpdateI
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONIdentifier = &out
+			res.Identifier = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

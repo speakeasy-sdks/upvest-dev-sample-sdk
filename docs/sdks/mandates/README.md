@@ -52,7 +52,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONDirectDebitMandate != nil {
+    if res.DirectDebitMandate != nil {
         // handle response
     }
 }
@@ -179,7 +179,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONMandatesListResponse != nil {
+    if res.MandatesListResponse != nil {
         // handle response
     }
 }
@@ -243,7 +243,7 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONDirectDebitMandate != nil {
+    if res.DirectDebitMandate != nil {
         // handle response
     }
 }

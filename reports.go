@@ -96,7 +96,7 @@ func (s *Reports) ListReports(ctx context.Context, request operations.ListReport
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONReportsListResponse = &out
+			res.ReportsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

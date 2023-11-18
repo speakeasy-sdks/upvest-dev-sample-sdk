@@ -93,7 +93,7 @@ func (s *Orders) CancelOrder(ctx context.Context, request operations.CancelOrder
 				return nil, err
 			}
 
-			res.TwoHundredAndTwoApplicationJSONOrderCancelResponse = &out
+			res.OrderCancelResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -298,7 +298,7 @@ func (s *Orders) ListAccountOrders(ctx context.Context, request operations.ListA
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONOrdersListResponse = &out
+			res.OrdersListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -518,7 +518,7 @@ func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRe
 				return nil, err
 			}
 
-			res.TwoHundredAndTwoApplicationJSONOrder = &out
+			res.Order = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -734,7 +734,7 @@ func (s *Orders) RetrieveOrder(ctx context.Context, request operations.RetrieveO
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONOrder = &out
+			res.Order = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -935,7 +935,7 @@ func (s *Orders) RetrieveOrderExecution(ctx context.Context, request operations.
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONOrderExecution = &out
+			res.OrderExecution = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

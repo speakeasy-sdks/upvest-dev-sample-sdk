@@ -203,22 +203,15 @@ func (o *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy) Get
 }
 
 type RetrievePortfoliosRebalancingStrategyResponse struct {
-	// Portfolios
-	TwoHundredApplicationJSONPortfoliosRebalancingStrategy *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy
 	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
+	// Portfolios
+	PortfoliosRebalancingStrategy *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *RetrievePortfoliosRebalancingStrategyResponse) GetTwoHundredApplicationJSONPortfoliosRebalancingStrategy() *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy {
-	if o == nil {
-		return nil
-	}
-	return o.TwoHundredApplicationJSONPortfoliosRebalancingStrategy
 }
 
 func (o *RetrievePortfoliosRebalancingStrategyResponse) GetContentType() string {
@@ -233,6 +226,13 @@ func (o *RetrievePortfoliosRebalancingStrategyResponse) GetHeaders() map[string]
 		return map[string][]string{}
 	}
 	return o.Headers
+}
+
+func (o *RetrievePortfoliosRebalancingStrategyResponse) GetPortfoliosRebalancingStrategy() *RetrievePortfoliosRebalancingStrategyPortfoliosRebalancingStrategy {
+	if o == nil {
+		return nil
+	}
+	return o.PortfoliosRebalancingStrategy
 }
 
 func (o *RetrievePortfoliosRebalancingStrategyResponse) GetStatusCode() int {

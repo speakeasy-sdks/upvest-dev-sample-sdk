@@ -477,7 +477,7 @@ func (s *Accounts) CreateAccount(ctx context.Context, request operations.CreateA
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccount = &out
+			res.Account = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -697,7 +697,7 @@ func (s *Accounts) CreateAccountGroup(ctx context.Context, request operations.Cr
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountGroup = &out
+			res.AccountGroup = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -914,7 +914,7 @@ func (s *Accounts) ListAccountGroups(ctx context.Context, request operations.Lis
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountGroupsListResponse = &out
+			res.AccountGroupsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1116,7 +1116,7 @@ func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountsListResponse = &out
+			res.AccountsListResponse = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1317,7 +1317,7 @@ func (s *Accounts) RetrieveAccount(ctx context.Context, request operations.Retri
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccount = &out
+			res.Account = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1518,7 +1518,7 @@ func (s *Accounts) RetrieveAccountGroup(ctx context.Context, request operations.
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccountGroup = &out
+			res.AccountGroup = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -1726,7 +1726,7 @@ func (s *Accounts) UpdateAccount(ctx context.Context, request operations.UpdateA
 				return nil, err
 			}
 
-			res.TwoHundredApplicationJSONAccount = &out
+			res.Account = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
