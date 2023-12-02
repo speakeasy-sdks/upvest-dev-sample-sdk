@@ -229,7 +229,6 @@ pkg/utils/utils.go
 /pkg/models/shared/apiversion.go
 /pkg/models/shared/order.go
 /pkg/models/shared/security.go
-USAGE.md
 docs/pkg/models/operations/accountclosurerequest.md
 docs/pkg/models/operations/accountclosureresponse.md
 docs/pkg/models/operations/accountgroupclosurerequest.md
@@ -1849,5 +1848,6 @@ docs/sdks/transactions/README.md
 docs/sdks/users/README.md
 docs/sdks/taxes/README.md
 docs/sdks/virtualcashbalances/README.md
+USAGE.md
 pkg/models/operations/options.go
 .gitattributes
