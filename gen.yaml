@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 3c1ab37994ed312df79267b2de2c9a65
   docVersion: 1.9.0
-  speakeasyVersion: 1.124.3
-  generationVersion: 2.207.1
+  speakeasyVersion: 1.125.1
+  generationVersion: 2.210.3
 generation:
   comments: {}
   sdkClassName: Upvest-Investment-API
@@ -13,14 +13,14 @@ generation:
 features:
   go:
     additionalProperties: 0.1.2
-    constsAndDefaults: 0.1.1
+    constsAndDefaults: 0.1.2
     core: 3.1.5
     examples: 2.81.3
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
     unions: 2.85.0
 go:
-  version: 0.5.5
+  version: 0.5.6
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
