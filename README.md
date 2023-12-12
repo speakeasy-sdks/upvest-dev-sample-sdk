@@ -32,7 +32,7 @@ import (
 
 func main() {
 	s := upvestdevsamplesdk.New(
-		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
 	)
 
 	ctx := context.Background()
@@ -281,7 +281,7 @@ import (
 
 func main() {
 	s := upvestdevsamplesdk.New(
-		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
 	)
 
 	ctx := context.Background()
@@ -390,7 +390,7 @@ import (
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerIndex(1),
-		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
 	)
 
 	ctx := context.Background()
@@ -431,7 +431,7 @@ import (
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerURL("https://sandbox.upvest.co"),
-		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
 	)
 
 	ctx := context.Background()
@@ -513,7 +513,7 @@ import (
 
 func main() {
 	s := upvestdevsamplesdk.New(
-		upvestdevsamplesdk.WithSecurity(""),
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
 	)
 
 	ctx := context.Background()

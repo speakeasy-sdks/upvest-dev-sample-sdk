@@ -30,15 +30,15 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
     res, err := s.Transactions.ListCashTransactions(ctx, operations.ListCashTransactionsRequest{
-        EndDate: types.MustDateFromString("2023-01-11"),
+        EndDate: types.MustDateFromString("2023-01-11T00:00:00Z"),
         Signature: "string",
         SignatureInput: "string",
-        StartDate: types.MustDateFromString("2023-01-03"),
+        StartDate: types.MustDateFromString("2023-01-03T00:00:00Z"),
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -97,12 +97,12 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
     res, err := s.Transactions.ListSecuritiesTransactions(ctx, operations.ListSecuritiesTransactionsRequest{
-        EndDate: types.MustDateFromString("2023-01-11"),
+        EndDate: types.MustDateFromString("2023-01-11T00:00:00Z"),
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),

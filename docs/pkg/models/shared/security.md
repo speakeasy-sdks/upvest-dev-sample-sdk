@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                    | Type                     | Required                 | Description              | Example                  |
-| ------------------------ | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
-| `OauthClientCredentials` | *string*                 | :heavy_check_mark:       | N/A                      |                          |
+| Field                    | Type                     | Required                 | Description              |
+| ------------------------ | ------------------------ | ------------------------ | ------------------------ |
+| `OauthClientCredentials` | **string*                | :heavy_minus_sign:       | N/A                      |

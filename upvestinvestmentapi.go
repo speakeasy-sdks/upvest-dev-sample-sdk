@@ -155,10 +155,9 @@ func withSecurity(security interface{}) func(context.Context) (interface{}, erro
 }
 
 // WithSecurity configures the SDK to use the provided security details
-
 func WithSecurity(oauthClientCredentials string) SDKOption {
 	return func(sdk *UpvestInvestmentAPI) {
-		security := shared.Security{OauthClientCredentials: oauthClientCredentials}
+		security := shared.Security{OauthClientCredentials: &oauthClientCredentials}
 		sdk.sdkConfiguration.Security = withSecurity(&security)
 	}
 }
@@ -175,9 +174,9 @@ func New(opts ...SDKOption) *UpvestInvestmentAPI {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.9.0",
-			SDKVersion:        "0.5.6",
-			GenVersion:        "2.210.3",
-			UserAgent:         "speakeasy-sdk/go 0.5.6 2.210.3 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
+			SDKVersion:        "0.6.0",
+			GenVersion:        "2.213.3",
+			UserAgent:         "speakeasy-sdk/go 0.6.0 2.213.3 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
 		},
 	}
 	for _, opt := range opts {

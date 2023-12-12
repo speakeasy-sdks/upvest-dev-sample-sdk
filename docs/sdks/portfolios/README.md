@@ -47,7 +47,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -110,7 +110,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -182,7 +182,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -253,7 +253,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -323,7 +323,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -399,7 +399,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -464,7 +464,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -529,7 +529,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -593,7 +593,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -657,7 +657,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -721,7 +721,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -785,7 +785,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -848,7 +848,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -912,7 +912,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -975,7 +975,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -1039,7 +1039,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -1103,7 +1103,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -1174,7 +1174,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()
@@ -1246,7 +1246,7 @@ import(
 
 func main() {
     s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity(""),
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
     )
 
     ctx := context.Background()

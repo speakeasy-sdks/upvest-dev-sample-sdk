@@ -3,12 +3,12 @@
 package shared
 
 type Security struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+	OauthClientCredentials *string `security:"scheme,type=oauth2,name=Authorization"`
 }
 
-func (o *Security) GetOauthClientCredentials() string {
+func (o *Security) GetOauthClientCredentials() *string {
 	if o == nil {
-		return ""
+		return nil
 	}
 	return o.OauthClientCredentials
 }
