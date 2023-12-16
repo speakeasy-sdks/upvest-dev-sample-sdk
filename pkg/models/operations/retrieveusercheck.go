@@ -849,6 +849,7 @@ const (
 	RetrieveUserCheckUserCheckTypeUserCheckCompliance       RetrieveUserCheckUserCheckType = "User Check - Compliance"
 )
 
+// RetrieveUserCheckUserCheck - OK
 type RetrieveUserCheckUserCheck struct {
 	UserCheckKnowYourCustomer *UserCheckKnowYourCustomer
 	UserCheckProofOfResidency *UserCheckProofOfResidency

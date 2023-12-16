@@ -291,6 +291,7 @@ const (
 	RetrieveReportReportUnionTypeRetrieveReportReportsReport RetrieveReportReportUnionType = "retrieve_report_Reports_Report"
 )
 
+// RetrieveReportReport - Report
 type RetrieveReportReport struct {
 	RetrieveReportReportsReport *RetrieveReportReportsReport
 

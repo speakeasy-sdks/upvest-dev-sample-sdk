@@ -255,6 +255,7 @@ const (
 	RetrieveUserUsersPostalAddressTypeRetrieveUserUsersResponseAddress RetrieveUserUsersPostalAddressType = "retrieve_user_Users_response_Address"
 )
 
+// RetrieveUserUsersPostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type RetrieveUserUsersPostalAddress struct {
 	RetrieveUserUsersResponseAddress *RetrieveUserUsersResponseAddress
 
@@ -773,6 +774,7 @@ const (
 	RetrieveUserPostalAddressTypeRetrieveUserUsersResponse200Address RetrieveUserPostalAddressType = "retrieve_user_Users_response_200_Address"
 )
 
+// RetrieveUserPostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type RetrieveUserPostalAddress struct {
 	RetrieveUserUsersResponse200Address *RetrieveUserUsersResponse200Address
 
@@ -1104,6 +1106,7 @@ const (
 	RetrieveUserUserGetResponseTypeRetrieveUserUserTOL  RetrieveUserUserGetResponseType = "retrieve_user_User (TOL)"
 )
 
+// RetrieveUserUserGetResponse - OK
 type RetrieveUserUserGetResponse struct {
 	RetrieveUserUserBYOL *RetrieveUserUserBYOL
 	RetrieveUserUserTOL  *RetrieveUserUserTOL

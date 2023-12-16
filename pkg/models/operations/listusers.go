@@ -248,6 +248,7 @@ const (
 	ListUsersPostalAddressTypeListUsersUsersAddress ListUsersPostalAddressType = "list_users_Users_Address"
 )
 
+// ListUsersPostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type ListUsersPostalAddress struct {
 	ListUsersUsersAddress *ListUsersUsersAddress
 

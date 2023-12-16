@@ -321,6 +321,7 @@ const (
 	UserDataChangeUsersPostalAddressTypeUserDataChangeUsersRequestAddress UserDataChangeUsersPostalAddressType = "user_data_change_Users_request_Address"
 )
 
+// UserDataChangeUsersPostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type UserDataChangeUsersPostalAddress struct {
 	UserDataChangeUsersRequestAddress *UserDataChangeUsersRequestAddress
 
@@ -841,6 +842,7 @@ const (
 	UserDataChangePostalAddressTypeUserDataChangeAddress UserDataChangePostalAddressType = "user_data_change_Address"
 )
 
+// UserDataChangePostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type UserDataChangePostalAddress struct {
 	UserDataChangeAddress *UserDataChangeAddress
 

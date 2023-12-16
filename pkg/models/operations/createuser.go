@@ -197,6 +197,7 @@ const (
 	CreateUserPostalAddressTypeCreateUserUsersAddress CreateUserPostalAddressType = "create_user_Users_Address"
 )
 
+// CreateUserPostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type CreateUserPostalAddress struct {
 	CreateUserUsersAddress *CreateUserUsersAddress
 
@@ -637,6 +638,7 @@ const (
 	PostalAddressTypeAddress PostalAddressType = "Address"
 )
 
+// PostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type PostalAddress struct {
 	Address *Address
 
@@ -1199,6 +1201,7 @@ const (
 	CreateUserUsersResponsePostalAddressTypeCreateUserUsersResponse200ApplicationJSONAddress CreateUserUsersResponsePostalAddressType = "create_user_Users_response_200_ApplicationJSON_Address"
 )
 
+// CreateUserUsersResponsePostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type CreateUserUsersResponsePostalAddress struct {
 	CreateUserUsersResponse200ApplicationJSONAddress *CreateUserUsersResponse200ApplicationJSONAddress
 
@@ -1717,6 +1720,7 @@ const (
 	CreateUserUsersPostalAddressTypeCreateUserUsersResponse200ApplicationJSONResponseBodyAddress CreateUserUsersPostalAddressType = "create_user_Users_response_200_ApplicationJSON_responseBody_Address"
 )
 
+// CreateUserUsersPostalAddress - User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated.
 type CreateUserUsersPostalAddress struct {
 	CreateUserUsersResponse200ApplicationJSONResponseBodyAddress *CreateUserUsersResponse200ApplicationJSONResponseBodyAddress
 
@@ -2048,6 +2052,7 @@ const (
 	CreateUserUsersUserCreateRequestTypeUserTOL  CreateUserUsersUserCreateRequestType = "User (TOL)"
 )
 
+// CreateUserUsersUserCreateRequest - User created.
 type CreateUserUsersUserCreateRequest struct {
 	UserBYOL *UserBYOL
 	UserTOL  *UserTOL
