@@ -88,7 +88,7 @@ func main() {
 | sdkerrors.CreateIdentifierUsersResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.CreateIdentifierUsersResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.CreateIdentifierUsersResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## CreateUser
 
@@ -123,7 +123,7 @@ func main() {
                         Country: "Saint Vincent and the Grenadines",
                         Postcode: "45093-7750",
                     },
-                    BirthDate: types.MustDateFromString("2023-11-27"),
+                    BirthDate: types.MustDateFromString("2024-11-27"),
                     FirstName: "Betty",
                     LastName: "Wuckert",
                     Nationalities: []string{
@@ -176,7 +176,7 @@ func main() {
 | sdkerrors.CreateUserUsersResponse500Error | 500                                       | application/problem+json                  |
 | sdkerrors.CreateUserUsersResponse503Error | 503                                       | application/problem+json                  |
 | sdkerrors.CreateUserUsersResponse504Error | 504                                       | application/problem+json                  |
-| sdkerrors.SDKError                        | 400-600                                   | */*                                       |
+| sdkerrors.SDKError                        | 4xx-5xx                                   | */*                                       |
 
 ## CreateUserCheck
 
@@ -205,7 +205,7 @@ func main() {
     res, err := s.Users.CreateUserCheck(ctx, operations.CreateUserCheckRequest{
         RequestBody: operations.CreateCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(
                 operations.UserCheckProofOfResidencyCreateRequest{
-                    CheckConfirmedAt: types.MustTimeFromString("2023-02-24T14:05:33.909Z"),
+                    CheckConfirmedAt: types.MustTimeFromString("2024-02-25T07:17:21.063Z"),
                     ConfirmedAddress: operations.CreateUserCheckUsersAddress{
                         AddressLine1: "string",
                         City: "New Sheahaven",
@@ -214,7 +214,7 @@ func main() {
                     },
                     DataDownloadLink: "http://overcooked-job.org",
                     DocumentType: operations.CreateUserCheckDocumentTypeTelephoneBill,
-                    IssuanceDate: types.MustDateFromString("2023-01-16"),
+                    IssuanceDate: types.MustDateFromString("2024-01-17"),
                 },
         ),
         Signature: "string",
@@ -255,7 +255,7 @@ func main() {
 | sdkerrors.CreateUserCheckUsersResponse500Error | 500                                            | application/problem+json                       |
 | sdkerrors.CreateUserCheckUsersResponse503Error | 503                                            | application/problem+json                       |
 | sdkerrors.CreateUserCheckUsersResponse504Error | 504                                            | application/problem+json                       |
-| sdkerrors.SDKError                             | 400-600                                        | */*                                            |
+| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |
 
 ## ListUserAccountGroups
 
@@ -319,7 +319,7 @@ func main() {
 | sdkerrors.ListUserAccountGroupsUsersResponse500Error | 500                                                  | application/problem+json                             |
 | sdkerrors.ListUserAccountGroupsUsersResponse503Error | 503                                                  | application/problem+json                             |
 | sdkerrors.ListUserAccountGroupsUsersResponse504Error | 504                                                  | application/problem+json                             |
-| sdkerrors.SDKError                                   | 400-600                                              | */*                                                  |
+| sdkerrors.SDKError                                   | 4xx-5xx                                              | */*                                                  |
 
 ## ListUserAccounts
 
@@ -383,7 +383,7 @@ func main() {
 | sdkerrors.ListUserAccountsUsersResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.ListUserAccountsUsersResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.ListUserAccountsUsersResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## ListUserChecks
 
@@ -446,7 +446,7 @@ func main() {
 | sdkerrors.ListUserChecksUsersResponse500Error | 500                                           | application/problem+json                      |
 | sdkerrors.ListUserChecksUsersResponse503Error | 503                                           | application/problem+json                      |
 | sdkerrors.ListUserChecksUsersResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 400-600                                       | */*                                           |
+| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
 
 ## ListUserIdentifiers
 
@@ -509,7 +509,7 @@ func main() {
 | sdkerrors.ListUserIdentifiersUsersResponse500Error | 500                                                | application/problem+json                           |
 | sdkerrors.ListUserIdentifiersUsersResponse503Error | 503                                                | application/problem+json                           |
 | sdkerrors.ListUserIdentifiersUsersResponse504Error | 504                                                | application/problem+json                           |
-| sdkerrors.SDKError                                 | 400-600                                            | */*                                                |
+| sdkerrors.SDKError                                 | 4xx-5xx                                            | */*                                                |
 
 ## ListUsers
 
@@ -571,7 +571,7 @@ func main() {
 | sdkerrors.ListUsersUsersResponse500Error | 500                                      | application/problem+json                 |
 | sdkerrors.ListUsersUsersResponse503Error | 503                                      | application/problem+json                 |
 | sdkerrors.ListUsersUsersResponse504Error | 504                                      | application/problem+json                 |
-| sdkerrors.SDKError                       | 400-600                                  | */*                                      |
+| sdkerrors.SDKError                       | 4xx-5xx                                  | */*                                      |
 
 ## OffboardUser
 
@@ -635,7 +635,7 @@ func main() {
 | sdkerrors.OffboardUserUsersResponse500Error | 500                                         | application/problem+json                    |
 | sdkerrors.OffboardUserUsersResponse503Error | 503                                         | application/problem+json                    |
 | sdkerrors.OffboardUserUsersResponse504Error | 504                                         | application/problem+json                    |
-| sdkerrors.SDKError                          | 400-600                                     | */*                                         |
+| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
 
 ## RetrieveIdentifier
 
@@ -699,7 +699,7 @@ func main() {
 | sdkerrors.RetrieveIdentifierUsersResponse500Error | 500                                               | application/problem+json                          |
 | sdkerrors.RetrieveIdentifierUsersResponse503Error | 503                                               | application/problem+json                          |
 | sdkerrors.RetrieveIdentifierUsersResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
 
 ## RetrieveUser
 
@@ -762,7 +762,7 @@ func main() {
 | sdkerrors.RetrieveUserUsersResponse500Error | 500                                         | application/problem+json                    |
 | sdkerrors.RetrieveUserUsersResponse503Error | 503                                         | application/problem+json                    |
 | sdkerrors.RetrieveUserUsersResponse504Error | 504                                         | application/problem+json                    |
-| sdkerrors.SDKError                          | 400-600                                     | */*                                         |
+| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
 
 ## RetrieveUserCheck
 
@@ -826,7 +826,7 @@ func main() {
 | sdkerrors.RetrieveUserCheckUsersResponse500Error | 500                                              | application/problem+json                         |
 | sdkerrors.RetrieveUserCheckUsersResponse503Error | 503                                              | application/problem+json                         |
 | sdkerrors.RetrieveUserCheckUsersResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
+| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
 
 ## UpdateIdentifier
 
@@ -894,7 +894,7 @@ func main() {
 | sdkerrors.UpdateIdentifierUsersResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.UpdateIdentifierUsersResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.UpdateIdentifierUsersResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## UserDataChange
 
@@ -980,4 +980,4 @@ func main() {
 | sdkerrors.UserDataChangeUsersResponse500Error | 500                                           | application/problem+json                      |
 | sdkerrors.UserDataChangeUsersResponse503Error | 503                                           | application/problem+json                      |
 | sdkerrors.UserDataChangeUsersResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 400-600                                       | */*                                           |
+| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |

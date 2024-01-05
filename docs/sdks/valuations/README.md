@@ -73,7 +73,7 @@ func main() {
 | sdkerrors.GetAccountValuationValuationsResponse500Error | 500                                                     | application/problem+json                                |
 | sdkerrors.GetAccountValuationValuationsResponse503Error | 503                                                     | application/problem+json                                |
 | sdkerrors.GetAccountValuationValuationsResponse504Error | 504                                                     | application/problem+json                                |
-| sdkerrors.SDKError                                      | 400-600                                                 | */*                                                     |
+| sdkerrors.SDKError                                      | 4xx-5xx                                                 | */*                                                     |
 
 ## ListAccountValuationHistory
 
@@ -138,4 +138,4 @@ func main() {
 | sdkerrors.ListAccountValuationHistoryValuationsResponse500Error | 500                                                             | application/problem+json                                        |
 | sdkerrors.ListAccountValuationHistoryValuationsResponse503Error | 503                                                             | application/problem+json                                        |
 | sdkerrors.ListAccountValuationHistoryValuationsResponse504Error | 504                                                             | application/problem+json                                        |
-| sdkerrors.SDKError                                              | 400-600                                                         | */*                                                             |
+| sdkerrors.SDKError                                              | 4xx-5xx                                                         | */*                                                             |

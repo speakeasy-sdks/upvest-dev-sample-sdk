@@ -70,4 +70,4 @@ func main() {
 | sdkerrors.RetrieveCashBalanceCashBalancesResponse500Error | 500                                                       | application/problem+json                                  |
 | sdkerrors.RetrieveCashBalanceCashBalancesResponse503Error | 503                                                       | application/problem+json                                  |
 | sdkerrors.RetrieveCashBalanceCashBalancesResponse504Error | 504                                                       | application/problem+json                                  |
-| sdkerrors.SDKError                                        | 400-600                                                   | */*                                                       |
+| sdkerrors.SDKError                                        | 4xx-5xx                                                   | */*                                                       |

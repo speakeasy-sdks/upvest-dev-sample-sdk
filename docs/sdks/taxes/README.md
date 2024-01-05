@@ -72,7 +72,7 @@ func main() {
 | sdkerrors.RetrieveTaxResidenciesTaxesResponse500Error | 500                                                   | application/problem+json                              |
 | sdkerrors.RetrieveTaxResidenciesTaxesResponse503Error | 503                                                   | application/problem+json                              |
 | sdkerrors.RetrieveTaxResidenciesTaxesResponse504Error | 504                                                   | application/problem+json                              |
-| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |
+| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
 
 ## SetTaxResidencies
 
@@ -147,4 +147,4 @@ func main() {
 | sdkerrors.SetTaxResidenciesTaxesResponse500Error | 500                                              | application/problem+json                         |
 | sdkerrors.SetTaxResidenciesTaxesResponse503Error | 503                                              | application/problem+json                         |
 | sdkerrors.SetTaxResidenciesTaxesResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
+| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |

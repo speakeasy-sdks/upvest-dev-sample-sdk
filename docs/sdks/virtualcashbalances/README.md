@@ -73,7 +73,7 @@ func main() {
 | sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse500Error | 500                                                                    | application/problem+json                                               |
 | sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse503Error | 503                                                                    | application/problem+json                                               |
 | sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse504Error | 504                                                                    | application/problem+json                                               |
-| sdkerrors.SDKError                                                     | 400-600                                                                | */*                                                                    |
+| sdkerrors.SDKError                                                     | 4xx-5xx                                                                | */*                                                                    |
 
 ## CreateVirtualCashDecrease
 
@@ -141,7 +141,7 @@ func main() {
 | sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse500Error | 500                                                                    | application/problem+json                                               |
 | sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse503Error | 503                                                                    | application/problem+json                                               |
 | sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse504Error | 504                                                                    | application/problem+json                                               |
-| sdkerrors.SDKError                                                     | 400-600                                                                | */*                                                                    |
+| sdkerrors.SDKError                                                     | 4xx-5xx                                                                | */*                                                                    |
 
 ## CreateVirtualCashIncrease
 
@@ -209,4 +209,4 @@ func main() {
 | sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse500Error | 500                                                                    | application/problem+json                                               |
 | sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse503Error | 503                                                                    | application/problem+json                                               |
 | sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse504Error | 504                                                                    | application/problem+json                                               |
-| sdkerrors.SDKError                                                     | 400-600                                                                | */*                                                                    |
+| sdkerrors.SDKError                                                     | 4xx-5xx                                                                | */*                                                                    |

@@ -75,7 +75,7 @@ func main() {
 | sdkerrors.ListCashTransactionsTransactionsResponse500Error | 500                                                        | application/problem+json                                   |
 | sdkerrors.ListCashTransactionsTransactionsResponse503Error | 503                                                        | application/problem+json                                   |
 | sdkerrors.ListCashTransactionsTransactionsResponse504Error | 504                                                        | application/problem+json                                   |
-| sdkerrors.SDKError                                         | 400-600                                                    | */*                                                        |
+| sdkerrors.SDKError                                         | 4xx-5xx                                                    | */*                                                        |
 
 ## ListSecuritiesTransactions
 
@@ -141,4 +141,4 @@ func main() {
 | sdkerrors.ListSecuritiesTransactionsTransactionsResponse500Error | 500                                                              | application/problem+json                                         |
 | sdkerrors.ListSecuritiesTransactionsTransactionsResponse503Error | 503                                                              | application/problem+json                                         |
 | sdkerrors.ListSecuritiesTransactionsTransactionsResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |
+| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |

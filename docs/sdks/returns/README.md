@@ -72,4 +72,4 @@ func main() {
 | sdkerrors.ListAccountReturnsReturnsResponse500Error | 500                                                 | application/problem+json                            |
 | sdkerrors.ListAccountReturnsReturnsResponse503Error | 503                                                 | application/problem+json                            |
 | sdkerrors.ListAccountReturnsReturnsResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
+| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |

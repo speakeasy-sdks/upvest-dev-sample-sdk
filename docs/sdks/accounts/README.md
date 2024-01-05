@@ -80,7 +80,7 @@ func main() {
 | sdkerrors.AccountClosureAccountsResponse500Error | 500                                              | application/problem+json                         |
 | sdkerrors.AccountClosureAccountsResponse503Error | 503                                              | application/problem+json                         |
 | sdkerrors.AccountClosureAccountsResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
+| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
 
 ## AccountGroupClosure
 
@@ -145,7 +145,7 @@ func main() {
 | sdkerrors.AccountGroupClosureAccountsResponse500Error | 500                                                   | application/problem+json                              |
 | sdkerrors.AccountGroupClosureAccountsResponse503Error | 503                                                   | application/problem+json                              |
 | sdkerrors.AccountGroupClosureAccountsResponse504Error | 504                                                   | application/problem+json                              |
-| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |
+| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
 
 ## CreateAccount
 
@@ -214,7 +214,7 @@ func main() {
 | sdkerrors.CreateAccountAccountsResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.CreateAccountAccountsResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.CreateAccountAccountsResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## CreateAccountGroup
 
@@ -282,7 +282,7 @@ func main() {
 | sdkerrors.CreateAccountGroupAccountsResponse500Error | 500                                                  | application/problem+json                             |
 | sdkerrors.CreateAccountGroupAccountsResponse503Error | 503                                                  | application/problem+json                             |
 | sdkerrors.CreateAccountGroupAccountsResponse504Error | 504                                                  | application/problem+json                             |
-| sdkerrors.SDKError                                   | 400-600                                              | */*                                                  |
+| sdkerrors.SDKError                                   | 4xx-5xx                                              | */*                                                  |
 
 ## ListAccountGroups
 
@@ -344,7 +344,7 @@ func main() {
 | sdkerrors.ListAccountGroupsAccountsResponse500Error | 500                                                 | application/problem+json                            |
 | sdkerrors.ListAccountGroupsAccountsResponse503Error | 503                                                 | application/problem+json                            |
 | sdkerrors.ListAccountGroupsAccountsResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
+| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |
 
 ## ListAccounts
 
@@ -406,7 +406,7 @@ func main() {
 | sdkerrors.ListAccountsAccountsResponse500Error | 500                                            | application/problem+json                       |
 | sdkerrors.ListAccountsAccountsResponse503Error | 503                                            | application/problem+json                       |
 | sdkerrors.ListAccountsAccountsResponse504Error | 504                                            | application/problem+json                       |
-| sdkerrors.SDKError                             | 400-600                                        | */*                                            |
+| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |
 
 ## RetrieveAccount
 
@@ -469,7 +469,7 @@ func main() {
 | sdkerrors.RetrieveAccountAccountsResponse500Error | 500                                               | application/problem+json                          |
 | sdkerrors.RetrieveAccountAccountsResponse503Error | 503                                               | application/problem+json                          |
 | sdkerrors.RetrieveAccountAccountsResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
 
 ## RetrieveAccountGroup
 
@@ -532,7 +532,7 @@ func main() {
 | sdkerrors.RetrieveAccountGroupAccountsResponse500Error | 500                                                    | application/problem+json                               |
 | sdkerrors.RetrieveAccountGroupAccountsResponse503Error | 503                                                    | application/problem+json                               |
 | sdkerrors.RetrieveAccountGroupAccountsResponse504Error | 504                                                    | application/problem+json                               |
-| sdkerrors.SDKError                                     | 400-600                                                | */*                                                    |
+| sdkerrors.SDKError                                     | 4xx-5xx                                                | */*                                                    |
 
 ## UpdateAccount
 
@@ -597,4 +597,4 @@ func main() {
 | sdkerrors.UpdateAccountAccountsResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.UpdateAccountAccountsResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.UpdateAccountAccountsResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |

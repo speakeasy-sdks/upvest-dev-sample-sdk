@@ -70,7 +70,7 @@ func main() {
 | sdkerrors.ListInstrumentsInstrumentsResponse500Error | 500                                                  | application/problem+json                             |
 | sdkerrors.ListInstrumentsInstrumentsResponse503Error | 503                                                  | application/problem+json                             |
 | sdkerrors.ListInstrumentsInstrumentsResponse504Error | 504                                                  | application/problem+json                             |
-| sdkerrors.SDKError                                   | 400-600                                              | */*                                                  |
+| sdkerrors.SDKError                                   | 4xx-5xx                                              | */*                                                  |
 
 ## RetrieveInstrument
 
@@ -133,4 +133,4 @@ func main() {
 | sdkerrors.RetrieveInstrumentInstrumentsResponse500Error | 500                                                     | application/problem+json                                |
 | sdkerrors.RetrieveInstrumentInstrumentsResponse503Error | 503                                                     | application/problem+json                                |
 | sdkerrors.RetrieveInstrumentInstrumentsResponse504Error | 504                                                     | application/problem+json                                |
-| sdkerrors.SDKError                                      | 400-600                                                 | */*                                                     |
+| sdkerrors.SDKError                                      | 4xx-5xx                                                 | */*                                                     |

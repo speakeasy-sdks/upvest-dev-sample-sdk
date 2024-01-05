@@ -72,7 +72,7 @@ func main() {
 | sdkerrors.ListPositionsPositionsResponse500Error | 500                                              | application/problem+json                         |
 | sdkerrors.ListPositionsPositionsResponse503Error | 503                                              | application/problem+json                         |
 | sdkerrors.ListPositionsPositionsResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
+| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
 
 ## RetrievePosition
 
@@ -136,4 +136,4 @@ func main() {
 | sdkerrors.RetrievePositionPositionsResponse500Error | 500                                                 | application/problem+json                            |
 | sdkerrors.RetrievePositionPositionsResponse503Error | 503                                                 | application/problem+json                            |
 | sdkerrors.RetrievePositionPositionsResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
+| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |

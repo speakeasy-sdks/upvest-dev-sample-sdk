@@ -89,7 +89,7 @@ func main() {
 | sdkerrors.CancelPortfoliosOrderPortfoliosResponse500Error | 500                                                       | application/problem+json                                  |
 | sdkerrors.CancelPortfoliosOrderPortfoliosResponse503Error | 503                                                       | application/problem+json                                  |
 | sdkerrors.CancelPortfoliosOrderPortfoliosResponse504Error | 504                                                       | application/problem+json                                  |
-| sdkerrors.SDKError                                        | 400-600                                                   | */*                                                       |
+| sdkerrors.SDKError                                        | 4xx-5xx                                                   | */*                                                       |
 
 ## CreatePortfoliosAllocation
 
@@ -161,7 +161,7 @@ func main() {
 | sdkerrors.CreatePortfoliosAllocationPortfoliosResponse500Error | 500                                                            | application/problem+json                                       |
 | sdkerrors.CreatePortfoliosAllocationPortfoliosResponse503Error | 503                                                            | application/problem+json                                       |
 | sdkerrors.CreatePortfoliosAllocationPortfoliosResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
+| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
 
 ## CreatePortfoliosConfiguration
 
@@ -232,7 +232,7 @@ func main() {
 | sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse500Error | 500                                                               | application/problem+json                                          |
 | sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse503Error | 503                                                               | application/problem+json                                          |
 | sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 400-600                                                           | */*                                                               |
+| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |
 
 ## CreatePortfoliosOrder
 
@@ -302,7 +302,7 @@ func main() {
 | sdkerrors.CreatePortfoliosOrderPortfoliosResponse500Error | 500                                                       | application/problem+json                                  |
 | sdkerrors.CreatePortfoliosOrderPortfoliosResponse503Error | 503                                                       | application/problem+json                                  |
 | sdkerrors.CreatePortfoliosOrderPortfoliosResponse504Error | 504                                                       | application/problem+json                                  |
-| sdkerrors.SDKError                                        | 400-600                                                   | */*                                                       |
+| sdkerrors.SDKError                                        | 4xx-5xx                                                   | */*                                                       |
 
 ## CreatePortfoliosRebalancingStrategy
 
@@ -378,7 +378,7 @@ func main() {
 | sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse500Error | 500                                                                     | application/problem+json                                                |
 | sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse503Error | 503                                                                     | application/problem+json                                                |
 | sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse504Error | 504                                                                     | application/problem+json                                                |
-| sdkerrors.SDKError                                                      | 400-600                                                                 | */*                                                                     |
+| sdkerrors.SDKError                                                      | 4xx-5xx                                                                 | */*                                                                     |
 
 ## ListPortfolioRebalancingExecutionOrders
 
@@ -443,7 +443,7 @@ func main() {
 | sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse500Error | 500                                                                         | application/problem+json                                                    |
 | sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse503Error | 503                                                                         | application/problem+json                                                    |
 | sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse504Error | 504                                                                         | application/problem+json                                                    |
-| sdkerrors.SDKError                                                          | 400-600                                                                     | */*                                                                         |
+| sdkerrors.SDKError                                                          | 4xx-5xx                                                                     | */*                                                                         |
 
 ## ListPortfoliosAllocationAccounts
 
@@ -508,7 +508,7 @@ func main() {
 | sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse500Error | 500                                                                  | application/problem+json                                             |
 | sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse503Error | 503                                                                  | application/problem+json                                             |
 | sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse504Error | 504                                                                  | application/problem+json                                             |
-| sdkerrors.SDKError                                                   | 400-600                                                              | */*                                                                  |
+| sdkerrors.SDKError                                                   | 4xx-5xx                                                              | */*                                                                  |
 
 ## ListPortfoliosAllocations
 
@@ -572,7 +572,7 @@ func main() {
 | sdkerrors.ListPortfoliosAllocationsPortfoliosResponse500Error | 500                                                           | application/problem+json                                      |
 | sdkerrors.ListPortfoliosAllocationsPortfoliosResponse503Error | 503                                                           | application/problem+json                                      |
 | sdkerrors.ListPortfoliosAllocationsPortfoliosResponse504Error | 504                                                           | application/problem+json                                      |
-| sdkerrors.SDKError                                            | 400-600                                                       | */*                                                           |
+| sdkerrors.SDKError                                            | 4xx-5xx                                                       | */*                                                           |
 
 ## ListPortfoliosConfigurations
 
@@ -636,7 +636,7 @@ func main() {
 | sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse500Error | 500                                                              | application/problem+json                                         |
 | sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse503Error | 503                                                              | application/problem+json                                         |
 | sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |
+| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
 
 ## ListPortfoliosOrders
 
@@ -700,7 +700,7 @@ func main() {
 | sdkerrors.ListPortfoliosOrdersPortfoliosResponse500Error | 500                                                      | application/problem+json                                 |
 | sdkerrors.ListPortfoliosOrdersPortfoliosResponse503Error | 503                                                      | application/problem+json                                 |
 | sdkerrors.ListPortfoliosOrdersPortfoliosResponse504Error | 504                                                      | application/problem+json                                 |
-| sdkerrors.SDKError                                       | 400-600                                                  | */*                                                      |
+| sdkerrors.SDKError                                       | 4xx-5xx                                                  | */*                                                      |
 
 ## ListPortfoliosRebalancingStrategies
 
@@ -764,7 +764,7 @@ func main() {
 | sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse500Error | 500                                                                     | application/problem+json                                                |
 | sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse503Error | 503                                                                     | application/problem+json                                                |
 | sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse504Error | 504                                                                     | application/problem+json                                                |
-| sdkerrors.SDKError                                                      | 400-600                                                                 | */*                                                                     |
+| sdkerrors.SDKError                                                      | 4xx-5xx                                                                 | */*                                                                     |
 
 ## RetrievePortfoliosAllocation
 
@@ -827,7 +827,7 @@ func main() {
 | sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse500Error | 500                                                              | application/problem+json                                         |
 | sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse503Error | 503                                                              | application/problem+json                                         |
 | sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |
+| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
 
 ## RetrievePortfoliosConfiguration
 
@@ -891,7 +891,7 @@ func main() {
 | sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse500Error | 500                                                                 | application/problem+json                                            |
 | sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse503Error | 503                                                                 | application/problem+json                                            |
 | sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse504Error | 504                                                                 | application/problem+json                                            |
-| sdkerrors.SDKError                                                  | 400-600                                                             | */*                                                                 |
+| sdkerrors.SDKError                                                  | 4xx-5xx                                                             | */*                                                                 |
 
 ## RetrievePortfoliosOrder
 
@@ -954,7 +954,7 @@ func main() {
 | sdkerrors.RetrievePortfoliosOrderPortfoliosResponse500Error | 500                                                         | application/problem+json                                    |
 | sdkerrors.RetrievePortfoliosOrderPortfoliosResponse503Error | 503                                                         | application/problem+json                                    |
 | sdkerrors.RetrievePortfoliosOrderPortfoliosResponse504Error | 504                                                         | application/problem+json                                    |
-| sdkerrors.SDKError                                          | 400-600                                                     | */*                                                         |
+| sdkerrors.SDKError                                          | 4xx-5xx                                                     | */*                                                         |
 
 ## RetrievePortfoliosRebalancingExecution
 
@@ -1018,7 +1018,7 @@ func main() {
 | sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse500Error | 500                                                                        | application/problem+json                                                   |
 | sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse503Error | 503                                                                        | application/problem+json                                                   |
 | sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse504Error | 504                                                                        | application/problem+json                                                   |
-| sdkerrors.SDKError                                                         | 400-600                                                                    | */*                                                                        |
+| sdkerrors.SDKError                                                         | 4xx-5xx                                                                    | */*                                                                        |
 
 ## RetrievePortfoliosRebalancingStrategy
 
@@ -1082,7 +1082,7 @@ func main() {
 | sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse500Error | 500                                                                       | application/problem+json                                                  |
 | sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse503Error | 503                                                                       | application/problem+json                                                  |
 | sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse504Error | 504                                                                       | application/problem+json                                                  |
-| sdkerrors.SDKError                                                        | 400-600                                                                   | */*                                                                       |
+| sdkerrors.SDKError                                                        | 4xx-5xx                                                                   | */*                                                                       |
 
 ## TriggerPortfolioRebalancing
 
@@ -1153,7 +1153,7 @@ func main() {
 | sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse500Error | 500                                                             | application/problem+json                                        |
 | sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse503Error | 503                                                             | application/problem+json                                        |
 | sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse504Error | 504                                                             | application/problem+json                                        |
-| sdkerrors.SDKError                                              | 400-600                                                         | */*                                                             |
+| sdkerrors.SDKError                                              | 4xx-5xx                                                         | */*                                                             |
 
 ## UpdatePortfoliosAllocation
 
@@ -1225,7 +1225,7 @@ func main() {
 | sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse500Error | 500                                                            | application/problem+json                                       |
 | sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse503Error | 503                                                            | application/problem+json                                       |
 | sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
+| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
 
 ## UpdatePortfoliosConfiguration
 
@@ -1295,4 +1295,4 @@ func main() {
 | sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse500Error | 500                                                               | application/problem+json                                          |
 | sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse503Error | 503                                                               | application/problem+json                                          |
 | sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 400-600                                                           | */*                                                               |
+| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |

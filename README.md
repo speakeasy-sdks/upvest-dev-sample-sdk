@@ -262,7 +262,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | sdkerrors.AccountClosureAccountsResponse500Error | 500                                              | application/problem+json                         |
 | sdkerrors.AccountClosureAccountsResponse503Error | 503                                              | application/problem+json                         |
 | sdkerrors.AccountClosureAccountsResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
+| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
 
 ### Example
 

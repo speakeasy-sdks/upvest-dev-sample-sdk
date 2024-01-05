@@ -72,7 +72,7 @@ func main() {
 | sdkerrors.ListReportsReportsResponse500Error | 500                                          | application/problem+json                     |
 | sdkerrors.ListReportsReportsResponse503Error | 503                                          | application/problem+json                     |
 | sdkerrors.ListReportsReportsResponse504Error | 504                                          | application/problem+json                     |
-| sdkerrors.SDKError                           | 400-600                                      | */*                                          |
+| sdkerrors.SDKError                           | 4xx-5xx                                      | */*                                          |
 
 ## RetrieveReport
 
@@ -135,4 +135,4 @@ func main() {
 | sdkerrors.RetrieveReportReportsResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.RetrieveReportReportsResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.RetrieveReportReportsResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |

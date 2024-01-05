@@ -77,7 +77,7 @@ func main() {
 | sdkerrors.CancelCashWithdrawalPaymentsResponse500Error | 500                                                    | application/problem+json                               |
 | sdkerrors.CancelCashWithdrawalPaymentsResponse503Error | 503                                                    | application/problem+json                               |
 | sdkerrors.CancelCashWithdrawalPaymentsResponse504Error | 504                                                    | application/problem+json                               |
-| sdkerrors.SDKError                                     | 400-600                                                | */*                                                    |
+| sdkerrors.SDKError                                     | 4xx-5xx                                                | */*                                                    |
 
 ## CreateCashWithdrawal
 
@@ -147,7 +147,7 @@ func main() {
 | sdkerrors.CreateCashWithdrawalPaymentsResponse500Error | 500                                                    | application/problem+json                               |
 | sdkerrors.CreateCashWithdrawalPaymentsResponse503Error | 503                                                    | application/problem+json                               |
 | sdkerrors.CreateCashWithdrawalPaymentsResponse504Error | 504                                                    | application/problem+json                               |
-| sdkerrors.SDKError                                     | 400-600                                                | */*                                                    |
+| sdkerrors.SDKError                                     | 4xx-5xx                                                | */*                                                    |
 
 ## CreateDirectDebit
 
@@ -217,7 +217,7 @@ func main() {
 | sdkerrors.CreateDirectDebitPaymentsResponse500Error | 500                                                 | application/problem+json                            |
 | sdkerrors.CreateDirectDebitPaymentsResponse503Error | 503                                                 | application/problem+json                            |
 | sdkerrors.CreateDirectDebitPaymentsResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
+| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |
 
 ## ListCashWithdrawals
 
@@ -281,7 +281,7 @@ func main() {
 | sdkerrors.ListCashWithdrawalsPaymentsResponse500Error | 500                                                   | application/problem+json                              |
 | sdkerrors.ListCashWithdrawalsPaymentsResponse503Error | 503                                                   | application/problem+json                              |
 | sdkerrors.ListCashWithdrawalsPaymentsResponse504Error | 504                                                   | application/problem+json                              |
-| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |
+| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
 
 ## ListDirectDebits
 
@@ -345,7 +345,7 @@ func main() {
 | sdkerrors.ListDirectDebitsPaymentsResponse500Error | 500                                                | application/problem+json                           |
 | sdkerrors.ListDirectDebitsPaymentsResponse503Error | 503                                                | application/problem+json                           |
 | sdkerrors.ListDirectDebitsPaymentsResponse504Error | 504                                                | application/problem+json                           |
-| sdkerrors.SDKError                                 | 400-600                                            | */*                                                |
+| sdkerrors.SDKError                                 | 4xx-5xx                                            | */*                                                |
 
 ## RetrieveCashWithdrawal
 
@@ -408,7 +408,7 @@ func main() {
 | sdkerrors.RetrieveCashWithdrawalPaymentsResponse500Error | 500                                                      | application/problem+json                                 |
 | sdkerrors.RetrieveCashWithdrawalPaymentsResponse503Error | 503                                                      | application/problem+json                                 |
 | sdkerrors.RetrieveCashWithdrawalPaymentsResponse504Error | 504                                                      | application/problem+json                                 |
-| sdkerrors.SDKError                                       | 400-600                                                  | */*                                                      |
+| sdkerrors.SDKError                                       | 4xx-5xx                                                  | */*                                                      |
 
 ## RetrieveDirectDebit
 
@@ -471,4 +471,4 @@ func main() {
 | sdkerrors.RetrieveDirectDebitPaymentsResponse500Error | 500                                                   | application/problem+json                              |
 | sdkerrors.RetrieveDirectDebitPaymentsResponse503Error | 503                                                   | application/problem+json                              |
 | sdkerrors.RetrieveDirectDebitPaymentsResponse504Error | 504                                                   | application/problem+json                              |
-| sdkerrors.SDKError                                    | 400-600                                               | */*                                                   |
+| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |

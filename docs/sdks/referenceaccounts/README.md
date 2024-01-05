@@ -40,7 +40,7 @@ func main() {
         RequestBody: &operations.CreateReferenceAccountReferenceAccountCreateRequest{
             AccountOwner: "string",
             Bic: "string",
-            ConfirmedAt: types.MustTimeFromString("2021-10-21T09:53:29.074Z"),
+            ConfirmedAt: types.MustTimeFromString("2022-10-21T16:19:20.498Z"),
             Iban: "CH82077325Y83934M284R",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -81,7 +81,7 @@ func main() {
 | sdkerrors.CreateReferenceAccountReferenceAccountsResponse500Error | 500                                                               | application/problem+json                                          |
 | sdkerrors.CreateReferenceAccountReferenceAccountsResponse503Error | 503                                                               | application/problem+json                                          |
 | sdkerrors.CreateReferenceAccountReferenceAccountsResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 400-600                                                           | */*                                                               |
+| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |
 
 ## DeleteReferenceAccount
 
@@ -144,7 +144,7 @@ func main() {
 | sdkerrors.DeleteReferenceAccountReferenceAccountsResponse500Error | 500                                                               | application/problem+json                                          |
 | sdkerrors.DeleteReferenceAccountReferenceAccountsResponse503Error | 503                                                               | application/problem+json                                          |
 | sdkerrors.DeleteReferenceAccountReferenceAccountsResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 400-600                                                           | */*                                                               |
+| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |
 
 ## ListReferenceAccounts
 
@@ -208,7 +208,7 @@ func main() {
 | sdkerrors.ListReferenceAccountsReferenceAccountsResponse500Error | 500                                                              | application/problem+json                                         |
 | sdkerrors.ListReferenceAccountsReferenceAccountsResponse503Error | 503                                                              | application/problem+json                                         |
 | sdkerrors.ListReferenceAccountsReferenceAccountsResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |
+| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
 
 ## RetrieveReferenceAccount
 
@@ -271,4 +271,4 @@ func main() {
 | sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse500Error | 500                                                                 | application/problem+json                                            |
 | sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse503Error | 503                                                                 | application/problem+json                                            |
 | sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse504Error | 504                                                                 | application/problem+json                                            |
-| sdkerrors.SDKError                                                  | 400-600                                                             | */*                                                                 |
+| sdkerrors.SDKError                                                  | 4xx-5xx                                                             | */*                                                                 |

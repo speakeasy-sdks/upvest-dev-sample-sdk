@@ -39,7 +39,7 @@ func main() {
     res, err := s.Mandates.CreateMandate(ctx, operations.CreateMandateRequest{
         RequestBody: &operations.CreateMandateMandateCreateRequest{
             Bic: "string",
-            ConfirmedAt: types.MustTimeFromString("2023-09-15T12:57:03.635Z"),
+            ConfirmedAt: types.MustTimeFromString("2024-09-15T10:35:44.570Z"),
             Iban: "GT09333126I454209K17J3608U37",
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -80,7 +80,7 @@ func main() {
 | sdkerrors.CreateMandateMandatesResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.CreateMandateMandatesResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.CreateMandateMandatesResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## DeleteMandate
 
@@ -143,7 +143,7 @@ func main() {
 | sdkerrors.DeleteMandateMandatesResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.DeleteMandateMandatesResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.DeleteMandateMandatesResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## ListMandates
 
@@ -207,7 +207,7 @@ func main() {
 | sdkerrors.ListMandatesMandatesResponse500Error | 500                                            | application/problem+json                       |
 | sdkerrors.ListMandatesMandatesResponse503Error | 503                                            | application/problem+json                       |
 | sdkerrors.ListMandatesMandatesResponse504Error | 504                                            | application/problem+json                       |
-| sdkerrors.SDKError                             | 400-600                                        | */*                                            |
+| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |
 
 ## RetrieveMandate
 
@@ -270,4 +270,4 @@ func main() {
 | sdkerrors.RetrieveMandateMandatesResponse500Error | 500                                               | application/problem+json                          |
 | sdkerrors.RetrieveMandateMandatesResponse503Error | 503                                               | application/problem+json                          |
 | sdkerrors.RetrieveMandateMandatesResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |

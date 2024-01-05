@@ -74,7 +74,7 @@ func main() {
 | sdkerrors.CancelOrderOrdersResponse500Error | 500                                         | application/problem+json                    |
 | sdkerrors.CancelOrderOrdersResponse503Error | 503                                         | application/problem+json                    |
 | sdkerrors.CancelOrderOrdersResponse504Error | 504                                         | application/problem+json                    |
-| sdkerrors.SDKError                          | 400-600                                     | */*                                         |
+| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
 
 ## ListAccountOrders
 
@@ -138,7 +138,7 @@ func main() {
 | sdkerrors.ListAccountOrdersOrdersResponse500Error | 500                                               | application/problem+json                          |
 | sdkerrors.ListAccountOrdersOrdersResponse503Error | 503                                               | application/problem+json                          |
 | sdkerrors.ListAccountOrdersOrdersResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
 
 ## PlaceOrder
 
@@ -208,7 +208,7 @@ func main() {
 | sdkerrors.PlaceOrderOrdersResponse500Error | 500                                        | application/problem+json                   |
 | sdkerrors.PlaceOrderOrdersResponse503Error | 503                                        | application/problem+json                   |
 | sdkerrors.PlaceOrderOrdersResponse504Error | 504                                        | application/problem+json                   |
-| sdkerrors.SDKError                         | 400-600                                    | */*                                        |
+| sdkerrors.SDKError                         | 4xx-5xx                                    | */*                                        |
 
 ## RetrieveOrder
 
@@ -271,7 +271,7 @@ func main() {
 | sdkerrors.RetrieveOrderOrdersResponse500Error | 500                                           | application/problem+json                      |
 | sdkerrors.RetrieveOrderOrdersResponse503Error | 503                                           | application/problem+json                      |
 | sdkerrors.RetrieveOrderOrdersResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 400-600                                       | */*                                           |
+| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
 
 ## RetrieveOrderExecution
 
@@ -335,4 +335,4 @@ func main() {
 | sdkerrors.RetrieveOrderExecutionOrdersResponse500Error | 500                                                    | application/problem+json                               |
 | sdkerrors.RetrieveOrderExecutionOrdersResponse503Error | 503                                                    | application/problem+json                               |
 | sdkerrors.RetrieveOrderExecutionOrdersResponse504Error | 504                                                    | application/problem+json                               |
-| sdkerrors.SDKError                                     | 400-600                                                | */*                                                    |
+| sdkerrors.SDKError                                     | 4xx-5xx                                                | */*                                                    |

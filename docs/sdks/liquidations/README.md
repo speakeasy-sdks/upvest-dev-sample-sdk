@@ -75,7 +75,7 @@ func main() {
 | sdkerrors.CancelAccountLiquidationLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
 | sdkerrors.CancelAccountLiquidationLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
 | sdkerrors.CancelAccountLiquidationLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
+| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
 
 ## CreateAccountLiquidation
 
@@ -143,7 +143,7 @@ func main() {
 | sdkerrors.CreateAccountLiquidationLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
 | sdkerrors.CreateAccountLiquidationLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
 | sdkerrors.CreateAccountLiquidationLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
+| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
 
 ## ListAccountsLiquidations
 
@@ -208,7 +208,7 @@ func main() {
 | sdkerrors.ListAccountsLiquidationsLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
 | sdkerrors.ListAccountsLiquidationsLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
 | sdkerrors.ListAccountsLiquidationsLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 400-600                                                        | */*                                                            |
+| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
 
 ## RetrieveAccountLiquidation
 
@@ -272,4 +272,4 @@ func main() {
 | sdkerrors.RetrieveAccountLiquidationLiquidationsResponse500Error | 500                                                              | application/problem+json                                         |
 | sdkerrors.RetrieveAccountLiquidationLiquidationsResponse503Error | 503                                                              | application/problem+json                                         |
 | sdkerrors.RetrieveAccountLiquidationLiquidationsResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 400-600                                                          | */*                                                              |
+| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |

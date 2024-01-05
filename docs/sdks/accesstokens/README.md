@@ -76,4 +76,4 @@ func main() {
 | sdkerrors.IssueTokenAccessTokensResponse500Error | 500                                              | application/problem+json                         |
 | sdkerrors.IssueTokenAccessTokensResponse503Error | 503                                              | application/problem+json                         |
 | sdkerrors.IssueTokenAccessTokensResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
+| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |

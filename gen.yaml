@@ -1,26 +1,10 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 3c1ab37994ed312df79267b2de2c9a65
-  docVersion: 1.9.0
-  speakeasyVersion: 1.126.4
-  generationVersion: 2.214.10
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: Upvest-Investment-API
-  repoURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk.git
   usageSnippets:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
-features:
-  go:
-    additionalProperties: 0.1.2
-    constsAndDefaults: 0.1.2
-    core: 3.2.2
-    examples: 2.81.3
-    globalSecurity: 2.82.3
-    globalServerURLs: 2.82.1
-    unions: 2.85.2
 go:
   version: 0.6.1
   clientServerStatusCodesAsErrors: true
@@ -34,9 +18,6 @@ go:
       shared: pkg/models/shared
       webhooks: pkg/models/webhooks
   inputModelSuffix: input
-  installationURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: github.com/speakeasy-sdks/upvest-dev-sample-sdk
-  published: true
-  repoSubDirectory: .

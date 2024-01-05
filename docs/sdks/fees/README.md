@@ -39,8 +39,8 @@ func main() {
         RequestBody: &operations.CreateFeeCollectionFeeCollectionCreateRequest{
             AccountID: "f7894af9-5b70-47e1-ab25-69b76e33b134",
             CollectionAmount: "string",
-            PeriodEnd: types.MustDateFromString("2022-12-20"),
-            PeriodStart: types.MustDateFromString("2022-02-15"),
+            PeriodEnd: types.MustDateFromString("2023-12-20"),
+            PeriodStart: types.MustDateFromString("2023-02-15"),
             Type: operations.CreateFeeCollectionTypeServiceFee,
         },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
@@ -81,7 +81,7 @@ func main() {
 | sdkerrors.CreateFeeCollectionFeesResponse500Error | 500                                               | application/problem+json                          |
 | sdkerrors.CreateFeeCollectionFeesResponse503Error | 503                                               | application/problem+json                          |
 | sdkerrors.CreateFeeCollectionFeesResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
 
 ## ListFeeCollections
 
@@ -145,7 +145,7 @@ func main() {
 | sdkerrors.ListFeeCollectionsFeesResponse500Error | 500                                              | application/problem+json                         |
 | sdkerrors.ListFeeCollectionsFeesResponse503Error | 503                                              | application/problem+json                         |
 | sdkerrors.ListFeeCollectionsFeesResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 400-600                                          | */*                                              |
+| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
 
 ## RetrieveFeeCollection
 
@@ -208,4 +208,4 @@ func main() {
 | sdkerrors.RetrieveFeeCollectionFeesResponse500Error | 500                                                 | application/problem+json                            |
 | sdkerrors.RetrieveFeeCollectionFeesResponse503Error | 503                                                 | application/problem+json                            |
 | sdkerrors.RetrieveFeeCollectionFeesResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 400-600                                             | */*                                                 |
+| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |

@@ -83,7 +83,7 @@ func main() {
 | sdkerrors.CreateWebhookWebhooksResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.CreateWebhookWebhooksResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.CreateWebhookWebhooksResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## DeleteWebhook
 
@@ -146,7 +146,7 @@ func main() {
 | sdkerrors.DeleteWebhookWebhooksResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.DeleteWebhookWebhooksResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.DeleteWebhookWebhooksResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## GetJwks
 
@@ -207,7 +207,7 @@ func main() {
 | sdkerrors.GetJwksWebhooksResponse500Error | 500                                       | application/problem+json                  |
 | sdkerrors.GetJwksWebhooksResponse503Error | 503                                       | application/problem+json                  |
 | sdkerrors.GetJwksWebhooksResponse504Error | 504                                       | application/problem+json                  |
-| sdkerrors.SDKError                        | 400-600                                   | */*                                       |
+| sdkerrors.SDKError                        | 4xx-5xx                                   | */*                                       |
 
 ## ListWebhooks
 
@@ -269,7 +269,7 @@ func main() {
 | sdkerrors.ListWebhooksWebhooksResponse500Error | 500                                            | application/problem+json                       |
 | sdkerrors.ListWebhooksWebhooksResponse503Error | 503                                            | application/problem+json                       |
 | sdkerrors.ListWebhooksWebhooksResponse504Error | 504                                            | application/problem+json                       |
-| sdkerrors.SDKError                             | 400-600                                        | */*                                            |
+| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |
 
 ## RetrieveWebhook
 
@@ -332,7 +332,7 @@ func main() {
 | sdkerrors.RetrieveWebhookWebhooksResponse500Error | 500                                               | application/problem+json                          |
 | sdkerrors.RetrieveWebhookWebhooksResponse503Error | 503                                               | application/problem+json                          |
 | sdkerrors.RetrieveWebhookWebhooksResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
 
 ## TestWebhook
 
@@ -396,7 +396,7 @@ func main() {
 | sdkerrors.TestWebhookWebhooksResponse500Error | 500                                           | application/problem+json                      |
 | sdkerrors.TestWebhookWebhooksResponse503Error | 503                                           | application/problem+json                      |
 | sdkerrors.TestWebhookWebhooksResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 400-600                                       | */*                                           |
+| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
 
 ## UpdateWebhook
 
@@ -466,4 +466,4 @@ func main() {
 | sdkerrors.UpdateWebhookWebhooksResponse500Error | 500                                             | application/problem+json                        |
 | sdkerrors.UpdateWebhookWebhooksResponse503Error | 503                                             | application/problem+json                        |
 | sdkerrors.UpdateWebhookWebhooksResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 400-600                                         | */*                                             |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
