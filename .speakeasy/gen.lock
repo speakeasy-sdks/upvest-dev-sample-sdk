@@ -4,9 +4,9 @@ management:
   docChecksum: 3c1ab37994ed312df79267b2de2c9a65
   docVersion: 1.9.0
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 0.6.3
-  configChecksum: b2be8e6cd7bc75b7fb1640bbeac6083b
+  generationVersion: 2.245.1
+  releaseVersion: 0.6.4
+  configChecksum: a70b61152957876ad252c90770710a2a
   repoURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk
@@ -17,7 +17,7 @@ features:
     constsAndDefaults: 0.1.2
     core: 3.3.1
     examples: 2.81.3
-    globalSecurity: 2.82.4
+    globalSecurity: 2.82.5
     globalServerURLs: 2.82.1
     unions: 2.85.2
 generatedFiles:
