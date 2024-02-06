@@ -183,9 +183,9 @@ func New(opts ...SDKOption) *UpvestInvestmentAPI {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.9.0",
-			SDKVersion:        "0.6.4",
-			GenVersion:        "2.245.1",
-			UserAgent:         "speakeasy-sdk/go 0.6.4 2.245.1 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
+			SDKVersion:        "0.7.0",
+			GenVersion:        "2.250.2",
+			UserAgent:         "speakeasy-sdk/go 0.7.0 2.250.2 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
 		},
 	}
 	for _, opt := range opts {
