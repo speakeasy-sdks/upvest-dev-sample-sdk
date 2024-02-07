@@ -1,6 +1,6 @@
 # ListPortfoliosAllocationAccountsPortfoliosError
 
-Unauthorized. The caller has not been authenticated.
+Method Not Allowed. The requested method is not allowed on the requested resource.
 
 
 ## Fields

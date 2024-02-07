@@ -102,6 +102,20 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -116,115 +130,10 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 401:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CreateWebhookWebhooksError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CreateWebhookWebhooksResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CreateWebhookWebhooksResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CreateWebhookWebhooksResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CreateWebhookWebhooksResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CreateWebhookWebhooksResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CreateWebhookWebhooksResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -277,6 +186,18 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 		res.Headers = httpRes.Header
 
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -291,100 +212,10 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.DeleteWebhookWebhooksError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.DeleteWebhookWebhooksResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.DeleteWebhookWebhooksResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.DeleteWebhookWebhooksResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.DeleteWebhookWebhooksResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.DeleteWebhookWebhooksResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -460,6 +291,18 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -474,100 +317,10 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.GetJwksWebhooksError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.GetJwksWebhooksResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.GetJwksWebhooksResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.GetJwksWebhooksResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.GetJwksWebhooksResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.GetJwksWebhooksResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -647,6 +400,20 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -661,115 +428,10 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 401:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListWebhooksWebhooksError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListWebhooksWebhooksResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListWebhooksWebhooksResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListWebhooksWebhooksResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListWebhooksWebhooksResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListWebhooksWebhooksResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListWebhooksWebhooksResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -848,6 +510,20 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -862,115 +538,10 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveWebhookWebhooksError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveWebhookWebhooksResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveWebhookWebhooksResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveWebhookWebhooksResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveWebhookWebhooksResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveWebhookWebhooksResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveWebhookWebhooksResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -1023,6 +594,20 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 		res.Headers = httpRes.Header
 
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -1037,115 +622,10 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.TestWebhookWebhooksError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.TestWebhookWebhooksResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.TestWebhookWebhooksResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.TestWebhookWebhooksResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.TestWebhookWebhooksResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.TestWebhookWebhooksResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.TestWebhookWebhooksResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -1231,6 +711,22 @@ func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateW
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -1245,130 +741,10 @@ func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateW
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 401:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksResponse404Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.UpdateWebhookWebhooksResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil

@@ -1,6 +1,6 @@
 # PlaceOrderOrdersError
 
-Unauthorized. The caller has not been authenticated.
+Unprocessable Entity. The syntax of request is correct but server can't process it due a semantic error.
 
 
 ## Fields

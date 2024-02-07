@@ -69,18 +69,10 @@ func main() {
 ### Response
 
 **[*operations.CreateMandateResponse](../../pkg/models/operations/createmandateresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.CreateMandateError                    | 400                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesError            | 401                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesResponseError    | 403                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesResponse404Error | 404                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesResponse406Error | 406                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.CreateMandateMandatesResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.CreateMandateError        | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## DeleteMandate
 
@@ -134,16 +126,10 @@ func main() {
 ### Response
 
 **[*operations.DeleteMandateResponse](../../pkg/models/operations/deletemandateresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.DeleteMandateError                    | 401                                             | application/problem+json                        |
-| sdkerrors.DeleteMandateMandatesError            | 403                                             | application/problem+json                        |
-| sdkerrors.DeleteMandateMandatesResponseError    | 404                                             | application/problem+json                        |
-| sdkerrors.DeleteMandateMandatesResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.DeleteMandateMandatesResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.DeleteMandateMandatesResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.DeleteMandateMandatesResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| sdkerrors.DeleteMandateError | 401,403,404,429,500,503,504  | application/problem+json     |
+| sdkerrors.SDKError           | 4xx-5xx                      | */*                          |
 
 ## ListMandates
 
@@ -196,18 +182,10 @@ func main() {
 ### Response
 
 **[*operations.ListMandatesResponse](../../pkg/models/operations/listmandatesresponse.md), error**
-| Error Object                                   | Status Code                                    | Content Type                                   |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| sdkerrors.ListMandatesError                    | 400                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesError            | 401                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesResponseError    | 403                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesResponse404Error | 404                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesResponse406Error | 406                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesResponse429Error | 429                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesResponse500Error | 500                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesResponse503Error | 503                                            | application/problem+json                       |
-| sdkerrors.ListMandatesMandatesResponse504Error | 504                                            | application/problem+json                       |
-| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.ListMandatesError         | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## RetrieveMandate
 
@@ -260,14 +238,7 @@ func main() {
 ### Response
 
 **[*operations.RetrieveMandateResponse](../../pkg/models/operations/retrievemandateresponse.md), error**
-| Error Object                                      | Status Code                                       | Content Type                                      |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| sdkerrors.RetrieveMandateError                    | 401                                               | application/problem+json                          |
-| sdkerrors.RetrieveMandateMandatesError            | 403                                               | application/problem+json                          |
-| sdkerrors.RetrieveMandateMandatesResponseError    | 404                                               | application/problem+json                          |
-| sdkerrors.RetrieveMandateMandatesResponse406Error | 406                                               | application/problem+json                          |
-| sdkerrors.RetrieveMandateMandatesResponse429Error | 429                                               | application/problem+json                          |
-| sdkerrors.RetrieveMandateMandatesResponse500Error | 500                                               | application/problem+json                          |
-| sdkerrors.RetrieveMandateMandatesResponse503Error | 503                                               | application/problem+json                          |
-| sdkerrors.RetrieveMandateMandatesResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.RetrieveMandateError  | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |

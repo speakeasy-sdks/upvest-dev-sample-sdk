@@ -98,6 +98,20 @@ func (s *Orders) CancelOrder(ctx context.Context, request operations.CancelOrder
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -112,115 +126,10 @@ func (s *Orders) CancelOrder(ctx context.Context, request operations.CancelOrder
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CancelOrderOrdersError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CancelOrderOrdersResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CancelOrderOrdersResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CancelOrderOrdersResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CancelOrderOrdersResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CancelOrderOrdersResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.CancelOrderOrdersResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -303,6 +212,22 @@ func (s *Orders) ListAccountOrders(ctx context.Context, request operations.ListA
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -317,130 +242,10 @@ func (s *Orders) ListAccountOrders(ctx context.Context, request operations.ListA
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 401:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersResponse404Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.ListAccountOrdersOrdersResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -523,6 +328,20 @@ func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRe
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -537,7 +356,7 @@ func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRe
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 401:
+	case httpRes.StatusCode == 422:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -552,115 +371,10 @@ func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRe
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.PlaceOrderOrdersResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.PlaceOrderOrdersResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 422:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.PlaceOrderOrdersResponse422Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.PlaceOrderOrdersResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.PlaceOrderOrdersResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.PlaceOrderOrdersResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.PlaceOrderOrdersResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -739,6 +453,20 @@ func (s *Orders) RetrieveOrder(ctx context.Context, request operations.RetrieveO
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -753,115 +481,10 @@ func (s *Orders) RetrieveOrder(ctx context.Context, request operations.RetrieveO
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderOrdersError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderOrdersResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderOrdersResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderOrdersResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderOrdersResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderOrdersResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderOrdersResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil
@@ -940,6 +563,20 @@ func (s *Orders) RetrieveOrderExecution(ctx context.Context, request operations.
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 406:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -954,115 +591,10 @@ func (s *Orders) RetrieveOrderExecution(ctx context.Context, request operations.
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderExecutionOrdersError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderExecutionOrdersResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderExecutionOrdersResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderExecutionOrdersResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderExecutionOrdersResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderExecutionOrdersResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveOrderExecutionOrdersResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil

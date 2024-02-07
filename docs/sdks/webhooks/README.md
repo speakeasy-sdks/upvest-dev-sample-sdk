@@ -73,17 +73,10 @@ func main() {
 ### Response
 
 **[*operations.CreateWebhookResponse](../../pkg/models/operations/createwebhookresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.CreateWebhookError                    | 400                                             | application/problem+json                        |
-| sdkerrors.CreateWebhookWebhooksError            | 401                                             | application/problem+json                        |
-| sdkerrors.CreateWebhookWebhooksResponseError    | 403                                             | application/problem+json                        |
-| sdkerrors.CreateWebhookWebhooksResponse406Error | 406                                             | application/problem+json                        |
-| sdkerrors.CreateWebhookWebhooksResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.CreateWebhookWebhooksResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.CreateWebhookWebhooksResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.CreateWebhookWebhooksResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.CreateWebhookError    | 400,401,403,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## DeleteWebhook
 
@@ -137,16 +130,10 @@ func main() {
 ### Response
 
 **[*operations.DeleteWebhookResponse](../../pkg/models/operations/deletewebhookresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.DeleteWebhookError                    | 401                                             | application/problem+json                        |
-| sdkerrors.DeleteWebhookWebhooksError            | 403                                             | application/problem+json                        |
-| sdkerrors.DeleteWebhookWebhooksResponseError    | 404                                             | application/problem+json                        |
-| sdkerrors.DeleteWebhookWebhooksResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.DeleteWebhookWebhooksResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.DeleteWebhookWebhooksResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.DeleteWebhookWebhooksResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| sdkerrors.DeleteWebhookError | 401,403,404,429,500,503,504  | application/problem+json     |
+| sdkerrors.SDKError           | 4xx-5xx                      | */*                          |
 
 ## GetJwks
 
@@ -198,16 +185,10 @@ func main() {
 ### Response
 
 **[*operations.GetJwksResponse](../../pkg/models/operations/getjwksresponse.md), error**
-| Error Object                              | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| sdkerrors.GetJwksError                    | 401                                       | application/problem+json                  |
-| sdkerrors.GetJwksWebhooksError            | 403                                       | application/problem+json                  |
-| sdkerrors.GetJwksWebhooksResponseError    | 406                                       | application/problem+json                  |
-| sdkerrors.GetJwksWebhooksResponse429Error | 429                                       | application/problem+json                  |
-| sdkerrors.GetJwksWebhooksResponse500Error | 500                                       | application/problem+json                  |
-| sdkerrors.GetJwksWebhooksResponse503Error | 503                                       | application/problem+json                  |
-| sdkerrors.GetJwksWebhooksResponse504Error | 504                                       | application/problem+json                  |
-| sdkerrors.SDKError                        | 4xx-5xx                                   | */*                                       |
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| sdkerrors.GetJwksError      | 401,403,406,429,500,503,504 | application/problem+json    |
+| sdkerrors.SDKError          | 4xx-5xx                     | */*                         |
 
 ## ListWebhooks
 
@@ -259,17 +240,10 @@ func main() {
 ### Response
 
 **[*operations.ListWebhooksResponse](../../pkg/models/operations/listwebhooksresponse.md), error**
-| Error Object                                   | Status Code                                    | Content Type                                   |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| sdkerrors.ListWebhooksError                    | 400                                            | application/problem+json                       |
-| sdkerrors.ListWebhooksWebhooksError            | 401                                            | application/problem+json                       |
-| sdkerrors.ListWebhooksWebhooksResponseError    | 403                                            | application/problem+json                       |
-| sdkerrors.ListWebhooksWebhooksResponse406Error | 406                                            | application/problem+json                       |
-| sdkerrors.ListWebhooksWebhooksResponse429Error | 429                                            | application/problem+json                       |
-| sdkerrors.ListWebhooksWebhooksResponse500Error | 500                                            | application/problem+json                       |
-| sdkerrors.ListWebhooksWebhooksResponse503Error | 503                                            | application/problem+json                       |
-| sdkerrors.ListWebhooksWebhooksResponse504Error | 504                                            | application/problem+json                       |
-| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.ListWebhooksError     | 400,401,403,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## RetrieveWebhook
 
@@ -322,17 +296,10 @@ func main() {
 ### Response
 
 **[*operations.RetrieveWebhookResponse](../../pkg/models/operations/retrievewebhookresponse.md), error**
-| Error Object                                      | Status Code                                       | Content Type                                      |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| sdkerrors.RetrieveWebhookError                    | 401                                               | application/problem+json                          |
-| sdkerrors.RetrieveWebhookWebhooksError            | 403                                               | application/problem+json                          |
-| sdkerrors.RetrieveWebhookWebhooksResponseError    | 404                                               | application/problem+json                          |
-| sdkerrors.RetrieveWebhookWebhooksResponse406Error | 406                                               | application/problem+json                          |
-| sdkerrors.RetrieveWebhookWebhooksResponse429Error | 429                                               | application/problem+json                          |
-| sdkerrors.RetrieveWebhookWebhooksResponse500Error | 500                                               | application/problem+json                          |
-| sdkerrors.RetrieveWebhookWebhooksResponse503Error | 503                                               | application/problem+json                          |
-| sdkerrors.RetrieveWebhookWebhooksResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.RetrieveWebhookError  | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## TestWebhook
 
@@ -386,17 +353,10 @@ func main() {
 ### Response
 
 **[*operations.TestWebhookResponse](../../pkg/models/operations/testwebhookresponse.md), error**
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| sdkerrors.TestWebhookError                    | 401                                           | application/problem+json                      |
-| sdkerrors.TestWebhookWebhooksError            | 403                                           | application/problem+json                      |
-| sdkerrors.TestWebhookWebhooksResponseError    | 404                                           | application/problem+json                      |
-| sdkerrors.TestWebhookWebhooksResponse406Error | 406                                           | application/problem+json                      |
-| sdkerrors.TestWebhookWebhooksResponse429Error | 429                                           | application/problem+json                      |
-| sdkerrors.TestWebhookWebhooksResponse500Error | 500                                           | application/problem+json                      |
-| sdkerrors.TestWebhookWebhooksResponse503Error | 503                                           | application/problem+json                      |
-| sdkerrors.TestWebhookWebhooksResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.TestWebhookError      | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## UpdateWebhook
 
@@ -455,15 +415,7 @@ func main() {
 ### Response
 
 **[*operations.UpdateWebhookResponse](../../pkg/models/operations/updatewebhookresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.UpdateWebhookError                    | 400                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksError            | 401                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksResponseError    | 403                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksResponse404Error | 404                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksResponse406Error | 406                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.UpdateWebhookWebhooksResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.UpdateWebhookError        | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |

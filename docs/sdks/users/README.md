@@ -77,18 +77,10 @@ func main() {
 ### Response
 
 **[*operations.CreateIdentifierResponse](../../pkg/models/operations/createidentifierresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.CreateIdentifierError                 | 400                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersError            | 401                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersResponseError    | 403                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersResponse404Error | 404                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersResponse406Error | 406                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.CreateIdentifierUsersResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.CreateIdentifierError     | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## CreateUser
 
@@ -166,17 +158,10 @@ func main() {
 ### Response
 
 **[*operations.CreateUserResponse](../../pkg/models/operations/createuserresponse.md), error**
-| Error Object                              | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| sdkerrors.CreateUserError                 | 400                                       | application/problem+json                  |
-| sdkerrors.CreateUserUsersError            | 401                                       | application/problem+json                  |
-| sdkerrors.CreateUserUsersResponseError    | 403                                       | application/problem+json                  |
-| sdkerrors.CreateUserUsersResponse406Error | 406                                       | application/problem+json                  |
-| sdkerrors.CreateUserUsersResponse429Error | 429                                       | application/problem+json                  |
-| sdkerrors.CreateUserUsersResponse500Error | 500                                       | application/problem+json                  |
-| sdkerrors.CreateUserUsersResponse503Error | 503                                       | application/problem+json                  |
-| sdkerrors.CreateUserUsersResponse504Error | 504                                       | application/problem+json                  |
-| sdkerrors.SDKError                        | 4xx-5xx                                   | */*                                       |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.CreateUserError       | 400,401,403,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## CreateUserCheck
 
@@ -244,18 +229,10 @@ func main() {
 ### Response
 
 **[*operations.CreateUserCheckResponse](../../pkg/models/operations/createusercheckresponse.md), error**
-| Error Object                                   | Status Code                                    | Content Type                                   |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| sdkerrors.CreateUserCheckError                 | 400                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersError            | 401                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersResponseError    | 403                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersResponse404Error | 404                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersResponse406Error | 406                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersResponse429Error | 429                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersResponse500Error | 500                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersResponse503Error | 503                                            | application/problem+json                       |
-| sdkerrors.CreateUserCheckUsersResponse504Error | 504                                            | application/problem+json                       |
-| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.CreateUserCheckError      | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## ListUserAccountGroups
 
@@ -308,18 +285,10 @@ func main() {
 ### Response
 
 **[*operations.ListUserAccountGroupsResponse](../../pkg/models/operations/listuseraccountgroupsresponse.md), error**
-| Error Object                                         | Status Code                                          | Content Type                                         |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| sdkerrors.ListUserAccountGroupsError                 | 400                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersError            | 401                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersResponseError    | 403                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersResponse404Error | 404                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersResponse406Error | 406                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersResponse429Error | 429                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersResponse500Error | 500                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersResponse503Error | 503                                                  | application/problem+json                             |
-| sdkerrors.ListUserAccountGroupsUsersResponse504Error | 504                                                  | application/problem+json                             |
-| sdkerrors.SDKError                                   | 4xx-5xx                                              | */*                                                  |
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| sdkerrors.ListUserAccountGroupsError | 400,401,403,404,406,429,500,503,504  | application/problem+json             |
+| sdkerrors.SDKError                   | 4xx-5xx                              | */*                                  |
 
 ## ListUserAccounts
 
@@ -372,18 +341,10 @@ func main() {
 ### Response
 
 **[*operations.ListUserAccountsResponse](../../pkg/models/operations/listuseraccountsresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.ListUserAccountsError                 | 400                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersError            | 401                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersResponseError    | 403                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersResponse404Error | 404                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersResponse406Error | 406                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.ListUserAccountsUsersResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.ListUserAccountsError     | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## ListUserChecks
 
@@ -436,17 +397,10 @@ func main() {
 ### Response
 
 **[*operations.ListUserChecksResponse](../../pkg/models/operations/listuserchecksresponse.md), error**
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| sdkerrors.ListUserChecksError                 | 401                                           | application/problem+json                      |
-| sdkerrors.ListUserChecksUsersError            | 403                                           | application/problem+json                      |
-| sdkerrors.ListUserChecksUsersResponseError    | 404                                           | application/problem+json                      |
-| sdkerrors.ListUserChecksUsersResponse406Error | 406                                           | application/problem+json                      |
-| sdkerrors.ListUserChecksUsersResponse429Error | 429                                           | application/problem+json                      |
-| sdkerrors.ListUserChecksUsersResponse500Error | 500                                           | application/problem+json                      |
-| sdkerrors.ListUserChecksUsersResponse503Error | 503                                           | application/problem+json                      |
-| sdkerrors.ListUserChecksUsersResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.ListUserChecksError   | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## ListUserIdentifiers
 
@@ -499,17 +453,10 @@ func main() {
 ### Response
 
 **[*operations.ListUserIdentifiersResponse](../../pkg/models/operations/listuseridentifiersresponse.md), error**
-| Error Object                                       | Status Code                                        | Content Type                                       |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| sdkerrors.ListUserIdentifiersError                 | 401                                                | application/problem+json                           |
-| sdkerrors.ListUserIdentifiersUsersError            | 403                                                | application/problem+json                           |
-| sdkerrors.ListUserIdentifiersUsersResponseError    | 404                                                | application/problem+json                           |
-| sdkerrors.ListUserIdentifiersUsersResponse406Error | 406                                                | application/problem+json                           |
-| sdkerrors.ListUserIdentifiersUsersResponse429Error | 429                                                | application/problem+json                           |
-| sdkerrors.ListUserIdentifiersUsersResponse500Error | 500                                                | application/problem+json                           |
-| sdkerrors.ListUserIdentifiersUsersResponse503Error | 503                                                | application/problem+json                           |
-| sdkerrors.ListUserIdentifiersUsersResponse504Error | 504                                                | application/problem+json                           |
-| sdkerrors.SDKError                                 | 4xx-5xx                                            | */*                                                |
+| Error Object                       | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| sdkerrors.ListUserIdentifiersError | 401,403,404,406,429,500,503,504    | application/problem+json           |
+| sdkerrors.SDKError                 | 4xx-5xx                            | */*                                |
 
 ## ListUsers
 
@@ -561,17 +508,10 @@ func main() {
 ### Response
 
 **[*operations.ListUsersResponse](../../pkg/models/operations/listusersresponse.md), error**
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| sdkerrors.ListUsersError                 | 400                                      | application/problem+json                 |
-| sdkerrors.ListUsersUsersError            | 401                                      | application/problem+json                 |
-| sdkerrors.ListUsersUsersResponseError    | 403                                      | application/problem+json                 |
-| sdkerrors.ListUsersUsersResponse406Error | 406                                      | application/problem+json                 |
-| sdkerrors.ListUsersUsersResponse429Error | 429                                      | application/problem+json                 |
-| sdkerrors.ListUsersUsersResponse500Error | 500                                      | application/problem+json                 |
-| sdkerrors.ListUsersUsersResponse503Error | 503                                      | application/problem+json                 |
-| sdkerrors.ListUsersUsersResponse504Error | 504                                      | application/problem+json                 |
-| sdkerrors.SDKError                       | 4xx-5xx                                  | */*                                      |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.ListUsersError        | 400,401,403,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## OffboardUser
 
@@ -625,17 +565,10 @@ func main() {
 ### Response
 
 **[*operations.OffboardUserResponse](../../pkg/models/operations/offboarduserresponse.md), error**
-| Error Object                                | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| sdkerrors.OffboardUserError                 | 401                                         | application/problem+json                    |
-| sdkerrors.OffboardUserUsersError            | 403                                         | application/problem+json                    |
-| sdkerrors.OffboardUserUsersResponseError    | 404                                         | application/problem+json                    |
-| sdkerrors.OffboardUserUsersResponse406Error | 406                                         | application/problem+json                    |
-| sdkerrors.OffboardUserUsersResponse429Error | 429                                         | application/problem+json                    |
-| sdkerrors.OffboardUserUsersResponse500Error | 500                                         | application/problem+json                    |
-| sdkerrors.OffboardUserUsersResponse503Error | 503                                         | application/problem+json                    |
-| sdkerrors.OffboardUserUsersResponse504Error | 504                                         | application/problem+json                    |
-| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.OffboardUserError     | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## RetrieveIdentifier
 
@@ -689,17 +622,10 @@ func main() {
 ### Response
 
 **[*operations.RetrieveIdentifierResponse](../../pkg/models/operations/retrieveidentifierresponse.md), error**
-| Error Object                                      | Status Code                                       | Content Type                                      |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| sdkerrors.RetrieveIdentifierError                 | 401                                               | application/problem+json                          |
-| sdkerrors.RetrieveIdentifierUsersError            | 403                                               | application/problem+json                          |
-| sdkerrors.RetrieveIdentifierUsersResponseError    | 404                                               | application/problem+json                          |
-| sdkerrors.RetrieveIdentifierUsersResponse406Error | 406                                               | application/problem+json                          |
-| sdkerrors.RetrieveIdentifierUsersResponse429Error | 429                                               | application/problem+json                          |
-| sdkerrors.RetrieveIdentifierUsersResponse500Error | 500                                               | application/problem+json                          |
-| sdkerrors.RetrieveIdentifierUsersResponse503Error | 503                                               | application/problem+json                          |
-| sdkerrors.RetrieveIdentifierUsersResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.RetrieveIdentifierError | 401,403,404,406,429,500,503,504   | application/problem+json          |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |
 
 ## RetrieveUser
 
@@ -752,17 +678,10 @@ func main() {
 ### Response
 
 **[*operations.RetrieveUserResponse](../../pkg/models/operations/retrieveuserresponse.md), error**
-| Error Object                                | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| sdkerrors.RetrieveUserError                 | 401                                         | application/problem+json                    |
-| sdkerrors.RetrieveUserUsersError            | 403                                         | application/problem+json                    |
-| sdkerrors.RetrieveUserUsersResponseError    | 404                                         | application/problem+json                    |
-| sdkerrors.RetrieveUserUsersResponse406Error | 406                                         | application/problem+json                    |
-| sdkerrors.RetrieveUserUsersResponse429Error | 429                                         | application/problem+json                    |
-| sdkerrors.RetrieveUserUsersResponse500Error | 500                                         | application/problem+json                    |
-| sdkerrors.RetrieveUserUsersResponse503Error | 503                                         | application/problem+json                    |
-| sdkerrors.RetrieveUserUsersResponse504Error | 504                                         | application/problem+json                    |
-| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.RetrieveUserError     | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## RetrieveUserCheck
 
@@ -816,17 +735,10 @@ func main() {
 ### Response
 
 **[*operations.RetrieveUserCheckResponse](../../pkg/models/operations/retrieveusercheckresponse.md), error**
-| Error Object                                     | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| sdkerrors.RetrieveUserCheckError                 | 401                                              | application/problem+json                         |
-| sdkerrors.RetrieveUserCheckUsersError            | 403                                              | application/problem+json                         |
-| sdkerrors.RetrieveUserCheckUsersResponseError    | 404                                              | application/problem+json                         |
-| sdkerrors.RetrieveUserCheckUsersResponse406Error | 406                                              | application/problem+json                         |
-| sdkerrors.RetrieveUserCheckUsersResponse429Error | 429                                              | application/problem+json                         |
-| sdkerrors.RetrieveUserCheckUsersResponse500Error | 500                                              | application/problem+json                         |
-| sdkerrors.RetrieveUserCheckUsersResponse503Error | 503                                              | application/problem+json                         |
-| sdkerrors.RetrieveUserCheckUsersResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
+| Error Object                     | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| sdkerrors.RetrieveUserCheckError | 401,403,404,406,429,500,503,504  | application/problem+json         |
+| sdkerrors.SDKError               | 4xx-5xx                          | */*                              |
 
 ## UpdateIdentifier
 
@@ -883,18 +795,10 @@ func main() {
 ### Response
 
 **[*operations.UpdateIdentifierResponse](../../pkg/models/operations/updateidentifierresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.UpdateIdentifierError                 | 400                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersError            | 401                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersResponseError    | 403                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersResponse404Error | 404                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersResponse406Error | 406                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.UpdateIdentifierUsersResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.UpdateIdentifierError     | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## UserDataChange
 
@@ -969,15 +873,7 @@ func main() {
 ### Response
 
 **[*operations.UserDataChangeResponse](../../pkg/models/operations/userdatachangeresponse.md), error**
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| sdkerrors.UserDataChangeError                 | 400                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersError            | 401                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersResponseError    | 403                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersResponse404Error | 404                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersResponse406Error | 406                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersResponse429Error | 429                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersResponse500Error | 500                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersResponse503Error | 503                                           | application/problem+json                      |
-| sdkerrors.UserDataChangeUsersResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.UserDataChangeError       | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |

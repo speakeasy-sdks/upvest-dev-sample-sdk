@@ -1,6 +1,6 @@
 # RetrievePortfoliosConfigurationPortfoliosError
 
-Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+Method Not Allowed. The requested method is not allowed on the requested resource.
 
 
 ## Fields

@@ -61,18 +61,10 @@ func main() {
 ### Response
 
 **[*operations.ListPositionsResponse](../../pkg/models/operations/listpositionsresponse.md), error**
-| Error Object                                     | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| sdkerrors.ListPositionsError                     | 400                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsError            | 401                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsResponseError    | 403                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsResponse404Error | 404                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsResponse406Error | 406                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsResponse429Error | 429                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsResponse500Error | 500                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsResponse503Error | 503                                              | application/problem+json                         |
-| sdkerrors.ListPositionsPositionsResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.ListPositionsError        | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## RetrievePosition
 
@@ -126,14 +118,7 @@ func main() {
 ### Response
 
 **[*operations.RetrievePositionResponse](../../pkg/models/operations/retrievepositionresponse.md), error**
-| Error Object                                        | Status Code                                         | Content Type                                        |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| sdkerrors.RetrievePositionError                     | 401                                                 | application/problem+json                            |
-| sdkerrors.RetrievePositionPositionsError            | 403                                                 | application/problem+json                            |
-| sdkerrors.RetrievePositionPositionsResponseError    | 404                                                 | application/problem+json                            |
-| sdkerrors.RetrievePositionPositionsResponse406Error | 406                                                 | application/problem+json                            |
-| sdkerrors.RetrievePositionPositionsResponse429Error | 429                                                 | application/problem+json                            |
-| sdkerrors.RetrievePositionPositionsResponse500Error | 500                                                 | application/problem+json                            |
-| sdkerrors.RetrievePositionPositionsResponse503Error | 503                                                 | application/problem+json                            |
-| sdkerrors.RetrievePositionPositionsResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.RetrievePositionError | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |

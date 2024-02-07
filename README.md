@@ -251,18 +251,11 @@ d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
-| Error Object                                     | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| sdkerrors.AccountClosureError                    | 401                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsError            | 403                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsResponseError    | 404                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsResponse406Error | 406                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsResponse409Error | 409                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsResponse429Error | 429                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsResponse500Error | 500                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsResponse503Error | 503                                              | application/problem+json                         |
-| sdkerrors.AccountClosureAccountsResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| sdkerrors.AccountClosureError         | 401,403,404,406,429,500,503,504       | application/problem+json              |
+| sdkerrors.AccountClosureAccountsError | 409                                   | application/problem+json              |
+| sdkerrors.SDKError                    | 4xx-5xx                               | */*                                   |
 
 ### Example
 
@@ -301,48 +294,6 @@ func main() {
 		}
 
 		var e *sdkerrors.AccountClosureAccountsError
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.AccountClosureAccountsResponseError
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.AccountClosureAccountsResponse406Error
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.AccountClosureAccountsResponse409Error
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.AccountClosureAccountsResponse429Error
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.AccountClosureAccountsResponse500Error
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.AccountClosureAccountsResponse503Error
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.AccountClosureAccountsResponse504Error
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())

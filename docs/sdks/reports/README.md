@@ -61,18 +61,10 @@ func main() {
 ### Response
 
 **[*operations.ListReportsResponse](../../pkg/models/operations/listreportsresponse.md), error**
-| Error Object                                 | Status Code                                  | Content Type                                 |
-| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
-| sdkerrors.ListReportsError                   | 400                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsError            | 401                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsResponseError    | 403                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsResponse404Error | 404                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsResponse406Error | 406                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsResponse429Error | 429                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsResponse500Error | 500                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsResponse503Error | 503                                          | application/problem+json                     |
-| sdkerrors.ListReportsReportsResponse504Error | 504                                          | application/problem+json                     |
-| sdkerrors.SDKError                           | 4xx-5xx                                      | */*                                          |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.ListReportsError          | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## RetrieveReport
 
@@ -125,14 +117,7 @@ func main() {
 ### Response
 
 **[*operations.RetrieveReportResponse](../../pkg/models/operations/retrievereportresponse.md), error**
-| Error Object                                    | Status Code                                     | Content Type                                    |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| sdkerrors.RetrieveReportError                   | 401                                             | application/problem+json                        |
-| sdkerrors.RetrieveReportReportsError            | 403                                             | application/problem+json                        |
-| sdkerrors.RetrieveReportReportsResponseError    | 404                                             | application/problem+json                        |
-| sdkerrors.RetrieveReportReportsResponse406Error | 406                                             | application/problem+json                        |
-| sdkerrors.RetrieveReportReportsResponse429Error | 429                                             | application/problem+json                        |
-| sdkerrors.RetrieveReportReportsResponse500Error | 500                                             | application/problem+json                        |
-| sdkerrors.RetrieveReportReportsResponse503Error | 503                                             | application/problem+json                        |
-| sdkerrors.RetrieveReportReportsResponse504Error | 504                                             | application/problem+json                        |
-| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.RetrieveReportError   | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |

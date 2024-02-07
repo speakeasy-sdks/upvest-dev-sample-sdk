@@ -61,18 +61,11 @@ func main() {
 ### Response
 
 **[*operations.RetrieveTaxResidenciesResponse](../../pkg/models/operations/retrievetaxresidenciesresponse.md), error**
-| Error Object                                          | Status Code                                           | Content Type                                          |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| sdkerrors.RetrieveTaxResidenciesError                 | 401                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesError            | 403                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesResponseError    | 404                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesResponse405Error | 405                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesResponse406Error | 406                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesResponse429Error | 429                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesResponse500Error | 500                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesResponse503Error | 503                                                   | application/problem+json                              |
-| sdkerrors.RetrieveTaxResidenciesTaxesResponse504Error | 504                                                   | application/problem+json                              |
-| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| sdkerrors.RetrieveTaxResidenciesError      | 401,403,404,406,429,500,503,504            | application/problem+json                   |
+| sdkerrors.RetrieveTaxResidenciesTaxesError | 405                                        | application/problem+json                   |
+| sdkerrors.SDKError                         | 4xx-5xx                                    | */*                                        |
 
 ## SetTaxResidencies
 
@@ -136,15 +129,7 @@ func main() {
 ### Response
 
 **[*operations.SetTaxResidenciesResponse](../../pkg/models/operations/settaxresidenciesresponse.md), error**
-| Error Object                                     | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| sdkerrors.SetTaxResidenciesError                 | 400                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesError            | 401                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesResponseError    | 403                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesResponse404Error | 404                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesResponse406Error | 406                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesResponse429Error | 429                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesResponse500Error | 500                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesResponse503Error | 503                                              | application/problem+json                         |
-| sdkerrors.SetTaxResidenciesTaxesResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.SetTaxResidenciesError    | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |

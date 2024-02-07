@@ -70,18 +70,10 @@ func main() {
 ### Response
 
 **[*operations.CreateReferenceAccountResponse](../../pkg/models/operations/createreferenceaccountresponse.md), error**
-| Error Object                                                      | Status Code                                                       | Content Type                                                      |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| sdkerrors.CreateReferenceAccountError                             | 400                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsError            | 401                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsResponseError    | 403                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsResponse404Error | 404                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsResponse406Error | 406                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsResponse429Error | 429                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsResponse500Error | 500                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsResponse503Error | 503                                                               | application/problem+json                                          |
-| sdkerrors.CreateReferenceAccountReferenceAccountsResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| sdkerrors.CreateReferenceAccountError | 400,401,403,404,406,429,500,503,504   | application/problem+json              |
+| sdkerrors.SDKError                    | 4xx-5xx                               | */*                                   |
 
 ## DeleteReferenceAccount
 
@@ -135,16 +127,10 @@ func main() {
 ### Response
 
 **[*operations.DeleteReferenceAccountResponse](../../pkg/models/operations/deletereferenceaccountresponse.md), error**
-| Error Object                                                      | Status Code                                                       | Content Type                                                      |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| sdkerrors.DeleteReferenceAccountError                             | 401                                                               | application/problem+json                                          |
-| sdkerrors.DeleteReferenceAccountReferenceAccountsError            | 403                                                               | application/problem+json                                          |
-| sdkerrors.DeleteReferenceAccountReferenceAccountsResponseError    | 404                                                               | application/problem+json                                          |
-| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse429Error | 429                                                               | application/problem+json                                          |
-| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse500Error | 500                                                               | application/problem+json                                          |
-| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse503Error | 503                                                               | application/problem+json                                          |
-| sdkerrors.DeleteReferenceAccountReferenceAccountsResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| sdkerrors.DeleteReferenceAccountError | 401,403,404,429,500,503,504           | application/problem+json              |
+| sdkerrors.SDKError                    | 4xx-5xx                               | */*                                   |
 
 ## ListReferenceAccounts
 
@@ -197,18 +183,10 @@ func main() {
 ### Response
 
 **[*operations.ListReferenceAccountsResponse](../../pkg/models/operations/listreferenceaccountsresponse.md), error**
-| Error Object                                                     | Status Code                                                      | Content Type                                                     |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| sdkerrors.ListReferenceAccountsError                             | 400                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsError            | 401                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsResponseError    | 403                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsResponse404Error | 404                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsResponse406Error | 406                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsResponse429Error | 429                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsResponse500Error | 500                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsResponse503Error | 503                                                              | application/problem+json                                         |
-| sdkerrors.ListReferenceAccountsReferenceAccountsResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| sdkerrors.ListReferenceAccountsError | 400,401,403,404,406,429,500,503,504  | application/problem+json             |
+| sdkerrors.SDKError                   | 4xx-5xx                              | */*                                  |
 
 ## RetrieveReferenceAccount
 
@@ -261,14 +239,7 @@ func main() {
 ### Response
 
 **[*operations.RetrieveReferenceAccountResponse](../../pkg/models/operations/retrievereferenceaccountresponse.md), error**
-| Error Object                                                        | Status Code                                                         | Content Type                                                        |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| sdkerrors.RetrieveReferenceAccountError                             | 401                                                                 | application/problem+json                                            |
-| sdkerrors.RetrieveReferenceAccountReferenceAccountsError            | 403                                                                 | application/problem+json                                            |
-| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponseError    | 404                                                                 | application/problem+json                                            |
-| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse406Error | 406                                                                 | application/problem+json                                            |
-| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse429Error | 429                                                                 | application/problem+json                                            |
-| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse500Error | 500                                                                 | application/problem+json                                            |
-| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse503Error | 503                                                                 | application/problem+json                                            |
-| sdkerrors.RetrieveReferenceAccountReferenceAccountsResponse504Error | 504                                                                 | application/problem+json                                            |
-| sdkerrors.SDKError                                                  | 4xx-5xx                                                             | */*                                                                 |
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| sdkerrors.RetrieveReferenceAccountError | 401,403,404,406,429,500,503,504         | application/problem+json                |
+| sdkerrors.SDKError                      | 4xx-5xx                                 | */*                                     |

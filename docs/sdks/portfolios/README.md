@@ -79,17 +79,10 @@ func main() {
 ### Response
 
 **[*operations.CancelPortfoliosOrderResponse](../../pkg/models/operations/cancelportfoliosorderresponse.md), error**
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| sdkerrors.CancelPortfoliosOrderError                      | 401                                                       | application/problem+json                                  |
-| sdkerrors.CancelPortfoliosOrderPortfoliosError            | 403                                                       | application/problem+json                                  |
-| sdkerrors.CancelPortfoliosOrderPortfoliosResponseError    | 404                                                       | application/problem+json                                  |
-| sdkerrors.CancelPortfoliosOrderPortfoliosResponse406Error | 406                                                       | application/problem+json                                  |
-| sdkerrors.CancelPortfoliosOrderPortfoliosResponse429Error | 429                                                       | application/problem+json                                  |
-| sdkerrors.CancelPortfoliosOrderPortfoliosResponse500Error | 500                                                       | application/problem+json                                  |
-| sdkerrors.CancelPortfoliosOrderPortfoliosResponse503Error | 503                                                       | application/problem+json                                  |
-| sdkerrors.CancelPortfoliosOrderPortfoliosResponse504Error | 504                                                       | application/problem+json                                  |
-| sdkerrors.SDKError                                        | 4xx-5xx                                                   | */*                                                       |
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| sdkerrors.CancelPortfoliosOrderError | 401,403,404,406,429,500,503,504      | application/problem+json             |
+| sdkerrors.SDKError                   | 4xx-5xx                              | */*                                  |
 
 ## CreatePortfoliosAllocation
 
@@ -150,18 +143,10 @@ func main() {
 ### Response
 
 **[*operations.CreatePortfoliosAllocationResponse](../../pkg/models/operations/createportfoliosallocationresponse.md), error**
-| Error Object                                                   | Status Code                                                    | Content Type                                                   |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| sdkerrors.CreatePortfoliosAllocationError                      | 400                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosError            | 401                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosResponseError    | 403                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosResponse404Error | 404                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosResponse406Error | 406                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosResponse429Error | 429                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosResponse500Error | 500                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosResponse503Error | 503                                                            | application/problem+json                                       |
-| sdkerrors.CreatePortfoliosAllocationPortfoliosResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| sdkerrors.CreatePortfoliosAllocationError | 400,401,403,404,406,429,500,503,504       | application/problem+json                  |
+| sdkerrors.SDKError                        | 4xx-5xx                                   | */*                                       |
 
 ## CreatePortfoliosConfiguration
 
@@ -221,18 +206,10 @@ func main() {
 ### Response
 
 **[*operations.CreatePortfoliosConfigurationResponse](../../pkg/models/operations/createportfoliosconfigurationresponse.md), error**
-| Error Object                                                      | Status Code                                                       | Content Type                                                      |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| sdkerrors.CreatePortfoliosConfigurationError                      | 400                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosError            | 401                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosResponseError    | 403                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse404Error | 404                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse406Error | 406                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse429Error | 429                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse500Error | 500                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse503Error | 503                                                               | application/problem+json                                          |
-| sdkerrors.CreatePortfoliosConfigurationPortfoliosResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |
+| Error Object                                 | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| sdkerrors.CreatePortfoliosConfigurationError | 400,401,403,404,406,429,500,503,504          | application/problem+json                     |
+| sdkerrors.SDKError                           | 4xx-5xx                                      | */*                                          |
 
 ## CreatePortfoliosOrder
 
@@ -291,18 +268,10 @@ func main() {
 ### Response
 
 **[*operations.CreatePortfoliosOrderResponse](../../pkg/models/operations/createportfoliosorderresponse.md), error**
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| sdkerrors.CreatePortfoliosOrderError                      | 400                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosError            | 401                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosResponseError    | 403                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosResponse404Error | 404                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosResponse406Error | 406                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosResponse429Error | 429                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosResponse500Error | 500                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosResponse503Error | 503                                                       | application/problem+json                                  |
-| sdkerrors.CreatePortfoliosOrderPortfoliosResponse504Error | 504                                                       | application/problem+json                                  |
-| sdkerrors.SDKError                                        | 4xx-5xx                                                   | */*                                                       |
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| sdkerrors.CreatePortfoliosOrderError | 400,401,403,404,406,429,500,503,504  | application/problem+json             |
+| sdkerrors.SDKError                   | 4xx-5xx                              | */*                                  |
 
 ## CreatePortfoliosRebalancingStrategy
 
@@ -367,18 +336,10 @@ func main() {
 ### Response
 
 **[*operations.CreatePortfoliosRebalancingStrategyResponse](../../pkg/models/operations/createportfoliosrebalancingstrategyresponse.md), error**
-| Error Object                                                            | Status Code                                                             | Content Type                                                            |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| sdkerrors.CreatePortfoliosRebalancingStrategyError                      | 400                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosError            | 401                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponseError    | 403                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse404Error | 404                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse406Error | 406                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse429Error | 429                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse500Error | 500                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse503Error | 503                                                                     | application/problem+json                                                |
-| sdkerrors.CreatePortfoliosRebalancingStrategyPortfoliosResponse504Error | 504                                                                     | application/problem+json                                                |
-| sdkerrors.SDKError                                                      | 4xx-5xx                                                                 | */*                                                                     |
+| Error Object                                       | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| sdkerrors.CreatePortfoliosRebalancingStrategyError | 400,401,403,404,406,429,500,503,504                | application/problem+json                           |
+| sdkerrors.SDKError                                 | 4xx-5xx                                            | */*                                                |
 
 ## ListPortfolioRebalancingExecutionOrders
 
@@ -431,19 +392,11 @@ func main() {
 ### Response
 
 **[*operations.ListPortfolioRebalancingExecutionOrdersResponse](../../pkg/models/operations/listportfoliorebalancingexecutionordersresponse.md), error**
-| Error Object                                                                | Status Code                                                                 | Content Type                                                                |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersError                      | 400                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosError            | 401                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponseError    | 403                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse404Error | 404                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse405Error | 405                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse406Error | 406                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse429Error | 429                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse500Error | 500                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse503Error | 503                                                                         | application/problem+json                                                    |
-| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosResponse504Error | 504                                                                         | application/problem+json                                                    |
-| sdkerrors.SDKError                                                          | 4xx-5xx                                                                     | */*                                                                         |
+| Error Object                                                     | Status Code                                                      | Content Type                                                     |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| sdkerrors.ListPortfolioRebalancingExecutionOrdersError           | 400,401,403,404,406,429,500,503,504                              | application/problem+json                                         |
+| sdkerrors.ListPortfolioRebalancingExecutionOrdersPortfoliosError | 405                                                              | application/problem+json                                         |
+| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
 
 ## ListPortfoliosAllocationAccounts
 
@@ -496,19 +449,11 @@ func main() {
 ### Response
 
 **[*operations.ListPortfoliosAllocationAccountsResponse](../../pkg/models/operations/listportfoliosallocationaccountsresponse.md), error**
-| Error Object                                                         | Status Code                                                          | Content Type                                                         |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| sdkerrors.ListPortfoliosAllocationAccountsError                      | 400                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosError            | 401                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponseError    | 403                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse404Error | 404                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse405Error | 405                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse406Error | 406                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse429Error | 429                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse500Error | 500                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse503Error | 503                                                                  | application/problem+json                                             |
-| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosResponse504Error | 504                                                                  | application/problem+json                                             |
-| sdkerrors.SDKError                                                   | 4xx-5xx                                                              | */*                                                                  |
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| sdkerrors.ListPortfoliosAllocationAccountsError           | 400,401,403,404,406,429,500,503,504                       | application/problem+json                                  |
+| sdkerrors.ListPortfoliosAllocationAccountsPortfoliosError | 405                                                       | application/problem+json                                  |
+| sdkerrors.SDKError                                        | 4xx-5xx                                                   | */*                                                       |
 
 ## ListPortfoliosAllocations
 
@@ -560,19 +505,11 @@ func main() {
 ### Response
 
 **[*operations.ListPortfoliosAllocationsResponse](../../pkg/models/operations/listportfoliosallocationsresponse.md), error**
-| Error Object                                                  | Status Code                                                   | Content Type                                                  |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| sdkerrors.ListPortfoliosAllocationsError                      | 400                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosError            | 401                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponseError    | 403                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponse404Error | 404                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponse405Error | 405                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponse406Error | 406                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponse429Error | 429                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponse500Error | 500                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponse503Error | 503                                                           | application/problem+json                                      |
-| sdkerrors.ListPortfoliosAllocationsPortfoliosResponse504Error | 504                                                           | application/problem+json                                      |
-| sdkerrors.SDKError                                            | 4xx-5xx                                                       | */*                                                           |
+| Error Object                                       | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| sdkerrors.ListPortfoliosAllocationsError           | 400,401,403,404,406,429,500,503,504                | application/problem+json                           |
+| sdkerrors.ListPortfoliosAllocationsPortfoliosError | 405                                                | application/problem+json                           |
+| sdkerrors.SDKError                                 | 4xx-5xx                                            | */*                                                |
 
 ## ListPortfoliosConfigurations
 
@@ -624,19 +561,11 @@ func main() {
 ### Response
 
 **[*operations.ListPortfoliosConfigurationsResponse](../../pkg/models/operations/listportfoliosconfigurationsresponse.md), error**
-| Error Object                                                     | Status Code                                                      | Content Type                                                     |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| sdkerrors.ListPortfoliosConfigurationsError                      | 400                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosError            | 401                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponseError    | 403                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse404Error | 404                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse405Error | 405                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse406Error | 406                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse429Error | 429                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse500Error | 500                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse503Error | 503                                                              | application/problem+json                                         |
-| sdkerrors.ListPortfoliosConfigurationsPortfoliosResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| sdkerrors.ListPortfoliosConfigurationsError           | 400,401,403,404,406,429,500,503,504                   | application/problem+json                              |
+| sdkerrors.ListPortfoliosConfigurationsPortfoliosError | 405                                                   | application/problem+json                              |
+| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
 
 ## ListPortfoliosOrders
 
@@ -688,19 +617,11 @@ func main() {
 ### Response
 
 **[*operations.ListPortfoliosOrdersResponse](../../pkg/models/operations/listportfoliosordersresponse.md), error**
-| Error Object                                             | Status Code                                              | Content Type                                             |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| sdkerrors.ListPortfoliosOrdersError                      | 400                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosError            | 401                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponseError    | 403                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponse404Error | 404                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponse405Error | 405                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponse406Error | 406                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponse429Error | 429                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponse500Error | 500                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponse503Error | 503                                                      | application/problem+json                                 |
-| sdkerrors.ListPortfoliosOrdersPortfoliosResponse504Error | 504                                                      | application/problem+json                                 |
-| sdkerrors.SDKError                                       | 4xx-5xx                                                  | */*                                                      |
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| sdkerrors.ListPortfoliosOrdersError           | 400,401,403,404,406,429,500,503,504           | application/problem+json                      |
+| sdkerrors.ListPortfoliosOrdersPortfoliosError | 405                                           | application/problem+json                      |
+| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
 
 ## ListPortfoliosRebalancingStrategies
 
@@ -752,19 +673,11 @@ func main() {
 ### Response
 
 **[*operations.ListPortfoliosRebalancingStrategiesResponse](../../pkg/models/operations/listportfoliosrebalancingstrategiesresponse.md), error**
-| Error Object                                                            | Status Code                                                             | Content Type                                                            |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| sdkerrors.ListPortfoliosRebalancingStrategiesError                      | 400                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosError            | 401                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponseError    | 403                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse404Error | 404                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse405Error | 405                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse406Error | 406                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse429Error | 429                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse500Error | 500                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse503Error | 503                                                                     | application/problem+json                                                |
-| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosResponse504Error | 504                                                                     | application/problem+json                                                |
-| sdkerrors.SDKError                                                      | 4xx-5xx                                                                 | */*                                                                     |
+| Error Object                                                 | Status Code                                                  | Content Type                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| sdkerrors.ListPortfoliosRebalancingStrategiesError           | 400,401,403,404,406,429,500,503,504                          | application/problem+json                                     |
+| sdkerrors.ListPortfoliosRebalancingStrategiesPortfoliosError | 405                                                          | application/problem+json                                     |
+| sdkerrors.SDKError                                           | 4xx-5xx                                                      | */*                                                          |
 
 ## RetrievePortfoliosAllocation
 
@@ -817,17 +730,10 @@ func main() {
 ### Response
 
 **[*operations.RetrievePortfoliosAllocationResponse](../../pkg/models/operations/retrieveportfoliosallocationresponse.md), error**
-| Error Object                                                     | Status Code                                                      | Content Type                                                     |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| sdkerrors.RetrievePortfoliosAllocationError                      | 401                                                              | application/problem+json                                         |
-| sdkerrors.RetrievePortfoliosAllocationPortfoliosError            | 403                                                              | application/problem+json                                         |
-| sdkerrors.RetrievePortfoliosAllocationPortfoliosResponseError    | 404                                                              | application/problem+json                                         |
-| sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse406Error | 406                                                              | application/problem+json                                         |
-| sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse429Error | 429                                                              | application/problem+json                                         |
-| sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse500Error | 500                                                              | application/problem+json                                         |
-| sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse503Error | 503                                                              | application/problem+json                                         |
-| sdkerrors.RetrievePortfoliosAllocationPortfoliosResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
+| Error Object                                | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| sdkerrors.RetrievePortfoliosAllocationError | 401,403,404,406,429,500,503,504             | application/problem+json                    |
+| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
 
 ## RetrievePortfoliosConfiguration
 
@@ -880,18 +786,11 @@ func main() {
 ### Response
 
 **[*operations.RetrievePortfoliosConfigurationResponse](../../pkg/models/operations/retrieveportfoliosconfigurationresponse.md), error**
-| Error Object                                                        | Status Code                                                         | Content Type                                                        |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| sdkerrors.RetrievePortfoliosConfigurationError                      | 401                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosError            | 403                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponseError    | 404                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse405Error | 405                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse406Error | 406                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse429Error | 429                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse500Error | 500                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse503Error | 503                                                                 | application/problem+json                                            |
-| sdkerrors.RetrievePortfoliosConfigurationPortfoliosResponse504Error | 504                                                                 | application/problem+json                                            |
-| sdkerrors.SDKError                                                  | 4xx-5xx                                                             | */*                                                                 |
+| Error Object                                             | Status Code                                              | Content Type                                             |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| sdkerrors.RetrievePortfoliosConfigurationError           | 401,403,404,406,429,500,503,504                          | application/problem+json                                 |
+| sdkerrors.RetrievePortfoliosConfigurationPortfoliosError | 405                                                      | application/problem+json                                 |
+| sdkerrors.SDKError                                       | 4xx-5xx                                                  | */*                                                      |
 
 ## RetrievePortfoliosOrder
 
@@ -944,17 +843,10 @@ func main() {
 ### Response
 
 **[*operations.RetrievePortfoliosOrderResponse](../../pkg/models/operations/retrieveportfoliosorderresponse.md), error**
-| Error Object                                                | Status Code                                                 | Content Type                                                |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| sdkerrors.RetrievePortfoliosOrderError                      | 401                                                         | application/problem+json                                    |
-| sdkerrors.RetrievePortfoliosOrderPortfoliosError            | 403                                                         | application/problem+json                                    |
-| sdkerrors.RetrievePortfoliosOrderPortfoliosResponseError    | 404                                                         | application/problem+json                                    |
-| sdkerrors.RetrievePortfoliosOrderPortfoliosResponse406Error | 406                                                         | application/problem+json                                    |
-| sdkerrors.RetrievePortfoliosOrderPortfoliosResponse429Error | 429                                                         | application/problem+json                                    |
-| sdkerrors.RetrievePortfoliosOrderPortfoliosResponse500Error | 500                                                         | application/problem+json                                    |
-| sdkerrors.RetrievePortfoliosOrderPortfoliosResponse503Error | 503                                                         | application/problem+json                                    |
-| sdkerrors.RetrievePortfoliosOrderPortfoliosResponse504Error | 504                                                         | application/problem+json                                    |
-| sdkerrors.SDKError                                          | 4xx-5xx                                                     | */*                                                         |
+| Error Object                           | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| sdkerrors.RetrievePortfoliosOrderError | 401,403,404,406,429,500,503,504        | application/problem+json               |
+| sdkerrors.SDKError                     | 4xx-5xx                                | */*                                    |
 
 ## RetrievePortfoliosRebalancingExecution
 
@@ -1007,18 +899,11 @@ func main() {
 ### Response
 
 **[*operations.RetrievePortfoliosRebalancingExecutionResponse](../../pkg/models/operations/retrieveportfoliosrebalancingexecutionresponse.md), error**
-| Error Object                                                               | Status Code                                                                | Content Type                                                               |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionError                      | 401                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosError            | 403                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponseError    | 404                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse405Error | 405                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse406Error | 406                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse429Error | 429                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse500Error | 500                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse503Error | 503                                                                        | application/problem+json                                                   |
-| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosResponse504Error | 504                                                                        | application/problem+json                                                   |
-| sdkerrors.SDKError                                                         | 4xx-5xx                                                                    | */*                                                                        |
+| Error Object                                                    | Status Code                                                     | Content Type                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| sdkerrors.RetrievePortfoliosRebalancingExecutionError           | 401,403,404,406,429,500,503,504                                 | application/problem+json                                        |
+| sdkerrors.RetrievePortfoliosRebalancingExecutionPortfoliosError | 405                                                             | application/problem+json                                        |
+| sdkerrors.SDKError                                              | 4xx-5xx                                                         | */*                                                             |
 
 ## RetrievePortfoliosRebalancingStrategy
 
@@ -1071,18 +956,11 @@ func main() {
 ### Response
 
 **[*operations.RetrievePortfoliosRebalancingStrategyResponse](../../pkg/models/operations/retrieveportfoliosrebalancingstrategyresponse.md), error**
-| Error Object                                                              | Status Code                                                               | Content Type                                                              |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyError                      | 401                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosError            | 403                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponseError    | 404                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse405Error | 405                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse406Error | 406                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse429Error | 429                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse500Error | 500                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse503Error | 503                                                                       | application/problem+json                                                  |
-| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosResponse504Error | 504                                                                       | application/problem+json                                                  |
-| sdkerrors.SDKError                                                        | 4xx-5xx                                                                   | */*                                                                       |
+| Error Object                                                   | Status Code                                                    | Content Type                                                   |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| sdkerrors.RetrievePortfoliosRebalancingStrategyError           | 401,403,404,406,429,500,503,504                                | application/problem+json                                       |
+| sdkerrors.RetrievePortfoliosRebalancingStrategyPortfoliosError | 405                                                            | application/problem+json                                       |
+| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
 
 ## TriggerPortfolioRebalancing
 
@@ -1142,18 +1020,10 @@ func main() {
 ### Response
 
 **[*operations.TriggerPortfolioRebalancingResponse](../../pkg/models/operations/triggerportfoliorebalancingresponse.md), error**
-| Error Object                                                    | Status Code                                                     | Content Type                                                    |
-| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| sdkerrors.TriggerPortfolioRebalancingError                      | 400                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosError            | 401                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosResponseError    | 403                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse404Error | 404                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse406Error | 406                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse429Error | 429                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse500Error | 500                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse503Error | 503                                                             | application/problem+json                                        |
-| sdkerrors.TriggerPortfolioRebalancingPortfoliosResponse504Error | 504                                                             | application/problem+json                                        |
-| sdkerrors.SDKError                                              | 4xx-5xx                                                         | */*                                                             |
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| sdkerrors.TriggerPortfolioRebalancingError | 400,401,403,404,406,429,500,503,504        | application/problem+json                   |
+| sdkerrors.SDKError                         | 4xx-5xx                                    | */*                                        |
 
 ## UpdatePortfoliosAllocation
 
@@ -1214,18 +1084,10 @@ func main() {
 ### Response
 
 **[*operations.UpdatePortfoliosAllocationResponse](../../pkg/models/operations/updateportfoliosallocationresponse.md), error**
-| Error Object                                                   | Status Code                                                    | Content Type                                                   |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| sdkerrors.UpdatePortfoliosAllocationError                      | 400                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosError            | 401                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosResponseError    | 403                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse404Error | 404                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse406Error | 406                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse429Error | 429                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse500Error | 500                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse503Error | 503                                                            | application/problem+json                                       |
-| sdkerrors.UpdatePortfoliosAllocationPortfoliosResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| sdkerrors.UpdatePortfoliosAllocationError | 400,401,403,404,406,429,500,503,504       | application/problem+json                  |
+| sdkerrors.SDKError                        | 4xx-5xx                                   | */*                                       |
 
 ## UpdatePortfoliosConfiguration
 
@@ -1284,15 +1146,7 @@ func main() {
 ### Response
 
 **[*operations.UpdatePortfoliosConfigurationResponse](../../pkg/models/operations/updateportfoliosconfigurationresponse.md), error**
-| Error Object                                                      | Status Code                                                       | Content Type                                                      |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| sdkerrors.UpdatePortfoliosConfigurationError                      | 400                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosError            | 401                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponseError    | 403                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse404Error | 404                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse406Error | 406                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse429Error | 429                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse500Error | 500                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse503Error | 503                                                               | application/problem+json                                          |
-| sdkerrors.UpdatePortfoliosConfigurationPortfoliosResponse504Error | 504                                                               | application/problem+json                                          |
-| sdkerrors.SDKError                                                | 4xx-5xx                                                           | */*                                                               |
+| Error Object                                 | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| sdkerrors.UpdatePortfoliosConfigurationError | 400,401,403,404,406,429,500,503,504          | application/problem+json                     |
+| sdkerrors.SDKError                           | 4xx-5xx                                      | */*                                          |

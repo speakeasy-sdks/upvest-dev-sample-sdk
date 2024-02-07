@@ -97,6 +97,18 @@ func (s *CashBalances) RetrieveCashBalance(ctx context.Context, request operatio
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode == 500:
+		fallthrough
+	case httpRes.StatusCode == 503:
+		fallthrough
+	case httpRes.StatusCode == 504:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -111,7 +123,7 @@ func (s *CashBalances) RetrieveCashBalance(ctx context.Context, request operatio
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
+	case httpRes.StatusCode == 406:
 		res.Headers = httpRes.Header
 
 		switch {
@@ -126,100 +138,10 @@ func (s *CashBalances) RetrieveCashBalance(ctx context.Context, request operatio
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 404:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveCashBalanceCashBalancesResponseError
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 406:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveCashBalanceCashBalancesResponse406Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 429:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveCashBalanceCashBalancesResponse429Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		fallthrough
 	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
 		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode == 500:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveCashBalanceCashBalancesResponse500Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveCashBalanceCashBalancesResponse503Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 504:
-		res.Headers = httpRes.Header
-
-		switch {
-		case utils.MatchContentType(contentType, `application/problem+json`):
-			var out sdkerrors.RetrieveCashBalanceCashBalancesResponse504Error
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-			out.RawResponse = httpRes
-
-			return nil, &out
-		default:
-			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	}
 
 	return res, nil

@@ -60,16 +60,8 @@ func main() {
 ### Response
 
 **[*operations.ListAccountReturnsResponse](../../pkg/models/operations/listaccountreturnsresponse.md), error**
-| Error Object                                        | Status Code                                         | Content Type                                        |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| sdkerrors.ListAccountReturnsError                   | 400                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsError            | 401                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponseError    | 403                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponse404Error | 404                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponse405Error | 405                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponse406Error | 406                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponse429Error | 429                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponse500Error | 500                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponse503Error | 503                                                 | application/problem+json                            |
-| sdkerrors.ListAccountReturnsReturnsResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| sdkerrors.ListAccountReturnsError        | 400,401,403,404,406,429,500,503,504      | application/problem+json                 |
+| sdkerrors.ListAccountReturnsReturnsError | 405                                      | application/problem+json                 |
+| sdkerrors.SDKError                       | 4xx-5xx                                  | */*                                      |

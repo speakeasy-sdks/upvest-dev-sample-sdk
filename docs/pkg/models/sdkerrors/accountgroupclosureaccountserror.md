@@ -1,6 +1,6 @@
 # AccountGroupClosureAccountsError
 
-Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+Conflict. An operation is not available for the current state of the resource.
 
 
 ## Fields

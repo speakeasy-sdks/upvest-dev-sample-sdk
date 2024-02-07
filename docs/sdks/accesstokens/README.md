@@ -66,14 +66,7 @@ func main() {
 ### Response
 
 **[*operations.IssueTokenResponse](../../pkg/models/operations/issuetokenresponse.md), error**
-| Error Object                                     | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| sdkerrors.IssueTokenError                        | 400                                              | application/problem+json                         |
-| sdkerrors.IssueTokenAccessTokensError            | 401                                              | application/problem+json                         |
-| sdkerrors.IssueTokenAccessTokensResponseError    | 403                                              | application/problem+json                         |
-| sdkerrors.IssueTokenAccessTokensResponse406Error | 406                                              | application/problem+json                         |
-| sdkerrors.IssueTokenAccessTokensResponse429Error | 429                                              | application/problem+json                         |
-| sdkerrors.IssueTokenAccessTokensResponse500Error | 500                                              | application/problem+json                         |
-| sdkerrors.IssueTokenAccessTokensResponse503Error | 503                                              | application/problem+json                         |
-| sdkerrors.IssueTokenAccessTokensResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.IssueTokenError       | 400,401,403,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |

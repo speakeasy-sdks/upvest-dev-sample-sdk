@@ -70,18 +70,10 @@ func main() {
 ### Response
 
 **[*operations.CreateFeeCollectionResponse](../../pkg/models/operations/createfeecollectionresponse.md), error**
-| Error Object                                      | Status Code                                       | Content Type                                      |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| sdkerrors.CreateFeeCollectionError                | 400                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesError            | 401                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesResponseError    | 403                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesResponse404Error | 404                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesResponse406Error | 406                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesResponse429Error | 429                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesResponse500Error | 500                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesResponse503Error | 503                                               | application/problem+json                          |
-| sdkerrors.CreateFeeCollectionFeesResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.CreateFeeCollectionError  | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## ListFeeCollections
 
@@ -135,17 +127,10 @@ func main() {
 ### Response
 
 **[*operations.ListFeeCollectionsResponse](../../pkg/models/operations/listfeecollectionsresponse.md), error**
-| Error Object                                     | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| sdkerrors.ListFeeCollectionsError                | 400                                              | application/problem+json                         |
-| sdkerrors.ListFeeCollectionsFeesError            | 401                                              | application/problem+json                         |
-| sdkerrors.ListFeeCollectionsFeesResponseError    | 403                                              | application/problem+json                         |
-| sdkerrors.ListFeeCollectionsFeesResponse406Error | 406                                              | application/problem+json                         |
-| sdkerrors.ListFeeCollectionsFeesResponse429Error | 429                                              | application/problem+json                         |
-| sdkerrors.ListFeeCollectionsFeesResponse500Error | 500                                              | application/problem+json                         |
-| sdkerrors.ListFeeCollectionsFeesResponse503Error | 503                                              | application/problem+json                         |
-| sdkerrors.ListFeeCollectionsFeesResponse504Error | 504                                              | application/problem+json                         |
-| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.ListFeeCollectionsError | 400,401,403,406,429,500,503,504   | application/problem+json          |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |
 
 ## RetrieveFeeCollection
 
@@ -198,14 +183,7 @@ func main() {
 ### Response
 
 **[*operations.RetrieveFeeCollectionResponse](../../pkg/models/operations/retrievefeecollectionresponse.md), error**
-| Error Object                                        | Status Code                                         | Content Type                                        |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| sdkerrors.RetrieveFeeCollectionError                | 401                                                 | application/problem+json                            |
-| sdkerrors.RetrieveFeeCollectionFeesError            | 403                                                 | application/problem+json                            |
-| sdkerrors.RetrieveFeeCollectionFeesResponseError    | 404                                                 | application/problem+json                            |
-| sdkerrors.RetrieveFeeCollectionFeesResponse406Error | 406                                                 | application/problem+json                            |
-| sdkerrors.RetrieveFeeCollectionFeesResponse429Error | 429                                                 | application/problem+json                            |
-| sdkerrors.RetrieveFeeCollectionFeesResponse500Error | 500                                                 | application/problem+json                            |
-| sdkerrors.RetrieveFeeCollectionFeesResponse503Error | 503                                                 | application/problem+json                            |
-| sdkerrors.RetrieveFeeCollectionFeesResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| sdkerrors.RetrieveFeeCollectionError | 401,403,404,406,429,500,503,504      | application/problem+json             |
+| sdkerrors.SDKError                   | 4xx-5xx                              | */*                                  |

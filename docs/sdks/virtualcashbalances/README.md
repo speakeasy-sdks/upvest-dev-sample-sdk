@@ -63,17 +63,11 @@ func main() {
 ### Response
 
 **[*operations.CancelVirtualCashDecreaseResponse](../../pkg/models/operations/cancelvirtualcashdecreaseresponse.md), error**
-| Error Object                                                           | Status Code                                                            | Content Type                                                           |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| sdkerrors.CancelVirtualCashDecreaseError                               | 401                                                                    | application/problem+json                                               |
-| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesError            | 403                                                                    | application/problem+json                                               |
-| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponseError    | 404                                                                    | application/problem+json                                               |
-| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse422Error | 422                                                                    | application/problem+json                                               |
-| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse429Error | 429                                                                    | application/problem+json                                               |
-| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse500Error | 500                                                                    | application/problem+json                                               |
-| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse503Error | 503                                                                    | application/problem+json                                               |
-| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesResponse504Error | 504                                                                    | application/problem+json                                               |
-| sdkerrors.SDKError                                                     | 4xx-5xx                                                                | */*                                                                    |
+| Error Object                                                | Status Code                                                 | Content Type                                                |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| sdkerrors.CancelVirtualCashDecreaseError                    | 401,403,404,429,500,503,504                                 | application/problem+json                                    |
+| sdkerrors.CancelVirtualCashDecreaseVirtualCashBalancesError | 422                                                         | application/problem+json                                    |
+| sdkerrors.SDKError                                          | 4xx-5xx                                                     | */*                                                         |
 
 ## CreateVirtualCashDecrease
 
@@ -130,18 +124,10 @@ func main() {
 ### Response
 
 **[*operations.CreateVirtualCashDecreaseResponse](../../pkg/models/operations/createvirtualcashdecreaseresponse.md), error**
-| Error Object                                                           | Status Code                                                            | Content Type                                                           |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| sdkerrors.CreateVirtualCashDecreaseError                               | 400                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesError            | 401                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponseError    | 403                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse404Error | 404                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse406Error | 406                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse429Error | 429                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse500Error | 500                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse503Error | 503                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashDecreaseVirtualCashBalancesResponse504Error | 504                                                                    | application/problem+json                                               |
-| sdkerrors.SDKError                                                     | 4xx-5xx                                                                | */*                                                                    |
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| sdkerrors.CreateVirtualCashDecreaseError | 400,401,403,404,406,429,500,503,504      | application/problem+json                 |
+| sdkerrors.SDKError                       | 4xx-5xx                                  | */*                                      |
 
 ## CreateVirtualCashIncrease
 
@@ -198,15 +184,7 @@ func main() {
 ### Response
 
 **[*operations.CreateVirtualCashIncreaseResponse](../../pkg/models/operations/createvirtualcashincreaseresponse.md), error**
-| Error Object                                                           | Status Code                                                            | Content Type                                                           |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| sdkerrors.CreateVirtualCashIncreaseError                               | 400                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesError            | 401                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponseError    | 403                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse404Error | 404                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse406Error | 406                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse429Error | 429                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse500Error | 500                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse503Error | 503                                                                    | application/problem+json                                               |
-| sdkerrors.CreateVirtualCashIncreaseVirtualCashBalancesResponse504Error | 504                                                                    | application/problem+json                                               |
-| sdkerrors.SDKError                                                     | 4xx-5xx                                                                | */*                                                                    |
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| sdkerrors.CreateVirtualCashIncreaseError | 400,401,403,404,406,429,500,503,504      | application/problem+json                 |
+| sdkerrors.SDKError                       | 4xx-5xx                                  | */*                                      |

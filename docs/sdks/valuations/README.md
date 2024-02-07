@@ -62,18 +62,10 @@ func main() {
 ### Response
 
 **[*operations.GetAccountValuationResponse](../../pkg/models/operations/getaccountvaluationresponse.md), error**
-| Error Object                                            | Status Code                                             | Content Type                                            |
-| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| sdkerrors.GetAccountValuationError                      | 400                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsError            | 401                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsResponseError    | 403                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsResponse404Error | 404                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsResponse406Error | 406                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsResponse429Error | 429                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsResponse500Error | 500                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsResponse503Error | 503                                                     | application/problem+json                                |
-| sdkerrors.GetAccountValuationValuationsResponse504Error | 504                                                     | application/problem+json                                |
-| sdkerrors.SDKError                                      | 4xx-5xx                                                 | */*                                                     |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.GetAccountValuationError  | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## ListAccountValuationHistory
 
@@ -126,16 +118,8 @@ func main() {
 ### Response
 
 **[*operations.ListAccountValuationHistoryResponse](../../pkg/models/operations/listaccountvaluationhistoryresponse.md), error**
-| Error Object                                                    | Status Code                                                     | Content Type                                                    |
-| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| sdkerrors.ListAccountValuationHistoryError                      | 400                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsError            | 401                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponseError    | 403                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponse404Error | 404                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponse405Error | 405                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponse406Error | 406                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponse429Error | 429                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponse500Error | 500                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponse503Error | 503                                                             | application/problem+json                                        |
-| sdkerrors.ListAccountValuationHistoryValuationsResponse504Error | 504                                                             | application/problem+json                                        |
-| sdkerrors.SDKError                                              | 4xx-5xx                                                         | */*                                                             |
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| sdkerrors.ListAccountValuationHistoryError           | 400,401,403,404,406,429,500,503,504                  | application/problem+json                             |
+| sdkerrors.ListAccountValuationHistoryValuationsError | 405                                                  | application/problem+json                             |
+| sdkerrors.SDKError                                   | 4xx-5xx                                              | */*                                                  |

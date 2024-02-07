@@ -64,17 +64,10 @@ func main() {
 ### Response
 
 **[*operations.CancelOrderResponse](../../pkg/models/operations/cancelorderresponse.md), error**
-| Error Object                                | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| sdkerrors.CancelOrderError                  | 401                                         | application/problem+json                    |
-| sdkerrors.CancelOrderOrdersError            | 403                                         | application/problem+json                    |
-| sdkerrors.CancelOrderOrdersResponseError    | 404                                         | application/problem+json                    |
-| sdkerrors.CancelOrderOrdersResponse406Error | 406                                         | application/problem+json                    |
-| sdkerrors.CancelOrderOrdersResponse429Error | 429                                         | application/problem+json                    |
-| sdkerrors.CancelOrderOrdersResponse500Error | 500                                         | application/problem+json                    |
-| sdkerrors.CancelOrderOrdersResponse503Error | 503                                         | application/problem+json                    |
-| sdkerrors.CancelOrderOrdersResponse504Error | 504                                         | application/problem+json                    |
-| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.CancelOrderError      | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## ListAccountOrders
 
@@ -127,18 +120,10 @@ func main() {
 ### Response
 
 **[*operations.ListAccountOrdersResponse](../../pkg/models/operations/listaccountordersresponse.md), error**
-| Error Object                                      | Status Code                                       | Content Type                                      |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| sdkerrors.ListAccountOrdersError                  | 400                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersError            | 401                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersResponseError    | 403                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersResponse404Error | 404                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersResponse406Error | 406                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersResponse429Error | 429                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersResponse500Error | 500                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersResponse503Error | 503                                               | application/problem+json                          |
-| sdkerrors.ListAccountOrdersOrdersResponse504Error | 504                                               | application/problem+json                          |
-| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.ListAccountOrdersError    | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## PlaceOrder
 
@@ -197,18 +182,11 @@ func main() {
 ### Response
 
 **[*operations.PlaceOrderResponse](../../pkg/models/operations/placeorderresponse.md), error**
-| Error Object                               | Status Code                                | Content Type                               |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| sdkerrors.PlaceOrderError                  | 400                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersError            | 401                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersResponseError    | 403                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersResponse406Error | 406                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersResponse422Error | 422                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersResponse429Error | 429                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersResponse500Error | 500                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersResponse503Error | 503                                        | application/problem+json                   |
-| sdkerrors.PlaceOrderOrdersResponse504Error | 504                                        | application/problem+json                   |
-| sdkerrors.SDKError                         | 4xx-5xx                                    | */*                                        |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.PlaceOrderError       | 400,401,403,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.PlaceOrderOrdersError | 422                             | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## RetrieveOrder
 
@@ -261,17 +239,10 @@ func main() {
 ### Response
 
 **[*operations.RetrieveOrderResponse](../../pkg/models/operations/retrieveorderresponse.md), error**
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| sdkerrors.RetrieveOrderError                  | 401                                           | application/problem+json                      |
-| sdkerrors.RetrieveOrderOrdersError            | 403                                           | application/problem+json                      |
-| sdkerrors.RetrieveOrderOrdersResponseError    | 404                                           | application/problem+json                      |
-| sdkerrors.RetrieveOrderOrdersResponse406Error | 406                                           | application/problem+json                      |
-| sdkerrors.RetrieveOrderOrdersResponse429Error | 429                                           | application/problem+json                      |
-| sdkerrors.RetrieveOrderOrdersResponse500Error | 500                                           | application/problem+json                      |
-| sdkerrors.RetrieveOrderOrdersResponse503Error | 503                                           | application/problem+json                      |
-| sdkerrors.RetrieveOrderOrdersResponse504Error | 504                                           | application/problem+json                      |
-| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| sdkerrors.RetrieveOrderError    | 401,403,404,406,429,500,503,504 | application/problem+json        |
+| sdkerrors.SDKError              | 4xx-5xx                         | */*                             |
 
 ## RetrieveOrderExecution
 
@@ -325,14 +296,7 @@ func main() {
 ### Response
 
 **[*operations.RetrieveOrderExecutionResponse](../../pkg/models/operations/retrieveorderexecutionresponse.md), error**
-| Error Object                                           | Status Code                                            | Content Type                                           |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| sdkerrors.RetrieveOrderExecutionError                  | 401                                                    | application/problem+json                               |
-| sdkerrors.RetrieveOrderExecutionOrdersError            | 403                                                    | application/problem+json                               |
-| sdkerrors.RetrieveOrderExecutionOrdersResponseError    | 404                                                    | application/problem+json                               |
-| sdkerrors.RetrieveOrderExecutionOrdersResponse406Error | 406                                                    | application/problem+json                               |
-| sdkerrors.RetrieveOrderExecutionOrdersResponse429Error | 429                                                    | application/problem+json                               |
-| sdkerrors.RetrieveOrderExecutionOrdersResponse500Error | 500                                                    | application/problem+json                               |
-| sdkerrors.RetrieveOrderExecutionOrdersResponse503Error | 503                                                    | application/problem+json                               |
-| sdkerrors.RetrieveOrderExecutionOrdersResponse504Error | 504                                                    | application/problem+json                               |
-| sdkerrors.SDKError                                     | 4xx-5xx                                                | */*                                                    |
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| sdkerrors.RetrieveOrderExecutionError | 401,403,404,406,429,500,503,504       | application/problem+json              |
+| sdkerrors.SDKError                    | 4xx-5xx                               | */*                                   |

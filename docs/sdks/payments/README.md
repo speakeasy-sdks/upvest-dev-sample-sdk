@@ -67,17 +67,11 @@ func main() {
 ### Response
 
 **[*operations.CancelCashWithdrawalResponse](../../pkg/models/operations/cancelcashwithdrawalresponse.md), error**
-| Error Object                                           | Status Code                                            | Content Type                                           |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| sdkerrors.CancelCashWithdrawalError                    | 401                                                    | application/problem+json                               |
-| sdkerrors.CancelCashWithdrawalPaymentsError            | 403                                                    | application/problem+json                               |
-| sdkerrors.CancelCashWithdrawalPaymentsResponseError    | 404                                                    | application/problem+json                               |
-| sdkerrors.CancelCashWithdrawalPaymentsResponse422Error | 422                                                    | application/problem+json                               |
-| sdkerrors.CancelCashWithdrawalPaymentsResponse429Error | 429                                                    | application/problem+json                               |
-| sdkerrors.CancelCashWithdrawalPaymentsResponse500Error | 500                                                    | application/problem+json                               |
-| sdkerrors.CancelCashWithdrawalPaymentsResponse503Error | 503                                                    | application/problem+json                               |
-| sdkerrors.CancelCashWithdrawalPaymentsResponse504Error | 504                                                    | application/problem+json                               |
-| sdkerrors.SDKError                                     | 4xx-5xx                                                | */*                                                    |
+| Error Object                                | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| sdkerrors.CancelCashWithdrawalError         | 401,403,404,429,500,503,504                 | application/problem+json                    |
+| sdkerrors.CancelCashWithdrawalPaymentsError | 422                                         | application/problem+json                    |
+| sdkerrors.SDKError                          | 4xx-5xx                                     | */*                                         |
 
 ## CreateCashWithdrawal
 
@@ -136,18 +130,10 @@ func main() {
 ### Response
 
 **[*operations.CreateCashWithdrawalResponse](../../pkg/models/operations/createcashwithdrawalresponse.md), error**
-| Error Object                                           | Status Code                                            | Content Type                                           |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| sdkerrors.CreateCashWithdrawalError                    | 400                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsError            | 401                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsResponseError    | 403                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsResponse404Error | 404                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsResponse406Error | 406                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsResponse429Error | 429                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsResponse500Error | 500                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsResponse503Error | 503                                                    | application/problem+json                               |
-| sdkerrors.CreateCashWithdrawalPaymentsResponse504Error | 504                                                    | application/problem+json                               |
-| sdkerrors.SDKError                                     | 4xx-5xx                                                | */*                                                    |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.CreateCashWithdrawalError | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## CreateDirectDebit
 
@@ -206,18 +192,10 @@ func main() {
 ### Response
 
 **[*operations.CreateDirectDebitResponse](../../pkg/models/operations/createdirectdebitresponse.md), error**
-| Error Object                                        | Status Code                                         | Content Type                                        |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| sdkerrors.CreateDirectDebitError                    | 400                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsError            | 401                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsResponseError    | 403                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsResponse404Error | 404                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsResponse406Error | 406                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsResponse429Error | 429                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsResponse500Error | 500                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsResponse503Error | 503                                                 | application/problem+json                            |
-| sdkerrors.CreateDirectDebitPaymentsResponse504Error | 504                                                 | application/problem+json                            |
-| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.CreateDirectDebitError    | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## ListCashWithdrawals
 
@@ -270,18 +248,10 @@ func main() {
 ### Response
 
 **[*operations.ListCashWithdrawalsResponse](../../pkg/models/operations/listcashwithdrawalsresponse.md), error**
-| Error Object                                          | Status Code                                           | Content Type                                          |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| sdkerrors.ListCashWithdrawalsError                    | 400                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsError            | 401                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsResponseError    | 403                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsResponse404Error | 404                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsResponse406Error | 406                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsResponse429Error | 429                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsResponse500Error | 500                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsResponse503Error | 503                                                   | application/problem+json                              |
-| sdkerrors.ListCashWithdrawalsPaymentsResponse504Error | 504                                                   | application/problem+json                              |
-| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.ListCashWithdrawalsError  | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## ListDirectDebits
 
@@ -334,18 +304,10 @@ func main() {
 ### Response
 
 **[*operations.ListDirectDebitsResponse](../../pkg/models/operations/listdirectdebitsresponse.md), error**
-| Error Object                                       | Status Code                                        | Content Type                                       |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| sdkerrors.ListDirectDebitsError                    | 400                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsError            | 401                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsResponseError    | 403                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsResponse404Error | 404                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsResponse406Error | 406                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsResponse429Error | 429                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsResponse500Error | 500                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsResponse503Error | 503                                                | application/problem+json                           |
-| sdkerrors.ListDirectDebitsPaymentsResponse504Error | 504                                                | application/problem+json                           |
-| sdkerrors.SDKError                                 | 4xx-5xx                                            | */*                                                |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| sdkerrors.ListDirectDebitsError     | 400,401,403,404,406,429,500,503,504 | application/problem+json            |
+| sdkerrors.SDKError                  | 4xx-5xx                             | */*                                 |
 
 ## RetrieveCashWithdrawal
 
@@ -398,17 +360,10 @@ func main() {
 ### Response
 
 **[*operations.RetrieveCashWithdrawalResponse](../../pkg/models/operations/retrievecashwithdrawalresponse.md), error**
-| Error Object                                             | Status Code                                              | Content Type                                             |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| sdkerrors.RetrieveCashWithdrawalError                    | 401                                                      | application/problem+json                                 |
-| sdkerrors.RetrieveCashWithdrawalPaymentsError            | 403                                                      | application/problem+json                                 |
-| sdkerrors.RetrieveCashWithdrawalPaymentsResponseError    | 404                                                      | application/problem+json                                 |
-| sdkerrors.RetrieveCashWithdrawalPaymentsResponse406Error | 406                                                      | application/problem+json                                 |
-| sdkerrors.RetrieveCashWithdrawalPaymentsResponse429Error | 429                                                      | application/problem+json                                 |
-| sdkerrors.RetrieveCashWithdrawalPaymentsResponse500Error | 500                                                      | application/problem+json                                 |
-| sdkerrors.RetrieveCashWithdrawalPaymentsResponse503Error | 503                                                      | application/problem+json                                 |
-| sdkerrors.RetrieveCashWithdrawalPaymentsResponse504Error | 504                                                      | application/problem+json                                 |
-| sdkerrors.SDKError                                       | 4xx-5xx                                                  | */*                                                      |
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| sdkerrors.RetrieveCashWithdrawalError | 401,403,404,406,429,500,503,504       | application/problem+json              |
+| sdkerrors.SDKError                    | 4xx-5xx                               | */*                                   |
 
 ## RetrieveDirectDebit
 
@@ -461,14 +416,7 @@ func main() {
 ### Response
 
 **[*operations.RetrieveDirectDebitResponse](../../pkg/models/operations/retrievedirectdebitresponse.md), error**
-| Error Object                                          | Status Code                                           | Content Type                                          |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| sdkerrors.RetrieveDirectDebitError                    | 401                                                   | application/problem+json                              |
-| sdkerrors.RetrieveDirectDebitPaymentsError            | 403                                                   | application/problem+json                              |
-| sdkerrors.RetrieveDirectDebitPaymentsResponseError    | 404                                                   | application/problem+json                              |
-| sdkerrors.RetrieveDirectDebitPaymentsResponse406Error | 406                                                   | application/problem+json                              |
-| sdkerrors.RetrieveDirectDebitPaymentsResponse429Error | 429                                                   | application/problem+json                              |
-| sdkerrors.RetrieveDirectDebitPaymentsResponse500Error | 500                                                   | application/problem+json                              |
-| sdkerrors.RetrieveDirectDebitPaymentsResponse503Error | 503                                                   | application/problem+json                              |
-| sdkerrors.RetrieveDirectDebitPaymentsResponse504Error | 504                                                   | application/problem+json                              |
-| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
+| Error Object                       | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| sdkerrors.RetrieveDirectDebitError | 401,403,404,406,429,500,503,504    | application/problem+json           |
+| sdkerrors.SDKError                 | 4xx-5xx                            | */*                                |

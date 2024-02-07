@@ -65,17 +65,10 @@ func main() {
 ### Response
 
 **[*operations.CancelAccountLiquidationResponse](../../pkg/models/operations/cancelaccountliquidationresponse.md), error**
-| Error Object                                                   | Status Code                                                    | Content Type                                                   |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| sdkerrors.CancelAccountLiquidationError                        | 401                                                            | application/problem+json                                       |
-| sdkerrors.CancelAccountLiquidationLiquidationsError            | 403                                                            | application/problem+json                                       |
-| sdkerrors.CancelAccountLiquidationLiquidationsResponseError    | 404                                                            | application/problem+json                                       |
-| sdkerrors.CancelAccountLiquidationLiquidationsResponse406Error | 406                                                            | application/problem+json                                       |
-| sdkerrors.CancelAccountLiquidationLiquidationsResponse429Error | 429                                                            | application/problem+json                                       |
-| sdkerrors.CancelAccountLiquidationLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
-| sdkerrors.CancelAccountLiquidationLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
-| sdkerrors.CancelAccountLiquidationLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| sdkerrors.CancelAccountLiquidationError | 401,403,404,406,429,500,503,504         | application/problem+json                |
+| sdkerrors.SDKError                      | 4xx-5xx                                 | */*                                     |
 
 ## CreateAccountLiquidation
 
@@ -132,18 +125,10 @@ func main() {
 ### Response
 
 **[*operations.CreateAccountLiquidationResponse](../../pkg/models/operations/createaccountliquidationresponse.md), error**
-| Error Object                                                   | Status Code                                                    | Content Type                                                   |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| sdkerrors.CreateAccountLiquidationError                        | 400                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsError            | 401                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsResponseError    | 403                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsResponse404Error | 404                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsResponse406Error | 406                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsResponse429Error | 429                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
-| sdkerrors.CreateAccountLiquidationLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| sdkerrors.CreateAccountLiquidationError | 400,401,403,404,406,429,500,503,504     | application/problem+json                |
+| sdkerrors.SDKError                      | 4xx-5xx                                 | */*                                     |
 
 ## ListAccountsLiquidations
 
@@ -196,19 +181,11 @@ func main() {
 ### Response
 
 **[*operations.ListAccountsLiquidationsResponse](../../pkg/models/operations/listaccountsliquidationsresponse.md), error**
-| Error Object                                                   | Status Code                                                    | Content Type                                                   |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| sdkerrors.ListAccountsLiquidationsError                        | 400                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsError            | 401                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponseError    | 403                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponse404Error | 404                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponse405Error | 405                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponse406Error | 406                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponse429Error | 429                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponse500Error | 500                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponse503Error | 503                                                            | application/problem+json                                       |
-| sdkerrors.ListAccountsLiquidationsLiquidationsResponse504Error | 504                                                            | application/problem+json                                       |
-| sdkerrors.SDKError                                             | 4xx-5xx                                                        | */*                                                            |
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| sdkerrors.ListAccountsLiquidationsError             | 400,401,403,404,406,429,500,503,504                 | application/problem+json                            |
+| sdkerrors.ListAccountsLiquidationsLiquidationsError | 405                                                 | application/problem+json                            |
+| sdkerrors.SDKError                                  | 4xx-5xx                                             | */*                                                 |
 
 ## RetrieveAccountLiquidation
 
@@ -262,14 +239,7 @@ func main() {
 ### Response
 
 **[*operations.RetrieveAccountLiquidationResponse](../../pkg/models/operations/retrieveaccountliquidationresponse.md), error**
-| Error Object                                                     | Status Code                                                      | Content Type                                                     |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| sdkerrors.RetrieveAccountLiquidationError                        | 401                                                              | application/problem+json                                         |
-| sdkerrors.RetrieveAccountLiquidationLiquidationsError            | 403                                                              | application/problem+json                                         |
-| sdkerrors.RetrieveAccountLiquidationLiquidationsResponseError    | 404                                                              | application/problem+json                                         |
-| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse406Error | 406                                                              | application/problem+json                                         |
-| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse429Error | 429                                                              | application/problem+json                                         |
-| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse500Error | 500                                                              | application/problem+json                                         |
-| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse503Error | 503                                                              | application/problem+json                                         |
-| sdkerrors.RetrieveAccountLiquidationLiquidationsResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| sdkerrors.RetrieveAccountLiquidationError | 401,403,404,406,429,500,503,504           | application/problem+json                  |
+| sdkerrors.SDKError                        | 4xx-5xx                                   | */*                                       |

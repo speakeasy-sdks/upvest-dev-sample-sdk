@@ -1,6 +1,6 @@
 # CancelVirtualCashDecreaseVirtualCashBalancesError
 
-Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+Unprocessable Entity. The syntax of request is correct but server can't process it due a semantic error.
 
 
 ## Fields

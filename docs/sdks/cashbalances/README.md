@@ -60,14 +60,8 @@ func main() {
 ### Response
 
 **[*operations.RetrieveCashBalanceResponse](../../pkg/models/operations/retrievecashbalanceresponse.md), error**
-| Error Object                                              | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| sdkerrors.RetrieveCashBalanceError                        | 401                                                       | application/problem+json                                  |
-| sdkerrors.RetrieveCashBalanceCashBalancesError            | 403                                                       | application/problem+json                                  |
-| sdkerrors.RetrieveCashBalanceCashBalancesResponseError    | 404                                                       | application/problem+json                                  |
-| sdkerrors.RetrieveCashBalanceCashBalancesResponse406Error | 406                                                       | application/problem+json                                  |
-| sdkerrors.RetrieveCashBalanceCashBalancesResponse429Error | 429                                                       | application/problem+json                                  |
-| sdkerrors.RetrieveCashBalanceCashBalancesResponse500Error | 500                                                       | application/problem+json                                  |
-| sdkerrors.RetrieveCashBalanceCashBalancesResponse503Error | 503                                                       | application/problem+json                                  |
-| sdkerrors.RetrieveCashBalanceCashBalancesResponse504Error | 504                                                       | application/problem+json                                  |
-| sdkerrors.SDKError                                        | 4xx-5xx                                                   | */*                                                       |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| sdkerrors.RetrieveCashBalanceError             | 401,403,404,429,500,503,504                    | application/problem+json                       |
+| sdkerrors.RetrieveCashBalanceCashBalancesError | 406                                            | application/problem+json                       |
+| sdkerrors.SDKError                             | 4xx-5xx                                        | */*                                            |

@@ -1,6 +1,6 @@
 # RetrieveCashBalanceCashBalancesError
 
-Forbidden. The caller has been authenticated but is not allowed to take the requested action.
+Not Found. The requested resource could not be found.
 
 
 ## Fields

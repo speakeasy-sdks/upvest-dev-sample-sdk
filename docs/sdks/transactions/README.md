@@ -63,19 +63,11 @@ func main() {
 ### Response
 
 **[*operations.ListCashTransactionsResponse](../../pkg/models/operations/listcashtransactionsresponse.md), error**
-| Error Object                                               | Status Code                                                | Content Type                                               |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| sdkerrors.ListCashTransactionsError                        | 400                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsError            | 401                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponseError    | 403                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponse404Error | 404                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponse405Error | 405                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponse406Error | 406                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponse429Error | 429                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponse500Error | 500                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponse503Error | 503                                                        | application/problem+json                                   |
-| sdkerrors.ListCashTransactionsTransactionsResponse504Error | 504                                                        | application/problem+json                                   |
-| sdkerrors.SDKError                                         | 4xx-5xx                                                    | */*                                                        |
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| sdkerrors.ListCashTransactionsError             | 400,401,403,404,406,429,500,503,504             | application/problem+json                        |
+| sdkerrors.ListCashTransactionsTransactionsError | 405                                             | application/problem+json                        |
+| sdkerrors.SDKError                              | 4xx-5xx                                         | */*                                             |
 
 ## ListSecuritiesTransactions
 
@@ -129,16 +121,8 @@ func main() {
 ### Response
 
 **[*operations.ListSecuritiesTransactionsResponse](../../pkg/models/operations/listsecuritiestransactionsresponse.md), error**
-| Error Object                                                     | Status Code                                                      | Content Type                                                     |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| sdkerrors.ListSecuritiesTransactionsError                        | 400                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsError            | 401                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponseError    | 403                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponse404Error | 404                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponse405Error | 405                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponse406Error | 406                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponse429Error | 429                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponse500Error | 500                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponse503Error | 503                                                              | application/problem+json                                         |
-| sdkerrors.ListSecuritiesTransactionsTransactionsResponse504Error | 504                                                              | application/problem+json                                         |
-| sdkerrors.SDKError                                               | 4xx-5xx                                                          | */*                                                              |
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| sdkerrors.ListSecuritiesTransactionsError             | 400,401,403,404,406,429,500,503,504                   | application/problem+json                              |
+| sdkerrors.ListSecuritiesTransactionsTransactionsError | 405                                                   | application/problem+json                              |
+| sdkerrors.SDKError                                    | 4xx-5xx                                               | */*                                                   |
