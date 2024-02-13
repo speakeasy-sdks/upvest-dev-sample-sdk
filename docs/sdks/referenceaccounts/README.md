@@ -25,7 +25,6 @@ import(
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"context"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/types"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
@@ -37,12 +36,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.CreateReferenceAccount(ctx, operations.CreateReferenceAccountRequest{
-        RequestBody: &operations.CreateReferenceAccountReferenceAccountCreateRequest{
-            AccountOwner: "string",
-            Bic: "string",
-            ConfirmedAt: types.MustTimeFromString("2022-10-21T16:19:20.498Z"),
-            Iban: "CH82077325Y83934M284R",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",

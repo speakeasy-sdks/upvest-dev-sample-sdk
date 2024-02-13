@@ -39,14 +39,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.CreateWebhook(ctx, operations.CreateWebhookRequest{
-        RequestBody: &operations.CreateWebhookWebhookCreateRequest{
-            Config: &operations.Config{},
-            Title: "string",
-            Type: []operations.CreateWebhookType{
-                operations.CreateWebhookTypeUser,
-            },
-            URL: "https://pointless-banner.org",
-        },
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
@@ -382,17 +374,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.UpdateWebhook(ctx, operations.UpdateWebhookRequest{
-        RequestBody: &operations.UpdateWebhookWebhookUpdateRequest{
-            Config: &operations.UpdateWebhookConfig{},
-            Type: []operations.UpdateWebhookType{
-                operations.UpdateWebhookTypeIntradayAccountValuation,
-            },
-        },
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        WebhookID: "f1f2b873-8bbd-4246-95a9-1c147ec420b7",
+        WebhookID: "bf1f2b87-38bb-4d24-a55a-91c147ec420b",
     })
     if err != nil {
         log.Fatal(err)

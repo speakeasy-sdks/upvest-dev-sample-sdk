@@ -25,7 +25,6 @@ import(
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"context"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/types"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
@@ -37,11 +36,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Mandates.CreateMandate(ctx, operations.CreateMandateRequest{
-        RequestBody: &operations.CreateMandateMandateCreateRequest{
-            Bic: "string",
-            ConfirmedAt: types.MustTimeFromString("2024-09-15T10:35:44.570Z"),
-            Iban: "GT09333126I454209K17J3608U37",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",

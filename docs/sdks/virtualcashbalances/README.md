@@ -93,10 +93,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.VirtualCashBalances.CreateVirtualCashDecrease(ctx, operations.CreateVirtualCashDecreaseRequest{
-        RequestBody: &operations.CreateVirtualCashDecreaseVirtualCashBalanceVirtualCashDecreaseCreateRequest{
-            AccountGroupID: "2e6f782f-c6dc-4f9d-91c1-313da4f8ef04",
-            Amount: "436.77",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -153,10 +149,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.VirtualCashBalances.CreateVirtualCashIncrease(ctx, operations.CreateVirtualCashIncreaseRequest{
-        RequestBody: &operations.CreateVirtualCashIncreaseVirtualCashBalanceVirtualCashIncreaseCreateRequest{
-            AccountGroupID: "ecd9a7c7-c554-4819-87b7-feb3aef3e971",
-            Amount: "856.18",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",

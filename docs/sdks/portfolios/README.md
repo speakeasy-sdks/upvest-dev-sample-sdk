@@ -108,14 +108,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosAllocation(ctx, operations.CreatePortfoliosAllocationRequest{
-        RequestBody: &operations.CreatePortfoliosAllocationPortfoliosAllocationCreateRequest{
-            Allocation: []operations.Allocation{
-                operations.Allocation{
-                    InstrumentID: "string",
-                    Weight: "string",
-                },
-            },
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -172,13 +164,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosConfiguration(ctx, operations.CreatePortfoliosConfigurationRequest{
-        RequestBody: &operations.CreatePortfoliosConfigurationPortfoliosConfigurationCreateRequest{
-            AccountID: "b71530a0-f18c-4c45-b08c-4985b08dec50",
-            AllocationID: "ef099f22-e4c3-48b2-a7ad-03c136e81b79",
-            RebalancingStrategyIds: []string{
-                "529a411e-a19e-4841-bc64-1d029019161f",
-            },
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -235,12 +220,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosOrder(ctx, operations.CreatePortfoliosOrderRequest{
-        RequestBody: &operations.CreatePortfoliosOrderPortfoliosOrderPlaceRequest{
-            AccountID: "09386917-edc7-47c9-8e4c-97774c688b9c",
-            CashAmount: "string",
-            Side: operations.CreatePortfoliosOrderSideBuy,
-            UserID: "72dd2124-1a6c-40cd-8d75-ad07e0d9c0bc",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -297,18 +276,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosRebalancingStrategy(ctx, operations.CreatePortfoliosRebalancingStrategyRequest{
-        RequestBody: &operations.CreatePortfoliosRebalancingStrategyPortfoliosRebalancingStrategyRequest{
-            Conditions: []operations.Conditions{
-                operations.Conditions{
-                    AdditionalProperties: map[string]interface{}{
-                        "key": "string",
-                    },
-                    Name: "string",
-                    Type: operations.CreatePortfoliosRebalancingStrategyTypeScheduled,
-                },
-            },
-            Name: "string",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -986,13 +953,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.TriggerPortfolioRebalancing(ctx, operations.TriggerPortfolioRebalancingRequest{
-        RequestBody: operations.CreateTriggerPortfolioRebalancingTriggerPortfolioRebalancingRequestAccounts(
-                operations.Accounts{
-                    Accounts: []string{
-                        "04eef0b9-9d66-414b-85ad-3037ab127a63",
-                    },
-                },
-        ),
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -1049,14 +1009,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.UpdatePortfoliosAllocation(ctx, operations.UpdatePortfoliosAllocationRequest{
-        RequestBody: &operations.UpdatePortfoliosAllocationPortfoliosAllocationUpdateRequest{
-            Allocation: []operations.UpdatePortfoliosAllocationAllocation{
-                operations.UpdatePortfoliosAllocationAllocation{
-                    InstrumentID: "string",
-                    Weight: "string",
-                },
-            },
-        },
         AllocationID: "c7ddcc6d-56bb-41c2-a344-b57fb4000627",
         Signature: "string",
         SignatureInput: "string",
@@ -1113,12 +1065,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.UpdatePortfoliosConfiguration(ctx, operations.UpdatePortfoliosConfigurationRequest{
-        RequestBody: &operations.UpdatePortfoliosConfigurationPortfoliosConfigurationUpdateRequest{
-            RebalancingStrategyIds: []string{
-                "be034715-bf00-452a-b6f6-ba5a9dfa7ad7",
-            },
-        },
-        AccountID: "4243e3c9-f31f-4939-b731-77f5e67f038c",
+        AccountID: "be034715-bf00-452a-b6f6-ba5a9dfa7ad7",
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",

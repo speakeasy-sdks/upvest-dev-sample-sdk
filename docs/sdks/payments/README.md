@@ -97,12 +97,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.CreateCashWithdrawal(ctx, operations.CreateCashWithdrawalRequest{
-        RequestBody: &operations.CreateCashWithdrawalPaymentsWithdrawalCreateRequest{
-            AccountGroupID: "f243f592-9a68-4da1-9557-1ab0437bf62f",
-            Amount: "12.46",
-            ReferenceAccountID: "c49a0e62-4ea0-479d-9020-324bce22f352",
-            UserID: "c470db78-0f32-4502-9944-477d265e5fa2",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -159,12 +153,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.CreateDirectDebit(ctx, operations.CreateDirectDebitRequest{
-        RequestBody: &operations.CreateDirectDebitPaymentsDirectDebitCreateRequest{
-            AccountGroupID: "2c3ba409-0daa-4766-9bd5-09bb9ce0d60c",
-            CashAmount: "string",
-            MandateID: "07d0c6e1-a209-484b-8ddb-8be22446448d",
-            UserID: "8d796d7f-3a66-4517-b9b7-f72202891b8f",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",

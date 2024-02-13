@@ -94,10 +94,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Liquidations.CreateAccountLiquidation(ctx, operations.CreateAccountLiquidationRequest{
-        RequestBody: &operations.CreateAccountLiquidationAccountLiquidationRequest{
-            UserID: "b90ecfdb-b70d-41ab-a334-98a3dd3e0dc0",
-        },
-        AccountID: "99bc53ab-4f38-4564-a664-63304471a03f",
+        AccountID: "b90ecfdb-b70d-41ab-a334-98a3dd3e0dc0",
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",

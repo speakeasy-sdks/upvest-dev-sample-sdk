@@ -157,11 +157,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
-        RequestBody: &operations.CreateAccountRequestBody{
-            AccountGroupID: "e9562292-f304-4c6a-8db0-ea541f32fba9",
-            Type: operations.TypeTrading,
-            UserID: "d04cd2d5-ae02-4bb1-9118-75a95a0f2373",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -218,10 +213,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Accounts.CreateAccountGroup(ctx, operations.CreateAccountGroupRequest{
-        RequestBody: &operations.CreateAccountGroupAccountGroupCreateRequest{
-            Type: operations.CreateAccountGroupTypeLegalEntity,
-            UserID: "9172e12f-f215-477c-9ccc-f257f38b8e8a",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -500,7 +491,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Accounts.UpdateAccount(ctx, operations.UpdateAccountRequest{
-        RequestBody: &operations.UpdateAccountAccountUpdateRequest{},
         AccountID: "9adf3964-ab4d-47a0-bf84-a54e6f410e38",
         Signature: "string",
         SignatureInput: "string",

@@ -35,11 +35,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.AccessTokens.IssueToken(ctx, operations.IssueTokenRequest{
-        RequestBody: &operations.IssueTokenRequestAuthRequestAccessToken{
-            ClientID: "66f33cc6-ccf4-4562-8f8d-7c9213d11eda",
-            ClientSecret: "string",
-            Scope: "string",
-        },
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),

@@ -91,22 +91,12 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Taxes.SetTaxResidencies(ctx, operations.SetTaxResidenciesRequest{
-        RequestBody: &operations.SetTaxResidenciesTaxResidenciesSetRequest{
-            TaxResidencies: []operations.TaxResidencyForCreateRequest{
-                operations.CreateTaxResidencyForCreateRequestWithTaxIdentifierNumber(
-                    operations.WithTaxIdentifierNumber{
-                        Country: "Portugal",
-                        TaxIdentifierNumber: "string",
-                    },
-                ),
-            },
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "bfa5f73a-6779-45aa-9cc3-8a53af8e1995",
+        UserID: "2bbfa5f7-3a67-4795-aa9c-c38a53af8e19",
     })
     if err != nil {
         log.Fatal(err)

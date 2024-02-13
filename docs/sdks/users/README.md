@@ -46,10 +46,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.CreateIdentifier(ctx, operations.CreateIdentifierRequest{
-        RequestBody: &operations.CreateIdentifierIdentifierCreateRequest{
-            Identifier: "string",
-            IssuingCountry: "string",
-        },
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
@@ -96,7 +92,6 @@ import(
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/types"
 	"log"
 )
 
@@ -107,30 +102,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.CreateUser(ctx, operations.CreateUserRequest{
-        RequestBody: operations.CreateCreateUserUserCreateRequestUserBYOLCreateRequest(
-                operations.UserBYOLCreateRequest{
-                    Address: operations.CreateUserAddress{
-                        AddressLine1: "string",
-                        City: "Bettiechester",
-                        Country: "Saint Vincent and the Grenadines",
-                        Postcode: "45093-7750",
-                    },
-                    BirthDate: types.MustDateFromString("2024-11-27"),
-                    FirstName: "Betty",
-                    LastName: "Wuckert",
-                    Nationalities: []string{
-                        "string",
-                    },
-                    PostalAddress: operations.CreatePostalAddressAddress(
-                            operations.Address{
-                                AddressLine1: "string",
-                                City: "Zackeryfurt",
-                                Country: "Mozambique",
-                                Postcode: "71396-6780",
-                            },
-                    ),
-                },
-        ),
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
@@ -176,7 +147,6 @@ import(
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
 	"context"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/types"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
@@ -188,25 +158,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.CreateUserCheck(ctx, operations.CreateUserCheckRequest{
-        RequestBody: operations.CreateCreateUserCheckUserCheckCreateRequestUserCheckProofOfResidencyCreateRequest(
-                operations.UserCheckProofOfResidencyCreateRequest{
-                    CheckConfirmedAt: types.MustTimeFromString("2024-02-25T07:17:21.063Z"),
-                    ConfirmedAddress: operations.CreateUserCheckUsersAddress{
-                        AddressLine1: "string",
-                        City: "New Sheahaven",
-                        Country: "Virgin Islands, British",
-                        Postcode: "78236-1673",
-                    },
-                    DataDownloadLink: "http://overcooked-job.org",
-                    DocumentType: operations.CreateUserCheckDocumentTypeTelephoneBill,
-                    IssuanceDate: types.MustDateFromString("2024-01-17"),
-                },
-        ),
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "98c63118-bd2e-45df-ae3c-05476d362f77",
+        UserID: "9b09edfa-be45-4a19-8409-7f3a98c63118",
     })
     if err != nil {
         log.Fatal(err)
@@ -764,9 +720,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.UpdateIdentifier(ctx, operations.UpdateIdentifierRequest{
-        RequestBody: &operations.UpdateIdentifierIdentifierUpdateRequest{
-            Identifier: "string",
-        },
         IdentifierID: "f9ef9c4d-678e-40e8-9c2b-f312e052d47d",
         Signature: "string",
         SignatureInput: "string",
@@ -825,32 +778,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.UserDataChange(ctx, operations.UserDataChangeRequest{
-        RequestBody: operations.CreateUserDataChangeUserDataChangeRequestUserBYOLDataChangeRequest(
-                operations.UserBYOLDataChangeRequest{
-                    Address: &operations.UserDataChangeUsersAddress{
-                        AddressLine1: "string",
-                        City: "Schinnerfurt",
-                        Country: "Syrian Arab Republic",
-                        Postcode: "46592-2751",
-                    },
-                    Nationalities: []string{
-                        "string",
-                    },
-                    PostalAddress: operations.CreateUserDataChangePostalAddressUserDataChangeAddress(
-                            operations.UserDataChangeAddress{
-                                AddressLine1: "string",
-                                City: "Fort Johathan",
-                                Country: "Wallis and Futuna",
-                                Postcode: "04090",
-                            },
-                    ),
-                },
-        ),
         Signature: "string",
         SignatureInput: "string",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-        UserID: "6d84a24c-2d1c-4b75-ac2d-e28b7e8f8d39",
+        UserID: "1ac9db79-8f33-4b82-8e8f-6170e16d84a2",
     })
     if err != nil {
         log.Fatal(err)

@@ -149,12 +149,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Orders.PlaceOrder(ctx, operations.PlaceOrderRequest{
-        RequestBody: &operations.PlaceOrderOrderPlaceRequest{
-            AccountID: "b95bd99c-2bac-4393-b09f-a0cc26cb9bc2",
-            InstrumentID: "string",
-            Side: operations.SideBuy,
-            UserID: "69a1c9be-906c-4213-b0cb-fa43f8d73fd7",
-        },
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
         Signature: "string",
         SignatureInput: "string",
