@@ -43,8 +43,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
         AccountID: "87f46f4c-298e-4960-b531-5043c3be9e8d",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -101,8 +101,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.AccountGroupClosure(ctx, operations.AccountGroupClosureRequest{
         AccountGroupID: "b19f4004-9a18-414a-bb76-73957c03485e",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -158,8 +158,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -214,8 +214,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.CreateAccountGroup(ctx, operations.CreateAccountGroupRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -269,8 +269,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Accounts.ListAccountGroups(ctx, operations.ListAccountGroupsRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -324,8 +324,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Accounts.ListAccounts(ctx, operations.ListAccountsRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -380,8 +380,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.RetrieveAccount(ctx, operations.RetrieveAccountRequest{
         AccountID: "4e13c906-e457-4f4f-a3a8-bf3db1cfc77e",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -436,8 +436,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.RetrieveAccountGroup(ctx, operations.RetrieveAccountGroupRequest{
         AccountGroupID: "e5a4d5a1-aa6d-4a78-8b31-db3645b07f04",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -492,8 +492,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Accounts.UpdateAccount(ctx, operations.UpdateAccountRequest{
         AccountID: "9adf3964-ab4d-47a0-bf84-a54e6f410e38",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

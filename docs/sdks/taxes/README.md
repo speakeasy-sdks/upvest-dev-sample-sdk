@@ -34,8 +34,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Taxes.RetrieveTaxResidencies(ctx, operations.RetrieveTaxResidenciesRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "75c9448a-b642-4df1-885c-88acb31d183e",
@@ -92,8 +92,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Taxes.SetTaxResidencies(ctx, operations.SetTaxResidenciesRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "2bbfa5f7-3a67-4795-aa9c-c38a53af8e19",

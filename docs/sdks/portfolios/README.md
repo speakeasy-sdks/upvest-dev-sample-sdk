@@ -53,8 +53,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CancelPortfoliosOrder(ctx, operations.CancelPortfoliosOrderRequest{
         PortfolioOrderID: "42863460-c076-471d-9b66-566e4a20d8de",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -109,8 +109,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosAllocation(ctx, operations.CreatePortfoliosAllocationRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -165,8 +165,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosConfiguration(ctx, operations.CreatePortfoliosConfigurationRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -221,8 +221,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosOrder(ctx, operations.CreatePortfoliosOrderRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -277,8 +277,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.CreatePortfoliosRebalancingStrategy(ctx, operations.CreatePortfoliosRebalancingStrategyRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -333,8 +333,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfolioRebalancingExecutionOrders(ctx, operations.ListPortfolioRebalancingExecutionOrdersRequest{
         ExecutionID: "faccb01b-05e2-49df-ba2f-94e57ee7faa0",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -390,8 +390,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosAllocationAccounts(ctx, operations.ListPortfoliosAllocationAccountsRequest{
         AllocationID: "9260907b-4e94-45c8-a31a-10d01d471a66",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -446,8 +446,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosAllocations(ctx, operations.ListPortfoliosAllocationsRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -502,8 +502,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosConfigurations(ctx, operations.ListPortfoliosConfigurationsRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -558,8 +558,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosOrders(ctx, operations.ListPortfoliosOrdersRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -614,8 +614,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.ListPortfoliosRebalancingStrategies(ctx, operations.ListPortfoliosRebalancingStrategiesRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -671,8 +671,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosAllocation(ctx, operations.RetrievePortfoliosAllocationRequest{
         AllocationID: "8902e6a1-152d-44ee-8ba2-1f95e37ca0c1",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -727,8 +727,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosConfiguration(ctx, operations.RetrievePortfoliosConfigurationRequest{
         AccountID: "823e6a8e-d630-4a74-9292-5b3ae05f7ca5",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -784,8 +784,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosOrder(ctx, operations.RetrievePortfoliosOrderRequest{
         PortfolioOrderID: "e8307df3-b75a-46de-a05a-9fe332308857",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -840,8 +840,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosRebalancingExecution(ctx, operations.RetrievePortfoliosRebalancingExecutionRequest{
         ExecutionID: "99606d30-438e-43e3-948b-6cd364997761",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -896,8 +896,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Portfolios.RetrievePortfoliosRebalancingStrategy(ctx, operations.RetrievePortfoliosRebalancingStrategyRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         StrategyID: "0c1478b8-c314-4033-ba97-4a21434d1d07",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
@@ -954,8 +954,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.TriggerPortfolioRebalancing(ctx, operations.TriggerPortfolioRebalancingRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -1010,8 +1010,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Portfolios.UpdatePortfoliosAllocation(ctx, operations.UpdatePortfoliosAllocationRequest{
         AllocationID: "c7ddcc6d-56bb-41c2-a344-b57fb4000627",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -1067,8 +1067,8 @@ func main() {
     res, err := s.Portfolios.UpdatePortfoliosConfiguration(ctx, operations.UpdatePortfoliosConfigurationRequest{
         AccountID: "be034715-bf00-452a-b6f6-ba5a9dfa7ad7",
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

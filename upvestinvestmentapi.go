@@ -5,6 +5,7 @@ package upvestdevsamplesdk
 import (
 	"context"
 	"fmt"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/internal/hooks"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/utils"
 	"net/http"
@@ -54,6 +55,7 @@ type sdkConfiguration struct {
 	GenVersion        string
 	UserAgent         string
 	RetryConfig       *utils.RetryConfig
+	Hooks             *hooks.Hooks
 }
 
 func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
@@ -183,14 +185,17 @@ func New(opts ...SDKOption) *UpvestInvestmentAPI {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.9.0",
-			SDKVersion:        "0.8.1",
-			GenVersion:        "2.253.0",
-			UserAgent:         "speakeasy-sdk/go 0.8.1 2.253.0 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
+			SDKVersion:        "0.9.0",
+			GenVersion:        "2.258.0",
+			UserAgent:         "speakeasy-sdk/go 0.9.0 2.258.0 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
+			Hooks:             hooks.New(),
 		},
 	}
 	for _, opt := range opts {
 		opt(sdk)
 	}
+
+	sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.ClientInit(sdk.sdkConfiguration.DefaultClient)
 
 	// Use WithClient to override the default client if you would like to customize the timeout
 	if sdk.sdkConfiguration.DefaultClient == nil {

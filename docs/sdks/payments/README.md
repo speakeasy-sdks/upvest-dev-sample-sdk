@@ -40,8 +40,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.CancelCashWithdrawal(ctx, operations.CancelCashWithdrawalRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WithdrawalID: "171565fa-ef4e-474a-b700-f0c84773396a",
@@ -98,8 +98,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.CreateCashWithdrawal(ctx, operations.CreateCashWithdrawalRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -154,8 +154,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.CreateDirectDebit(ctx, operations.CreateDirectDebitRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -210,8 +210,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.ListCashWithdrawals(ctx, operations.ListCashWithdrawalsRequest{
         AccountGroupID: "d8643156-ad77-42f3-879e-e10e652fca89",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -266,8 +266,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.ListDirectDebits(ctx, operations.ListDirectDebitsRequest{
         AccountGroupID: "88b424a5-5c79-48a0-940c-d0211ad65dce",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -321,8 +321,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Payments.RetrieveCashWithdrawal(ctx, operations.RetrieveCashWithdrawalRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WithdrawalID: "cd2b7c3f-83b1-455d-8f56-99b4599f90ce",
@@ -378,8 +378,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Payments.RetrieveDirectDebit(ctx, operations.RetrieveDirectDebitRequest{
         DirectDebitID: "b0b3f52f-e687-4685-bdab-d93ae664b9eb",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

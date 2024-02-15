@@ -46,8 +46,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.CreateIdentifier(ctx, operations.CreateIdentifierRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "6cdaa45b-a19b-46b2-86eb-515e27f03f3a",
@@ -103,8 +103,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.CreateUser(ctx, operations.CreateUserRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -158,8 +158,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.CreateUserCheck(ctx, operations.CreateUserCheckRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "9b09edfa-be45-4a19-8409-7f3a98c63118",
@@ -214,8 +214,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserAccountGroups(ctx, operations.ListUserAccountGroupsRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "624b566f-6bdc-4039-b183-845d956c1118",
@@ -270,8 +270,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserAccounts(ctx, operations.ListUserAccountsRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "2f4fc942-82c4-4190-a6e0-d67d6f213432",
@@ -326,8 +326,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserChecks(ctx, operations.ListUserChecksRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "ab810b55-d140-4a30-86db-4757dbffd92a",
@@ -382,8 +382,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUserIdentifiers(ctx, operations.ListUserIdentifiersRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "9ad0a72a-f34b-4c90-b98c-c6cbd026f279",
@@ -438,8 +438,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.ListUsers(ctx, operations.ListUsersRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -494,8 +494,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.OffboardUser(ctx, operations.OffboardUserRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "2ec7a027-b1d2-4089-a65e-dad15450d274",
@@ -551,8 +551,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.RetrieveIdentifier(ctx, operations.RetrieveIdentifierRequest{
         IdentifierID: "7599778d-08e5-4301-b229-50983005b604",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "7505d155-3807-4bfe-8fea-19b8f7cdd39f",
@@ -607,8 +607,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.RetrieveUser(ctx, operations.RetrieveUserRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "bc418086-0346-49e3-922a-9d72cd6eb216",
@@ -664,8 +664,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.RetrieveUserCheck(ctx, operations.RetrieveUserCheckRequest{
         CheckID: "7c557256-cf5c-4ad1-a9aa-07e6ee46d87a",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "38838df6-df78-4546-8a07-db80ad51fe68",
@@ -721,8 +721,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Users.UpdateIdentifier(ctx, operations.UpdateIdentifierRequest{
         IdentifierID: "f9ef9c4d-678e-40e8-9c2b-f312e052d47d",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "f1fb357e-e7b8-42ea-b378-cff11b13e2bc",
@@ -778,8 +778,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Users.UserDataChange(ctx, operations.UserDataChangeRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "1ac9db79-8f33-4b82-8e8f-6170e16d84a2",

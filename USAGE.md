@@ -18,8 +18,8 @@ func main() {
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
 		IdempotencyKey:   "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-		Signature:        "string",
-		SignatureInput:   "string",
+		Signature:        "<value>",
+		SignatureInput:   "<value>",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
 	})

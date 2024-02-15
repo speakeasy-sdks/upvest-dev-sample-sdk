@@ -38,8 +38,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Orders.CancelOrder(ctx, operations.CancelOrderRequest{
         OrderID: "8d2637b8-60e3-49d2-9ef3-bc3a907bc7fc",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -94,8 +94,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Orders.ListAccountOrders(ctx, operations.ListAccountOrdersRequest{
         AccountID: "ad45b27f-c0e7-4cfb-b48c-a83670dbdfbd",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -150,8 +150,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Orders.PlaceOrder(ctx, operations.PlaceOrderRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -207,8 +207,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Orders.RetrieveOrder(ctx, operations.RetrieveOrderRequest{
         OrderID: "6b222a05-ca10-4e5a-8de6-a4b10ac87ee1",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -264,8 +264,8 @@ func main() {
     res, err := s.Orders.RetrieveOrderExecution(ctx, operations.RetrieveOrderExecutionRequest{
         ExecutionID: "469610b9-c442-4475-8f5b-e30a097443e4",
         OrderID: "9798733b-65ea-45d3-9976-592362ab8751",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

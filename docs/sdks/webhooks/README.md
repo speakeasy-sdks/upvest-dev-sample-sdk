@@ -39,8 +39,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.CreateWebhook(ctx, operations.CreateWebhookRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -95,8 +95,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.DeleteWebhook(ctx, operations.DeleteWebhookRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WebhookID: "5aa6d655-26dd-43c7-a4d9-800d9681eebf",
@@ -151,8 +151,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.GetJwks(ctx, operations.GetJwksRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -206,8 +206,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.ListWebhooks(ctx, operations.ListWebhooksRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -261,8 +261,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.RetrieveWebhook(ctx, operations.RetrieveWebhookRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WebhookID: "1b96f803-b0a9-4178-8c24-38b86638f043",
@@ -318,8 +318,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.TestWebhook(ctx, operations.TestWebhookRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WebhookID: "6b48b079-7b31-4425-968d-e3994a64058e",
@@ -374,8 +374,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Webhooks.UpdateWebhook(ctx, operations.UpdateWebhookRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WebhookID: "bf1f2b87-38bb-4d24-a55a-91c147ec420b",

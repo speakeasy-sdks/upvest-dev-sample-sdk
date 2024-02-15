@@ -37,8 +37,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Mandates.CreateMandate(ctx, operations.CreateMandateRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -94,8 +94,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Mandates.DeleteMandate(ctx, operations.DeleteMandateRequest{
         MandateID: "6c46d0ca-673a-42ce-b95f-6db83c7daae3",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -149,8 +149,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Mandates.ListMandates(ctx, operations.ListMandatesRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "af42547b-fef5-4eb5-b512-a618cd73b2e3",
@@ -206,8 +206,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Mandates.RetrieveMandate(ctx, operations.RetrieveMandateRequest{
         MandateID: "7fb0ccc3-5941-4c86-893a-aea9214922ce",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

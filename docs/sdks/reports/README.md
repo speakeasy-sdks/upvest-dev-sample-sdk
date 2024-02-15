@@ -34,8 +34,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Reports.ListReports(ctx, operations.ListReportsRequest{
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "7c866e4d-4e33-41a7-889e-0c03d98591db",
@@ -91,8 +91,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Reports.RetrieveReport(ctx, operations.RetrieveReportRequest{
         ReportID: "008164dd-ebf0-4325-9e09-780b39dc8ee3",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

@@ -36,8 +36,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Fees.CreateFeeCollection(ctx, operations.CreateFeeCollectionRequest{
         IdempotencyKey: "ccb07f42-4104-44ad-8e1f-c660bb7b269c",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -93,8 +93,8 @@ func main() {
     res, err := s.Fees.ListFeeCollections(ctx, operations.ListFeeCollectionsRequest{
         AccountGroupID: "288586aa-6cdf-41bc-86dc-1989f6f91027",
         AccountID: "67a4f793-f2bf-4b5f-a5f7-059dafaa6425",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -149,8 +149,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Fees.RetrieveFeeCollection(ctx, operations.RetrieveFeeCollectionRequest{
         FeeCollectionID: "abd1b9d9-1afb-4f4c-91e2-b1b47a2dde72",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })

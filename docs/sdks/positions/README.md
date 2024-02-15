@@ -35,8 +35,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Positions.ListPositions(ctx, operations.ListPositionsRequest{
         AccountID: "ff0795ec-4572-4135-9b42-4822adc99bc7",
-        Signature: "string",
-        SignatureInput: "string",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
@@ -91,9 +91,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Positions.RetrievePosition(ctx, operations.RetrievePositionRequest{
         AccountID: "a4c2b2f9-c5c3-4199-ab2d-18703af419c4",
-        InstrumentID: "string",
-        Signature: "string",
-        SignatureInput: "string",
+        InstrumentID: "<value>",
+        Signature: "<value>",
+        SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
     })
