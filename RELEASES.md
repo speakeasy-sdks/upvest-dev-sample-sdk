@@ -219,3 +219,13 @@ Based on:
 - [go v0.9.0] .
 ### Releases
 - [Go v0.9.0] https://github.com/speakeasy-sdks/upvest-dev-sample-sdk/releases/tag/v0.9.0 - .
+
+## 2024-02-21 00:08:25
+### Changes
+Based on:
+- OpenAPI Doc 1.9.0 
+- Speakeasy CLI 1.185.0 (2.263.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.9.1] .
+### Releases
+- [Go v0.9.1] https://github.com/speakeasy-sdks/upvest-dev-sample-sdk/releases/tag/v0.9.1 - .
