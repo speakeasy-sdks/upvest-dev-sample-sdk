@@ -32,17 +32,20 @@ Creates a new identifier for a user that will be used for transaction reporting 
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CreateIdentifierSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.CreateIdentifier(ctx, operations.CreateIdentifierRequest{
@@ -51,7 +54,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "6cdaa45b-a19b-46b2-86eb-515e27f03f3a",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -64,10 +67,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.CreateIdentifierRequest](../../pkg/models/operations/createidentifierrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CreateIdentifierRequest](../../pkg/models/operations/createidentifierrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `security`                                                                                     | [operations.CreateIdentifierSecurity](../../pkg/models/operations/createidentifiersecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
 
 
 ### Response
@@ -88,17 +92,20 @@ Creates a user.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CreateUserSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.CreateUser(ctx, operations.CreateUserRequest{
@@ -107,7 +114,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -120,10 +127,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.CreateUserRequest](../../pkg/models/operations/createuserrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.CreateUserRequest](../../pkg/models/operations/createuserrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `security`                                                                         | [operations.CreateUserSecurity](../../pkg/models/operations/createusersecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
 
 
 ### Response
@@ -144,17 +152,20 @@ Creates a new check for a user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CreateUserCheckSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.CreateUserCheck(ctx, operations.CreateUserCheckRequest{
@@ -163,7 +174,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "9b09edfa-be45-4a19-8409-7f3a98c63118",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -176,10 +187,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.CreateUserCheckRequest](../../pkg/models/operations/createusercheckrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.CreateUserCheckRequest](../../pkg/models/operations/createusercheckrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `security`                                                                                   | [operations.CreateUserCheckSecurity](../../pkg/models/operations/createuserchecksecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
 
 
 ### Response
@@ -200,17 +212,20 @@ Lists the account groups of a user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListUserAccountGroupsSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.ListUserAccountGroups(ctx, operations.ListUserAccountGroupsRequest{
@@ -219,7 +234,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "624b566f-6bdc-4039-b183-845d956c1118",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -232,10 +247,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.ListUserAccountGroupsRequest](../../pkg/models/operations/listuseraccountgroupsrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.ListUserAccountGroupsRequest](../../pkg/models/operations/listuseraccountgroupsrequest.md)   | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `security`                                                                                               | [operations.ListUserAccountGroupsSecurity](../../pkg/models/operations/listuseraccountgroupssecurity.md) | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
 
 
 ### Response
@@ -256,17 +272,20 @@ Lists the accounts of a user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListUserAccountsSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.ListUserAccounts(ctx, operations.ListUserAccountsRequest{
@@ -275,7 +294,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "2f4fc942-82c4-4190-a6e0-d67d6f213432",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -288,10 +307,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListUserAccountsRequest](../../pkg/models/operations/listuseraccountsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.ListUserAccountsRequest](../../pkg/models/operations/listuseraccountsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `security`                                                                                     | [operations.ListUserAccountsSecurity](../../pkg/models/operations/listuseraccountssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
 
 
 ### Response
@@ -312,17 +332,20 @@ Lists all checks for a user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListUserChecksSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.ListUserChecks(ctx, operations.ListUserChecksRequest{
@@ -331,7 +354,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "ab810b55-d140-4a30-86db-4757dbffd92a",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -344,10 +367,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListUserChecksRequest](../../pkg/models/operations/listuserchecksrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ListUserChecksRequest](../../pkg/models/operations/listuserchecksrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `security`                                                                                 | [operations.ListUserChecksSecurity](../../pkg/models/operations/listusercheckssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
 
 
 ### Response
@@ -368,17 +392,20 @@ Lists all existing identifiers of a user used for transaction reporting.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListUserIdentifiersSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.ListUserIdentifiers(ctx, operations.ListUserIdentifiersRequest{
@@ -387,7 +414,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "9ad0a72a-f34b-4c90-b98c-c6cbd026f279",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -400,10 +427,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.ListUserIdentifiersRequest](../../pkg/models/operations/listuseridentifiersrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.ListUserIdentifiersRequest](../../pkg/models/operations/listuseridentifiersrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `security`                                                                                           | [operations.ListUserIdentifiersSecurity](../../pkg/models/operations/listuseridentifierssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
 
 
 ### Response
@@ -424,17 +452,20 @@ Returns the list of all users.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListUsersSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.ListUsers(ctx, operations.ListUsersRequest{
@@ -442,7 +473,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -455,10 +486,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.ListUsersRequest](../../pkg/models/operations/listusersrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.ListUsersRequest](../../pkg/models/operations/listusersrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `security`                                                                       | [operations.ListUsersSecurity](../../pkg/models/operations/listuserssecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
 
 
 ### Response
@@ -479,18 +511,21 @@ Starts the user offboarding process in the background.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.OffboardUserSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.OffboardUser(ctx, operations.OffboardUserRequest{
@@ -499,7 +534,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "2ec7a027-b1d2-4089-a65e-dad15450d274",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -512,10 +547,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.OffboardUserRequest](../../pkg/models/operations/offboarduserrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.OffboardUserRequest](../../pkg/models/operations/offboarduserrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.OffboardUserSecurity](../../pkg/models/operations/offboardusersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
 
 
 ### Response
@@ -536,17 +572,20 @@ Returns an existing identifier of a given user used for transaction reporting.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.RetrieveIdentifierSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.RetrieveIdentifier(ctx, operations.RetrieveIdentifierRequest{
@@ -556,7 +595,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "7505d155-3807-4bfe-8fea-19b8f7cdd39f",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -569,10 +608,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.RetrieveIdentifierRequest](../../pkg/models/operations/retrieveidentifierrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.RetrieveIdentifierRequest](../../pkg/models/operations/retrieveidentifierrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `security`                                                                                         | [operations.RetrieveIdentifierSecurity](../../pkg/models/operations/retrieveidentifiersecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
 
 
 ### Response
@@ -593,17 +633,20 @@ Returns the user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.RetrieveUserSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.RetrieveUser(ctx, operations.RetrieveUserRequest{
@@ -612,7 +655,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "bc418086-0346-49e3-922a-9d72cd6eb216",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -625,10 +668,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.RetrieveUserRequest](../../pkg/models/operations/retrieveuserrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.RetrieveUserRequest](../../pkg/models/operations/retrieveuserrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.RetrieveUserSecurity](../../pkg/models/operations/retrieveusersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
 
 
 ### Response
@@ -649,17 +693,20 @@ Retrieves a check for a user specified by its ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.RetrieveUserCheckSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.RetrieveUserCheck(ctx, operations.RetrieveUserCheckRequest{
@@ -669,7 +716,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "38838df6-df78-4546-8a07-db80ad51fe68",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -682,10 +729,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.RetrieveUserCheckRequest](../../pkg/models/operations/retrieveusercheckrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.RetrieveUserCheckRequest](../../pkg/models/operations/retrieveusercheckrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `security`                                                                                       | [operations.RetrieveUserCheckSecurity](../../pkg/models/operations/retrieveuserchecksecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
 
 
 ### Response
@@ -706,17 +754,20 @@ Updates an existing identifier of a given user used for transaction reporting.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.UpdateIdentifierSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.UpdateIdentifier(ctx, operations.UpdateIdentifierRequest{
@@ -726,7 +777,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "f1fb357e-e7b8-42ea-b378-cff11b13e2bc",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -739,10 +790,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.UpdateIdentifierRequest](../../pkg/models/operations/updateidentifierrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.UpdateIdentifierRequest](../../pkg/models/operations/updateidentifierrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `security`                                                                                     | [operations.UpdateIdentifierSecurity](../../pkg/models/operations/updateidentifiersecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
 
 
 ### Response
@@ -763,18 +815,21 @@ Requests a data change for a user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.UserDataChangeSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Users.UserDataChange(ctx, operations.UserDataChangeRequest{
@@ -783,7 +838,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "1ac9db79-8f33-4b82-8e8f-6170e16d84a2",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -796,10 +851,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.UserDataChangeRequest](../../pkg/models/operations/userdatachangerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.UserDataChangeRequest](../../pkg/models/operations/userdatachangerequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `security`                                                                                 | [operations.UserDataChangeSecurity](../../pkg/models/operations/userdatachangesecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
 
 
 ### Response

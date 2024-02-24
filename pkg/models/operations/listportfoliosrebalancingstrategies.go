@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type ListPortfoliosRebalancingStrategiesSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *ListPortfoliosRebalancingStrategiesSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // ListPortfoliosRebalancingStrategiesQueryParamSort - Sort the result by `id`.
 type ListPortfoliosRebalancingStrategiesQueryParamSort string
 

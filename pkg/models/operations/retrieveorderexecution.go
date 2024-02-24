@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type RetrieveOrderExecutionSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *RetrieveOrderExecutionSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type RetrieveOrderExecutionRequest struct {
 	ExecutionID string `pathParam:"style=simple,explode=false,name=execution_id"`
 	OrderID     string `pathParam:"style=simple,explode=false,name=order_id"`

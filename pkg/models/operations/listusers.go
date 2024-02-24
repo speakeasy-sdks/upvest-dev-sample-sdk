@@ -13,6 +13,17 @@ import (
 	"time"
 )
 
+type ListUsersSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *ListUsersSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // ListUsersQueryParamSort - Sort the result by `created_at`.
 type ListUsersQueryParamSort string
 

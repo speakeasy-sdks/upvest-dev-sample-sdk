@@ -12,6 +12,17 @@ import (
 	"time"
 )
 
+type ListCashTransactionsSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *ListCashTransactionsSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // ListCashTransactionsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
 type ListCashTransactionsQueryParamOrder string
 

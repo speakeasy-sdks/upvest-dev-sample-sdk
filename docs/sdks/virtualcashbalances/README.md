@@ -21,18 +21,21 @@ Cancels a virtual cash decrease specified by its ID. It is only possible to canc
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CancelVirtualCashDecreaseSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.VirtualCashBalances.CancelVirtualCashDecrease(ctx, operations.CancelVirtualCashDecreaseRequest{
@@ -41,7 +44,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         VirtualCashDecreaseID: "29770b4c-40f4-4e9d-8aa1-a63d51b4005a",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -54,10 +57,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.CancelVirtualCashDecreaseRequest](../../pkg/models/operations/cancelvirtualcashdecreaserequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
+| `request`                                                                                                        | [operations.CancelVirtualCashDecreaseRequest](../../pkg/models/operations/cancelvirtualcashdecreaserequest.md)   | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+| `security`                                                                                                       | [operations.CancelVirtualCashDecreaseSecurity](../../pkg/models/operations/cancelvirtualcashdecreasesecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
 
 
 ### Response
@@ -79,17 +83,20 @@ Trigger a virtual cash decrease
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CreateVirtualCashDecreaseSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.VirtualCashBalances.CreateVirtualCashDecrease(ctx, operations.CreateVirtualCashDecreaseRequest{
@@ -98,7 +105,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -111,10 +118,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.CreateVirtualCashDecreaseRequest](../../pkg/models/operations/createvirtualcashdecreaserequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
+| `request`                                                                                                        | [operations.CreateVirtualCashDecreaseRequest](../../pkg/models/operations/createvirtualcashdecreaserequest.md)   | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+| `security`                                                                                                       | [operations.CreateVirtualCashDecreaseSecurity](../../pkg/models/operations/createvirtualcashdecreasesecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
 
 
 ### Response
@@ -135,17 +143,20 @@ Trigger a virtual cash increase
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CreateVirtualCashIncreaseSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.VirtualCashBalances.CreateVirtualCashIncrease(ctx, operations.CreateVirtualCashIncreaseRequest{
@@ -154,7 +165,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -167,10 +178,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.CreateVirtualCashIncreaseRequest](../../pkg/models/operations/createvirtualcashincreaserequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
+| `request`                                                                                                        | [operations.CreateVirtualCashIncreaseRequest](../../pkg/models/operations/createvirtualcashincreaserequest.md)   | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+| `security`                                                                                                       | [operations.CreateVirtualCashIncreaseSecurity](../../pkg/models/operations/createvirtualcashincreasesecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
 
 
 ### Response

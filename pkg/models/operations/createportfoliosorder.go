@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type CreatePortfoliosOrderSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CreatePortfoliosOrderSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // CreatePortfoliosOrderCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
 type CreatePortfoliosOrderCurrency string

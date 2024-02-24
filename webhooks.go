@@ -28,8 +28,12 @@ func newWebhooks(sdkConfig sdkConfiguration) *Webhooks {
 
 // CreateWebhook - Create a webhook subscription
 // Create a webhook subscription
-func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateWebhookRequest, opts ...operations.Option) (*operations.CreateWebhookResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create_webhook"}
+func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateWebhookRequest, security operations.CreateWebhookSecurity, opts ...operations.Option) (*operations.CreateWebhookResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create_webhook",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -67,12 +71,12 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -82,15 +86,15 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -165,8 +169,12 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 
 // DeleteWebhook - Delete a webhook subscription
 // Delete a webhook subscription
-func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteWebhookRequest) (*operations.DeleteWebhookResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "delete_webhook"}
+func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteWebhookRequest, security operations.DeleteWebhookSecurity) (*operations.DeleteWebhookResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "delete_webhook",
+		SecuritySource: withSecurity(security),
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/webhooks/{webhook_id}", request, nil)
@@ -183,12 +191,12 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -198,15 +206,15 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -268,8 +276,12 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 
 // GetJwks - Get signing keys
 // Get list of signing keys used to verify webhooks
-func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksRequest, opts ...operations.Option) (*operations.GetJwksResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get_jwks"}
+func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksRequest, security operations.GetJwksSecurity, opts ...operations.Option) (*operations.GetJwksResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get_jwks",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -301,12 +313,12 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -316,15 +328,15 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -397,8 +409,12 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 
 // ListWebhooks - List all webhooks
 // List all webhooks
-func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebhooksRequest, opts ...operations.Option) (*operations.ListWebhooksResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_webhooks"}
+func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebhooksRequest, security operations.ListWebhooksSecurity, opts ...operations.Option) (*operations.ListWebhooksResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_webhooks",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -434,12 +450,12 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -449,15 +465,15 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -532,8 +548,12 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 
 // RetrieveWebhook - Retrieve a webhook subscription
 // Retrieve a webhook subscription
-func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.RetrieveWebhookRequest, opts ...operations.Option) (*operations.RetrieveWebhookResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_webhook"}
+func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.RetrieveWebhookRequest, security operations.RetrieveWebhookSecurity, opts ...operations.Option) (*operations.RetrieveWebhookResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_webhook",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -565,12 +585,12 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -580,15 +600,15 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -663,8 +683,12 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 
 // TestWebhook - Test a webhook
 // Test a webhook
-func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebhookRequest) (*operations.TestWebhookResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "test_webhook"}
+func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebhookRequest, security operations.TestWebhookSecurity) (*operations.TestWebhookResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "test_webhook",
+		SecuritySource: withSecurity(security),
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/webhooks/{webhook_id}/test", request, nil)
@@ -681,12 +705,12 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -696,15 +720,15 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -768,8 +792,12 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 
 // UpdateWebhook - Update a webhook subscription
 // Update a webhook subscription
-func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateWebhookRequest, opts ...operations.Option) (*operations.UpdateWebhookResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "update_webhook"}
+func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateWebhookRequest, security operations.UpdateWebhookSecurity, opts ...operations.Option) (*operations.UpdateWebhookResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "update_webhook",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -807,12 +835,12 @@ func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -822,15 +850,15 @@ func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateW
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

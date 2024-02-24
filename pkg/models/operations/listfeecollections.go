@@ -12,6 +12,17 @@ import (
 	"time"
 )
 
+type ListFeeCollectionsSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *ListFeeCollectionsSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type ListFeeCollectionsRequest struct {
 	AccountGroupID string `queryParam:"style=form,explode=true,name=account_group_id"`
 	AccountID      string `queryParam:"style=form,explode=true,name=account_id"`

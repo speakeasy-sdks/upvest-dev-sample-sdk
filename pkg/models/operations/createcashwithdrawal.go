@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type CreateCashWithdrawalSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CreateCashWithdrawalSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type CreateCashWithdrawalPaymentsWithdrawalCreateRequest struct {
 	// Account group unique identifier.
 	AccountGroupID string `json:"account_group_id"`

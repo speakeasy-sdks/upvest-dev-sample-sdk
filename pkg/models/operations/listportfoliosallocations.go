@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type ListPortfoliosAllocationsSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *ListPortfoliosAllocationsSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // ListPortfoliosAllocationsQueryParamSort - Sort the result by `id`.
 type ListPortfoliosAllocationsQueryParamSort string
 

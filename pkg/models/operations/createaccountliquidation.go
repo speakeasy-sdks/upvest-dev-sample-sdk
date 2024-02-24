@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type CreateAccountLiquidationSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CreateAccountLiquidationSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type CreateAccountLiquidationAccountLiquidationRequest struct {
 	// User unique identifier.
 	UserID string `json:"user_id"`

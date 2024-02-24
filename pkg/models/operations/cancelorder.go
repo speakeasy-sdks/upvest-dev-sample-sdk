@@ -8,6 +8,17 @@ import (
 	"net/http"
 )
 
+type CancelOrderSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CancelOrderSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type CancelOrderRequest struct {
 	OrderID string `pathParam:"style=simple,explode=false,name=order_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

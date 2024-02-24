@@ -27,8 +27,12 @@ func newLiquidations(sdkConfig sdkConfiguration) *Liquidations {
 
 // CancelAccountLiquidation - Cancel account liquidation
 // Cancel account liquidation
-func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request operations.CancelAccountLiquidationRequest) (*operations.CancelAccountLiquidationResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "cancel_account_liquidation"}
+func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request operations.CancelAccountLiquidationRequest, security operations.CancelAccountLiquidationSecurity) (*operations.CancelAccountLiquidationResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "cancel_account_liquidation",
+		SecuritySource: withSecurity(security),
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/accounts/{account_id}/liquidations/{account_liquidation_id}", request, nil)
@@ -45,12 +49,12 @@ func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request ope
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -60,15 +64,15 @@ func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request ope
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -132,8 +136,12 @@ func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request ope
 
 // CreateAccountLiquidation - Create account liquidation request
 // Create account liquidation request
-func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request operations.CreateAccountLiquidationRequest, opts ...operations.Option) (*operations.CreateAccountLiquidationResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create_account_liquidation"}
+func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request operations.CreateAccountLiquidationRequest, security operations.CreateAccountLiquidationSecurity, opts ...operations.Option) (*operations.CreateAccountLiquidationResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create_account_liquidation",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -171,12 +179,12 @@ func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request ope
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -186,15 +194,15 @@ func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request ope
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -271,8 +279,12 @@ func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request ope
 
 // ListAccountsLiquidations - List accounts liquidations
 // List accounts liquidations
-func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request operations.ListAccountsLiquidationsRequest, opts ...operations.Option) (*operations.ListAccountsLiquidationsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_accounts_liquidations"}
+func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request operations.ListAccountsLiquidationsRequest, security operations.ListAccountsLiquidationsSecurity, opts ...operations.Option) (*operations.ListAccountsLiquidationsResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_accounts_liquidations",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -308,12 +320,12 @@ func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request ope
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -323,15 +335,15 @@ func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request ope
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "405", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -423,8 +435,12 @@ func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request ope
 
 // RetrieveAccountLiquidation - Retrieve account liquidation
 // Retrieve account liquidation
-func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request operations.RetrieveAccountLiquidationRequest, opts ...operations.Option) (*operations.RetrieveAccountLiquidationResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_account_liquidation"}
+func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request operations.RetrieveAccountLiquidationRequest, security operations.RetrieveAccountLiquidationSecurity, opts ...operations.Option) (*operations.RetrieveAccountLiquidationResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_account_liquidation",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -456,12 +472,12 @@ func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request o
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -471,15 +487,15 @@ func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request o
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

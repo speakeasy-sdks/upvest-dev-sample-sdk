@@ -22,17 +22,20 @@ Creates a new reference account for a user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CreateReferenceAccountSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.CreateReferenceAccount(ctx, operations.CreateReferenceAccountRequest{
@@ -41,7 +44,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -54,10 +57,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.CreateReferenceAccountRequest](../../pkg/models/operations/createreferenceaccountrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `request`                                                                                                  | [operations.CreateReferenceAccountRequest](../../pkg/models/operations/createreferenceaccountrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `security`                                                                                                 | [operations.CreateReferenceAccountSecurity](../../pkg/models/operations/createreferenceaccountsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
 
 
 ### Response
@@ -78,18 +82,21 @@ Deletes the reference account specified by its ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.DeleteReferenceAccountSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.DeleteReferenceAccount(ctx, operations.DeleteReferenceAccountRequest{
@@ -98,7 +105,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -111,10 +118,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.DeleteReferenceAccountRequest](../../pkg/models/operations/deletereferenceaccountrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `request`                                                                                                  | [operations.DeleteReferenceAccountRequest](../../pkg/models/operations/deletereferenceaccountrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `security`                                                                                                 | [operations.DeleteReferenceAccountSecurity](../../pkg/models/operations/deletereferenceaccountsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
 
 
 ### Response
@@ -135,17 +143,20 @@ Returns the list of reference accounts of a user specified by ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListReferenceAccountsSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.ListReferenceAccounts(ctx, operations.ListReferenceAccountsRequest{
@@ -154,7 +165,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "e50a1010-768d-4d7a-9f1c-4bb86369603d",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -167,10 +178,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.ListReferenceAccountsRequest](../../pkg/models/operations/listreferenceaccountsrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.ListReferenceAccountsRequest](../../pkg/models/operations/listreferenceaccountsrequest.md)   | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `security`                                                                                               | [operations.ListReferenceAccountsSecurity](../../pkg/models/operations/listreferenceaccountssecurity.md) | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
 
 
 ### Response
@@ -191,17 +203,20 @@ Retrieves the reference account specified by its ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.RetrieveReferenceAccountSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.ReferenceAccounts.RetrieveReferenceAccount(ctx, operations.RetrieveReferenceAccountRequest{
@@ -210,7 +225,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -223,10 +238,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
-| `request`                                                                                                    | [operations.RetrieveReferenceAccountRequest](../../pkg/models/operations/retrievereferenceaccountrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
+| `request`                                                                                                      | [operations.RetrieveReferenceAccountRequest](../../pkg/models/operations/retrievereferenceaccountrequest.md)   | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `security`                                                                                                     | [operations.RetrieveReferenceAccountSecurity](../../pkg/models/operations/retrievereferenceaccountsecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
 
 
 ### Response

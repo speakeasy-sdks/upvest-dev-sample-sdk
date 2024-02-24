@@ -9,6 +9,17 @@ import (
 	"time"
 )
 
+type CreateReferenceAccountSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CreateReferenceAccountSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type CreateReferenceAccountReferenceAccountCreateRequest struct {
 	// First and last name of the reference account owner
 	AccountOwner string `json:"account_owner"`

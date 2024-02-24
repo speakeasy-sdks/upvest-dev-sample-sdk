@@ -23,17 +23,20 @@ Cancels an order specified by its ID. It is possible to cancel an order of the `
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CancelOrderSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Orders.CancelOrder(ctx, operations.CancelOrderRequest{
@@ -42,7 +45,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -55,10 +58,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.CancelOrderRequest](../../pkg/models/operations/cancelorderrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.CancelOrderRequest](../../pkg/models/operations/cancelorderrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `security`                                                                           | [operations.CancelOrderSecurity](../../pkg/models/operations/cancelordersecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
 
 
 ### Response
@@ -79,17 +83,20 @@ Returns a list of all orders for the account specified by its ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListAccountOrdersSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Orders.ListAccountOrders(ctx, operations.ListAccountOrdersRequest{
@@ -98,7 +105,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -111,10 +118,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ListAccountOrdersRequest](../../pkg/models/operations/listaccountordersrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.ListAccountOrdersRequest](../../pkg/models/operations/listaccountordersrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `security`                                                                                       | [operations.ListAccountOrdersSecurity](../../pkg/models/operations/listaccountorderssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
 
 
 ### Response
@@ -135,17 +143,20 @@ Places a new order. After the creation request for the order is accepted, furthe
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.PlaceOrderSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Orders.PlaceOrder(ctx, operations.PlaceOrderRequest{
@@ -154,7 +165,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -167,10 +178,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.PlaceOrderRequest](../../pkg/models/operations/placeorderrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.PlaceOrderRequest](../../pkg/models/operations/placeorderrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `security`                                                                         | [operations.PlaceOrderSecurity](../../pkg/models/operations/placeordersecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
 
 
 ### Response
@@ -192,17 +204,20 @@ Returns the order specified by its ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.RetrieveOrderSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Orders.RetrieveOrder(ctx, operations.RetrieveOrderRequest{
@@ -211,7 +226,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -224,10 +239,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.RetrieveOrderRequest](../../pkg/models/operations/retrieveorderrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.RetrieveOrderRequest](../../pkg/models/operations/retrieveorderrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `security`                                                                               | [operations.RetrieveOrderSecurity](../../pkg/models/operations/retrieveordersecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
 
 
 ### Response
@@ -248,17 +264,20 @@ Returns the order execution specified by its ID.
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.RetrieveOrderExecutionSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Orders.RetrieveOrderExecution(ctx, operations.RetrieveOrderExecutionRequest{
@@ -268,7 +287,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -281,10 +300,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.RetrieveOrderExecutionRequest](../../pkg/models/operations/retrieveorderexecutionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `request`                                                                                                  | [operations.RetrieveOrderExecutionRequest](../../pkg/models/operations/retrieveorderexecutionrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `security`                                                                                                 | [operations.RetrieveOrderExecutionSecurity](../../pkg/models/operations/retrieveorderexecutionsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
 
 
 ### Response

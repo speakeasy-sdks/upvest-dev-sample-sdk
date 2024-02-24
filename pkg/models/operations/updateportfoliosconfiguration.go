@@ -9,6 +9,17 @@ import (
 	"time"
 )
 
+type UpdatePortfoliosConfigurationSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *UpdatePortfoliosConfigurationSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type UpdatePortfoliosConfigurationPortfoliosConfigurationUpdateRequest struct {
 	AllocationID *string `json:"allocation_id,omitempty"`
 	// List of rebalancing strategy ids

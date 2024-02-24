@@ -31,7 +31,11 @@ func newAccessTokens(sdkConfig sdkConfiguration) *AccessTokens {
 //
 // You should _always_ scope your access tokens. You get one for read-access and separate ones for updating, creating or deleting resources.
 func (s *AccessTokens) IssueToken(ctx context.Context, request operations.IssueTokenRequest, opts ...operations.Option) (*operations.IssueTokenResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "issue_token"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "issue_token",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -69,12 +73,12 @@ func (s *AccessTokens) IssueToken(ctx context.Context, request operations.IssueT
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -84,15 +88,15 @@ func (s *AccessTokens) IssueToken(ctx context.Context, request operations.IssueT
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

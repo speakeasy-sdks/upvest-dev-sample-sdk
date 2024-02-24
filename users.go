@@ -28,8 +28,12 @@ func newUsers(sdkConfig sdkConfiguration) *Users {
 
 // CreateIdentifier - Create a user identifier
 // Creates a new identifier for a user that will be used for transaction reporting obligations. This identifier is required for user activation if the user's nationalities do not allow reporting using the CONCAT format. More information can be found in the [guides](https://docs.upvest.co/guides/users_and_accounts/identifiers_low_prio).
-func (s *Users) CreateIdentifier(ctx context.Context, request operations.CreateIdentifierRequest, opts ...operations.Option) (*operations.CreateIdentifierResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create_identifier"}
+func (s *Users) CreateIdentifier(ctx context.Context, request operations.CreateIdentifierRequest, security operations.CreateIdentifierSecurity, opts ...operations.Option) (*operations.CreateIdentifierResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create_identifier",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -67,12 +71,12 @@ func (s *Users) CreateIdentifier(ctx context.Context, request operations.CreateI
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -82,15 +86,15 @@ func (s *Users) CreateIdentifier(ctx context.Context, request operations.CreateI
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -167,8 +171,12 @@ func (s *Users) CreateIdentifier(ctx context.Context, request operations.CreateI
 
 // CreateUser - Create a user
 // Creates a user.
-func (s *Users) CreateUser(ctx context.Context, request operations.CreateUserRequest, opts ...operations.Option) (*operations.CreateUserResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create_user"}
+func (s *Users) CreateUser(ctx context.Context, request operations.CreateUserRequest, security operations.CreateUserSecurity, opts ...operations.Option) (*operations.CreateUserResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create_user",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -206,12 +214,12 @@ func (s *Users) CreateUser(ctx context.Context, request operations.CreateUserReq
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -221,15 +229,15 @@ func (s *Users) CreateUser(ctx context.Context, request operations.CreateUserReq
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -304,8 +312,12 @@ func (s *Users) CreateUser(ctx context.Context, request operations.CreateUserReq
 
 // CreateUserCheck - Create a new check for a user
 // Creates a new check for a user specified by ID.
-func (s *Users) CreateUserCheck(ctx context.Context, request operations.CreateUserCheckRequest, opts ...operations.Option) (*operations.CreateUserCheckResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create_user_check"}
+func (s *Users) CreateUserCheck(ctx context.Context, request operations.CreateUserCheckRequest, security operations.CreateUserCheckSecurity, opts ...operations.Option) (*operations.CreateUserCheckResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create_user_check",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -343,12 +355,12 @@ func (s *Users) CreateUserCheck(ctx context.Context, request operations.CreateUs
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -358,15 +370,15 @@ func (s *Users) CreateUserCheck(ctx context.Context, request operations.CreateUs
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -443,8 +455,12 @@ func (s *Users) CreateUserCheck(ctx context.Context, request operations.CreateUs
 
 // ListUserAccountGroups - Get user account groups
 // Lists the account groups of a user specified by ID.
-func (s *Users) ListUserAccountGroups(ctx context.Context, request operations.ListUserAccountGroupsRequest, opts ...operations.Option) (*operations.ListUserAccountGroupsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_user_account_groups"}
+func (s *Users) ListUserAccountGroups(ctx context.Context, request operations.ListUserAccountGroupsRequest, security operations.ListUserAccountGroupsSecurity, opts ...operations.Option) (*operations.ListUserAccountGroupsResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_user_account_groups",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -480,12 +496,12 @@ func (s *Users) ListUserAccountGroups(ctx context.Context, request operations.Li
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -495,15 +511,15 @@ func (s *Users) ListUserAccountGroups(ctx context.Context, request operations.Li
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -580,8 +596,12 @@ func (s *Users) ListUserAccountGroups(ctx context.Context, request operations.Li
 
 // ListUserAccounts - Get user accounts
 // Lists the accounts of a user specified by ID.
-func (s *Users) ListUserAccounts(ctx context.Context, request operations.ListUserAccountsRequest, opts ...operations.Option) (*operations.ListUserAccountsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_user_accounts"}
+func (s *Users) ListUserAccounts(ctx context.Context, request operations.ListUserAccountsRequest, security operations.ListUserAccountsSecurity, opts ...operations.Option) (*operations.ListUserAccountsResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_user_accounts",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -617,12 +637,12 @@ func (s *Users) ListUserAccounts(ctx context.Context, request operations.ListUse
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -632,15 +652,15 @@ func (s *Users) ListUserAccounts(ctx context.Context, request operations.ListUse
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -717,8 +737,12 @@ func (s *Users) ListUserAccounts(ctx context.Context, request operations.ListUse
 
 // ListUserChecks - Get checks for a user
 // Lists all checks for a user specified by ID.
-func (s *Users) ListUserChecks(ctx context.Context, request operations.ListUserChecksRequest, opts ...operations.Option) (*operations.ListUserChecksResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_user_checks"}
+func (s *Users) ListUserChecks(ctx context.Context, request operations.ListUserChecksRequest, security operations.ListUserChecksSecurity, opts ...operations.Option) (*operations.ListUserChecksResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_user_checks",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -750,12 +774,12 @@ func (s *Users) ListUserChecks(ctx context.Context, request operations.ListUserC
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -765,15 +789,15 @@ func (s *Users) ListUserChecks(ctx context.Context, request operations.ListUserC
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -848,8 +872,12 @@ func (s *Users) ListUserChecks(ctx context.Context, request operations.ListUserC
 
 // ListUserIdentifiers - Get user identifiers
 // Lists all existing identifiers of a user used for transaction reporting.
-func (s *Users) ListUserIdentifiers(ctx context.Context, request operations.ListUserIdentifiersRequest, opts ...operations.Option) (*operations.ListUserIdentifiersResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_user_identifiers"}
+func (s *Users) ListUserIdentifiers(ctx context.Context, request operations.ListUserIdentifiersRequest, security operations.ListUserIdentifiersSecurity, opts ...operations.Option) (*operations.ListUserIdentifiersResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_user_identifiers",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -881,12 +909,12 @@ func (s *Users) ListUserIdentifiers(ctx context.Context, request operations.List
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -896,15 +924,15 @@ func (s *Users) ListUserIdentifiers(ctx context.Context, request operations.List
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -979,8 +1007,12 @@ func (s *Users) ListUserIdentifiers(ctx context.Context, request operations.List
 
 // ListUsers - Get all users
 // Returns the list of all users.
-func (s *Users) ListUsers(ctx context.Context, request operations.ListUsersRequest, opts ...operations.Option) (*operations.ListUsersResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_users"}
+func (s *Users) ListUsers(ctx context.Context, request operations.ListUsersRequest, security operations.ListUsersSecurity, opts ...operations.Option) (*operations.ListUsersResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_users",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1016,12 +1048,12 @@ func (s *Users) ListUsers(ctx context.Context, request operations.ListUsersReque
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -1031,15 +1063,15 @@ func (s *Users) ListUsers(ctx context.Context, request operations.ListUsersReque
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -1114,8 +1146,12 @@ func (s *Users) ListUsers(ctx context.Context, request operations.ListUsersReque
 
 // OffboardUser - Offboard a user
 // Starts the user offboarding process in the background.
-func (s *Users) OffboardUser(ctx context.Context, request operations.OffboardUserRequest) (*operations.OffboardUserResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "offboard_user"}
+func (s *Users) OffboardUser(ctx context.Context, request operations.OffboardUserRequest, security operations.OffboardUserSecurity) (*operations.OffboardUserResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "offboard_user",
+		SecuritySource: withSecurity(security),
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/users/{user_id}", request, nil)
@@ -1132,12 +1168,12 @@ func (s *Users) OffboardUser(ctx context.Context, request operations.OffboardUse
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -1147,15 +1183,15 @@ func (s *Users) OffboardUser(ctx context.Context, request operations.OffboardUse
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -1219,8 +1255,12 @@ func (s *Users) OffboardUser(ctx context.Context, request operations.OffboardUse
 
 // RetrieveIdentifier - Get a user identifier by ID
 // Returns an existing identifier of a given user used for transaction reporting.
-func (s *Users) RetrieveIdentifier(ctx context.Context, request operations.RetrieveIdentifierRequest, opts ...operations.Option) (*operations.RetrieveIdentifierResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_identifier"}
+func (s *Users) RetrieveIdentifier(ctx context.Context, request operations.RetrieveIdentifierRequest, security operations.RetrieveIdentifierSecurity, opts ...operations.Option) (*operations.RetrieveIdentifierResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_identifier",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1252,12 +1292,12 @@ func (s *Users) RetrieveIdentifier(ctx context.Context, request operations.Retri
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -1267,15 +1307,15 @@ func (s *Users) RetrieveIdentifier(ctx context.Context, request operations.Retri
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -1350,8 +1390,12 @@ func (s *Users) RetrieveIdentifier(ctx context.Context, request operations.Retri
 
 // RetrieveUser - Get a user by ID
 // Returns the user specified by ID.
-func (s *Users) RetrieveUser(ctx context.Context, request operations.RetrieveUserRequest, opts ...operations.Option) (*operations.RetrieveUserResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_user"}
+func (s *Users) RetrieveUser(ctx context.Context, request operations.RetrieveUserRequest, security operations.RetrieveUserSecurity, opts ...operations.Option) (*operations.RetrieveUserResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_user",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1383,12 +1427,12 @@ func (s *Users) RetrieveUser(ctx context.Context, request operations.RetrieveUse
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -1398,15 +1442,15 @@ func (s *Users) RetrieveUser(ctx context.Context, request operations.RetrieveUse
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -1481,8 +1525,12 @@ func (s *Users) RetrieveUser(ctx context.Context, request operations.RetrieveUse
 
 // RetrieveUserCheck - Get a user check by ID
 // Retrieves a check for a user specified by its ID.
-func (s *Users) RetrieveUserCheck(ctx context.Context, request operations.RetrieveUserCheckRequest, opts ...operations.Option) (*operations.RetrieveUserCheckResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_user_check"}
+func (s *Users) RetrieveUserCheck(ctx context.Context, request operations.RetrieveUserCheckRequest, security operations.RetrieveUserCheckSecurity, opts ...operations.Option) (*operations.RetrieveUserCheckResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_user_check",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1514,12 +1562,12 @@ func (s *Users) RetrieveUserCheck(ctx context.Context, request operations.Retrie
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -1529,15 +1577,15 @@ func (s *Users) RetrieveUserCheck(ctx context.Context, request operations.Retrie
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -1612,8 +1660,12 @@ func (s *Users) RetrieveUserCheck(ctx context.Context, request operations.Retrie
 
 // UpdateIdentifier - Update a user identifier by ID
 // Updates an existing identifier of a given user used for transaction reporting.
-func (s *Users) UpdateIdentifier(ctx context.Context, request operations.UpdateIdentifierRequest, opts ...operations.Option) (*operations.UpdateIdentifierResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "update_identifier"}
+func (s *Users) UpdateIdentifier(ctx context.Context, request operations.UpdateIdentifierRequest, security operations.UpdateIdentifierSecurity, opts ...operations.Option) (*operations.UpdateIdentifierResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "update_identifier",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1651,12 +1703,12 @@ func (s *Users) UpdateIdentifier(ctx context.Context, request operations.UpdateI
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -1666,15 +1718,15 @@ func (s *Users) UpdateIdentifier(ctx context.Context, request operations.UpdateI
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -1751,8 +1803,12 @@ func (s *Users) UpdateIdentifier(ctx context.Context, request operations.UpdateI
 
 // UserDataChange - Change user data
 // Requests a data change for a user specified by ID.
-func (s *Users) UserDataChange(ctx context.Context, request operations.UserDataChangeRequest) (*operations.UserDataChangeResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "user_data_change"}
+func (s *Users) UserDataChange(ctx context.Context, request operations.UserDataChangeRequest, security operations.UserDataChangeSecurity) (*operations.UserDataChangeResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "user_data_change",
+		SecuritySource: withSecurity(security),
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/users/{user_id}/data_change_requests", request, nil)
@@ -1775,12 +1831,12 @@ func (s *Users) UserDataChange(ctx context.Context, request operations.UserDataC
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -1790,15 +1846,15 @@ func (s *Users) UserDataChange(ctx context.Context, request operations.UserDataC
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type CreateAccountSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CreateAccountSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // Type - Account type.
 // * TRADING - Orders in accounts of this type are created on a specific instrument basis.
 // * PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available.

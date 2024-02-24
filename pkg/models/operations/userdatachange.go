@@ -12,6 +12,17 @@ import (
 	"net/http"
 )
 
+type UserDataChangeSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *UserDataChangeSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress - Address. Must not be a P.O. box or c/o address.
 type UserDataChangeUsersRequestRequestBodyUserDataChangeRequestAddress struct {
 	// First address line of the address.

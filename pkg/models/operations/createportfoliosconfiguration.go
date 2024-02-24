@@ -9,6 +9,17 @@ import (
 	"time"
 )
 
+type CreatePortfoliosConfigurationSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CreatePortfoliosConfigurationSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type CreatePortfoliosConfigurationPortfoliosConfigurationCreateRequest struct {
 	// Account unique identifier.
 	AccountID    string `json:"account_id"`

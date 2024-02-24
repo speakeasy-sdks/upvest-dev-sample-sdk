@@ -28,8 +28,12 @@ func newFees(sdkConfig sdkConfiguration) *Fees {
 
 // CreateFeeCollection - Create a fee collection
 // Creates a fee collection for pre-calculated fee amounts.
-func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.CreateFeeCollectionRequest, opts ...operations.Option) (*operations.CreateFeeCollectionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create_fee_collection"}
+func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.CreateFeeCollectionRequest, security operations.CreateFeeCollectionSecurity, opts ...operations.Option) (*operations.CreateFeeCollectionResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create_fee_collection",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -67,12 +71,12 @@ func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.Creat
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -82,15 +86,15 @@ func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.Creat
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -167,8 +171,12 @@ func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.Creat
 
 // ListFeeCollections - Get fee collections
 // Returns a list of fee collections.
-func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFeeCollectionsRequest, opts ...operations.Option) (*operations.ListFeeCollectionsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_fee_collections"}
+func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFeeCollectionsRequest, security operations.ListFeeCollectionsSecurity, opts ...operations.Option) (*operations.ListFeeCollectionsResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_fee_collections",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -204,12 +212,12 @@ func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFe
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -219,15 +227,15 @@ func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFe
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -302,8 +310,12 @@ func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFe
 
 // RetrieveFeeCollection - Get a fee collection by ID
 // Returns the fee collection specified by its ID.
-func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.RetrieveFeeCollectionRequest, opts ...operations.Option) (*operations.RetrieveFeeCollectionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_fee_collection"}
+func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.RetrieveFeeCollectionRequest, security operations.RetrieveFeeCollectionSecurity, opts ...operations.Option) (*operations.RetrieveFeeCollectionResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_fee_collection",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -335,12 +347,12 @@ func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.Ret
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -350,15 +362,15 @@ func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.Ret
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

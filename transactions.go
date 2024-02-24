@@ -28,8 +28,12 @@ func newTransactions(sdkConfig sdkConfiguration) *Transactions {
 
 // ListCashTransactions - List cash transactions
 // List cash transactions
-func (s *Transactions) ListCashTransactions(ctx context.Context, request operations.ListCashTransactionsRequest, opts ...operations.Option) (*operations.ListCashTransactionsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_cash_transactions"}
+func (s *Transactions) ListCashTransactions(ctx context.Context, request operations.ListCashTransactionsRequest, security operations.ListCashTransactionsSecurity, opts ...operations.Option) (*operations.ListCashTransactionsResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_cash_transactions",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -65,12 +69,12 @@ func (s *Transactions) ListCashTransactions(ctx context.Context, request operati
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -80,15 +84,15 @@ func (s *Transactions) ListCashTransactions(ctx context.Context, request operati
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "405", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -180,8 +184,12 @@ func (s *Transactions) ListCashTransactions(ctx context.Context, request operati
 
 // ListSecuritiesTransactions - List securities transactions
 // List securities transactions
-func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request operations.ListSecuritiesTransactionsRequest, opts ...operations.Option) (*operations.ListSecuritiesTransactionsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_securities_transactions"}
+func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request operations.ListSecuritiesTransactionsRequest, security operations.ListSecuritiesTransactionsSecurity, opts ...operations.Option) (*operations.ListSecuritiesTransactionsResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_securities_transactions",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -217,12 +225,12 @@ func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request o
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -232,15 +240,15 @@ func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request o
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "405", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

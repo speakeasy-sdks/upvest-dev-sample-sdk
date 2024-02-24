@@ -22,17 +22,20 @@ Create a mandate
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.CreateMandateSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Mandates.CreateMandate(ctx, operations.CreateMandateRequest{
@@ -41,7 +44,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -54,10 +57,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.CreateMandateRequest](../../pkg/models/operations/createmandaterequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.CreateMandateRequest](../../pkg/models/operations/createmandaterequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `security`                                                                               | [operations.CreateMandateSecurity](../../pkg/models/operations/createmandatesecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
 
 
 ### Response
@@ -78,18 +82,21 @@ Delete mandate
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 	"net/http"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.DeleteMandateSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Mandates.DeleteMandate(ctx, operations.DeleteMandateRequest{
@@ -98,7 +105,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -111,10 +118,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.DeleteMandateRequest](../../pkg/models/operations/deletemandaterequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.DeleteMandateRequest](../../pkg/models/operations/deletemandaterequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `security`                                                                               | [operations.DeleteMandateSecurity](../../pkg/models/operations/deletemandatesecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
 
 
 ### Response
@@ -135,17 +143,20 @@ List mandates
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.ListMandatesSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Mandates.ListMandates(ctx, operations.ListMandatesRequest{
@@ -154,7 +165,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "af42547b-fef5-4eb5-b512-a618cd73b2e3",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -167,10 +178,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.ListMandatesRequest](../../pkg/models/operations/listmandatesrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.ListMandatesRequest](../../pkg/models/operations/listmandatesrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.ListMandatesSecurity](../../pkg/models/operations/listmandatessecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
 
 
 ### Response
@@ -191,17 +203,20 @@ Retrieve a direct debit mandate
 package main
 
 import(
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New(
-        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
-    )
+    s := upvestdevsamplesdk.New()
+
+
+    operationSecurity := operations.RetrieveMandateSecurity{
+            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+        }
 
     ctx := context.Background()
     res, err := s.Mandates.RetrieveMandate(ctx, operations.RetrieveMandateRequest{
@@ -210,7 +225,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -223,10 +238,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.RetrieveMandateRequest](../../pkg/models/operations/retrievemandaterequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.RetrieveMandateRequest](../../pkg/models/operations/retrievemandaterequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `security`                                                                                   | [operations.RetrieveMandateSecurity](../../pkg/models/operations/retrievemandatesecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
 
 
 ### Response

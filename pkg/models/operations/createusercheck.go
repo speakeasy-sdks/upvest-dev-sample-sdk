@@ -13,6 +13,17 @@ import (
 	"time"
 )
 
+type CreateUserCheckSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *CreateUserCheckSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type InstrumentSuitability struct {
 	// Did the user go through a suitability assessment and the outcome indicated suitability.
 	Suitability bool `json:"suitability"`

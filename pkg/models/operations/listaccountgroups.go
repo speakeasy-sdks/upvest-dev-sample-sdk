@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+type ListAccountGroupsSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *ListAccountGroupsSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 // Sort the result by `created_at`.
 type Sort string
 

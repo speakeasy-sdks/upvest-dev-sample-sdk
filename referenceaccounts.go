@@ -28,8 +28,12 @@ func newReferenceAccounts(sdkConfig sdkConfiguration) *ReferenceAccounts {
 
 // CreateReferenceAccount - Create a reference account
 // Creates a new reference account for a user specified by ID.
-func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request operations.CreateReferenceAccountRequest, opts ...operations.Option) (*operations.CreateReferenceAccountResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create_reference_account"}
+func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request operations.CreateReferenceAccountRequest, security operations.CreateReferenceAccountSecurity, opts ...operations.Option) (*operations.CreateReferenceAccountResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create_reference_account",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -67,12 +71,12 @@ func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -82,15 +86,15 @@ func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request 
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -167,8 +171,12 @@ func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request 
 
 // DeleteReferenceAccount - Delete a reference account by ID
 // Deletes the reference account specified by its ID.
-func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request operations.DeleteReferenceAccountRequest) (*operations.DeleteReferenceAccountResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "delete_reference_account"}
+func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request operations.DeleteReferenceAccountRequest, security operations.DeleteReferenceAccountSecurity) (*operations.DeleteReferenceAccountResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "delete_reference_account",
+		SecuritySource: withSecurity(security),
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/payments/reference_accounts/{reference_account_id}", request, nil)
@@ -185,12 +193,12 @@ func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -200,15 +208,15 @@ func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request 
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -270,8 +278,12 @@ func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request 
 
 // ListReferenceAccounts - Get reference accounts of a user
 // Returns the list of reference accounts of a user specified by ID.
-func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request operations.ListReferenceAccountsRequest, opts ...operations.Option) (*operations.ListReferenceAccountsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list_reference_accounts"}
+func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request operations.ListReferenceAccountsRequest, security operations.ListReferenceAccountsSecurity, opts ...operations.Option) (*operations.ListReferenceAccountsResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list_reference_accounts",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -307,12 +319,12 @@ func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request o
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -322,15 +334,15 @@ func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request o
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -407,8 +419,12 @@ func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request o
 
 // RetrieveReferenceAccount - Get a reference account by ID
 // Retrieves the reference account specified by its ID.
-func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, request operations.RetrieveReferenceAccountRequest, opts ...operations.Option) (*operations.RetrieveReferenceAccountResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_reference_account"}
+func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, request operations.RetrieveReferenceAccountRequest, security operations.RetrieveReferenceAccountSecurity, opts ...operations.Option) (*operations.RetrieveReferenceAccountResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_reference_account",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -440,12 +456,12 @@ func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, reques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -455,15 +471,15 @@ func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, reques
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

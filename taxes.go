@@ -27,8 +27,12 @@ func newTaxes(sdkConfig sdkConfiguration) *Taxes {
 
 // RetrieveTaxResidencies - Retrieve tax residencies
 // Retrieve tax residencies
-func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.RetrieveTaxResidenciesRequest, opts ...operations.Option) (*operations.RetrieveTaxResidenciesResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "retrieve_tax_residencies"}
+func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.RetrieveTaxResidenciesRequest, security operations.RetrieveTaxResidenciesSecurity, opts ...operations.Option) (*operations.RetrieveTaxResidenciesResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "retrieve_tax_residencies",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -60,12 +64,12 @@ func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.R
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -75,15 +79,15 @@ func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.R
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"401", "403", "404", "405", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -173,8 +177,12 @@ func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.R
 
 // SetTaxResidencies - Update tax residencies
 // Update tax residencies
-func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTaxResidenciesRequest, opts ...operations.Option) (*operations.SetTaxResidenciesResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "set_tax_residencies"}
+func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTaxResidenciesRequest, security operations.SetTaxResidenciesSecurity, opts ...operations.Option) (*operations.SetTaxResidenciesResponse, error) {
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "set_tax_residencies",
+		SecuritySource: withSecurity(security),
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -212,12 +220,12 @@ func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTax
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, withSecurity(security))
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -227,15 +235,15 @@ func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTax
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "406", "429", "4XX", "500", "503", "504", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

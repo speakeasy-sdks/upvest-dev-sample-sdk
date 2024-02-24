@@ -8,6 +8,17 @@ import (
 	"net/http"
 )
 
+type RetrievePositionSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *RetrievePositionSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type RetrievePositionRequest struct {
 	AccountID    string `pathParam:"style=simple,explode=false,name=account_id"`
 	InstrumentID string `pathParam:"style=simple,explode=false,name=instrument_id"`

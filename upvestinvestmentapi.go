@@ -152,7 +152,7 @@ func WithClient(client HTTPClient) SDKOption {
 
 func withSecurity(security interface{}) func(context.Context) (interface{}, error) {
 	return func(context.Context) (interface{}, error) {
-		return &security, nil
+		return security, nil
 	}
 }
 
@@ -185,9 +185,9 @@ func New(opts ...SDKOption) *UpvestInvestmentAPI {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.9.0",
-			SDKVersion:        "0.9.1",
-			GenVersion:        "2.263.3",
-			UserAgent:         "speakeasy-sdk/go 0.9.1 2.263.3 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
+			SDKVersion:        "0.10.0",
+			GenVersion:        "2.272.4",
+			UserAgent:         "speakeasy-sdk/go 0.10.0 2.272.4 1.9.0 github.com/speakeasy-sdks/upvest-dev-sample-sdk",
 			Hooks:             hooks.New(),
 		},
 	}
@@ -195,12 +195,18 @@ func New(opts ...SDKOption) *UpvestInvestmentAPI {
 		opt(sdk)
 	}
 
-	sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.ClientInit(sdk.sdkConfiguration.DefaultClient)
-
 	// Use WithClient to override the default client if you would like to customize the timeout
 	if sdk.sdkConfiguration.DefaultClient == nil {
 		sdk.sdkConfiguration.DefaultClient = &http.Client{Timeout: 60 * time.Second}
 	}
+
+	currentServerURL, _ := sdk.sdkConfiguration.GetServerDetails()
+	serverURL := currentServerURL
+	serverURL, sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.SDKInit(currentServerURL, sdk.sdkConfiguration.DefaultClient)
+	if serverURL != currentServerURL {
+		sdk.sdkConfiguration.ServerURL = serverURL
+	}
+
 	if sdk.sdkConfiguration.SecurityClient == nil {
 		if sdk.sdkConfiguration.Security != nil {
 			sdk.sdkConfiguration.SecurityClient = utils.ConfigureSecurityClient(sdk.sdkConfiguration.DefaultClient, sdk.sdkConfiguration.Security)

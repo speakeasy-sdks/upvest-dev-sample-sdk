@@ -10,6 +10,17 @@ import (
 	"net/http"
 )
 
+type RetrieveCashBalanceSecurity struct {
+	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
+}
+
+func (o *RetrieveCashBalanceSecurity) GetOauthClientCredentials() string {
+	if o == nil {
+		return ""
+	}
+	return o.OauthClientCredentials
+}
+
 type RetrieveCashBalanceRequest struct {
 	AccountGroupID string `pathParam:"style=simple,explode=false,name=account_group_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
