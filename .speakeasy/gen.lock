@@ -4,9 +4,9 @@ management:
   docChecksum: 3c1ab37994ed312df79267b2de2c9a65
   docVersion: 1.9.0
   speakeasyVersion: internal
-  generationVersion: 2.272.7
-  releaseVersion: 0.10.1
-  configChecksum: f7b27f74aa32392ef5fa51b4bc122159
+  generationVersion: 2.277.0
+  releaseVersion: 0.10.2
+  configChecksum: a670b8266a7f3c1aa07af7995da4cb0f
   repoURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk
@@ -14,13 +14,13 @@ management:
 features:
   go:
     additionalProperties: 0.1.2
-    constsAndDefaults: 0.1.3
+    constsAndDefaults: 0.1.4
     core: 3.4.3
     examples: 2.81.3
     globalSecurity: 2.82.8
     globalServerURLs: 2.82.1
     methodSecurity: 2.82.2
-    unions: 2.85.3
+    unions: 2.85.4
 generatedFiles:
   - accounts.go
   - cashbalances.go
