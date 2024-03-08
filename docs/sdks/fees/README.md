@@ -47,7 +47,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.FeeCollection != nil {
         // handle response
     }
@@ -108,7 +107,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.FeeCollectionListResponse != nil {
         // handle response
     }
@@ -168,7 +166,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.FeeCollection != nil {
         // handle response
     }

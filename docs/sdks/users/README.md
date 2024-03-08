@@ -58,7 +58,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Identifier != nil {
         // handle response
     }
@@ -118,7 +117,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UserCreateRequest != nil {
         // handle response
     }
@@ -178,7 +176,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UserCheckCreateResponse != nil {
         // handle response
     }
@@ -238,7 +235,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AccountGroupsListResponse != nil {
         // handle response
     }
@@ -298,7 +294,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AccountsListResponse != nil {
         // handle response
     }
@@ -358,7 +353,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UserCheckListResponse != nil {
         // handle response
     }
@@ -418,7 +412,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.IdentifiersListResponse != nil {
         // handle response
     }
@@ -477,7 +470,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UsersListResponse != nil {
         // handle response
     }
@@ -516,7 +508,6 @@ import(
 	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -538,8 +529,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -599,7 +589,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Identifier != nil {
         // handle response
     }
@@ -659,7 +648,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UserGetResponse != nil {
         // handle response
     }
@@ -720,7 +708,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UserCheck != nil {
         // handle response
     }
@@ -781,7 +768,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Identifier != nil {
         // handle response
     }
@@ -820,7 +806,6 @@ import(
 	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -842,8 +827,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }

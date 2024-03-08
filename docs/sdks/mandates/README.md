@@ -48,7 +48,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DirectDebitMandate != nil {
         // handle response
     }
@@ -87,7 +86,6 @@ import(
 	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -109,8 +107,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -169,7 +166,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.MandatesListResponse != nil {
         // handle response
     }
@@ -229,7 +225,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DirectDebitMandate != nil {
         // handle response
     }

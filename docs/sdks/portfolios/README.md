@@ -42,7 +42,6 @@ import(
 	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -64,8 +63,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -124,7 +122,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosAllocation != nil {
         // handle response
     }
@@ -184,7 +181,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosConfiguration != nil {
         // handle response
     }
@@ -244,7 +240,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosOrder != nil {
         // handle response
     }
@@ -304,7 +299,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosRebalancingStrategy != nil {
         // handle response
     }
@@ -364,7 +358,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosRebalancingExecutionOrderListResponse != nil {
         // handle response
     }
@@ -425,7 +418,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosAllocationAccountsListResponse != nil {
         // handle response
     }
@@ -485,7 +477,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosAllocationsListResponse != nil {
         // handle response
     }
@@ -545,7 +536,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosConfigurationsListResponse != nil {
         // handle response
     }
@@ -605,7 +595,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosOrdersListResponse != nil {
         // handle response
     }
@@ -665,7 +654,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosRebalancingStrategyListResponse != nil {
         // handle response
     }
@@ -726,7 +714,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosAllocation != nil {
         // handle response
     }
@@ -786,7 +773,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosConfiguration != nil {
         // handle response
     }
@@ -847,7 +833,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosOrder != nil {
         // handle response
     }
@@ -907,7 +892,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosRebalancingExecution != nil {
         // handle response
     }
@@ -968,7 +952,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosRebalancingStrategy != nil {
         // handle response
     }
@@ -1029,7 +1012,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TriggerPortfolioRebalancingResponse != nil {
         // handle response
     }
@@ -1089,7 +1071,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosAllocation != nil {
         // handle response
     }
@@ -1150,7 +1131,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PortfoliosConfiguration != nil {
         // handle response
     }

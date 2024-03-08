@@ -47,7 +47,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AccountValuation != nil {
         // handle response
     }
@@ -107,7 +106,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.AccountValuationListResponse != nil {
         // handle response
     }

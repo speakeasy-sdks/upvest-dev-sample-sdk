@@ -48,7 +48,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.CashTransactionListResponse != nil {
         // handle response
     }
@@ -110,7 +109,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.SecurityTransactionListResponse != nil {
         // handle response
     }

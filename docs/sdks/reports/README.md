@@ -46,7 +46,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.ReportsListResponse != nil {
         // handle response
     }
@@ -106,7 +105,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TwoHundredApplicationJSONReport != nil {
         // handle response
     }
