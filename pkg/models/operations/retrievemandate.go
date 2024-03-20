@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type RetrieveMandateSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrieveMandateSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrieveMandateRequest struct {
 	MandateID string `pathParam:"style=simple,explode=false,name=mandate_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

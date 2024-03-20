@@ -3,10 +3,10 @@ id: 8a622ec3-2765-45ca-aa0b-13225eb6735e
 management:
   docChecksum: 3c1ab37994ed312df79267b2de2c9a65
   docVersion: 1.9.0
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 0.11.1
-  configChecksum: 93d32dd2d60e364dd7bb06a60a8d489f
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.12.0
+  configChecksum: 075e4db93cd5ea93c8432158cdc2536d
   repoURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk
@@ -17,9 +17,8 @@ features:
     constsAndDefaults: 0.1.4
     core: 3.4.4
     examples: 2.81.3
-    globalSecurity: 2.82.8
+    globalSecurity: 2.82.9
     globalServerURLs: 2.82.2
-    methodSecurity: 2.82.2
     responseFormat: 0.1.0
     unions: 2.85.4
 generatedFiles:
@@ -252,13 +251,10 @@ generatedFiles:
   - /pkg/models/shared/apiversion.go
   - /pkg/models/shared/order.go
   - /pkg/models/shared/security.go
-  - docs/pkg/models/operations/accountclosuresecurity.md
   - docs/pkg/models/operations/accountclosurerequest.md
   - docs/pkg/models/operations/accountclosureresponse.md
-  - docs/pkg/models/operations/accountgroupclosuresecurity.md
   - docs/pkg/models/operations/accountgroupclosurerequest.md
   - docs/pkg/models/operations/accountgroupclosureresponse.md
-  - docs/pkg/models/operations/createaccountsecurity.md
   - docs/pkg/models/operations/type.md
   - docs/pkg/models/operations/createaccountrequestbody.md
   - docs/pkg/models/operations/createaccountrequest.md
@@ -268,7 +264,6 @@ generatedFiles:
   - docs/pkg/models/operations/users.md
   - docs/pkg/models/operations/createaccountaccount.md
   - docs/pkg/models/operations/createaccountresponse.md
-  - docs/pkg/models/operations/createaccountgroupsecurity.md
   - docs/pkg/models/operations/createaccountgrouptype.md
   - docs/pkg/models/operations/createaccountgroupaccountgroupcreaterequest.md
   - docs/pkg/models/operations/createaccountgrouprequest.md
@@ -278,7 +273,6 @@ generatedFiles:
   - docs/pkg/models/operations/createaccountgroupusers.md
   - docs/pkg/models/operations/createaccountgroupaccountgroup.md
   - docs/pkg/models/operations/createaccountgroupresponse.md
-  - docs/pkg/models/operations/listaccountgroupssecurity.md
   - docs/pkg/models/operations/sort.md
   - docs/pkg/models/operations/listaccountgroupsrequest.md
   - docs/pkg/models/operations/listaccountgroupsstatus.md
@@ -290,7 +284,6 @@ generatedFiles:
   - docs/pkg/models/operations/meta.md
   - docs/pkg/models/operations/listaccountgroupsaccountgroupslistresponse.md
   - docs/pkg/models/operations/listaccountgroupsresponse.md
-  - docs/pkg/models/operations/listaccountssecurity.md
   - docs/pkg/models/operations/queryparamsort.md
   - docs/pkg/models/operations/listaccountsrequest.md
   - docs/pkg/models/operations/listaccountsstatus.md
@@ -302,7 +295,6 @@ generatedFiles:
   - docs/pkg/models/operations/listaccountsmeta.md
   - docs/pkg/models/operations/listaccountsaccountslistresponse.md
   - docs/pkg/models/operations/listaccountsresponse.md
-  - docs/pkg/models/operations/retrieveaccountsecurity.md
   - docs/pkg/models/operations/retrieveaccountrequest.md
   - docs/pkg/models/operations/retrieveaccountstatus.md
   - docs/pkg/models/operations/retrieveaccounttype.md
@@ -310,7 +302,6 @@ generatedFiles:
   - docs/pkg/models/operations/retrieveaccountusers.md
   - docs/pkg/models/operations/retrieveaccountaccount.md
   - docs/pkg/models/operations/retrieveaccountresponse.md
-  - docs/pkg/models/operations/retrieveaccountgroupsecurity.md
   - docs/pkg/models/operations/retrieveaccountgrouprequest.md
   - docs/pkg/models/operations/retrieveaccountgroupstatus.md
   - docs/pkg/models/operations/retrieveaccountgrouptype.md
@@ -318,7 +309,6 @@ generatedFiles:
   - docs/pkg/models/operations/retrieveaccountgroupusers.md
   - docs/pkg/models/operations/retrieveaccountgroupaccountgroup.md
   - docs/pkg/models/operations/retrieveaccountgroupresponse.md
-  - docs/pkg/models/operations/updateaccountsecurity.md
   - docs/pkg/models/operations/updateaccountaccountupdaterequest.md
   - docs/pkg/models/operations/updateaccountrequest.md
   - docs/pkg/models/operations/updateaccountstatus.md
@@ -327,29 +317,24 @@ generatedFiles:
   - docs/pkg/models/operations/updateaccountusers.md
   - docs/pkg/models/operations/updateaccountaccount.md
   - docs/pkg/models/operations/updateaccountresponse.md
-  - docs/pkg/models/operations/retrievecashbalancesecurity.md
   - docs/pkg/models/operations/retrievecashbalancerequest.md
   - docs/pkg/models/operations/retrievecashbalancecurrency.md
   - docs/pkg/models/operations/retrievecashbalanceresponsebody.md
   - docs/pkg/models/operations/retrievecashbalanceresponse.md
-  - docs/pkg/models/operations/cancelcashwithdrawalsecurity.md
   - docs/pkg/models/operations/cancelcashwithdrawalrequest.md
   - docs/pkg/models/operations/cancelcashwithdrawalresponse.md
-  - docs/pkg/models/operations/createcashwithdrawalsecurity.md
   - docs/pkg/models/operations/createcashwithdrawalpaymentswithdrawalcreaterequest.md
   - docs/pkg/models/operations/createcashwithdrawalrequest.md
   - docs/pkg/models/operations/createcashwithdrawalcurrency.md
   - docs/pkg/models/operations/createcashwithdrawalstatus.md
   - docs/pkg/models/operations/createcashwithdrawalpaymentswithdrawal.md
   - docs/pkg/models/operations/createcashwithdrawalresponse.md
-  - docs/pkg/models/operations/createdirectdebitsecurity.md
   - docs/pkg/models/operations/createdirectdebitpaymentsdirectdebitcreaterequest.md
   - docs/pkg/models/operations/createdirectdebitrequest.md
   - docs/pkg/models/operations/createdirectdebitcurrency.md
   - docs/pkg/models/operations/createdirectdebitstatus.md
   - docs/pkg/models/operations/createdirectdebitresponsebody.md
   - docs/pkg/models/operations/createdirectdebitresponse.md
-  - docs/pkg/models/operations/listcashwithdrawalssecurity.md
   - docs/pkg/models/operations/listcashwithdrawalsqueryparamorder.md
   - docs/pkg/models/operations/listcashwithdrawalsqueryparamsort.md
   - docs/pkg/models/operations/listcashwithdrawalsrequest.md
@@ -360,7 +345,6 @@ generatedFiles:
   - docs/pkg/models/operations/listcashwithdrawalsmeta.md
   - docs/pkg/models/operations/listcashwithdrawalswithdrawalslistresponse.md
   - docs/pkg/models/operations/listcashwithdrawalsresponse.md
-  - docs/pkg/models/operations/listdirectdebitssecurity.md
   - docs/pkg/models/operations/listdirectdebitsqueryparamorder.md
   - docs/pkg/models/operations/listdirectdebitsqueryparamsort.md
   - docs/pkg/models/operations/listdirectdebitsrequest.md
@@ -371,22 +355,18 @@ generatedFiles:
   - docs/pkg/models/operations/listdirectdebitsmeta.md
   - docs/pkg/models/operations/listdirectdebitspaymentsdirectdebitslistresponse.md
   - docs/pkg/models/operations/listdirectdebitsresponse.md
-  - docs/pkg/models/operations/retrievecashwithdrawalsecurity.md
   - docs/pkg/models/operations/retrievecashwithdrawalrequest.md
   - docs/pkg/models/operations/retrievecashwithdrawalcurrency.md
   - docs/pkg/models/operations/retrievecashwithdrawalstatus.md
   - docs/pkg/models/operations/retrievecashwithdrawalpaymentswithdrawal.md
   - docs/pkg/models/operations/retrievecashwithdrawalresponse.md
-  - docs/pkg/models/operations/retrievedirectdebitsecurity.md
   - docs/pkg/models/operations/retrievedirectdebitrequest.md
   - docs/pkg/models/operations/retrievedirectdebitcurrency.md
   - docs/pkg/models/operations/retrievedirectdebitstatus.md
   - docs/pkg/models/operations/retrievedirectdebitresponsebody.md
   - docs/pkg/models/operations/retrievedirectdebitresponse.md
-  - docs/pkg/models/operations/cancelaccountliquidationsecurity.md
   - docs/pkg/models/operations/cancelaccountliquidationrequest.md
   - docs/pkg/models/operations/cancelaccountliquidationresponse.md
-  - docs/pkg/models/operations/createaccountliquidationsecurity.md
   - docs/pkg/models/operations/createaccountliquidationaccountliquidationrequest.md
   - docs/pkg/models/operations/createaccountliquidationrequest.md
   - docs/pkg/models/operations/createaccountliquidationcurrency.md
@@ -395,7 +375,6 @@ generatedFiles:
   - docs/pkg/models/operations/createaccountliquidationstatus.md
   - docs/pkg/models/operations/createaccountliquidationaccountliquidation.md
   - docs/pkg/models/operations/createaccountliquidationresponse.md
-  - docs/pkg/models/operations/listaccountsliquidationssecurity.md
   - docs/pkg/models/operations/listaccountsliquidationsqueryparamsort.md
   - docs/pkg/models/operations/listaccountsliquidationsrequest.md
   - docs/pkg/models/operations/listaccountsliquidationscurrency.md
@@ -407,7 +386,6 @@ generatedFiles:
   - docs/pkg/models/operations/listaccountsliquidationsmeta.md
   - docs/pkg/models/operations/listaccountsliquidationsportfoliosorderslistresponse.md
   - docs/pkg/models/operations/listaccountsliquidationsresponse.md
-  - docs/pkg/models/operations/retrieveaccountliquidationsecurity.md
   - docs/pkg/models/operations/retrieveaccountliquidationrequest.md
   - docs/pkg/models/operations/retrieveaccountliquidationcurrency.md
   - docs/pkg/models/operations/retrieveaccountliquidationliquidationsstatus.md
@@ -415,11 +393,9 @@ generatedFiles:
   - docs/pkg/models/operations/retrieveaccountliquidationstatus.md
   - docs/pkg/models/operations/retrieveaccountliquidationaccountliquidation.md
   - docs/pkg/models/operations/retrieveaccountliquidationresponse.md
-  - docs/pkg/models/operations/cancelordersecurity.md
   - docs/pkg/models/operations/cancelorderrequest.md
   - docs/pkg/models/operations/cancelorderordercancelresponse.md
   - docs/pkg/models/operations/cancelorderresponse.md
-  - docs/pkg/models/operations/listaccountorderssecurity.md
   - docs/pkg/models/operations/listaccountordersqueryparamorder.md
   - docs/pkg/models/operations/listaccountordersrequest.md
   - docs/pkg/models/operations/listaccountorderscancellationreason.md
@@ -441,7 +417,6 @@ generatedFiles:
   - docs/pkg/models/operations/listaccountordersmeta.md
   - docs/pkg/models/operations/listaccountordersorderslistresponse.md
   - docs/pkg/models/operations/listaccountordersresponse.md
-  - docs/pkg/models/operations/placeordersecurity.md
   - docs/pkg/models/operations/placeordercurrency.md
   - docs/pkg/models/operations/executionflow.md
   - docs/pkg/models/operations/instrumentidtype.md
@@ -465,7 +440,6 @@ generatedFiles:
   - docs/pkg/models/operations/placeorderstatus.md
   - docs/pkg/models/operations/placeorderorder.md
   - docs/pkg/models/operations/placeorderresponse.md
-  - docs/pkg/models/operations/retrieveordersecurity.md
   - docs/pkg/models/operations/retrieveorderrequest.md
   - docs/pkg/models/operations/retrieveordercancellationreason.md
   - docs/pkg/models/operations/retrieveordercurrency.md
@@ -483,7 +457,6 @@ generatedFiles:
   - docs/pkg/models/operations/retrieveorderstatus.md
   - docs/pkg/models/operations/retrieveorderorder.md
   - docs/pkg/models/operations/retrieveorderresponse.md
-  - docs/pkg/models/operations/retrieveorderexecutionsecurity.md
   - docs/pkg/models/operations/retrieveorderexecutionrequest.md
   - docs/pkg/models/operations/retrieveorderexecutioncurrency.md
   - docs/pkg/models/operations/retrieveorderexecutionside.md
@@ -492,7 +465,6 @@ generatedFiles:
   - docs/pkg/models/operations/tax.md
   - docs/pkg/models/operations/retrieveorderexecutionorderexecution.md
   - docs/pkg/models/operations/retrieveorderexecutionresponse.md
-  - docs/pkg/models/operations/listpositionssecurity.md
   - docs/pkg/models/operations/listpositionsrequest.md
   - docs/pkg/models/operations/listpositionsinstrument.md
   - docs/pkg/models/operations/listpositionsdata.md
@@ -500,12 +472,10 @@ generatedFiles:
   - docs/pkg/models/operations/listpositionsmeta.md
   - docs/pkg/models/operations/listpositionspositionslistresponse.md
   - docs/pkg/models/operations/listpositionsresponse.md
-  - docs/pkg/models/operations/retrievepositionsecurity.md
   - docs/pkg/models/operations/retrievepositionrequest.md
   - docs/pkg/models/operations/instrument.md
   - docs/pkg/models/operations/retrievepositionresponsebody.md
   - docs/pkg/models/operations/retrievepositionresponse.md
-  - docs/pkg/models/operations/listaccountreturnssecurity.md
   - docs/pkg/models/operations/listaccountreturnsqueryparamorder.md
   - docs/pkg/models/operations/listaccountreturnsqueryparamsort.md
   - docs/pkg/models/operations/listaccountreturnsrequest.md
@@ -515,7 +485,6 @@ generatedFiles:
   - docs/pkg/models/operations/listaccountreturnsmeta.md
   - docs/pkg/models/operations/listaccountreturnsaccountreturnlistresponse.md
   - docs/pkg/models/operations/listaccountreturnsresponse.md
-  - docs/pkg/models/operations/getaccountvaluationsecurity.md
   - docs/pkg/models/operations/pricequality.md
   - docs/pkg/models/operations/getaccountvaluationrequest.md
   - docs/pkg/models/operations/getaccountvaluationpricequality.md
@@ -527,7 +496,6 @@ generatedFiles:
   - docs/pkg/models/operations/totalsecurityvalue.md
   - docs/pkg/models/operations/getaccountvaluationaccountvaluation.md
   - docs/pkg/models/operations/getaccountvaluationresponse.md
-  - docs/pkg/models/operations/listaccountvaluationhistorysecurity.md
   - docs/pkg/models/operations/listaccountvaluationhistoryqueryparamorder.md
   - docs/pkg/models/operations/listaccountvaluationhistoryqueryparamsort.md
   - docs/types/date.md
@@ -548,7 +516,6 @@ generatedFiles:
   - docs/pkg/models/operations/issuetokenrequest.md
   - docs/pkg/models/operations/issuetokenauthaccesstoken.md
   - docs/pkg/models/operations/issuetokenresponse.md
-  - docs/pkg/models/operations/createwebhooksecurity.md
   - docs/pkg/models/operations/config.md
   - docs/pkg/models/operations/createwebhooktype.md
   - docs/pkg/models/operations/createwebhookwebhookcreaterequest.md
@@ -557,17 +524,14 @@ generatedFiles:
   - docs/pkg/models/operations/createwebhookwebhookstype.md
   - docs/pkg/models/operations/createwebhookwebhook.md
   - docs/pkg/models/operations/createwebhookresponse.md
-  - docs/pkg/models/operations/deletewebhooksecurity.md
   - docs/pkg/models/operations/deletewebhookrequest.md
   - docs/pkg/models/operations/deletewebhookresponse.md
-  - docs/pkg/models/operations/getjwkssecurity.md
   - docs/pkg/models/operations/getjwksrequest.md
   - docs/pkg/models/operations/crv.md
   - docs/pkg/models/operations/kty.md
   - docs/pkg/models/operations/keys.md
   - docs/pkg/models/operations/getjwksauthverificationkeys.md
   - docs/pkg/models/operations/getjwksresponse.md
-  - docs/pkg/models/operations/listwebhookssecurity.md
   - docs/pkg/models/operations/listwebhooksqueryparamorder.md
   - docs/pkg/models/operations/listwebhooksqueryparamsort.md
   - docs/pkg/models/operations/listwebhooksrequest.md
@@ -578,16 +542,13 @@ generatedFiles:
   - docs/pkg/models/operations/listwebhooksmeta.md
   - docs/pkg/models/operations/listwebhookswebhookslistresponse.md
   - docs/pkg/models/operations/listwebhooksresponse.md
-  - docs/pkg/models/operations/retrievewebhooksecurity.md
   - docs/pkg/models/operations/retrievewebhookrequest.md
   - docs/pkg/models/operations/retrievewebhookconfig.md
   - docs/pkg/models/operations/retrievewebhooktype.md
   - docs/pkg/models/operations/retrievewebhookwebhook.md
   - docs/pkg/models/operations/retrievewebhookresponse.md
-  - docs/pkg/models/operations/testwebhooksecurity.md
   - docs/pkg/models/operations/testwebhookrequest.md
   - docs/pkg/models/operations/testwebhookresponse.md
-  - docs/pkg/models/operations/updatewebhooksecurity.md
   - docs/pkg/models/operations/updatewebhookconfig.md
   - docs/pkg/models/operations/updatewebhooktype.md
   - docs/pkg/models/operations/updatewebhookwebhookupdaterequest.md
@@ -596,7 +557,6 @@ generatedFiles:
   - docs/pkg/models/operations/updatewebhookwebhookstype.md
   - docs/pkg/models/operations/updatewebhookwebhook.md
   - docs/pkg/models/operations/updatewebhookresponse.md
-  - docs/pkg/models/operations/createfeecollectionsecurity.md
   - docs/pkg/models/operations/currency.md
   - docs/pkg/models/operations/createfeecollectiontype.md
   - docs/pkg/models/operations/createfeecollectionfeecollectioncreaterequest.md
@@ -607,7 +567,6 @@ generatedFiles:
   - docs/pkg/models/operations/createfeecollectionfeestype.md
   - docs/pkg/models/operations/createfeecollectionfeecollection.md
   - docs/pkg/models/operations/createfeecollectionresponse.md
-  - docs/pkg/models/operations/listfeecollectionssecurity.md
   - docs/pkg/models/operations/listfeecollectionsrequest.md
   - docs/pkg/models/operations/listfeecollectionscurrency.md
   - docs/pkg/models/operations/listfeecollectionsprocessedamount.md
@@ -618,7 +577,6 @@ generatedFiles:
   - docs/pkg/models/operations/listfeecollectionsmeta.md
   - docs/pkg/models/operations/listfeecollectionsfeecollectionlistresponse.md
   - docs/pkg/models/operations/listfeecollectionsresponse.md
-  - docs/pkg/models/operations/retrievefeecollectionsecurity.md
   - docs/pkg/models/operations/retrievefeecollectionrequest.md
   - docs/pkg/models/operations/retrievefeecollectioncurrency.md
   - docs/pkg/models/operations/retrievefeecollectionprocessedamount.md
@@ -626,7 +584,6 @@ generatedFiles:
   - docs/pkg/models/operations/retrievefeecollectiontype.md
   - docs/pkg/models/operations/retrievefeecollectionfeecollection.md
   - docs/pkg/models/operations/retrievefeecollectionresponse.md
-  - docs/pkg/models/operations/listinstrumentssecurity.md
   - docs/pkg/models/operations/order.md
   - docs/pkg/models/operations/listinstrumentsqueryparamsort.md
   - docs/pkg/models/operations/instrumenttradingstatus.md
@@ -637,22 +594,18 @@ generatedFiles:
   - docs/pkg/models/operations/listinstrumentsmeta.md
   - docs/pkg/models/operations/listinstrumentsinstrumentslistresponse.md
   - docs/pkg/models/operations/listinstrumentsresponse.md
-  - docs/pkg/models/operations/retrieveinstrumentsecurity.md
   - docs/pkg/models/operations/retrieveinstrumentrequest.md
   - docs/pkg/models/operations/retrieveinstrumentinstrumenttradingstatus.md
   - docs/pkg/models/operations/retrieveinstrumentresponsebody.md
   - docs/pkg/models/operations/retrieveinstrumentresponse.md
-  - docs/pkg/models/operations/createmandatesecurity.md
   - docs/pkg/models/operations/createmandatemandatecreaterequest.md
   - docs/pkg/models/operations/createmandaterequest.md
   - docs/pkg/models/operations/createmandateaddress.md
   - docs/pkg/models/operations/createmandatetype.md
   - docs/pkg/models/operations/createmandatedirectdebitmandate.md
   - docs/pkg/models/operations/createmandateresponse.md
-  - docs/pkg/models/operations/deletemandatesecurity.md
   - docs/pkg/models/operations/deletemandaterequest.md
   - docs/pkg/models/operations/deletemandateresponse.md
-  - docs/pkg/models/operations/listmandatessecurity.md
   - docs/pkg/models/operations/queryparamorder.md
   - docs/pkg/models/operations/listmandatesqueryparamsort.md
   - docs/pkg/models/operations/listmandatesrequest.md
@@ -663,21 +616,17 @@ generatedFiles:
   - docs/pkg/models/operations/listmandatesmeta.md
   - docs/pkg/models/operations/listmandatesmandateslistresponse.md
   - docs/pkg/models/operations/listmandatesresponse.md
-  - docs/pkg/models/operations/retrievemandatesecurity.md
   - docs/pkg/models/operations/retrievemandaterequest.md
   - docs/pkg/models/operations/retrievemandateaddress.md
   - docs/pkg/models/operations/retrievemandatetype.md
   - docs/pkg/models/operations/retrievemandatedirectdebitmandate.md
   - docs/pkg/models/operations/retrievemandateresponse.md
-  - docs/pkg/models/operations/createreferenceaccountsecurity.md
   - docs/pkg/models/operations/createreferenceaccountreferenceaccountcreaterequest.md
   - docs/pkg/models/operations/createreferenceaccountrequest.md
   - docs/pkg/models/operations/createreferenceaccountreferenceaccount.md
   - docs/pkg/models/operations/createreferenceaccountresponse.md
-  - docs/pkg/models/operations/deletereferenceaccountsecurity.md
   - docs/pkg/models/operations/deletereferenceaccountrequest.md
   - docs/pkg/models/operations/deletereferenceaccountresponse.md
-  - docs/pkg/models/operations/listreferenceaccountssecurity.md
   - docs/pkg/models/operations/listreferenceaccountsqueryparamorder.md
   - docs/pkg/models/operations/listreferenceaccountsqueryparamsort.md
   - docs/pkg/models/operations/listreferenceaccountsrequest.md
@@ -686,14 +635,11 @@ generatedFiles:
   - docs/pkg/models/operations/listreferenceaccountsmeta.md
   - docs/pkg/models/operations/listreferenceaccountsuserslistresponse.md
   - docs/pkg/models/operations/listreferenceaccountsresponse.md
-  - docs/pkg/models/operations/retrievereferenceaccountsecurity.md
   - docs/pkg/models/operations/retrievereferenceaccountrequest.md
   - docs/pkg/models/operations/retrievereferenceaccountreferenceaccount.md
   - docs/pkg/models/operations/retrievereferenceaccountresponse.md
-  - docs/pkg/models/operations/cancelportfoliosordersecurity.md
   - docs/pkg/models/operations/cancelportfoliosorderrequest.md
   - docs/pkg/models/operations/cancelportfoliosorderresponse.md
-  - docs/pkg/models/operations/createportfoliosallocationsecurity.md
   - docs/pkg/models/operations/createportfoliosallocationinstrumentidtype.md
   - docs/pkg/models/operations/allocation.md
   - docs/pkg/models/operations/createportfoliosallocationportfoliosallocationcreaterequest.md
@@ -702,12 +648,10 @@ generatedFiles:
   - docs/pkg/models/operations/createportfoliosallocationallocation.md
   - docs/pkg/models/operations/createportfoliosallocationportfoliosallocation.md
   - docs/pkg/models/operations/createportfoliosallocationresponse.md
-  - docs/pkg/models/operations/createportfoliosconfigurationsecurity.md
   - docs/pkg/models/operations/createportfoliosconfigurationportfoliosconfigurationcreaterequest.md
   - docs/pkg/models/operations/createportfoliosconfigurationrequest.md
   - docs/pkg/models/operations/createportfoliosconfigurationportfoliosconfiguration.md
   - docs/pkg/models/operations/createportfoliosconfigurationresponse.md
-  - docs/pkg/models/operations/createportfoliosordersecurity.md
   - docs/pkg/models/operations/createportfoliosordercurrency.md
   - docs/pkg/models/operations/createportfoliosorderside.md
   - docs/pkg/models/operations/createportfoliosorderportfoliosorderplacerequest.md
@@ -720,7 +664,6 @@ generatedFiles:
   - docs/pkg/models/operations/createportfoliosordertype.md
   - docs/pkg/models/operations/createportfoliosorderportfoliosorder.md
   - docs/pkg/models/operations/createportfoliosorderresponse.md
-  - docs/pkg/models/operations/createportfoliosrebalancingstrategysecurity.md
   - docs/pkg/models/operations/createportfoliosrebalancingstrategytype.md
   - docs/pkg/models/operations/conditions.md
   - docs/pkg/models/operations/createportfoliosrebalancingstrategyportfoliosrebalancingstrategyrequest.md
@@ -729,7 +672,6 @@ generatedFiles:
   - docs/pkg/models/operations/createportfoliosrebalancingstrategyconditions.md
   - docs/pkg/models/operations/createportfoliosrebalancingstrategyportfoliosrebalancingstrategy.md
   - docs/pkg/models/operations/createportfoliosrebalancingstrategyresponse.md
-  - docs/pkg/models/operations/listportfoliorebalancingexecutionorderssecurity.md
   - docs/pkg/models/operations/listportfoliorebalancingexecutionordersqueryparamsort.md
   - docs/pkg/models/operations/listportfoliorebalancingexecutionordersrequest.md
   - docs/pkg/models/operations/listportfoliorebalancingexecutionordersstatus.md
@@ -738,7 +680,6 @@ generatedFiles:
   - docs/pkg/models/operations/listportfoliorebalancingexecutionordersmeta.md
   - docs/pkg/models/operations/listportfoliorebalancingexecutionordersportfoliosrebalancingexecutionorderlistresponse.md
   - docs/pkg/models/operations/listportfoliorebalancingexecutionordersresponse.md
-  - docs/pkg/models/operations/listportfoliosallocationaccountssecurity.md
   - docs/pkg/models/operations/listportfoliosallocationaccountsqueryparamsort.md
   - docs/pkg/models/operations/listportfoliosallocationaccountsrequest.md
   - docs/pkg/models/operations/portfoliosallocationaccount.md
@@ -746,7 +687,6 @@ generatedFiles:
   - docs/pkg/models/operations/listportfoliosallocationaccountsmeta.md
   - docs/pkg/models/operations/listportfoliosallocationaccountsportfoliosallocationaccountslistresponse.md
   - docs/pkg/models/operations/listportfoliosallocationaccountsresponse.md
-  - docs/pkg/models/operations/listportfoliosallocationssecurity.md
   - docs/pkg/models/operations/listportfoliosallocationsqueryparamsort.md
   - docs/pkg/models/operations/listportfoliosallocationsrequest.md
   - docs/pkg/models/operations/listportfoliosallocationsinstrumentidtype.md
@@ -756,7 +696,6 @@ generatedFiles:
   - docs/pkg/models/operations/listportfoliosallocationsmeta.md
   - docs/pkg/models/operations/listportfoliosallocationsportfoliosallocationslistresponse.md
   - docs/pkg/models/operations/listportfoliosallocationsresponse.md
-  - docs/pkg/models/operations/listportfoliosconfigurationssecurity.md
   - docs/pkg/models/operations/listportfoliosconfigurationsqueryparamsort.md
   - docs/pkg/models/operations/listportfoliosconfigurationsrequest.md
   - docs/pkg/models/operations/portfoliosconfiguration.md
@@ -764,7 +703,6 @@ generatedFiles:
   - docs/pkg/models/operations/listportfoliosconfigurationsmeta.md
   - docs/pkg/models/operations/listportfoliosconfigurationsportfoliosconfigurationslistresponse.md
   - docs/pkg/models/operations/listportfoliosconfigurationsresponse.md
-  - docs/pkg/models/operations/listportfoliosorderssecurity.md
   - docs/pkg/models/operations/listportfoliosordersqueryparamsort.md
   - docs/pkg/models/operations/listportfoliosordersrequest.md
   - docs/pkg/models/operations/listportfoliosorderscurrency.md
@@ -778,7 +716,6 @@ generatedFiles:
   - docs/pkg/models/operations/listportfoliosordersmeta.md
   - docs/pkg/models/operations/listportfoliosordersportfoliosorderslistresponse.md
   - docs/pkg/models/operations/listportfoliosordersresponse.md
-  - docs/pkg/models/operations/listportfoliosrebalancingstrategiessecurity.md
   - docs/pkg/models/operations/listportfoliosrebalancingstrategiesqueryparamsort.md
   - docs/pkg/models/operations/listportfoliosrebalancingstrategiesrequest.md
   - docs/pkg/models/operations/listportfoliosrebalancingstrategiestype.md
@@ -788,17 +725,14 @@ generatedFiles:
   - docs/pkg/models/operations/listportfoliosrebalancingstrategiesmeta.md
   - docs/pkg/models/operations/listportfoliosrebalancingstrategiesportfoliosrebalancingstrategylistresponse.md
   - docs/pkg/models/operations/listportfoliosrebalancingstrategiesresponse.md
-  - docs/pkg/models/operations/retrieveportfoliosallocationsecurity.md
   - docs/pkg/models/operations/retrieveportfoliosallocationrequest.md
   - docs/pkg/models/operations/retrieveportfoliosallocationinstrumentidtype.md
   - docs/pkg/models/operations/retrieveportfoliosallocationallocation.md
   - docs/pkg/models/operations/retrieveportfoliosallocationportfoliosallocation.md
   - docs/pkg/models/operations/retrieveportfoliosallocationresponse.md
-  - docs/pkg/models/operations/retrieveportfoliosconfigurationsecurity.md
   - docs/pkg/models/operations/retrieveportfoliosconfigurationrequest.md
   - docs/pkg/models/operations/retrieveportfoliosconfigurationportfoliosconfiguration.md
   - docs/pkg/models/operations/retrieveportfoliosconfigurationresponse.md
-  - docs/pkg/models/operations/retrieveportfoliosordersecurity.md
   - docs/pkg/models/operations/retrieveportfoliosorderrequest.md
   - docs/pkg/models/operations/retrieveportfoliosordercurrency.md
   - docs/pkg/models/operations/retrieveportfoliosorderside.md
@@ -808,24 +742,20 @@ generatedFiles:
   - docs/pkg/models/operations/retrieveportfoliosordertype.md
   - docs/pkg/models/operations/retrieveportfoliosorderportfoliosorder.md
   - docs/pkg/models/operations/retrieveportfoliosorderresponse.md
-  - docs/pkg/models/operations/retrieveportfoliosrebalancingexecutionsecurity.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingexecutionrequest.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingexecutionportfoliosrebalancingexecution.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingexecutionresponse.md
-  - docs/pkg/models/operations/retrieveportfoliosrebalancingstrategysecurity.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingstrategyrequest.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingstrategytype.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingstrategyconditions.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingstrategyportfoliosrebalancingstrategy.md
   - docs/pkg/models/operations/retrieveportfoliosrebalancingstrategyresponse.md
-  - docs/pkg/models/operations/triggerportfoliorebalancingsecurity.md
   - docs/pkg/models/operations/allocations.md
   - docs/pkg/models/operations/accounts.md
   - docs/pkg/models/operations/triggerportfoliorebalancingtriggerportfoliorebalancingrequest.md
   - docs/pkg/models/operations/triggerportfoliorebalancingrequest.md
   - docs/pkg/models/operations/triggerportfoliorebalancingtriggerportfoliorebalancingresponse.md
   - docs/pkg/models/operations/triggerportfoliorebalancingresponse.md
-  - docs/pkg/models/operations/updateportfoliosallocationsecurity.md
   - docs/pkg/models/operations/updateportfoliosallocationinstrumentidtype.md
   - docs/pkg/models/operations/updateportfoliosallocationallocation.md
   - docs/pkg/models/operations/updateportfoliosallocationportfoliosallocationupdaterequest.md
@@ -834,12 +764,10 @@ generatedFiles:
   - docs/pkg/models/operations/updateportfoliosallocationportfoliosresponseallocation.md
   - docs/pkg/models/operations/updateportfoliosallocationportfoliosallocation.md
   - docs/pkg/models/operations/updateportfoliosallocationresponse.md
-  - docs/pkg/models/operations/updateportfoliosconfigurationsecurity.md
   - docs/pkg/models/operations/updateportfoliosconfigurationportfoliosconfigurationupdaterequest.md
   - docs/pkg/models/operations/updateportfoliosconfigurationrequest.md
   - docs/pkg/models/operations/updateportfoliosconfigurationportfoliosconfiguration.md
   - docs/pkg/models/operations/updateportfoliosconfigurationresponse.md
-  - docs/pkg/models/operations/listreportssecurity.md
   - docs/pkg/models/operations/listreportsqueryparamorder.md
   - docs/pkg/models/operations/listreportsqueryparamsort.md
   - docs/pkg/models/operations/reporttype.md
@@ -853,7 +781,6 @@ generatedFiles:
   - docs/pkg/models/operations/listreportsmeta.md
   - docs/pkg/models/operations/listreportsreportslistresponse.md
   - docs/pkg/models/operations/listreportsresponse.md
-  - docs/pkg/models/operations/retrievereportsecurity.md
   - docs/pkg/models/operations/retrievereportrequest.md
   - docs/pkg/models/operations/retrievereportaccount.md
   - docs/pkg/models/operations/reportdata.md
@@ -861,7 +788,6 @@ generatedFiles:
   - docs/pkg/models/operations/retrievereportreportsreport.md
   - docs/pkg/models/operations/retrievereportreport.md
   - docs/pkg/models/operations/retrievereportresponse.md
-  - docs/pkg/models/operations/listcashtransactionssecurity.md
   - docs/pkg/models/operations/listcashtransactionsqueryparamorder.md
   - docs/pkg/models/operations/listcashtransactionsqueryparamsort.md
   - docs/pkg/models/operations/listcashtransactionsrequest.md
@@ -879,7 +805,6 @@ generatedFiles:
   - docs/pkg/models/operations/listcashtransactionsmeta.md
   - docs/pkg/models/operations/listcashtransactionscashtransactionlistresponse.md
   - docs/pkg/models/operations/listcashtransactionsresponse.md
-  - docs/pkg/models/operations/listsecuritiestransactionssecurity.md
   - docs/pkg/models/operations/listsecuritiestransactionsqueryparamorder.md
   - docs/pkg/models/operations/listsecuritiestransactionsqueryparamsort.md
   - docs/pkg/models/operations/listsecuritiestransactionsrequest.md
@@ -893,12 +818,10 @@ generatedFiles:
   - docs/pkg/models/operations/listsecuritiestransactionsmeta.md
   - docs/pkg/models/operations/listsecuritiestransactionssecuritytransactionlistresponse.md
   - docs/pkg/models/operations/listsecuritiestransactionsresponse.md
-  - docs/pkg/models/operations/createidentifiersecurity.md
   - docs/pkg/models/operations/createidentifieridentifiercreaterequest.md
   - docs/pkg/models/operations/createidentifierrequest.md
   - docs/pkg/models/operations/createidentifieridentifier.md
   - docs/pkg/models/operations/createidentifierresponse.md
-  - docs/pkg/models/operations/createusersecurity.md
   - docs/pkg/models/operations/createuserusersrequestaddress.md
   - docs/pkg/models/operations/dataprivacyandsharingagreement.md
   - docs/pkg/models/operations/fatca.md
@@ -935,7 +858,6 @@ generatedFiles:
   - docs/pkg/models/operations/userbyol.md
   - docs/pkg/models/operations/createuserusersusercreaterequest.md
   - docs/pkg/models/operations/createuserresponse.md
-  - docs/pkg/models/operations/createuserchecksecurity.md
   - docs/pkg/models/operations/instrumentsuitability.md
   - docs/pkg/models/operations/usercheckinstrumentfitcreaterequest.md
   - docs/pkg/models/operations/createusercheckusersaddress.md
@@ -949,7 +871,6 @@ generatedFiles:
   - docs/pkg/models/operations/createusercheckrequest.md
   - docs/pkg/models/operations/createusercheckusercheckcreateresponse.md
   - docs/pkg/models/operations/createusercheckresponse.md
-  - docs/pkg/models/operations/listuseraccountgroupssecurity.md
   - docs/pkg/models/operations/listuseraccountgroupsqueryparamsort.md
   - docs/pkg/models/operations/listuseraccountgroupsrequest.md
   - docs/pkg/models/operations/listuseraccountgroupsstatus.md
@@ -961,7 +882,6 @@ generatedFiles:
   - docs/pkg/models/operations/listuseraccountgroupsmeta.md
   - docs/pkg/models/operations/listuseraccountgroupsaccountgroupslistresponse.md
   - docs/pkg/models/operations/listuseraccountgroupsresponse.md
-  - docs/pkg/models/operations/listuseraccountssecurity.md
   - docs/pkg/models/operations/listuseraccountsqueryparamsort.md
   - docs/pkg/models/operations/listuseraccountsrequest.md
   - docs/pkg/models/operations/listuseraccountsstatus.md
@@ -973,7 +893,6 @@ generatedFiles:
   - docs/pkg/models/operations/listuseraccountsmeta.md
   - docs/pkg/models/operations/listuseraccountsaccountslistresponse.md
   - docs/pkg/models/operations/listuseraccountsresponse.md
-  - docs/pkg/models/operations/listusercheckssecurity.md
   - docs/pkg/models/operations/listuserchecksrequest.md
   - docs/pkg/models/operations/listuserchecksusersresponse200status.md
   - docs/pkg/models/operations/listuserchecksusercheckcompliance.md
@@ -992,12 +911,10 @@ generatedFiles:
   - docs/pkg/models/operations/usercheck.md
   - docs/pkg/models/operations/listuserchecksuserchecklistresponse.md
   - docs/pkg/models/operations/listuserchecksresponse.md
-  - docs/pkg/models/operations/listuseridentifierssecurity.md
   - docs/pkg/models/operations/listuseridentifiersrequest.md
   - docs/pkg/models/operations/identifier.md
   - docs/pkg/models/operations/listuseridentifiersidentifierslistresponse.md
   - docs/pkg/models/operations/listuseridentifiersresponse.md
-  - docs/pkg/models/operations/listuserssecurity.md
   - docs/pkg/models/operations/listusersqueryparamsort.md
   - docs/pkg/models/operations/listusersrequest.md
   - docs/pkg/models/operations/two.md
@@ -1013,14 +930,11 @@ generatedFiles:
   - docs/pkg/models/operations/listusersmeta.md
   - docs/pkg/models/operations/listusersuserslistresponse.md
   - docs/pkg/models/operations/listusersresponse.md
-  - docs/pkg/models/operations/offboardusersecurity.md
   - docs/pkg/models/operations/offboarduserrequest.md
   - docs/pkg/models/operations/offboarduserresponse.md
-  - docs/pkg/models/operations/retrieveidentifiersecurity.md
   - docs/pkg/models/operations/retrieveidentifierrequest.md
   - docs/pkg/models/operations/retrieveidentifieridentifier.md
   - docs/pkg/models/operations/retrieveidentifierresponse.md
-  - docs/pkg/models/operations/retrieveusersecurity.md
   - docs/pkg/models/operations/retrieveuserrequest.md
   - docs/pkg/models/operations/retrieveuserusersaddress.md
   - docs/pkg/models/operations/retrieveuserdataprivacyandsharingagreement.md
@@ -1041,7 +955,6 @@ generatedFiles:
   - docs/pkg/models/operations/retrieveuseruserbyol.md
   - docs/pkg/models/operations/retrieveuserusergetresponse.md
   - docs/pkg/models/operations/retrieveuserresponse.md
-  - docs/pkg/models/operations/retrieveuserchecksecurity.md
   - docs/pkg/models/operations/retrieveusercheckrequest.md
   - docs/pkg/models/operations/retrieveusercheckusersresponse200status.md
   - docs/pkg/models/operations/usercheckcompliance.md
@@ -1059,12 +972,10 @@ generatedFiles:
   - docs/pkg/models/operations/usercheckknowyourcustomer.md
   - docs/pkg/models/operations/retrieveusercheckusercheck.md
   - docs/pkg/models/operations/retrieveusercheckresponse.md
-  - docs/pkg/models/operations/updateidentifiersecurity.md
   - docs/pkg/models/operations/updateidentifieridentifierupdaterequest.md
   - docs/pkg/models/operations/updateidentifierrequest.md
   - docs/pkg/models/operations/updateidentifieridentifier.md
   - docs/pkg/models/operations/updateidentifierresponse.md
-  - docs/pkg/models/operations/userdatachangesecurity.md
   - docs/pkg/models/operations/userdatachangeusersrequestrequestbodyuserdatachangerequestaddress.md
   - docs/pkg/models/operations/userdatachangeusersrequestdocumenttype.md
   - docs/pkg/models/operations/userdatachangeusersrequestrequestbodyaddress.md
@@ -1087,7 +998,6 @@ generatedFiles:
   - docs/pkg/models/operations/userdatachangeuserdatachangerequest.md
   - docs/pkg/models/operations/userdatachangerequest.md
   - docs/pkg/models/operations/userdatachangeresponse.md
-  - docs/pkg/models/operations/retrievetaxresidenciessecurity.md
   - docs/pkg/models/operations/retrievetaxresidenciesrequest.md
   - docs/pkg/models/operations/retrievetaxresidenciesstatus.md
   - docs/pkg/models/operations/retrievetaxresidenciesmissingtinreason.md
@@ -1096,7 +1006,6 @@ generatedFiles:
   - docs/pkg/models/operations/taxresidency.md
   - docs/pkg/models/operations/retrievetaxresidenciestaxresidencyrecord.md
   - docs/pkg/models/operations/retrievetaxresidenciesresponse.md
-  - docs/pkg/models/operations/settaxresidenciessecurity.md
   - docs/pkg/models/operations/missingtinreason.md
   - docs/pkg/models/operations/withouttaxidentifiernumber.md
   - docs/pkg/models/operations/withtaxidentifiernumber.md
@@ -1110,10 +1019,8 @@ generatedFiles:
   - docs/pkg/models/operations/settaxresidenciestaxresidency.md
   - docs/pkg/models/operations/settaxresidenciestaxresidencyrecord.md
   - docs/pkg/models/operations/settaxresidenciesresponse.md
-  - docs/pkg/models/operations/cancelvirtualcashdecreasesecurity.md
   - docs/pkg/models/operations/cancelvirtualcashdecreaserequest.md
   - docs/pkg/models/operations/cancelvirtualcashdecreaseresponse.md
-  - docs/pkg/models/operations/createvirtualcashdecreasesecurity.md
   - docs/pkg/models/operations/createvirtualcashdecreasecurrency.md
   - docs/pkg/models/operations/createvirtualcashdecreasevirtualcashbalancevirtualcashdecreasecreaterequest.md
   - docs/pkg/models/operations/createvirtualcashdecreaserequest.md
@@ -1121,7 +1028,6 @@ generatedFiles:
   - docs/pkg/models/operations/createvirtualcashdecreasestatus.md
   - docs/pkg/models/operations/createvirtualcashdecreasevirtualcashbalancevirtualcashdecrease.md
   - docs/pkg/models/operations/createvirtualcashdecreaseresponse.md
-  - docs/pkg/models/operations/createvirtualcashincreasesecurity.md
   - docs/pkg/models/operations/createvirtualcashincreasecurrency.md
   - docs/pkg/models/operations/createvirtualcashincreasevirtualcashbalancevirtualcashincreasecreaterequest.md
   - docs/pkg/models/operations/createvirtualcashincreaserequest.md

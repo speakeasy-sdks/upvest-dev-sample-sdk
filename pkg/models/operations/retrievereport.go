@@ -12,17 +12,6 @@ import (
 	"time"
 )
 
-type RetrieveReportSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrieveReportSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrieveReportRequest struct {
 	ReportID string `pathParam:"style=simple,explode=false,name=report_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

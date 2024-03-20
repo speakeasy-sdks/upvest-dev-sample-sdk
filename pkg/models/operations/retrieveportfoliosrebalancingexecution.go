@@ -9,17 +9,6 @@ import (
 	"time"
 )
 
-type RetrievePortfoliosRebalancingExecutionSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrievePortfoliosRebalancingExecutionSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrievePortfoliosRebalancingExecutionRequest struct {
 	ExecutionID string `pathParam:"style=simple,explode=false,name=execution_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type RetrieveAccountLiquidationSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrieveAccountLiquidationSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrieveAccountLiquidationRequest struct {
 	AccountID            string `pathParam:"style=simple,explode=false,name=account_id"`
 	AccountLiquidationID string `pathParam:"style=simple,explode=false,name=account_liquidation_id"`

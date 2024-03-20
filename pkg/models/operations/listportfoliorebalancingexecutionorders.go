@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type ListPortfolioRebalancingExecutionOrdersSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListPortfolioRebalancingExecutionOrdersSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // ListPortfolioRebalancingExecutionOrdersQueryParamSort - Sort the result by `status`.
 type ListPortfolioRebalancingExecutionOrdersQueryParamSort string
 

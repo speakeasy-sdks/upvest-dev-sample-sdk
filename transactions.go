@@ -28,11 +28,11 @@ func newTransactions(sdkConfig sdkConfiguration) *Transactions {
 
 // ListCashTransactions - List cash transactions
 // List cash transactions
-func (s *Transactions) ListCashTransactions(ctx context.Context, request operations.ListCashTransactionsRequest, security operations.ListCashTransactionsSecurity, opts ...operations.Option) (*operations.ListCashTransactionsResponse, error) {
+func (s *Transactions) ListCashTransactions(ctx context.Context, request operations.ListCashTransactionsRequest, opts ...operations.Option) (*operations.ListCashTransactionsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_cash_transactions",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -69,7 +69,7 @@ func (s *Transactions) ListCashTransactions(ctx context.Context, request operati
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -187,11 +187,11 @@ func (s *Transactions) ListCashTransactions(ctx context.Context, request operati
 
 // ListSecuritiesTransactions - List securities transactions
 // List securities transactions
-func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request operations.ListSecuritiesTransactionsRequest, security operations.ListSecuritiesTransactionsSecurity, opts ...operations.Option) (*operations.ListSecuritiesTransactionsResponse, error) {
+func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request operations.ListSecuritiesTransactionsRequest, opts ...operations.Option) (*operations.ListSecuritiesTransactionsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_securities_transactions",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -228,7 +228,7 @@ func (s *Transactions) ListSecuritiesTransactions(ctx context.Context, request o
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

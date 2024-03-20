@@ -9,17 +9,6 @@ import (
 	"time"
 )
 
-type UpdateIdentifierSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *UpdateIdentifierSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type UpdateIdentifierIdentifierUpdateRequest struct {
 	// Identifier value. See [guide here](/guides/users_and_accounts/identifiers.md)
 	Identifier string `json:"identifier"`

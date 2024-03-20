@@ -28,11 +28,11 @@ func newOrders(sdkConfig sdkConfiguration) *Orders {
 
 // CancelOrder - Cancel an order by ID
 // Cancels an order specified by its ID. It is possible to cancel an order of the `NEW` status. Once a cancellation has been accepted, the further processing steps take place asynchronously and depending on the respective order status.
-func (s *Orders) CancelOrder(ctx context.Context, request operations.CancelOrderRequest, security operations.CancelOrderSecurity, opts ...operations.Option) (*operations.CancelOrderResponse, error) {
+func (s *Orders) CancelOrder(ctx context.Context, request operations.CancelOrderRequest, opts ...operations.Option) (*operations.CancelOrderResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "cancel_order",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -65,7 +65,7 @@ func (s *Orders) CancelOrder(ctx context.Context, request operations.CancelOrder
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -166,11 +166,11 @@ func (s *Orders) CancelOrder(ctx context.Context, request operations.CancelOrder
 
 // ListAccountOrders - Get orders for an account by ID
 // Returns a list of all orders for the account specified by its ID.
-func (s *Orders) ListAccountOrders(ctx context.Context, request operations.ListAccountOrdersRequest, security operations.ListAccountOrdersSecurity, opts ...operations.Option) (*operations.ListAccountOrdersResponse, error) {
+func (s *Orders) ListAccountOrders(ctx context.Context, request operations.ListAccountOrdersRequest, opts ...operations.Option) (*operations.ListAccountOrdersResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_account_orders",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -207,7 +207,7 @@ func (s *Orders) ListAccountOrders(ctx context.Context, request operations.ListA
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -310,11 +310,11 @@ func (s *Orders) ListAccountOrders(ctx context.Context, request operations.ListA
 
 // PlaceOrder - Place an order
 // Places a new order. After the creation request for the order is accepted, further processing takes place asynchronously.
-func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRequest, security operations.PlaceOrderSecurity, opts ...operations.Option) (*operations.PlaceOrderResponse, error) {
+func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRequest, opts ...operations.Option) (*operations.PlaceOrderResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "place_order",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -353,7 +353,7 @@ func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRe
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -469,11 +469,11 @@ func (s *Orders) PlaceOrder(ctx context.Context, request operations.PlaceOrderRe
 
 // RetrieveOrder - Get an order by ID
 // Returns the order specified by its ID.
-func (s *Orders) RetrieveOrder(ctx context.Context, request operations.RetrieveOrderRequest, security operations.RetrieveOrderSecurity, opts ...operations.Option) (*operations.RetrieveOrderResponse, error) {
+func (s *Orders) RetrieveOrder(ctx context.Context, request operations.RetrieveOrderRequest, opts ...operations.Option) (*operations.RetrieveOrderResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_order",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -506,7 +506,7 @@ func (s *Orders) RetrieveOrder(ctx context.Context, request operations.RetrieveO
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -607,11 +607,11 @@ func (s *Orders) RetrieveOrder(ctx context.Context, request operations.RetrieveO
 
 // RetrieveOrderExecution - Get an order execution by ID
 // Returns the order execution specified by its ID.
-func (s *Orders) RetrieveOrderExecution(ctx context.Context, request operations.RetrieveOrderExecutionRequest, security operations.RetrieveOrderExecutionSecurity, opts ...operations.Option) (*operations.RetrieveOrderExecutionResponse, error) {
+func (s *Orders) RetrieveOrderExecution(ctx context.Context, request operations.RetrieveOrderExecutionRequest, opts ...operations.Option) (*operations.RetrieveOrderExecutionResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_order_execution",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -644,7 +644,7 @@ func (s *Orders) RetrieveOrderExecution(ctx context.Context, request operations.
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

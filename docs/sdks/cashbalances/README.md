@@ -19,20 +19,17 @@ Retrieve an account group's cash balance
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.RetrieveCashBalanceSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.CashBalances.RetrieveCashBalance(ctx, operations.RetrieveCashBalanceRequest{
@@ -41,7 +38,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -53,11 +50,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.RetrieveCashBalanceRequest](../../pkg/models/operations/retrievecashbalancerequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.RetrieveCashBalanceSecurity](../../pkg/models/operations/retrievecashbalancesecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.RetrieveCashBalanceRequest](../../pkg/models/operations/retrievecashbalancerequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response

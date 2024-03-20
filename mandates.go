@@ -28,11 +28,11 @@ func newMandates(sdkConfig sdkConfiguration) *Mandates {
 
 // CreateMandate - Create a mandate
 // Create a mandate
-func (s *Mandates) CreateMandate(ctx context.Context, request operations.CreateMandateRequest, security operations.CreateMandateSecurity, opts ...operations.Option) (*operations.CreateMandateResponse, error) {
+func (s *Mandates) CreateMandate(ctx context.Context, request operations.CreateMandateRequest, opts ...operations.Option) (*operations.CreateMandateResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_mandate",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -71,7 +71,7 @@ func (s *Mandates) CreateMandate(ctx context.Context, request operations.CreateM
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -174,11 +174,11 @@ func (s *Mandates) CreateMandate(ctx context.Context, request operations.CreateM
 
 // DeleteMandate - Delete mandate
 // Delete mandate
-func (s *Mandates) DeleteMandate(ctx context.Context, request operations.DeleteMandateRequest, security operations.DeleteMandateSecurity) (*operations.DeleteMandateResponse, error) {
+func (s *Mandates) DeleteMandate(ctx context.Context, request operations.DeleteMandateRequest) (*operations.DeleteMandateResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "delete_mandate",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -196,7 +196,7 @@ func (s *Mandates) DeleteMandate(ctx context.Context, request operations.DeleteM
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -284,11 +284,11 @@ func (s *Mandates) DeleteMandate(ctx context.Context, request operations.DeleteM
 
 // ListMandates - List mandates
 // List mandates
-func (s *Mandates) ListMandates(ctx context.Context, request operations.ListMandatesRequest, security operations.ListMandatesSecurity, opts ...operations.Option) (*operations.ListMandatesResponse, error) {
+func (s *Mandates) ListMandates(ctx context.Context, request operations.ListMandatesRequest, opts ...operations.Option) (*operations.ListMandatesResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_mandates",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -325,7 +325,7 @@ func (s *Mandates) ListMandates(ctx context.Context, request operations.ListMand
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -428,11 +428,11 @@ func (s *Mandates) ListMandates(ctx context.Context, request operations.ListMand
 
 // RetrieveMandate - Retrieve a direct debit mandate
 // Retrieve a direct debit mandate
-func (s *Mandates) RetrieveMandate(ctx context.Context, request operations.RetrieveMandateRequest, security operations.RetrieveMandateSecurity, opts ...operations.Option) (*operations.RetrieveMandateResponse, error) {
+func (s *Mandates) RetrieveMandate(ctx context.Context, request operations.RetrieveMandateRequest, opts ...operations.Option) (*operations.RetrieveMandateResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_mandate",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -465,7 +465,7 @@ func (s *Mandates) RetrieveMandate(ctx context.Context, request operations.Retri
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

@@ -28,11 +28,11 @@ func newPortfolios(sdkConfig sdkConfiguration) *Portfolios {
 
 // CancelPortfoliosOrder - Cancel portfolios order
 // Cancel portfolios order
-func (s *Portfolios) CancelPortfoliosOrder(ctx context.Context, request operations.CancelPortfoliosOrderRequest, security operations.CancelPortfoliosOrderSecurity) (*operations.CancelPortfoliosOrderResponse, error) {
+func (s *Portfolios) CancelPortfoliosOrder(ctx context.Context, request operations.CancelPortfoliosOrderRequest) (*operations.CancelPortfoliosOrderResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "cancel_portfolios_order",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -50,7 +50,7 @@ func (s *Portfolios) CancelPortfoliosOrder(ctx context.Context, request operatio
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -140,11 +140,11 @@ func (s *Portfolios) CancelPortfoliosOrder(ctx context.Context, request operatio
 
 // CreatePortfoliosAllocation - Create portfolios allocation
 // Create portfolios allocation
-func (s *Portfolios) CreatePortfoliosAllocation(ctx context.Context, request operations.CreatePortfoliosAllocationRequest, security operations.CreatePortfoliosAllocationSecurity, opts ...operations.Option) (*operations.CreatePortfoliosAllocationResponse, error) {
+func (s *Portfolios) CreatePortfoliosAllocation(ctx context.Context, request operations.CreatePortfoliosAllocationRequest, opts ...operations.Option) (*operations.CreatePortfoliosAllocationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_portfolios_allocation",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -183,7 +183,7 @@ func (s *Portfolios) CreatePortfoliosAllocation(ctx context.Context, request ope
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -286,11 +286,11 @@ func (s *Portfolios) CreatePortfoliosAllocation(ctx context.Context, request ope
 
 // CreatePortfoliosConfiguration - Create portfolios configuration
 // Create portfolios configuration
-func (s *Portfolios) CreatePortfoliosConfiguration(ctx context.Context, request operations.CreatePortfoliosConfigurationRequest, security operations.CreatePortfoliosConfigurationSecurity, opts ...operations.Option) (*operations.CreatePortfoliosConfigurationResponse, error) {
+func (s *Portfolios) CreatePortfoliosConfiguration(ctx context.Context, request operations.CreatePortfoliosConfigurationRequest, opts ...operations.Option) (*operations.CreatePortfoliosConfigurationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_portfolios_configuration",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -329,7 +329,7 @@ func (s *Portfolios) CreatePortfoliosConfiguration(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -432,11 +432,11 @@ func (s *Portfolios) CreatePortfoliosConfiguration(ctx context.Context, request 
 
 // CreatePortfoliosOrder - Create portfolios order
 // Create portfolios order
-func (s *Portfolios) CreatePortfoliosOrder(ctx context.Context, request operations.CreatePortfoliosOrderRequest, security operations.CreatePortfoliosOrderSecurity, opts ...operations.Option) (*operations.CreatePortfoliosOrderResponse, error) {
+func (s *Portfolios) CreatePortfoliosOrder(ctx context.Context, request operations.CreatePortfoliosOrderRequest, opts ...operations.Option) (*operations.CreatePortfoliosOrderResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_portfolios_order",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -475,7 +475,7 @@ func (s *Portfolios) CreatePortfoliosOrder(ctx context.Context, request operatio
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -578,11 +578,11 @@ func (s *Portfolios) CreatePortfoliosOrder(ctx context.Context, request operatio
 
 // CreatePortfoliosRebalancingStrategy - Create portfolios rebalancing strategy
 // Create portfolios rebalancing strategy
-func (s *Portfolios) CreatePortfoliosRebalancingStrategy(ctx context.Context, request operations.CreatePortfoliosRebalancingStrategyRequest, security operations.CreatePortfoliosRebalancingStrategySecurity, opts ...operations.Option) (*operations.CreatePortfoliosRebalancingStrategyResponse, error) {
+func (s *Portfolios) CreatePortfoliosRebalancingStrategy(ctx context.Context, request operations.CreatePortfoliosRebalancingStrategyRequest, opts ...operations.Option) (*operations.CreatePortfoliosRebalancingStrategyResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_portfolios_rebalancing_strategy",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -621,7 +621,7 @@ func (s *Portfolios) CreatePortfoliosRebalancingStrategy(ctx context.Context, re
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -724,11 +724,11 @@ func (s *Portfolios) CreatePortfoliosRebalancingStrategy(ctx context.Context, re
 
 // ListPortfolioRebalancingExecutionOrders - List portfolio rebalancing execution orders
 // List portfolio rebalancing execution orders
-func (s *Portfolios) ListPortfolioRebalancingExecutionOrders(ctx context.Context, request operations.ListPortfolioRebalancingExecutionOrdersRequest, security operations.ListPortfolioRebalancingExecutionOrdersSecurity, opts ...operations.Option) (*operations.ListPortfolioRebalancingExecutionOrdersResponse, error) {
+func (s *Portfolios) ListPortfolioRebalancingExecutionOrders(ctx context.Context, request operations.ListPortfolioRebalancingExecutionOrdersRequest, opts ...operations.Option) (*operations.ListPortfolioRebalancingExecutionOrdersResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_portfolio_rebalancing_execution_orders",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -765,7 +765,7 @@ func (s *Portfolios) ListPortfolioRebalancingExecutionOrders(ctx context.Context
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -883,11 +883,11 @@ func (s *Portfolios) ListPortfolioRebalancingExecutionOrders(ctx context.Context
 
 // ListPortfoliosAllocationAccounts - List portfolios allocation accounts
 // List portfolios allocation accounts
-func (s *Portfolios) ListPortfoliosAllocationAccounts(ctx context.Context, request operations.ListPortfoliosAllocationAccountsRequest, security operations.ListPortfoliosAllocationAccountsSecurity, opts ...operations.Option) (*operations.ListPortfoliosAllocationAccountsResponse, error) {
+func (s *Portfolios) ListPortfoliosAllocationAccounts(ctx context.Context, request operations.ListPortfoliosAllocationAccountsRequest, opts ...operations.Option) (*operations.ListPortfoliosAllocationAccountsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_portfolios_allocation_accounts",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -924,7 +924,7 @@ func (s *Portfolios) ListPortfoliosAllocationAccounts(ctx context.Context, reque
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1042,11 +1042,11 @@ func (s *Portfolios) ListPortfoliosAllocationAccounts(ctx context.Context, reque
 
 // ListPortfoliosAllocations - List portfolios allocations
 // List portfolios allocations
-func (s *Portfolios) ListPortfoliosAllocations(ctx context.Context, request operations.ListPortfoliosAllocationsRequest, security operations.ListPortfoliosAllocationsSecurity, opts ...operations.Option) (*operations.ListPortfoliosAllocationsResponse, error) {
+func (s *Portfolios) ListPortfoliosAllocations(ctx context.Context, request operations.ListPortfoliosAllocationsRequest, opts ...operations.Option) (*operations.ListPortfoliosAllocationsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_portfolios_allocations",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1083,7 +1083,7 @@ func (s *Portfolios) ListPortfoliosAllocations(ctx context.Context, request oper
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1201,11 +1201,11 @@ func (s *Portfolios) ListPortfoliosAllocations(ctx context.Context, request oper
 
 // ListPortfoliosConfigurations - List portfolios configurations
 // List portfolios configurations
-func (s *Portfolios) ListPortfoliosConfigurations(ctx context.Context, request operations.ListPortfoliosConfigurationsRequest, security operations.ListPortfoliosConfigurationsSecurity, opts ...operations.Option) (*operations.ListPortfoliosConfigurationsResponse, error) {
+func (s *Portfolios) ListPortfoliosConfigurations(ctx context.Context, request operations.ListPortfoliosConfigurationsRequest, opts ...operations.Option) (*operations.ListPortfoliosConfigurationsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_portfolios_configurations",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1242,7 +1242,7 @@ func (s *Portfolios) ListPortfoliosConfigurations(ctx context.Context, request o
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1360,11 +1360,11 @@ func (s *Portfolios) ListPortfoliosConfigurations(ctx context.Context, request o
 
 // ListPortfoliosOrders - List portfolios orders
 // List portfolios orders
-func (s *Portfolios) ListPortfoliosOrders(ctx context.Context, request operations.ListPortfoliosOrdersRequest, security operations.ListPortfoliosOrdersSecurity, opts ...operations.Option) (*operations.ListPortfoliosOrdersResponse, error) {
+func (s *Portfolios) ListPortfoliosOrders(ctx context.Context, request operations.ListPortfoliosOrdersRequest, opts ...operations.Option) (*operations.ListPortfoliosOrdersResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_portfolios_orders",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1401,7 +1401,7 @@ func (s *Portfolios) ListPortfoliosOrders(ctx context.Context, request operation
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1519,11 +1519,11 @@ func (s *Portfolios) ListPortfoliosOrders(ctx context.Context, request operation
 
 // ListPortfoliosRebalancingStrategies - List portfolios rebalancing strategies
 // List portfolios rebalancing strategies
-func (s *Portfolios) ListPortfoliosRebalancingStrategies(ctx context.Context, request operations.ListPortfoliosRebalancingStrategiesRequest, security operations.ListPortfoliosRebalancingStrategiesSecurity, opts ...operations.Option) (*operations.ListPortfoliosRebalancingStrategiesResponse, error) {
+func (s *Portfolios) ListPortfoliosRebalancingStrategies(ctx context.Context, request operations.ListPortfoliosRebalancingStrategiesRequest, opts ...operations.Option) (*operations.ListPortfoliosRebalancingStrategiesResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_portfolios_rebalancing_strategies",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1560,7 +1560,7 @@ func (s *Portfolios) ListPortfoliosRebalancingStrategies(ctx context.Context, re
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1678,11 +1678,11 @@ func (s *Portfolios) ListPortfoliosRebalancingStrategies(ctx context.Context, re
 
 // RetrievePortfoliosAllocation - Retrieve portfolios allocation
 // Retrieve portfolios allocation
-func (s *Portfolios) RetrievePortfoliosAllocation(ctx context.Context, request operations.RetrievePortfoliosAllocationRequest, security operations.RetrievePortfoliosAllocationSecurity, opts ...operations.Option) (*operations.RetrievePortfoliosAllocationResponse, error) {
+func (s *Portfolios) RetrievePortfoliosAllocation(ctx context.Context, request operations.RetrievePortfoliosAllocationRequest, opts ...operations.Option) (*operations.RetrievePortfoliosAllocationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_portfolios_allocation",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1715,7 +1715,7 @@ func (s *Portfolios) RetrievePortfoliosAllocation(ctx context.Context, request o
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1816,11 +1816,11 @@ func (s *Portfolios) RetrievePortfoliosAllocation(ctx context.Context, request o
 
 // RetrievePortfoliosConfiguration - Retrieve portfolios configuration
 // Retrieve portfolios configuration
-func (s *Portfolios) RetrievePortfoliosConfiguration(ctx context.Context, request operations.RetrievePortfoliosConfigurationRequest, security operations.RetrievePortfoliosConfigurationSecurity, opts ...operations.Option) (*operations.RetrievePortfoliosConfigurationResponse, error) {
+func (s *Portfolios) RetrievePortfoliosConfiguration(ctx context.Context, request operations.RetrievePortfoliosConfigurationRequest, opts ...operations.Option) (*operations.RetrievePortfoliosConfigurationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_portfolios_configuration",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1853,7 +1853,7 @@ func (s *Portfolios) RetrievePortfoliosConfiguration(ctx context.Context, reques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1969,11 +1969,11 @@ func (s *Portfolios) RetrievePortfoliosConfiguration(ctx context.Context, reques
 
 // RetrievePortfoliosOrder - Retrieve portfolios order
 // Retrieve portfolios order
-func (s *Portfolios) RetrievePortfoliosOrder(ctx context.Context, request operations.RetrievePortfoliosOrderRequest, security operations.RetrievePortfoliosOrderSecurity, opts ...operations.Option) (*operations.RetrievePortfoliosOrderResponse, error) {
+func (s *Portfolios) RetrievePortfoliosOrder(ctx context.Context, request operations.RetrievePortfoliosOrderRequest, opts ...operations.Option) (*operations.RetrievePortfoliosOrderResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_portfolios_order",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -2006,7 +2006,7 @@ func (s *Portfolios) RetrievePortfoliosOrder(ctx context.Context, request operat
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -2107,11 +2107,11 @@ func (s *Portfolios) RetrievePortfoliosOrder(ctx context.Context, request operat
 
 // RetrievePortfoliosRebalancingExecution - Retrieve portfolios rebalancing execution
 // Retrieve portfolios rebalancing execution
-func (s *Portfolios) RetrievePortfoliosRebalancingExecution(ctx context.Context, request operations.RetrievePortfoliosRebalancingExecutionRequest, security operations.RetrievePortfoliosRebalancingExecutionSecurity, opts ...operations.Option) (*operations.RetrievePortfoliosRebalancingExecutionResponse, error) {
+func (s *Portfolios) RetrievePortfoliosRebalancingExecution(ctx context.Context, request operations.RetrievePortfoliosRebalancingExecutionRequest, opts ...operations.Option) (*operations.RetrievePortfoliosRebalancingExecutionResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_portfolios_rebalancing_execution",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -2144,7 +2144,7 @@ func (s *Portfolios) RetrievePortfoliosRebalancingExecution(ctx context.Context,
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -2260,11 +2260,11 @@ func (s *Portfolios) RetrievePortfoliosRebalancingExecution(ctx context.Context,
 
 // RetrievePortfoliosRebalancingStrategy - Retrieve portfolios rebalancing strategy
 // Retrieve portfolios rebalancing strategy
-func (s *Portfolios) RetrievePortfoliosRebalancingStrategy(ctx context.Context, request operations.RetrievePortfoliosRebalancingStrategyRequest, security operations.RetrievePortfoliosRebalancingStrategySecurity, opts ...operations.Option) (*operations.RetrievePortfoliosRebalancingStrategyResponse, error) {
+func (s *Portfolios) RetrievePortfoliosRebalancingStrategy(ctx context.Context, request operations.RetrievePortfoliosRebalancingStrategyRequest, opts ...operations.Option) (*operations.RetrievePortfoliosRebalancingStrategyResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_portfolios_rebalancing_strategy",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -2297,7 +2297,7 @@ func (s *Portfolios) RetrievePortfoliosRebalancingStrategy(ctx context.Context, 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -2413,11 +2413,11 @@ func (s *Portfolios) RetrievePortfoliosRebalancingStrategy(ctx context.Context, 
 
 // TriggerPortfolioRebalancing - Trigger portfolio rebalancing
 // Trigger portfolio rebalancing
-func (s *Portfolios) TriggerPortfolioRebalancing(ctx context.Context, request operations.TriggerPortfolioRebalancingRequest, security operations.TriggerPortfolioRebalancingSecurity, opts ...operations.Option) (*operations.TriggerPortfolioRebalancingResponse, error) {
+func (s *Portfolios) TriggerPortfolioRebalancing(ctx context.Context, request operations.TriggerPortfolioRebalancingRequest, opts ...operations.Option) (*operations.TriggerPortfolioRebalancingResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "trigger_portfolio_rebalancing",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -2456,7 +2456,7 @@ func (s *Portfolios) TriggerPortfolioRebalancing(ctx context.Context, request op
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -2559,11 +2559,11 @@ func (s *Portfolios) TriggerPortfolioRebalancing(ctx context.Context, request op
 
 // UpdatePortfoliosAllocation - Update portfolios allocation
 // Update portfolios allocation
-func (s *Portfolios) UpdatePortfoliosAllocation(ctx context.Context, request operations.UpdatePortfoliosAllocationRequest, security operations.UpdatePortfoliosAllocationSecurity, opts ...operations.Option) (*operations.UpdatePortfoliosAllocationResponse, error) {
+func (s *Portfolios) UpdatePortfoliosAllocation(ctx context.Context, request operations.UpdatePortfoliosAllocationRequest, opts ...operations.Option) (*operations.UpdatePortfoliosAllocationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "update_portfolios_allocation",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -2602,7 +2602,7 @@ func (s *Portfolios) UpdatePortfoliosAllocation(ctx context.Context, request ope
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -2705,11 +2705,11 @@ func (s *Portfolios) UpdatePortfoliosAllocation(ctx context.Context, request ope
 
 // UpdatePortfoliosConfiguration - Update portfolios configuration
 // Update portfolios configuration
-func (s *Portfolios) UpdatePortfoliosConfiguration(ctx context.Context, request operations.UpdatePortfoliosConfigurationRequest, security operations.UpdatePortfoliosConfigurationSecurity, opts ...operations.Option) (*operations.UpdatePortfoliosConfigurationResponse, error) {
+func (s *Portfolios) UpdatePortfoliosConfiguration(ctx context.Context, request operations.UpdatePortfoliosConfigurationRequest, opts ...operations.Option) (*operations.UpdatePortfoliosConfigurationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "update_portfolios_configuration",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -2748,7 +2748,7 @@ func (s *Portfolios) UpdatePortfoliosConfiguration(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

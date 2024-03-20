@@ -13,17 +13,6 @@ import (
 	"time"
 )
 
-type ListReportsSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListReportsSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // ListReportsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
 type ListReportsQueryParamOrder string
 

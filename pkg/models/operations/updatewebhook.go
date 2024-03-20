@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type UpdateWebhookSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *UpdateWebhookSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // UpdateWebhookConfig - Configuration of webhook packages collection.
 type UpdateWebhookConfig struct {
 	// Maximum time of package collection.

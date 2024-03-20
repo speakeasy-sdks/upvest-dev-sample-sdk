@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type RetrievePortfoliosOrderSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrievePortfoliosOrderSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrievePortfoliosOrderRequest struct {
 	PortfolioOrderID string `pathParam:"style=simple,explode=false,name=portfolio_order_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

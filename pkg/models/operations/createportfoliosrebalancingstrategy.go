@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type CreatePortfoliosRebalancingStrategySecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *CreatePortfoliosRebalancingStrategySecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // CreatePortfoliosRebalancingStrategyType - The type of the strategy used in the request.
 // * DRIFT - Trigger by drift percentage
 // * SCHEDULED - Trigger by scheduled date

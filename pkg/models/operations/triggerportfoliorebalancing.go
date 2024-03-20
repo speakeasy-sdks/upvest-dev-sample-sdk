@@ -9,17 +9,6 @@ import (
 	"net/http"
 )
 
-type TriggerPortfolioRebalancingSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *TriggerPortfolioRebalancingSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type Allocations struct {
 	// List of allocations
 	Allocations []string `json:"allocations"`

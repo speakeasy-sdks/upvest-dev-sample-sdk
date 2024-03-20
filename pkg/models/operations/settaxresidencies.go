@@ -12,17 +12,6 @@ import (
 	"time"
 )
 
-type SetTaxResidenciesSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *SetTaxResidenciesSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // MissingTinReason - Reason why TIN is missing
 // * TIN_NOT_YET_ASSIGNED - Indicates that the tax identification number has not yet been assigned by the tax authorities. A common example is, that a user has moved to a country and thus became taxable, but that the tax authorities have not yet assigned the TIN to this user.
 // * COUNTRY_HAS_NO_TIN - Indicates that the specific country does not provide a TIN.

@@ -11,11 +11,9 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New()
-
-	operationSecurity := operations.CreateAccountSecurity{
-		OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-	}
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+	)
 
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
@@ -24,7 +22,7 @@ func main() {
 		SignatureInput:   "<value>",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

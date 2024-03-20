@@ -25,20 +25,17 @@ Cancels a withdrawal specified by its ID. It is only possible to cancel a withdr
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.CancelCashWithdrawalSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.CancelCashWithdrawal(ctx, operations.CancelCashWithdrawalRequest{
@@ -47,7 +44,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WithdrawalID: "171565fa-ef4e-474a-b700-f0c84773396a",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -59,11 +56,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.CancelCashWithdrawalRequest](../../pkg/models/operations/cancelcashwithdrawalrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.CancelCashWithdrawalSecurity](../../pkg/models/operations/cancelcashwithdrawalsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.CancelCashWithdrawalRequest](../../pkg/models/operations/cancelcashwithdrawalrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
@@ -85,20 +81,17 @@ Trigger a withdrawal
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.CreateCashWithdrawalSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.CreateCashWithdrawal(ctx, operations.CreateCashWithdrawalRequest{
@@ -107,7 +100,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -119,11 +112,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.CreateCashWithdrawalRequest](../../pkg/models/operations/createcashwithdrawalrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.CreateCashWithdrawalSecurity](../../pkg/models/operations/createcashwithdrawalsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.CreateCashWithdrawalRequest](../../pkg/models/operations/createcashwithdrawalrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
@@ -144,20 +136,17 @@ Trigger a direct debit
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.CreateDirectDebitSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.CreateDirectDebit(ctx, operations.CreateDirectDebitRequest{
@@ -166,7 +155,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -178,11 +167,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.CreateDirectDebitRequest](../../pkg/models/operations/createdirectdebitrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateDirectDebitSecurity](../../pkg/models/operations/createdirectdebitsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CreateDirectDebitRequest](../../pkg/models/operations/createdirectdebitrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -203,20 +191,17 @@ List withdrawals
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.ListCashWithdrawalsSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.ListCashWithdrawals(ctx, operations.ListCashWithdrawalsRequest{
@@ -225,7 +210,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -237,11 +222,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.ListCashWithdrawalsRequest](../../pkg/models/operations/listcashwithdrawalsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.ListCashWithdrawalsSecurity](../../pkg/models/operations/listcashwithdrawalssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.ListCashWithdrawalsRequest](../../pkg/models/operations/listcashwithdrawalsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
@@ -262,20 +246,17 @@ List direct debits
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.ListDirectDebitsSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.ListDirectDebits(ctx, operations.ListDirectDebitsRequest{
@@ -284,7 +265,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -296,11 +277,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ListDirectDebitsRequest](../../pkg/models/operations/listdirectdebitsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ListDirectDebitsSecurity](../../pkg/models/operations/listdirectdebitssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ListDirectDebitsRequest](../../pkg/models/operations/listdirectdebitsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
@@ -321,20 +301,17 @@ Retrieve withdrawal
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.RetrieveCashWithdrawalSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.RetrieveCashWithdrawal(ctx, operations.RetrieveCashWithdrawalRequest{
@@ -343,7 +320,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         WithdrawalID: "cd2b7c3f-83b1-455d-8f56-99b4599f90ce",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -355,11 +332,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
-| `request`                                                                                                  | [operations.RetrieveCashWithdrawalRequest](../../pkg/models/operations/retrievecashwithdrawalrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.RetrieveCashWithdrawalSecurity](../../pkg/models/operations/retrievecashwithdrawalsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.RetrieveCashWithdrawalRequest](../../pkg/models/operations/retrievecashwithdrawalrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
@@ -380,20 +356,17 @@ Retrieve a direct debit
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.RetrieveDirectDebitSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Payments.RetrieveDirectDebit(ctx, operations.RetrieveDirectDebitRequest{
@@ -402,7 +375,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -414,11 +387,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.RetrieveDirectDebitRequest](../../pkg/models/operations/retrievedirectdebitrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.RetrieveDirectDebitSecurity](../../pkg/models/operations/retrievedirectdebitsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.RetrieveDirectDebitRequest](../../pkg/models/operations/retrievedirectdebitrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response

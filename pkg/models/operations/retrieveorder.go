@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type RetrieveOrderSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrieveOrderSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrieveOrderRequest struct {
 	OrderID string `pathParam:"style=simple,explode=false,name=order_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

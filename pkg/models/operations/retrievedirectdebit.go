@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type RetrieveDirectDebitSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrieveDirectDebitSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrieveDirectDebitRequest struct {
 	DirectDebitID string `pathParam:"style=simple,explode=false,name=direct_debit_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

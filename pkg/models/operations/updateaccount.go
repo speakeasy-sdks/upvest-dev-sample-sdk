@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type UpdateAccountSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *UpdateAccountSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type UpdateAccountAccountUpdateRequest struct {
 	// The name of the account.
 	Name *string `json:"name,omitempty"`

@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type CreateMandateSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *CreateMandateSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type CreateMandateMandateCreateRequest struct {
 	// Business Identifier Code (also known as SWIFT-BIC, BIC, SWIFT ID or SWIFT code) [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362).
 	Bic string `json:"bic"`

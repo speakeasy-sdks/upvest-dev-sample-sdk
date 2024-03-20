@@ -22,20 +22,17 @@ Cancel account liquidation
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.CancelAccountLiquidationSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.CancelAccountLiquidation(ctx, operations.CancelAccountLiquidationRequest{
@@ -45,7 +42,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -57,11 +54,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.CancelAccountLiquidationRequest](../../pkg/models/operations/cancelaccountliquidationrequest.md)   | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `security`                                                                                                     | [operations.CancelAccountLiquidationSecurity](../../pkg/models/operations/cancelaccountliquidationsecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.CancelAccountLiquidationRequest](../../pkg/models/operations/cancelaccountliquidationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
@@ -82,20 +78,17 @@ Create account liquidation request
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.CreateAccountLiquidationSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.CreateAccountLiquidation(ctx, operations.CreateAccountLiquidationRequest{
@@ -105,7 +98,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -117,11 +110,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.CreateAccountLiquidationRequest](../../pkg/models/operations/createaccountliquidationrequest.md)   | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `security`                                                                                                     | [operations.CreateAccountLiquidationSecurity](../../pkg/models/operations/createaccountliquidationsecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.CreateAccountLiquidationRequest](../../pkg/models/operations/createaccountliquidationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
@@ -142,20 +134,17 @@ List accounts liquidations
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.ListAccountsLiquidationsSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.ListAccountsLiquidations(ctx, operations.ListAccountsLiquidationsRequest{
@@ -164,7 +153,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -176,11 +165,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.ListAccountsLiquidationsRequest](../../pkg/models/operations/listaccountsliquidationsrequest.md)   | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `security`                                                                                                     | [operations.ListAccountsLiquidationsSecurity](../../pkg/models/operations/listaccountsliquidationssecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.ListAccountsLiquidationsRequest](../../pkg/models/operations/listaccountsliquidationsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
@@ -202,20 +190,17 @@ Retrieve account liquidation
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.RetrieveAccountLiquidationSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Liquidations.RetrieveAccountLiquidation(ctx, operations.RetrieveAccountLiquidationRequest{
@@ -225,7 +210,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -237,11 +222,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                                              | :heavy_check_mark:                                                                                                 | The context to use for the request.                                                                                |
-| `request`                                                                                                          | [operations.RetrieveAccountLiquidationRequest](../../pkg/models/operations/retrieveaccountliquidationrequest.md)   | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
-| `security`                                                                                                         | [operations.RetrieveAccountLiquidationSecurity](../../pkg/models/operations/retrieveaccountliquidationsecurity.md) | :heavy_check_mark:                                                                                                 | The security requirements to use for the request.                                                                  |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
+| `request`                                                                                                        | [operations.RetrieveAccountLiquidationRequest](../../pkg/models/operations/retrieveaccountliquidationrequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
 
 
 ### Response

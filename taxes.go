@@ -27,11 +27,11 @@ func newTaxes(sdkConfig sdkConfiguration) *Taxes {
 
 // RetrieveTaxResidencies - Retrieve tax residencies
 // Retrieve tax residencies
-func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.RetrieveTaxResidenciesRequest, security operations.RetrieveTaxResidenciesSecurity, opts ...operations.Option) (*operations.RetrieveTaxResidenciesResponse, error) {
+func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.RetrieveTaxResidenciesRequest, opts ...operations.Option) (*operations.RetrieveTaxResidenciesResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_tax_residencies",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -64,7 +64,7 @@ func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.R
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -180,11 +180,11 @@ func (s *Taxes) RetrieveTaxResidencies(ctx context.Context, request operations.R
 
 // SetTaxResidencies - Update tax residencies
 // Update tax residencies
-func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTaxResidenciesRequest, security operations.SetTaxResidenciesSecurity, opts ...operations.Option) (*operations.SetTaxResidenciesResponse, error) {
+func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTaxResidenciesRequest, opts ...operations.Option) (*operations.SetTaxResidenciesResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "set_tax_residencies",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -223,7 +223,7 @@ func (s *Taxes) SetTaxResidencies(ctx context.Context, request operations.SetTax
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

@@ -27,11 +27,11 @@ func newReturns(sdkConfig sdkConfiguration) *Returns {
 
 // ListAccountReturns - List account returns
 // List account returns
-func (s *Returns) ListAccountReturns(ctx context.Context, request operations.ListAccountReturnsRequest, security operations.ListAccountReturnsSecurity, opts ...operations.Option) (*operations.ListAccountReturnsResponse, error) {
+func (s *Returns) ListAccountReturns(ctx context.Context, request operations.ListAccountReturnsRequest, opts ...operations.Option) (*operations.ListAccountReturnsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_account_returns",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -68,7 +68,7 @@ func (s *Returns) ListAccountReturns(ctx context.Context, request operations.Lis
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

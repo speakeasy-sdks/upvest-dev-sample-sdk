@@ -28,11 +28,11 @@ func newAccounts(sdkConfig sdkConfiguration) *Accounts {
 
 // AccountClosure - Close a user account by ID
 // Initiates the closure request for an account specified by its ID.
-func (s *Accounts) AccountClosure(ctx context.Context, request operations.AccountClosureRequest, security operations.AccountClosureSecurity) (*operations.AccountClosureResponse, error) {
+func (s *Accounts) AccountClosure(ctx context.Context, request operations.AccountClosureRequest) (*operations.AccountClosureResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "account_closure",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -50,7 +50,7 @@ func (s *Accounts) AccountClosure(ctx context.Context, request operations.Accoun
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -155,11 +155,11 @@ func (s *Accounts) AccountClosure(ctx context.Context, request operations.Accoun
 
 // AccountGroupClosure - Close an account group by ID
 // Initiates the closure request for an account group specified by its ID.
-func (s *Accounts) AccountGroupClosure(ctx context.Context, request operations.AccountGroupClosureRequest, security operations.AccountGroupClosureSecurity) (*operations.AccountGroupClosureResponse, error) {
+func (s *Accounts) AccountGroupClosure(ctx context.Context, request operations.AccountGroupClosureRequest) (*operations.AccountGroupClosureResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "account_group_closure",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -177,7 +177,7 @@ func (s *Accounts) AccountGroupClosure(ctx context.Context, request operations.A
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -282,11 +282,11 @@ func (s *Accounts) AccountGroupClosure(ctx context.Context, request operations.A
 
 // CreateAccount - Create an account
 // Creates an account.
-func (s *Accounts) CreateAccount(ctx context.Context, request operations.CreateAccountRequest, security operations.CreateAccountSecurity, opts ...operations.Option) (*operations.CreateAccountResponse, error) {
+func (s *Accounts) CreateAccount(ctx context.Context, request operations.CreateAccountRequest, opts ...operations.Option) (*operations.CreateAccountResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_account",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -325,7 +325,7 @@ func (s *Accounts) CreateAccount(ctx context.Context, request operations.CreateA
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -428,11 +428,11 @@ func (s *Accounts) CreateAccount(ctx context.Context, request operations.CreateA
 
 // CreateAccountGroup - Create an account group
 // Creates an account group.
-func (s *Accounts) CreateAccountGroup(ctx context.Context, request operations.CreateAccountGroupRequest, security operations.CreateAccountGroupSecurity, opts ...operations.Option) (*operations.CreateAccountGroupResponse, error) {
+func (s *Accounts) CreateAccountGroup(ctx context.Context, request operations.CreateAccountGroupRequest, opts ...operations.Option) (*operations.CreateAccountGroupResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_account_group",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -471,7 +471,7 @@ func (s *Accounts) CreateAccountGroup(ctx context.Context, request operations.Cr
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -574,11 +574,11 @@ func (s *Accounts) CreateAccountGroup(ctx context.Context, request operations.Cr
 
 // ListAccountGroups - Get account groups
 // Returns a list of all account groups.
-func (s *Accounts) ListAccountGroups(ctx context.Context, request operations.ListAccountGroupsRequest, security operations.ListAccountGroupsSecurity, opts ...operations.Option) (*operations.ListAccountGroupsResponse, error) {
+func (s *Accounts) ListAccountGroups(ctx context.Context, request operations.ListAccountGroupsRequest, opts ...operations.Option) (*operations.ListAccountGroupsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_account_groups",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -615,7 +615,7 @@ func (s *Accounts) ListAccountGroups(ctx context.Context, request operations.Lis
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -716,11 +716,11 @@ func (s *Accounts) ListAccountGroups(ctx context.Context, request operations.Lis
 
 // ListAccounts - Get accounts
 // Returns a list of all accounts.
-func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAccountsRequest, security operations.ListAccountsSecurity, opts ...operations.Option) (*operations.ListAccountsResponse, error) {
+func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAccountsRequest, opts ...operations.Option) (*operations.ListAccountsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_accounts",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -757,7 +757,7 @@ func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -858,11 +858,11 @@ func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 
 // RetrieveAccount - Get a user account by ID
 // Returns the user account specified by its ID.
-func (s *Accounts) RetrieveAccount(ctx context.Context, request operations.RetrieveAccountRequest, security operations.RetrieveAccountSecurity, opts ...operations.Option) (*operations.RetrieveAccountResponse, error) {
+func (s *Accounts) RetrieveAccount(ctx context.Context, request operations.RetrieveAccountRequest, opts ...operations.Option) (*operations.RetrieveAccountResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_account",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -895,7 +895,7 @@ func (s *Accounts) RetrieveAccount(ctx context.Context, request operations.Retri
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -996,11 +996,11 @@ func (s *Accounts) RetrieveAccount(ctx context.Context, request operations.Retri
 
 // RetrieveAccountGroup - Get an account group by ID
 // Returns the account group specified bu its ID.
-func (s *Accounts) RetrieveAccountGroup(ctx context.Context, request operations.RetrieveAccountGroupRequest, security operations.RetrieveAccountGroupSecurity, opts ...operations.Option) (*operations.RetrieveAccountGroupResponse, error) {
+func (s *Accounts) RetrieveAccountGroup(ctx context.Context, request operations.RetrieveAccountGroupRequest, opts ...operations.Option) (*operations.RetrieveAccountGroupResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_account_group",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1033,7 +1033,7 @@ func (s *Accounts) RetrieveAccountGroup(ctx context.Context, request operations.
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -1134,11 +1134,11 @@ func (s *Accounts) RetrieveAccountGroup(ctx context.Context, request operations.
 
 // UpdateAccount - Update user account
 // Updates the user account specified by its ID.
-func (s *Accounts) UpdateAccount(ctx context.Context, request operations.UpdateAccountRequest, security operations.UpdateAccountSecurity, opts ...operations.Option) (*operations.UpdateAccountResponse, error) {
+func (s *Accounts) UpdateAccount(ctx context.Context, request operations.UpdateAccountRequest, opts ...operations.Option) (*operations.UpdateAccountResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "update_account",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -1177,7 +1177,7 @@ func (s *Accounts) UpdateAccount(ctx context.Context, request operations.UpdateA
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

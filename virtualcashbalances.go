@@ -28,11 +28,11 @@ func newVirtualCashBalances(sdkConfig sdkConfiguration) *VirtualCashBalances {
 
 // CancelVirtualCashDecrease - Cancel virtual cash decrease by ID
 // Cancels a virtual cash decrease specified by its ID. It is only possible to cancel a virtual cash decrease if it has the status `ISSUED` or `QUEUED`.
-func (s *VirtualCashBalances) CancelVirtualCashDecrease(ctx context.Context, request operations.CancelVirtualCashDecreaseRequest, security operations.CancelVirtualCashDecreaseSecurity) (*operations.CancelVirtualCashDecreaseResponse, error) {
+func (s *VirtualCashBalances) CancelVirtualCashDecrease(ctx context.Context, request operations.CancelVirtualCashDecreaseRequest) (*operations.CancelVirtualCashDecreaseResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "cancel_virtual_cash_decrease",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -50,7 +50,7 @@ func (s *VirtualCashBalances) CancelVirtualCashDecrease(ctx context.Context, req
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -153,11 +153,11 @@ func (s *VirtualCashBalances) CancelVirtualCashDecrease(ctx context.Context, req
 
 // CreateVirtualCashDecrease - Trigger a virtual cash decrease
 // Trigger a virtual cash decrease
-func (s *VirtualCashBalances) CreateVirtualCashDecrease(ctx context.Context, request operations.CreateVirtualCashDecreaseRequest, security operations.CreateVirtualCashDecreaseSecurity, opts ...operations.Option) (*operations.CreateVirtualCashDecreaseResponse, error) {
+func (s *VirtualCashBalances) CreateVirtualCashDecrease(ctx context.Context, request operations.CreateVirtualCashDecreaseRequest, opts ...operations.Option) (*operations.CreateVirtualCashDecreaseResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_virtual_cash_decrease",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -196,7 +196,7 @@ func (s *VirtualCashBalances) CreateVirtualCashDecrease(ctx context.Context, req
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -299,11 +299,11 @@ func (s *VirtualCashBalances) CreateVirtualCashDecrease(ctx context.Context, req
 
 // CreateVirtualCashIncrease - Trigger a virtual cash increase
 // Trigger a virtual cash increase
-func (s *VirtualCashBalances) CreateVirtualCashIncrease(ctx context.Context, request operations.CreateVirtualCashIncreaseRequest, security operations.CreateVirtualCashIncreaseSecurity, opts ...operations.Option) (*operations.CreateVirtualCashIncreaseResponse, error) {
+func (s *VirtualCashBalances) CreateVirtualCashIncrease(ctx context.Context, request operations.CreateVirtualCashIncreaseRequest, opts ...operations.Option) (*operations.CreateVirtualCashIncreaseResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_virtual_cash_increase",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -342,7 +342,7 @@ func (s *VirtualCashBalances) CreateVirtualCashIncrease(ctx context.Context, req
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

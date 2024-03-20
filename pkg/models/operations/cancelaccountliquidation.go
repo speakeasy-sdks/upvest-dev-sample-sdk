@@ -8,17 +8,6 @@ import (
 	"net/http"
 )
 
-type CancelAccountLiquidationSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *CancelAccountLiquidationSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type CancelAccountLiquidationRequest struct {
 	AccountID            string `pathParam:"style=simple,explode=false,name=account_id"`
 	AccountLiquidationID string `pathParam:"style=simple,explode=false,name=account_liquidation_id"`

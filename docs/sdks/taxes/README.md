@@ -20,20 +20,17 @@ Retrieve tax residencies
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.RetrieveTaxResidenciesSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Taxes.RetrieveTaxResidencies(ctx, operations.RetrieveTaxResidenciesRequest{
@@ -42,7 +39,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "75c9448a-b642-4df1-885c-88acb31d183e",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -54,11 +51,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
-| `request`                                                                                                  | [operations.RetrieveTaxResidenciesRequest](../../pkg/models/operations/retrievetaxresidenciesrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.RetrieveTaxResidenciesSecurity](../../pkg/models/operations/retrievetaxresidenciessecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.RetrieveTaxResidenciesRequest](../../pkg/models/operations/retrievetaxresidenciesrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
@@ -80,20 +76,17 @@ Update tax residencies
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.SetTaxResidenciesSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Taxes.SetTaxResidencies(ctx, operations.SetTaxResidenciesRequest{
@@ -103,7 +96,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "2bbfa5f7-3a67-4795-aa9c-c38a53af8e19",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -115,11 +108,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.SetTaxResidenciesRequest](../../pkg/models/operations/settaxresidenciesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.SetTaxResidenciesSecurity](../../pkg/models/operations/settaxresidenciessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.SetTaxResidenciesRequest](../../pkg/models/operations/settaxresidenciesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response

@@ -10,17 +10,6 @@ import (
 	"net/http"
 )
 
-type ListPositionsSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListPositionsSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type ListPositionsRequest struct {
 	AccountID string `pathParam:"style=simple,explode=false,name=account_id"`
 	// Use the `limit` argument to specify the maximum number of items returned.

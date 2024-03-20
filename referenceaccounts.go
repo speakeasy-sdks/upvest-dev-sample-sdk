@@ -28,11 +28,11 @@ func newReferenceAccounts(sdkConfig sdkConfiguration) *ReferenceAccounts {
 
 // CreateReferenceAccount - Create a reference account
 // Creates a new reference account for a user specified by ID.
-func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request operations.CreateReferenceAccountRequest, security operations.CreateReferenceAccountSecurity, opts ...operations.Option) (*operations.CreateReferenceAccountResponse, error) {
+func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request operations.CreateReferenceAccountRequest, opts ...operations.Option) (*operations.CreateReferenceAccountResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_reference_account",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -71,7 +71,7 @@ func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -174,11 +174,11 @@ func (s *ReferenceAccounts) CreateReferenceAccount(ctx context.Context, request 
 
 // DeleteReferenceAccount - Delete a reference account by ID
 // Deletes the reference account specified by its ID.
-func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request operations.DeleteReferenceAccountRequest, security operations.DeleteReferenceAccountSecurity) (*operations.DeleteReferenceAccountResponse, error) {
+func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request operations.DeleteReferenceAccountRequest) (*operations.DeleteReferenceAccountResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "delete_reference_account",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -196,7 +196,7 @@ func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request 
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -284,11 +284,11 @@ func (s *ReferenceAccounts) DeleteReferenceAccount(ctx context.Context, request 
 
 // ListReferenceAccounts - Get reference accounts of a user
 // Returns the list of reference accounts of a user specified by ID.
-func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request operations.ListReferenceAccountsRequest, security operations.ListReferenceAccountsSecurity, opts ...operations.Option) (*operations.ListReferenceAccountsResponse, error) {
+func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request operations.ListReferenceAccountsRequest, opts ...operations.Option) (*operations.ListReferenceAccountsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_reference_accounts",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -325,7 +325,7 @@ func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request o
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -428,11 +428,11 @@ func (s *ReferenceAccounts) ListReferenceAccounts(ctx context.Context, request o
 
 // RetrieveReferenceAccount - Get a reference account by ID
 // Retrieves the reference account specified by its ID.
-func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, request operations.RetrieveReferenceAccountRequest, security operations.RetrieveReferenceAccountSecurity, opts ...operations.Option) (*operations.RetrieveReferenceAccountResponse, error) {
+func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, request operations.RetrieveReferenceAccountRequest, opts ...operations.Option) (*operations.RetrieveReferenceAccountResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_reference_account",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -465,7 +465,7 @@ func (s *ReferenceAccounts) RetrieveReferenceAccount(ctx context.Context, reques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

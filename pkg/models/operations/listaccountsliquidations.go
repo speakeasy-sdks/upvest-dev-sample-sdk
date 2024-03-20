@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type ListAccountsLiquidationsSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListAccountsLiquidationsSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // ListAccountsLiquidationsQueryParamSort - Sort the result by `id`.
 type ListAccountsLiquidationsQueryParamSort string
 

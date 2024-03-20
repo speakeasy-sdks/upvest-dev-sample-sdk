@@ -8,17 +8,6 @@ import (
 	"net/http"
 )
 
-type CancelVirtualCashDecreaseSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *CancelVirtualCashDecreaseSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type CancelVirtualCashDecreaseRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`

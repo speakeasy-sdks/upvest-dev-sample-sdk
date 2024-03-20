@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type ListAccountReturnsSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListAccountReturnsSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // ListAccountReturnsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
 type ListAccountReturnsQueryParamOrder string
 

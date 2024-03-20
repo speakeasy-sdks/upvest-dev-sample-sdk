@@ -13,17 +13,6 @@ import (
 	"time"
 )
 
-type CreateUserSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *CreateUserSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // CreateUserUsersRequestAddress - Address. Must not be a P.O. box or c/o address.
 type CreateUserUsersRequestAddress struct {
 	// First address line of the address.

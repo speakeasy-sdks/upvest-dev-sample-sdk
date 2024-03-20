@@ -28,11 +28,11 @@ func newWebhooks(sdkConfig sdkConfiguration) *Webhooks {
 
 // CreateWebhook - Create a webhook subscription
 // Create a webhook subscription
-func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateWebhookRequest, security operations.CreateWebhookSecurity, opts ...operations.Option) (*operations.CreateWebhookResponse, error) {
+func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateWebhookRequest, opts ...operations.Option) (*operations.CreateWebhookResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_webhook",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -71,7 +71,7 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -172,11 +172,11 @@ func (s *Webhooks) CreateWebhook(ctx context.Context, request operations.CreateW
 
 // DeleteWebhook - Delete a webhook subscription
 // Delete a webhook subscription
-func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteWebhookRequest, security operations.DeleteWebhookSecurity) (*operations.DeleteWebhookResponse, error) {
+func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteWebhookRequest) (*operations.DeleteWebhookResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "delete_webhook",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -194,7 +194,7 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -282,11 +282,11 @@ func (s *Webhooks) DeleteWebhook(ctx context.Context, request operations.DeleteW
 
 // GetJwks - Get signing keys
 // Get list of signing keys used to verify webhooks
-func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksRequest, security operations.GetJwksSecurity, opts ...operations.Option) (*operations.GetJwksResponse, error) {
+func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksRequest, opts ...operations.Option) (*operations.GetJwksResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "get_jwks",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -319,7 +319,7 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -418,11 +418,11 @@ func (s *Webhooks) GetJwks(ctx context.Context, request operations.GetJwksReques
 
 // ListWebhooks - List all webhooks
 // List all webhooks
-func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebhooksRequest, security operations.ListWebhooksSecurity, opts ...operations.Option) (*operations.ListWebhooksResponse, error) {
+func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebhooksRequest, opts ...operations.Option) (*operations.ListWebhooksResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_webhooks",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -459,7 +459,7 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -560,11 +560,11 @@ func (s *Webhooks) ListWebhooks(ctx context.Context, request operations.ListWebh
 
 // RetrieveWebhook - Retrieve a webhook subscription
 // Retrieve a webhook subscription
-func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.RetrieveWebhookRequest, security operations.RetrieveWebhookSecurity, opts ...operations.Option) (*operations.RetrieveWebhookResponse, error) {
+func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.RetrieveWebhookRequest, opts ...operations.Option) (*operations.RetrieveWebhookResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_webhook",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -597,7 +597,7 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -698,11 +698,11 @@ func (s *Webhooks) RetrieveWebhook(ctx context.Context, request operations.Retri
 
 // TestWebhook - Test a webhook
 // Test a webhook
-func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebhookRequest, security operations.TestWebhookSecurity) (*operations.TestWebhookResponse, error) {
+func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebhookRequest) (*operations.TestWebhookResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "test_webhook",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -720,7 +720,7 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -810,11 +810,11 @@ func (s *Webhooks) TestWebhook(ctx context.Context, request operations.TestWebho
 
 // UpdateWebhook - Update a webhook subscription
 // Update a webhook subscription
-func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateWebhookRequest, security operations.UpdateWebhookSecurity, opts ...operations.Option) (*operations.UpdateWebhookResponse, error) {
+func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateWebhookRequest, opts ...operations.Option) (*operations.UpdateWebhookResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "update_webhook",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -853,7 +853,7 @@ func (s *Webhooks) UpdateWebhook(ctx context.Context, request operations.UpdateW
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

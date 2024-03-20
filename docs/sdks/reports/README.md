@@ -20,20 +20,17 @@ List user reports
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.ListReportsSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Reports.ListReports(ctx, operations.ListReportsRequest{
@@ -42,7 +39,7 @@ func main() {
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
         UserID: "7c866e4d-4e33-41a7-889e-0c03d98591db",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -54,11 +51,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.ListReportsRequest](../../pkg/models/operations/listreportsrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.ListReportsSecurity](../../pkg/models/operations/listreportssecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.ListReportsRequest](../../pkg/models/operations/listreportsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -79,20 +75,17 @@ Retrieve a user report
 package main
 
 import(
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
+	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
+	"context"
+	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := upvestdevsamplesdk.New()
-
-
-    operationSecurity := operations.RetrieveReportSecurity{
-            OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-        }
+    s := upvestdevsamplesdk.New(
+        upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+    )
 
     ctx := context.Background()
     res, err := s.Reports.RetrieveReport(ctx, operations.RetrieveReportRequest{
@@ -101,7 +94,7 @@ func main() {
         SignatureInput: "<value>",
         UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
         UpvestClientID: "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -113,11 +106,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.RetrieveReportRequest](../../pkg/models/operations/retrievereportrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.RetrieveReportSecurity](../../pkg/models/operations/retrievereportsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.RetrieveReportRequest](../../pkg/models/operations/retrievereportrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response

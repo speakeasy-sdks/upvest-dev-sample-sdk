@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type RetrievePortfoliosAllocationSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *RetrievePortfoliosAllocationSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type RetrievePortfoliosAllocationRequest struct {
 	AllocationID string `pathParam:"style=simple,explode=false,name=allocation_id"`
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header

@@ -27,11 +27,11 @@ func newCashBalances(sdkConfig sdkConfiguration) *CashBalances {
 
 // RetrieveCashBalance - Retrieve an account group's cash balance
 // Retrieve an account group's cash balance
-func (s *CashBalances) RetrieveCashBalance(ctx context.Context, request operations.RetrieveCashBalanceRequest, security operations.RetrieveCashBalanceSecurity, opts ...operations.Option) (*operations.RetrieveCashBalanceResponse, error) {
+func (s *CashBalances) RetrieveCashBalance(ctx context.Context, request operations.RetrieveCashBalanceRequest, opts ...operations.Option) (*operations.RetrieveCashBalanceResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_cash_balance",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -64,7 +64,7 @@ func (s *CashBalances) RetrieveCashBalance(ctx context.Context, request operatio
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

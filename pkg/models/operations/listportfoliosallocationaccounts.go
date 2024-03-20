@@ -10,17 +10,6 @@ import (
 	"net/http"
 )
 
-type ListPortfoliosAllocationAccountsSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListPortfoliosAllocationAccountsSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // ListPortfoliosAllocationAccountsQueryParamSort - Sort the result by `id`.
 type ListPortfoliosAllocationAccountsQueryParamSort string
 

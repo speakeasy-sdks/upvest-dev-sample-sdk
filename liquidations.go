@@ -27,11 +27,11 @@ func newLiquidations(sdkConfig sdkConfiguration) *Liquidations {
 
 // CancelAccountLiquidation - Cancel account liquidation
 // Cancel account liquidation
-func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request operations.CancelAccountLiquidationRequest, security operations.CancelAccountLiquidationSecurity) (*operations.CancelAccountLiquidationResponse, error) {
+func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request operations.CancelAccountLiquidationRequest) (*operations.CancelAccountLiquidationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "cancel_account_liquidation",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -49,7 +49,7 @@ func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request ope
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -139,11 +139,11 @@ func (s *Liquidations) CancelAccountLiquidation(ctx context.Context, request ope
 
 // CreateAccountLiquidation - Create account liquidation request
 // Create account liquidation request
-func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request operations.CreateAccountLiquidationRequest, security operations.CreateAccountLiquidationSecurity, opts ...operations.Option) (*operations.CreateAccountLiquidationResponse, error) {
+func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request operations.CreateAccountLiquidationRequest, opts ...operations.Option) (*operations.CreateAccountLiquidationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_account_liquidation",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -182,7 +182,7 @@ func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request ope
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -285,11 +285,11 @@ func (s *Liquidations) CreateAccountLiquidation(ctx context.Context, request ope
 
 // ListAccountsLiquidations - List accounts liquidations
 // List accounts liquidations
-func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request operations.ListAccountsLiquidationsRequest, security operations.ListAccountsLiquidationsSecurity, opts ...operations.Option) (*operations.ListAccountsLiquidationsResponse, error) {
+func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request operations.ListAccountsLiquidationsRequest, opts ...operations.Option) (*operations.ListAccountsLiquidationsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_accounts_liquidations",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -326,7 +326,7 @@ func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request ope
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -444,11 +444,11 @@ func (s *Liquidations) ListAccountsLiquidations(ctx context.Context, request ope
 
 // RetrieveAccountLiquidation - Retrieve account liquidation
 // Retrieve account liquidation
-func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request operations.RetrieveAccountLiquidationRequest, security operations.RetrieveAccountLiquidationSecurity, opts ...operations.Option) (*operations.RetrieveAccountLiquidationResponse, error) {
+func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request operations.RetrieveAccountLiquidationRequest, opts ...operations.Option) (*operations.RetrieveAccountLiquidationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_account_liquidation",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -481,7 +481,7 @@ func (s *Liquidations) RetrieveAccountLiquidation(ctx context.Context, request o
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

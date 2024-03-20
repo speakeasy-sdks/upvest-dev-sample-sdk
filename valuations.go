@@ -27,11 +27,11 @@ func newValuations(sdkConfig sdkConfiguration) *Valuations {
 
 // GetAccountValuation - Get current valuation for an account
 // Get current valuation for an account
-func (s *Valuations) GetAccountValuation(ctx context.Context, request operations.GetAccountValuationRequest, security operations.GetAccountValuationSecurity, opts ...operations.Option) (*operations.GetAccountValuationResponse, error) {
+func (s *Valuations) GetAccountValuation(ctx context.Context, request operations.GetAccountValuationRequest, opts ...operations.Option) (*operations.GetAccountValuationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "get_account_valuation",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -68,7 +68,7 @@ func (s *Valuations) GetAccountValuation(ctx context.Context, request operations
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -171,11 +171,11 @@ func (s *Valuations) GetAccountValuation(ctx context.Context, request operations
 
 // ListAccountValuationHistory - List valuation history for an account
 // List valuation history for an account
-func (s *Valuations) ListAccountValuationHistory(ctx context.Context, request operations.ListAccountValuationHistoryRequest, security operations.ListAccountValuationHistorySecurity, opts ...operations.Option) (*operations.ListAccountValuationHistoryResponse, error) {
+func (s *Valuations) ListAccountValuationHistory(ctx context.Context, request operations.ListAccountValuationHistoryRequest, opts ...operations.Option) (*operations.ListAccountValuationHistoryResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_account_valuation_history",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -212,7 +212,7 @@ func (s *Valuations) ListAccountValuationHistory(ctx context.Context, request op
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

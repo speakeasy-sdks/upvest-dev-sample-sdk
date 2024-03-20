@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type ListDirectDebitsSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListDirectDebitsSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // ListDirectDebitsQueryParamOrder - Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.
 type ListDirectDebitsQueryParamOrder string
 

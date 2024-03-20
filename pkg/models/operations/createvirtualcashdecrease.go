@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type CreateVirtualCashDecreaseSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *CreateVirtualCashDecreaseSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // CreateVirtualCashDecreaseCurrency - Alphabetic three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
 // * EUR - Euro
 type CreateVirtualCashDecreaseCurrency string

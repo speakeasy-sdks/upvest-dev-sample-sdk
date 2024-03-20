@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type ListUserAccountGroupsSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *ListUserAccountGroupsSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // ListUserAccountGroupsQueryParamSort - Sort the result by `created_at`.
 type ListUserAccountGroupsQueryParamSort string
 

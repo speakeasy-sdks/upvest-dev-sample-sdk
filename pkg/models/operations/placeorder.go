@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type PlaceOrderSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *PlaceOrderSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // PlaceOrderCurrency - The currency for the order.
 type PlaceOrderCurrency string
 

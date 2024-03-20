@@ -27,11 +27,11 @@ func newReports(sdkConfig sdkConfiguration) *Reports {
 
 // ListReports - List user reports
 // List user reports
-func (s *Reports) ListReports(ctx context.Context, request operations.ListReportsRequest, security operations.ListReportsSecurity, opts ...operations.Option) (*operations.ListReportsResponse, error) {
+func (s *Reports) ListReports(ctx context.Context, request operations.ListReportsRequest, opts ...operations.Option) (*operations.ListReportsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_reports",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -68,7 +68,7 @@ func (s *Reports) ListReports(ctx context.Context, request operations.ListReport
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -171,11 +171,11 @@ func (s *Reports) ListReports(ctx context.Context, request operations.ListReport
 
 // RetrieveReport - Retrieve a user report
 // Retrieve a user report
-func (s *Reports) RetrieveReport(ctx context.Context, request operations.RetrieveReportRequest, security operations.RetrieveReportSecurity, opts ...operations.Option) (*operations.RetrieveReportResponse, error) {
+func (s *Reports) RetrieveReport(ctx context.Context, request operations.RetrieveReportRequest, opts ...operations.Option) (*operations.RetrieveReportResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_report",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -208,7 +208,7 @@ func (s *Reports) RetrieveReport(ctx context.Context, request operations.Retriev
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

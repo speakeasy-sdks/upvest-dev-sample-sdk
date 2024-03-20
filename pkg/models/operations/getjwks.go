@@ -10,17 +10,6 @@ import (
 	"net/http"
 )
 
-type GetJwksSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *GetJwksSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 type GetJwksRequest struct {
 	// https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header
 	Signature string `header:"style=simple,explode=false,name=signature"`

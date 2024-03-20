@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type GetAccountValuationSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *GetAccountValuationSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // PriceQuality - Defines the quality of the price used in the valuation.
 type PriceQuality string
 

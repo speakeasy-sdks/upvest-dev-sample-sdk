@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type CreateAccountGroupSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *CreateAccountGroupSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // CreateAccountGroupType - Account group type.
 // * PERSONAL - Account group of a person holding assets on their own behalf.
 // * LEGAL_ENTITY - Account group of a legal entity holding assets on behalf of their users.

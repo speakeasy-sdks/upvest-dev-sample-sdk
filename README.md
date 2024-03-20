@@ -31,11 +31,9 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New()
-
-	operationSecurity := operations.CreateAccountSecurity{
-		OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-	}
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+	)
 
 	ctx := context.Background()
 	res, err := s.Accounts.CreateAccount(ctx, operations.CreateAccountRequest{
@@ -44,7 +42,7 @@ func main() {
 		SignatureInput:   "<value>",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -269,11 +267,9 @@ import (
 )
 
 func main() {
-	s := upvestdevsamplesdk.New()
-
-	operationSecurity := operations.AccountClosureSecurity{
-		OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-	}
+	s := upvestdevsamplesdk.New(
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
+	)
 
 	ctx := context.Background()
 	res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
@@ -282,7 +278,7 @@ func main() {
 		SignatureInput:   "<value>",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-	}, operationSecurity)
+	})
 	if err != nil {
 
 		var e *sdkerrors.AccountClosureError
@@ -338,11 +334,8 @@ import (
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerIndex(1),
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
 	)
-
-	operationSecurity := operations.AccountClosureSecurity{
-		OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-	}
 
 	ctx := context.Background()
 	res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
@@ -351,7 +344,7 @@ func main() {
 		SignatureInput:   "<value>",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -380,11 +373,8 @@ import (
 func main() {
 	s := upvestdevsamplesdk.New(
 		upvestdevsamplesdk.WithServerURL("https://sandbox.upvest.co"),
+		upvestdevsamplesdk.WithSecurity("Bearer <YOUR_ACCESS_TOKEN_HERE>"),
 	)
-
-	operationSecurity := operations.AccountClosureSecurity{
-		OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-	}
 
 	ctx := context.Background()
 	res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
@@ -393,7 +383,7 @@ func main() {
 		SignatureInput:   "<value>",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -467,51 +457,13 @@ func main() {
 	)
 
 	ctx := context.Background()
-	res, err := s.AccessTokens.IssueToken(ctx, operations.IssueTokenRequest{
-		Signature:        "<value>",
-		SignatureInput:   "<value>",
-		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
-		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.AuthAccessToken != nil {
-		// handle response
-	}
-}
-
-```
-
-### Per-Operation Security Schemes
-
-Some operations in this SDK require the security scheme to be specified at the request level. For example:
-```go
-package main
-
-import (
-	"context"
-	upvestdevsamplesdk "github.com/speakeasy-sdks/upvest-dev-sample-sdk"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/upvest-dev-sample-sdk/pkg/models/shared"
-	"log"
-)
-
-func main() {
-	s := upvestdevsamplesdk.New()
-
-	operationSecurity := operations.AccountClosureSecurity{
-		OauthClientCredentials: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
-	}
-
-	ctx := context.Background()
 	res, err := s.Accounts.AccountClosure(ctx, operations.AccountClosureRequest{
 		AccountID:        "87f46f4c-298e-4960-b531-5043c3be9e8d",
 		Signature:        "<value>",
 		SignatureInput:   "<value>",
 		UpvestAPIVersion: shared.APIVersionOne.ToPointer(),
 		UpvestClientID:   "ebabcf4d-61c3-4942-875c-e265a7c2d062",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

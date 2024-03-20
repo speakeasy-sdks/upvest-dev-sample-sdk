@@ -28,11 +28,11 @@ func newFees(sdkConfig sdkConfiguration) *Fees {
 
 // CreateFeeCollection - Create a fee collection
 // Creates a fee collection for pre-calculated fee amounts.
-func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.CreateFeeCollectionRequest, security operations.CreateFeeCollectionSecurity, opts ...operations.Option) (*operations.CreateFeeCollectionResponse, error) {
+func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.CreateFeeCollectionRequest, opts ...operations.Option) (*operations.CreateFeeCollectionResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "create_fee_collection",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -71,7 +71,7 @@ func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.Creat
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -174,11 +174,11 @@ func (s *Fees) CreateFeeCollection(ctx context.Context, request operations.Creat
 
 // ListFeeCollections - Get fee collections
 // Returns a list of fee collections.
-func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFeeCollectionsRequest, security operations.ListFeeCollectionsSecurity, opts ...operations.Option) (*operations.ListFeeCollectionsResponse, error) {
+func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFeeCollectionsRequest, opts ...operations.Option) (*operations.ListFeeCollectionsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_fee_collections",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -215,7 +215,7 @@ func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFe
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -316,11 +316,11 @@ func (s *Fees) ListFeeCollections(ctx context.Context, request operations.ListFe
 
 // RetrieveFeeCollection - Get a fee collection by ID
 // Returns the fee collection specified by its ID.
-func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.RetrieveFeeCollectionRequest, security operations.RetrieveFeeCollectionSecurity, opts ...operations.Option) (*operations.RetrieveFeeCollectionResponse, error) {
+func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.RetrieveFeeCollectionRequest, opts ...operations.Option) (*operations.RetrieveFeeCollectionResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_fee_collection",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -353,7 +353,7 @@ func (s *Fees) RetrieveFeeCollection(ctx context.Context, request operations.Ret
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

@@ -11,17 +11,6 @@ import (
 	"time"
 )
 
-type UpdatePortfoliosAllocationSecurity struct {
-	OauthClientCredentials string `security:"scheme,type=oauth2,name=Authorization"`
-}
-
-func (o *UpdatePortfoliosAllocationSecurity) GetOauthClientCredentials() string {
-	if o == nil {
-		return ""
-	}
-	return o.OauthClientCredentials
-}
-
 // UpdatePortfoliosAllocationInstrumentIDType - The type of the ID used in the request.
 // * ISIN - International Securities Identification Number
 // * UPVEST - UPVEST's unique instrument identifier

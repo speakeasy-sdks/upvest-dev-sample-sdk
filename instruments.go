@@ -28,11 +28,11 @@ func newInstruments(sdkConfig sdkConfiguration) *Instruments {
 
 // ListInstruments - List instruments
 // List instruments
-func (s *Instruments) ListInstruments(ctx context.Context, request operations.ListInstrumentsRequest, security operations.ListInstrumentsSecurity, opts ...operations.Option) (*operations.ListInstrumentsResponse, error) {
+func (s *Instruments) ListInstruments(ctx context.Context, request operations.ListInstrumentsRequest, opts ...operations.Option) (*operations.ListInstrumentsResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "list_instruments",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -69,7 +69,7 @@ func (s *Instruments) ListInstruments(ctx context.Context, request operations.Li
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -170,11 +170,11 @@ func (s *Instruments) ListInstruments(ctx context.Context, request operations.Li
 
 // RetrieveInstrument - Retrieve instrument
 // Retrieve instrument
-func (s *Instruments) RetrieveInstrument(ctx context.Context, request operations.RetrieveInstrumentRequest, security operations.RetrieveInstrumentSecurity, opts ...operations.Option) (*operations.RetrieveInstrumentResponse, error) {
+func (s *Instruments) RetrieveInstrument(ctx context.Context, request operations.RetrieveInstrumentRequest, opts ...operations.Option) (*operations.RetrieveInstrumentResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "retrieve_instrument",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	o := operations.Options{}
@@ -207,7 +207,7 @@ func (s *Instruments) RetrieveInstrument(ctx context.Context, request operations
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
