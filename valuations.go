@@ -62,7 +62,7 @@ func (s *Valuations) GetAccountValuation(ctx context.Context, request operations
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -206,7 +206,7 @@ func (s *Valuations) ListAccountValuationHistory(ctx context.Context, request op
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)

@@ -48,7 +48,7 @@ func (s *Accounts) AccountClosure(ctx context.Context, request operations.Accoun
 	req.Header.Set("Accept", "application/problem+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -175,7 +175,7 @@ func (s *Accounts) AccountGroupClosure(ctx context.Context, request operations.A
 	req.Header.Set("Accept", "application/problem+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -323,7 +323,7 @@ func (s *Accounts) CreateAccount(ctx context.Context, request operations.CreateA
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -469,7 +469,7 @@ func (s *Accounts) CreateAccountGroup(ctx context.Context, request operations.Cr
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -609,7 +609,7 @@ func (s *Accounts) ListAccountGroups(ctx context.Context, request operations.Lis
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -751,7 +751,7 @@ func (s *Accounts) ListAccounts(ctx context.Context, request operations.ListAcco
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -893,7 +893,7 @@ func (s *Accounts) RetrieveAccount(ctx context.Context, request operations.Retri
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1031,7 +1031,7 @@ func (s *Accounts) RetrieveAccountGroup(ctx context.Context, request operations.
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1175,7 +1175,7 @@ func (s *Accounts) UpdateAccount(ctx context.Context, request operations.UpdateA
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

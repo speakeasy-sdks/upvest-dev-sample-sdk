@@ -3,10 +3,10 @@ id: 8a622ec3-2765-45ca-aa0b-13225eb6735e
 management:
   docChecksum: 3c1ab37994ed312df79267b2de2c9a65
   docVersion: 1.9.0
-  speakeasyVersion: 1.213.0
-  generationVersion: 2.283.1
-  releaseVersion: 0.12.0
-  configChecksum: 075e4db93cd5ea93c8432158cdc2536d
+  speakeasyVersion: 1.227.0
+  generationVersion: 2.291.0
+  releaseVersion: 0.12.1
+  configChecksum: fdbab21251a437856de9bf77af652d62
   repoURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/upvest-dev-sample-sdk
@@ -15,7 +15,7 @@ features:
   go:
     additionalProperties: 0.1.2
     constsAndDefaults: 0.1.4
-    core: 3.4.4
+    core: 3.4.5
     examples: 2.81.3
     globalSecurity: 2.82.9
     globalServerURLs: 2.82.2

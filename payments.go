@@ -48,7 +48,7 @@ func (s *Payments) CancelCashWithdrawal(ctx context.Context, request operations.
 	req.Header.Set("Accept", "application/problem+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -194,7 +194,7 @@ func (s *Payments) CreateCashWithdrawal(ctx context.Context, request operations.
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -340,7 +340,7 @@ func (s *Payments) CreateDirectDebit(ctx context.Context, request operations.Cre
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -480,7 +480,7 @@ func (s *Payments) ListCashWithdrawals(ctx context.Context, request operations.L
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -624,7 +624,7 @@ func (s *Payments) ListDirectDebits(ctx context.Context, request operations.List
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -768,7 +768,7 @@ func (s *Payments) RetrieveCashWithdrawal(ctx context.Context, request operation
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -906,7 +906,7 @@ func (s *Payments) RetrieveDirectDebit(ctx context.Context, request operations.R
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

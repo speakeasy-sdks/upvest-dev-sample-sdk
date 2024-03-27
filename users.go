@@ -69,7 +69,7 @@ func (s *Users) CreateIdentifier(ctx context.Context, request operations.CreateI
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -215,7 +215,7 @@ func (s *Users) CreateUser(ctx context.Context, request operations.CreateUserReq
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -359,7 +359,7 @@ func (s *Users) CreateUserCheck(ctx context.Context, request operations.CreateUs
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -499,7 +499,7 @@ func (s *Users) ListUserAccountGroups(ctx context.Context, request operations.Li
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -643,7 +643,7 @@ func (s *Users) ListUserAccounts(ctx context.Context, request operations.ListUse
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -787,7 +787,7 @@ func (s *Users) ListUserChecks(ctx context.Context, request operations.ListUserC
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -925,7 +925,7 @@ func (s *Users) ListUserIdentifiers(ctx context.Context, request operations.List
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1063,7 +1063,7 @@ func (s *Users) ListUsers(ctx context.Context, request operations.ListUsersReque
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1190,7 +1190,7 @@ func (s *Users) OffboardUser(ctx context.Context, request operations.OffboardUse
 	req.Header.Set("Accept", "application/problem+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1317,7 +1317,7 @@ func (s *Users) RetrieveIdentifier(ctx context.Context, request operations.Retri
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1455,7 +1455,7 @@ func (s *Users) RetrieveUser(ctx context.Context, request operations.RetrieveUse
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1593,7 +1593,7 @@ func (s *Users) RetrieveUserCheck(ctx context.Context, request operations.Retrie
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1737,7 +1737,7 @@ func (s *Users) UpdateIdentifier(ctx context.Context, request operations.UpdateI
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1868,7 +1868,7 @@ func (s *Users) UserDataChange(ctx context.Context, request operations.UserDataC
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

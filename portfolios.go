@@ -48,7 +48,7 @@ func (s *Portfolios) CancelPortfoliosOrder(ctx context.Context, request operatio
 	req.Header.Set("Accept", "application/problem+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -181,7 +181,7 @@ func (s *Portfolios) CreatePortfoliosAllocation(ctx context.Context, request ope
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -327,7 +327,7 @@ func (s *Portfolios) CreatePortfoliosConfiguration(ctx context.Context, request 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -473,7 +473,7 @@ func (s *Portfolios) CreatePortfoliosOrder(ctx context.Context, request operatio
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -619,7 +619,7 @@ func (s *Portfolios) CreatePortfoliosRebalancingStrategy(ctx context.Context, re
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -759,7 +759,7 @@ func (s *Portfolios) ListPortfolioRebalancingExecutionOrders(ctx context.Context
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -918,7 +918,7 @@ func (s *Portfolios) ListPortfoliosAllocationAccounts(ctx context.Context, reque
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1077,7 +1077,7 @@ func (s *Portfolios) ListPortfoliosAllocations(ctx context.Context, request oper
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1236,7 +1236,7 @@ func (s *Portfolios) ListPortfoliosConfigurations(ctx context.Context, request o
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1395,7 +1395,7 @@ func (s *Portfolios) ListPortfoliosOrders(ctx context.Context, request operation
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1554,7 +1554,7 @@ func (s *Portfolios) ListPortfoliosRebalancingStrategies(ctx context.Context, re
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1713,7 +1713,7 @@ func (s *Portfolios) RetrievePortfoliosAllocation(ctx context.Context, request o
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1851,7 +1851,7 @@ func (s *Portfolios) RetrievePortfoliosConfiguration(ctx context.Context, reques
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -2004,7 +2004,7 @@ func (s *Portfolios) RetrievePortfoliosOrder(ctx context.Context, request operat
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -2142,7 +2142,7 @@ func (s *Portfolios) RetrievePortfoliosRebalancingExecution(ctx context.Context,
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -2295,7 +2295,7 @@ func (s *Portfolios) RetrievePortfoliosRebalancingStrategy(ctx context.Context, 
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -2454,7 +2454,7 @@ func (s *Portfolios) TriggerPortfolioRebalancing(ctx context.Context, request op
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -2600,7 +2600,7 @@ func (s *Portfolios) UpdatePortfoliosAllocation(ctx context.Context, request ope
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -2746,7 +2746,7 @@ func (s *Portfolios) UpdatePortfoliosConfiguration(ctx context.Context, request 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	utils.PopulateHeaders(ctx, req, request)
+	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
